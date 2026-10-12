@@ -1,5 +1,5 @@
 // Earth Forge as one screen: the section at true scale and as large as the window allows (velocity, lithology, or
-// both stacked on one distance axis; depth and distance axes in km, a velocity log on the same depth axis, a readout
+// both stacked on one distance axis; depth and distance axes in km, a linked velocity inspector, a readout
 // under the pointer, and its history to replay), the settings in a side panel,
 // and How to use, Gallery, Checks and About in dialogs. Sections are simulated in a pool of workers (in parallel, off
 // the page's thread); the checks in a worker of their own.
@@ -8,8 +8,8 @@ import { BASIN_DEFAULTS, type BasinOptions } from "./basin";
 import { hamilton1979, hamilton1985, type Verification } from "./basinVerify";
 import { checkRows } from "./checks";
 import type { Frame, Reply, Request, Section } from "./protocol";
-import { ACCENT, INK, lithologyLegend, LOG_COLUMNS, paintLog, paintSection, paintVelocityBand, paletteCss, SECTION_PAD, TRUE_RATIO, VRANGE, type Look, type Placement } from "./render";
-import { DEPTH, WIDTH } from "./window";
+import { ACCENT, INK, lithologyLegend, LOG_COLUMNS, LOG_LABELS, LOG_PAD, paintLog, paintSection, paintVelocityBand, paletteCss, profileMarkers, SECTION_PAD, TRUE_RATIO, VRANGE, type Look, type Placement, type LogView } from "./render";
+import { DEPTH, H, WIDTH } from "./window";
 
 // ---------------------------------------------------------------- workers
 
@@ -73,7 +73,7 @@ const HELP = `
     <li><b>Settings</b> choose the geology: <i>extension</i> (growth faults), <i>compression</i> (thrusts) or <i>any</i> (drawn per seed), how many faults, compaction, overpressure and carbonates. The section updates as you change them.</li>
     <li><b>View</b>: velocity, lithology (sand, silt, shale, carbonate, basement), or both stacked on the same distance axis; bed boundaries; faults (rust). Always at true scale (no vertical exaggeration).</li>
     <li><b>History</b>: drag the slider, press <kbd>←</kbd> <kbd>→</kbd>, or <kbd>Space</kbd> to replay how the section formed, step by step (each step 0.5–2 Myr).</li>
-    <li><b>Log</b>: velocity with depth at the three columns marked by triangles on the section, on the same depth axis. Point at the section to read distance, depth, velocity and lithology.</li>
+    <li><b>Velocity with depth</b>: start with one movable profile, A. Use <i>+ Compare</i> to add B and C, up to three profiles; remove a comparison with its × button. All added profiles appear together. Their starting positions simply span the section. Drag a letter on the model to move that profile horizontally. Drag a round dot up or down, or use the depth slider, to set the shared inspection depth. Clicking elsewhere leaves the profiles in place. <i>Reset positions</i> restores the starting positions. The compact legend shows each profile's velocity, rock type and position. Hovering over the section or graph reads local values without moving the inspection depth. Steps preserve the original grid values.</li>
     <li><b>Gallery</b> (<kbd>G</kbd>) shows twelve seeds with the same settings; click one to open it.</li>
     <li><b>Checks</b> simulate many sections and measure them against the literature and against tests with exact answers.</li>
     <li><b>Share</b>: the address keeps the seed, the settings and the view.</li>
@@ -87,11 +87,12 @@ const ABOUT = `
   <p class="lbl">Made by</p>
   <p><a href="https://arthifact.com/">Gabriel I. Alonso</a>. Code and every check, with its history: <a href="https://github.com/arthifact/earthforge">github.com/arthifact/earthforge</a>.</p>`;
 const CHECKS = `
-  <p class="intro">Simulates sections with the current settings and measures velocity with depth against Hamilton's marine-sediment fits, growth-fault geometry, dips and rates; tests with exact answers check the kinematics and the compaction. Rules were written before each run.</p>
+  <p class="intro">Controlled tests check numerical correctness. Sections with your settings are screened against geological reference ranges; passing these guides does not establish accuracy at a real site. Validation against independent well logs and seismic data is still pending.</p>
   <div class="run">${select("count", "Sections", [["20", "20"], ["40", "40"], ["100", "100"]])}<button type="button" class="btn" id="runChecks">Run</button><span class="mono progress" id="progress" aria-live="polite"></span></div>
   <div class="results" id="results" hidden>
     <div class="band"><canvas id="bandChart" aria-label="Simulated velocity with depth against Hamilton's fits"></canvas>
-      <p class="key mono"><span><i class="swatch-band"></i>simulated 10–90%</span><span><i style="background:${ACCENT}"></i>median</span><span><i style="background:${INK}"></i>Hamilton 1979</span><span><i class="dash"></i>Hamilton 1985</span><span class="unit">depth below the sea floor, km</span></p></div>
+      <p class="key mono"><span><i class="swatch-band"></i>simulated 10–90%</span><span><i style="background:${ACCENT}"></i>median</span><span><i style="background:${INK}"></i>Hamilton 1979</span><span><i class="dash"></i>Hamilton 1985</span><span class="unit">depth below the sea floor, km</span></p>
+      <p class="note" id="bandCoverage"></p></div>
     <div class="rows" id="rows"></div>
   </div>`;
 
@@ -109,7 +110,27 @@ export function start(root: HTMLElement) {
       <section class="stage" aria-label="Section">
         <div class="plots" id="plots">
           <div class="panels"><canvas id="section" aria-label="The simulated section"></canvas><canvas id="section2" aria-label="The simulated section, lithology"></canvas></div>
-          <canvas id="log" aria-label="Velocity with depth at three columns"></canvas>
+          <section class="profile" id="profile" aria-labelledby="profileTitle">
+            <canvas id="log" role="img" aria-label="Seismic velocity versus depth"></canvas>
+            <div class="profile-controls">
+              <div class="profile-depth"><label for="profileDepth">Depth</label><output id="profileDepthValue" for="profileDepth" class="mono" aria-live="off">1.50 km</output></div>
+              <input type="range" id="profileDepth" min="0" max="${DEPTH}" step="20" value="1500" aria-label="Inspect profile depth">
+              <div class="profile-head">
+                <h2 id="profileTitle">Profiles</h2>
+                <button type="button" class="link profile-add" id="addProfile" aria-label="Add comparison">+ Compare</button>
+              </div>
+              <div class="profile-rows" role="group" aria-label="Profile locations and velocities at the inspected depth">
+                ${LOG_COLUMNS.map(([x, color], i) => `<div class="profile-row" data-profile-row="${i}" style="--profile-color:${color}"${i ? " hidden" : ""}>
+                  <span class="profile-key" aria-label="Profile ${LOG_LABELS[i]}"><b>${LOG_LABELS[i]}</b><i class="trace-${i}" aria-hidden="true"></i></span>
+                  <div class="profile-value"><output class="profile-velocity" id="profileVelocity${i}" aria-label="Velocity of profile ${LOG_LABELS[i]} in kilometres per second" aria-live="off">–</output><span aria-hidden="true">km/s</span></div>
+                  ${i ? `<button type="button" class="profile-remove" data-remove-profile="${i}" aria-label="Remove profile ${LOG_LABELS[i]}" title="Remove profile ${LOG_LABELS[i]}">×</button>` : ""}
+                  <span class="profile-material" id="profileMaterial${i}"></span>
+                  <output class="profile-position" id="profilePosition${i}" aria-label="Position of profile ${LOG_LABELS[i]}" aria-live="off">Position ${(x / 1000).toFixed(2)} km</output>
+                </div>`).join("")}
+              </div>
+            </div>
+            <button type="button" class="link profile-reset" id="resetProfiles" disabled>Reset positions</button>
+          </section>
           <span class="busy" id="busy">Simulating</span>
         </div>
         <div class="under">
@@ -121,7 +142,14 @@ export function start(root: HTMLElement) {
           <input type="range" id="step" min="0" max="0" value="0" aria-label="Step of the history">
           <span class="mono" id="stepLabel"></span>
         </div>
-        <p class="logline mono" id="logline" aria-live="polite"></p>
+        <div class="step-note" id="stepNote">
+          <p class="logline mono" id="logline" aria-live="polite"></p>
+          <button type="button" class="link step-details-toggle" id="stepDetailsToggle" aria-expanded="false" aria-controls="stepDetails" disabled>Details</button>
+          <section class="step-details-panel" id="stepDetails" aria-label="Full step description" hidden>
+            <button type="button" class="close" id="closeStepDetails" aria-label="Close step details">×</button>
+            <p class="mono" id="stepDetailsText"></p>
+          </section>
+        </div>
       </section>
       <aside class="side" aria-label="Settings">
         <section class="pane">
@@ -154,6 +182,8 @@ export function start(root: HTMLElement) {
 
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
   const plots = $("plots"), canvas = $<HTMLCanvasElement>("section"), canvas2 = $<HTMLCanvasElement>("section2"), logCanvas = $<HTMLCanvasElement>("log"), slider = $<HTMLInputElement>("step");
+  const profile = $("profile"), profileDepth = $<HTMLInputElement>("profileDepth");
+  const stepNote = $("stepNote"), logline = $("logline"), stepDetails = $("stepDetails"), stepDetailsToggle = $<HTMLButtonElement>("stepDetailsToggle");
   const seedInput = $<HTMLInputElement>("seed"), cards = $("cards");
   const fields = ["setting", "faults", "thrusts", "compaction", "overpressure", "carbonate"].map((id) => $<HTMLSelectElement>(id));
 
@@ -167,6 +197,14 @@ export function start(root: HTMLElement) {
   let mode: Mode = hash.get("view") === "velocity" || hash.get("view") === "lithology" ? hash.get("view") as Mode : "both";
   const topView = () => (mode === "lithology" ? "lithology" : "velocity") as Look["view"];
   let current: Section | null = null, step = 0, playing = false, generation = 0, placement: Placement | null = null;
+  const savedProfiles = hash.get("profiles")?.split(",") ?? ["A"];
+  const logView: LogView = { selected: 0, active: LOG_LABELS.flatMap((label, i) => i === 0 || savedProfiles.includes(label) ? [i] : []), depth: 1500 };
+  const savedLocations = hash.get("locations")?.split(",").map(Number);
+  const logColumns: [number, string][] = LOG_COLUMNS.map(([x, color], i) => [savedLocations?.length === 3 && Number.isFinite(savedLocations[i]) ? Math.round(Math.max(0, Math.min(WIDTH, savedLocations[i])) / H) * H : x, color]);
+  const savedProfile = LOG_LABELS.indexOf(hash.get("profile") ?? "A");
+  logView.selected = logView.active.includes(savedProfile) ? savedProfile : 0;
+  let logPlacement: Placement | null = null;
+  let hoveredDot: { canvas: HTMLCanvasElement; index: number } | null = null;
 
   const options = (s: number): BasinOptions => {
     const [fa, fb] = $<HTMLSelectElement>("faults").value.split(",").map(Number), [ta, tb] = $<HTMLSelectElement>("thrusts").value.split(",").map(Number);
@@ -176,40 +214,108 @@ export function start(root: HTMLElement) {
     const p = new URLSearchParams({ seed: String(seed) });
     if (mode !== "both") p.set("view", mode);
     if (look.palette !== "earth") p.set("colours", look.palette);
+    if (logColumns.some(([x], i) => x !== LOG_COLUMNS[i][0])) p.set("locations", logColumns.map(([x]) => x).join(","));
+    if (logView.selected !== 0) p.set("profile", LOG_LABELS[logView.selected]);
+    if (logView.active.length > 1) p.set("profiles", logView.active.map((i) => LOG_LABELS[i]).join(","));
     for (const s of fields) if (s.value !== s.options[0].value) p.set(s.id, s.value);
     history.replaceState(null, "", `#${p}`);
   };
 
   // ------------------------------------------------------------ layout and drawing
   /**
-   * Size the panels and the log to the space, always at true scale: the panels (one, or two stacked) get the largest
-   * width whose true-scale height fits the window (stacked layouts on tablets and phones scroll, so there the width
-   * decides); the log matches the top panel's height.
+   * Fit the inspector card to the visible model stack, with its controls below the graph.
+   * Smaller layouts put the inspector underneath. The geological section always retains true scale.
    */
   function layout() {
-    const W = plots.clientWidth, narrow = W < 640, stacked = matchMedia("(max-width: 860px)").matches, n = mode === "both" ? 2 : 1;
-    const pad = SECTION_PAD, ph = pad.t + pad.b, gapV = 10, logW = narrow ? W : Math.round(Math.min(180, Math.max(110, W * 0.14))), gap = narrow ? 0 : 12;
-    let iw = (narrow ? W : W - logW - gap) - pad.l - pad.r;
-    if (!stacked) iw = Math.min(iw, (plots.clientHeight - n * ph - (n - 1) * gapV) / n / TRUE_RATIO);
+    const W = plots.clientWidth, narrow = W < 900;
+    plots.classList.toggle("profile-below", narrow);
+    const pad = SECTION_PAD, ph = pad.t + pad.b, gapV = 10, logW = narrow ? W : 328;
+    profile.style.width = `${logW}px`;
+    let iw = W - (narrow ? 0 : logW + 20) - pad.l - pad.r;
+    // Keep a fixed footer for Reset outside the card, including when it is invisible.
+    const availableHeight = plots.clientHeight - parseFloat(getComputedStyle(plots).paddingBottom);
+    // Fit against two models in every mode, so switching views never resizes the inspector.
+    if (!narrow) iw = Math.min(iw, Math.max(200, (availableHeight - 2 * ph - gapV) / 2) / TRUE_RATIO);
     iw = Math.max(120, iw);
-    const width = `${iw + pad.l + pad.r}px`, height = `${iw * TRUE_RATIO + ph}px`;
+    const sectionHeight = iw * TRUE_RATIO + ph;
+    const width = `${iw + pad.l + pad.r}px`, height = `${sectionHeight}px`;
     for (const c of [canvas, canvas2]) { c.style.width = width; c.style.height = height; }
-    canvas2.hidden = n === 1;
-    logCanvas.style.width = `${logW}px`; logCanvas.style.height = narrow ? "190px" : height;
+    canvas2.hidden = mode !== "both";
+    // The graph retains the full stack height, minus its compact controls, in every view.
+    // Align the card with the top image border and the bottom of the model stack.
+    const cardTop = narrow ? 0 : pad.t;
+    profile.style.marginTop = `${cardTop}px`;
+    profile.classList.toggle("fit-stack", !narrow);
+    profile.style.height = !narrow ? `${2 * sectionHeight + gapV - cardTop}px` : "auto";
+    logCanvas.style.width = "100%";
+    logCanvas.style.height = `${(narrow ? 300 : iw * TRUE_RATIO) + LOG_PAD.t + LOG_PAD.b}px`;
   }
   const frame = (): Frame | null => current ? (current.history.length && step < current.history.length - 1 ? current.history[step] : current.now) : null;
   function draw() {
     const f = frame();
     if (!f || !current) return;
     layout();
-    placement = paintSection(canvas, f, { ...look, view: topView() }, current.unitOfBed, { columns: LOG_COLUMNS });
-    if (mode === "both") paintSection(canvas2, f, { ...look, view: "lithology" }, current.unitOfBed, { columns: LOG_COLUMNS });
-    const narrow = plots.clientWidth < 640;
-    paintLog(logCanvas, f, narrow ? 26 : placement.top, narrow ? 162 : placement.height);
+    drawProfiles(f);
     const steps = current.log.length, at = current.history.length ? step : steps - 1, entry = current.log[at];
     $("stepLabel").textContent = `${String(at + 1).padStart(2, "0")} / ${steps} · ${entry.phase}`;
-    $("logline").textContent = `${at === steps - 1 ? "Today. " : ""}Step ${at + 1}: ${entry.text}.`;
+    drawStepNote(`${at === steps - 1 ? "Today. " : ""}Step ${at + 1}: ${entry.text}.`);
     $("title").textContent = `Seed ${current.seed} · ${current.setting} · true scale`;
+  }
+  const rockName = (l: number) => l === -1 ? "Water" : l === -2 ? "Basement" : l === -3 ? "Carbonate" : l < 0.33 ? "Shale-rich sediment" : l < 0.66 ? "Silty sediment" : "Sand-rich sediment";
+  function drawProfileControls() {
+    document.querySelectorAll<HTMLElement>("[data-profile-row]").forEach((row) => {
+      const i = Number(row.dataset.profileRow);
+      row.hidden = !logView.active.includes(i);
+      const position = (logColumns[i][0] / 1000).toFixed(2);
+      $(`profilePosition${i}`).textContent = `Position ${position} km`;
+    });
+    const add = $<HTMLButtonElement>("addProfile");
+    add.disabled = logView.active.length === LOG_LABELS.length;
+    $<HTMLButtonElement>("resetProfiles").disabled = !logColumns.some(([x], i) => logView.active.includes(i) && x !== LOG_COLUMNS[i][0]);
+    profile.classList.toggle("comparing", logView.active.length > 1);
+  }
+  function drawProfiles(f: Frame) {
+    if (!current) return;
+    const axes = { columns: logColumns, ...logView };
+    placement = paintSection(canvas, f, { ...look, view: topView() }, current.unitOfBed, { ...axes, title: mode === "both" ? "Velocity" : undefined, hoveredDot: hoveredDot?.canvas === canvas ? hoveredDot.index : undefined });
+    if (mode === "both") paintSection(canvas2, f, { ...look, view: "lithology" }, current.unitOfBed, { ...axes, sharedDistance: true, hoveredDot: hoveredDot?.canvas === canvas2 ? hoveredDot.index : undefined });
+    profileDepth.value = String(logView.depth);
+    $("profileDepthValue").textContent = `${(logView.depth / 1000).toFixed(2)} km`;
+    drawProfileControls();
+    const k = Math.round(logView.depth / DEPTH * (f.nz - 1));
+    const descriptions: string[] = [];
+    logColumns.forEach(([x], i) => {
+      if (!logView.active.includes(i)) return;
+      const index = k * f.nx + Math.round(x / WIDTH * (f.nx - 1)), l = f.litho[index];
+      const unit = f.beds[index] >= 0 ? ` · unit ${current!.unitOfBed[f.beds[index]] + 1}` : "";
+      const material = `${rockName(l)}${unit}`;
+      descriptions.push(`${LOG_LABELS[i]}: ${(f.velocity[index] / 1000).toFixed(2)} kilometres per second, ${material}`);
+      $(`profileVelocity${i}`).textContent = (f.velocity[index] / 1000).toFixed(2);
+      const materialLabel = $(`profileMaterial${i}`);
+      materialLabel.textContent = `${l < 0 ? rockName(l) : l < 0.33 ? "Shale" : l < 0.66 ? "Silt" : "Sand"}${unit}`;
+      materialLabel.title = material;
+      materialLabel.setAttribute("aria-label", material);
+    });
+    profileDepth.setAttribute("aria-valuetext", `${(logView.depth / 1000).toFixed(2)} kilometres depth. ${descriptions.join("; ")}`);
+    logCanvas.setAttribute("aria-label", `Seismic velocity versus depth, ${logView.active.length > 1 ? "profiles" : "profile"} ${logView.active.map((i) => LOG_LABELS[i]).join(", ")}. Depth increases downward from 0 to ${DEPTH / 1000} km; velocity increases to the right from ${VRANGE[0] / 1000} to ${VRANGE[1] / 1000} km/s.`);
+    // Row visibility and text affect the graph's available height.
+    logPlacement = paintLog(logCanvas, f, logView, logColumns);
+  }
+  function inspectDepth(depth: number) {
+    const f = frame();
+    if (!f) return;
+    const dz = DEPTH / (f.nz - 1);
+    const nextDepth = Math.round(Math.max(0, Math.min(DEPTH, depth)) / dz) * dz;
+    if (nextDepth === logView.depth) return;
+    logView.depth = nextDepth;
+    drawProfiles(f);
+  }
+  function moveProfile(x: number) {
+    const f = frame();
+    if (!f || !Number.isFinite(x)) return;
+    const dx = WIDTH / (f.nx - 1);
+    logColumns[logView.selected][0] = Math.round(Math.max(0, Math.min(WIDTH, x)) / dx) * dx;
+    drawProfiles(f);
   }
   function drawLegend() {
     const ramp = `<span class="mono">${VRANGE[0] / 1000}</span><span class="ramp" style="background:${paletteCss(look.palette)}"></span><span class="mono">${VRANGE[1] / 1000} km/s</span>`;
@@ -288,6 +394,21 @@ export function start(root: HTMLElement) {
   const redrawCards = () => { for (const c of cards.children) { const sec = (c as HTMLElement & { section?: Section }).section; if (sec) paintSection(c.querySelector("canvas")!, sec.now, { ...look, view: topView() }, sec.unitOfBed); } };
 
   // ------------------------------------------------------------ history
+  function closeStepDetails(restoreFocus = false) {
+    stepDetails.hidden = true;
+    stepDetailsToggle.setAttribute("aria-expanded", "false");
+    if (restoreFocus) stepDetailsToggle.focus();
+  }
+  function drawStepNote(text: string) {
+    if (logline.textContent !== text) {
+      closeStepDetails();
+      logline.textContent = text;
+      $("stepDetailsText").textContent = text;
+    }
+    // The action keeps its space when hidden, so overflow checks cannot shift the layout.
+    stepDetailsToggle.disabled = logline.scrollWidth <= logline.clientWidth;
+    if (stepDetailsToggle.disabled) closeStepDetails();
+  }
   function stopPlaying() { playing = false; $("play").textContent = "▶"; $("play").setAttribute("aria-label", "Replay the history"); }
   async function play() {
     if (!current || playing || !current.history.length) { stopPlaying(); return; }
@@ -317,10 +438,14 @@ export function start(root: HTMLElement) {
     shown = r;
     $("results").hidden = false;
     paintVelocityBand($<HTMLCanvasElement>("bandChart"), r.velocity, [{ f: (d) => hamilton1979(d / 1000), to: 1000, color: INK, dash: false }, { f: (d) => hamilton1985(d / 1000), to: 1000, color: INK, dash: true }]);
+    const contributing = r.velocity.sections.filter((n) => n > 0);
+    $("bandCoverage").textContent = `The band shows variation among simulated sediment cells, not a confidence interval. ${contributing.length ? `${Math.min(...contributing)}–${Math.max(...contributing)}` : "0"} sections contribute per populated depth bin; deeper bins may contain fewer sections. Both settings and all sediment types are pooled.`;
     let group = "";
     $("rows").innerHTML = checkRows(r).map((row) => {
       const head = row.group !== group ? `<h3 class="group lbl">${(group = row.group)}</h3>` : "";
-      return `${head}<div class="row ${row.status}"><div class="what"><p class="name">${row.name}</p><p class="note">${row.note}</p></div><p class="value mono">${row.value}</p><p class="verdict mono"><span>${row.status === "pass" ? "Pass" : row.status === "fail" ? "Fails" : "Record"}</span>${row.verdict}</p></div>`;
+      const guide = row.group === "Geological plausibility";
+      const label = row.status === "pass" ? (guide ? "Within guide" : "Pass") : row.status === "fail" ? (guide ? "Review" : "Fails") : "Record";
+      return `${head}<div class="row ${row.status}"><div class="what"><p class="name">${row.name}</p><p class="note">${row.note}</p></div><p class="value mono">${row.value}</p><p class="verdict mono"><span>${label}</span>${row.verdict}</p></div>`;
     }).join("");
   }
 
@@ -333,11 +458,112 @@ export function start(root: HTMLElement) {
   $<HTMLInputElement>("showFaults").addEventListener("change", (e) => { look.faults = (e.target as HTMLInputElement).checked; draw(); redrawCards(); });
   $<HTMLInputElement>("showTurbo").addEventListener("change", (e) => { look.palette = (e.target as HTMLInputElement).checked ? "turbo" : "earth"; remember(); drawLegend(); draw(); redrawCards(); });
   slider.addEventListener("input", () => { stopPlaying(); step = Number(slider.value); draw(); });
+  stepDetailsToggle.addEventListener("click", () => {
+    if (!stepDetails.hidden) { closeStepDetails(); return; }
+    stopPlaying();
+    stepDetails.hidden = false;
+    stepDetailsToggle.setAttribute("aria-expanded", "true");
+  });
+  $("closeStepDetails").addEventListener("click", () => closeStepDetails(true));
+  document.addEventListener("pointerdown", (e) => {
+    if (!stepDetails.hidden && !stepNote.contains(e.target as Node)) closeStepDetails();
+  });
+  $("addProfile").addEventListener("click", () => {
+    const next = LOG_LABELS.findIndex((_, i) => !logView.active.includes(i));
+    if (next < 0) return;
+    logView.active = [...logView.active, next].sort();
+    remember(); drawProfileControls(); const f = frame(); if (f) drawProfiles(f);
+    if (logView.active.length === LOG_LABELS.length) profileDepth.focus();
+  });
+  document.querySelectorAll<HTMLButtonElement>("[data-remove-profile]").forEach((b) => b.addEventListener("click", () => {
+    const index = Number(b.dataset.removeProfile);
+    if (index === 0) return;
+    logView.active = logView.active.filter((i) => i !== index);
+    if (logView.selected === index) logView.selected = 0;
+    remember(); drawProfileControls(); const f = frame(); if (f) drawProfiles(f);
+    $("addProfile").focus();
+  }));
+  $("resetProfiles").addEventListener("click", () => {
+    LOG_COLUMNS.forEach(([x], i) => { logColumns[i][0] = x; }); remember();
+    const f = frame(); if (f) drawProfiles(f);
+  });
+  profileDepth.addEventListener("input", () => inspectDepth(Number(profileDepth.value)));
+  const readLog = (e: PointerEvent) => {
+    const f = frame();
+    if (!logPlacement || !f) return;
+    const r = logCanvas.getBoundingClientRect(), y = e.clientY - r.top - logPlacement.top, x = e.clientX - r.left - logPlacement.left;
+    if (x < 0 || x > logPlacement.width || y < 0 || y > logPlacement.height) {
+      logCanvas.style.cursor = "default";
+      $("readout").textContent = "Point at the section to read values"; return;
+    }
+    logCanvas.style.cursor = "crosshair";
+    const depth = y / logPlacement.height * DEPTH, k = Math.round(depth / DEPTH * (f.nz - 1));
+    const values = logView.active.map((i) => {
+      const column = Math.round(logColumns[i][0] / WIDTH * (f.nx - 1));
+      return `${LOG_LABELS[i]} ${(f.velocity[k * f.nx + column] / 1000).toFixed(2)} km/s`;
+    });
+    $("readout").textContent = `z ${(depth / 1000).toFixed(2)} km   ${values.join("   ")}`;
+  };
+  logCanvas.addEventListener("pointermove", readLog);
+  logCanvas.addEventListener("pointerleave", () => { logCanvas.style.cursor = "default"; $("readout").textContent = "Point at the section to read values"; });
   $("play").addEventListener("click", () => void play());
+  function hoverDot(c: HTMLCanvasElement, index: number | undefined) {
+    if (index === undefined ? hoveredDot === null : hoveredDot?.canvas === c && hoveredDot.index === index) return;
+    hoveredDot = index === undefined ? null : { canvas: c, index };
+    const f = frame(); if (f) drawProfiles(f);
+  }
   for (const c of [canvas, canvas2]) {
-    c.addEventListener("pointermove", readout);
-    c.addEventListener("pointerdown", readout);
-    c.addEventListener("pointerleave", () => { $("readout").textContent = "Point at the section to read values"; });
+    let drag: { pointer: number; kind: "position" | "depth"; offset: number } | null = null;
+    const point = (e: PointerEvent) => { const r = c.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+    const inPlot = (p: { x: number; y: number }) => placement && p.x >= placement.left && p.x <= placement.left + placement.width && p.y >= placement.top && p.y <= placement.top + placement.height;
+    const hitMarker = (p: { x: number; y: number }) => placement && c === canvas ? profileMarkers(placement, logColumns, logView.active).find((m) => p.x >= m.left && p.x <= m.left + m.width && p.y >= m.top && p.y <= m.top + m.height) : undefined;
+    const hitDot = (p: { x: number; y: number }) => {
+      if (!placement || !inPlot(p)) return undefined;
+      const y = placement.top + logView.depth / DEPTH * placement.height;
+      // Prefer the visible (last drawn) dot when profiles coincide.
+      return [...logView.active].reverse().find((i) => Math.hypot(p.x - placement!.left - logColumns[i][0] / WIDTH * placement!.width, p.y - y) <= 8);
+    };
+    const cursorAt = (p: { x: number; y: number }) => hitMarker(p) ? "grab" : hitDot(p) !== undefined ? "ns-resize" : inPlot(p) ? "crosshair" : "default";
+    c.addEventListener("pointermove", (e) => {
+      const p = point(e);
+      if (drag && e.pointerId === drag.pointer && placement) {
+        if (drag.kind === "depth") inspectDepth((p.y - placement.top) / placement.height * DEPTH + drag.offset);
+        else moveProfile((p.x - placement.left) / placement.width * WIDTH + drag.offset);
+      } else {
+        c.style.cursor = cursorAt(p);
+        hoverDot(c, hitMarker(p) ? undefined : hitDot(p));
+        readout(e);
+      }
+    });
+    c.addEventListener("pointerdown", (e) => {
+      if (drag || !e.isPrimary || e.button !== 0 || !placement || !frame()) return;
+      const p = point(e), marker = hitMarker(p), dot = marker ? undefined : hitDot(p);
+      if (!marker && dot === undefined) return;
+      stopPlaying();
+      if (marker) {
+        logView.selected = marker.index;
+        drag = { pointer: e.pointerId, kind: "position", offset: logColumns[marker.index][0] - (p.x - placement.left) / placement.width * WIDTH };
+        hoveredDot = null;
+      } else {
+        drag = { pointer: e.pointerId, kind: "depth", offset: logView.depth - (p.y - placement.top) / placement.height * DEPTH };
+        hoveredDot = { canvas: c, index: dot! };
+      }
+      c.setPointerCapture(e.pointerId); c.style.cursor = marker ? "grabbing" : "ns-resize";
+      drawProfiles(frame()!);
+      e.preventDefault();
+    });
+    const endDrag = (e: PointerEvent) => {
+      if (!drag || e.pointerId !== drag.pointer) return;
+      const p = point(e);
+      drag = null; c.style.cursor = e.type === "pointerup" ? cursorAt(p) : "default";
+      hoverDot(c, e.type === "pointerup" && !hitMarker(p) ? hitDot(p) : undefined);
+      if (c.hasPointerCapture(e.pointerId)) c.releasePointerCapture(e.pointerId);
+      remember();
+    };
+    c.addEventListener("pointerup", endDrag);
+    c.addEventListener("pointercancel", endDrag);
+    c.addEventListener("lostpointercapture", endDrag);
+    c.addEventListener("pointerleave", () => { if (!drag) { c.style.cursor = "default"; hoverDot(c, undefined); } $("readout").textContent = "Point at the section to read values"; });
   }
   const go = (s: number) => void open(Math.max(1, Math.round(s) || 1));
   seedInput.addEventListener("change", () => go(Number(seedInput.value)));
@@ -362,7 +588,8 @@ export function start(root: HTMLElement) {
   });
 
   addEventListener("keydown", (e) => {
-    if (document.querySelector("dialog[open]") || e.target instanceof HTMLInputElement || e.target instanceof HTMLSelectElement || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === "Escape" && !stepDetails.hidden) { e.preventDefault(); closeStepDetails(true); return; }
+    if (document.querySelector("dialog[open]") || e.target instanceof HTMLInputElement || e.target instanceof HTMLSelectElement || e.target instanceof HTMLButtonElement || e.metaKey || e.ctrlKey || e.altKey) return;
     if ((e.key === "ArrowLeft" || e.key === "ArrowRight") && current?.history.length) { e.preventDefault(); stopPlaying(); step = Math.max(0, Math.min(current.history.length - 1, step + (e.key === "ArrowLeft" ? -1 : 1))); slider.value = String(step); draw(); }
     else if (e.key === " ") { e.preventDefault(); void play(); }
     else if (e.key === "r" || e.key === "R") go(randomSeed());
@@ -370,9 +597,11 @@ export function start(root: HTMLElement) {
     else if (e.key === "?") openDialog("help");
   });
   let frameRequest = 0;
-  new ResizeObserver(() => { cancelAnimationFrame(frameRequest); frameRequest = requestAnimationFrame(() => { draw(); if (shown && $<HTMLDialogElement>("checks").open) showChecks(shown); }); }).observe(plots);
+  const resize = new ResizeObserver(() => { cancelAnimationFrame(frameRequest); frameRequest = requestAnimationFrame(() => { draw(); if (shown && $<HTMLDialogElement>("checks").open) showChecks(shown); }); });
+  resize.observe(plots);
 
   seedInput.value = String(seed);
+  drawProfileControls();
   drawLegend();
   void open(seed);
 }

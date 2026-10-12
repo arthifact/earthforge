@@ -567,6 +567,121 @@ sand fraction every 0.02 and burial every 10 m to 6 km, carbonate by burial,
 interpolated linearly. It is within a few m/s of the rock-physics formula, so
 the velocity rows of the checks can move by a few m/s; nothing else changes.
 
+### Numerical repairs after the reported failures (2026-10-12)
+
+The report was reproduced with seed **765183**, 20 sections, setting **any**,
+1–2 normal faults, 1–3 thrusts, compaction on, overpressure 0.35 and carbonate
+0.1. The known-answer rows matched exactly; the field batch had 12 measured
+normal faults and a growth expansion-index median of 1.00. The following
+changes were made **after** investigating that failure. No pass thresholds,
+porosity coefficients, fault-slip distributions or sedimentation parameters
+were changed.
+
+1. **Normal-fault remapping.** Rounding the difference between two fault
+   depths can skip or duplicate the lowest hanging-wall row. Repeating slips
+   accumulates this error. Normal slips now preserve a cell's integer row
+   offset above the fault, using the difference between the two fault row
+   boundaries. Carried faults use the same displacement. This fixes all five
+   failed 20 m heave measurements. Finer-grid convergence alone had not ruled
+   out a remapping bug; the earlier interpretation as only rounding was too
+   strong.
+2. **Compaction.** Accumulating shortfall across beds and merging solid into
+   individual neighbours allowed impossible cell contents: one 20 m cell in
+   known-answer seed 910003 held 61.48 m of solid; the reported field batch
+   reached 115.05 m. Each contiguous bed now compacts from its own solid
+   content and the compacted overburden above it. A midpoint porosity solve
+   sets its target thickness, rounded to cells and capped at its existing
+   thickness, so unloading does not expand it. Solid is redistributed within
+   that bed, with no cell allowed more grains than its own height. The column
+   stays anchored at its base; fault boundaries and burial memory move with
+   the retained rock. The verification still uses its separate, exact
+   integrated decompaction equation, not the simulator's midpoint solve.
+3. **Expansion-index measurement.** A column 250 m beyond the *top* cutoff
+   can still intersect the lower part of the unit at the fault. Measuring
+   that fragment underestimates hanging-wall thickness. The measurement now
+   walks to the nearest complete interval, with one cell of fault clearance,
+   on each side. It does not search for the thickest interval. Missing,
+   repeated, bottom-clipped or separately fault-cut intervals are not used
+   for expansion, while their independent cutoff measurements remain.
+   The page reports the number of complete pairs. Analytic fixtures with
+   known thickness ratios of 1, 1.5 and 2 verify both fault directions and
+   ensure the search does not invent growth in equal-thickness units.
+
+Results from the same TypeScript simulator and checks used by the worker,
+run in Node (not read from the browser):
+
+| Check | Before | After |
+|---|---|---|
+| Normal heave, 20 m | 118/123 within 40 m; worst 60 m | **123/123**; worst 40 m, mean 10.7 m |
+| Normal heave, 10 m | 131/131; worst 20 m | **131/131**; worst 18.4 m, mean 5.2 m |
+| Compaction thickness, 20 m | 13238/14019 within 20 m; worst 71.7 m | **15786/15786**; worst 17.6 m, signed mean +2.1 m |
+| Compaction thickness, 10 m | 25964/26002 within 20 m; worst 31.8 m | **27097/27097**; worst 7.7 m, signed mean +0.5 m |
+| Solid kept per bed | worst relative error 1.40e-13 | **1.33e-13** |
+| Growth EI, seed 765183 batch | 1.00 (0.67–1.50) | **1.17 (1.00–1.75)**, 99 complete pairs |
+| Pre-fault EI, same batch | 1.00 (0.71–1.10) | **1.00**, 31 complete pairs |
+| Thrust known answers | 100% agreement on both grids; 49/54 backlimb dips within 2° | unchanged |
+
+Compaction sample counts increase because the corrected geometry leaves
+more beds resolved by at least two cells; the sampling rule is unchanged.
+All pass/fail rows pass for the reported 20-section batch. Its maximum slip
+area error is 0.53%, no trapped water remains, and cell solid content stays
+at or below 20 m.
+
+The historical benchmark (40 sections from seed 1, default settings including
+2–4 normal faults) was also rerun before and after the changes. All rows now
+pass: growth EI 1.25, pre-fault EI 1.00, heave increasing with age for 63/65
+faults (previously 52/64), worst slip area error 0.74%, no trapped water,
+deterministic. This does not imply that every seed range must pass every
+statistical literature check.
+
+`npm test` covers the reported batch and both grid resolutions, explicit
+cell-volume bounds, determinism including solid and burial arrays, erosion,
+overpressure and carbonate settings, both tectonic settings, analytic
+expansion ratios, and unavailable/crossed sampling intervals. `npm run build`
+and `git diff --check` pass. The simulator changes alter the geometry generated
+by existing seeds. A 20-section run in Node had median simulation time about
+223 ms per section; the old approximate 0.1 s UI timing is no longer claimed.
+
+The unchanged exponential porosity model and irreversible-compaction
+assumption are also described in the authors' [Strata manual, section 4.7](https://www.jsg.utexas.edu/flemings/files/Strata_Manual1.pdf).
+
+### Scientific test audit (2026-10-12)
+
+The subsequent [audit](validation-audit.md) separates numerical verification
+from field validation and records the limitations of each check. It added
+independent analytical thrust and constitutive-law fixtures, corruption tests,
+sample-coverage reporting, physical-state bounds and fuller repeatability.
+Controlled benchmarks now have fixed options independent of the page settings.
+
+Two additional measurement/implementation issues were repaired:
+
+- Velocity comparison rows used the 550/1050 m histogram bins while claiming
+  500/1000 m. They now explicitly interpolate neighboring bin medians.
+- Velocity-table interpolation crossed the pressure law's sand-fraction
+  threshold, producing a 529.10 m/s error in the new direct-formula sweep.
+  That interval and out-of-table depths now use direct evaluation. The full
+  sweep passes its pre-repair 5 m/s tolerance.
+
+The compaction rule is strengthened from absolute signed mean ≤5 m to mean
+absolute error ≤5 m, retaining 95% within 20 m. The measured MAE is **4.873 m**
+at 20 m and **2.431 m** at 10 m. All 15786/27097 measured intervals respectively
+remain within 20 m. Excluded one-cell intervals are now visible: 14623 at
+20 m and 5226 at 10 m; each resolution also excludes 293 deep intervals.
+These exclusions limit the accuracy claim to resolved intervals.
+
+The user's new **seed 190496, 20 sections, 1–2 normal faults** batch was rerun:
+no failed rows, no invalid cells or velocities, no trapped water, and both
+represented settings repeat exactly. The largest area error over 226 slips
+is **0.387%**. Corrected velocity comparison estimates are **1920 m/s** at
+0.5 km and **2190 m/s** at 1 km, rather than 1940/2220 from the deeper bins.
+
+A separate 16-case option sweep, seeds 20261020–20261035, covers extension
+and compression, 20/10 m, compaction off/on and the zero/maximum pressure and
+carbonate settings. Across **5,961,256 cells**, there are no invalid states
+or displayed velocities, no trapped water, and worst slip area error is
+**0.360%**. This sweep is retained in the automated suite. These are internal
+consistency and plausibility results; independent field validation is pending.
+
 ## Sources (searched 2026-10-11)
 
 - Soft-sand model equations (as implemented): https://rockphypy.readthedocs.io/en/stable/getting_started/07_Soft_Stiff_Cemented_sand_models.html , https://code.agilescientific.com/bruges/_modules/bruges/rockphysics/rockphysicsmodels.html

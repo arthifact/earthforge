@@ -1,10 +1,10 @@
 # Earth Forge
 
-Realistic subsurface velocity models for any place, built from geological
-history. Earth Forge simulates how the ground formed, step by step through
-time. Velocity comes from rock physics applied to that history, and every
-model is checked against published values and against tests with exact
-answers.
+A sedimentary-basin simulator that generates candidate subsurface velocity
+models from geological history. Earth Forge builds sections step by step,
+then applies rock-physics relationships to the simulated burial history.
+Numerical benchmarks and geological reference comparisons are included.
+Accuracy against independent field data has not yet been established.
 
 The aim is a generator anyone can set up for where they are:
 
@@ -12,17 +12,17 @@ The aim is a generator anyone can set up for where they are:
 - **A seismologist or tomographer** may know no geology at all, only a few
   surface shots.
 
-Either way, unknowns are answered "don't know", and the data you have narrow
-the range. For example, models whose simulated first arrivals don't match
-your picks are dropped. What comes out is many realistic velocity models,
-with lithology and labelled horizons and faults. They also say which kinds
-of geology fit your data.
+The planned workflow will let users answer "don't know" and use observations
+to narrow the range, for example by rejecting models whose first arrivals
+do not match picked times. Conditioning on observations is not implemented
+yet. The current output is a synthetic section with velocity, lithology,
+labelled horizons and faults.
 
-The models serve as a prior for full-waveform inversion (FWI): they help
-tell real geology from noise, and the data can always overrule them. They
-also serve as training data and as test models.
+The intended uses are candidate priors for full-waveform inversion (FWI),
+training data and synthetic test models. Suitability for any of these uses
+needs validation in the target setting.
 
-## Status (2026-10-11)
+## Status (2026-10-12)
 
 A browser page with a gallery of seeds, a step-by-step history replay and a
 verification panel. The first family of geology is sedimentary basins, in two
@@ -52,8 +52,9 @@ Both settings share:
 - optional overpressure and carbonates.
 
 [docs/verification-log.md](docs/verification-log.md) records every version.
-Each one's rules and expected results were written before it ran, followed
-by what the checks showed. It includes the failures and the bugs they found.
+It includes the original rules, failures, subsequent repairs and changes to
+the checks. [docs/validation-audit.md](docs/validation-audit.md) describes what
+the tests establish, their limitations, and the outstanding field validation.
 
 ## Run
 
@@ -61,14 +62,39 @@ by what the checks showed. It includes the failures and the bugs they found.
 npm install
 npm run dev      # http://localhost:5174
 npm run check    # type check
+npm test         # analytical tests, state invariants, lookup accuracy and batch regressions
+npm run build    # type check and production bundle
 ```
 
 The page is a single full-screen tool:
 - The section is always drawn at true scale, with distance and depth in km:
-  velocity, lithology, or both stacked on one distance axis. It is sized to
-  fill the window.
-- A velocity log sits on the same depth axis, and a readout under the pointer
-  gives distance, depth, velocity and lithology.
+  velocity, lithology, or both stacked on one distance axis (the default).
+  It is sized to fill the window.
+- A velocity inspector starts with one movable profile, A. Use + Compare to add
+  profiles B and C as needed, up to three, and remove either with its × button.
+  Added profiles appear together using distinct colors and line styles. Depth
+  and velocity axes include units; the full 1.5–5.6 km/s model range is visible.
+  The keyboard-accessible depth slider or a vertical drag on a model's round
+  inspection dot sets the shared depth for velocity and rock type. Dots enlarge
+  slightly on hover. Hovering shows local values in
+  the readout without changing that depth. Raw grid values are drawn
+  as steps without smoothing. Sections start at the top of the workspace, with
+  the inspector beside them on wide screens and below them on smaller screens.
+  In Both view on wide screens, the inspector runs from the top image border to
+  the bottom of the model stack, and keeps that same size when only Velocity or
+  Lithology is shown. The graph takes all the space above compact
+  controls. Profiles sit side by side in three short lines: letter and velocity,
+  rock type, then the read-only position.
+  In Both view, distance labels and A/B/C badges appear only on the top model;
+  both models are named. The lower lithology model keeps aligned guides and its
+  own depth ticks. The crosshair appears only over plot data, not axis margins.
+  Drag the A/B/C labels on the model to move a profile horizontally. Clicking
+  elsewhere never moves it. The square badges below the graph are a static legend.
+  Locations snap to
+  the 20 m grid; active profiles and positions are saved in the shared URL.
+  Reset restores the original
+  2.0, 4.6 and 7.2 km locations, which are simply starting samples across the
+  section, not locations chosen for geological features.
 - A slider replays the history.
 - A slim side panel holds the settings and the section's facts.
 - How to use, Gallery, Checks and About open as dialogs.
@@ -76,24 +102,34 @@ The page is a single full-screen tool:
   history, and Space replays it.
 
 Sections are simulated in a pool of web workers, in parallel and off the
-page's thread; a new seed shows in about 0.1 s. The address keeps the seed and
+page's thread; the final section appears before its replay frames are ready. The address keeps the seed and
 the settings, so a view can be shared.
 
 In **Checks**, *Run* simulates 20-100 sections and compares them
 with the literature:
 
 - velocity with depth (Hamilton 1979, 1985);
-- growth-fault expansion index;
+- growth-fault expansion index from complete units on each side of the fault;
 - fault dips;
 - slip, sedimentation and subsidence rates.
 
-It also runs the known-answer tests:
+It also runs controlled numerical benchmarks, with fixed settings independent
+of the selected field ensemble:
 
 - normal-fault heave;
-- thrust kinematics against the same flow applied at once;
+- thrust remapping against back-traced flow (an internal consistency check);
 - backlimb dip against ramp dip;
 - compaction against the decompaction equation;
 - rock area conserved by every slip.
+
+The test suite independently checks analytical thrust translation and bend
+geometry, porosity end members, the compaction integral, expansion measurements,
+physical bounds and repeatability. The velocity lookup must agree with the
+direct formula within 5 m/s in the tested sweep. Compaction reports absolute
+error as well as signed bias, so opposite errors cannot cancel. Empty samples
+are reported as unmeasured. Geological guides screen ensemble summaries; they
+do not certify realism. The velocity band pools sediment cells and represents
+simulated variation, not a confidence interval for a real site.
 
 Optional comparison: put Marmousi as a 461 x 151 float32 grid (20 m, rows of
 depth) at `public/reference/marmousi_truth20.f32`. Reference models are not

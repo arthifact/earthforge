@@ -170,8 +170,9 @@ function polylineDepth(P: V[], x: number) {
 }
 
 /** Depth used for compaction: below an overpressure top, shale-rich beds compact a quarter as fast (disequilibrium compaction). */
+const OVERPRESSURE_SAND_LIMIT = 0.4;
 export const effectiveDepth = (f: number, d: number, carbonate: boolean, overpressure: number | null) =>
-  overpressure !== null && !carbonate && f < 0.4 && d > overpressure ? overpressure + 0.25 * (d - overpressure) : Math.max(0, d);
+  overpressure !== null && !carbonate && f < OVERPRESSURE_SAND_LIMIT && d > overpressure ? overpressure + 0.25 * (d - overpressure) : Math.max(0, d);
 /** Porosity at an (effective) depth: Sclater and Christie's sand and shale curves mixed by sand fraction, or chalk. */
 export const porosity = (f: number, de: number, carbonate: boolean) => {
   const curve = (c: { phi0: number; L: number }) => c.phi0 * Math.exp(-de / c.L);
@@ -323,15 +324,16 @@ export function simulate(options: BasinOptions): Basin {
     for (let i = 0; i < nx; i++) {
       const zf = f.depth[i];
       if (!Number.isFinite(zf)) continue;
-      const is = i - f.dir * cells, zs = is >= 0 && is < nx ? f.depth[is] : NaN, gap = !Number.isFinite(zs), dz = gap ? 0 : zf - zs;
-      // The last cell of the source column above the fault: a hanging-wall cell never takes footwall rock.
-      const ksTop = gap ? -1 : Math.ceil(zs / h) - 1;
+      const is = i - f.dir * cells, zs = is >= 0 && is < nx ? f.depth[is] : NaN, gap = !Number.isFinite(zs);
+      // Keep each cell's row offset above the fault. Rounding the difference of two fault depths instead
+      // can skip or duplicate the bottom hanging-wall row, accumulating error over successive slips.
+      const dz = gap ? 0 : (Math.ceil(zf / h) - Math.ceil(zs / h)) * h;
       let after = 0;
       for (let k = 0; k < nz; k++) {
         const z = k * h, n = k * nx + i;
         if (!(z < zf)) break;
         if (gap) { next[n] = WATER; nextSolid[n] = 0; nextBurial[n] = 0; continue; }
-        const ks = Math.min(Math.round((z - dz) / h), ksTop);
+        const ks = k - dz / h;
         if (ks < 0) { next[n] = WATER; nextSolid[n] = 0; nextBurial[n] = 0; continue; }
         const src = Math.min(nz - 1, ks) * nx + is, c = grid[src];
         next[n] = c; nextSolid[n] = solid[src]; nextBurial[n] = burial[src]; if (c !== WATER) after++;
@@ -346,7 +348,7 @@ export function simulate(options: BasinOptions): Basin {
     grid = next; solid = nextSolid; burial = nextBurial;
     carry(f, (x, d) => {
       const i = col(x), c = i + f.dir * cells, zn = c >= 0 && c < nx ? f.depth[c] : NaN;
-      return [X(c), d + (Number.isFinite(zn) ? zn - f.depth[i] : 0)];
+      return [X(c), d + (Number.isFinite(zn) ? (Math.ceil(zn / h) - Math.ceil(f.depth[i] / h)) * h : 0)];
     });
     f.heave += heave; f.heaves.push(heave); sync(f);
   };
@@ -450,37 +452,69 @@ export function simulate(options: BasinOptions): Basin {
     sync(f);
   };
   /**
-   * Mechanical compaction of every column, from the bottom up: a sediment cell holding solid s at porosity phi (at its
-   * depth below the sea floor) fills s / (1 - phi) of its height h; the shortfall is summed up the column and each time
-   * it reaches a whole cell, a cell is removed (its solid joins a neighbour of the same bed) and the column above moves
-   * down one cell. Cells are never added, so compaction is not undone by uplift or erosion. A fault moves down with the
-   * cells removed below it, so rock and faults stay on their sides.
+   * Compact each bed from its own solid content. Work down from the sea floor to use the already-compacted
+   * overburden, then pack the column upward from its fixed base. Midpoint integration solves T = S / (1 - phi)
+   * before rounding to cells. No bed borrows another bed's compaction shortfall, and solid is distributed across
+   * the retained cells instead of accumulating in one neighbour. Never add cells (irreversible compaction).
    */
   const compact = () => {
-    const removed: number[] = [];
     for (let i = 0; i < nx; i++) {
       const kf = top(grid, i);
       if (kf >= nz) continue;
-      let shortfall = 0, w = nz - 1, below = WATER;
-      removed.length = 0;
-      for (let k = nz - 1; k >= kf; k--) {
-        const n = k * nx + i, c = grid[n];
+      const runs: { c: number; start: number; end: number; cells: number; S: number; depth: number; fraction: number }[] = [];
+      let depth = 0;
+      for (let k = kf; k < nz;) {
+        const c = grid[k * nx + i], start = k;
+        let S = 0;
+        while (k < nz && grid[k * nx + i] === c) { S += solid[k * nx + i]; k++; }
+        let cells = k - start;
+        const fraction = c < 0 ? 0 : sand(beds[c], X(i));
         if (c >= 0) {
-          shortfall += h - solid[n] / (1 - porosityAt(c, i, (k - kf + 0.5) * h));
-          if (shortfall >= h) {
-            const merge = below === c ? (w + 1) * nx + i : k - 1 >= kf && grid[(k - 1) * nx + i] === c ? (k - 1) * nx + i : -1;
-            if (merge >= 0) { solid[merge] += solid[n]; shortfall -= h; removed.push(k); continue; }
+          let T = cells * h;
+          for (let it = 0; it < 8; it++) {
+            const de = effectiveDepth(fraction, depth + T / 2, beds[c].carbonate, overpressure);
+            const next = S / (1 - porosity(fraction, de, beds[c].carbonate));
+            const change = Math.abs(next - T); T = next;
+            if (change < 0.001) break;
+          }
+          cells = Math.min(cells, Math.max(1, Math.ceil(S / h), Math.round(T / h)));
+        }
+        runs.push({ c, start, end: k, cells, S, depth, fraction });
+        depth += cells * h;
+      }
+      let w = nz;
+      for (let r = runs.length - 1; r >= 0; r--) {
+        const run = runs[r], { c, start, end, cells, S } = run, dest = w - cells;
+        if (c < 0 && dest === start) { w = dest; continue; } // The unchanged basement anchors the column.
+        // Remap fault boundaries with the same removed rows as the surrounding rock.
+        for (const f of faults) {
+          const zf = f.depth[i];
+          if (Number.isFinite(zf) && zf >= start * h && zf < end * h) {
+            const row = zf / h - start, edge = Math.ceil(row), mappedEdge = Math.ceil(edge * cells / (end - start));
+            f.depth[i] = (dest + mappedEdge + row - edge) * h;
           }
         }
-        if (w !== k) { const m = w * nx + i; grid[m] = c; solid[m] = solid[n]; burial[m] = burial[n]; }
-        below = c; w--;
+        const weights = Array.from({ length: cells }, (_, j) => {
+          if (c < 0) return 0;
+          const de = effectiveDepth(run.fraction, run.depth + (j + 0.5) * h, beds[c].carbonate, overpressure);
+          return 1 - porosity(run.fraction, de, beds[c].carbonate);
+        });
+        let weight = weights.reduce((a, v) => a + v, 0), remaining = S;
+        for (let j = cells - 1; j >= 0; j--) {
+          let memory = 0;
+          const a = start + Math.floor(j * (end - start) / cells), b = start + Math.ceil((j + 1) * (end - start) / cells);
+          for (let k = a; k < b; k++) memory = Math.max(memory, burial[k * nx + i]);
+          const n = (dest + j) * nx + i;
+          // Fill the densest (deepest) cells first; no cell can hold more solid than its own height.
+          const grains = c < 0 ? 0 : j === 0 ? remaining : Math.min(h, remaining * weights[j] / weight);
+          grid[n] = c; solid[n] = grains; burial[n] = memory;
+          remaining -= grains; weight -= weights[j];
+        }
+        w = dest;
       }
-      for (let k = kf; k <= w; k++) { const n = k * nx + i; grid[n] = WATER; solid[n] = 0; burial[n] = 0; }
-      if (removed.length) for (const f of faults) {
-        const zf = f.depth[i];
-        if (!Number.isFinite(zf)) continue;
-        let m = 0; for (const k of removed) if (k * h >= zf) m++;
-        f.depth[i] += m * h;
+      for (const f of faults) if (Number.isFinite(f.depth[i]) && f.depth[i] < kf * h) f.depth[i] += (w - kf) * h;
+      for (let k = kf; k < w; k++) {
+        const n = k * nx + i; grid[n] = WATER; solid[n] = 0; burial[n] = 0;
       }
     }
     for (const f of faults) sync(f);
@@ -667,7 +701,11 @@ function velocityTable(overpressure: number | null) {
   t = { clastic, carbonate }; tables.set(overpressure, t);
   return t;
 }
-function tabled(t: { clastic: Float32Array; carbonate: Float32Array }, f: number, d: number, carbonate: boolean) {
+function tabled(t: { clastic: Float32Array; carbonate: Float32Array }, f: number, d: number, carbonate: boolean, overpressure: number | null) {
+  // The prescribed overpressure law jumps at f = 0.4. Interpolation across that
+  // boundary mixes two different pressure regimes (errors above 500 m/s).
+  // Evaluate the formula in that narrow interval, and outside the table's depth range.
+  if (d > (TABLE_NZ - 1) * TABLE_DZ || (!carbonate && overpressure !== null && f >= OVERPRESSURE_SAND_LIMIT - 1 / TABLE_F && f < OVERPRESSURE_SAND_LIMIT)) return rockVelocity(f, d, carbonate, overpressure);
   const s = Math.min(TABLE_NZ - 1.0001, Math.max(0, d / TABLE_DZ)), j = Math.floor(s), w = s - j;
   if (carbonate) return t.carbonate[j] + (t.carbonate[j + 1] - t.carbonate[j]) * w;
   const r = Math.min(TABLE_F - 0.0001, Math.max(0, f * TABLE_F)), q = Math.floor(r), v = r - q, a = q * TABLE_NZ + j, c = a + TABLE_NZ;
@@ -689,7 +727,7 @@ export function windowOf(b: Basin, state: { grid: Int32Array; burial: Float32Arr
     for (let k = 0; k < nz; k++) {
       const z = k * hw, gk = Math.min(b.nz - 1, Math.round(z / b.h)), n = gk * b.nx + gi, c = grid[n], d = z - floor * b.h;
       ids[k * nx + i] = c;
-      velocity[k * nx + i] = c === WATER ? 1500 : c === BASEMENT ? Math.min(5600, b.basementVelocity + 0.1 * Math.max(0, d)) : tabled(table, sand(b.beds[c], x), Math.max(state.burial[n], d), b.beds[c].carbonate);
+      velocity[k * nx + i] = c === WATER ? 1500 : c === BASEMENT ? Math.min(5600, b.basementVelocity + 0.1 * Math.max(0, d)) : tabled(table, sand(b.beds[c], x), Math.max(state.burial[n], d), b.beds[c].carbonate, b.overpressure);
     }
   }
   return { velocity, beds: ids, nx, nz, floor: floorDepth };
