@@ -64,8 +64,9 @@ npm run check    # type check
 ```
 
 The page is a single full-screen tool:
-- The section fills the window, with distance and depth in km. *Fit* uses a
-  vertical exaggeration, shown as VE; *True scale* is 1:1.
+- The section is always drawn at true scale, with distance and depth in km:
+  velocity, lithology, or both stacked on one distance axis. It is sized to
+  fill the window.
 - A velocity log sits on the same depth axis, and a readout under the pointer
   gives distance, depth, velocity and lithology.
 - A slider replays the history.

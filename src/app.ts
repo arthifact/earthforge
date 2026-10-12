@@ -1,5 +1,6 @@
-// Earth Forge as one screen: the section as large as the window allows (with distance and depth axes, a velocity
-// log on the same depth axis, a readout under the pointer, and its history to replay), the settings in a side panel,
+// Earth Forge as one screen: the section at true scale and as large as the window allows (velocity, lithology, or
+// both stacked on one distance axis; depth and distance axes in km, a velocity log on the same depth axis, a readout
+// under the pointer, and its history to replay), the settings in a side panel,
 // and How to use, Gallery, Checks and About in dialogs. Sections are simulated in a pool of workers (in parallel, off
 // the page's thread); the checks in a worker of their own.
 
@@ -70,7 +71,7 @@ const HELP = `
   <ol class="steps">
     <li><b>A section</b> is one seed: a 9.2 × 3 km cross-section simulated forward in time. <kbd>New</kbd> (or <kbd>R</kbd>) draws another; typing a seed brings back exactly the same section.</li>
     <li><b>Settings</b> choose the geology: <i>extension</i> (growth faults), <i>compression</i> (thrusts) or <i>any</i> (drawn per seed), how many faults, compaction, overpressure and carbonates. The section updates as you change them.</li>
-    <li><b>View</b>: velocity or lithology (sand, silt, shale, carbonate, basement); bed boundaries; faults (rust). <i>Fit</i> fills the screen with a vertical exaggeration (shown as VE at the top); <i>True scale</i> is 1:1.</li>
+    <li><b>View</b>: velocity, lithology (sand, silt, shale, carbonate, basement), or both stacked on the same distance axis; bed boundaries; faults (rust). Always at true scale (no vertical exaggeration).</li>
     <li><b>History</b>: drag the slider, press <kbd>←</kbd> <kbd>→</kbd>, or <kbd>Space</kbd> to replay how the section formed, step by step (each step 0.5–2 Myr).</li>
     <li><b>Log</b>: velocity with depth at the three columns marked by triangles on the section, on the same depth axis. Point at the section to read distance, depth, velocity and lithology.</li>
     <li><b>Gallery</b> (<kbd>G</kbd>) shows twelve seeds with the same settings; click one to open it.</li>
@@ -107,7 +108,7 @@ export function start(root: HTMLElement) {
     <main class="work">
       <section class="stage" aria-label="Section">
         <div class="plots" id="plots">
-          <canvas id="section" aria-label="The simulated section"></canvas>
+          <div class="panels"><canvas id="section" aria-label="The simulated section"></canvas><canvas id="section2" aria-label="The simulated section, lithology"></canvas></div>
           <canvas id="log" aria-label="Velocity with depth at three columns"></canvas>
           <span class="busy" id="busy">Simulating</span>
         </div>
@@ -135,8 +136,7 @@ export function start(root: HTMLElement) {
           </div>
         </section>
         <section class="pane">
-          <div class="segmented" role="group" aria-label="Show"><button type="button" data-view="velocity">Velocity</button><button type="button" data-view="lithology">Lithology</button></div>
-          <div class="segmented" role="group" aria-label="Scale"><button type="button" data-scale="fit">Fit</button><button type="button" data-scale="true">True scale</button></div>
+          <div class="segmented" role="group" aria-label="Show"><button type="button" data-view="velocity">Velocity</button><button type="button" data-view="lithology">Lithology</button><button type="button" data-view="both">Both</button></div>
           <div class="toggles">
             <label><input type="checkbox" id="showBoundaries" checked> Boundaries</label>
             <label><input type="checkbox" id="showFaults" checked> Faults</label>
@@ -153,7 +153,7 @@ export function start(root: HTMLElement) {
   ${dialog("about", "About", ABOUT)}`;
 
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
-  const plots = $("plots"), canvas = $<HTMLCanvasElement>("section"), logCanvas = $<HTMLCanvasElement>("log"), slider = $<HTMLInputElement>("step");
+  const plots = $("plots"), canvas = $<HTMLCanvasElement>("section"), canvas2 = $<HTMLCanvasElement>("section2"), logCanvas = $<HTMLCanvasElement>("log"), slider = $<HTMLInputElement>("step");
   const seedInput = $<HTMLInputElement>("seed"), cards = $("cards");
   const fields = ["setting", "faults", "thrusts", "compaction", "overpressure", "carbonate"].map((id) => $<HTMLSelectElement>(id));
 
@@ -162,9 +162,11 @@ export function start(root: HTMLElement) {
   const randomSeed = () => 1 + Math.floor(Math.random() * 999999);
   let seed = Number(hash.get("seed")) > 0 ? Math.round(Number(hash.get("seed"))) : randomSeed(), first = Math.max(1, seed - (seed - 1) % 12);
   for (const s of fields) { const v = hash.get(s.id); if (v && [...s.options].some((o) => o.value === v)) s.value = v; }
-  const look: Look = { view: hash.get("view") === "lithology" ? "lithology" : "velocity", palette: hash.get("colours") === "turbo" ? "turbo" : "earth", boundaries: true, faults: true };
-  let scale: "fit" | "true" = hash.get("scale") === "true" ? "true" : "fit";
-  let current: Section | null = null, step = 0, playing = false, generation = 0, placement: Placement | null = null, exaggeration = 1;
+  const look: Look = { view: "velocity", palette: hash.get("colours") === "turbo" ? "turbo" : "earth", boundaries: true, faults: true };
+  type Mode = "velocity" | "lithology" | "both";
+  let mode: Mode = hash.get("view") === "velocity" || hash.get("view") === "lithology" ? hash.get("view") as Mode : "both";
+  const topView = () => (mode === "lithology" ? "lithology" : "velocity") as Look["view"];
+  let current: Section | null = null, step = 0, playing = false, generation = 0, placement: Placement | null = null;
 
   const options = (s: number): BasinOptions => {
     const [fa, fb] = $<HTMLSelectElement>("faults").value.split(",").map(Number), [ta, tb] = $<HTMLSelectElement>("thrusts").value.split(",").map(Number);
@@ -172,46 +174,47 @@ export function start(root: HTMLElement) {
   };
   const remember = () => {
     const p = new URLSearchParams({ seed: String(seed) });
-    if (look.view !== "velocity") p.set("view", look.view);
-    if (scale !== "fit") p.set("scale", scale);
+    if (mode !== "both") p.set("view", mode);
     if (look.palette !== "earth") p.set("colours", look.palette);
     for (const s of fields) if (s.value !== s.options[0].value) p.set(s.id, s.value);
     history.replaceState(null, "", `#${p}`);
   };
 
   // ------------------------------------------------------------ layout and drawing
-  /** Size the section and the log to the space: Fit fills the height (vertical exaggeration 1-4), True keeps 1:1. */
+  /**
+   * Size the panels and the log to the space, always at true scale: the panels (one, or two stacked) get the largest
+   * width whose true-scale height fits the window (stacked layouts on tablets and phones scroll, so there the width
+   * decides); the log matches the top panel's height.
+   */
   function layout() {
-    const W = plots.clientWidth, narrow = W < 640, logW = narrow ? W : Math.round(Math.min(180, Math.max(110, W * 0.14))), gap = narrow ? 0 : 12;
-    const secW = narrow ? W : W - logW - gap, pad = SECTION_PAD, iw = secW - pad.l - pad.r, trueH = iw * TRUE_RATIO;
-    let ih = trueH;
-    // Stacked layouts (tablets, phones) scroll, so Fit there is a fixed exaggeration rather than the screen's height.
-    if (narrow) ih = scale === "true" ? trueH : 2 * trueH;
-    else if (matchMedia("(max-width: 860px)").matches) ih = scale === "true" ? trueH : 1.6 * trueH;
-    else if (scale === "fit") ih = Math.min(4 * trueH, Math.max(trueH, plots.clientHeight - pad.t - pad.b));
-    else ih = Math.min(trueH, plots.clientHeight - pad.t - pad.b);
-    const width = scale === "true" && !narrow ? ih / TRUE_RATIO + pad.l + pad.r : secW;
-    canvas.style.width = `${width}px`; canvas.style.height = `${ih + pad.t + pad.b}px`;
-    logCanvas.style.width = `${logW}px`; logCanvas.style.height = narrow ? "190px" : `${ih + pad.t + pad.b}px`;
-    exaggeration = ih / ((width - pad.l - pad.r) * TRUE_RATIO);
+    const W = plots.clientWidth, narrow = W < 640, stacked = matchMedia("(max-width: 860px)").matches, n = mode === "both" ? 2 : 1;
+    const pad = SECTION_PAD, ph = pad.t + pad.b, gapV = 10, logW = narrow ? W : Math.round(Math.min(180, Math.max(110, W * 0.14))), gap = narrow ? 0 : 12;
+    let iw = (narrow ? W : W - logW - gap) - pad.l - pad.r;
+    if (!stacked) iw = Math.min(iw, (plots.clientHeight - n * ph - (n - 1) * gapV) / n / TRUE_RATIO);
+    iw = Math.max(120, iw);
+    const width = `${iw + pad.l + pad.r}px`, height = `${iw * TRUE_RATIO + ph}px`;
+    for (const c of [canvas, canvas2]) { c.style.width = width; c.style.height = height; }
+    canvas2.hidden = n === 1;
+    logCanvas.style.width = `${logW}px`; logCanvas.style.height = narrow ? "190px" : height;
   }
   const frame = (): Frame | null => current ? (current.history.length && step < current.history.length - 1 ? current.history[step] : current.now) : null;
   function draw() {
     const f = frame();
     if (!f || !current) return;
     layout();
-    placement = paintSection(canvas, f, look, current.unitOfBed, { columns: LOG_COLUMNS });
+    placement = paintSection(canvas, f, { ...look, view: topView() }, current.unitOfBed, { columns: LOG_COLUMNS });
+    if (mode === "both") paintSection(canvas2, f, { ...look, view: "lithology" }, current.unitOfBed, { columns: LOG_COLUMNS });
     const narrow = plots.clientWidth < 640;
     paintLog(logCanvas, f, narrow ? 26 : placement.top, narrow ? 162 : placement.height);
     const steps = current.log.length, at = current.history.length ? step : steps - 1, entry = current.log[at];
     $("stepLabel").textContent = `${String(at + 1).padStart(2, "0")} / ${steps} · ${entry.phase}`;
     $("logline").textContent = `${at === steps - 1 ? "Today. " : ""}Step ${at + 1}: ${entry.text}.`;
-    $("title").textContent = `Seed ${current.seed} · ${current.setting} · ${scale === "true" ? "true scale" : `VE ${exaggeration.toFixed(1)}×`}`;
+    $("title").textContent = `Seed ${current.seed} · ${current.setting} · true scale`;
   }
   function drawLegend() {
-    $("legend").innerHTML = look.view === "velocity"
-      ? `<span class="mono">${VRANGE[0] / 1000}</span><span class="ramp" style="background:${paletteCss(look.palette)}"></span><span class="mono">${VRANGE[1] / 1000} km/s</span>`
-      : lithologyLegend.map(([name, color]) => `<span class="swatch mono"><i style="background:${color}"></i>${name}</span>`).join("");
+    const ramp = `<span class="mono">${VRANGE[0] / 1000}</span><span class="ramp" style="background:${paletteCss(look.palette)}"></span><span class="mono">${VRANGE[1] / 1000} km/s</span>`;
+    const swatches = lithologyLegend.map(([name, color]) => `<span class="swatch mono"><i style="background:${color}"></i>${name}</span>`).join("");
+    $("legend").innerHTML = mode === "velocity" ? ramp : mode === "lithology" ? swatches : `${ramp}<span class="sep"></span>${swatches}`;
   }
   function drawFacts(s: Section) {
     const phases = [...new Set(s.log.map((l) => l.phase))].map((p) => `${s.log.filter((l) => l.phase === p).length} ${p}`).join(", ");
@@ -234,7 +237,7 @@ export function start(root: HTMLElement) {
   function readout(e: PointerEvent) {
     const f = frame();
     if (!f || !placement || !current) return;
-    const r = canvas.getBoundingClientRect(), px = e.clientX - r.left - placement.left, py = e.clientY - r.top - placement.top;
+    const r = (e.currentTarget as HTMLCanvasElement).getBoundingClientRect(), px = e.clientX - r.left - placement.left, py = e.clientY - r.top - placement.top;
     if (px < 0 || py < 0 || px > placement.width || py > placement.height) { $("readout").textContent = "Point at the section to read values"; return; }
     const x = px / placement.width * WIDTH, z = py / placement.height * DEPTH, i = Math.round(x / WIDTH * (f.nx - 1)), k = Math.round(z / DEPTH * (f.nz - 1)), n = k * f.nx + i, l = f.litho[n];
     const unit = () => `unit ${current!.unitOfBed[f.beds[n]] + 1}`;
@@ -277,12 +280,12 @@ export function start(root: HTMLElement) {
         if (mine !== galleryGeneration || r.kind !== "section") return;
         const sec = r.section, n = sec.faults.length;
         el.section = sec; el.classList.add("ready");
-        paintSection(el.querySelector("canvas")!, sec.now, look, sec.unitOfBed);
+        paintSection(el.querySelector("canvas")!, sec.now, { ...look, view: topView() }, sec.unitOfBed);
         el.querySelector(".kind")!.textContent = `${sec.setting} · ${n} ${sec.setting === "extension" ? "fault" : "thrust"}${n === 1 ? "" : "s"}`;
       }).catch(() => undefined);
     });
   }
-  const redrawCards = () => { for (const c of cards.children) { const sec = (c as HTMLElement & { section?: Section }).section; if (sec) paintSection(c.querySelector("canvas")!, sec.now, look, sec.unitOfBed); } };
+  const redrawCards = () => { for (const c of cards.children) { const sec = (c as HTMLElement & { section?: Section }).section; if (sec) paintSection(c.querySelector("canvas")!, sec.now, { ...look, view: topView() }, sec.unitOfBed); } };
 
   // ------------------------------------------------------------ history
   function stopPlaying() { playing = false; $("play").textContent = "▶"; $("play").setAttribute("aria-label", "Replay the history"); }
@@ -323,18 +326,19 @@ export function start(root: HTMLElement) {
 
   // ------------------------------------------------------------ wiring
   const press = (attr: string, value: string) => document.querySelectorAll<HTMLButtonElement>(`[${attr}]`).forEach((b) => b.setAttribute("aria-pressed", String(b.getAttribute(attr) === value)));
-  press("data-view", look.view); press("data-scale", scale);
+  press("data-view", mode);
   $<HTMLInputElement>("showTurbo").checked = look.palette === "turbo";
-  document.querySelectorAll<HTMLButtonElement>("[data-view]").forEach((b) => b.addEventListener("click", () => { look.view = b.dataset.view as Look["view"]; press("data-view", look.view); remember(); drawLegend(); draw(); redrawCards(); }));
-  document.querySelectorAll<HTMLButtonElement>("[data-scale]").forEach((b) => b.addEventListener("click", () => { scale = b.dataset.scale as typeof scale; press("data-scale", scale); remember(); draw(); }));
+  document.querySelectorAll<HTMLButtonElement>("[data-view]").forEach((b) => b.addEventListener("click", () => { mode = b.dataset.view as Mode; press("data-view", mode); remember(); drawLegend(); draw(); redrawCards(); }));
   $<HTMLInputElement>("showBoundaries").addEventListener("change", (e) => { look.boundaries = (e.target as HTMLInputElement).checked; draw(); redrawCards(); });
   $<HTMLInputElement>("showFaults").addEventListener("change", (e) => { look.faults = (e.target as HTMLInputElement).checked; draw(); redrawCards(); });
   $<HTMLInputElement>("showTurbo").addEventListener("change", (e) => { look.palette = (e.target as HTMLInputElement).checked ? "turbo" : "earth"; remember(); drawLegend(); draw(); redrawCards(); });
   slider.addEventListener("input", () => { stopPlaying(); step = Number(slider.value); draw(); });
   $("play").addEventListener("click", () => void play());
-  canvas.addEventListener("pointermove", readout);
-  canvas.addEventListener("pointerdown", readout);
-  canvas.addEventListener("pointerleave", () => { $("readout").textContent = "Point at the section to read values"; });
+  for (const c of [canvas, canvas2]) {
+    c.addEventListener("pointermove", readout);
+    c.addEventListener("pointerdown", readout);
+    c.addEventListener("pointerleave", () => { $("readout").textContent = "Point at the section to read values"; });
+  }
   const go = (s: number) => void open(Math.max(1, Math.round(s) || 1));
   seedInput.addEventListener("change", () => go(Number(seedInput.value)));
   $("random").addEventListener("click", () => go(randomSeed()));
