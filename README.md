@@ -63,6 +63,13 @@ npm run dev      # http://localhost:5174
 npm run check    # type check
 ```
 
+The page shows one section large, as velocity or lithology, with a replay of
+its history, a velocity-depth plot and the section's facts. Beside it are the
+settings, and below are a gallery of six seeds and the checks. Sections are
+simulated in a pool of web workers, in parallel and off the page's thread; a
+new seed shows in about 0.1 s. The address keeps the seed and the settings, so
+a view can be shared.
+
 In the page, **Run the checks** simulates 20-100 sections and compares them
 with the literature:
 

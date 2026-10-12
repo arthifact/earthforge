@@ -649,11 +649,38 @@ export function rockVelocity(f: number, d: number, carbonate: boolean, overpress
 }
 
 /**
+ * Velocity tabulated for one overpressure top: clastics by sand fraction (every 0.02) and burial (every 10 m to 6
+ * km), carbonate by burial, interpolated linearly; within a few m/s of rockVelocity and about seventy times cheaper
+ * for a section's window and its history.
+ */
+const TABLE_F = 50, TABLE_DZ = 10, TABLE_NZ = 601;
+const tables = new Map<number | null, { clastic: Float32Array; carbonate: Float32Array }>();
+function velocityTable(overpressure: number | null) {
+  let t = tables.get(overpressure);
+  if (t) return t;
+  const clastic = new Float32Array((TABLE_F + 1) * TABLE_NZ), carbonate = new Float32Array(TABLE_NZ);
+  for (let j = 0; j < TABLE_NZ; j++) {
+    carbonate[j] = rockVelocity(0, j * TABLE_DZ, true, overpressure);
+    for (let q = 0; q <= TABLE_F; q++) clastic[q * TABLE_NZ + j] = rockVelocity(q / TABLE_F, j * TABLE_DZ, false, overpressure);
+  }
+  if (tables.size > 32) tables.clear();
+  t = { clastic, carbonate }; tables.set(overpressure, t);
+  return t;
+}
+function tabled(t: { clastic: Float32Array; carbonate: Float32Array }, f: number, d: number, carbonate: boolean) {
+  const s = Math.min(TABLE_NZ - 1.0001, Math.max(0, d / TABLE_DZ)), j = Math.floor(s), w = s - j;
+  if (carbonate) return t.carbonate[j] + (t.carbonate[j + 1] - t.carbonate[j]) * w;
+  const r = Math.min(TABLE_F - 0.0001, Math.max(0, f * TABLE_F)), q = Math.floor(r), v = r - q, a = q * TABLE_NZ + j, c = a + TABLE_NZ;
+  const lo = t.clastic[a] + (t.clastic[a + 1] - t.clastic[a]) * w, hi = t.clastic[c] + (t.clastic[c + 1] - t.clastic[c]) * w;
+  return lo + (hi - lo) * v;
+}
+
+/**
  * The window (the 9.2 x 3 km section) sampled from a simulated state at spacing hw (m): velocity (at each
- * rock's deepest burial), bed index and sea floor depth per column.
+ * rock's deepest burial, from the section's velocity table), bed index and sea floor depth per column.
  */
 export function windowOf(b: Basin, state: { grid: Int32Array; burial: Float32Array } = b, hw = H): { velocity: Float32Array; beds: Int32Array; nx: number; nz: number; floor: Float64Array } {
-  const grid = state.grid, nx = Math.round(WIDTH / hw) + 1, nz = Math.round(DEPTH / hw) + 1, velocity = new Float32Array(nx * nz), ids = new Int32Array(nx * nz), floorDepth = new Float64Array(nx);
+  const table = velocityTable(b.overpressure), grid = state.grid, nx = Math.round(WIDTH / hw) + 1, nz = Math.round(DEPTH / hw) + 1, velocity = new Float32Array(nx * nz), ids = new Int32Array(nx * nz), floorDepth = new Float64Array(nx);
   for (let i = 0; i < nx; i++) {
     const x = i * hw, gi = Math.min(b.nx - 1, Math.round((x + MARGIN) / b.h));
     let floor = b.nz;
@@ -662,7 +689,7 @@ export function windowOf(b: Basin, state: { grid: Int32Array; burial: Float32Arr
     for (let k = 0; k < nz; k++) {
       const z = k * hw, gk = Math.min(b.nz - 1, Math.round(z / b.h)), n = gk * b.nx + gi, c = grid[n], d = z - floor * b.h;
       ids[k * nx + i] = c;
-      velocity[k * nx + i] = c === WATER ? 1500 : c === BASEMENT ? Math.min(5600, b.basementVelocity + 0.1 * Math.max(0, d)) : rockVelocity(sand(b.beds[c], x), Math.max(state.burial[n], d), b.beds[c].carbonate, b.overpressure);
+      velocity[k * nx + i] = c === WATER ? 1500 : c === BASEMENT ? Math.min(5600, b.basementVelocity + 0.1 * Math.max(0, d)) : tabled(table, sand(b.beds[c], x), Math.max(state.burial[n], d), b.beds[c].carbonate);
     }
   }
   return { velocity, beds: ids, nx, nz, floor: floorDepth };

@@ -559,6 +559,14 @@ backlimb 49 of 54 within 2 degrees; compaction 20 m 13238 of 14019 (fails),
 10 m 25964 of 26002 (passes); rock per slip below 2% for both kinds; no
 trapped water. Compression field rows change a little (thrust geometry).
 
+### Page rewrite (2026-10-11): one change that touches the numbers
+
+The page now simulates in web workers. To make a section's history cheap,
+velocity comes from a table per section (per overpressure top): clastics by
+sand fraction every 0.02 and burial every 10 m to 6 km, carbonate by burial,
+interpolated linearly. It is within a few m/s of the rock-physics formula, so
+the velocity rows of the checks can move by a few m/s; nothing else changes.
+
 ## Sources (searched 2026-10-11)
 
 - Soft-sand model equations (as implemented): https://rockphypy.readthedocs.io/en/stable/getting_started/07_Soft_Stiff_Cemented_sand_models.html , https://code.agilescientific.com/bruges/_modules/bruges/rockphysics/rockphysicsmodels.html

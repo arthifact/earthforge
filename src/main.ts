@@ -1,3 +1,4 @@
-import { startBasin } from "./basinPage";
+import { start } from "./app";
+import "./styles.css";
 
-void startBasin(document.querySelector<HTMLDivElement>("#app")!);
+start(document.querySelector<HTMLDivElement>("#app")!);
