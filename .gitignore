@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.DS_Store
+# Reference velocity models are not redistributed here; see README.
+public/reference/*
+!public/reference/.gitkeep
