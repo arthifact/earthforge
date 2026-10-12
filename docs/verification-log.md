@@ -315,7 +315,10 @@ grid around its cutoffs:
    the grid's bottom). Low-angle cutoffs were off by about 3 cells: **cutoffs
    now extend each horizon into the fault** from its last intact columns.
 4. Result: 5 of 128 units over 40 m (worst 60 m, mean 13.9 m) on the 20 m grid;
-   **0 of 140 over 40 m (worst 20, mean 6.0) on a 10 m grid.** The error
+   **0 of 140 over 40 m (worst 20, mean 6.0) on a 10 m grid.** [Correction
+   written after the version 4 run: these counts were mis-copied from the
+   terminal; the run printed 118 of 123 within 40 m (5 over, worst 60 m, mean
+   13.8 m) and 131 of 131 (worst 20 m, mean 5.8 m). The conclusion stands.] The error
    halves with the cell: grid rounding, not a kinematics bug. By the rule
    written before (every unit within 40 m on the 20 m grid) the test still
    fails at 20 m; the page now also runs it on 10 m and shows both.
@@ -399,6 +402,8 @@ Known-answer tests (rules fixed now, before running):
   refactor of how other faults are carried, so **the result should be
   identical to the last one**: 20 m worst 60 m with 5 of 128 units over 40 m;
   10 m 0 of 140. Any difference means the refactor changed something.
+  [Those counts were mis-copied, see the correction above: the last run was
+  118 of 123 and 131 of 131.]
 - Compaction (6 seeds, no faults, no erosion, no overpressure): (a) every bed
   holds the solid it was deposited with (relative difference below 1e-8;
   bookkeeping); (b) each bed in every tenth column has the thickness the
@@ -443,6 +448,54 @@ Still not included: salt (next: bodies placed by shape, sediments draped and
 minibasins), inclined shear on normal faults, out-of-sequence thrusts,
 backthrusts, fault-propagation folds (trishear), inversion (extension then
 compression in one section), channels.
+
+### Version 4 checked (40 sections from seed 1: 21 extension, 19 compression)
+
+| Check | Result | Rule or prediction (written before) | Verdict |
+|---|---|---|---|
+| Normal-fault heave, known answer, 20 m | 118 of 123 within 40 m, worst 60, mean 13.8 m | identical to the last run (118 of 123) | identical: the refactor changed nothing |
+| the same, 10 m | 131 of 131, worst 20, mean 5.8 m | identical (131 of 131) | identical |
+| Compaction: solid kept in each bed | 4e-14 relative, 475 beds | below 1e-8 | passes |
+| Compaction: bed thickness against the decompaction equation | 13238 of 14019 (94.4%) within one cell; mean +1.1 m; worst 72 m | 95% within a cell, mean within 5 m | **fails** (94.4% against 95%) |
+| Thrust against the flow applied at once, 20 m | 100.00% of 13183 cells | 99% | passes |
+| the same, 10 m | 100.00% of 250892 cells | 99% | passes |
+| Backlimb dip minus ramp dip | +0.1 deg (-1.1 to +1.6); 49 of 54 within 2 deg | 90% within 2 deg; errors up to ~1 deg expected | passes (91%) |
+| Rock kept per thrust slip, known-answer runs | 1.22% worst | below 2% | passes |
+| Rock kept per slip, all field sections | 3.58% worst | below 2% | **fails** |
+| Velocity 0.5 / 1 km below the sea floor | 1960 / 2200 m/s (-2% / -6% against Hamilton 1979) | within a few % of 1940 / 2200, slightly higher | as predicted |
+| Expansion index during / before activity | 1.07 (0.67-1.70) / 0.92 (0.56-1.13) | during about 1.15-1.3 | **prediction missed** (lower); still above 1 |
+| Heave grows for older units | 52 of 64 (81%); failing: 7 crossed, 4 nested, 1 other | about the same share as before (87%) | about the same (the 90% rule fails, as before) |
+| Throw grows within growth units | 49 of 61 | | mostly |
+| Normal-fault dip, sea floor to 1 km | 47 (37-59) deg | 45-55 (from 55: compaction flattens) | as predicted |
+| Slip, sedimentation, subsidence rates | 0.068, 0.238, 0.107 mm/yr | within the literature ranges | consistent |
+| Trapped water cells; determinism | 75 in 40 sections (0 in version 3); yes | | rounding by its rule (at most 5 a section), but new |
+| Thrust slip per section | 2.7 (1.2-4.7) km | for the record | |
+| Velocity inversions | extension 0.91, compression 0.76 of columns | for the record | the measure is flawed (below) |
+
+Reading, before any change:
+- Thrust kinematics are exact on both grids and the backlimb dips as the
+  ramp: fault-parallel flow is implemented as specified.
+- Compaction keeps every bed's solid exactly, but 5.6% of bed thicknesses are
+  more than a cell off, up to 72 m. Hypothesis: a bed one cell thick can never
+  lose its cell (so beds do not vanish), so beds thinner than a cell stay a
+  full cell thick and their excess is taken from the next bed that can lose
+  one; runs of thin beds pass several cells of error to one neighbour. If so,
+  the failing beds sit next to one-cell beds, and the error shrinks on a 10 m
+  grid. Not yet tested.
+- Rock kept per slip fails only in the field sections, not in the
+  known-answer runs (no compaction, uniform subsidence). Not known yet which
+  kind of fault gives the 3.58%. Hypothesis: compaction moves a thrust's
+  depth column by column, so between its bends the fault is no longer the
+  straight segment its flow lines are built from; hanging-wall cells near
+  the fault then take footwall-clamped or skipped rock. The 75 trapped
+  cells may be the same thing.
+- Expansion index: lower than predicted. Possible reason, after the fact:
+  compaction makes room everywhere, so every unit is thicker and the same
+  fault-driven extra thickness is a smaller ratio, and hanging-wall units,
+  being deeper, are more compacted. Not tested.
+- The inversion measure counts any drop of 300 m/s below faster rock, so
+  ordinary sand-shale alternation counts; it should use velocity smoothed
+  over a few hundred metres. A flaw in the measure, not in the simulator.
 
 ## Sources (searched 2026-10-11)
 
