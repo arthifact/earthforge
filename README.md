@@ -63,14 +63,22 @@ npm run dev      # http://localhost:5174
 npm run check    # type check
 ```
 
-The page shows one section large, as velocity or lithology, with a replay of
-its history, a velocity-depth plot and the section's facts. Beside it are the
-settings, and below are a gallery of six seeds and the checks. Sections are
-simulated in a pool of web workers, in parallel and off the page's thread; a
-new seed shows in about 0.1 s. The address keeps the seed and the settings, so
-a view can be shared.
+The page is a single full-screen tool:
+- The section fills the window, with distance and depth in km. *Fit* uses a
+  vertical exaggeration, shown as VE; *True scale* is 1:1.
+- A velocity log sits on the same depth axis, and a readout under the pointer
+  gives distance, depth, velocity and lithology.
+- A slider replays the history.
+- A slim side panel holds the settings and the section's facts.
+- How to use, Gallery, Checks and About open as dialogs.
+- Keys: R draws a new seed, G opens the gallery, ← → step through the
+  history, and Space replays it.
 
-In the page, **Run the checks** simulates 20-100 sections and compares them
+Sections are simulated in a pool of web workers, in parallel and off the
+page's thread; a new seed shows in about 0.1 s. The address keeps the seed and
+the settings, so a view can be shared.
+
+In **Checks**, *Run* simulates 20-100 sections and compares them
 with the literature:
 
 - velocity with depth (Hamilton 1979, 1985);
