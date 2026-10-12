@@ -497,6 +497,68 @@ Reading, before any change:
   ordinary sand-shale alternation counts; it should use velocity smoothed
   over a few hundred metres. A flaw in the measure, not in the simulator.
 
+### Debugging version 4 in the terminal (agreed; the record comes from the page)
+
+Rock kept per slip (3.58% in the field sections):
+1. A log of every slip's rock change showed it was thrusts only (normal faults
+   at most 1.23%), and it did not go away with compaction off: the hypothesis
+   that compaction bends the thrust was wrong.
+2. Next hypothesis: the stored fault strays from the straight polyline its
+   flow lines are built from (an emergent thrust's flat followed the bumpy
+   sea floor). It strayed by only 1-3 cells, and the error did not follow the
+   size of the strays. Straightening each thrust onto its polyline before it
+   slips, and making an emergent thrust's flat a straight line at or just
+   below the sea floor ahead (the sheet scrapes the top sediments off the
+   bumps), cut the trapped water from 65 to 27 cells but left the rock error
+   as it was: not the main cause. Both changes were kept (the flow is only
+   defined above the polyline).
+3. Mapping one bad slip cell by cell (which source cells no target took, and
+   which several took): about 280 duplicates in the row next to the fault
+   along the flats. In the field sections the flats tilt slightly (uneven
+   subsidence); each dip domain moved by whole cells, and its vertical move,
+   rounded on its own, pushed the row next to a gently sloping flat into it in
+   some columns and off it in others. The known-answer runs have level flats,
+   so they could not see it. Fix: within a domain, the hanging wall moves a
+   whole number of columns (the fraction carried to the next slip) and each
+   cell keeps its number of rows above the domain's fault segment.
+4. The first version of that fix counted rows above the stored fault under
+   each column, which broke the thrust known-answer test (96.2% at 20 m,
+   94.6% at 10 m, against 100% before): the cells off were more than 40 rows
+   above the fault next to a bend, where the leaning bisector puts a cell in
+   one domain while the fault under its column belongs to the other segment.
+   Counting rows above the domain's own segment line (extended) fixed it.
+5. Result (terminal): the thrust known-answer test back to 100.00% on both
+   grids; rock per thrust slip 0.38% worst in the tests and 0.50% in the 40
+   field sections; normal faults unchanged.
+
+Trapped water: with the duplicates gone, water pockets under rock appeared at
+emergent thrust fronts (151 cells): overhangs, which the exact flow makes
+where the front rolls forward over a lower sea floor (the duplicated rock had
+been filling them). Added a physical step after the slips: water below rock
+in a column closes as the rock above drops into it, faults above moving down
+with it (as in compaction). It is counted on the page (31 cells in the 19
+compression sections, 10 in the 21 extension ones, the latter rounding at
+scarps); none is left trapped.
+
+Compaction thickness (94.4% within a cell at 20 m): at 20 m, 55% of all beds
+are one cell thick (the grid cannot resolve them). The failing beds are just
+over a cell off (+21 to +22 m), and are not more often next to a one-cell bed
+than the passing ones (53% against 57%): the hypothesis that one-cell beds pass
+their excess to a neighbour is not supported. On a 10 m grid 99.85% of beds
+are within 20 m (mean error 0.3 m): the error is the grid's rounding. The rule
+at 20 m still fails; the page now also runs the test on a 10 m grid with the
+same 20 m tolerance, as for the heave test.
+
+Changed after seeing the results (for the record only, no rule): the velocity
+inversion measure now uses velocity averaged over 200 m of depth, so ordinary
+sand-shale alternation is not counted.
+
+Expected on the page now (the known-answer rows were seen in the terminal):
+heave unchanged (118 of 123; 131 of 131); thrust 100.00% on both grids;
+backlimb 49 of 54 within 2 degrees; compaction 20 m 13238 of 14019 (fails),
+10 m 25964 of 26002 (passes); rock per slip below 2% for both kinds; no
+trapped water. Compression field rows change a little (thrust geometry).
+
 ## Sources (searched 2026-10-11)
 
 - Soft-sand model equations (as implemented): https://rockphypy.readthedocs.io/en/stable/getting_started/07_Soft_Stiff_Cemented_sand_models.html , https://code.agilescientific.com/bruges/_modules/bruges/rockphysics/rockphysicsmodels.html

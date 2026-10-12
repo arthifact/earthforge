@@ -70,12 +70,12 @@ export interface Bed { unit: number; phase: Phase; a: number; b: number; c: numb
  * (top end first for dir 1, last for dir -1) toward its hanging wall and carries the fraction of a cell to its next
  * slip. A thrust is defined across the grid: lower flat, ramp, then an upper flat or the sea floor; it dips toward the
  * hinterland (dir = -transport); bends are the columns of its lower and upper bends, and per dip domain (lower flat,
- * ramp, upper flat) it carries the rounding of the hanging wall's whole-cell moves (m, x and z).
+ * ramp, upper flat) it carries the rounding of the hanging wall's whole-column moves (m).
  */
 export interface Fault {
   kind: "normal" | "thrust";
   dir: 1 | -1; depth: Float64Array; top: number; x: number[]; z: number[]; dip: number; detachment: number; start: number; end: number; heave: number; heaves: number[]; remainder: number;
-  thrust?: { transport: 1 | -1; bends: [number, number]; emergent: boolean; upper: number; carry: [number, number][] };
+  thrust?: { transport: 1 | -1; bends: [number, number]; emergent: boolean; upper: number; carry: number[] };
 }
 export interface StepLog { step: number; phase: Phase; text: string; subsidence: number; deposited: number; shift: number }
 export interface Snapshot { step: number; grid: Int32Array; burial: Float32Array; faults: { dir: 1 | -1; x: number[]; z: number[] }[] }
@@ -95,8 +95,8 @@ export interface Basin {
   basementVelocity: number;
   /** Overpressure top below the sea floor (m), or null. */
   overpressure: number | null;
-  /** trapped: water cells found below the sea floor; area: largest relative change of hanging-wall rock in one slip (both kinematics keep area). */
-  checks: { trapped: number; area: number; steps: number; seconds: number };
+  /** collapsed: water cells below rock closed after slips (overhangs at thrust fronts; rounding at scarps); trapped: water cells still found below the sea floor at the end; area: largest relative change of hanging-wall rock in one slip (both kinematics keep area), and that change for every slip. */
+  checks: { collapsed: number; trapped: number; area: number; slips: { step: number; fault: number; kind: Fault["kind"]; error: number }[]; steps: number; seconds: number };
 }
 
 function mulberry32(seed: number) {
@@ -160,6 +160,15 @@ export function thrustPoints(b: { nx: number; h: number }, f: Fault): V[] {
   return [back, th.bends[0], th.bends[1], front].filter((i, j, a) => j === 0 || i !== a[j - 1]).map((i) => [X(i), f.depth[i]] as V);
 }
 
+/** Depth of a polyline (points in transport order) at x: interpolated along its segments. */
+function polylineDepth(P: V[], x: number) {
+  for (let j = 0; j + 1 < P.length; j++) {
+    const [a, c] = [P[j], P[j + 1]], lo = Math.min(a[0], c[0]), hi = Math.max(a[0], c[0]);
+    if (x >= lo && x <= hi) return hi === lo ? a[1] : a[1] + (c[1] - a[1]) * (x - a[0]) / (c[0] - a[0]);
+  }
+  return Math.abs(x - P[0][0]) < Math.abs(x - P[P.length - 1][0]) ? P[0][1] : P[P.length - 1][1];
+}
+
 /** Depth used for compaction: below an overpressure top, shale-rich beds compact a quarter as fast (disequilibrium compaction). */
 export const effectiveDepth = (f: number, d: number, carbonate: boolean, overpressure: number | null) =>
   overpressure !== null && !carbonate && f < 0.4 && d > overpressure ? overpressure + 0.25 * (d - overpressure) : Math.max(0, d);
@@ -168,6 +177,10 @@ export const porosity = (f: number, de: number, carbonate: boolean) => {
   const curve = (c: { phi0: number; L: number }) => c.phi0 * Math.exp(-de / c.L);
   return carbonate ? curve(COMPACTION.chalk) : f * curve(COMPACTION.sand) + (1 - f) * curve(COMPACTION.shale);
 };
+
+/** Debugging only: called after every thrust slip with the grids before and after and how often each cell was taken. */
+export let debugSlip: ((info: { step: number; fault: number; nx: number; nz: number; h: number; grid: Int32Array; next: Int32Array; used: Int32Array; from: Int32Array; depth: Float64Array; F: FlowLine; s: number; corr: V[] }) => void) | null = null;
+export const setDebugSlip = (f: typeof debugSlip) => { debugSlip = f; };
 
 export function simulate(options: BasinOptions): Basin {
   const t0 = performance.now(), o = options, rng = mulberry32(o.seed * 2654435761 + 12345), setting = settingOf(o), names = PHASES[setting];
@@ -178,7 +191,9 @@ export function simulate(options: BasinOptions): Basin {
   const wd0 = u(30, 150), dt = u(0.5, 2);
   for (let k = 0; k < nz; k++) for (let i = 0; i < nx; i++) grid[k * nx + i] = k * h < wd0 ? WATER : BASEMENT;
   const beds: Bed[] = [], deposited: number[] = [], faults: Fault[] = [], log: StepLog[] = [], snapshots: Snapshot[] = [];
-  let areaError = 0, pre = grid.slice();
+  let areaError = 0, pre = grid.slice(), current = 0;
+  const slips: Basin["checks"]["slips"] = [];
+  const record = (f: Fault, error: number) => { areaError = Math.max(areaError, error); slips.push({ step: current, fault: faults.indexOf(f), kind: f.kind, error }); };
 
   // The plan of each setting (counts of steps per phase, faults, subsidence).
   let nPre: number, nSyn: number, nPost: number, subsidence: (stage: number, k: number) => (x: number) => number;
@@ -327,7 +342,7 @@ export function simulate(options: BasinOptions): Basin {
       for (let k = 0; k < nz; k++) { const z = k * h; if (!(z < zs) || z + dz >= ZMAX) break; if (grid[k * nx + is] !== WATER) before++; }
       moved += before; lost += Math.abs(after - before);
     }
-    if (moved > 0) areaError = Math.max(areaError, lost / moved);
+    if (moved > 0) record(f, lost / moved);
     grid = next; solid = nextSolid; burial = nextBurial;
     carry(f, (x, d) => {
       const i = col(x), c = i + f.dir * cells, zn = c >= 0 && c < nx ? f.depth[c] : NaN;
@@ -343,13 +358,22 @@ export function simulate(options: BasinOptions): Basin {
    * entered, minus what left.
    */
   const thrustSlip = (f: Fault, s: number) => {
-    const th = f.thrust!, F = flowLine(thrustPoints({ nx, h }, f));
-    const corr = F.t.map((t, j): V => {
-      const c = th.carry[j], ex = s * t[0], ez = s * t[1], dx = Math.round((ex - c[0]) / h), dz = Math.round((ez - c[1]) / h);
-      c[0] += dx * h - ex; c[1] += dz * h - ez;
-      return [ex - dx * h, ez - dz * h];
-    });
-    const next = grid.slice(), nextSolid = solid.slice(), nextBurial = burial.slice(), xmax = X(nx - 1);
+    // Straighten the fault onto its polyline first. Its flow lines are the polyline's parallels, so a cell on the
+    // hanging-wall side of the stored fault but under the polyline has no flow line (it took the cell above the
+    // fault, duplicating it). Compaction and per-column rounding bend the stored fault by a cell or two; straightening
+    // moves those cells to the other side once and keeps the rock.
+    const th = f.thrust!, P = thrustPoints({ nx, h }, f), F = flowLine(P);
+    for (let i = 0; i < nx; i++) f.depth[i] = polylineDepth(P, X(i));
+    // Within a dip domain the hanging wall translates along the domain's fault segment: it moves a whole number of
+    // columns (the fraction carried to the next slip, so it does not drift along the fault), and vertically each cell
+    // keeps its number of rows above that segment's line (extended beyond the segment where the domain, bounded by
+    // the leaning bisectors, overhangs the next segment), so the row next to the fault stays next to it. Rounding the
+    // vertical move on its own would push that row into a gently sloping flat in some columns and off it in others.
+    const D = F.t.map((t, j) => { const ex = s * t[0], dx = Math.round((ex - th.carry[j]) / h); th.carry[j] += dx * h - ex; return dx; });
+    const corr = F.t.map((t, j): V => [s * t[0] - D[j] * h, 0]);
+    const topRow = (i: number) => { const z = f.depth[i]; return Number.isFinite(z) ? Math.ceil(z / h) - 1 : nz - 1; };
+    const rowOf = (j: number, i: number) => { const [a, c] = [P[j], P[j + 1]]; return Math.ceil((a[1] + (c[1] - a[1]) * (X(i) - a[0]) / ((c[0] - a[0]) || 1)) / h) - 1; };
+    const next = grid.slice(), nextSolid = solid.slice(), nextBurial = burial.slice(), xmax = X(nx - 1), used = new Int32Array(debugSlip ? nx * nz : 0), from = new Int32Array(debugSlip ? nx * nz : 0).fill(-1);
     let before = 0, after = 0, inflow = 0, lost = 0;
     for (let i = 0; i < nx; i++) {
       const zf = f.depth[i], x = X(i);
@@ -360,17 +384,21 @@ export function simulate(options: BasinOptions): Basin {
           const [xa, za] = flowMove(F, x, z, s);
           if (za < -h / 2 || xa < -MARGIN - h / 2 || xa > xmax + h / 2) lost++;
         }
-        const j = domainOf(F, x, z), [xb, zb] = flowMove(F, x, z, -s), xs = xb + corr[j][0], zs = zb + corr[j][1];
-        let is = Math.round((xs + MARGIN) / h), outside = false;
+        // A cell whose rock comes from its own domain translates (above); one whose rock crossed a bend this slip
+        // takes the nearest cell to where the flow puts its source.
+        const j = domainOf(F, x, z), [xb, zb] = flowMove(F, x, z, -s), within = domainOf(F, xb, zb) === j;
+        let is = within ? i - D[j] : Math.round((xb + MARGIN) / h), outside = false;
         if (is < 0) { is = 0; outside = true; } else if (is >= nx) { is = nx - 1; outside = true; }
-        const zfs = f.depth[is], ks = Math.min(Math.round(zs / h), Number.isFinite(zfs) ? Math.ceil(zfs / h) - 1 : nz - 1);
+        const ks = Math.min(within ? k + rowOf(j, is) - rowOf(j, i) : Math.round(zb / h), topRow(is));
         if (ks < 0) { next[n] = WATER; nextSolid[n] = 0; nextBurial[n] = 0; continue; }
         const src = Math.min(nz - 1, ks) * nx + is;
         next[n] = grid[src]; nextSolid[n] = solid[src]; nextBurial[n] = burial[src];
         if (grid[src] !== WATER) { after++; if (outside) inflow++; }
+        if (debugSlip) { used[src]++; from[n] = src; }
       }
     }
-    if (before > 0) areaError = Math.max(areaError, Math.abs(after - (before + inflow - lost)) / before);
+    if (before > 0) record(f, Math.abs(after - (before + inflow - lost)) / before);
+    debugSlip?.({ step: current, fault: faults.indexOf(f), nx, nz, h, grid, next, used, from, depth: f.depth.slice(), F, s, corr });
     grid = next; solid = nextSolid; burial = nextBurial;
     carry(f, (x, z) => { const [xa, za] = flowMove(F, x, z, s), j = domainOf(F, xa, za); return [xa - corr[j][0], za - corr[j][1]]; });
     f.heave += s; f.heaves.push(s); sync(f);
@@ -384,21 +412,29 @@ export function simulate(options: BasinOptions): Basin {
   };
   /**
    * A thrust: a lower flat at a fraction of the sediment thickness above the basement (at the lower bend), a ramp at its
-   * dip, then an upper flat at a fraction of the way up from the detachment to the sea floor, or the sea floor itself.
+   * dip, then an upper flat at a fraction of the way up from the detachment to the sea floor, or (emergent) a straight
+   * flat along the sea floor ahead: the chord from where the ramp reaches the sea floor to the floor at the grid's
+   * edge, lowered until no part of the floor lies below it (the sheet slides on it and scrapes the top sediments off
+   * the bumps, leaving no water under the sheet).
    */
   const createThrust = (p: ThrustPlan): Fault => {
     const i1 = Math.min(nx - 2, Math.max(1, col(p.x1))), kf = top(grid, i1);
     let kb = kf; while (kb < nz && grid[kb * nx + i1] !== BASEMENT) kb++;
     const floor = kf * h, zd = Math.min(ZMAX - 200, floor + p.zdFrac * (kb * h - floor)), zu = floor + p.zuFrac * (zd - floor), tan = Math.tan(p.dip);
-    const depth = new Float64Array(nx), upper = (i: number) => p.emergent ? top(grid, i) * h : zu;
-    let i2 = p.transport > 0 ? nx - 1 : 0;
-    for (let j = 0; j < nx; j++) {
-      const i = p.transport > 0 ? j : nx - 1 - j, xi = p.transport * (X(i) - X(i1)), ramp = zd - Math.max(0, xi) * tan;
-      depth[i] = Math.max(ramp, upper(i));
-      if (xi > 0 && ramp <= upper(i) && p.transport * (i2 - i) > 0) i2 = i;
+    const order = (j: number) => p.transport > 0 ? j : nx - 1 - j, ramp = (i: number) => zd - Math.max(0, p.transport * (X(i) - X(i1))) * tan;
+    const reach = (upper: (i: number) => number) => { for (let j = 0; j < nx; j++) { const i = order(j); if (p.transport * (X(i) - X(i1)) > 0 && ramp(i) <= upper(i)) return i; } return order(nx - 1); };
+    let upper = (_: number) => zu;
+    if (p.emergent) {
+      const floorAt = (i: number) => top(grid, i) * h, a = reach(floorAt), front = order(nx - 1), za = floorAt(a), zf = floorAt(front);
+      const chord = (i: number) => za + (zf - za) * (X(i) - X(a)) / ((X(front) - X(a)) || 1);
+      let lower = 0;
+      for (let i = 0; i < nx; i++) if (p.transport * (X(i) - X(a)) >= 0) lower = Math.max(lower, floorAt(i) - chord(i));
+      upper = (i) => chord(i) + lower;
     }
+    const depth = new Float64Array(nx), i2 = reach(upper);
+    for (let i = 0; i < nx; i++) depth[i] = Math.max(ramp(i), upper(i));
     const f: Fault = { kind: "thrust", dir: (-p.transport) as 1 | -1, x: [], z: [], depth, top: i2, dip: p.dip, detachment: zd, start: p.start, end: p.end, heave: 0, heaves: [], remainder: 0,
-      thrust: { transport: p.transport, bends: [i1, i2], emergent: p.emergent, upper: p.emergent ? upper(i2) : zu, carry: [[0, 0], [0, 0], [0, 0]] } };
+      thrust: { transport: p.transport, bends: [i1, i2], emergent: p.emergent, upper: upper(i2), carry: [0, 0, 0] } };
     sync(f); return f;
   };
   /** A growing normal fault reaches up to sea level again along its top dip, column by column (it cuts the newest sediment). */
@@ -449,6 +485,36 @@ export function simulate(options: BasinOptions): Basin {
     }
     for (const f of faults) sync(f);
   };
+  /**
+   * Overhangs collapse: water below rock in a column (a thrust front rolled forward over a lower sea floor; a cell of
+   * rounding at a normal-fault scarp) closes as the rock above it moves down; a fault moves down with the cells closed
+   * below it, as in compaction.
+   */
+  let collapsed = 0;
+  const collapse = () => {
+    const closed: number[] = [];
+    for (let i = 0; i < nx; i++) {
+      const kf = top(grid, i);
+      if (kf >= nz) continue;
+      let w = nz - 1; closed.length = 0;
+      for (let k = nz - 1; k >= kf; k--) {
+        const n = k * nx + i;
+        if (grid[n] === WATER) { closed.push(k); continue; }
+        if (w !== k) { const m = w * nx + i; grid[m] = grid[n]; solid[m] = solid[n]; burial[m] = burial[n]; }
+        w--;
+      }
+      if (!closed.length) continue;
+      for (let k = kf; k <= w; k++) { const n = k * nx + i; grid[n] = WATER; solid[n] = 0; burial[n] = 0; }
+      for (const f of faults) {
+        const zf = f.depth[i];
+        if (!Number.isFinite(zf)) continue;
+        let m = 0; for (const k of closed) if (k * h >= zf) m++;
+        f.depth[i] += m * h;
+      }
+      collapsed += closed.length;
+    }
+    for (const f of faults) sync(f);
+  };
   /** Each rock cell's deepest burial below the sea floor so far. */
   const bury = () => {
     for (let i = 0; i < nx; i++) {
@@ -459,6 +525,7 @@ export function simulate(options: BasinOptions): Basin {
 
   for (let step = 0; step < total; step++) {
     const stage = step < nPre ? 0 : step < nPre + nSyn ? 1 : 2, phase = names[stage], parts: string[] = [];
+    current = step;
     const k = step - (stage === 0 ? 0 : stage === 1 ? nPre : nPre + nSyn);
     // 1. Subsidence.
     const s = subsidence(stage, k), shift = subside(s);
@@ -484,6 +551,7 @@ export function simulate(options: BasinOptions): Basin {
         parts.push(`thrust ${n + 1} slips ${f.heaves[f.heaves.length - 1].toFixed(0)} m (${f.heave.toFixed(0)} m so far)`);
       });
     }
+    collapse();
     // 3. Erosion above wave base; 4. deposition down to the base level.
     const lowstand = rng() < 0.2 && !o.quiet, wd = lowstand ? u(0, 40) : u(30, 300), waveBase = o.quiet ? 0 : wd - 30;
     let eroded = 0;
@@ -524,7 +592,7 @@ export function simulate(options: BasinOptions): Basin {
       else if (seen) { grid[n] = grid[n - nx]; solid[n] = solid[n - nx]; burial[n] = burial[n - nx]; trapped++; }
     }
   }
-  return { options: o, setting, nx, nz, h, grid, solid, burial, beds, faults, log, snapshots, deposited, pre, preSteps: nPre, dt, basementVelocity, overpressure, checks: { trapped, area: areaError, steps: total, seconds: (performance.now() - t0) / 1000 } };
+  return { options: o, setting, nx, nz, h, grid, solid, burial, beds, faults, log, snapshots, deposited, pre, preSteps: nPre, dt, basementVelocity, overpressure, checks: { collapsed, trapped, area: areaError, slips, steps: total, seconds: (performance.now() - t0) / 1000 } };
 }
 
 /** Sand fraction of a bed at x. */

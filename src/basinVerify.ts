@@ -29,8 +29,8 @@ export interface Verification {
   dips: number[];
   /** Rates (mm/yr): normal-fault slip along the dip, sedimentation (thickest per step), mean subsidence per step. */
   rates: { slip: number[]; sedimentation: number[]; subsidence: number[] };
-  /** Physics: largest relative rock change in a slip; trapped water cells; the first seed simulated twice gives the same grid. */
-  physics: { area: number; trapped: number; deterministic: boolean };
+  /** Physics: largest relative rock change in a slip, of normal faults and of thrusts; overhang cells collapsed; water cells still trapped at the end; the first seed simulated twice gives the same grid. */
+  physics: { area: number; areaNormal: number; areaThrust: number; collapsed: { extension: number; compression: number }; trapped: number; deterministic: boolean };
   /** Known-answer test (one fault, no erosion, no folds, no compaction), on the 20 m grid and again on a 10 m grid: units whose measured heave is within 40 m of the heave applied after their deposition; mean and largest error (m). */
   kinematics: { units: number; within: number; worst: number; mean: number; fine: { units: number; within: number; worst: number; mean: number } };
   /**
@@ -38,7 +38,7 @@ export interface Verification {
    * deposited (largest relative difference); and each bed's thickness in every tenth column against the thickness the
    * decompaction equation gives for its solid at its depth: runs measured, within one cell, mean and largest error (m).
    */
-  compaction: { beds: number; worstSolid: number; runs: number; within: number; mean: number; worst: number };
+  compaction: { beds: number; worstSolid: number; runs: number; within: number; mean: number; worst: number; fine: { runs: number; within: number; mean: number; worst: number } };
   /**
    * Known-answer tests of a thrust (one thrust, no erosion, uniform subsidence, no compaction), 20 m and 10 m grids:
    * hanging-wall cells of pre-thrust beds (2 cells from a bed boundary and from the fault) holding the bed the
@@ -46,7 +46,7 @@ export interface Verification {
    * the lower flat) minus the ramp dip (degrees); the largest rock change in a slip.
    */
   thrust: { cells: number; matched: number; fine: { cells: number; matched: number }; dips: number[]; area: number };
-  /** Compression sections: total thrust slip per section (km); fraction of window columns with a velocity inversion (a drop of 300 m/s below a faster rock above, within the sediments), per setting. */
+  /** Compression sections: total thrust slip per section (km); fraction of window columns with a velocity inversion (velocity averaged over 200 m dropping 300 m/s below its highest value above, within the sediments), per setting. */
   compression: { slip: number[]; inversions: { extension: number[]; compression: number[] } };
 }
 
@@ -165,12 +165,12 @@ export function compactedThickness(S: number, d: number, f: number, carbonate: b
   return 0.5 * (lo + hi);
 }
 
-/** The compaction known-answer test on one section (see Verification.compaction). */
-function compactionCheck(b: Basin, tally: Verification["compaction"], errors: number[]) {
+/** The compaction known-answer test on one section (see Verification.compaction); the thickness tally is per grid. */
+function compactionCheck(b: Basin, tally: Verification["compaction"], runs: { runs: number; within: number; worst: number }, errors: number[]) {
   const sum = new Float64Array(b.beds.length), deep = new Uint8Array(b.beds.length), floorCut = DOMAIN.depth - 300;
   for (let k = 0; k < b.nz; k++) for (let i = 0; i < b.nx; i++) { const n = k * b.nx + i, c = b.grid[n]; if (c >= 0) { sum[c] += b.solid[n]; if (k * b.h > floorCut) deep[c] = 1; } }
   b.deposited.forEach((dep, c) => { if (deep[c] || dep <= 0) return; tally.beds++; tally.worstSolid = Math.max(tally.worstSolid, Math.abs(sum[c] - dep) / dep); });
-  for (let i = 0; i < b.nx; i += 10) {
+  for (let i = 0; i < b.nx; i += Math.round(200 / b.h)) {
     let kf = 0; while (kf < b.nz && b.grid[kf * b.nx + i] === WATER) kf++;
     for (let k = kf; k < b.nz;) {
       const c = b.grid[k * b.nx + i];
@@ -179,7 +179,7 @@ function compactionCheck(b: Basin, tally: Verification["compaction"], errors: nu
       if (k2 * b.h <= floorCut && k2 - k >= 2) {
         const bed = b.beds[c], x = -DOMAIN.margin + i * b.h, f = Math.min(1, Math.max(0, bed.a + bed.b * Math.tanh((x - bed.c) / bed.d)));
         const error = (k2 - k) * b.h - compactedThickness(S, (k - kf) * b.h, f, bed.carbonate);
-        tally.runs++; errors.push(error); if (Math.abs(error) <= b.h) tally.within++; tally.worst = Math.max(tally.worst, Math.abs(error));
+        runs.runs++; errors.push(error); if (Math.abs(error) <= 20) runs.within++; runs.worst = Math.max(runs.worst, Math.abs(error));
       }
       k = k2;
     }
@@ -245,17 +245,23 @@ function thrustCheck(b: Basin, tally: { cells: number; matched: number }, dips: 
   }
 }
 
-/** Fraction of the window's columns with a velocity inversion: within the sediments, a drop of 300 m/s below a faster rock above. */
+/**
+ * Fraction of the window's columns with a velocity inversion: within the sediments, the velocity averaged over 200 m
+ * of depth drops 300 m/s below its highest value above (averaging keeps ordinary sand-shale alternation out; changed
+ * after the version 4 run counted that alternation).
+ */
 function inversions(w: ReturnType<typeof windowOf>) {
+  const half = Math.max(1, Math.round(100 / (DEPTH / (w.nz - 1))));
   let n = 0;
   for (let i = 0; i < w.nx; i++) {
+    const v: number[] = [];
+    for (let k = 0; k < w.nz; k++) if (w.beds[k * w.nx + i] >= 0) v.push(w.velocity[k * w.nx + i]);
     let fastest = 0;
-    for (let k = 0; k < w.nz; k++) {
-      const c = w.beds[k * w.nx + i];
-      if (c < 0) continue;
-      const v = w.velocity[k * w.nx + i];
-      if (v < fastest - 300) { n++; break; }
-      fastest = Math.max(fastest, v);
+    for (let k = half; k + half < v.length; k++) {
+      let sum = 0; for (let d = -half; d <= half; d++) sum += v[k + d];
+      const mean = sum / (2 * half + 1);
+      if (mean < fastest - 300) { n++; break; }
+      fastest = Math.max(fastest, mean);
     }
   }
   return n / w.nx;
@@ -266,9 +272,9 @@ export async function verify(base: BasinOptions, first: number, count: number, o
   const depthStep = 100, depths = Array.from({ length: Math.floor(DEPTH / depthStep) }, (_, k) => (k + 0.5) * depthStep);
   const vbin = 20, vlo = 1400, nv = Math.ceil((5600 - vlo) / vbin) + 1, hist = depths.map(() => new Float64Array(nv));
   const res: Verification = { sections: count, settings: { extension: 0, compression: 0 }, velocity: { depth: depths, p10: [], p50: [], p90: [] }, expansion: { before: [], during: [] }, throwGrows: { faults: 0, growing: 0 }, heaveGrows: { faults: 0, growing: 0 }, growthThrow: { faults: 0, growing: 0 }, heaveFailures: { crossed: 0, edge: 0, nested: 0, antithetic: 0, other: 0 }, dips: [],
-    rates: { slip: [], sedimentation: [], subsidence: [] }, physics: { area: 0, trapped: 0, deterministic: true },
+    rates: { slip: [], sedimentation: [], subsidence: [] }, physics: { area: 0, areaNormal: 0, areaThrust: 0, collapsed: { extension: 0, compression: 0 }, trapped: 0, deterministic: true },
     kinematics: { units: 0, within: 0, worst: 0, mean: 0, fine: { units: 0, within: 0, worst: 0, mean: 0 } },
-    compaction: { beds: 0, worstSolid: 0, runs: 0, within: 0, mean: 0, worst: 0 },
+    compaction: { beds: 0, worstSolid: 0, runs: 0, within: 0, mean: 0, worst: 0, fine: { runs: 0, within: 0, mean: 0, worst: 0 } },
     thrust: { cells: 0, matched: 0, fine: { cells: 0, matched: 0 }, dips: [], area: 0 },
     compression: { slip: [], inversions: { extension: [], compression: [] } } };
   const pause = () => new Promise((r) => setTimeout(r, 0));
@@ -290,14 +296,16 @@ export async function verify(base: BasinOptions, first: number, count: number, o
     }
     tally.mean = tally.units ? sum / tally.units : NaN;
   }
-  // Compaction: no faults, no erosion, no overpressure.
-  const compactionErrors: number[] = [];
-  for (let s = 0; s < 6; s++) {
-    onProgress?.(`known-answer test, compaction: ${s + 1} / 6`);
-    compactionCheck(simulate({ ...base, h: 20, seed: 910001 + s, setting: "extension", faults: [0, 0], quiet: true, compaction: true, overpressure: 0, record: false }), res.compaction, compactionErrors);
-    await pause();
+  // Compaction: no faults, no erosion, no overpressure; 20 m and 10 m grids (beds every 200 m, within 20 m on both).
+  for (const [runs, h] of [[res.compaction, 20], [res.compaction.fine, 10]] as const) {
+    const errors: number[] = [];
+    for (let s = 0; s < 6; s++) {
+      onProgress?.(`known-answer test, compaction, ${h} m grid: ${s + 1} / 6`);
+      compactionCheck(simulate({ ...base, h, seed: 910001 + s, setting: "extension", faults: [0, 0], quiet: true, compaction: true, overpressure: 0, record: false }), res.compaction, runs, errors);
+      await pause();
+    }
+    runs.mean = errors.length ? errors.reduce((a, c) => a + c, 0) / errors.length : NaN;
   }
-  res.compaction.mean = compactionErrors.length ? compactionErrors.reduce((a, c) => a + c, 0) / compactionErrors.length : NaN;
   // Thrust: one thrust, no erosion, uniform subsidence, no compaction; 20 m and 10 m grids.
   for (const [tally, h] of [[res.thrust, 20], [res.thrust.fine, 10]] as const) {
     for (let s = 0; s < 12; s++) {
@@ -312,7 +320,8 @@ export async function verify(base: BasinOptions, first: number, count: number, o
     const b = simulate({ ...base, seed: first + s, record: false }), w = windowOf(b);
     res.settings[b.setting]++;
     if (s === 0) { const again = simulate({ ...base, seed: first, record: false }); res.physics.deterministic = again.grid.every((x, i) => x === b.grid[i]); }
-    res.physics.area = Math.max(res.physics.area, b.checks.area); res.physics.trapped += b.checks.trapped;
+    res.physics.area = Math.max(res.physics.area, b.checks.area); res.physics.trapped += b.checks.trapped; res.physics.collapsed[b.setting] += b.checks.collapsed;
+    for (const sl of b.checks.slips) if (sl.kind === "normal") res.physics.areaNormal = Math.max(res.physics.areaNormal, sl.error); else res.physics.areaThrust = Math.max(res.physics.areaThrust, sl.error);
     res.compression.inversions[b.setting].push(inversions(w));
     if (b.setting === "compression") res.compression.slip.push(b.faults.reduce((a, f) => a + f.heave, 0) / 1000);
     // Velocity below the sea floor, sediments only (not basement or water).
