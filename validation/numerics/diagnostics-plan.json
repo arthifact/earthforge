@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "status": "exploratory mechanism study, selected from the existing conservative-thrust comparison before operation traces were inspected",
+  "simulation_plan": "plan.json (unchanged)",
+  "baseline": "data/numerics/conservative-thrust",
+  "targets": [
+    {
+      "case": "compaction-a",
+      "key": "unit:5:8400"
+    },
+    {
+      "case": "compaction-a",
+      "key": "unit:13:9200"
+    },
+    {
+      "case": "compaction-b",
+      "key": "unit:14:400"
+    },
+    {
+      "case": "compaction-b",
+      "key": "unit:14:9200"
+    },
+    {
+      "case": "normal-a",
+      "key": "unit:1:7600"
+    },
+    {
+      "case": "normal-a",
+      "key": "unit:10:9200"
+    },
+    {
+      "case": "normal-b",
+      "key": "unit:13:5200"
+    },
+    {
+      "case": "normal-b",
+      "key": "unit:12:4400"
+    },
+    {
+      "case": "thrust-a",
+      "key": "unit:13:9200"
+    },
+    {
+      "case": "thrust-a",
+      "key": "unit:10:1200"
+    },
+    {
+      "case": "thrust-b",
+      "key": "unit:2:5200"
+    },
+    {
+      "case": "thrust-b",
+      "key": "unit:9:8400"
+    },
+    {
+      "case": "coupled-extension-a",
+      "key": "unit:14:9200"
+    },
+    {
+      "case": "coupled-extension-a",
+      "key": "unit:13:9200"
+    },
+    {
+      "case": "coupled-extension-b",
+      "key": "unit:12:1200"
+    },
+    {
+      "case": "coupled-extension-b",
+      "key": "unit:4:1200"
+    },
+    {
+      "case": "coupled-extension-c",
+      "key": "unit:14:3600"
+    },
+    {
+      "case": "coupled-extension-c",
+      "key": "unit:14:4400"
+    },
+    {
+      "case": "coupled-compression-a",
+      "key": "unit:9:6000"
+    },
+    {
+      "case": "coupled-compression-a",
+      "key": "unit:13:6000"
+    },
+    {
+      "case": "coupled-compression-b",
+      "key": "unit:6:3600"
+    },
+    {
+      "case": "coupled-compression-b",
+      "key": "unit:5:3600"
+    },
+    {
+      "case": "coupled-compression-c",
+      "key": "unit:7:2800"
+    },
+    {
+      "case": "coupled-compression-c",
+      "key": "unit:20:9200"
+    }
+  ],
+  "comparison": "All original matched triples and all exclusions retained; reproduce baseline samples exactly before diagnosing. No new calibration or pass tolerance.",
+  "event_accounting": "Whole-column Eulerian unit quantities; process increments telescope to final values. These are not parcel trajectories.",
+  "compaction": "Independent bracketed root of the existing per-bed midpoint equation at realized overburden, compared with actual raster thickness. Record one-cell limiting and source-grain closure.",
+  "velocity_attribution": "Exact three-group state substitution over normalized interval thickness: present depth, composition/lithology, and burial/loading memory. Not a causal intervention on a basin history.",
+  "holdout": "No observational arrays read, copied or written."
+}

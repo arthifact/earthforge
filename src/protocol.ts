@@ -1,6 +1,7 @@
 // Messages between the page and the simulation workers.
 
 import type { BasinOptions, Phase, Setting } from "./basin";
+import type { BudgetSummary } from "./sedimentBudget";
 import type { Verification } from "./basinVerify";
 
 /** One state of the window (9.2 x 3 km at 20 m): velocity, bed index, lithology (sand fraction; -1 water, -2 basement, -3 carbonate), fault traces. */
@@ -17,6 +18,7 @@ export interface Section {
   faults: FaultInfo[];
   log: { phase: Phase; text: string }[];
   overpressure: number | null; basementVelocity: number; dt: number;
+  budget: BudgetSummary;
   checks: { trapped: number; collapsed: number; area: number; seconds: number };
   /** Today, and (if asked) after every step. */
   now: Frame; history: Frame[];

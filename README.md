@@ -45,22 +45,54 @@ Both settings share:
 - lateral facies changes;
 - mechanical compaction: beds thin with burial, keep their solid grains, and
   flatten the faults (Sclater and Christie 1980; Xiao and Suppe 1989);
-- velocity at each rock's deepest burial, since porosity is not regained on
-  uplift (Japsen);
+- transported rock composition, retained through faulting and compaction;
+- separate present effective pressure, maximum effective loading for irreversible
+  compaction, and maximum burial for the depth-based cementation proxy;
 - the soft-sand rock-physics model (Dvorkin and Nur 1996), cementing into
   Raymer-Hunt-Gardner;
-- optional overpressure and carbonates.
+- optional prescribed overpressure shared across sediment lithologies, and carbonates.
 
 [docs/verification-log.md](docs/verification-log.md) records every version.
 It includes the original rules, failures, subsequent repairs and changes to
 the checks. [docs/validation-audit.md](docs/validation-audit.md) describes what
 the tests establish, their limitations, and the outstanding field validation.
 
+[FORCE 2020 data intake](docs/force2020-intake.md) records the first observational
+dataset audit and reserved validation wells. The importer and its separate
+Python tests are documented in [the protocol](validation/force2020/protocol.md);
+the large original and derived logs are not included in the repository.
+The [first development comparison](docs/force2020-development.md) reports
+untuned velocity errors and quality/depth checks; it does not yet validate
+full basin histories or fault geometry.
+
+The [material-state repair and development rerun](docs/material-state-development.md)
+records composition transport, separate pressure/burial memory, new regression tests,
+and the unchanged primary FORCE result. The pressure gradient and cementation law
+remain explicit scenarios requiring field validation.
+
+The [conservative thrust repair](docs/conservative-thrust-transport.md) closes
+all 36 runs of the unchanged 40/20/10 m study, including the 15 compression runs
+that failed the [original sediment budget](docs/sediment-conservation-convergence.md).
+Every operation, bed and grain constituent is checked. Average grid differences
+shrink with refinement, but local convergence remains mixed. Holdout logs remain
+untouched.
+
+The [local convergence diagnosis](docs/grid-convergence-diagnosis.md) identified
+thin-bed loss and the one-cell compaction floor in that earlier revision.
+The [thin-bed repair](docs/thin-bed-preservation.md) now retains continuous
+material layers through deposition, compaction, erosion and fault transport.
+Velocity uses their actual pore volume and includes thin beds through harmonic
+averaging. On the same 1,205 unit/location triples, 20-to-10 m RMS velocity
+differences fall from 35.20 to 4.40 m/s; all 4,494 operation budgets still close.
+Local convergence and boundary sensitivity remain open questions. Neither the
+observational development arrays nor the holdout were used for this repair.
+
 ## Run
 
 ```sh
 npm install
 npm run dev      # http://localhost:5174
+npm run test:numerics # frozen 40/20/10 m study; no observational data
 npm run check    # type check
 npm test         # analytical tests, state invariants, lookup accuracy and batch regressions
 npm run build    # type check and production bundle
@@ -120,7 +152,8 @@ of the selected field ensemble:
 - thrust remapping against back-traced flow (an internal consistency check);
 - backlimb dip against ramp dip;
 - compaction against the decompaction equation;
-- rock area conserved by every slip.
+- rock area conserved by every slip;
+- full sediment grain-volume closure, per operation, bed and constituent.
 
 The test suite independently checks analytical thrust translation and bend
 geometry, porosity end members, the compaction integral, expansion measurements,

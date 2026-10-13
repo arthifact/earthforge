@@ -2,6 +2,10 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 import { build } from "esbuild";
+import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { execFileSync } from "node:child_process";
 
 // Exercise the same TypeScript simulator and checks used by the worker, without a browser.
 const bundle = await build({
@@ -13,7 +17,7 @@ const bundle = await build({
 });
 const { BASIN_DEFAULTS, DOMAIN, simulate, verify, checkRows, measureFault,
   flowLine, flowMove, porosity, compactedThickness, rockVelocity, windowOf,
-  medianVelocityAt, invalidStateCells, samePhysicalState } =
+  medianVelocityAt, invalidStateCells, samePhysicalState, sand, setDebugSlip, effectiveDepth, advanceHistory, rockState, remapCompactedMaterial } =
   await import(`data:text/javascript;base64,${Buffer.from(bundle.outputFiles[0].contents).toString("base64")}`);
 
 let benchmark;
@@ -22,6 +26,7 @@ const reference = () => benchmark ??= verify({ ...BASIN_DEFAULTS, faults: [1, 2]
 test("original known-answer tolerances and the reported seed 765183 batch", async () => {
   const result = await reference();
   const rows = checkRows(result);
+  // All original tolerances and the full grain budget must now pass.
   const failures = rows.filter((row) => row.status === "fail");
   assert.deepEqual(failures, [], JSON.stringify(failures, null, 2));
   assert.ok(result.kinematics.units >= 120, "retain the measurable coarse-grid horizons");
@@ -31,7 +36,7 @@ test("original known-answer tolerances and the reported seed 765183 batch", asyn
   assert.ok(result.compaction.within >= 0.95 * result.compaction.runs);
   assert.ok(Math.abs(result.compaction.mean) <= 5);
   assert.ok(result.compaction.meanAbs <= 5);
-  assert.ok(result.compaction.fine.meanAbs < result.compaction.meanAbs);
+  assert.ok(Math.abs(result.compaction.fine.meanAbs - result.compaction.meanAbs) < 1e-6, "continuous vertical compaction is independent of the display grid");
   assert.ok(result.kinematics.fine.mean < result.kinematics.mean);
   assert.ok(result.compaction.worstSolid < 1e-8);
   assert.ok(result.expansion.during.length > 50, "retain a substantial growth sample");
@@ -151,24 +156,121 @@ test("porosity end members and the independent integral conserve prescribed soli
   }
 });
 
-test("displayed velocity lookup stays within 5 m/s of rock physics, including overpressure boundaries", () => {
+test("displayed velocity preserves composition and loading history within 5 m/s", () => {
   const h = 20, nx = 661, nz = 226, grid = new Int32Array(nx * nz), burial = new Float32Array(nx * nz);
-  // Sweep sand fractions across the overpressure threshold and depths between table nodes.
-  const beds = Array.from({ length: nx }, (_, i) => ({ a: (i - 100) / 460, b: 0, c: 0, d: 1, carbonate: false }));
-  for (let k = 0; k < nz; k++) for (let i = 0; i < nx; i++) { grid[k * nx + i] = i; burial[k * nx + i] = k * h + 7; }
-  for (const overpressure of [null, 1805]) for (const carbonate of [false, true]) for (const offset of [7, 4007]) {
-    beds.forEach((bed) => { bed.carbonate = carbonate; });
-    for (let k = 0; k < nz; k++) burial.fill(k * h + offset, k * nx, (k + 1) * nx);
-    const b = { nx, nz, h, grid, burial, beds, overpressure };
-    const w = windowOf(b);
-    let worst = 0, location = "";
-    for (let k = 0; k < w.nz; k++) for (let i = 0; i < w.nx; i++) {
-      const expected = rockVelocity(i / 460, k * h + offset, carbonate, overpressure);
-      const error = Math.abs(w.velocity[k * w.nx + i] - expected);
-      if (error > worst) { worst = error; location = `sand ${i / 460}, depth ${k * h + offset}, overpressure ${overpressure}, carbonate ${carbonate}`; }
+  const sandFraction = new Float64Array(nx * nz), effectiveBurial = new Float32Array(nx * nz);
+  // Deliberately different depositional functions: the window must use carried material.
+  const beds = [{ a: 0.9, b: 0, c: 0, d: 1, carbonate: false }];
+  for (const overpressure of [null, 1805]) for (const carbonate of [false, true]) for (const offset of [0, 4007]) {
+    beds[0].carbonate = carbonate;
+    for (let k = 0; k < nz; k++) for (let i = 0; i < nx; i++) {
+      const n = k * nx + i, depth = (k + 0.5) * h;
+      sandFraction[n] = Math.max(0, Math.min(1, (i - 100) / 460));
+      burial[n] = depth + offset; effectiveBurial[n] = effectiveDepth(depth + offset, overpressure);
     }
-    assert.ok(worst <= 5, `${worst} m/s at ${location}`);
+    const b = { nx, nz, h, grid, burial, sandFraction, effectiveBurial, beds, overpressure };
+    const w = windowOf(b);
+    let worst = 0;
+    for (let k = 0; k < w.nz; k++) for (let i = 0; i < w.nx; i++) {
+      const n = k * nx + i + 100;
+      const expected = rockVelocity(i / 460, (k + 0.5) * h, carbonate, overpressure,
+        { maxBurial: burial[n], maxEffectiveDepth: effectiveBurial[n] });
+      worst = Math.max(worst, Math.abs(w.velocity[k * w.nx + i] - expected));
+      near(w.sandFraction[k * w.nx + i], i / 460, 1e-7);
+    }
+    assert.ok(worst <= 5, `${worst} m/s; pressure ${overpressure}, carbonate ${carbonate}, offset ${offset}`);
   }
+});
+
+// The pressure profile is a prescribed field, not a facies classifier. Expected
+// pressures below are computed directly from the declared density/gradient assumptions.
+test("pressure is continuous across facies and the overpressure top", () => {
+  near(effectiveDepth(1000, 1500), 1000);
+  near(effectiveDepth(3000, 1500), 1875);
+  for (const carbonate of [false, true]) for (const f of [0, 0.2, 0.399999, 0.400001, 0.8, 1]) {
+    near(rockState(f, 3000, carbonate, 1500).effectivePressure, (1950 - 1030) * 9.81 * 1875);
+  }
+  for (const depth of [100, 2000, 3000, 6000]) {
+    const jump = Math.abs(rockVelocity(0.399999, depth, false, 1500) - rockVelocity(0.400001, depth, false, 1500));
+    assert.ok(jump < 0.01, `${jump} m/s jump at depth ${depth}`);
+  }
+  for (const f of [0, 0.4, 1]) assert.ok(Math.abs(rockVelocity(f, 1500 - 1e-5, false, 1500) - rockVelocity(f, 1500 + 1e-5, false, 1500)) < 0.001);
+});
+
+test("burial, uplift, repressurization and reburial separate irreversible memory from current stress", () => {
+  let memory = { maxBurial: 0, maxEffectiveDepth: 0 };
+  memory = advanceHistory(memory, 2000, null);
+  const buried = rockState(0.5, 2000, false, null, memory);
+  memory = advanceHistory(memory, 500, null);
+  const uplifted = rockState(0.5, 500, false, null, memory);
+  near(uplifted.porosity, buried.porosity);
+  near(uplifted.cementFraction, buried.cementFraction);
+  near(uplifted.effectivePressure, buried.effectivePressure / 4);
+  assert.ok(rockVelocity(0.5, 500, false, null, memory) < rockVelocity(0.5, 2000, false, null, memory));
+  const pressured = rockState(0.5, 2000, false, 1000, memory);
+  near(pressured.porosity, buried.porosity, 1e-12);
+  assert.ok(pressured.effectivePressure < buried.effectivePressure);
+  assert.deepEqual(advanceHistory(memory, 1900, null), memory);
+  memory = advanceHistory(memory, 2500, null);
+  assert.ok(rockState(0.5, 2500, false, null, memory).porosity < buried.porosity);
+  const undercompacted = rockState(0.5, 2000, false, 1000);
+  assert.ok(undercompacted.porosity > buried.porosity);
+  near(undercompacted.cementFraction, buried.cementFraction);
+});
+
+test("compaction transports sand by solid volume and retains parcel loading maxima", () => {
+  const result = remapCompactedMaterial([2, 8], [0.2, 0.8], [3000, 1000], [2000, 700], [5, 5]);
+  near(result.sandFraction[0], (2 * 0.2 + 3 * 0.8) / 5);
+  near(result.sandFraction[1], 0.8);
+  near(result.sandFraction[0] * 5 + result.sandFraction[1] * 5, 2 * 0.2 + 8 * 0.8);
+  assert.deepEqual([...result.burial], [3000, 1000]);
+  assert.deepEqual([...result.effectiveBurial], [2000, 700]);
+  const unchanged = remapCompactedMaterial([2, 0, 8], [0.2, 0.3, 0.8], [3000, 0, 1000], [2000, 0, 700], [2, 8]);
+  assert.deepEqual([...unchanged.sandFraction], [0.2, 0.8]);
+  assert.throws(() => remapCompactedMaterial([2], [0.3], [1], [1], [3]), /more solid/);
+  assert.throws(() => remapCompactedMaterial([2], [0.3], [1], [1], [1]), /discards/);
+});
+
+test("normal and thrust slips carry composition and both memories with each source parcel", () => {
+  const counts = { normal: 0, thrust: 0 }, changedPosition = { normal: 0, thrust: 0 };
+  try {
+    setDebugSlip(info => {
+      for (const { source, moved, sourceColumn, destinationColumn } of info.normalTransfers ?? []) {
+        counts.normal++;
+        for (const field of ["fraction", "burial", "loading"]) assert.equal(moved[field], source[field]);
+        assert.ok(Math.abs(moved.solid / moved.height - source.solid / source.height) < 1e-12);
+        if (sourceColumn !== destinationColumn) changedPosition.normal++;
+      }
+      for (let n = 0; n < info.from.length; n++) {
+        const source = info.from[n];
+        if (source < 0 || info.next[n] < 0) continue;
+        counts[info.kind]++;
+        for (const field of ["sandFraction", "burial", "effectiveBurial"]) {
+          assert.equal(info.after[field][n], info.before[field][source], `${info.kind}: ${field}`);
+        }
+        if (source % info.nx !== n % info.nx) changedPosition[info.kind]++;
+      }
+    });
+    for (const setting of ["extension", "compression"]) simulate({ ...BASIN_DEFAULTS, seed: 765184, setting, overpressure: 1 });
+  } finally { setDebugSlip(null); }
+  for (const kind of ["normal", "thrust"]) {
+    assert.ok(counts[kind] > 1000); assert.ok(changedPosition[kind] > 1000);
+  }
+});
+
+test("deposited composition survives subsidence and compaction and replay uses its own material state", () => {
+  const b = simulate({ ...BASIN_DEFAULTS, seed: 765184, setting: "extension", faults: [0, 0], record: true, overpressure: 1 });
+  for (let i = 0; i < b.nx; i++) for (const p of b.columns[i]) if (p.bed >= 0) {
+    const bed = b.beds[p.bed], x = -DOMAIN.margin + i * b.h;
+    near(p.fraction, bed.carbonate ? 0 : sand(bed, x), 1e-10);
+  }
+  const snapshot = b.snapshots[2], before = windowOf(b, snapshot);
+  const original = snapshot.sandFraction.slice();
+  b.sandFraction.fill(0.99); b.effectiveBurial.fill(6000); b.burial.fill(6500);
+  for (const column of b.columns) for (const p of column) { p.fraction = 0.99; p.loading = 6000; p.burial = 6500; }
+  assert.deepEqual(snapshot.sandFraction, original);
+  assert.deepEqual(windowOf(b, snapshot).velocity, before.velocity);
+  assert.deepEqual(windowOf(b, snapshot).sandFraction, before.sandFraction);
 });
 
 test("velocity reference comparisons use bin centers, with no extrapolation or missing-bin bridge", () => {
@@ -184,11 +286,13 @@ test("velocity reference comparisons use bin centers, with no extrapolation or m
 });
 
 test("checks detect corrupted state, even if the rock IDs are unchanged", () => {
-  const good = { h: 20, grid: new Int32Array([-1, -2, 0]), solid: new Float64Array([0, 0, 10]), burial: new Float32Array([0, 0, 500]), beds: [{}], faults: [] };
+  const good = { h: 20, grid: new Int32Array([-1, -2, 0]), solid: new Float64Array([0, 0, 10]), burial: new Float32Array([0, 0, 500]), sandFraction: new Float64Array([0, 0, 0.4]), effectiveBurial: new Float32Array([0, 0, 400]), beds: [{}], faults: [] };
   assert.equal(invalidStateCells(good), 0);
   for (const mutate of [
     (b) => { b.solid[2] = 20.1; }, (b) => { b.solid[0] = 1; }, (b) => { b.solid[2] = NaN; },
     (b) => { b.burial[2] = -1; }, (b) => { b.burial[2] = Infinity; }, (b) => { b.grid[2] = 1; },
+    (b) => { b.sandFraction[2] = 1.01; }, (b) => { b.sandFraction[0] = 0.5; },
+    (b) => { b.effectiveBurial[2] = 600; }, (b) => { b.effectiveBurial[1] = 20; },
   ]) {
     const bad = structuredClone(good); mutate(bad);
     assert.equal(invalidStateCells(bad), 1);
@@ -232,7 +336,44 @@ test("both grids preserve physical bounds across compaction, pressure and carbon
     assert.equal(invalidStateCells(b), 0, label);
     assert.equal(b.checks.trapped, 0, label);
     assert.ok(b.checks.area < 0.02, label);
+    assert.equal(b.budget.summary.closed, true, label);
     assert.ok(windowOf(b).velocity.every((v) => Number.isFinite(v) && v >= 1500 && v <= 5600), label);
   }
   assert.equal(cases, 16);
+});
+
+
+test("FORCE exporter keeps uplift in history and leaves the hydrostatic reference unchanged", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "earthforge-profiles-"));
+  try {
+    const destination = join(directory, "profiles.json");
+    execFileSync(process.execPath, ["validation/force2020/model-profiles.mjs", destination], { cwd: fileURLToPath(new URL("..", import.meta.url)) });
+    const result = JSON.parse(await readFile(destination, "utf8"));
+    assert.equal(result.model_revision, "material-state-v2");
+    for (const [code, fraction] of [["65000", 0], ["30000", 1]]) {
+      // An uplifted, incompletely cemented bed must not retain the effective
+      // pressure of its past depth. The old exporter made these identical.
+      const bin = 40, depth = 810, profile = result.profiles.maximum_burial_plus_500m[code];
+      assert.ok(profile[bin] < rockVelocity(fraction, depth + 500, false, null) - 10);
+      for (const bin of [0, 40, 149]) {
+        let slowness = 0;
+        for (let m = 0; m < 20; m++) slowness += 1 / rockVelocity(fraction, bin * 20 + m + 0.5, false, null);
+        near(result.profiles.present_hydrostatic[code][bin], 20 / slowness, 1e-9);
+      }
+    }
+  } finally { await rm(directory, { recursive: true, force: true }); }
+});
+
+// A passing legacy 2% raster-area screen must not hide a failed grain budget.
+test("checks pass conservative thrust transport and still expose an injected grain failure", async () => {
+  const result = await reference();
+  assert.ok(result.physics.area < 0.02);
+  assert.equal(result.sediment.failedEvents, 0);
+  assert.equal(result.sediment.failedSections, 0);
+  const rows = checkRows(result).filter(r => r.group === "Sediment conservation");
+  assert.equal(rows.length, 1);
+  assert.equal(rows[0].status, "pass");
+  const corrupted = structuredClone(result);
+  corrupted.sediment.failedEvents = 1; corrupted.sediment.failedSections = 1;
+  assert.equal(checkRows(corrupted).find(r => r.group === "Sediment conservation").status, "fail");
 });

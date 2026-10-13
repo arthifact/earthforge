@@ -1,0 +1,136 @@
+{
+  "scope": "all physical arrays, bed definitions, fault state, step logs, deposited grains, physical parameters and recorded replay frames; excludes timing and new diagnostics",
+  "source_sha256": {
+    "before": "cf43ceef4f300a7c6da5e8eeaf580b144c4eb6e8a6ece1e301f6983ca5d182a1",
+    "after": "e28521d7748363b766b27805fe037169e529fde147b0daba67410868f2d025ea"
+  },
+  "observational_data": "none",
+  "rows": [
+    {
+      "options": {
+        "seed": 765184,
+        "h": 40,
+        "setting": "extension",
+        "faults": [
+          2,
+          4
+        ],
+        "thrusts": [
+          1,
+          3
+        ],
+        "overpressure": 1,
+        "carbonate": 0.1,
+        "compaction": true,
+        "record": true
+      },
+      "physical_state_sha256": "6624a5e69e629eaab1f983eba670bfd2a1e5bbd916b99a30af449f1a68344484",
+      "identical": true
+    },
+    {
+      "options": {
+        "seed": 765184,
+        "h": 40,
+        "setting": "compression",
+        "faults": [
+          2,
+          4
+        ],
+        "thrusts": [
+          1,
+          3
+        ],
+        "overpressure": 1,
+        "carbonate": 0.1,
+        "compaction": true,
+        "record": true
+      },
+      "physical_state_sha256": "ac9e563a69d0e2705dd75d7b08e59c7f5be02080251454d2369c8fe721f4a1a5",
+      "identical": true
+    },
+    {
+      "options": {
+        "seed": 765184,
+        "h": 20,
+        "setting": "extension",
+        "faults": [
+          2,
+          4
+        ],
+        "thrusts": [
+          1,
+          3
+        ],
+        "overpressure": 1,
+        "carbonate": 0.1,
+        "compaction": true,
+        "record": true
+      },
+      "physical_state_sha256": "fcdc2f9ca38f396161604032eb631664b7a2261a06809eab27cd1cefa06595ec",
+      "identical": true
+    },
+    {
+      "options": {
+        "seed": 765184,
+        "h": 20,
+        "setting": "compression",
+        "faults": [
+          2,
+          4
+        ],
+        "thrusts": [
+          1,
+          3
+        ],
+        "overpressure": 1,
+        "carbonate": 0.1,
+        "compaction": true,
+        "record": true
+      },
+      "physical_state_sha256": "0145ab69f51dfce843320d540706837f56871afd1baeb40ed23c4e9ede0de74f",
+      "identical": true
+    },
+    {
+      "options": {
+        "seed": 765184,
+        "h": 10,
+        "setting": "extension",
+        "faults": [
+          2,
+          4
+        ],
+        "thrusts": [
+          1,
+          3
+        ],
+        "overpressure": 1,
+        "carbonate": 0.1,
+        "compaction": true,
+        "record": true
+      },
+      "physical_state_sha256": "dc8af0254edd2147fadcc4f85fa35a7cd4cff230659df2b75aa2be16f50d06d5",
+      "identical": true
+    },
+    {
+      "options": {
+        "seed": 765184,
+        "h": 10,
+        "setting": "compression",
+        "faults": [
+          2,
+          4
+        ],
+        "thrusts": [
+          1,
+          3
+        ],
+        "overpressure": 1,
+        "carbonate": 0.1,
+        "compaction": true,
+        "record": true
+      },
+      "physical_state_sha256": "48d7145eae0fd558f0848c98a5f1f3a2bd9d0d0cfe3f1825a1338262207551bb",
+      "identical": true
+    }
+  ]
+}

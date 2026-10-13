@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "check": "tsc --noEmit",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "test:numerics": "node validation/numerics/run.mjs"
   },
   "devDependencies": {
     "esbuild": "^0.28.2",

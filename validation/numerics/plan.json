@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "status": "fixed before numerical-study results were inspected",
+  "grids_m": [40, 20, 10],
+  "observational_data": "none; no FORCE arrays or holdout reads",
+  "seed_policy": "identical seed, options, timestep count and generated bed definitions across grids; compare physical-plan fingerprints",
+  "budget_units": "m2 of sediment grains, equivalent to m3 per metre out of section",
+  "budget_tolerance": "1e-6 m2 + 1e-10 times the affected inventory scale, per component and per bed, per event",
+  "budget_policy": "count physical sources/sinks and each open face independently; retain raw residuals; never renormalize or label unaccounted interior loss a boundary flux",
+  "comparison_window_m": {"x": [0, 9200], "z": [0, 3000]},
+  "profile_x_m": [400, 1200, 2000, 2800, 3600, 4400, 5200, 6000, 6800, 7600, 8400, 9200],
+  "horizons": "same unit and profile x in all grids; unique contiguous complete intervals only; all rejected/absent/fragmented/boundary intervals retained with reason",
+  "interval_metrics": ["top_m", "thickness_m", "solid_height_m", "sand_fraction", "porosity", "maximum_burial_m", "effective_loading_m", "effective_velocity_m_s"],
+  "field_metrics": "slowness-integrated vertical travel time on common 0-3000 m support; sea-floor depth; matched fault depth at fixed x",
+  "classification": "report 40-20 and 20-10 differences, ratio, same-sample coverage and monotonic/oscillatory/noncontracting counts; 10 m is not truth; no accuracy pass claimed",
+  "cases": [
+    {"name":"compaction-a","seed":910001,"setting":"extension","faults":[0,0],"quiet":true,"compaction":true,"overpressure":0},
+    {"name":"compaction-b","seed":910003,"setting":"extension","faults":[0,0],"quiet":true,"compaction":true,"overpressure":0},
+    {"name":"normal-a","seed":900001,"setting":"extension","faults":[1,1],"quiet":true,"compaction":false,"overpressure":0},
+    {"name":"normal-b","seed":900006,"setting":"extension","faults":[1,1],"quiet":true,"compaction":false,"overpressure":0},
+    {"name":"thrust-a","seed":920001,"setting":"compression","thrusts":[1,1],"quiet":true,"compaction":false,"overpressure":0},
+    {"name":"thrust-b","seed":920006,"setting":"compression","thrusts":[1,1],"quiet":true,"compaction":false,"overpressure":0},
+    {"name":"coupled-extension-a","seed":765184,"setting":"extension","overpressure":1},
+    {"name":"coupled-extension-b","seed":20261020,"setting":"extension","overpressure":0},
+    {"name":"coupled-extension-c","seed":303003,"setting":"extension","carbonate":0.3},
+    {"name":"coupled-compression-a","seed":765184,"setting":"compression","overpressure":1},
+    {"name":"coupled-compression-b","seed":20261021,"setting":"compression","overpressure":0},
+    {"name":"coupled-compression-c","seed":303004,"setting":"compression","carbonate":0.3}
+  ]
+}

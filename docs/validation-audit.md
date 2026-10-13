@@ -26,8 +26,8 @@ This audit uses that distinction; it is not a certification against the standard
 
 The controlled benchmark seeds and options are fixed. User settings only
 change the field ensemble. Tests retain minimum sample counts to detect
-accidental loss of difficult measurements; the UI reports excluded one-cell
-and deep compaction intervals. Numerical tolerances describe discretization
+accidental loss of difficult measurements. Continuous compaction checks now include
+subcell/one-cell intervals and report deep intervals separately as exclusions. Numerical tolerances describe discretization
 error, not a percentage accuracy for real geology.
 
 ## Findings and changes
@@ -75,22 +75,34 @@ new tests pass.
    depth datum, lithology, pressure, uplift history and measurement quality.
    Compare simulated and measured velocity, density/porosity, layer thickness
    and fault geometry at matched spatial resolution. Candidate datasets are
-   the FORCE wells and Volve listed in the verification log; neither has been
-   evaluated here.
+   the FORCE wells and Volve listed in the verification log. The
+   [FORCE intake](force2020-intake.md) now records 118 imported wells, a frozen
+   94/24 development/holdout split. A [first conditional velocity comparison](force2020-development.md)
+   now scores the unchanged rock-physics function on 442 screened intervals
+   from 44 development wells (MAE 0.309 km/s). This is not validation of the
+   complete basin generator; the 24 holdout wells remain unscored.
 2. **Errors and coverage by setting.** Report bias, MAE/RMSE, tails and prediction
    interval coverage by depth and facies on held-out data. Compare against
    simple depth-only baselines. Choose acceptance limits from the intended
    use and measurement uncertainty before inspecting the results. A narrow
    Hamilton median match alone cannot test lateral structure or anomalies.
-3. **Conservation and convergence.** Add an independent sediment-solid budget
-   with every source, sink and boundary flux. Compare matched physical
-   horizons under 40/20/10 m refinement, retaining unresolved features as
-   coverage losses rather than silently discarding them. Current 20/10 m
-   measurements do not use identical interval populations.
+3. **Conservation and convergence.** The [conservative thrust repair](conservative-thrust-transport.md)
+   removed unaccounted sediment loss. The [thin-bed repair](thin-bed-preservation.md)
+   retains 36/36 closed runs and all 4,494 closed operation budgets under the same
+   40/20/10 m plan. On 1,205 shared unit/location triples, fine-grid RMS velocity
+   differences fall from 35.20 to 4.40 m/s and thickness differences from 24.31
+   to 4.22 m. Coverage changes from 1,381 to 1,301 of 2,820 opportunities because
+   continuous interfaces and physically thinner beds change eligibility. On the
+   shared cohort, 363 velocity triples remain noncontracting/new-change (352
+   before); 242 of these now differ by less than 1 m/s. Investigate remaining
+   coupled-fault and boundary sensitivity before claiming convergence or using
+   the holdout. Existing geometric tolerances are unchanged.
 4. **Constitutive assumptions.** Quantify sensitivity to porosity coefficients,
-   pressure, cementation and maximum-burial memory. The quarter-rate pressure
-   rule and its sharp facies switch, fixed cementation blend, isotropic
-   brine-only velocity and 1500–5600 m/s cap are modelling assumptions.
+   pressure, cementation and maximum-burial memory. The former sharp facies switch has been removed: a prescribed pressure profile now
+   applies across sediment lithologies. Current pressure, maximum effective loading,
+   and maximum burial are separate. The quarter-rate effective-loading gradient,
+   depth-based cementation proxy, isotropic brine-only velocity and 1500–5600 m/s cap
+   remain modelling assumptions. See the [material-state repair](material-state-development.md).
    Chalk coefficients remain unconfirmed in the source code. The exponential,
    irreversible compaction framework is described in the authors' [Strata
    manual, section 4.7](https://www.jsg.utexas.edu/flemings/files/Strata_Manual1.pdf);
@@ -105,3 +117,41 @@ new tests pass.
 Passing the current tests supports further development of this synthetic
 generator. “Super realistic” remains an empirical target, not an established
 property of the current release.
+
+
+## Local convergence diagnosis (2026-10-12)
+
+The [operation-trace study](grid-convergence-diagnosis.md) reproduces every
+conservative-thrust sample and all 4,494 closed budgets across the 36 frozen
+runs. It identifies unresolved thin-bed representation: the one-cell minimum
+can prevent the porosity law's compaction, and the resulting surface position
+changes later deposition. Grains remain conserved while raster pore volume and
+rock-physics porosity can disagree. The two no-fault controls show much smaller
+shared-cohort grid differences when compaction is disabled, a diagnostic
+intervention that changes physics and is not a repair.
+
+The optional observer and diagnostic tools have independent known-answer tests.
+They do not change simulator output or relax convergence criteria. Of 411
+noncontracting velocity triples, 104 have fine-grid changes below 10 m/s and
+98 exceed 50 m/s; these bins prioritize work, not establish accuracy thresholds.
+Subcell bed volumes, deposition, transport and boundary sensitivity still need
+verification. Holdout and development observational arrays remain untouched.
+
+
+## Thin-bed repair (2026-10-12)
+
+Continuous material columns replace the one-cell minimum. Per-bed grains,
+composition, loading and burial memories survive raster projection and both
+fault transports. Compaction solves a bracketed midpoint volume equation;
+velocity uses that actual pore volume. The independent integrated-law test
+also refines material quadrature separately from the 40/20/10 m display grid.
+The fixed 10 m maximum material parcel size is a numerical approximation, not
+a minimum bed thickness or a claim of geological accuracy.
+
+The comparison plan, seeds, prescribed histories and conservation tolerances
+are unchanged. Interval measurements now integrate real subcell interfaces
+rather than dominant display labels, retaining the original two-grid-cell
+eligibility rule. Saved earlier results remain historical evidence; the old
+whole-cell diagnosis and ablation runners refuse mismatched source revisions.
+The [repair report](thin-bed-preservation.md) records tests, coverage and the
+remaining limitations. No observational arrays or holdout files were accessed.

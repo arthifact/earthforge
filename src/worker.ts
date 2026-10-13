@@ -1,18 +1,18 @@
 // A simulation worker: runs the simulator off the page's thread, either one section (with its history if asked) or
 // the checks, and sends back only the window's arrays (transferred, not copied).
 
-import { BASEMENT, sand, simulate, WATER, windowOf, type Basin } from "./basin";
+import { BASEMENT, simulate, WATER, windowOf, type Basin, type MaterialState } from "./basin";
 import { verify } from "./basinVerify";
 import type { Frame, Reply, Request, Section } from "./protocol";
-import { H } from "./window";
+
 
 const post = (reply: Reply, transfer: Transferable[] = []) => (self as unknown as Worker).postMessage(reply, transfer);
 
-function frameOf(b: Basin, state: { grid: Int32Array; burial: Float32Array }, faults: { x: number[]; z: number[] }[]): Frame {
+function frameOf(b: Basin, state: MaterialState, faults: { x: number[]; z: number[] }[]): Frame {
   const w = windowOf(b, state), litho = new Float32Array(w.nx * w.nz);
   for (let k = 0; k < w.nz; k++) for (let i = 0; i < w.nx; i++) {
     const n = k * w.nx + i, c = w.beds[n];
-    litho[n] = c === WATER ? -1 : c === BASEMENT ? -2 : b.beds[c].carbonate ? -3 : sand(b.beds[c], i * H);
+    litho[n] = c === WATER ? -1 : c === BASEMENT ? -2 : b.beds[c].carbonate ? -3 : w.sandFraction[n];
   }
   return { nx: w.nx, nz: w.nz, velocity: w.velocity, beds: w.beds, litho, faults: faults.map((f) => ({ x: f.x.slice(), z: f.z.slice() })) };
 }
@@ -29,6 +29,7 @@ self.onmessage = async (event: MessageEvent<Request>) => {
         faults: b.faults.map((f) => ({ kind: f.kind, dir: f.dir, dip: f.dip, heave: f.heave, emergent: !!f.thrust?.emergent, transport: f.thrust?.transport ?? 1 })),
         log: b.log.map((l) => ({ phase: l.phase, text: l.text })),
         overpressure: b.overpressure, basementVelocity: b.basementVelocity, dt: b.dt,
+        budget: b.budget.summary,
         checks: { trapped: b.checks.trapped, collapsed: b.checks.collapsed, area: b.checks.area, seconds: b.checks.seconds },
         now: frameOf(b, b, b.faults), history: [],
       };

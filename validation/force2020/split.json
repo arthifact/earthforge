@@ -1,0 +1,481 @@
+{
+  "archive_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+  "method": "Lowest SHA256 ranks: ceil(20% of numeric parent-well groups)",
+  "purpose": "Earth Forge holdout; not the original FORCE competition split",
+  "salt": "earthforge-force2020-grouped-v1",
+  "version": 1,
+  "wells": {
+    "15/9-13": {
+      "group": "15/9-13",
+      "partition": "development"
+    },
+    "15/9-14": {
+      "group": "15/9-14",
+      "partition": "development"
+    },
+    "15/9-15": {
+      "group": "15/9-15",
+      "partition": "development"
+    },
+    "15/9-17": {
+      "group": "15/9-17",
+      "partition": "development"
+    },
+    "15/9-23": {
+      "group": "15/9-23",
+      "partition": "development"
+    },
+    "16/1-2": {
+      "group": "16/1-2",
+      "partition": "development"
+    },
+    "16/1-6 A": {
+      "group": "16/1-6",
+      "partition": "development"
+    },
+    "16/10-1": {
+      "group": "16/10-1",
+      "partition": "development"
+    },
+    "16/10-2": {
+      "group": "16/10-2",
+      "partition": "holdout"
+    },
+    "16/10-3": {
+      "group": "16/10-3",
+      "partition": "development"
+    },
+    "16/10-5": {
+      "group": "16/10-5",
+      "partition": "development"
+    },
+    "16/11-1 ST3": {
+      "group": "16/11-1",
+      "partition": "development"
+    },
+    "16/2-11 A": {
+      "group": "16/2-11",
+      "partition": "development"
+    },
+    "16/2-16": {
+      "group": "16/2-16",
+      "partition": "development"
+    },
+    "16/2-6": {
+      "group": "16/2-6",
+      "partition": "development"
+    },
+    "16/2-7": {
+      "group": "16/2-7",
+      "partition": "development"
+    },
+    "16/4-1": {
+      "group": "16/4-1",
+      "partition": "holdout"
+    },
+    "16/5-3": {
+      "group": "16/5-3",
+      "partition": "development"
+    },
+    "16/7-4": {
+      "group": "16/7-4",
+      "partition": "development"
+    },
+    "16/7-5": {
+      "group": "16/7-5",
+      "partition": "holdout"
+    },
+    "16/7-6": {
+      "group": "16/7-6",
+      "partition": "development"
+    },
+    "16/8-1": {
+      "group": "16/8-1",
+      "partition": "development"
+    },
+    "17/11-1": {
+      "group": "17/11-1",
+      "partition": "holdout"
+    },
+    "17/4-1": {
+      "group": "17/4-1",
+      "partition": "development"
+    },
+    "25/10-10": {
+      "group": "25/10-10",
+      "partition": "development"
+    },
+    "25/10-9": {
+      "group": "25/10-9",
+      "partition": "development"
+    },
+    "25/11-15": {
+      "group": "25/11-15",
+      "partition": "holdout"
+    },
+    "25/11-19 S": {
+      "group": "25/11-19",
+      "partition": "development"
+    },
+    "25/11-24": {
+      "group": "25/11-24",
+      "partition": "development"
+    },
+    "25/11-5": {
+      "group": "25/11-5",
+      "partition": "development"
+    },
+    "25/2-13 T4": {
+      "group": "25/2-13",
+      "partition": "holdout"
+    },
+    "25/2-14": {
+      "group": "25/2-14",
+      "partition": "development"
+    },
+    "25/2-7": {
+      "group": "25/2-7",
+      "partition": "development"
+    },
+    "25/3-1": {
+      "group": "25/3-1",
+      "partition": "development"
+    },
+    "25/4-5": {
+      "group": "25/4-5",
+      "partition": "development"
+    },
+    "25/5-1": {
+      "group": "25/5-1",
+      "partition": "holdout"
+    },
+    "25/5-3": {
+      "group": "25/5-3",
+      "partition": "development"
+    },
+    "25/5-4": {
+      "group": "25/5-4",
+      "partition": "holdout"
+    },
+    "25/6-1": {
+      "group": "25/6-1",
+      "partition": "development"
+    },
+    "25/6-2": {
+      "group": "25/6-2",
+      "partition": "development"
+    },
+    "25/6-3": {
+      "group": "25/6-3",
+      "partition": "development"
+    },
+    "25/7-2": {
+      "group": "25/7-2",
+      "partition": "development"
+    },
+    "25/8-5 S": {
+      "group": "25/8-5",
+      "partition": "development"
+    },
+    "25/8-7": {
+      "group": "25/8-7",
+      "partition": "development"
+    },
+    "25/9-1": {
+      "group": "25/9-1",
+      "partition": "development"
+    },
+    "26/4-1": {
+      "group": "26/4-1",
+      "partition": "development"
+    },
+    "29/3-1": {
+      "group": "29/3-1",
+      "partition": "development"
+    },
+    "29/6-1": {
+      "group": "29/6-1",
+      "partition": "development"
+    },
+    "30/3-3": {
+      "group": "30/3-3",
+      "partition": "development"
+    },
+    "30/3-5 S": {
+      "group": "30/3-5",
+      "partition": "development"
+    },
+    "30/6-5": {
+      "group": "30/6-5",
+      "partition": "development"
+    },
+    "31/2-1": {
+      "group": "31/2-1",
+      "partition": "development"
+    },
+    "31/2-10": {
+      "group": "31/2-10",
+      "partition": "development"
+    },
+    "31/2-19 S": {
+      "group": "31/2-19",
+      "partition": "development"
+    },
+    "31/2-21 S": {
+      "group": "31/2-21",
+      "partition": "holdout"
+    },
+    "31/2-7": {
+      "group": "31/2-7",
+      "partition": "holdout"
+    },
+    "31/2-8": {
+      "group": "31/2-8",
+      "partition": "holdout"
+    },
+    "31/2-9": {
+      "group": "31/2-9",
+      "partition": "development"
+    },
+    "31/3-1": {
+      "group": "31/3-1",
+      "partition": "development"
+    },
+    "31/3-2": {
+      "group": "31/3-2",
+      "partition": "development"
+    },
+    "31/3-3": {
+      "group": "31/3-3",
+      "partition": "holdout"
+    },
+    "31/3-4": {
+      "group": "31/3-4",
+      "partition": "development"
+    },
+    "31/4-10": {
+      "group": "31/4-10",
+      "partition": "development"
+    },
+    "31/4-5": {
+      "group": "31/4-5",
+      "partition": "holdout"
+    },
+    "31/5-4 S": {
+      "group": "31/5-4",
+      "partition": "development"
+    },
+    "31/6-5": {
+      "group": "31/6-5",
+      "partition": "development"
+    },
+    "31/6-8": {
+      "group": "31/6-8",
+      "partition": "development"
+    },
+    "32/2-1": {
+      "group": "32/2-1",
+      "partition": "development"
+    },
+    "33/5-2": {
+      "group": "33/5-2",
+      "partition": "development"
+    },
+    "33/6-3 S": {
+      "group": "33/6-3",
+      "partition": "holdout"
+    },
+    "33/9-1": {
+      "group": "33/9-1",
+      "partition": "development"
+    },
+    "33/9-17": {
+      "group": "33/9-17",
+      "partition": "holdout"
+    },
+    "34/10-16 R": {
+      "group": "34/10-16",
+      "partition": "development"
+    },
+    "34/10-19": {
+      "group": "34/10-19",
+      "partition": "development"
+    },
+    "34/10-21": {
+      "group": "34/10-21",
+      "partition": "development"
+    },
+    "34/10-33": {
+      "group": "34/10-33",
+      "partition": "development"
+    },
+    "34/10-35": {
+      "group": "34/10-35",
+      "partition": "holdout"
+    },
+    "34/11-1": {
+      "group": "34/11-1",
+      "partition": "development"
+    },
+    "34/11-2 S": {
+      "group": "34/11-2",
+      "partition": "development"
+    },
+    "34/12-1": {
+      "group": "34/12-1",
+      "partition": "development"
+    },
+    "34/2-4": {
+      "group": "34/2-4",
+      "partition": "development"
+    },
+    "34/3-1 A": {
+      "group": "34/3-1",
+      "partition": "development"
+    },
+    "34/3-2 S": {
+      "group": "34/3-2",
+      "partition": "development"
+    },
+    "34/3-3 A": {
+      "group": "34/3-3",
+      "partition": "development"
+    },
+    "34/4-10 R": {
+      "group": "34/4-10",
+      "partition": "development"
+    },
+    "34/5-1 A": {
+      "group": "34/5-1",
+      "partition": "development"
+    },
+    "34/5-1 S": {
+      "group": "34/5-1",
+      "partition": "development"
+    },
+    "34/6-1 S": {
+      "group": "34/6-1",
+      "partition": "development"
+    },
+    "34/7-13": {
+      "group": "34/7-13",
+      "partition": "development"
+    },
+    "34/7-20": {
+      "group": "34/7-20",
+      "partition": "holdout"
+    },
+    "34/7-21": {
+      "group": "34/7-21",
+      "partition": "development"
+    },
+    "34/8-1": {
+      "group": "34/8-1",
+      "partition": "holdout"
+    },
+    "34/8-3": {
+      "group": "34/8-3",
+      "partition": "development"
+    },
+    "34/8-7 R": {
+      "group": "34/8-7",
+      "partition": "holdout"
+    },
+    "35/11-1": {
+      "group": "35/11-1",
+      "partition": "development"
+    },
+    "35/11-10": {
+      "group": "35/11-10",
+      "partition": "development"
+    },
+    "35/11-11": {
+      "group": "35/11-11",
+      "partition": "development"
+    },
+    "35/11-12": {
+      "group": "35/11-12",
+      "partition": "development"
+    },
+    "35/11-13": {
+      "group": "35/11-13",
+      "partition": "development"
+    },
+    "35/11-15 S": {
+      "group": "35/11-15",
+      "partition": "holdout"
+    },
+    "35/11-5": {
+      "group": "35/11-5",
+      "partition": "development"
+    },
+    "35/11-6": {
+      "group": "35/11-6",
+      "partition": "development"
+    },
+    "35/11-7": {
+      "group": "35/11-7",
+      "partition": "development"
+    },
+    "35/12-1": {
+      "group": "35/12-1",
+      "partition": "development"
+    },
+    "35/3-7 S": {
+      "group": "35/3-7",
+      "partition": "holdout"
+    },
+    "35/4-1": {
+      "group": "35/4-1",
+      "partition": "development"
+    },
+    "35/6-2 S": {
+      "group": "35/6-2",
+      "partition": "holdout"
+    },
+    "35/8-4": {
+      "group": "35/8-4",
+      "partition": "development"
+    },
+    "35/8-6 S": {
+      "group": "35/8-6",
+      "partition": "development"
+    },
+    "35/9-10 S": {
+      "group": "35/9-10",
+      "partition": "holdout"
+    },
+    "35/9-2": {
+      "group": "35/9-2",
+      "partition": "development"
+    },
+    "35/9-5": {
+      "group": "35/9-5",
+      "partition": "development"
+    },
+    "35/9-6 S": {
+      "group": "35/9-6",
+      "partition": "development"
+    },
+    "35/9-7": {
+      "group": "35/9-7",
+      "partition": "development"
+    },
+    "35/9-8": {
+      "group": "35/9-8",
+      "partition": "holdout"
+    },
+    "36/7-3": {
+      "group": "36/7-3",
+      "partition": "development"
+    },
+    "7/1-1": {
+      "group": "7/1-1",
+      "partition": "development"
+    },
+    "7/1-2 S": {
+      "group": "7/1-2",
+      "partition": "development"
+    }
+  }
+}

@@ -708,3 +708,146 @@ basins (growth faults with thickening hanging walls, rollovers, unconformities
 on highs, compaction trends, lateral facies)? Marmousi is shown beside the gallery
 for comparison only (when its file is present); the rules above were written
 from basin geology before looking at it for this.
+
+
+## Material composition and pressure/burial repair (2026-10-12)
+
+Transported composition and separate present pressure/irreversible loading/burial
+memory are implemented. See [the repair report](material-state-development.md) for
+the assumptions, tests and unchanged primary FORCE development result. All 19
+JavaScript and 13 Python tests pass without relaxing numerical tolerances. The
+24 held-out wells remain unscored; their log arrays were neither read nor changed.
+
+
+## Full sediment budget and 40/20/10 m refinement (2026-10-12)
+
+See [the numerical study](sediment-conservation-convergence.md). Independent
+full-domain inventories and explicit deposition, erosion and all boundary flows
+are recorded per operation, step, bed and grain constituent. No flux is inferred
+from a residual and no grains are renormalized. The frozen 12-case, three-grid
+study produces 4,494 events: all 21 extension runs close, while 135 thrust events
+in all 15 compression runs fail the roundoff-only criterion. The old 2% area rule
+is unchanged and cannot override this new failure. The app shows both diagnostics.
+
+Matched refinement uses one common cohort of 1,417 unit/location triples, with
+all 2,820 candidates retained in a coverage ledger. RMS interval-velocity changes
+are 91.92 m/s (40→20) and 36.99 m/s (20→10); 421 triples do not contract. The 10 m
+run is not truth, and no universal convergence or field-accuracy claim is made.
+
+All 35 JavaScript and 13 synthetic Python tests pass, along with type checking
+and the production build. Tests explicitly require current thrust failures to
+be reported. The numerical-study command saves its results and exits 1 when
+conservation fails; software tests passing does not imply physical closure.
+Physical output and all replay frames match the pre-instrumentation simulator
+exactly on both settings at all three grids. No physical parameter was retuned.
+No development or holdout observational arrays were read or changed.
+
+
+## Conservative thrust transport (2026-10-12)
+
+The [thrust repair](conservative-thrust-transport.md) assigns every retained rock
+parcel once, preserving grain volume, bed composition and burial/loading maxima.
+Continuous position offsets prevent repeated raster placement from accumulating
+false motion. Compaction conserves the lateral grain moment, and placement
+vacancies are distinguished from physical overhang collapse. Allocation tries a
+two-cell stencil first, reports a bounded third-cell retry when necessary, and
+fails explicitly if that cannot fit all parcels. The extreme-case sweep exercises
+the wider search; the frozen numerical study never needs it.
+
+All 50 JavaScript and 13 synthetic Python tests pass, as do type checking and the
+production build. The original 99% thrust consistency and backlimb-dip tolerances
+remain unchanged and pass. Independent transport fixtures check grain/constituent
+closure, exact continuous paths, boundaries, footwall preservation, history and
+composition, repeated small steps, optimal local assignment and explicit failure.
+
+The same 12 histories at 40/20/10 m now give 36/36 closed runs and zero failed
+operation budgets (formerly 135 failing thrust events). All 4,494 events close,
+with a largest event/bed/component residual of 7.55e-6 m² under the original
+roundoff tolerance. All 21 extension budget and comparison outputs are unchanged.
+
+The new interval cohort contains 1,381 of 2,820 opportunities; 411 velocity
+triples do not contract. Pooled velocity differences are 84.96 and 36.98 m/s.
+On the 1,370 triples shared by both revisions, fine-grid RMS velocity difference
+is effectively unchanged, 36.79 to 36.81 m/s. Conservation is repaired; no claim
+of uniform convergence or field accuracy is made. Original results are retained,
+and the new summaries and complete ledgers record the final source/plan hashes.
+No observational development or holdout arrays were read or changed.
+
+
+## Local grid-convergence diagnosis (2026-10-12)
+
+The [diagnostic study](grid-convergence-diagnosis.md) adds an optional synchronous
+operation observer, independent continuous compaction roots, exact velocity
+state-substitution diagnostics, and synthetic operation traces. No production
+physics or metric rule changes. The 36 standard runs reproduce all earlier
+samples and coverage exactly and close all 4,494 budget events. Whole-column
+process increments reproduce final inventories, including vanished units.
+
+Six new diagnostic tests pass. The full JavaScript run passed 55 tests; its only
+failure was an unchanged synthetic exporter helper omitted from the isolated
+workspace. After restoring that helper and its benchmark metadata (no log data),
+the remaining test passed in a targeted rerun. Thus all 56 current tests have
+passed, including the original geometry gates, physical extremes and worker
+transfer. Type checking and the production build pass. The initial full run and
+successful targeted rerun are retained in the task verification record. Python
+importer tests were not rerun because neither that code nor its data path changed.
+
+The independent bracketed compaction solution yields the same rounded cell count
+as production in every sampled bed-run event. Continuous solutions below one
+cell occur in 52.10%, 23.72% and 10.15% of the sampled compaction events at 40,
+20 and 10 m. The largest matched interval lookup discrepancy is 1.52 m/s.
+Disabling compaction in the two no-fault controls reduces shared-cohort fine-grid
+velocity RMS from 57.32 to 11.24 m/s and 35.06 to 8.61 m/s. That intervention
+changes physics and is only a mechanism probe. The original convergence scores,
+coverage rules and thresholds are unchanged; 411 velocity triples still do not
+contract. The next repair is a subcell representation of bed volume and material,
+with grain and pore-volume consistency checked together. No observational
+arrays, development scores, holdout logs or split files were read or changed.
+
+
+## Continuous thin-bed preservation (2026-10-12)
+
+The [thin-bed repair](thin-bed-preservation.md) replaces the one-cell minimum
+with ordered continuous material columns. Deposition, compaction, erosion,
+subsidence, normal shear and budgets preserve real layer thickness and grains;
+thrust parcels carry every mixed-cell component. Velocity uses actual pore
+volume, present stress and retained memory, with harmonic projection to cells.
+
+The broad regression initially exposed raster assumptions in normal-fault
+shear and cutoff measurement. Both now operate on continuous interfaces.
+Independent planar fixtures recover thin-horizon displacement at 40/20/10 m
+in either direction. All 72 final JavaScript tests pass, including 16 new tests,
+physical extremes, repeatability, replay, worker transfer and the original
+geometry gates. The full run uses a 12 GiB Node heap allowance after the
+default-memory run spent prolonged time near its limit. Type checking and the production build pass. The 24 normal
+controls retain 122 coarse and 130 fine horizons, with worst heave errors
+19.31 and 7.24 m under the unchanged 40 m rule. No tolerance was relaxed.
+
+The same 12 histories at 40/20/10 m close all 36 runs and all 4,494 event
+budgets. The largest event/bed/component residual is 1.23e-6 m² within the
+original inventory-scaled tolerance; no sediment is added by repair. All
+prescribed-history and plan fingerprints match the previous revision.
+
+True subcell interfaces replace dominant-pixel interval measurements while
+retaining the two-cell eligibility and other exclusion rules. Coverage is
+1,301 of 2,820 opportunities (previously 1,381). On the 1,205 triples shared
+by both revisions, fine-grid RMS velocity differences fall from 35.20 to
+4.40 m/s and thickness differences from 24.31 to 4.22 m. On 144 common profiles,
+vertical travel-time RMS falls from 12.86 to 0.85 ms. Shared samples above
+50 m/s fall from 141 to zero. Strict noncontracting/new-change classifications
+remain (363, including 242 below 1 m/s); uniform convergence is not claimed.
+The whole new cohort has a maximum fine-grid velocity difference of 76.09 m/s.
+
+Tests check layer composition instead of aggregate pixel labels and continuous
+compaction invariance instead of requiring output-grid resampling to improve
+an already continuous answer. The positive-erosion case checks a genuinely
+uplifted history against its independently reconstructed wave base. Historical
+whole-cell diagnosis/ablation runners fail early on mismatched source revisions.
+Saved earlier results remain intact. Final source hashes, ledgers and verification
+records are stored alongside the report. Runtime/memory costs and remaining
+cell-based thrust/boundary approximations are explicit limitations.
+
+No observational arrays or split files were read or changed. The unchanged
+synthetic exporter helper and its benchmark metadata were used by the existing
+regression. Python importer tests were not rerun because that code and data
+path were unchanged. The holdout remains untouched.

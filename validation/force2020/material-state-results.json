@@ -1,0 +1,466 @@
+{
+  "access_audit": {
+    "holdout_access_forbidden": true,
+    "opened_development_logs": [
+      "15_9-13.npz",
+      "15_9-14.npz",
+      "15_9-15.npz",
+      "15_9-17.npz",
+      "15_9-23.npz",
+      "16_1-2.npz",
+      "16_10-1.npz",
+      "16_10-3.npz",
+      "16_10-5.npz",
+      "16_2-16.npz",
+      "16_2-6.npz",
+      "16_2-7.npz",
+      "16_5-3.npz",
+      "16_7-4.npz",
+      "16_7-6.npz",
+      "16_8-1.npz",
+      "17_4-1.npz",
+      "25_10-10.npz",
+      "25_10-9.npz",
+      "25_11-24.npz",
+      "25_11-5.npz",
+      "25_2-14.npz",
+      "25_2-7.npz",
+      "25_3-1.npz",
+      "25_4-5.npz",
+      "25_5-3.npz",
+      "25_6-1.npz",
+      "25_6-2.npz",
+      "25_6-3.npz",
+      "25_7-2.npz",
+      "25_8-7.npz",
+      "25_9-1.npz",
+      "26_4-1.npz",
+      "30_3-3.npz",
+      "30_6-5.npz",
+      "31_2-1.npz",
+      "31_2-10.npz",
+      "31_2-9.npz",
+      "31_3-1.npz",
+      "31_3-2.npz",
+      "31_3-4.npz",
+      "31_4-10.npz",
+      "31_6-5.npz",
+      "31_6-8.npz",
+      "32_2-1.npz",
+      "33_5-2.npz",
+      "33_9-1.npz",
+      "34_10-19.npz",
+      "34_10-21.npz",
+      "34_11-1.npz",
+      "34_12-1.npz",
+      "34_2-4.npz",
+      "34_3-2 S.npz",
+      "34_4-10 R.npz",
+      "34_7-21.npz",
+      "34_8-3.npz",
+      "35_11-1.npz",
+      "35_11-10.npz",
+      "35_11-11.npz",
+      "35_11-12.npz",
+      "35_11-13.npz",
+      "35_11-5.npz",
+      "35_11-6.npz",
+      "35_11-7.npz",
+      "35_12-1.npz",
+      "35_8-4.npz",
+      "35_9-2.npz",
+      "35_9-5.npz",
+      "35_9-7.npz",
+      "36_7-3.npz",
+      "7_1-1.npz"
+    ],
+    "plan_sha256": "7b2dfcaace0b71f559d8a473d871d9c7afbcc66fe3e3c0862d324456ead873bf",
+    "split_sha256": "7b1b17b24c837ca5506bd1b04e6a221573d832c7b6898d5a8bbadfdad0e3f080"
+  },
+  "by_depth": {
+    "0-1000m": {
+      "baseline_loo": {
+        "bias_m_s": 39.73271256666592,
+        "groups": 14,
+        "mae_m_s": 185.6898813973039,
+        "rmse_m_s": 250.68591075582296,
+        "wells": 14,
+        "windows": 55
+      },
+      "present_hydrostatic": {
+        "bias_m_s": -71.57287812991909,
+        "groups": 14,
+        "mae_m_s": 149.48869371439486,
+        "rmse_m_s": 232.05919051060937,
+        "wells": 14,
+        "windows": 55
+      }
+    },
+    "1000-2000m": {
+      "baseline_loo": {
+        "bias_m_s": 80.14285628067962,
+        "groups": 32,
+        "mae_m_s": 353.0032903940318,
+        "rmse_m_s": 412.056219566594,
+        "wells": 32,
+        "windows": 277
+      },
+      "present_hydrostatic": {
+        "bias_m_s": -53.20488134408001,
+        "groups": 32,
+        "mae_m_s": 291.17312094650606,
+        "rmse_m_s": 391.40632204764717,
+        "wells": 32,
+        "windows": 277
+      }
+    },
+    "2000-3000m": {
+      "baseline_loo": {
+        "bias_m_s": -19.113855475196928,
+        "groups": 25,
+        "mae_m_s": 353.47576830206935,
+        "rmse_m_s": 427.894893945222,
+        "wells": 25,
+        "windows": 110
+      },
+      "present_hydrostatic": {
+        "bias_m_s": 116.06691745498901,
+        "groups": 25,
+        "mae_m_s": 313.3858041375806,
+        "rmse_m_s": 389.6823328324165,
+        "wells": 25,
+        "windows": 110
+      }
+    }
+  },
+  "by_facies": {
+    "Sandstone": {
+      "baseline_loo": {
+        "bias_m_s": -169.88995694075507,
+        "groups": 24,
+        "mae_m_s": 323.3856931830188,
+        "rmse_m_s": 413.89960607461484,
+        "wells": 24,
+        "windows": 53
+      },
+      "present_hydrostatic": {
+        "bias_m_s": -41.74707781280616,
+        "groups": 24,
+        "mae_m_s": 326.1873305723407,
+        "rmse_m_s": 423.49720156095907,
+        "wells": 24,
+        "windows": 53
+      }
+    },
+    "Shale": {
+      "baseline_loo": {
+        "bias_m_s": 69.74572665099979,
+        "groups": 40,
+        "mae_m_s": 341.96678539109143,
+        "rmse_m_s": 410.8054135261156,
+        "wells": 40,
+        "windows": 389
+      },
+      "present_hydrostatic": {
+        "bias_m_s": -18.236545645615713,
+        "groups": 40,
+        "mae_m_s": 302.1255320954552,
+        "rmse_m_s": 403.628108192312,
+        "wells": 40,
+        "windows": 389
+      }
+    }
+  },
+  "comparison_source_sha256": "4f20c65d6fefa961b5a6e4b893db12cbf1fdcd5129699375908cfcb1a52f154d",
+  "completed_on": "2026-10-12",
+  "constant_sonic_windows": 1,
+  "depth_exclusions": [
+    {
+      "reason": "unresolved well identity",
+      "supported": false,
+      "well": "16/11-1 ST3"
+    },
+    {
+      "coordinate_ties": 31,
+      "max_coordinate_tie_error_m": 0.004776658217906515,
+      "reason": "sea-floor datum discrepancy",
+      "rkb_elevation_m": 22.0,
+      "seabed_md_difference_m": 3.0,
+      "seabed_z_difference_m": -3.0,
+      "sodir_id": "494",
+      "sodir_url": "https://factpages.sodir.no/wellbore/pageview/exploration/all/494",
+      "supported": false,
+      "water_depth_m": 138.0,
+      "well": "34/10-16 R"
+    }
+  ],
+  "depth_supported_wells": 92,
+  "development_wells": 94,
+  "exporter_sha256": "66b4bb0b3d735c2d8f7fba231d20137f2398801f21d22b4f2a7c9f6c35dc408b",
+  "intake_audit_sha256": "a4d112ce2c9fb51b3570ed93eab56c90f51af42f43f7342d46855b6d3964a9c3",
+  "model_profiles_sha256": "1010f670f949ff6b03962443185b8f09f5ac2b31274250993d3a710bb2efd931",
+  "model_revision": "material-state-v2",
+  "near_vertical_wells": 71,
+  "observed_outside_model_cap_windows": 0,
+  "observed_vertical_support_m": 8782.606140149997,
+  "paired_baseline_comparison": {
+    "interpretation": "negative favors model; interval is conditional on this selected cohort and stored CV predictions",
+    "model_minus_baseline_mae_m_s": -38.75848772503268,
+    "parent_bootstrap_95_percent_m_s": [
+      -83.01773959432798,
+      1.1082926094633443
+    ]
+  },
+  "plan_sha256": "7b2dfcaace0b71f559d8a473d871d9c7afbcc66fe3e3c0862d324456ead873bf",
+  "primary_scores": {
+    "baseline_loo": {
+      "bias_m_s": 0.1001806354174784,
+      "groups": 44,
+      "mae_m_s": 348.2358239103972,
+      "parent_bootstrap_95_percent": {
+        "bias_m_s": [
+          -113.82912591082784,
+          110.14556727631454
+        ],
+        "mae_m_s": [
+          294.2978861422406,
+          401.40798226223643
+        ],
+        "rmse_m_s": [
+          356.4219934958307,
+          480.0247565949303
+        ]
+      },
+      "rmse_m_s": 420.9500212460674,
+      "wells": 44,
+      "windows": 442
+    },
+    "less_pure_facies": {
+      "bias_m_s": -8.695161914977337,
+      "groups": 44,
+      "mae_m_s": 323.5801090038237,
+      "parent_bootstrap_95_percent": {
+        "bias_m_s": [
+          -121.75545368624469,
+          100.60997394358128
+        ],
+        "mae_m_s": [
+          264.57494164429073,
+          383.6510931856198
+        ],
+        "rmse_m_s": [
+          336.561662722185,
+          481.1368299019007
+        ]
+      },
+      "rmse_m_s": 412.2259881672165,
+      "wells": 44,
+      "windows": 442
+    },
+    "maximum_burial_plus_1000m": {
+      "bias_m_s": 652.0404469420416,
+      "groups": 44,
+      "mae_m_s": 692.8444269556879,
+      "parent_bootstrap_95_percent": {
+        "bias_m_s": [
+          539.5360365290845,
+          756.7698535898337
+        ],
+        "mae_m_s": [
+          605.9173458907296,
+          776.6432289917193
+        ],
+        "rmse_m_s": [
+          697.9575655415199,
+          847.766760729301
+        ]
+      },
+      "rmse_m_s": 777.8158471908813,
+      "wells": 44,
+      "windows": 442
+    },
+    "maximum_burial_plus_500m": {
+      "bias_m_s": 290.46722702929947,
+      "groups": 44,
+      "mae_m_s": 409.8998351334439,
+      "parent_bootstrap_95_percent": {
+        "bias_m_s": [
+          188.01250755383901,
+          391.2424924498883
+        ],
+        "mae_m_s": [
+          348.1491575816454,
+          472.31536172933517
+        ],
+        "rmse_m_s": [
+          428.48438993933445,
+          552.6204645822617
+        ]
+      },
+      "rmse_m_s": 494.0571373871193,
+      "wells": 44,
+      "windows": 442
+    },
+    "overpressure_below_1500m": {
+      "bias_m_s": -189.15728671045997,
+      "groups": 44,
+      "mae_m_s": 328.63866484475216,
+      "parent_bootstrap_95_percent": {
+        "bias_m_s": [
+          -292.1920697197033,
+          -87.77018494810756
+        ],
+        "mae_m_s": [
+          258.1024731875325,
+          403.69303896785084
+        ],
+        "rmse_m_s": [
+          346.05864282677385,
+          522.7041851649137
+        ]
+      },
+      "rmse_m_s": 438.36251538822324,
+      "wells": 44,
+      "windows": 442
+    },
+    "present_hydrostatic": {
+      "bias_m_s": -40.7577714797629,
+      "groups": 44,
+      "mae_m_s": 309.47733618536444,
+      "parent_bootstrap_95_percent": {
+        "bias_m_s": [
+          -150.5074951327846,
+          68.09802698251258
+        ],
+        "mae_m_s": [
+          246.29050028122373,
+          374.97686074984773
+        ],
+        "rmse_m_s": [
+          325.37738534177396,
+          483.6949128745876
+        ]
+      },
+      "rmse_m_s": 407.8026181431069,
+      "wells": 44,
+      "windows": 442
+    }
+  },
+  "quality_sensitivity": {
+    "caliper_0_5in": {
+      "baseline": {
+        "bias_m_s": 0.10817982271680349,
+        "groups": 38,
+        "mae_m_s": 337.897797195166,
+        "rmse_m_s": 402.4866696002557,
+        "wells": 38,
+        "windows": 228
+      },
+      "model": {
+        "bias_m_s": -39.97394846246926,
+        "groups": 38,
+        "mae_m_s": 318.43474515205725,
+        "rmse_m_s": 402.88529397500304,
+        "wells": 38,
+        "windows": 228
+      },
+      "window_disposition": {
+        "accepted": 228,
+        "insufficient_quality_coverage": 1391,
+        "internal_quality_gap": 16,
+        "mixed_or_unlabelled_window": 6891,
+        "no_coordinate_coverage": 1802,
+        "out_of_scope_facies": 322
+      }
+    },
+    "caliper_2in": {
+      "baseline": {
+        "bias_m_s": -0.07072971575247261,
+        "groups": 44,
+        "mae_m_s": 342.26590471548354,
+        "rmse_m_s": 415.0525045708854,
+        "wells": 44,
+        "windows": 602
+      },
+      "model": {
+        "bias_m_s": -14.610667325899412,
+        "groups": 44,
+        "mae_m_s": 310.0954661308769,
+        "rmse_m_s": 402.29837656680945,
+        "wells": 44,
+        "windows": 602
+      },
+      "window_disposition": {
+        "accepted": 602,
+        "insufficient_quality_coverage": 1016,
+        "internal_quality_gap": 17,
+        "mixed_or_unlabelled_window": 6891,
+        "no_coordinate_coverage": 1802,
+        "out_of_scope_facies": 322
+      }
+    },
+    "primary": {
+      "baseline": {
+        "bias_m_s": 0.1001806354174784,
+        "groups": 44,
+        "mae_m_s": 348.2358239103972,
+        "rmse_m_s": 420.9500212460674,
+        "wells": 44,
+        "windows": 442
+      },
+      "model": {
+        "bias_m_s": -40.7577714797629,
+        "groups": 44,
+        "mae_m_s": 309.47733618536444,
+        "rmse_m_s": 407.8026181431069,
+        "wells": 44,
+        "windows": 442
+      },
+      "window_disposition": {
+        "accepted": 442,
+        "insufficient_quality_coverage": 1175,
+        "internal_quality_gap": 18,
+        "mixed_or_unlabelled_window": 6891,
+        "no_coordinate_coverage": 1802,
+        "out_of_scope_facies": 322
+      }
+    },
+    "quality_unknown_or_flagged_included": {
+      "baseline": {
+        "bias_m_s": -0.5230011181340335,
+        "groups": 63,
+        "mae_m_s": 281.0231321069618,
+        "rmse_m_s": 376.73601361632967,
+        "wells": 63,
+        "windows": 1324
+      },
+      "model": {
+        "bias_m_s": 10.317297339636973,
+        "groups": 63,
+        "mae_m_s": 262.9589512755054,
+        "rmse_m_s": 360.24834068089183,
+        "wells": 63,
+        "windows": 1324
+      },
+      "window_disposition": {
+        "accepted": 1324,
+        "insufficient_quality_coverage": 305,
+        "internal_quality_gap": 6,
+        "mixed_or_unlabelled_window": 6891,
+        "no_coordinate_coverage": 1802,
+        "out_of_scope_facies": 322
+      }
+    }
+  },
+  "simulator_source_sha256": "cf43ceef4f300a7c6da5e8eeaf580b144c4eb6e8a6ece1e301f6983ca5d182a1",
+  "source_archive_sha256": "042ef1d473100dc12768cae7107a8cead071a394f137af3bc1ddaf8a5d1b8dda",
+  "split_sha256": "7b1b17b24c837ca5506bd1b04e6a221573d832c7b6898d5a8bbadfdad0e3f080",
+  "stage": "development-only conditional rock-physics diagnostic; no tuning or holdout scores",
+  "validation": {
+    "javascript_tests_passed": 19,
+    "original_tolerances": "unchanged",
+    "production_build": "passed",
+    "python_tests_passed": 13,
+    "typecheck": "passed"
+  }
+}

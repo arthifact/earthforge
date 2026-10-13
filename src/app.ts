@@ -81,7 +81,7 @@ const HELP = `
 const ABOUT = `
   <p>Earth Forge builds subsurface velocity models from geological history. Each step, the ground subsides, faults slip, highs above wave base erode, sediment fills the space down to a base level, and buried beds compact; rock physics turns porosity and burial into velocity. The aim is a prior for full-waveform inversion that knows what real geology looks like, and data for training and testing.</p>
   <p class="lbl">Now</p>
-  <p>Sedimentary basins, stretched (listric growth faults, vertical shear) or squeezed (thrusts with fault-parallel flow, fault-bend folds). Compaction of bed thickness; velocity at each rock's deepest burial; soft-sand rock physics cementing with depth; overpressure; carbonates.</p>
+  <p>Sedimentary basins, stretched (listric growth faults, vertical shear) or squeezed (thrusts with fault-parallel flow, fault-bend folds). Compaction of bed thickness; velocity from present pressure and retained burial history; soft-sand rock physics cementing with depth; overpressure; carbonates.</p>
   <p class="lbl">Next</p>
   <p>A history of stages (stretch, salt, sag, squeeze), salt, the near surface and basement for land, volcanics, carbonate platforms, channels; conditioning on what is known or measured (first arrivals, wells); a coverage test against public models.</p>
   <p class="lbl">Made by</p>
@@ -336,6 +336,7 @@ export function start(root: HTMLElement) {
       row(s.setting === "extension" ? "Faults" : "Thrusts", s.faults.length ? s.faults.map(fault).join("<br>") : "none"),
       row("Overpressure", s.overpressure !== null ? `below ${s.overpressure.toFixed(0)} m` : "none"),
       row("Basement", `${s.basementVelocity.toFixed(0)} m/s`),
+      row("Sediment balance", s.budget.closed ? "all steps conserve grains" : `${s.budget.failedEvents} operations fail conservation; net ${(s.budget.residual.total >= 0 ? "+" : "") + s.budget.residual.total.toFixed(1)} m³ of grains per metre of section`),
       row("Simulated", `${(1000 * s.checks.seconds).toFixed(0)} ms`),
     ].join("");
   }

@@ -28,7 +28,7 @@ export function checkRows(r: Verification): Row[] {
   const c = r.compaction;
   add("Numerical benchmarks", "Compaction: solid kept in each bed", `${(100 * c.worstSolid).toExponential(1)}% worst, ${c.beds} beds`, "no faults or erosion: each bed away from the bottom boundary keeps its deposited solid", c.beds && c.worstSolid < 1e-8 ? "pass" : "fail", c.worstSolid < 1e-8 ? "kept" : "outside tolerance", c.beds);
   const cRule = (x: { runs: number; within: number; meanAbs: number }) => x.runs > 0 && x.within >= 0.95 * x.runs && x.meanAbs <= 5;
-  const errors = (x: typeof c.fine) => `mean absolute error ${x.meanAbs.toFixed(1)} m, bias ${x.mean.toFixed(1)} m, worst ${x.worst.toFixed(0)} m; excluded ${x.oneCell} one-cell and ${x.deep} deep intervals`;
+  const errors = (x: typeof c.fine) => `mean absolute error ${x.meanAbs.toFixed(1)} m, bias ${x.mean.toFixed(1)} m, worst ${x.worst.toFixed(0)} m; includes ${x.oneCell} subcell/one-cell intervals; excluded ${x.deep} deep intervals`;
   add("Numerical benchmarks", "Compaction: bed thickness, 20 m grid", `${c.within} of ${c.runs} intervals within 20 m`, `beds sampled every 200 m against the integrated decompaction equation (Sclater and Christie curves); ${errors(c)}`,
     cRule(c) ? "pass" : "fail", cRule(c) ? "within tolerance" : "fails (95% within 20 m, mean absolute error ≤5 m)", c.runs);
   add("Numerical benchmarks", "Compaction: bed thickness, 10 m grid", `${c.fine.within} of ${c.fine.runs} intervals within 20 m`, `${errors(c.fine)}; finer grid, same tolerances`,
@@ -58,6 +58,11 @@ export function checkRows(r: Verification): Row[] {
   rate(r.rates.slip, 0.03, 7, "0.03–0.2 mature rifts (North Sea); 1–7 young fast rifts (Corinth)", "Normal-fault slip rate (initial-dip estimate)");
   rate(r.rates.sedimentation, 0.03, 1, "<0.05 starved hanging walls; 0.03–0.3 depocentres; ~1 fed margins", "Sedimentation rate (thickest deposit per step)");
   rate(r.rates.subsidence, 0.01, 1, "~0.01–0.13 mature margins; ~0.1–1 filled depocentres", "Subsidence rate (step means)");
+
+  const sb = r.sediment;
+  add("Sediment conservation", "Grain volume, each process and bed", `${sb.failedEvents} of ${sb.events} events fail; ${sb.failedSections} sections affected`,
+    `independent grain inventory versus deposition, erosion and all four boundary flows; sand, shale, carbonate and each bed; roundoff tolerance 1e-6 m² + 1e-10 × inventory; worst event/bed/component ${sb.maxEventResidual.toFixed(2)} m²; summed absolute total residual ${sb.absoluteEventResidual.toFixed(2)} m²`,
+    sb.failedSections === 0 ? "pass" : "fail", sb.failedSections === 0 ? "conserved" : "unaccounted grain creation or loss", sb.events);
 
   // Physics on every section.
   const p = r.physics;

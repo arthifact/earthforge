@@ -15,6 +15,8 @@ import { DEPTH, WIDTH } from "./window";
 
 export interface Verification {
   sections: number;
+  /** Full-domain sediment grains, independent of the legacy raster-area check. Ensemble only. */
+  sediment: { events: number; failedEvents: number; failedSections: number; maxEventResidual: number; absoluteEventResidual: number };
   /** Sections per setting. */
   settings: { extension: number; compression: number };
   /** Velocity below the sea floor: depths (m) and the 10th, 50th and 90th percentiles (m/s) over all columns of all sections. */
@@ -67,13 +69,22 @@ export function medianVelocityAt(v: Pick<Verification["velocity"], "depth" | "p5
 }
 
 /** Count physically impossible cell contents independently of the simulator's diagnostics. */
-export function invalidStateCells(b: Pick<Basin, "grid" | "solid" | "burial" | "beds" | "h">) {
+export function invalidStateCells(b: Pick<Basin, "grid" | "solid" | "burial" | "sandFraction" | "effectiveBurial" | "beds" | "h" | "columns">) {
   let invalid = 0;
   for (let i = 0; i < b.grid.length; i++) {
     const id = b.grid[i], solid = b.solid[i], burial = b.burial[i];
     if (!Number.isInteger(id) || id < BASEMENT || id >= b.beds.length ||
       !Number.isFinite(solid) || solid < -1e-9 || solid > b.h + 1e-9 || (id < 0 && solid !== 0) ||
-      !Number.isFinite(burial) || burial < 0) invalid++;
+      !Number.isFinite(burial) || burial < 0 ||
+      !Number.isFinite(b.sandFraction[i]) || b.sandFraction[i] < 0 || b.sandFraction[i] > 1 || (id < 0 && b.sandFraction[i] !== 0) ||
+      !Number.isFinite(b.effectiveBurial[i]) || b.effectiveBurial[i] < 0 || b.effectiveBurial[i] > burial + 0.001 ||
+      (id < 0 && (burial !== 0 || b.effectiveBurial[i] !== 0))) invalid++;
+  }
+  for (const column of b.columns ?? []) for (const p of column) {
+    if (!Number.isInteger(p.bed) || p.bed < BASEMENT || p.bed >= b.beds.length ||
+      ![p.height, p.solid, p.fraction, p.burial, p.loading, p.offsetX, p.offsetZ].every(Number.isFinite) ||
+      p.height <= 0 || p.solid < 0 || p.solid > p.height + 1e-9 || p.fraction < 0 || p.fraction > 1 ||
+      p.loading < 0 || p.burial < 0 || p.loading > p.burial + 1e-8 || (p.bed < 0 && p.solid !== 0)) invalid++;
   }
   return invalid;
 }
@@ -85,13 +96,23 @@ export function samePhysicalState(a: Basin, b: Basin) {
     for (let i = 0; i < x.length; i++) if (!Object.is(x[i], y[i])) return false;
     return true;
   };
-  return same(a.grid, b.grid) && same(a.solid, b.solid) && same(a.burial, b.burial) &&
+  const columnsEqual = a.columns === undefined && b.columns === undefined || !!a.columns && !!b.columns && a.columns.length === b.columns.length && a.columns.every((c, i) =>
+    c.length === b.columns![i].length && c.every((p, j) => Object.keys(p).every(k => Object.is(p[k as keyof typeof p], b.columns![i][j][k as keyof typeof p]))));
+  return columnsEqual && same(a.grid, b.grid) && same(a.solid, b.solid) && same(a.burial, b.burial) && same(a.sandFraction, b.sandFraction) && same(a.effectiveBurial, b.effectiveBurial) &&
     a.setting === b.setting && a.dt === b.dt && a.overpressure === b.overpressure && a.basementVelocity === b.basementVelocity &&
     JSON.stringify(a.beds) === JSON.stringify(b.beds) && JSON.stringify(a.faults) === JSON.stringify(b.faults);
 }
 
 /** Units (thickness, top depth) in an internal column. */
 function unitIn(b: Basin, i: number, unit: number) {
+  if (b.columns) {
+    let z = 0, top = -1, bottom = -1, thickness = 0;
+    for (const p of b.columns[i]) {
+      if (p.bed >= 0 && b.beds[p.bed].unit === unit) { if (top < 0) top = z; bottom = z + p.height; thickness += p.height; }
+      z += p.height;
+    }
+    return { thickness, top, bottom };
+  }
   let top = -1, bottom = -1, n = 0;
   for (let k = 0; k < b.nz; k++) { const c = b.grid[k * b.nx + i]; if (c >= 0 && b.beds[c].unit === unit) { if (top < 0) top = k * b.h; bottom = (k + 1) * b.h; n++; } }
   return { thickness: n * b.h, top, bottom };
@@ -102,7 +123,7 @@ const column = (b: Basin, x: number) => Math.round((x + DOMAIN.margin) / b.h);
 function intactThickness(b: Basin, f: Fault, unit: number, x: number, side: 1 | -1) {
   for (let i = column(b, x + side * f.dir * 250); i >= 0 && i < b.nx; i += side * f.dir) {
     const t = unitIn(b, i, unit), zf = f.depth[i];
-    if (t.thickness < 2 * b.h || t.bottom - t.top !== t.thickness || t.bottom > DOMAIN.depth - 300) return NaN;
+    if (t.thickness < 2 * b.h || Math.abs(t.bottom - t.top - t.thickness) > 1e-7 || t.bottom > DOMAIN.depth - 300) return NaN;
     // Keep a full cell of clearance: equality at the fault can still be the end of a truncated sliver.
     const intact = side === 1 ? Number.isFinite(zf) && t.bottom + b.h <= zf : !Number.isFinite(zf) || t.top >= zf + b.h;
     if (intact) {
@@ -125,7 +146,17 @@ function intactThickness(b: Basin, f: Fault, unit: number, x: number, side: 1 | 
  */
 export function cutoffs(b: Basin, f: Fault, unit: number) {
   const cols = Array.from({ length: b.nx }, (_, k) => (f.dir > 0 ? k : b.nx - 1 - k)), X = (i: number) => -DOMAIN.margin + i * b.h;
-  const unitTop = (i: number, below: number) => { for (let k = 0; k < b.nz; k++) { if (k * b.h < below) continue; const c = b.grid[k * b.nx + i]; if (c >= 0 && b.beds[c].unit === unit) return k * b.h; } return NaN; };
+  const unitTop = (i: number, below: number) => {
+    if (b.columns) {
+      let z = 0;
+      for (const p of b.columns[i]) {
+        const end = z + p.height;
+        if (end > below + 1e-7 && p.bed >= 0 && b.beds[p.bed].unit === unit) return Math.max(z, below);
+        z = end;
+      }
+      return NaN;
+    }
+    for (let k = 0; k < b.nz; k++) { if (k * b.h < below) continue; const c = b.grid[k * b.nx + i]; if (c >= 0 && b.beds[c].unit === unit) return k * b.h; } return NaN; };
   // Footwall: d = top below the fault - fault depth, positive while intact.
   let fw: [number, number] | null = null;
   const fwRun: [number, number][] = [];
@@ -134,7 +165,7 @@ export function cutoffs(b: Basin, f: Fault, unit: number) {
     if (!Number.isFinite(top)) { if (fwRun.length) break; continue; }
     if (!Number.isFinite(zf)) { fwRun.length = 0; continue; }
     const d = top - zf;
-    if (d > b.h) { fwRun.push([x, d]); continue; }
+    if (d > (b.columns ? 1e-7 : b.h)) { fwRun.push([x, d]); continue; }
     if (fwRun.length) {
       const [x1, d1] = fwRun[fwRun.length - 1], [x0, d0] = fwRun.length > 1 ? fwRun[fwRun.length - 2] : [x1 - f.dir * b.h, d1 + 1];
       const slope = (d1 - d0) / (x1 - x0), xc = slope !== 0 ? x1 - d1 / slope : x;
@@ -150,7 +181,9 @@ export function cutoffs(b: Basin, f: Fault, unit: number) {
     const x = X(i), zf = faultDepth(f, x);
     if (!Number.isFinite(zf)) continue;
     let top = NaN;
-    for (let k = 0; k * b.h < zf && k < b.nz; k++) { const c = b.grid[k * b.nx + i]; if (c >= 0 && b.beds[c].unit === unit) { top = k * b.h; break; } }
+    if (b.columns) {
+      const t = unitTop(i, -1); if (t < zf - 1e-7) top = t;
+    } else for (let k = 0; k * b.h < zf && k < b.nz; k++) { const c = b.grid[k * b.nx + i]; if (c >= 0 && b.beds[c].unit === unit) { top = k * b.h; break; } }
     if (!Number.isFinite(top)) { if (hwRun.length) break; continue; }
     hwRun.push([x, zf - top]);
     if (hwRun.length === 3) break;
@@ -220,6 +253,28 @@ export function compactedThickness(S: number, d: number, f: number, carbonate: b
 /** The compaction known-answer test on one section (see Verification.compaction); the thickness tally is per grid. */
 function compactionCheck(b: Basin, tally: Verification["compaction"], runs: { runs: number; within: number; worst: number; oneCell: number; deep: number }, errors: number[]) {
   const sum = new Float64Array(b.beds.length), deep = new Uint8Array(b.beds.length), floorCut = DOMAIN.depth - 300;
+  if (b.columns) {
+    for (const column of b.columns) { let z = 0; for (const p of column) {
+      if (p.bed >= 0) { sum[p.bed] += p.solid; if (z + p.height > floorCut) deep[p.bed] = 1; } z += p.height;
+    } }
+    b.deposited.forEach((dep, c) => { if (deep[c] || dep <= 0) return; tally.beds++; tally.worstSolid = Math.max(tally.worstSolid, Math.abs(sum[c] - dep) / dep); });
+    for (let i = 0; i < b.nx; i += Math.round(200 / b.h)) {
+      const column = b.columns[i]; let z = 0, floor = 0;
+      for (let j = 0; j < column.length;) {
+        const p = column[j], top = z; let S = 0, sand = 0;
+        while (j < column.length && column[j].bed === p.bed) { const q = column[j++]; z += q.height; S += q.solid; sand += q.solid * q.fraction; }
+        if (p.bed === WATER && top === 0) floor = z;
+        if (p.bed < 0) continue;
+        if (z > floorCut) { runs.deep++; continue; }
+        // Subcell material is resolved by the column solver even if the display
+        // interval is one pixel or less. Test it instead of discarding it.
+        if (z - top < 2 * b.h) runs.oneCell++;
+        const error = z - top - compactedThickness(S, top - floor, sand / S, b.beds[p.bed].carbonate);
+        runs.runs++; errors.push(error); if (Math.abs(error) <= 20) runs.within++; runs.worst = Math.max(runs.worst, Math.abs(error));
+      }
+    }
+    return;
+  }
   for (let k = 0; k < b.nz; k++) for (let i = 0; i < b.nx; i++) { const n = k * b.nx + i, c = b.grid[n]; if (c >= 0) { sum[c] += b.solid[n]; if (k * b.h > floorCut) deep[c] = 1; } }
   b.deposited.forEach((dep, c) => { if (deep[c] || dep <= 0) return; tally.beds++; tally.worstSolid = Math.max(tally.worstSolid, Math.abs(sum[c] - dep) / dep); });
   for (let i = 0; i < b.nx; i += Math.round(200 / b.h)) {
@@ -325,7 +380,7 @@ function inversions(w: ReturnType<typeof windowOf>) {
 export async function verify(base: BasinOptions, first: number, count: number, onProgress?: (done: string) => void): Promise<Verification> {
   const depthStep = 100, depths = Array.from({ length: Math.floor(DEPTH / depthStep) }, (_, k) => (k + 0.5) * depthStep);
   const vbin = 20, vlo = 1400, nv = Math.ceil((5600 - vlo) / vbin) + 1, hist = depths.map(() => new Float64Array(nv));
-  const res: Verification = { sections: count, settings: { extension: 0, compression: 0 }, velocity: { depth: depths, p10: [], p50: [], p90: [], samples: [], sections: depths.map(() => 0) }, expansion: { before: [], during: [] }, throwGrows: { faults: 0, growing: 0 }, heaveGrows: {faults: 0, growing: 0 }, growthThrow: { faults: 0, growing: 0 }, heaveFailures: { crossed: 0, edge: 0, nested: 0, antithetic: 0, other: 0 }, dips: [],
+  const res: Verification = { sections: count, sediment: { events: 0, failedEvents: 0, failedSections: 0, maxEventResidual: 0, absoluteEventResidual: 0 }, settings: { extension: 0, compression: 0 }, velocity: { depth: depths, p10: [], p50: [], p90: [], samples: [], sections: depths.map(() => 0) }, expansion: { before: [], during: [] }, throwGrows: { faults: 0, growing: 0 }, heaveGrows: {faults: 0, growing: 0 }, growthThrow: { faults: 0, growing: 0 }, heaveFailures: { crossed: 0, edge: 0, nested: 0, antithetic: 0, other: 0 }, dips: [],
     rates: { slip: [], sedimentation: [], subsidence: [] }, physics: { area: 0, areaNormal: 0, areaThrust: 0, slips: 0, collapsed: { extension: 0, compression: 0 }, trapped: 0, invalidCells: 0, invalidVelocity: 0, deterministic: true, repeated: 0 },
     kinematics: { units: 0, within: 0, worst: 0, mean: 0, fine: { units: 0, within: 0, worst: 0, mean: 0 } },
     compaction: { beds: 0, worstSolid: 0, runs: 0, within: 0, mean: 0, meanAbs: 0, worst: 0, oneCell: 0, deep: 0, fine: { runs: 0, within: 0, mean: 0, meanAbs: 0, worst: 0, oneCell: 0, deep: 0 } },
@@ -374,6 +429,11 @@ export async function verify(base: BasinOptions, first: number, count: number, o
   for (let s = 0; s < count; s++) {
     const b = simulate({ ...base, seed: first + s, record: false }), w = windowOf(b);
     res.settings[b.setting]++;
+    const budget = b.budget.summary;
+    res.sediment.events += budget.events; res.sediment.failedEvents += budget.failedEvents;
+    res.sediment.failedSections += Number(!budget.closed);
+    res.sediment.maxEventResidual = Math.max(res.sediment.maxEventResidual, budget.maxEventResidual);
+    res.sediment.absoluteEventResidual += budget.absoluteEventResidual.total;
     if (!repeated.has(b.setting)) {
       const again = simulate({ ...base, seed: first + s, record: false });
       res.physics.deterministic &&= samePhysicalState(b, again); res.physics.repeated++; repeated.add(b.setting);

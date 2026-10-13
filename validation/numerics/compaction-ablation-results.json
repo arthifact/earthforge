@@ -1,0 +1,820 @@
+{
+  "version": 1,
+  "exploratory": true,
+  "plan_sha256": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+  "intervention": "compaction=false in the two no-fault compaction controls only",
+  "caveat": "A different physical model, not a remedy or an accuracy improvement. Same-cohort comparisons are still selected by eligibility in both variants.",
+  "observational_data": "none",
+  "source_sha256": {
+    "src/basin.ts": "9adfb4a50142d84b782c02e76ee407210c086847108338ee2d77e168693f672d",
+    "src/conservativeTransport.ts": "320cac5c2040e4a634860d476c637c2d0c87b0edea248a6b782acfeb861d79b5",
+    "src/sedimentBudget.ts": "6eebe1787eb198f7b46578a2d05bea75634b6d8f0d7becd530d66eabf0925d06",
+    "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+    "validation/numerics/metrics.mjs": "befb3de7e781d8f7ca14355ab545457f15cd0c65006c396d67843dd16a30ed9c",
+    "validation/numerics/compaction-ablation.mjs": "e9dfd7f4a91ff3ad9f1e02e208cffa4ed5b11b3ae03ca7aa439df3f687b3c188"
+  },
+  "cases": [
+    {
+      "id": "compaction-a",
+      "history_hash": "a2e65b17ffe6bd1c7b0c4d77a20e59cfa3bc361b243332ba5e1f5622874ec8a1",
+      "budgets": [
+        {
+          "h": 40,
+          "closed": true,
+          "events": 91
+        },
+        {
+          "h": 20,
+          "closed": true,
+          "events": 91
+        },
+        {
+          "h": 10,
+          "closed": true,
+          "events": 91
+        }
+      ],
+      "original_matched": 169,
+      "ablation_matched": 148,
+      "common_matched": 148,
+      "metrics": {
+        "top_m": {
+          "original": {
+            "n": 148,
+            "coarse_rms": 131.6013636666388,
+            "fine_rms": 55.26349657824823,
+            "ratio": 0.41993103292027384,
+            "coarse_mae": 105.94594594594595,
+            "fine_mae": 43.78378378378378,
+            "coarse_max": 300,
+            "fine_max": 160,
+            "classes": {
+              "oscillatory-contracting": 27,
+              "settled": 7,
+              "monotonic-contracting": 77,
+              "new-change": 6,
+              "monotonic-noncontracting": 27,
+              "oscillatory-noncontracting": 3,
+              "stable": 1
+            }
+          },
+          "compaction_off": {
+            "n": 148,
+            "coarse_rms": 17.93381224451794,
+            "fine_rms": 11.595665546205593,
+            "ratio": 0.6465811835266754,
+            "coarse_mae": 12.567567567567568,
+            "fine_mae": 8.58108108108108,
+            "coarse_max": 60,
+            "fine_max": 30,
+            "classes": {
+              "monotonic-contracting": 18,
+              "oscillatory-noncontracting": 12,
+              "oscillatory-contracting": 18,
+              "stable": 26,
+              "new-change": 41,
+              "settled": 28,
+              "monotonic-noncontracting": 5
+            }
+          }
+        },
+        "thickness_m": {
+          "original": {
+            "n": 148,
+            "coarse_rms": 48.40705778337745,
+            "fine_rms": 26.278138072179704,
+            "ratio": 0.5428575764669462,
+            "coarse_mae": 37.7027027027027,
+            "fine_mae": 20.54054054054054,
+            "coarse_max": 120,
+            "fine_max": 80,
+            "classes": {
+              "oscillatory-contracting": 39,
+              "settled": 21,
+              "monotonic-contracting": 24,
+              "monotonic-noncontracting": 21,
+              "stable": 5,
+              "oscillatory-noncontracting": 23,
+              "new-change": 15
+            }
+          },
+          "compaction_off": {
+            "n": 148,
+            "coarse_rms": 21.05334280448697,
+            "fine_rms": 10.167515841068475,
+            "ratio": 0.4829406871625885,
+            "coarse_mae": 16.216216216216218,
+            "fine_mae": 7.364864864864865,
+            "coarse_max": 40,
+            "fine_max": 30,
+            "classes": {
+              "new-change": 28,
+              "oscillatory-noncontracting": 11,
+              "oscillatory-contracting": 28,
+              "monotonic-contracting": 19,
+              "stable": 22,
+              "settled": 38,
+              "monotonic-noncontracting": 2
+            }
+          }
+        },
+        "solid_height_m": {
+          "original": {
+            "n": 148,
+            "coarse_rms": 17.844214637474863,
+            "fine_rms": 12.597550357421817,
+            "ratio": 0.7059739312351433,
+            "coarse_mae": 13.64578837648623,
+            "fine_mae": 9.817072825492572,
+            "coarse_max": 54.225692055186016,
+            "fine_max": 35.50470601691729,
+            "classes": {
+              "oscillatory-noncontracting": 33,
+              "oscillatory-contracting": 52,
+              "monotonic-contracting": 37,
+              "monotonic-noncontracting": 26
+            }
+          },
+          "compaction_off": {
+            "n": 148,
+            "coarse_rms": 9.145525190876265,
+            "fine_rms": 4.4739674912405665,
+            "ratio": 0.48919743785779235,
+            "coarse_mae": 7.1740398759894575,
+            "fine_mae": 3.342925138755838,
+            "coarse_max": 19.95173666817604,
+            "fine_max": 13.61700393293281,
+            "classes": {
+              "oscillatory-noncontracting": 28,
+              "oscillatory-contracting": 65,
+              "monotonic-contracting": 41,
+              "monotonic-noncontracting": 14
+            }
+          }
+        },
+        "sand_fraction": {
+          "original": {
+            "n": 148,
+            "coarse_rms": 0.07265215103216872,
+            "fine_rms": 0.023848609111008466,
+            "ratio": 0.3282574400371001,
+            "coarse_mae": 0.044514955497418934,
+            "fine_mae": 0.015577823355397882,
+            "coarse_max": 0.3217930582355376,
+            "fine_max": 0.090649072693062,
+            "classes": {
+              "monotonic-noncontracting": 13,
+              "oscillatory-contracting": 57,
+              "oscillatory-noncontracting": 27,
+              "monotonic-contracting": 39,
+              "stable": 12
+            }
+          },
+          "compaction_off": {
+            "n": 148,
+            "coarse_rms": 0.10073079439651154,
+            "fine_rms": 0.039796718228468,
+            "ratio": 0.39507996007471397,
+            "coarse_mae": 0.062362737090630956,
+            "fine_mae": 0.023807035175030078,
+            "coarse_max": 0.3033907842993506,
+            "fine_max": 0.24412851223043242,
+            "classes": {
+              "monotonic-noncontracting": 14,
+              "oscillatory-contracting": 66,
+              "oscillatory-noncontracting": 22,
+              "monotonic-contracting": 34,
+              "stable": 12
+            }
+          }
+        },
+        "porosity": {
+          "original": {
+            "n": 148,
+            "coarse_rms": 0.16849840366990895,
+            "fine_rms": 0.12184741645606614,
+            "ratio": 0.7231369188207099,
+            "coarse_mae": 0.12220685194140453,
+            "fine_mae": 0.07954865570504582,
+            "coarse_max": 0.4342322418706347,
+            "fine_max": 0.41953145894504573,
+            "classes": {
+              "oscillatory-contracting": 55,
+              "monotonic-contracting": 48,
+              "oscillatory-noncontracting": 16,
+              "monotonic-noncontracting": 29
+            }
+          },
+          "compaction_off": {
+            "n": 148,
+            "coarse_rms": 0.012621000709259362,
+            "fine_rms": 0.005598791130088234,
+            "ratio": 0.44360912886889364,
+            "coarse_mae": 0.008154691493936444,
+            "fine_mae": 0.003522367022410504,
+            "coarse_max": 0.036382067677965035,
+            "fine_max": 0.034036366244553196,
+            "classes": {
+              "oscillatory-noncontracting": 27,
+              "oscillatory-contracting": 69,
+              "monotonic-noncontracting": 15,
+              "monotonic-contracting": 37
+            }
+          }
+        },
+        "maximum_burial_m": {
+          "original": {
+            "n": 148,
+            "coarse_rms": 98.50432794809183,
+            "fine_rms": 68.32626593111041,
+            "ratio": 0.693637197008398,
+            "coarse_mae": 75.24967179550158,
+            "fine_mae": 58.042046392181724,
+            "coarse_max": 259.0324527561007,
+            "fine_max": 166.37938153734842,
+            "classes": {
+              "oscillatory-contracting": 25,
+              "oscillatory-noncontracting": 27,
+              "monotonic-noncontracting": 37,
+              "monotonic-contracting": 59
+            }
+          },
+          "compaction_off": {
+            "n": 148,
+            "coarse_rms": 16.185349918021778,
+            "fine_rms": 10.944632407115042,
+            "ratio": 0.6762061038253245,
+            "coarse_mae": 12.885638527269105,
+            "fine_mae": 8.488427655899345,
+            "coarse_max": 40.05262048306531,
+            "fine_max": 30.20564235498921,
+            "classes": {
+              "oscillatory-contracting": 55,
+              "monotonic-contracting": 46,
+              "oscillatory-noncontracting": 29,
+              "monotonic-noncontracting": 18
+            }
+          }
+        },
+        "effective_loading_m": {
+          "original": {
+            "n": 148,
+            "coarse_rms": 98.50432794809183,
+            "fine_rms": 68.32626593111041,
+            "ratio": 0.693637197008398,
+            "coarse_mae": 75.24967179550158,
+            "fine_mae": 58.042046392181724,
+            "coarse_max": 259.0324527561007,
+            "fine_max": 166.37938153734842,
+            "classes": {
+              "oscillatory-contracting": 25,
+              "oscillatory-noncontracting": 27,
+              "monotonic-noncontracting": 37,
+              "monotonic-contracting": 59
+            }
+          },
+          "compaction_off": {
+            "n": 148,
+            "coarse_rms": 16.185349918021778,
+            "fine_rms": 10.944632407115042,
+            "ratio": 0.6762061038253245,
+            "coarse_mae": 12.885638527269105,
+            "fine_mae": 8.488427655899345,
+            "coarse_max": 40.05262048306531,
+            "fine_max": 30.20564235498921,
+            "classes": {
+              "oscillatory-contracting": 55,
+              "monotonic-contracting": 46,
+              "oscillatory-noncontracting": 29,
+              "monotonic-noncontracting": 18
+            }
+          }
+        },
+        "effective_velocity_m_s": {
+          "original": {
+            "n": 148,
+            "coarse_rms": 64.57127595776645,
+            "fine_rms": 57.31703139050327,
+            "ratio": 0.8876552389640264,
+            "coarse_mae": 49.97078379286715,
+            "fine_mae": 42.890788864890105,
+            "coarse_max": 231.57791602712587,
+            "fine_max": 204.2330338814295,
+            "classes": {
+              "oscillatory-contracting": 27,
+              "oscillatory-noncontracting": 23,
+              "monotonic-noncontracting": 40,
+              "monotonic-contracting": 58
+            }
+          },
+          "compaction_off": {
+            "n": 148,
+            "coarse_rms": 21.482484678367143,
+            "fine_rms": 11.236378796434403,
+            "ratio": 0.5230483793967015,
+            "coarse_mae": 15.557216248582206,
+            "fine_mae": 8.26629170914466,
+            "coarse_max": 62.978927193325035,
+            "fine_max": 45.50694290169645,
+            "classes": {
+              "oscillatory-contracting": 64,
+              "oscillatory-noncontracting": 34,
+              "monotonic-contracting": 31,
+              "monotonic-noncontracting": 19
+            }
+          }
+        },
+        "vertical_travel_time_s": {
+          "original": {
+            "n": 12,
+            "coarse_rms": 0.033696535028157094,
+            "fine_rms": 0.010220916819824788,
+            "ratio": 0.30332248735023076,
+            "coarse_mae": 0.030820471272868837,
+            "fine_mae": 0.008482365292442376,
+            "coarse_max": 0.05314620765645062,
+            "fine_max": 0.017720668105205784,
+            "classes": {
+              "oscillatory-contracting": 9,
+              "monotonic-contracting": 2,
+              "monotonic-noncontracting": 1
+            }
+          },
+          "compaction_off": {
+            "n": 12,
+            "coarse_rms": 0.006790676100941653,
+            "fine_rms": 0.0027046653636610828,
+            "ratio": 0.39829102779412945,
+            "coarse_mae": 0.005340994168535322,
+            "fine_mae": 0.0021374820749569534,
+            "coarse_max": 0.014258588087821655,
+            "fine_max": 0.005053588829954991,
+            "classes": {
+              "oscillatory-contracting": 3,
+              "monotonic-contracting": 6,
+              "monotonic-noncontracting": 1,
+              "oscillatory-noncontracting": 2
+            }
+          }
+        },
+        "seafloor_m": {
+          "original": {
+            "n": 12,
+            "coarse_rms": 57.735026918962575,
+            "fine_rms": 29.297326385411576,
+            "ratio": 0.507444578254611,
+            "coarse_mae": 50,
+            "fine_mae": 24.166666666666668,
+            "coarse_max": 100,
+            "fine_max": 50,
+            "classes": {
+              "oscillatory-contracting": 8,
+              "oscillatory-noncontracting": 2,
+              "settled": 1,
+              "monotonic-contracting": 1
+            }
+          },
+          "compaction_off": {
+            "n": 12,
+            "coarse_rms": 11.547005383792516,
+            "fine_rms": 8.16496580927726,
+            "ratio": 0.7071067811865475,
+            "coarse_mae": 6.666666666666667,
+            "fine_mae": 6.666666666666667,
+            "coarse_max": 20,
+            "fine_max": 10,
+            "classes": {
+              "new-change": 6,
+              "stable": 2,
+              "monotonic-contracting": 2,
+              "settled": 2
+            }
+          }
+        },
+        "fault_depth_m": {
+          "original": {
+            "n": 0,
+            "coarse_rms": null,
+            "fine_rms": null,
+            "ratio": null,
+            "coarse_mae": null,
+            "fine_mae": null,
+            "coarse_max": null,
+            "fine_max": null,
+            "classes": {}
+          },
+          "compaction_off": {
+            "n": 0,
+            "coarse_rms": null,
+            "fine_rms": null,
+            "ratio": null,
+            "coarse_mae": null,
+            "fine_mae": null,
+            "coarse_max": null,
+            "fine_max": null,
+            "classes": {}
+          }
+        }
+      }
+    },
+    {
+      "id": "compaction-b",
+      "history_hash": "ad63b2f352fe1137255648a4b1109df062003cac15c70c4a3555baf515f87284",
+      "budgets": [
+        {
+          "h": 40,
+          "closed": true,
+          "events": 121
+        },
+        {
+          "h": 20,
+          "closed": true,
+          "events": 121
+        },
+        {
+          "h": 10,
+          "closed": true,
+          "events": 121
+        }
+      ],
+      "original_matched": 161,
+      "ablation_matched": 149,
+      "common_matched": 114,
+      "metrics": {
+        "top_m": {
+          "original": {
+            "n": 114,
+            "coarse_rms": 210.0877009852389,
+            "fine_rms": 71.7451630498714,
+            "ratio": 0.34150101464013033,
+            "coarse_mae": 173.859649122807,
+            "fine_mae": 60.35087719298246,
+            "coarse_max": 420,
+            "fine_max": 170,
+            "classes": {
+              "settled": 4,
+              "oscillatory-contracting": 18,
+              "monotonic-contracting": 57,
+              "monotonic-noncontracting": 24,
+              "oscillatory-noncontracting": 9,
+              "new-change": 2
+            }
+          },
+          "compaction_off": {
+            "n": 114,
+            "coarse_rms": 19.823785111334082,
+            "fine_rms": 9.77824294480963,
+            "ratio": 0.49325811846189765,
+            "coarse_mae": 14.385964912280702,
+            "fine_mae": 7.105263157894737,
+            "coarse_max": 40,
+            "fine_max": 20,
+            "classes": {
+              "new-change": 29,
+              "monotonic-contracting": 23,
+              "stable": 18,
+              "settled": 29,
+              "monotonic-noncontracting": 6,
+              "oscillatory-contracting": 6,
+              "oscillatory-noncontracting": 3
+            }
+          }
+        },
+        "thickness_m": {
+          "original": {
+            "n": 114,
+            "coarse_rms": 42.837923844395704,
+            "fine_rms": 22.024707019577935,
+            "ratio": 0.5141403934415774,
+            "coarse_mae": 29.29824561403509,
+            "fine_mae": 17.63157894736842,
+            "coarse_max": 120,
+            "fine_max": 60,
+            "classes": {
+              "stable": 6,
+              "new-change": 32,
+              "monotonic-noncontracting": 11,
+              "oscillatory-contracting": 23,
+              "settled": 15,
+              "monotonic-contracting": 21,
+              "oscillatory-noncontracting": 6
+            }
+          },
+          "compaction_off": {
+            "n": 114,
+            "coarse_rms": 19.194297398747864,
+            "fine_rms": 10.67872125861979,
+            "ratio": 0.5563486402641867,
+            "coarse_mae": 13.508771929824562,
+            "fine_mae": 8.070175438596491,
+            "coarse_max": 40,
+            "fine_max": 30,
+            "classes": {
+              "oscillatory-contracting": 20,
+              "settled": 24,
+              "monotonic-contracting": 13,
+              "new-change": 35,
+              "oscillatory-noncontracting": 5,
+              "stable": 16,
+              "monotonic-noncontracting": 1
+            }
+          }
+        },
+        "solid_height_m": {
+          "original": {
+            "n": 114,
+            "coarse_rms": 31.439024873444907,
+            "fine_rms": 13.988667610982287,
+            "ratio": 0.4449459761329261,
+            "coarse_mae": 24.592598527271853,
+            "fine_mae": 10.704490788821,
+            "coarse_max": 96.16181539026573,
+            "fine_max": 45.5307330956052,
+            "classes": {
+              "oscillatory-contracting": 41,
+              "monotonic-contracting": 45,
+              "oscillatory-noncontracting": 13,
+              "monotonic-noncontracting": 15
+            }
+          },
+          "compaction_off": {
+            "n": 114,
+            "coarse_rms": 8.908203335754584,
+            "fine_rms": 4.937213390507964,
+            "ratio": 0.5542322289267491,
+            "coarse_mae": 6.381881530622861,
+            "fine_mae": 3.814338474223853,
+            "coarse_max": 21.530336813203235,
+            "fine_max": 14.216279236568724,
+            "classes": {
+              "oscillatory-contracting": 39,
+              "monotonic-contracting": 34,
+              "monotonic-noncontracting": 18,
+              "oscillatory-noncontracting": 23
+            }
+          }
+        },
+        "sand_fraction": {
+          "original": {
+            "n": 114,
+            "coarse_rms": 0.0484823997002656,
+            "fine_rms": 0.016985322258144964,
+            "ratio": 0.35033996590832767,
+            "coarse_mae": 0.027284539346717242,
+            "fine_mae": 0.010736869714689075,
+            "coarse_max": 0.28268703510036464,
+            "fine_max": 0.0638327313310369,
+            "classes": {
+              "monotonic-contracting": 35,
+              "oscillatory-contracting": 45,
+              "oscillatory-noncontracting": 25,
+              "monotonic-noncontracting": 9
+            }
+          },
+          "compaction_off": {
+            "n": 114,
+            "coarse_rms": 0.0657642934589004,
+            "fine_rms": 0.025616179415767455,
+            "ratio": 0.38951500987046056,
+            "coarse_mae": 0.03217857162965205,
+            "fine_mae": 0.013679120749239758,
+            "coarse_max": 0.3506812378606824,
+            "fine_max": 0.10254673314990898,
+            "classes": {
+              "oscillatory-contracting": 39,
+              "monotonic-contracting": 42,
+              "oscillatory-noncontracting": 27,
+              "monotonic-noncontracting": 5,
+              "new-change": 1
+            }
+          }
+        },
+        "porosity": {
+          "original": {
+            "n": 114,
+            "coarse_rms": 0.12033688627517615,
+            "fine_rms": 0.03222215209122555,
+            "ratio": 0.26776621108130283,
+            "coarse_mae": 0.08957547872934338,
+            "fine_mae": 0.025031636340301262,
+            "coarse_max": 0.32192978996403676,
+            "fine_max": 0.08341643920943598,
+            "classes": {
+              "oscillatory-contracting": 52,
+              "monotonic-noncontracting": 12,
+              "monotonic-contracting": 43,
+              "oscillatory-noncontracting": 7
+            }
+          },
+          "compaction_off": {
+            "n": 114,
+            "coarse_rms": 0.008849233620892735,
+            "fine_rms": 0.004427327745621611,
+            "ratio": 0.5003063468873558,
+            "coarse_mae": 0.00481134150864676,
+            "fine_mae": 0.002588467349936512,
+            "coarse_max": 0.045561258537159754,
+            "fine_max": 0.01797718271590898,
+            "classes": {
+              "oscillatory-contracting": 42,
+              "monotonic-contracting": 31,
+              "monotonic-noncontracting": 23,
+              "oscillatory-noncontracting": 18
+            }
+          }
+        },
+        "maximum_burial_m": {
+          "original": {
+            "n": 114,
+            "coarse_rms": 210.16052913531448,
+            "fine_rms": 48.70137965751615,
+            "ratio": 0.23173418842202836,
+            "coarse_mae": 168.31929889663186,
+            "fine_mae": 37.825823180699636,
+            "coarse_max": 405.7293966631496,
+            "fine_max": 122.41313289431423,
+            "classes": {
+              "monotonic-contracting": 64,
+              "oscillatory-contracting": 36,
+              "monotonic-noncontracting": 14
+            }
+          },
+          "compaction_off": {
+            "n": 114,
+            "coarse_rms": 16.655654896680794,
+            "fine_rms": 6.474826034713126,
+            "ratio": 0.38874640924527415,
+            "coarse_mae": 12.697796135448652,
+            "fine_mae": 5.033132536402262,
+            "coarse_max": 40.05838230571061,
+            "fine_max": 15.345047459551097,
+            "classes": {
+              "monotonic-contracting": 44,
+              "oscillatory-contracting": 41,
+              "oscillatory-noncontracting": 15,
+              "monotonic-noncontracting": 14
+            }
+          }
+        },
+        "effective_loading_m": {
+          "original": {
+            "n": 114,
+            "coarse_rms": 210.16052913531448,
+            "fine_rms": 48.70137965751615,
+            "ratio": 0.23173418842202836,
+            "coarse_mae": 168.31929889663186,
+            "fine_mae": 37.825823180699636,
+            "coarse_max": 405.7293966631496,
+            "fine_max": 122.41313289431423,
+            "classes": {
+              "monotonic-contracting": 64,
+              "oscillatory-contracting": 36,
+              "monotonic-noncontracting": 14
+            }
+          },
+          "compaction_off": {
+            "n": 114,
+            "coarse_rms": 16.655654896680794,
+            "fine_rms": 6.474826034713126,
+            "ratio": 0.38874640924527415,
+            "coarse_mae": 12.697796135448652,
+            "fine_mae": 5.033132536402262,
+            "coarse_max": 40.05838230571061,
+            "fine_max": 15.345047459551097,
+            "classes": {
+              "monotonic-contracting": 44,
+              "oscillatory-contracting": 41,
+              "oscillatory-noncontracting": 15,
+              "monotonic-noncontracting": 14
+            }
+          }
+        },
+        "effective_velocity_m_s": {
+          "original": {
+            "n": 114,
+            "coarse_rms": 178.86133431259458,
+            "fine_rms": 35.06076746903196,
+            "ratio": 0.1960220614688948,
+            "coarse_mae": 129.20096546302358,
+            "fine_mae": 26.16321124446158,
+            "coarse_max": 431.574057584985,
+            "fine_max": 135.58086500121044,
+            "classes": {
+              "monotonic-contracting": 66,
+              "oscillatory-contracting": 38,
+              "monotonic-noncontracting": 10
+            }
+          },
+          "compaction_off": {
+            "n": 114,
+            "coarse_rms": 17.84806887581851,
+            "fine_rms": 8.606826178295867,
+            "ratio": 0.4822273063926172,
+            "coarse_mae": 12.833842803579207,
+            "fine_mae": 5.7820993549941,
+            "coarse_max": 60.041035664124365,
+            "fine_max": 32.680153482312335,
+            "classes": {
+              "monotonic-noncontracting": 12,
+              "monotonic-contracting": 29,
+              "oscillatory-contracting": 54,
+              "oscillatory-noncontracting": 19
+            }
+          }
+        },
+        "vertical_travel_time_s": {
+          "original": {
+            "n": 12,
+            "coarse_rms": 0.015375946985689854,
+            "fine_rms": 0.022322016900861,
+            "ratio": 1.4517490806670796,
+            "coarse_mae": 0.013560060577533617,
+            "fine_mae": 0.020310535312401345,
+            "coarse_max": 0.02220447854067986,
+            "fine_max": 0.03711851000647637,
+            "classes": {
+              "oscillatory-contracting": 2,
+              "oscillatory-noncontracting": 5,
+              "monotonic-contracting": 1,
+              "monotonic-noncontracting": 4
+            }
+          },
+          "compaction_off": {
+            "n": 12,
+            "coarse_rms": 0.008887528944933077,
+            "fine_rms": 0.003110189691148785,
+            "ratio": 0.3499498803795125,
+            "coarse_mae": 0.007129897309364493,
+            "fine_mae": 0.002325441509210805,
+            "coarse_max": 0.017541969435440175,
+            "fine_max": 0.005327617893285286,
+            "classes": {
+              "monotonic-contracting": 8,
+              "oscillatory-contracting": 1,
+              "monotonic-noncontracting": 3
+            }
+          }
+        },
+        "seafloor_m": {
+          "original": {
+            "n": 12,
+            "coarse_rms": 40.824829046386306,
+            "fine_rms": 57.80715065341542,
+            "ratio": 1.4159802258506295,
+            "coarse_mae": 36.666666666666664,
+            "fine_mae": 52.5,
+            "coarse_max": 60,
+            "fine_max": 100,
+            "classes": {
+              "oscillatory-contracting": 2,
+              "oscillatory-noncontracting": 4,
+              "monotonic-contracting": 3,
+              "monotonic-noncontracting": 2,
+              "new-change": 1
+            }
+          },
+          "compaction_off": {
+            "n": 12,
+            "coarse_rms": 18.257418583505537,
+            "fine_rms": 7.0710678118654755,
+            "ratio": 0.3872983346207417,
+            "coarse_mae": 13.333333333333334,
+            "fine_mae": 5,
+            "coarse_max": 40,
+            "fine_max": 10,
+            "classes": {
+              "monotonic-contracting": 3,
+              "settled": 4,
+              "new-change": 3,
+              "stable": 2
+            }
+          }
+        },
+        "fault_depth_m": {
+          "original": {
+            "n": 0,
+            "coarse_rms": null,
+            "fine_rms": null,
+            "ratio": null,
+            "coarse_mae": null,
+            "fine_mae": null,
+            "coarse_max": null,
+            "fine_max": null,
+            "classes": {}
+          },
+          "compaction_off": {
+            "n": 0,
+            "coarse_rms": null,
+            "fine_rms": null,
+            "ratio": null,
+            "coarse_mae": null,
+            "fine_mae": null,
+            "coarse_max": null,
+            "fine_max": null,
+            "classes": {}
+          }
+        }
+      }
+    }
+  ]
+}

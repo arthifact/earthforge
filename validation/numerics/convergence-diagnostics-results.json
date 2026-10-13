@@ -1,0 +1,3144 @@
+{
+  "version": 1,
+  "exploratory": true,
+  "plan_sha256": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+  "source_sha256": {
+    "src/basin.ts": "9adfb4a50142d84b782c02e76ee407210c086847108338ee2d77e168693f672d",
+    "src/conservativeTransport.ts": "320cac5c2040e4a634860d476c637c2d0c87b0edea248a6b782acfeb861d79b5",
+    "src/sedimentBudget.ts": "6eebe1787eb198f7b46578a2d05bea75634b6d8f0d7becd530d66eabf0925d06",
+    "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+    "validation/numerics/metrics.mjs": "befb3de7e781d8f7ca14355ab545457f15cd0c65006c396d67843dd16a30ed9c",
+    "validation/numerics/diagnostics.mjs": "7c24a3b524a05690783b771a46648dc13a36c1b27393bfcad406651855ca8738",
+    "validation/numerics/diagnose.mjs": "0846f44893a1d6f822cc861a34090c83fe00b159f3d664d40f70d03ff0b5ee3d",
+    "validation/numerics/diagnostics-plan.json": "eaa405990072f6bcced4ee996bc66d843aa2f9557836dcaec95ba48543d6d0e4"
+  },
+  "baseline_source_sha256": {
+    "src/basin.ts": "7dc9702b4c417dbcf6aea4f57ee3a0ae66e20caf34bbd24166f31d6ccad9911c",
+    "src/conservativeTransport.ts": "320cac5c2040e4a634860d476c637c2d0c87b0edea248a6b782acfeb861d79b5",
+    "src/sedimentBudget.ts": "6eebe1787eb198f7b46578a2d05bea75634b6d8f0d7becd530d66eabf0925d06",
+    "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+    "validation/numerics/metrics.mjs": "befb3de7e781d8f7ca14355ab545457f15cd0c65006c396d67843dd16a30ed9c",
+    "validation/numerics/run.mjs": "930346282d6989fe1bfb20b711fc3ae0b291d88ecaf9e453b6e9a1c6c98efd70"
+  },
+  "runtime": "v24.18.0",
+  "observational_data": "none",
+  "cases": [
+    {
+      "id": "compaction-a",
+      "targets": [
+        "unit:5:8400",
+        "unit:13:9200"
+      ],
+      "grids": [
+        {
+          "h": 40,
+          "events": 109,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "compaction-a-40m-diagnostics.json",
+          "deposition": {
+            "column_events": 216,
+            "zero_cell_events": 24,
+            "underresolved_events": 107,
+            "missing_bed_appearances": 410
+          },
+          "compaction": {
+            "run_events": 5427,
+            "one_cell_events": 4046,
+            "minimum_cell_limited_events": 3250,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 7.105427357601002e-15,
+            "max_root_residual_m": 2.842170943040401e-14,
+            "max_thickness_excess_m": 27.195750524735303
+          }
+        },
+        {
+          "h": 20,
+          "events": 109,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "compaction-a-20m-diagnostics.json",
+          "deposition": {
+            "column_events": 216,
+            "zero_cell_events": 3,
+            "underresolved_events": 45,
+            "missing_bed_appearances": 124
+          },
+          "compaction": {
+            "run_events": 7668,
+            "one_cell_events": 4716,
+            "minimum_cell_limited_events": 3182,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 1.4210854715202004e-14,
+            "max_root_residual_m": 5.684341886080802e-14,
+            "max_thickness_excess_m": 11.260215482061213
+          }
+        },
+        {
+          "h": 10,
+          "events": 109,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "compaction-a-10m-diagnostics.json",
+          "deposition": {
+            "column_events": 216,
+            "zero_cell_events": 0,
+            "underresolved_events": 10,
+            "missing_bed_appearances": 13
+          },
+          "compaction": {
+            "run_events": 8493,
+            "one_cell_events": 2079,
+            "minimum_cell_limited_events": 907,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 1.4210854715202004e-14,
+            "max_root_residual_m": 5.684341886080802e-14,
+            "max_thickness_excess_m": 5.848404650482724
+          }
+        }
+      ],
+      "matched": 169,
+      "noncontracting": 77,
+      "velocity": {
+        "n": 169,
+        "coarse_rms": 63.152375455125075,
+        "fine_rms": 58.23938899845644,
+        "ratio": 0.9222042493055592,
+        "coarse_mae": 48.72721219050423,
+        "fine_mae": 44.56656202551659,
+        "coarse_max": 231.57791602712587,
+        "fine_max": 204.2330338814295,
+        "classes": {
+          "oscillatory-contracting": 27,
+          "oscillatory-noncontracting": 26,
+          "monotonic-noncontracting": 51,
+          "monotonic-contracting": 65
+        }
+      },
+      "attribution_file": "compaction-a-attribution.json"
+    },
+    {
+      "id": "compaction-b",
+      "targets": [
+        "unit:14:400",
+        "unit:14:9200"
+      ],
+      "grids": [
+        {
+          "h": 40,
+          "events": 145,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "compaction-b-40m-diagnostics.json",
+          "deposition": {
+            "column_events": 288,
+            "zero_cell_events": 3,
+            "underresolved_events": 83,
+            "missing_bed_appearances": 235
+          },
+          "compaction": {
+            "run_events": 12662,
+            "one_cell_events": 9221,
+            "minimum_cell_limited_events": 6627,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 1.4210854715202004e-14,
+            "max_root_residual_m": 1.1368683772161603e-13,
+            "max_thickness_excess_m": 31.51500453387186
+          }
+        },
+        {
+          "h": 20,
+          "events": 145,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "compaction-b-20m-diagnostics.json",
+          "deposition": {
+            "column_events": 288,
+            "zero_cell_events": 0,
+            "underresolved_events": 18,
+            "missing_bed_appearances": 36
+          },
+          "compaction": {
+            "run_events": 14259,
+            "one_cell_events": 4712,
+            "minimum_cell_limited_events": 1685,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 5.684341886080802e-14,
+            "max_root_residual_m": 1.1368683772161603e-13,
+            "max_thickness_excess_m": 17.289177684667507
+          }
+        },
+        {
+          "h": 10,
+          "events": 145,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "compaction-b-10m-diagnostics.json",
+          "deposition": {
+            "column_events": 288,
+            "zero_cell_events": 0,
+            "underresolved_events": 0,
+            "missing_bed_appearances": 0
+          },
+          "compaction": {
+            "run_events": 14733,
+            "one_cell_events": 1154,
+            "minimum_cell_limited_events": 533,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 8.526512829121202e-14,
+            "max_root_residual_m": 1.1368683772161603e-13,
+            "max_thickness_excess_m": 7.079111221085494
+          }
+        }
+      ],
+      "matched": 161,
+      "noncontracting": 13,
+      "velocity": {
+        "n": 161,
+        "coarse_rms": 184.1697615489117,
+        "fine_rms": 33.62474786135118,
+        "ratio": 0.18257474831133524,
+        "coarse_mae": 136.44278294207547,
+        "fine_mae": 25.055604068489085,
+        "coarse_max": 431.574057584985,
+        "fine_max": 135.58086500121044,
+        "classes": {
+          "monotonic-contracting": 93,
+          "oscillatory-contracting": 55,
+          "monotonic-noncontracting": 11,
+          "oscillatory-noncontracting": 2
+        }
+      },
+      "attribution_file": "compaction-b-attribution.json"
+    },
+    {
+      "id": "normal-a",
+      "targets": [
+        "unit:1:7600",
+        "unit:10:9200"
+      ],
+      "grids": [
+        {
+          "h": 40,
+          "events": 117,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "normal-a-40m-diagnostics.json",
+          "deposition": {
+            "column_events": 252,
+            "zero_cell_events": 59,
+            "underresolved_events": 88,
+            "missing_bed_appearances": 512
+          },
+          "compaction": {
+            "run_events": 0,
+            "one_cell_events": 0,
+            "minimum_cell_limited_events": 0,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 0,
+            "max_root_residual_m": 0,
+            "max_thickness_excess_m": 0
+          }
+        },
+        {
+          "h": 20,
+          "events": 117,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "normal-a-20m-diagnostics.json",
+          "deposition": {
+            "column_events": 252,
+            "zero_cell_events": 55,
+            "underresolved_events": 40,
+            "missing_bed_appearances": 394
+          },
+          "compaction": {
+            "run_events": 0,
+            "one_cell_events": 0,
+            "minimum_cell_limited_events": 0,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 0,
+            "max_root_residual_m": 0,
+            "max_thickness_excess_m": 0
+          }
+        },
+        {
+          "h": 10,
+          "events": 117,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "normal-a-10m-diagnostics.json",
+          "deposition": {
+            "column_events": 252,
+            "zero_cell_events": 12,
+            "underresolved_events": 65,
+            "missing_bed_appearances": 299
+          },
+          "compaction": {
+            "run_events": 0,
+            "one_cell_events": 0,
+            "minimum_cell_limited_events": 0,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 0,
+            "max_root_residual_m": 0,
+            "max_thickness_excess_m": 0
+          }
+        }
+      ],
+      "matched": 142,
+      "noncontracting": 44,
+      "velocity": {
+        "n": 142,
+        "coarse_rms": 14.896669517515358,
+        "fine_rms": 9.115183780098086,
+        "ratio": 0.6118940726570152,
+        "coarse_mae": 10.960189849468156,
+        "fine_mae": 5.852309586290491,
+        "coarse_max": 47.55619501764477,
+        "fine_max": 62.27972558923102,
+        "classes": {
+          "monotonic-contracting": 53,
+          "oscillatory-contracting": 45,
+          "monotonic-noncontracting": 25,
+          "oscillatory-noncontracting": 19
+        }
+      },
+      "attribution_file": "normal-a-attribution.json"
+    },
+    {
+      "id": "normal-b",
+      "targets": [
+        "unit:13:5200",
+        "unit:12:4400"
+      ],
+      "grids": [
+        {
+          "h": 40,
+          "events": 144,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "normal-b-40m-diagnostics.json",
+          "deposition": {
+            "column_events": 312,
+            "zero_cell_events": 12,
+            "underresolved_events": 109,
+            "missing_bed_appearances": 323
+          },
+          "compaction": {
+            "run_events": 0,
+            "one_cell_events": 0,
+            "minimum_cell_limited_events": 0,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 0,
+            "max_root_residual_m": 0,
+            "max_thickness_excess_m": 0
+          }
+        },
+        {
+          "h": 20,
+          "events": 144,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "normal-b-20m-diagnostics.json",
+          "deposition": {
+            "column_events": 312,
+            "zero_cell_events": 4,
+            "underresolved_events": 47,
+            "missing_bed_appearances": 114
+          },
+          "compaction": {
+            "run_events": 0,
+            "one_cell_events": 0,
+            "minimum_cell_limited_events": 0,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 0,
+            "max_root_residual_m": 0,
+            "max_thickness_excess_m": 0
+          }
+        },
+        {
+          "h": 10,
+          "events": 144,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "normal-b-10m-diagnostics.json",
+          "deposition": {
+            "column_events": 312,
+            "zero_cell_events": 0,
+            "underresolved_events": 18,
+            "missing_bed_appearances": 46
+          },
+          "compaction": {
+            "run_events": 0,
+            "one_cell_events": 0,
+            "minimum_cell_limited_events": 0,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 0,
+            "max_root_residual_m": 0,
+            "max_thickness_excess_m": 0
+          }
+        }
+      ],
+      "matched": 147,
+      "noncontracting": 38,
+      "velocity": {
+        "n": 147,
+        "coarse_rms": 19.20809594009227,
+        "fine_rms": 8.2909232568819,
+        "ratio": 0.4316369140772874,
+        "coarse_mae": 13.652287318446994,
+        "fine_mae": 5.694641098968931,
+        "coarse_max": 89.51196881369196,
+        "fine_max": 34.22852081451583,
+        "classes": {
+          "oscillatory-contracting": 51,
+          "monotonic-contracting": 58,
+          "oscillatory-noncontracting": 24,
+          "monotonic-noncontracting": 14
+        }
+      },
+      "attribution_file": "normal-b-attribution.json"
+    },
+    {
+      "id": "thrust-a",
+      "targets": [
+        "unit:13:9200",
+        "unit:10:1200"
+      ],
+      "grids": [
+        {
+          "h": 40,
+          "events": 98,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "thrust-a-40m-diagnostics.json",
+          "deposition": {
+            "column_events": 216,
+            "zero_cell_events": 57,
+            "underresolved_events": 80,
+            "missing_bed_appearances": 441
+          },
+          "compaction": {
+            "run_events": 0,
+            "one_cell_events": 0,
+            "minimum_cell_limited_events": 0,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 0,
+            "max_root_residual_m": 0,
+            "max_thickness_excess_m": 0
+          }
+        },
+        {
+          "h": 20,
+          "events": 98,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "thrust-a-20m-diagnostics.json",
+          "deposition": {
+            "column_events": 216,
+            "zero_cell_events": 50,
+            "underresolved_events": 41,
+            "missing_bed_appearances": 305
+          },
+          "compaction": {
+            "run_events": 0,
+            "one_cell_events": 0,
+            "minimum_cell_limited_events": 0,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 0,
+            "max_root_residual_m": 0,
+            "max_thickness_excess_m": 0
+          }
+        },
+        {
+          "h": 10,
+          "events": 98,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "thrust-a-10m-diagnostics.json",
+          "deposition": {
+            "column_events": 216,
+            "zero_cell_events": 14,
+            "underresolved_events": 40,
+            "missing_bed_appearances": 184
+          },
+          "compaction": {
+            "run_events": 0,
+            "one_cell_events": 0,
+            "minimum_cell_limited_events": 0,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 0,
+            "max_root_residual_m": 0,
+            "max_thickness_excess_m": 0
+          }
+        }
+      ],
+      "matched": 103,
+      "noncontracting": 23,
+      "velocity": {
+        "n": 103,
+        "coarse_rms": 21.430528335299922,
+        "fine_rms": 11.827330413152557,
+        "ratio": 0.5518916859212857,
+        "coarse_mae": 16.356669141553887,
+        "fine_mae": 7.558878445668175,
+        "coarse_max": 66.960472719471,
+        "fine_max": 66.91328184294025,
+        "classes": {
+          "oscillatory-noncontracting": 16,
+          "monotonic-contracting": 27,
+          "oscillatory-contracting": 53,
+          "monotonic-noncontracting": 7
+        }
+      },
+      "attribution_file": "thrust-a-attribution.json"
+    },
+    {
+      "id": "thrust-b",
+      "targets": [
+        "unit:2:5200",
+        "unit:9:8400"
+      ],
+      "grids": [
+        {
+          "h": 40,
+          "events": 79,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "thrust-b-40m-diagnostics.json",
+          "deposition": {
+            "column_events": 168,
+            "zero_cell_events": 46,
+            "underresolved_events": 49,
+            "missing_bed_appearances": 362
+          },
+          "compaction": {
+            "run_events": 0,
+            "one_cell_events": 0,
+            "minimum_cell_limited_events": 0,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 0,
+            "max_root_residual_m": 0,
+            "max_thickness_excess_m": 0
+          }
+        },
+        {
+          "h": 20,
+          "events": 79,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "thrust-b-20m-diagnostics.json",
+          "deposition": {
+            "column_events": 168,
+            "zero_cell_events": 42,
+            "underresolved_events": 39,
+            "missing_bed_appearances": 288
+          },
+          "compaction": {
+            "run_events": 0,
+            "one_cell_events": 0,
+            "minimum_cell_limited_events": 0,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 0,
+            "max_root_residual_m": 0,
+            "max_thickness_excess_m": 0
+          }
+        },
+        {
+          "h": 10,
+          "events": 79,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "thrust-b-10m-diagnostics.json",
+          "deposition": {
+            "column_events": 168,
+            "zero_cell_events": 12,
+            "underresolved_events": 53,
+            "missing_bed_appearances": 200
+          },
+          "compaction": {
+            "run_events": 0,
+            "one_cell_events": 0,
+            "minimum_cell_limited_events": 0,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 0,
+            "max_root_residual_m": 0,
+            "max_thickness_excess_m": 0
+          }
+        }
+      ],
+      "matched": 72,
+      "noncontracting": 27,
+      "velocity": {
+        "n": 72,
+        "coarse_rms": 16.343194930779514,
+        "fine_rms": 7.488056821318334,
+        "ratio": 0.4581758250472742,
+        "coarse_mae": 12.217445896363285,
+        "fine_mae": 6.116980407042411,
+        "coarse_max": 44.758344675225544,
+        "fine_max": 16.05819628733275,
+        "classes": {
+          "monotonic-contracting": 21,
+          "oscillatory-contracting": 24,
+          "monotonic-noncontracting": 15,
+          "oscillatory-noncontracting": 12
+        }
+      },
+      "attribution_file": "thrust-b-attribution.json"
+    },
+    {
+      "id": "coupled-extension-a",
+      "targets": [
+        "unit:14:9200",
+        "unit:13:9200"
+      ],
+      "grids": [
+        {
+          "h": 40,
+          "events": 161,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-extension-a-40m-diagnostics.json",
+          "deposition": {
+            "column_events": 264,
+            "zero_cell_events": 2,
+            "underresolved_events": 37,
+            "missing_bed_appearances": 59
+          },
+          "compaction": {
+            "run_events": 10905,
+            "one_cell_events": 7517,
+            "minimum_cell_limited_events": 5521,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 7.105427357601002e-15,
+            "max_root_residual_m": 8.526512829121202e-14,
+            "max_thickness_excess_m": 28.27080509535996
+          }
+        },
+        {
+          "h": 20,
+          "events": 161,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-extension-a-20m-diagnostics.json",
+          "deposition": {
+            "column_events": 264,
+            "zero_cell_events": 0,
+            "underresolved_events": 0,
+            "missing_bed_appearances": 0
+          },
+          "compaction": {
+            "run_events": 11533,
+            "one_cell_events": 2944,
+            "minimum_cell_limited_events": 1162,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 1.4210854715202004e-14,
+            "max_root_residual_m": 4.263256414560601e-14,
+            "max_thickness_excess_m": 16.500283315639777
+          }
+        },
+        {
+          "h": 10,
+          "events": 161,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-extension-a-10m-diagnostics.json",
+          "deposition": {
+            "column_events": 264,
+            "zero_cell_events": 0,
+            "underresolved_events": 0,
+            "missing_bed_appearances": 0
+          },
+          "compaction": {
+            "run_events": 11544,
+            "one_cell_events": 195,
+            "minimum_cell_limited_events": 86,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 2.842170943040401e-14,
+            "max_root_residual_m": 5.684341886080802e-14,
+            "max_thickness_excess_m": 6.33066641385458
+          }
+        }
+      ],
+      "matched": 125,
+      "noncontracting": 39,
+      "velocity": {
+        "n": 125,
+        "coarse_rms": 87.2827882521496,
+        "fine_rms": 46.37143049467091,
+        "ratio": 0.5312780609243297,
+        "coarse_mae": 65.63805984185628,
+        "fine_mae": 35.90704195721682,
+        "coarse_max": 299.4860616155024,
+        "fine_max": 136.7595423231055,
+        "classes": {
+          "monotonic-contracting": 44,
+          "monotonic-noncontracting": 27,
+          "oscillatory-contracting": 42,
+          "oscillatory-noncontracting": 12
+        }
+      },
+      "attribution_file": "coupled-extension-a-attribution.json"
+    },
+    {
+      "id": "coupled-extension-b",
+      "targets": [
+        "unit:12:1200",
+        "unit:4:1200"
+      ],
+      "grids": [
+        {
+          "h": 40,
+          "events": 117,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-extension-b-40m-diagnostics.json",
+          "deposition": {
+            "column_events": 180,
+            "zero_cell_events": 27,
+            "underresolved_events": 16,
+            "missing_bed_appearances": 122
+          },
+          "compaction": {
+            "run_events": 3682,
+            "one_cell_events": 1422,
+            "minimum_cell_limited_events": 813,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 2.842170943040401e-14,
+            "max_root_residual_m": 1.1368683772161603e-13,
+            "max_thickness_excess_m": 33.60942079790128
+          }
+        },
+        {
+          "h": 20,
+          "events": 117,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-extension-b-20m-diagnostics.json",
+          "deposition": {
+            "column_events": 180,
+            "zero_cell_events": 23,
+            "underresolved_events": 5,
+            "missing_bed_appearances": 94
+          },
+          "compaction": {
+            "run_events": 3891,
+            "one_cell_events": 354,
+            "minimum_cell_limited_events": 113,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 4.263256414560601e-14,
+            "max_root_residual_m": 1.1368683772161603e-13,
+            "max_thickness_excess_m": 14.493947119483252
+          }
+        },
+        {
+          "h": 10,
+          "events": 117,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-extension-b-10m-diagnostics.json",
+          "deposition": {
+            "column_events": 180,
+            "zero_cell_events": 0,
+            "underresolved_events": 25,
+            "missing_bed_appearances": 61
+          },
+          "compaction": {
+            "run_events": 4201,
+            "one_cell_events": 398,
+            "minimum_cell_limited_events": 339,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 5.684341886080802e-14,
+            "max_root_residual_m": 1.1368683772161603e-13,
+            "max_thickness_excess_m": 5.543491509533565
+          }
+        }
+      ],
+      "matched": 101,
+      "noncontracting": 33,
+      "velocity": {
+        "n": 101,
+        "coarse_rms": 51.423400139271706,
+        "fine_rms": 29.34662144031808,
+        "ratio": 0.5706861343442411,
+        "coarse_mae": 34.8574297543267,
+        "fine_mae": 21.24152497189923,
+        "coarse_max": 177.67215984992436,
+        "fine_max": 92.4817599826415,
+        "classes": {
+          "oscillatory-contracting": 46,
+          "monotonic-contracting": 22,
+          "oscillatory-noncontracting": 22,
+          "monotonic-noncontracting": 11
+        }
+      },
+      "attribution_file": "coupled-extension-b-attribution.json"
+    },
+    {
+      "id": "coupled-extension-c",
+      "targets": [
+        "unit:14:3600",
+        "unit:14:4400"
+      ],
+      "grids": [
+        {
+          "h": 40,
+          "events": 147,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-extension-c-40m-diagnostics.json",
+          "deposition": {
+            "column_events": 228,
+            "zero_cell_events": 26,
+            "underresolved_events": 36,
+            "missing_bed_appearances": 225
+          },
+          "compaction": {
+            "run_events": 6132,
+            "one_cell_events": 3788,
+            "minimum_cell_limited_events": 2382,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 1.4210854715202004e-14,
+            "max_root_residual_m": 8.526512829121202e-14,
+            "max_thickness_excess_m": 31.240573023070425
+          }
+        },
+        {
+          "h": 20,
+          "events": 147,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-extension-c-20m-diagnostics.json",
+          "deposition": {
+            "column_events": 228,
+            "zero_cell_events": 22,
+            "underresolved_events": 6,
+            "missing_bed_appearances": 138
+          },
+          "compaction": {
+            "run_events": 6690,
+            "one_cell_events": 1467,
+            "minimum_cell_limited_events": 651,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 2.842170943040401e-14,
+            "max_root_residual_m": 5.684341886080802e-14,
+            "max_thickness_excess_m": 14.561596703565186
+          }
+        },
+        {
+          "h": 10,
+          "events": 147,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-extension-c-10m-diagnostics.json",
+          "deposition": {
+            "column_events": 228,
+            "zero_cell_events": 0,
+            "underresolved_events": 22,
+            "missing_bed_appearances": 101
+          },
+          "compaction": {
+            "run_events": 7029,
+            "one_cell_events": 460,
+            "minimum_cell_limited_events": 337,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 2.842170943040401e-14,
+            "max_root_residual_m": 5.684341886080802e-14,
+            "max_thickness_excess_m": 6.498982857322606
+          }
+        }
+      ],
+      "matched": 117,
+      "noncontracting": 34,
+      "velocity": {
+        "n": 117,
+        "coarse_rms": 123.07771991396454,
+        "fine_rms": 63.46418798749988,
+        "ratio": 0.5156431889692422,
+        "coarse_mae": 78.56534634036494,
+        "fine_mae": 41.67068514175809,
+        "coarse_max": 653.4778050183645,
+        "fine_max": 276.7397577914221,
+        "classes": {
+          "oscillatory-contracting": 57,
+          "oscillatory-noncontracting": 21,
+          "monotonic-contracting": 26,
+          "monotonic-noncontracting": 13
+        }
+      },
+      "attribution_file": "coupled-extension-c-attribution.json"
+    },
+    {
+      "id": "coupled-compression-a",
+      "targets": [
+        "unit:9:6000",
+        "unit:13:6000"
+      ],
+      "grids": [
+        {
+          "h": 40,
+          "events": 106,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-compression-a-40m-diagnostics.json",
+          "deposition": {
+            "column_events": 192,
+            "zero_cell_events": 65,
+            "underresolved_events": 84,
+            "missing_bed_appearances": 389
+          },
+          "compaction": {
+            "run_events": 3562,
+            "one_cell_events": 3242,
+            "minimum_cell_limited_events": 2848,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 7.105427357601002e-15,
+            "max_root_residual_m": 2.842170943040401e-14,
+            "max_thickness_excess_m": 19.723921806081364
+          }
+        },
+        {
+          "h": 20,
+          "events": 106,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-compression-a-20m-diagnostics.json",
+          "deposition": {
+            "column_events": 192,
+            "zero_cell_events": 58,
+            "underresolved_events": 17,
+            "missing_bed_appearances": 203
+          },
+          "compaction": {
+            "run_events": 5437,
+            "one_cell_events": 3726,
+            "minimum_cell_limited_events": 2952,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 1.4210854715202004e-14,
+            "max_root_residual_m": 2.842170943040401e-14,
+            "max_thickness_excess_m": 9.997222735019847
+          }
+        },
+        {
+          "h": 10,
+          "events": 106,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-compression-a-10m-diagnostics.json",
+          "deposition": {
+            "column_events": 192,
+            "zero_cell_events": 2,
+            "underresolved_events": 58,
+            "missing_bed_appearances": 121
+          },
+          "compaction": {
+            "run_events": 6370,
+            "one_cell_events": 1657,
+            "minimum_cell_limited_events": 887,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 1.4210854715202004e-14,
+            "max_root_residual_m": 2.842170943040401e-14,
+            "max_thickness_excess_m": 4.996638199705124
+          }
+        }
+      ],
+      "matched": 59,
+      "noncontracting": 17,
+      "velocity": {
+        "n": 59,
+        "coarse_rms": 40.48507696196109,
+        "fine_rms": 19.807192047274494,
+        "ratio": 0.4892467430872098,
+        "coarse_mae": 33.0518823232152,
+        "fine_mae": 15.868577287772611,
+        "coarse_max": 81.6489599589006,
+        "fine_max": 54.99055031746934,
+        "classes": {
+          "oscillatory-noncontracting": 12,
+          "oscillatory-contracting": 23,
+          "monotonic-noncontracting": 5,
+          "monotonic-contracting": 19
+        }
+      },
+      "attribution_file": "coupled-compression-a-attribution.json"
+    },
+    {
+      "id": "coupled-compression-b",
+      "targets": [
+        "unit:6:3600",
+        "unit:5:3600"
+      ],
+      "grids": [
+        {
+          "h": 40,
+          "events": 130,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-compression-b-40m-diagnostics.json",
+          "deposition": {
+            "column_events": 240,
+            "zero_cell_events": 41,
+            "underresolved_events": 73,
+            "missing_bed_appearances": 400
+          },
+          "compaction": {
+            "run_events": 6654,
+            "one_cell_events": 4745,
+            "minimum_cell_limited_events": 2977,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 7.105427357601002e-15,
+            "max_root_residual_m": 2.842170943040401e-14,
+            "max_thickness_excess_m": 21.95250472937738
+          }
+        },
+        {
+          "h": 20,
+          "events": 130,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-compression-b-20m-diagnostics.json",
+          "deposition": {
+            "column_events": 240,
+            "zero_cell_events": 32,
+            "underresolved_events": 40,
+            "missing_bed_appearances": 264
+          },
+          "compaction": {
+            "run_events": 8237,
+            "one_cell_events": 3065,
+            "minimum_cell_limited_events": 2238,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 1.4210854715202004e-14,
+            "max_root_residual_m": 4.263256414560601e-14,
+            "max_thickness_excess_m": 11.95520425625903
+          }
+        },
+        {
+          "h": 10,
+          "events": 130,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-compression-b-10m-diagnostics.json",
+          "deposition": {
+            "column_events": 240,
+            "zero_cell_events": 5,
+            "underresolved_events": 42,
+            "missing_bed_appearances": 173
+          },
+          "compaction": {
+            "run_events": 9340,
+            "one_cell_events": 2365,
+            "minimum_cell_limited_events": 1492,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 1.4210854715202004e-14,
+            "max_root_residual_m": 5.684341886080802e-14,
+            "max_thickness_excess_m": 5.604873856323067
+          }
+        }
+      ],
+      "matched": 115,
+      "noncontracting": 33,
+      "velocity": {
+        "n": 115,
+        "coarse_rms": 51.69054732963824,
+        "fine_rms": 34.74076757798665,
+        "ratio": 0.6720913082316512,
+        "coarse_mae": 39.63002187761509,
+        "fine_mae": 24.813245543632036,
+        "coarse_max": 158.8294692766117,
+        "fine_max": 112.23252673202114,
+        "classes": {
+          "oscillatory-contracting": 57,
+          "monotonic-contracting": 25,
+          "monotonic-noncontracting": 18,
+          "oscillatory-noncontracting": 15
+        }
+      },
+      "attribution_file": "coupled-compression-b-attribution.json"
+    },
+    {
+      "id": "coupled-compression-c",
+      "targets": [
+        "unit:7:2800",
+        "unit:20:9200"
+      ],
+      "grids": [
+        {
+          "h": 40,
+          "events": 145,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-compression-c-40m-diagnostics.json",
+          "deposition": {
+            "column_events": 264,
+            "zero_cell_events": 73,
+            "underresolved_events": 99,
+            "missing_bed_appearances": 565
+          },
+          "compaction": {
+            "run_events": 7186,
+            "one_cell_events": 6359,
+            "minimum_cell_limited_events": 4867,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 1.4210854715202004e-14,
+            "max_root_residual_m": 5.684341886080802e-14,
+            "max_thickness_excess_m": 25.159294537903293
+          }
+        },
+        {
+          "h": 20,
+          "events": 145,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-compression-c-20m-diagnostics.json",
+          "deposition": {
+            "column_events": 264,
+            "zero_cell_events": 49,
+            "underresolved_events": 63,
+            "missing_bed_appearances": 368
+          },
+          "compaction": {
+            "run_events": 10072,
+            "one_cell_events": 6026,
+            "minimum_cell_limited_events": 4093,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 1.4210854715202004e-14,
+            "max_root_residual_m": 2.842170943040401e-14,
+            "max_thickness_excess_m": 15.203305814961247
+          }
+        },
+        {
+          "h": 10,
+          "events": 145,
+          "grain_budget_closed": true,
+          "frozen_sample_exact": true,
+          "detail_file": "coupled-compression-c-10m-diagnostics.json",
+          "deposition": {
+            "column_events": 264,
+            "zero_cell_events": 21,
+            "underresolved_events": 43,
+            "missing_bed_appearances": 207
+          },
+          "compaction": {
+            "run_events": 12344,
+            "one_cell_events": 4777,
+            "minimum_cell_limited_events": 2936,
+            "root_rounding_disagreements": 0,
+            "max_grain_change_m": 7.105427357601002e-15,
+            "max_root_residual_m": 2.842170943040401e-14,
+            "max_thickness_excess_m": 5.613614978619211
+          }
+        }
+      ],
+      "matched": 70,
+      "noncontracting": 33,
+      "velocity": {
+        "n": 70,
+        "coarse_rms": 63.73632539766792,
+        "fine_rms": 38.62436822533597,
+        "ratio": 0.6060024324331258,
+        "coarse_mae": 41.308309550172794,
+        "fine_mae": 31.574858849648237,
+        "coarse_max": 321.4156404909995,
+        "fine_max": 99.1013913384686,
+        "classes": {
+          "oscillatory-contracting": 16,
+          "monotonic-noncontracting": 25,
+          "monotonic-contracting": 21,
+          "oscillatory-noncontracting": 8
+        }
+      },
+      "attribution_file": "coupled-compression-c-attribution.json"
+    }
+  ],
+  "summary": {
+    "all": {
+      "n": 1381,
+      "coarse_rms": 84.95517478192298,
+      "fine_rms": 36.98428161987014,
+      "ratio": 0.4353387738275805,
+      "coarse_mae": 48.259530617793665,
+      "fine_mae": 23.14415811348505,
+      "coarse_max": 653.4778050183645,
+      "fine_max": 276.7397577914221,
+      "classes": {
+        "oscillatory-contracting": 496,
+        "oscillatory-noncontracting": 189,
+        "monotonic-noncontracting": 222,
+        "monotonic-contracting": 474
+      },
+      "fine_sse": 1888983.0170611904,
+      "noncontracting": 411,
+      "fine_bands_m_s": {
+        "under10": 618,
+        "from10to50": 587,
+        "over50": 176,
+        "over100": 36
+      },
+      "substitution_absolute_sum_m_s": {
+        "present_depth": 18383.527331542933,
+        "composition": 3736.7475565491054,
+        "memory": 12319.308593265061
+      }
+    },
+    "noncontracting": {
+      "n": 411,
+      "coarse_rms": 26.553138969023063,
+      "fine_rms": 50.62504331574218,
+      "ratio": 1.9065558830841598,
+      "coarse_mae": 16.4204731356569,
+      "fine_mae": 35.459207634866324,
+      "coarse_max": 151.89852162874922,
+      "fine_max": 204.2330338814295,
+      "classes": {
+        "oscillatory-noncontracting": 189,
+        "monotonic-noncontracting": 222
+      },
+      "fine_sse": 1053349.8494062375,
+      "noncontracting": 411,
+      "fine_bands_m_s": {
+        "under10": 104,
+        "from10to50": 209,
+        "over50": 98,
+        "over100": 24
+      },
+      "substitution_absolute_sum_m_s": {
+        "present_depth": 8387.928746042422,
+        "composition": 1251.1592233729816,
+        "memory": 5459.130544322309
+      }
+    },
+    "by_family": {
+      "compaction-": {
+        "n": 330,
+        "coarse_rms": 136.34724251789265,
+        "fine_rms": 47.83966521784898,
+        "ratio": 0.3508663932941002,
+        "coarse_mae": 91.52177852687684,
+        "fine_mae": 35.04757950708801,
+        "coarse_max": 431.574057584985,
+        "fine_max": 204.2330338814295,
+        "classes": {
+          "oscillatory-contracting": 82,
+          "oscillatory-noncontracting": 28,
+          "monotonic-noncontracting": 62,
+          "monotonic-contracting": 158
+        },
+        "fine_sse": 755249.077491437,
+        "noncontracting": 90,
+        "fine_bands_m_s": {
+          "under10": 71,
+          "from10to50": 186,
+          "over50": 73,
+          "over100": 19
+        },
+        "substitution_absolute_sum_m_s": {
+          "present_depth": 6581.778333118042,
+          "composition": 1001.7837150145856,
+          "memory": 4563.605535705843
+        }
+      },
+      "normal-": {
+        "n": 289,
+        "coarse_rms": 17.22506400900468,
+        "fine_rms": 8.705680987606852,
+        "ratio": 0.5054077583140368,
+        "coarse_mae": 12.329526624346668,
+        "fine_mae": 5.7721114283795245,
+        "coarse_max": 89.51196881369196,
+        "fine_max": 62.27972558923102,
+        "classes": {
+          "monotonic-contracting": 111,
+          "oscillatory-contracting": 96,
+          "monotonic-noncontracting": 39,
+          "oscillatory-noncontracting": 43
+        },
+        "fine_sse": 21902.986741356053,
+        "noncontracting": 82,
+        "fine_bands_m_s": {
+          "under10": 250,
+          "from10to50": 38,
+          "over50": 1,
+          "over100": 0
+        },
+        "substitution_absolute_sum_m_s": {
+          "present_depth": 855.2209056818554,
+          "composition": 657.7045630177188,
+          "memory": 534.3691785662279
+        }
+      },
+      "thrust-": {
+        "n": 175,
+        "coarse_rms": 19.498829061762727,
+        "fine_rms": 10.266545765282784,
+        "ratio": 0.5265211430267634,
+        "coarse_mae": 14.653674434961191,
+        "fine_mae": 6.965640395490718,
+        "coarse_max": 66.960472719471,
+        "fine_max": 66.91328184294025,
+        "classes": {
+          "oscillatory-noncontracting": 28,
+          "monotonic-contracting": 48,
+          "oscillatory-contracting": 77,
+          "monotonic-noncontracting": 22
+        },
+        "fine_sse": 18445.343341363026,
+        "noncontracting": 50,
+        "fine_bands_m_s": {
+          "under10": 133,
+          "from10to50": 41,
+          "over50": 1,
+          "over100": 0
+        },
+        "substitution_absolute_sum_m_s": {
+          "present_depth": 609.9094431218621,
+          "composition": 620.9671210479726,
+          "memory": 275.2485245266364
+        }
+      },
+      "coupled-extension-": {
+        "n": 343,
+        "coarse_rms": 93.39244849003693,
+        "fine_rms": 49.10314034330968,
+        "ratio": 0.5257720633435152,
+        "coarse_mae": 60.98397494822662,
+        "fine_mae": 33.5546484792992,
+        "coarse_max": 653.4778050183645,
+        "fine_max": 276.7397577914221,
+        "classes": {
+          "monotonic-contracting": 92,
+          "monotonic-noncontracting": 51,
+          "oscillatory-contracting": 145,
+          "oscillatory-noncontracting": 55
+        },
+        "fine_sse": 827013.6083101451,
+        "noncontracting": 106,
+        "fine_bands_m_s": {
+          "under10": 88,
+          "from10to50": 183,
+          "over50": 72,
+          "over100": 14
+        },
+        "substitution_absolute_sum_m_s": {
+          "present_depth": 6472.122448914117,
+          "composition": 884.6910378874256,
+          "memory": 4859.225152945041
+        }
+      },
+      "coupled-compression-": {
+        "n": 244,
+        "coarse_rms": 53.113540105386974,
+        "fine_rms": 33.04071018324929,
+        "ratio": 0.6220769716665558,
+        "coarse_mae": 38.52088213732594,
+        "fine_mae": 24.590202528572323,
+        "coarse_max": 321.4156404909995,
+        "fine_max": 112.23252673202114,
+        "classes": {
+          "oscillatory-noncontracting": 35,
+          "oscillatory-contracting": 96,
+          "monotonic-noncontracting": 48,
+          "monotonic-contracting": 65
+        },
+        "fine_sse": 266372.0011768874,
+        "noncontracting": 83,
+        "fine_bands_m_s": {
+          "under10": 76,
+          "from10to50": 139,
+          "over50": 29,
+          "over100": 3
+        },
+        "substitution_absolute_sum_m_s": {
+          "present_depth": 3864.4962007070817,
+          "composition": 571.6011195814094,
+          "memory": 2086.8602015213155
+        }
+      }
+    },
+    "max_lookup_difference_m_s": 1.5145576745796916,
+    "max_substitution_residual_m_s": 5.684341886080802e-14,
+    "worst_noncontracting": [
+      {
+        "case": "compaction-a",
+        "key": "unit:5:8400",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          3846.6919959067427,
+          3819.848263690271,
+          4024.0812975717004
+        ],
+        "coarse": 26.843732216471835,
+        "fine": -204.2330338814295,
+        "ratio": 7.608220505049895,
+        "classification": "oscillatory-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          6,
+          6,
+          12
+        ],
+        "carbonate_fraction": [
+          1,
+          1,
+          1
+        ],
+        "lateral_domain_margin_m": 2800,
+        "vertical_fault_gap_m": [
+          null,
+          null,
+          null
+        ],
+        "direct_velocities_m_s": [
+          3846.692023470683,
+          3819.8482643306966,
+          4024.0890330586635
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.00002756394042080501,
+          -6.404256964742672e-7,
+          -0.007735486963156291
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            3846.692023470683,
+            3857.5810184709885,
+            3846.692023470683,
+            3857.5810184709885,
+            3857.5810184709885,
+            3819.8482643306966,
+            3857.5810184709885,
+            3819.8482643306966
+          ],
+          "delta": -26.84375913998656,
+          "contributions": [
+            -13.42187956999328,
+            0,
+            -13.42187956999328
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": -13.42187956999328,
+            "composition": 0,
+            "memory": -13.42187956999328
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            3819.8482643306966,
+            4024.0890330586635,
+            3819.8482643306966,
+            4024.0890330586635,
+            4024.0890330586635,
+            4024.0890330586635,
+            4024.0890330586635,
+            4024.0890330586635
+          ],
+          "delta": 204.24076872796695,
+          "contributions": [
+            102.12038436398348,
+            0,
+            102.12038436398348
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 102.12038436398348,
+            "composition": 0,
+            "memory": 102.12038436398348
+          }
+        }
+      },
+      {
+        "case": "coupled-extension-c",
+        "key": "unit:14:3600",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          3276.685472775248,
+          3226.541607897003,
+          3418.4605839642154
+        ],
+        "coarse": 50.14386487824504,
+        "fine": -191.9189760672125,
+        "ratio": 3.827367047458616,
+        "classification": "oscillatory-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          4,
+          7,
+          13
+        ],
+        "carbonate_fraction": [
+          1,
+          1,
+          1
+        ],
+        "lateral_domain_margin_m": 5600,
+        "vertical_fault_gap_m": [
+          755.3254088733579,
+          810.6508177467158,
+          698.9643399301108
+        ],
+        "direct_velocities_m_s": [
+          3276.6854890172367,
+          3226.5416244832018,
+          3418.4666221735756
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.000016241988760157255,
+          -0.000016586198853474343,
+          -0.006038209360212932
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            3276.6854890172367,
+            3276.6854890172367,
+            3276.6854890172367,
+            3276.6854890172367,
+            3276.6854890172367,
+            3226.5416244832018,
+            3276.6854890172367,
+            3226.5416244832018
+          ],
+          "delta": -50.14386453403495,
+          "contributions": [
+            -25.07193226701747,
+            0,
+            -25.07193226701747
+          ],
+          "residual": -7.105427357601002e-15,
+          "groups": {
+            "present_depth": -25.07193226701747,
+            "composition": 0,
+            "memory": -25.07193226701747
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            3226.5416244832018,
+            3418.4666221735756,
+            3226.5416244832018,
+            3418.4666221735756,
+            3418.4666221735756,
+            3418.4666221735756,
+            3418.4666221735756,
+            3418.4666221735756
+          ],
+          "delta": 191.92499769037386,
+          "contributions": [
+            95.96249884518693,
+            0,
+            95.96249884518693
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 95.96249884518693,
+            "composition": 0,
+            "memory": 95.96249884518693
+          }
+        }
+      },
+      {
+        "case": "compaction-a",
+        "key": "unit:13:9200",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          1755.3677077606915,
+          1850.391630448012,
+          2041.0118346152285
+        ],
+        "coarse": -95.02392268732046,
+        "fine": -190.62020416721657,
+        "ratio": 2.006023312618434,
+        "classification": "monotonic-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          2,
+          3,
+          11
+        ],
+        "carbonate_fraction": [
+          0.5,
+          0.3333333333333333,
+          0.2727272727272727
+        ],
+        "lateral_domain_margin_m": 2000,
+        "vertical_fault_gap_m": [
+          null,
+          null,
+          null
+        ],
+        "direct_velocities_m_s": [
+          1755.3703026648213,
+          1850.393579336683,
+          2040.9750327695272
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.002594904129864517,
+          -0.0019488886709950748,
+          0.0368018457013477
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            1755.3703026648213,
+            1823.8813453892176,
+            1802.0646068625886,
+            1850.393579336683,
+            1820.518174546654,
+            1823.8813453892176,
+            1845.1043123880154,
+            1850.393579336683
+          ],
+          "delta": 95.0232766718616,
+          "contributions": [
+            33.215460443797575,
+            32.91857467988196,
+            28.88924154818206
+          ],
+          "residual": 1.4210854715202004e-14,
+          "groups": {
+            "present_depth": 33.215460443797575,
+            "composition": 32.91857467988196,
+            "memory": 28.88924154818206
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            1850.3935793366834,
+            2050.694644789206,
+            1867.2285613630013,
+            2040.9750327695272,
+            2033.5810196493492,
+            2050.694644789206,
+            2022.509587691218,
+            2040.9750327695272
+          ],
+          "delta": 190.58145343284377,
+          "contributions": [
+            104.73218626800768,
+            -1.09338399408864,
+            86.94265115892472
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 104.73218626800768,
+            "composition": -1.09338399408864,
+            "memory": 86.94265115892472
+          }
+        }
+      },
+      {
+        "case": "coupled-extension-c",
+        "key": "unit:14:4400",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          3603.2095919687144,
+          3507.252188311997,
+          3696.9831902217156
+        ],
+        "coarse": 95.95740365671736,
+        "fine": -189.73100190971854,
+        "ratio": 1.9772419290174978,
+        "classification": "oscillatory-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          4,
+          8,
+          16
+        ],
+        "carbonate_fraction": [
+          1,
+          1,
+          1
+        ],
+        "lateral_domain_margin_m": 6400,
+        "vertical_fault_gap_m": [
+          1390.6508177467158,
+          1385.9762266200737,
+          1300.1329877117714
+        ],
+        "direct_velocities_m_s": [
+          3603.2096297806047,
+          3507.252180601644,
+          3696.9903170348157
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.000037811890251759905,
+          0.000007710353202128317,
+          -0.007126813100057916
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            3603.2096297806047,
+            3603.2096297806047,
+            3603.2096297806047,
+            3603.2096297806047,
+            3603.2096297806047,
+            3507.252180601644,
+            3603.2096297806047,
+            3507.252180601644
+          ],
+          "delta": -95.95744917896081,
+          "contributions": [
+            -47.97872458948041,
+            0,
+            -47.97872458948041
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": -47.97872458948041,
+            "composition": 0,
+            "memory": -47.97872458948041
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            3507.2521806016425,
+            3696.9903170348157,
+            3507.2521806016425,
+            3696.9903170348157,
+            3696.9903170348157,
+            3696.9903170348157,
+            3696.9903170348157,
+            3696.9903170348157
+          ],
+          "delta": 189.73813643317317,
+          "contributions": [
+            94.86906821658658,
+            0,
+            94.86906821658658
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 94.86906821658658,
+            "composition": 0,
+            "memory": 94.86906821658658
+          }
+        }
+      },
+      {
+        "case": "coupled-extension-c",
+        "key": "unit:14:7600",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          3695.988860964416,
+          3847.887382593165,
+          4021.1759400257224
+        ],
+        "coarse": -151.89852162874922,
+        "fine": -173.28855743255735,
+        "ratio": 1.1408179327517545,
+        "classification": "monotonic-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          5,
+          10,
+          24
+        ],
+        "carbonate_fraction": [
+          1,
+          1,
+          1
+        ],
+        "lateral_domain_margin_m": 3600,
+        "vertical_fault_gap_m": [
+          1317.3953492632936,
+          1208.4493428991154,
+          1128.4493428991154
+        ],
+        "direct_velocities_m_s": [
+          3695.988904760052,
+          3847.887364411103,
+          4021.183627554024
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.00004379563597467495,
+          0.000018182061921834247,
+          -0.007687528301630664
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            3695.988904760052,
+            3847.887364411103,
+            3695.988904760052,
+            3847.887364411103,
+            3847.887364411103,
+            3847.887364411103,
+            3847.887364411103,
+            3847.887364411103
+          ],
+          "delta": 151.89845965105133,
+          "contributions": [
+            75.94922982552566,
+            0,
+            75.94922982552566
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 75.94922982552566,
+            "composition": 0,
+            "memory": 75.94922982552566
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            3847.887364411102,
+            4021.183627554024,
+            3847.887364411102,
+            4021.183627554024,
+            4021.183627554024,
+            4021.183627554024,
+            4021.183627554024,
+            4021.183627554024
+          ],
+          "delta": 173.29626314292182,
+          "contributions": [
+            86.64813157146091,
+            0,
+            86.64813157146091
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 86.64813157146091,
+            "composition": 0,
+            "memory": 86.64813157146091
+          }
+        }
+      },
+      {
+        "case": "coupled-extension-c",
+        "key": "unit:13:4400",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          3849.024264580805,
+          3728.721818848572,
+          3901.6448117827667
+        ],
+        "coarse": 120.30244573223263,
+        "fine": -172.92299293419455,
+        "ratio": 1.437402139928925,
+        "classification": "oscillatory-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          4,
+          6,
+          11
+        ],
+        "carbonate_fraction": [
+          1,
+          1,
+          1
+        ],
+        "lateral_domain_margin_m": 6400,
+        "vertical_fault_gap_m": [
+          1230.6508177467158,
+          1265.9762266200737,
+          1190.1329877117714
+        ],
+        "direct_velocities_m_s": [
+          3849.02429456806,
+          3728.721843790112,
+          3901.652310464913
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.000029987255402375013,
+          -0.00002494153977750102,
+          -0.007498682146433566
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            3849.02429456806,
+            3849.02429456806,
+            3849.02429456806,
+            3849.02429456806,
+            3849.02429456806,
+            3728.721843790112,
+            3849.02429456806,
+            3728.721843790112
+          ],
+          "delta": -120.30245077794825,
+          "contributions": [
+            -60.151225388974126,
+            0,
+            -60.151225388974126
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": -60.151225388974126,
+            "composition": 0,
+            "memory": -60.151225388974126
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            3728.721843790112,
+            3901.652310464913,
+            3728.721843790112,
+            3901.652310464913,
+            3901.652310464913,
+            3901.652310464913,
+            3901.652310464913,
+            3901.652310464913
+          ],
+          "delta": 172.9304666748012,
+          "contributions": [
+            86.4652333374006,
+            0,
+            86.4652333374006
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 86.4652333374006,
+            "composition": 0,
+            "memory": 86.4652333374006
+          }
+        }
+      },
+      {
+        "case": "coupled-extension-c",
+        "key": "unit:13:7600",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          4021.2847397839496,
+          4107.248314016596,
+          4275.303779303135
+        ],
+        "coarse": -85.96357423264635,
+        "fine": -168.0554652865394,
+        "ratio": 1.9549613517898263,
+        "classification": "monotonic-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          6,
+          8,
+          13
+        ],
+        "carbonate_fraction": [
+          1,
+          1,
+          1
+        ],
+        "lateral_domain_margin_m": 3600,
+        "vertical_fault_gap_m": [
+          1077.3953492632936,
+          1048.4493428991154,
+          998.4493428991154
+        ],
+        "direct_velocities_m_s": [
+          4021.284768813232,
+          4107.248350746731,
+          4275.311575664506
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.000029029282359260833,
+          -0.00003673013543448178,
+          -0.007796361370310478
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            4021.284768813232,
+            4107.248350746731,
+            4021.284768813232,
+            4107.248350746731,
+            4107.248350746731,
+            4107.248350746731,
+            4107.248350746731,
+            4107.248350746731
+          ],
+          "delta": 85.96358193349943,
+          "contributions": [
+            42.98179096674971,
+            0,
+            42.98179096674971
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 42.98179096674971,
+            "composition": 0,
+            "memory": 42.98179096674971
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            4107.248350746731,
+            4275.311575664506,
+            4107.248350746731,
+            4275.311575664506,
+            4275.311575664506,
+            4275.311575664506,
+            4275.311575664506,
+            4275.311575664506
+          ],
+          "delta": 168.06322491777428,
+          "contributions": [
+            84.03161245888714,
+            0,
+            84.03161245888714
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 84.03161245888714,
+            "composition": 0,
+            "memory": 84.03161245888714
+          }
+        }
+      },
+      {
+        "case": "compaction-a",
+        "key": "unit:5:5200",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          3786.566085911511,
+          3728.721818848572,
+          3886.9331915578764
+        ],
+        "coarse": 57.8442670629388,
+        "fine": -158.21137270930421,
+        "ratio": 2.7351262405513523,
+        "classification": "oscillatory-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          6,
+          6,
+          11
+        ],
+        "carbonate_fraction": [
+          1,
+          1,
+          1
+        ],
+        "lateral_domain_margin_m": 6000,
+        "vertical_fault_gap_m": [
+          null,
+          null,
+          null
+        ],
+        "direct_velocities_m_s": [
+          3786.566127503237,
+          3728.721843790112,
+          3886.940673735048
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.0000415917261307186,
+          -0.00002494153977750102,
+          -0.007482177171823423
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            3786.566127503237,
+            3789.3869046392015,
+            3786.566127503237,
+            3789.3869046392015,
+            3789.3869046392015,
+            3728.721843790112,
+            3789.3869046392015,
+            3728.721843790112
+          ],
+          "delta": -57.84428371312515,
+          "contributions": [
+            -28.922141856562575,
+            0,
+            -28.922141856562575
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": -28.922141856562575,
+            "composition": 0,
+            "memory": -28.922141856562575
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            3728.721843790112,
+            3886.940673735048,
+            3728.721843790112,
+            3886.940673735048,
+            3886.940673735048,
+            3886.940673735048,
+            3886.940673735048,
+            3886.940673735048
+          ],
+          "delta": 158.21882994493626,
+          "contributions": [
+            79.10941497246813,
+            0,
+            79.10941497246813
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 79.10941497246813,
+            "composition": 0,
+            "memory": 79.10941497246813
+          }
+        }
+      },
+      {
+        "case": "compaction-a",
+        "key": "unit:5:2800",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          3695.988860964416,
+          3697.883018527145,
+          3849.7234750337293
+        ],
+        "coarse": -1.8941575627291058,
+        "fine": -151.84045650658436,
+        "ratio": 80.16252686382242,
+        "classification": "monotonic-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          5,
+          6,
+          12
+        ],
+        "carbonate_fraction": [
+          1,
+          1,
+          1
+        ],
+        "lateral_domain_margin_m": 4800,
+        "vertical_fault_gap_m": [
+          null,
+          null,
+          null
+        ],
+        "direct_velocities_m_s": [
+          3695.988904760051,
+          3697.883038799147,
+          3849.7309105648487
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.00004379563506518025,
+          -0.000020272002075216733,
+          -0.0074355311194267415
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            3695.988904760051,
+            3714.053180315043,
+            3695.988904760051,
+            3714.053180315043,
+            3714.053180315043,
+            3697.883038799147,
+            3714.053180315043,
+            3697.883038799147
+          ],
+          "delta": 1.8941340390961159,
+          "contributions": [
+            0.9470670195480579,
+            0,
+            0.9470670195480579
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 0.9470670195480579,
+            "composition": 0,
+            "memory": 0.9470670195480579
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            3697.883038799148,
+            3849.7309105648487,
+            3697.883038799148,
+            3849.7309105648487,
+            3849.7309105648487,
+            3849.7309105648487,
+            3849.7309105648487,
+            3849.7309105648487
+          ],
+          "delta": 151.8478717657008,
+          "contributions": [
+            75.9239358828504,
+            0,
+            75.9239358828504
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 75.9239358828504,
+            "composition": 0,
+            "memory": 75.9239358828504
+          }
+        }
+      },
+      {
+        "case": "compaction-a",
+        "key": "unit:5:7600",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          3905.8623180765344,
+          3849.752799514769,
+          3995.632425960604
+        ],
+        "coarse": 56.109518561765526,
+        "fine": -145.87962644583513,
+        "ratio": 2.59990871754229,
+        "classification": "oscillatory-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          6,
+          6,
+          12
+        ],
+        "carbonate_fraction": [
+          1,
+          1,
+          1
+        ],
+        "lateral_domain_margin_m": 3600,
+        "vertical_fault_gap_m": [
+          null,
+          null,
+          null
+        ],
+        "direct_velocities_m_s": [
+          3905.862334306635,
+          3849.752777405368,
+          3995.6400920414326
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.00001623010075491038,
+          0.000022109401015768526,
+          -0.007666080828585109
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            3905.862334306635,
+            3908.588261041661,
+            3905.862334306635,
+            3908.588261041661,
+            3908.588261041661,
+            3849.752777405368,
+            3908.588261041661,
+            3849.752777405368
+          ],
+          "delta": -56.1095569012673,
+          "contributions": [
+            -28.05477845063365,
+            0,
+            -28.05477845063365
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": -28.05477845063365,
+            "composition": 0,
+            "memory": -28.05477845063365
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            3849.752777405367,
+            3995.6400920414326,
+            3849.752777405367,
+            3995.6400920414326,
+            3995.6400920414326,
+            3995.6400920414326,
+            3995.6400920414326,
+            3995.6400920414326
+          ],
+          "delta": 145.88731463606564,
+          "contributions": [
+            72.94365731803282,
+            0,
+            72.94365731803282
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 72.94365731803282,
+            "composition": 0,
+            "memory": 72.94365731803282
+          }
+        }
+      },
+      {
+        "case": "coupled-extension-c",
+        "key": "unit:13:3600",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          3476.5977790209054,
+          3443.259543430508,
+          3588.7927482553046
+        ],
+        "coarse": 33.33823559039729,
+        "fine": -145.53320482479648,
+        "ratio": 4.365354142098502,
+        "classification": "oscillatory-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          2,
+          6,
+          8
+        ],
+        "carbonate_fraction": [
+          1,
+          1,
+          1
+        ],
+        "lateral_domain_margin_m": 5600,
+        "vertical_fault_gap_m": [
+          675.3254088733579,
+          690.6508177467158,
+          618.9643399301108
+        ],
+        "direct_velocities_m_s": [
+          3476.5977816707336,
+          3443.2595233089746,
+          3588.7995059116047
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.0000026498282750253566,
+          0.000020121533452766016,
+          -0.0067576563001239265
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            3476.5977816707336,
+            3479.2207453740634,
+            3476.5977816707336,
+            3479.2207453740634,
+            3479.2207453740634,
+            3443.2595233089746,
+            3479.2207453740634,
+            3443.2595233089746
+          ],
+          "delta": -33.33825836175902,
+          "contributions": [
+            -16.66912918087951,
+            0,
+            -16.66912918087951
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": -16.66912918087951,
+            "composition": 0,
+            "memory": -16.66912918087951
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            3443.2595233089746,
+            3588.7995059116047,
+            3443.2595233089746,
+            3588.7995059116047,
+            3588.7995059116047,
+            3588.7995059116047,
+            3588.7995059116047,
+            3588.7995059116047
+          ],
+          "delta": 145.53998260263006,
+          "contributions": [
+            72.76999130131503,
+            0,
+            72.76999130131503
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 72.76999130131503,
+            "composition": 0,
+            "memory": 72.76999130131503
+          }
+        }
+      },
+      {
+        "case": "compaction-a",
+        "key": "unit:13:2000",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          1760.353355923713,
+          1848.6506620738617,
+          1990.4967702275476
+        ],
+        "coarse": -88.29730615014864,
+        "fine": -141.84610815368592,
+        "ratio": 1.6064602006371305,
+        "classification": "monotonic-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          2,
+          4,
+          7
+        ],
+        "carbonate_fraction": [
+          0.5,
+          0.25,
+          0.2857142857142857
+        ],
+        "lateral_domain_margin_m": 4000,
+        "vertical_fault_gap_m": [
+          null,
+          null,
+          null
+        ],
+        "direct_velocities_m_s": [
+          1760.3554943929082,
+          1848.654899328941,
+          1990.4640203983975
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.0021384691951880086,
+          -0.004237255079260649,
+          0.032749829150134246
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            1760.3554943929082,
+            1761.8363564180531,
+            1848.5161298695448,
+            1850.2898292601606,
+            1761.8420018467625,
+            1760.3539438025746,
+            1849.8621842530065,
+            1848.654899328941
+          ],
+          "delta": 88.29940493603272,
+          "contributions": [
+            0.13879925809775762,
+            88.23280620905953,
+            -0.07220053112458413
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 0.13879925809775762,
+            "composition": 88.23280620905953,
+            "memory": -0.07220053112458413
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            1848.654899328941,
+            1993.673452381002,
+            1834.287707943672,
+            1990.4640203983975,
+            1975.9731171576586,
+            1993.673452381002,
+            1973.6471987699433,
+            1990.4640203983975
+          ],
+          "delta": 141.80912106945652,
+          "contributions": [
+            82.92456617318325,
+            -6.7814328510111554,
+            65.66598774728443
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 82.92456617318325,
+            "composition": -6.7814328510111554,
+            "memory": 65.66598774728443
+          }
+        }
+      },
+      {
+        "case": "compaction-a",
+        "key": "unit:13:3600",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          1740.7444897261646,
+          1823.654425777197,
+          1965.4348742658533
+        ],
+        "coarse": -82.90993605103245,
+        "fine": -141.78044848865625,
+        "ratio": 1.7100537672757101,
+        "classification": "monotonic-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          2,
+          6,
+          8
+        ],
+        "carbonate_fraction": [
+          0.5,
+          0.3333333333333333,
+          0.25
+        ],
+        "lateral_domain_margin_m": 5600,
+        "vertical_fault_gap_m": [
+          null,
+          null,
+          null
+        ],
+        "direct_velocities_m_s": [
+          1740.747625178081,
+          1823.6586041787607,
+          1965.4082927630132
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.003135451916477905,
+          -0.004178401563649459,
+          0.02658150284014482
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            1740.747625178081,
+            1787.699696230111,
+            1787.2028595142308,
+            1823.6586041787607,
+            1780.8343302716094,
+            1787.699696230111,
+            1814.1878579278712,
+            1823.6586041787607
+          ],
+          "delta": 82.91097900067962,
+          "contributions": [
+            26.02779087147837,
+            39.02345336241842,
+            17.85973476678282
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 26.02779087147837,
+            "composition": 39.02345336241842,
+            "memory": 17.85973476678282
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            1823.6586041787607,
+            1962.2598542092894,
+            1851.321272117172,
+            1965.4082927630132,
+            1953.241038388825,
+            1962.2598542092894,
+            1954.8633101570367,
+            1965.4082927630132
+          ],
+          "delta": 141.74968858425245,
+          "contributions": [
+            70.23305028988597,
+            11.065487217700895,
+            60.45115107666557
+          ],
+          "residual": 2.842170943040401e-14,
+          "groups": {
+            "present_depth": 70.23305028988597,
+            "composition": 11.065487217700895,
+            "memory": 60.45115107666557
+          }
+        }
+      },
+      {
+        "case": "coupled-extension-a",
+        "key": "unit:14:9200",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          2602.2316189261765,
+          2583.8924198949276,
+          2720.651962218033
+        ],
+        "coarse": 18.33919903124888,
+        "fine": -136.7595423231055,
+        "ratio": 7.45722548133512,
+        "classification": "oscillatory-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          4,
+          14,
+          30
+        ],
+        "carbonate_fraction": [
+          0,
+          0,
+          0
+        ],
+        "lateral_domain_margin_m": 2000,
+        "vertical_fault_gap_m": [
+          2346.7076088109407,
+          2321.0856156412956,
+          2227.51384617236
+        ],
+        "direct_velocities_m_s": [
+          2602.2395483274404,
+          2583.9018388664595,
+          2720.65956837791
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.007929401263936597,
+          -0.0094189715318862,
+          -0.007606159877013852
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            2602.2395483274404,
+            2607.526900535268,
+            2600.5558641241832,
+            2605.844694191498,
+            2609.6709124907306,
+            2585.416065990595,
+            2607.9775506472174,
+            2583.9018388664595
+          ],
+          "delta": -18.337709460980932,
+          "contributions": [
+            -9.423789263113576,
+            -1.62856514034479,
+            -7.285355057522565
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": -9.423789263113576,
+            "composition": -1.62856514034479,
+            "memory": -7.285355057522565
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            2583.901838866459,
+            2719.697540855531,
+            2584.6100533651024,
+            2720.65956837791,
+            2710.322276619828,
+            2719.697540855531,
+            2711.2676821786176,
+            2720.65956837791
+          ],
+          "delta": 136.7577295114511,
+          "contributions": [
+            72.6333259375399,
+            0.8746528538690654,
+            63.24975072004213
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 72.6333259375399,
+            "composition": 0.8746528538690654,
+            "memory": 63.24975072004213
+          }
+        }
+      },
+      {
+        "case": "compaction-a",
+        "key": "unit:5:4400",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          3695.988860964416,
+          3728.721818848572,
+          3864.5864082197145
+        ],
+        "coarse": -32.73295788415635,
+        "fine": -135.8645893711423,
+        "ratio": 4.150696978011403,
+        "classification": "monotonic-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          5,
+          6,
+          12
+        ],
+        "carbonate_fraction": [
+          1,
+          1,
+          1
+        ],
+        "lateral_domain_margin_m": 6400,
+        "vertical_fault_gap_m": [
+          null,
+          null,
+          null
+        ],
+        "direct_velocities_m_s": [
+          3695.988904760051,
+          3728.721843790112,
+          3864.593862189345
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.00004379563506518025,
+          -0.00002494153977750102,
+          -0.00745396963066014
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            3695.988904760051,
+            3733.5835153810776,
+            3695.988904760051,
+            3733.5835153810776,
+            3733.5835153810776,
+            3728.721843790112,
+            3733.5835153810776,
+            3728.721843790112
+          ],
+          "delta": 32.73293903006106,
+          "contributions": [
+            16.36646951503053,
+            0,
+            16.36646951503053
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 16.36646951503053,
+            "composition": 0,
+            "memory": 16.36646951503053
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            3728.721843790112,
+            3864.593862189345,
+            3728.721843790112,
+            3864.593862189345,
+            3864.593862189345,
+            3864.593862189345,
+            3864.593862189345,
+            3864.593862189345
+          ],
+          "delta": 135.87201839923318,
+          "contributions": [
+            67.93600919961659,
+            0,
+            67.93600919961659
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 67.93600919961659,
+            "composition": 0,
+            "memory": 67.93600919961659
+          }
+        }
+      },
+      {
+        "case": "compaction-a",
+        "key": "unit:13:6000",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          1810.372493419409,
+          1858.7611417134488,
+          1989.1599376941538
+        ],
+        "coarse": -48.38864829403974,
+        "fine": -130.39879598070502,
+        "ratio": 2.6948220414903976,
+        "classification": "monotonic-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          3,
+          4,
+          8
+        ],
+        "carbonate_fraction": [
+          0.3333333333333333,
+          0.25,
+          0.25
+        ],
+        "lateral_domain_margin_m": 5200,
+        "vertical_fault_gap_m": [
+          null,
+          null,
+          null
+        ],
+        "direct_velocities_m_s": [
+          1810.3743299640792,
+          1858.764088964089,
+          1989.129097311386
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.0018365446701409383,
+          -0.0029472506403180887,
+          0.030840382767792107
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            1810.3743299640792,
+            1831.6013488015683,
+            1844.017611682762,
+            1858.990195830203,
+            1830.2999617709982,
+            1831.3734520276323,
+            1856.9443721370114,
+            1858.764088964089
+          ],
+          "delta": 48.38975900000992,
+          "contributions": [
+            10.356590955534784,
+            29.350182450821194,
+            8.682985593653937
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 10.356590955534784,
+            "composition": 29.350182450821194,
+            "memory": 8.682985593653937
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            1858.764088964089,
+            1994.3832452191784,
+            1854.1228473457934,
+            1989.129097311386,
+            1980.5983186438618,
+            1994.3832452191784,
+            1975.5145097615132,
+            1989.129097311386
+          ],
+          "delta": 130.3650083472969,
+          "contributions": [
+            74.54311069180558,
+            -5.021455973719563,
+            60.84335362921088
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 74.54311069180558,
+            "composition": -5.021455973719563,
+            "memory": 60.84335362921088
+          }
+        }
+      },
+      {
+        "case": "compaction-a",
+        "key": "unit:5:9200",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          3964.0635004220067,
+          3893.7897800879273,
+          4024.0812975717004
+        ],
+        "coarse": 70.27372033407937,
+        "fine": -130.29151748377308,
+        "ratio": 1.854057489262995,
+        "classification": "oscillatory-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          6,
+          7,
+          12
+        ],
+        "carbonate_fraction": [
+          1,
+          1,
+          1
+        ],
+        "lateral_domain_margin_m": 2000,
+        "vertical_fault_gap_m": [
+          null,
+          null,
+          null
+        ],
+        "direct_velocities_m_s": [
+          3964.0635476288653,
+          3893.7897523573297,
+          4024.0890330586635
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.000047206858653225936,
+          0.000027730597594199935,
+          -0.007735486963156291
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            3964.0635476288653,
+            3964.445865173858,
+            3964.0635476288653,
+            3964.445865173858,
+            3964.445865173858,
+            3893.7897523573297,
+            3964.445865173858,
+            3893.7897523573297
+          ],
+          "delta": -70.27379527153562,
+          "contributions": [
+            -35.13689763576781,
+            0,
+            -35.13689763576781
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": -35.13689763576781,
+            "composition": 0,
+            "memory": -35.13689763576781
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            3893.7897523573297,
+            4024.0890330586635,
+            3893.7897523573297,
+            4024.0890330586635,
+            4024.0890330586635,
+            4024.0890330586635,
+            4024.0890330586635,
+            4024.0890330586635
+          ],
+          "delta": 130.29928070133383,
+          "contributions": [
+            65.14964035066691,
+            0,
+            65.14964035066691
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 65.14964035066691,
+            "composition": 0,
+            "memory": 65.14964035066691
+          }
+        }
+      },
+      {
+        "case": "coupled-extension-a",
+        "key": "unit:13:9200",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          2720.13830078095,
+          2762.603020502075,
+          2884.6054237851513
+        ],
+        "coarse": -42.46471972112522,
+        "fine": -122.00240328307609,
+        "ratio": 2.87302975468322,
+        "classification": "monotonic-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          5,
+          11,
+          28
+        ],
+        "carbonate_fraction": [
+          0,
+          0,
+          0
+        ],
+        "lateral_domain_margin_m": 2000,
+        "vertical_fault_gap_m": [
+          2146.7076088109407,
+          2101.0856156412956,
+          1947.51384617236
+        ],
+        "direct_velocities_m_s": [
+          2720.1483571889007,
+          2762.6117584123076,
+          2884.619989501282
+        ],
+        "lookup_minus_direct_m_s": [
+          -0.010056407950742141,
+          -0.008737910232412105,
+          -0.014565716130618966
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            2720.1483571889007,
+            2761.4007762896413,
+            2721.278004273719,
+            2762.6117584123076,
+            2759.9624411682503,
+            2761.4007762896413,
+            2761.1709491724446,
+            2762.6117584123076
+          ],
+          "delta": 42.46340122340689,
+          "contributions": [
+            21.359757656864453,
+            1.1834580903049905,
+            19.920185476237442
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 21.359757656864453,
+            "composition": 1.1834580903049905,
+            "memory": 19.920185476237442
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            2762.6117584123076,
+            2884.1364166521207,
+            2763.0090688614473,
+            2884.619989501282,
+            2882.714663630209,
+            2884.1364166521207,
+            2883.1972653630705,
+            2884.619989501282
+          ],
+          "delta": 122.0082310889743,
+          "contributions": [
+            61.48790640296587,
+            0.45465686310406755,
+            60.06566782290436
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 61.48790640296587,
+            "composition": 0.45465686310406755,
+            "memory": 60.06566782290436
+          }
+        }
+      },
+      {
+        "case": "coupled-extension-c",
+        "key": "unit:9:4400",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          3260.103115544781,
+          3161.9374279785907,
+          3282.280569847888
+        ],
+        "coarse": 98.16568756619017,
+        "fine": -120.34314186929714,
+        "ratio": 1.225918595926437,
+        "classification": "oscillatory-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          8,
+          14,
+          31
+        ],
+        "carbonate_fraction": [
+          0,
+          0,
+          0
+        ],
+        "lateral_domain_margin_m": 6400,
+        "vertical_fault_gap_m": [
+          190.6508177467158,
+          225.9762266200737,
+          120.13298771177142
+        ],
+        "direct_velocities_m_s": [
+          3260.0777017237897,
+          3161.9220638122524,
+          3282.283778992977
+        ],
+        "lookup_minus_direct_m_s": [
+          0.02541382099116163,
+          0.015364166338258656,
+          -0.0032091450893858564
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            3260.0777017237897,
+            3259.4043168011985,
+            3241.1390409991536,
+            3240.476112612934,
+            3260.0777017237897,
+            3179.4268757424984,
+            3241.1390409991536,
+            3161.9220638122524
+          ],
+          "delta": -98.15563791153727,
+          "contributions": [
+            -40.182413097749304,
+            -18.458968370444154,
+            -39.51425644334381
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": -40.182413097749304,
+            "composition": -18.458968370444154,
+            "memory": -39.51425644334381
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            3161.9220638122533,
+            3282.170226978686,
+            3161.998496810838,
+            3282.283778992977,
+            3281.447899969363,
+            3282.170226978686,
+            3281.563015709117,
+            3282.283778992977
+          ],
+          "delta": 120.36171518072388,
+          "contributions": [
+            60.49091034867479,
+            0.10143962996608023,
+            59.76936520208301
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 60.49091034867479,
+            "composition": 0.10143962996608023,
+            "memory": 59.76936520208301
+          }
+        }
+      },
+      {
+        "case": "coupled-compression-b",
+        "key": "unit:6:3600",
+        "metric": "effective_velocity_m_s",
+        "values": [
+          2709.9783702679624,
+          2764.7424722444352,
+          2652.509945512414
+        ],
+        "coarse": -54.76410197647283,
+        "fine": 112.23252673202114,
+        "ratio": 2.0493813042024733,
+        "classification": "oscillatory-noncontracting",
+        "noncontracting": true,
+        "cells": [
+          5,
+          11,
+          23
+        ],
+        "carbonate_fraction": [
+          0,
+          0,
+          0
+        ],
+        "lateral_domain_margin_m": 5600,
+        "vertical_fault_gap_m": [
+          186.83211441485082,
+          206.0071432323266,
+          109.12824696464031
+        ],
+        "direct_velocities_m_s": [
+          2709.9551547080246,
+          2764.718240375033,
+          2652.4731149455315
+        ],
+        "lookup_minus_direct_m_s": [
+          0.02321555993785296,
+          0.024231869402228767,
+          0.03683056688259967
+        ],
+        "attribution_40_to_20": {
+          "values": [
+            2709.9551547080246,
+            2770.801855610948,
+            2704.881374490371,
+            2764.718240375033,
+            2767.206159228965,
+            2770.801855610948,
+            2761.1410399382066,
+            2764.718240375033
+          ],
+          "delta": 54.763085667008454,
+          "contributions": [
+            32.04672749102421,
+            -5.743920905635226,
+            28.46027908161947
+          ],
+          "residual": 0,
+          "groups": {
+            "present_depth": 32.04672749102421,
+            "composition": -5.743920905635226,
+            "memory": 28.46027908161947
+          }
+        },
+        "attribution_20_to_10": {
+          "values": [
+            2764.718240375033,
+            2757.583176680013,
+            2762.1736112185963,
+            2755.05352701983,
+            2764.718240375033,
+            2654.422289540427,
+            2762.1736112185963,
+            2652.4731149455315
+          ],
+          "delta": -112.24512542950151,
+          "contributions": [
+            -58.51452582825701,
+            -2.3436477198805883,
+            -51.3869518813639
+          ],
+          "residual": -2.842170943040401e-14,
+          "groups": {
+            "present_depth": -58.51452582825701,
+            "composition": -2.3436477198805883,
+            "memory": -51.3869518813639
+          }
+        }
+      }
+    ]
+  }
+}
