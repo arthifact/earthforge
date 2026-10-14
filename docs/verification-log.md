@@ -908,3 +908,58 @@ arrays or split files were read or modified; holdout untouched.
 ## 2026-10-13 — constituent thrust flow and coupled comparison
 
 The [constituent thrust-motion correction](coupled-travel-repair.md) integrates each material constituent across fault bends and uses exact quantized matching. 117 distinct tests are verified across the initial full run and the successful targeted rerun; all 36 conservation runs close. Shared 20–10 m travel RMS changes from 0.613 to 0.514 ms; 40–20 m changes from 1.371 to 1.554 ms. Coupled A’s original upstream accommodation defect is largely recovered, but local and coarse-grid regressions remain. The report retains every regression and eligibility change. Holdout untouched.
+
+
+## 2026-10-14 — benchmark reproduction and coefficient calibration
+
+The [calibration report](force2020-calibration.md) records the rerun of the
+FORCE development comparison from the original downloads (all five checksums
+match; importer counts and frozen split reproduced; 309.477 m/s MAE identical)
+and a pre-registered refit of the velocity law's global coefficients with
+leave-one-parent-well-out cross-validation. All four sets fit better in sample
+and predict worse out of sample (best 324.4 m/s). Fold coefficients are unstable,
+with the sand e-folding depth at its bound in most folds. No set is adopted.
+Per-well offsets dominate and cluster by quadrant. 7 new calibration tests and
+the 13 Python tests pass. Source coefficients, windows, screens and holdout unchanged.
+
+
+## 2026-10-14 — burial-state context
+
+The [context report](force2020-burial-context.md) records the attachment of
+NPD group, formation and location to the comparison windows (4 Python tests)
+and a pre-registered fit of one burial-state offset per unit using the unchanged
+`rockVelocity` (6 JavaScript tests, including both offset signs against direct
+calls and recovery of known offsets). Leave-one-well-out MAE: untuned 309.5,
+quadrant 266.4, group 273.1, quadrant plus group 268.4 m/s; leave-one-quadrant-out
+for the group model 279.0 m/s. Selection interval [−95.2, +4.5] m/s includes
+zero; nothing recorded. Source, coefficients, windows and holdout unchanged.
+
+
+## 2026-10-14 — exhumation
+
+[Exhumation](exhumation.md) adds an optional uplift-and-erosion episode after
+the tectonic phase (2–4 steps, 300–1500 m, tilted), drawn from a separate random
+stream so that the default reproduces earlier seeds exactly. Rock lifted above
+sea level is booked as erosion; budgets close in both settings; parcels retain
+burial and loading maxima and are faster than fresh rock at the same depth.
+Four new tests; type checking passes. A profile of one default section (33 s)
+attributes the time to column bookkeeping, recorded as a separate item.
+
+
+## 2026-10-14 — simulation speed
+
+[Simulation speed](simulation-speed.md) halves the time of a default section
+(30.2 to 13.7 s extension, 44.5 to 21.5 s compression, 43.8 to 17.7 s exhumed)
+with bit-identical results: digests over grids, every column parcel, every ledger
+residual, the window velocity and the step log are unchanged for all three.
+Changes: exponent-only scale search and array-free per-parcel exact sums,
+parcels built without `delete`, one fewer copy per compacted parcel, cached edge
+costs and an allocation-free heap in both transport solvers, a Number fast path
+for the conservative solver that falls back to BigInt beyond 2^51, and an inlined
+porosity law. The compaction bisection is untouched. Type checking passes.
+The full suite, run file by file: 222 tests pass across 28 files; the basin file
+takes 44 min, fault geometry 5 min, thrust coupling 4 min, strata 2.5 min,
+numerics 2 min, the rest seconds. A first bit-length rewrite failed three
+exact-length and length-rounding edge cases at 1024 bits and above (Number
+overflow); values near that size are now reduced by 1000 bits first, the
+affected files pass, and the three digests were reconfirmed afterwards.

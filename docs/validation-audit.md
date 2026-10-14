@@ -212,3 +212,33 @@ arrays or split files were read or modified; holdout untouched.
 ## 2026-10-13 — constituent thrust flow and coupled comparison
 
 The [constituent thrust-motion correction](coupled-travel-repair.md) integrates each material constituent across fault bends and uses exact quantized matching. 117 distinct tests are verified across the initial full run and the successful targeted rerun; all 36 conservation runs close. Shared 20–10 m travel RMS changes from 0.613 to 0.514 ms; 40–20 m changes from 1.371 to 1.554 ms. Coupled A’s original upstream accommodation defect is largely recovered, but local and coarse-grid regressions remain. The report retains every regression and eligibility change. Holdout untouched.
+
+
+## Coefficient calibration (2026-10-14)
+
+The [FORCE coefficient calibration](force2020-calibration.md) first reproduces the
+development benchmark from the original downloads and a fresh SODIR export: the
+same 442 windows, 309.477 m/s MAE and paired interval, with the current source.
+A pre-registered refit of four coefficient sets (compaction; plus cementation
+window; plus coordination number; plus overpressure top) lowers in-sample error
+and raises leave-one-parent-well-out error in every case; the best set reaches
+324.4 m/s with a paired interval against the untuned law of [−9.4, +38.1] m/s.
+Nothing is adopted and the source coefficients are unchanged. Per-well offsets
+(mean 278 m/s) exceed within-well scatter (133 m/s) and cluster by quadrant,
+which identifies missing burial and pressure context, not the law's shape, as
+the leading error. Seven new tests cover the calibration tooling. Holdout untouched.
+
+
+## Burial-state context (2026-10-14)
+
+The [burial-state context test](force2020-burial-context.md) attaches lithostratigraphic
+group, quadrant and block to each of the 442 windows and fits one burial-state
+offset per unit with unchanged coefficients, under a plan frozen before inspection.
+Per-quadrant offsets reach 266.4 m/s leave-one-well-out MAE and per-group offsets
+273.1 m/s, from 309.5 m/s; the group model also improves leave-one-quadrant-out
+error to 279.0 m/s, which the area model cannot by construction. Hordaland shale
+fits as 350 m under-loaded across 22 wells; Viking, Dunlin and Shetland units as
+400–700 m over-buried. The paired interval against the untuned law includes zero
+on 44 wells, so nothing is recorded as a scenario. Area and age are confounded
+in the cohort; exhumation and time-dependent cementation remain unseparated.
+All models stay too fast at 2–3 km. Ten new tests cover the tooling. Holdout untouched.
