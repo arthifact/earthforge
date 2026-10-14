@@ -29,6 +29,7 @@ self.onmessage = async (event: MessageEvent<Request>) => {
         faults: b.faults.map((f) => ({ kind: f.kind, dir: f.dir, dip: f.dip, heave: f.heave, emergent: !!f.thrust?.emergent, transport: f.thrust?.transport ?? 1 })),
         log: b.log.map((l) => ({ phase: l.phase, text: l.text })),
         overpressure: b.overpressure, basementVelocity: b.basementVelocity, dt: b.dt,
+        exhumation: b.historyPlan.exhumation,
         budget: b.budget.summary,
         checks: { trapped: b.checks.trapped, collapsed: b.checks.collapsed, area: b.checks.area, seconds: b.checks.seconds },
         now: frameOf(b, b, b.faults), history: [],

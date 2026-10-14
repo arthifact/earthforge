@@ -32,7 +32,7 @@ import { exactLengthScale } from './exactLength';
 // crystalline basement below, water above. Seeded: one seed, one section.
 
 import { subsideColumn } from './subsidence';
-import { append, cellLayers, columnsFromRaster, compactColumn, depositedLayer, emptyLayer, packColumn, rasterize, sliceColumn, surface, type Column, type Layer } from "./strata";
+import { append, cellLayers, columnScale, columnsFromRaster, layerUnits, compactColumn, depositedLayer, emptyLayer, packColumn, rasterize, sliceColumn, surface, type Column, type Layer } from "./strata";
 import { remapNormal, type NormalTransfer } from "./normalTransport";
 import { normalDepth, extendNormal } from "./normalGeometry";
 import { traceFromDepth, projectTrace, transportTrace, type TraceSegment } from "./faultTrace";
@@ -59,6 +59,12 @@ export interface BasinOptions {
   faults: [number, number]; thrusts: [number, number];
   /** Probability of an overpressured interval; of a carbonate unit (per unit). */
   overpressure: number; carbonate: number;
+  /**
+   * Probability of an exhumation episode at the end of the post-tectonic phase: the section is uplifted and eroded
+   * over a few steps, then one step reburies it; beds keep their compaction and cementation memory. Drawn from its
+   * own random stream, so 0 leaves every seed exactly as before.
+   */
+  exhumation: number;
   /** Mechanical compaction: beds thin as they are buried (off only for the kinematics tests). */
   compaction: boolean;
   /** Keep the state after every step (for the history replay). */
@@ -66,7 +72,20 @@ export interface BasinOptions {
   /** For tests: no low sea level (so no erosion) and no folds; in compression also no tilt (uniform subsidence). */
   quiet?: boolean;
 }
-export const BASIN_DEFAULTS: BasinOptions = { seed: 1, h: 20, setting: "any", faults: [2, 4], thrusts: [1, 3], overpressure: 0.35, carbonate: 0.1, compaction: true, record: false };
+export const BASIN_DEFAULTS: BasinOptions = { seed: 1, h: 20, setting: "any", faults: [2, 4], thrusts: [1, 3], overpressure: 0.35, carbonate: 0.1, exhumation: 0, compaction: true, record: false };
+/** An exhumation episode: uplift (m) spread over its steps after the post-tectonic phase's own steps, tilted across the section. */
+export interface Exhumation { start: number; steps: number; amount: number; tilt: number }
+/**
+ * Whether and how a seed is exhumed. Its own random stream keeps every other draw of the section unchanged,
+ * so a probability of 0 reproduces earlier seeds exactly; the start step is set by the caller's phase plan.
+ */
+export const exhumationOf = (o: Pick<BasinOptions, "seed" | "exhumation">): Omit<Exhumation, "start"> | null => {
+  const p = o.exhumation ?? 0;
+  if (!(p > 0)) return null;
+  const r = mulberry32(o.seed * 48271 + 7), u = (a: number, b: number) => a + (b - a) * r();
+  if (r() >= p) return null;
+  return { steps: Math.floor(u(2, 5)), amount: u(300, 1500), tilt: u(0, 0.6) * (r() < 0.5 ? 1 : -1) };
+};
 
 /** The setting a seed gets under "any" (its own random stream, so the section's stream is the same as when chosen directly). */
 export const settingOf = (o: Pick<BasinOptions, "seed" | "setting">): Setting => o.setting !== "any" ? o.setting : mulberry32(o.seed * 7919 + 101)() < 0.5 ? "extension" : "compression";
@@ -117,6 +136,8 @@ export type SimulationObserver = (state: SimulationObservation) => void;
 export interface PhysicalHistory {
   dt: number; phases: number[]; waterDepth: number; basinSlope: number; overpressure: number | null; basementVelocity: number;
   normalFaults: unknown[]; thrusts: unknown[]; beds: Bed[];
+  /** The exhumation episode, if the seed has one. */
+  exhumation: Exhumation | null;
   forcing: { step: number; waterDepth: number; fill: number; drape: number; subsidence: number[] }[];
 }
 export interface ThrustPlacementDiagnostics {
@@ -275,8 +296,9 @@ export function remapCompactedMaterial(solid: ArrayLike<number>, fraction: Array
 }
 /** Porosity at an (effective) depth: Sclater and Christie's sand and shale curves mixed by sand fraction, or chalk. */
 export const porosity = (f: number, de: number, carbonate: boolean) => {
-  const curve = (c: { phi0: number; L: number }) => c.phi0 * Math.exp(-de / c.L);
-  return carbonate ? curve(COMPACTION.chalk) : f * curve(COMPACTION.sand) + (1 - f) * curve(COMPACTION.shale);
+  // Written out (same operations, same order) rather than through an inner closure allocated per call.
+  const { shale, sand, chalk } = COMPACTION;
+  return carbonate ? chalk.phi0 * Math.exp(-de / chalk.L) : f * (sand.phi0 * Math.exp(-de / sand.L)) + (1 - f) * (shale.phi0 * Math.exp(-de / shale.L));
 };
 
 /** Debugging only: called after every normal/thrust slip with the grids before and after and how often each cell was taken. */
@@ -423,13 +445,12 @@ export function remapThrust(state: MaterialState & Pick<Basin, "solid" | "nx" | 
   })[] = [], HW = new Map<number, Column>(), FW = new Map<number, Column>();
   const rock = (c: Column) => c.some(p => p.bed !== -1);
   const height = (c: Column) => {
-    const lengths = c.flatMap(p => [...layerLengths(p)]), scale = exactLengthScale(lengths);
-    return scale.number(lengths.reduce((sum, h) => sum + scale.units(h), 0n));
+    const scale = columnScale([c]); let sum = 0n; for (const p of c) sum += layerUnits(p, scale);
+    return scale.number(sum);
   };
   const localTops = (c: Column) => {
-    const scale = exactLengthScale(c.flatMap(p => [...layerLengths(p)])); let preceding = 0n;
-    return c.map(p => { const top = scale.number(preceding);
-      preceding += layerLengths(p).reduce((sum, h) => sum + scale.units(h), 0n); return top; });
+    const scale = columnScale([c]); let preceding = 0n;
+    return c.map(p => { const top = scale.number(preceding); preceding += layerUnits(p, scale); return top; });
   };
   // Integrate placement error over occupied rock, including basement. A thin
   // fragment must not count as much as a full rock cell; water has no rock volume.
@@ -580,8 +601,8 @@ export function remapThrust(state: MaterialState & Pick<Basin, "solid" | "nx" | 
     if (moved)
       for (const p of moved)
         append(out, p);
-    const scale = exactLengthScale([capacity[n], ...(moved ?? []).flatMap(p => [...layerLengths(p)])]);
-    const usedUnits = (moved ?? []).reduce((sum, p) => sum + layerLengths(p).reduce((u, h) => u + scale.units(h), 0n), 0n);
+    const scale = columnScale([moved ?? []], [capacity[n]]);
+    let usedUnits = 0n; for (const p of moved ?? []) usedUnits += layerUnits(p, scale);
     const freeUnits = scale.units(capacity[n]) - usedUnits;
     if (freeUnits < 0n) throw Error('Thrust reconstruction exceeds exact capacity');
     const gap = scale.number(freeUnits);
@@ -681,11 +702,15 @@ export function simulate(options: BasinOptions, observe?: SimulationObserver): B
     const p0 = { s0: u(120, 300), tilt: o.quiet ? 0 : u(-0.2, 0.2) }, p1 = { s0: u(60, 200), tilt: o.quiet ? 0 : u(0, 0.8) }, p2 = { s0: u(30, 120), tilt: o.quiet ? 0 : u(0, 0.4) };
     subsidence = (stage) => { const p = [p0, p1, p2][stage]; return stage === 0 ? (x) => p.s0 * (1 + p.tilt * xn(x)) : (x) => p.s0 * (1 - transport * p.tilt * xn(x)); };
   }
+  // An exhumation episode comes late: its uplift steps follow the post-tectonic phase's own steps, and one step of
+  // renewed subsidence and deposition then reburies the unconformity, so the section ends with net exhumation.
+  const drawn = exhumationOf(o), episode: Exhumation | null = drawn ? { start: nPre + nSyn + nPost, ...drawn } : null;
+  if (episode) nPost += episode.steps + 1;
   const total = nPre + nSyn + nPost;
   const basinSlope = u(0, 150), basementVelocity = u(4800, 5500), overpressure = rng() < o.overpressure ? u(1500, 2500) : null;
   const physics = { porosity, effectiveDepth };
   const historyPlan: PhysicalHistory = { dt, phases: [nPre, nSyn, nPost], waterDepth: wd0, basinSlope, overpressure, basementVelocity,
-    normalFaults: plan, thrusts: thrustPlan, beds, forcing: [] };
+    normalFaults: plan, thrusts: thrustPlan, beds, exhumation: episode, forcing: [] };
 
   /** Compatibility column projection for measurements; drawing uses separate branches when present. */
   const sync = (f: Fault) => {
@@ -699,7 +724,8 @@ export function simulate(options: BasinOptions, observe?: SimulationObserver): B
     const flux = emptyFluxes(), shifts = Float64Array.from({ length: nx }, (_, i) => s(X(i)));
     for (let i = 0; i < nx; i++) {
       const moved = subsideColumn(columns[i], X(i), nz * h, s, shifts[i]);
-      materialFlux(flux.outflow.top, moved.outflowTop);
+      // Rock lifted above sea level is eroded (subaerially); only sinking columns have a true top-face outflow.
+      materialFlux(shifts[i] < 0 ? flux.eroded : flux.outflow.top, moved.outflowTop);
       materialFlux(flux.outflow.bottom, moved.outflowBottom);
       materialFlux(flux.inflow.bottom, moved.inflowBottom);
       columns[i] = moved.column;
@@ -877,11 +903,14 @@ export function simulate(options: BasinOptions, observe?: SimulationObserver): B
   for (let step = 0; step < total; step++) {
     const stage = step < nPre ? 0 : step < nPre + nSyn ? 1 : 2, phase = names[stage], parts: string[] = [];
     current = step;
-    const k = step - (stage === 0 ? 0 : stage === 1 ? nPre : nPre + nSyn);
-    // 1. Subsidence.
-    const s = subsidence(stage, k), shift = subside(s);
+    const k0 = step - (stage === 0 ? 0 : stage === 1 ? nPre : nPre + nSyn);
+    // 1. Subsidence; or, during an exhumation episode, uplift: the whole section rises (tilted), rock lifted above
+    // wave base is eroded below, and the post-tectonic subsidence then continues where it left off.
+    const uplift = episode && step >= episode.start && step < episode.start + episode.steps ? episode : null;
+    const k = episode && step >= episode.start + episode.steps ? k0 - episode.steps : k0;
+    const s = uplift ? (x: number) => -uplift.amount / uplift.steps * (1 + uplift.tilt * xn(x)) : subsidence(stage, k), shift = subside(s);
     const meanSubsidence = (s(0) + s(WIDTH / 2) + s(WIDTH)) / 3;
-    parts.push(`subsided ${s(0).toFixed(0)}-${s(WIDTH).toFixed(0)} m`);
+    parts.push(uplift ? `uplifted ${(-s(0)).toFixed(0)}-${(-s(WIDTH)).toFixed(0)} m (exhumation step ${k0 + 1} of ${uplift.steps})` : `subsided ${s(0).toFixed(0)}-${s(WIDTH).toFixed(0)} m`);
     // 2. Faults: new ones appear, active ones slip.
     if (setting === "extension") {
       for (const p of plan) if (p.start === step) { faults.push(createFault(p)); parts.push(`fault ${faults.length} appears at ${(p.x / 1000).toFixed(1)} km, dipping ${p.dir > 0 ? "east" : "west"} ${(p.dip * 180 / Math.PI).toFixed(0)}°`); }
@@ -904,7 +933,8 @@ export function simulate(options: BasinOptions, observe?: SimulationObserver): B
     }
     collapse(); account("collapse");
     // 3. Erosion above wave base; 4. deposition down to the base level.
-    const lowstand = rng() < 0.2 && !o.quiet, wd = lowstand ? u(0, 40) : u(30, 300), waveBase = o.quiet ? 0 : wd - 30;
+    // Uplift exposes the section: an exhumation step is always a lowstand. The draw is kept so the stream is unchanged.
+    const lowDraw = rng() < 0.2, lowstand = (lowDraw || uplift !== null) && !o.quiet, wd = lowstand ? u(0, 40) : u(30, 300), waveBase = o.quiet ? 0 : wd - 30;
     let eroded = 0;
     const erosionFlux = emptyFluxes();
     if (waveBase > 0) for (let i = 0; i < nx; i++) {

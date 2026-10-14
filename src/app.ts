@@ -70,7 +70,7 @@ const dialog = (id: string, title: string, body: string, wide = false) =>
 const HELP = `
   <ol class="steps">
     <li><b>A section</b> is one seed: a 9.2 × 3 km cross-section simulated forward in time. <kbd>New</kbd> (or <kbd>R</kbd>) draws another; typing a seed brings back exactly the same section.</li>
-    <li><b>Settings</b> choose the geology: <i>extension</i> (growth faults), <i>compression</i> (thrusts) or <i>any</i> (drawn per seed), how many faults, compaction, overpressure and carbonates. The section updates as you change them.</li>
+    <li><b>Settings</b> choose the geology: <i>extension</i> (growth faults), <i>compression</i> (thrusts) or <i>any</i> (drawn per seed), how many faults, compaction, overpressure, carbonates and exhumation (uplift and erosion after the tectonic phase, with beds keeping their burial memory). The section updates as you change them.</li>
     <li><b>View</b>: velocity, lithology (sand, silt, shale, carbonate, basement), or both stacked on the same distance axis; bed boundaries; faults (rust). Always at true scale (no vertical exaggeration).</li>
     <li><b>History</b>: drag the slider, press <kbd>←</kbd> <kbd>→</kbd>, or <kbd>Space</kbd> to replay how the section formed, step by step (each step 0.5–2 Myr).</li>
     <li><b>Velocity with depth</b>: start with one movable profile, A. Use <i>+ Compare</i> to add B and C, up to three profiles; remove a comparison with its × button. All added profiles appear together. Their starting positions simply span the section. Drag a letter on the model to move that profile horizontally. Drag a round dot up or down, or use the depth slider, to set the shared inspection depth. Clicking elsewhere leaves the profiles in place. <i>Reset positions</i> restores the starting positions. The compact legend shows each profile's velocity, rock type and position. Hovering over the section or graph reads local values without moving the inspection depth. Steps preserve the original grid values.</li>
@@ -161,6 +161,7 @@ export function start(root: HTMLElement) {
             ${select("compaction", "Compaction", [["on", "On"], ["off", "Off"]])}
             ${select("overpressure", "Overpressure", [["0.35", "1 in 3"], ["0", "Never"], ["1", "Always"]])}
             ${select("carbonate", "Carbonates", [["0.1", "Rare"], ["0", "None"], ["0.3", "Common"]])}
+            ${select("exhumation", "Exhumation", [["0", "Never"], ["0.5", "1 in 2"], ["1", "Always"]])}
           </div>
         </section>
         <section class="pane">
@@ -185,7 +186,7 @@ export function start(root: HTMLElement) {
   const profile = $("profile"), profileDepth = $<HTMLInputElement>("profileDepth");
   const stepNote = $("stepNote"), logline = $("logline"), stepDetails = $("stepDetails"), stepDetailsToggle = $<HTMLButtonElement>("stepDetailsToggle");
   const seedInput = $<HTMLInputElement>("seed"), cards = $("cards");
-  const fields = ["setting", "faults", "thrusts", "compaction", "overpressure", "carbonate"].map((id) => $<HTMLSelectElement>(id));
+  const fields = ["setting", "faults", "thrusts", "compaction", "overpressure", "carbonate", "exhumation"].map((id) => $<HTMLSelectElement>(id));
 
   // State, kept in the address (so a view can be shared). A first visit gets a random seed.
   const hash = new URLSearchParams(location.hash.slice(1));
@@ -208,7 +209,7 @@ export function start(root: HTMLElement) {
 
   const options = (s: number): BasinOptions => {
     const [fa, fb] = $<HTMLSelectElement>("faults").value.split(",").map(Number), [ta, tb] = $<HTMLSelectElement>("thrusts").value.split(",").map(Number);
-    return { ...BASIN_DEFAULTS, seed: s, setting: $<HTMLSelectElement>("setting").value as BasinOptions["setting"], faults: [fa, fb], thrusts: [ta, tb], compaction: $<HTMLSelectElement>("compaction").value === "on", overpressure: Number($<HTMLSelectElement>("overpressure").value), carbonate: Number($<HTMLSelectElement>("carbonate").value) };
+    return { ...BASIN_DEFAULTS, seed: s, setting: $<HTMLSelectElement>("setting").value as BasinOptions["setting"], faults: [fa, fb], thrusts: [ta, tb], compaction: $<HTMLSelectElement>("compaction").value === "on", overpressure: Number($<HTMLSelectElement>("overpressure").value), carbonate: Number($<HTMLSelectElement>("carbonate").value), exhumation: Number($<HTMLSelectElement>("exhumation").value) };
   };
   const remember = () => {
     const p = new URLSearchParams({ seed: String(seed) });
@@ -335,6 +336,7 @@ export function start(root: HTMLElement) {
       row("Beds", `${s.unitOfBed.length} in ${new Set(s.unitOfBed).size} units`),
       row(s.setting === "extension" ? "Faults" : "Thrusts", s.faults.length ? s.faults.map(fault).join("<br>") : "none"),
       row("Overpressure", s.overpressure !== null ? `below ${s.overpressure.toFixed(0)} m` : "none"),
+      row("Exhumation", s.exhumation ? `${s.exhumation.amount.toFixed(0)} m over ${s.exhumation.steps} steps from step ${s.exhumation.start + 1}, tilted ${(100 * Math.abs(s.exhumation.tilt)).toFixed(0)}% toward the ${s.exhumation.tilt > 0 ? "east" : "west"}` : "none"),
       row("Basement", `${s.basementVelocity.toFixed(0)} m/s`),
       row("Sediment balance", s.budget.closed ? "all steps conserve grains" : `${s.budget.failedEvents} operations fail conservation; net ${(s.budget.residual.total >= 0 ? "+" : "") + s.budget.residual.total.toFixed(1)} m³ of grains per metre of section`),
       row("Simulated", `${(1000 * s.checks.seconds).toFixed(0)} ms`),

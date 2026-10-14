@@ -18,6 +18,8 @@ export interface Section {
   faults: FaultInfo[];
   log: { phase: Phase; text: string }[];
   overpressure: number | null; basementVelocity: number; dt: number;
+  /** The exhumation episode (uplift in m over its steps, from its start step), if the seed has one. */
+  exhumation: { start: number; steps: number; amount: number; tilt: number } | null;
   budget: BudgetSummary;
   checks: { trapped: number; collapsed: number; area: number; seconds: number };
   /** Today, and (if asked) after every step. */
