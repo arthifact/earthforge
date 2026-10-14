@@ -1,0 +1,792 @@
+{
+  "plan_sha256": "c9211579df644900d3c70fcde1938427832c7b26f99598037b35401dc3eae609",
+  "benchmark_plan_sha256": "7b2dfcaace0b71f559d8a473d871d9c7afbcc66fe3e3c0862d324456ead873bf",
+  "windows_sha256": "87c78e1257c2d7c5ac5e04608d295b0a9d6a4994fa931fc94d7f167da3790a2a",
+  "simulator_source_sha256": "80a37ef2b87ad6f1afb2dd1d9f3f82cc336681df5aa84a11d43b28d75668cd46",
+  "windows": 442,
+  "groups": 44,
+  "wells": 44,
+  "defaults": {
+    "shale_phi0": 0.63,
+    "shale_L": 1960,
+    "sand_phi0": 0.49,
+    "sand_L": 3700,
+    "cement_from": 1500,
+    "cement_width": 2500,
+    "coordination": 8.6,
+    "pressure_top": null
+  },
+  "untuned": {
+    "windows": 442,
+    "groups": 44,
+    "wells": 44,
+    "bias_m_s": -40.75777147976289,
+    "mae_m_s": 309.4773361853645,
+    "rmse_m_s": 407.8026181431069,
+    "by_facies": {
+      "Shale": {
+        "windows": 389,
+        "groups": 40,
+        "wells": 40,
+        "bias_m_s": -18.236545645615713,
+        "mae_m_s": 302.12553209545524,
+        "rmse_m_s": 403.628108192312
+      },
+      "Sandstone": {
+        "windows": 53,
+        "groups": 24,
+        "wells": 24,
+        "bias_m_s": -41.747077812806175,
+        "mae_m_s": 326.18733057234084,
+        "rmse_m_s": 423.49720156095907
+      }
+    },
+    "by_depth": {
+      "0-1000m": {
+        "windows": 55,
+        "groups": 14,
+        "wells": 14,
+        "bias_m_s": -71.57287812991909,
+        "mae_m_s": 149.48869371439486,
+        "rmse_m_s": 232.0591905106094
+      },
+      "1000-2000m": {
+        "windows": 277,
+        "groups": 32,
+        "wells": 32,
+        "bias_m_s": -53.20488134408001,
+        "mae_m_s": 291.17312094650606,
+        "rmse_m_s": 391.4063220476471
+      },
+      "2000-3000m": {
+        "windows": 110,
+        "groups": 25,
+        "wells": 25,
+        "bias_m_s": 116.06691745498898,
+        "mae_m_s": 313.3858041375806,
+        "rmse_m_s": 389.6823328324165
+      }
+    }
+  },
+  "baseline_loo": {
+    "windows": 442,
+    "groups": 44,
+    "wells": 44,
+    "bias_m_s": 0.10018063541754042,
+    "mae_m_s": 348.23582391039736,
+    "rmse_m_s": 420.9500212460674,
+    "by_facies": {
+      "Shale": {
+        "windows": 389,
+        "groups": 40,
+        "wells": 40,
+        "bias_m_s": 69.74572665099981,
+        "mae_m_s": 341.9667853910914,
+        "rmse_m_s": 410.8054135261157
+      },
+      "Sandstone": {
+        "windows": 53,
+        "groups": 24,
+        "wells": 24,
+        "bias_m_s": -169.88995694075493,
+        "mae_m_s": 323.385693183019,
+        "rmse_m_s": 413.89960607461495
+      }
+    },
+    "by_depth": {
+      "0-1000m": {
+        "windows": 55,
+        "groups": 14,
+        "wells": 14,
+        "bias_m_s": 39.73271256666627,
+        "mae_m_s": 185.6898813973042,
+        "rmse_m_s": 250.68591075582316
+      },
+      "1000-2000m": {
+        "windows": 277,
+        "groups": 32,
+        "wells": 32,
+        "bias_m_s": 80.14285628067975,
+        "mae_m_s": 353.00329039403186,
+        "rmse_m_s": 412.05621956659417
+      },
+      "2000-3000m": {
+        "windows": 110,
+        "groups": 25,
+        "wells": 25,
+        "bias_m_s": -19.113855475196992,
+        "mae_m_s": 353.4757683020692,
+        "rmse_m_s": 427.8948939452219
+      }
+    }
+  },
+  "sets": {
+    "A_compaction": {
+      "parameters": [
+        "shale_phi0",
+        "shale_L",
+        "sand_phi0",
+        "sand_L"
+      ],
+      "full_fit": {
+        "shale_phi0": 0.45155390655783495,
+        "shale_L": 2969.2127132177866,
+        "sand_phi0": 0.3254808722799963,
+        "sand_L": 12000
+      },
+      "full_fit_evaluations": 1049,
+      "in_sample": {
+        "windows": 442,
+        "groups": 44,
+        "wells": 44,
+        "bias_m_s": -2.7920504920863993,
+        "mae_m_s": 309.13741640077194,
+        "rmse_m_s": 389.6713333355856,
+        "by_facies": {
+          "Shale": {
+            "windows": 389,
+            "groups": 40,
+            "wells": 40,
+            "bias_m_s": -3.8663176592185664,
+            "mae_m_s": 305.2688840418834,
+            "rmse_m_s": 391.53026219086786
+          },
+          "Sandstone": {
+            "windows": 53,
+            "groups": 24,
+            "wells": 24,
+            "bias_m_s": 74.37083237930047,
+            "mae_m_s": 335.51298916717576,
+            "rmse_m_s": 396.0198850207367
+          }
+        },
+        "by_depth": {
+          "0-1000m": {
+            "windows": 55,
+            "groups": 14,
+            "wells": 14,
+            "bias_m_s": 74.01688785316229,
+            "mae_m_s": 187.11544224854404,
+            "rmse_m_s": 230.17209736343221
+          },
+          "1000-2000m": {
+            "windows": 277,
+            "groups": 32,
+            "wells": 32,
+            "bias_m_s": 26.04323841283394,
+            "mae_m_s": 306.4322143931756,
+            "rmse_m_s": 385.9225551381106
+          },
+          "2000-3000m": {
+            "windows": 110,
+            "groups": 25,
+            "wells": 25,
+            "bias_m_s": 45.220369718279365,
+            "mae_m_s": 305.9197932633595,
+            "rmse_m_s": 373.03053911019356
+          }
+        }
+      },
+      "leave_one_parent_out": {
+        "windows": 442,
+        "groups": 44,
+        "wells": 44,
+        "bias_m_s": -2.2131449313530256,
+        "mae_m_s": 324.37167351487204,
+        "rmse_m_s": 407.7293096586505,
+        "by_facies": {
+          "Shale": {
+            "windows": 389,
+            "groups": 40,
+            "wells": 40,
+            "bias_m_s": -2.9060154113401766,
+            "mae_m_s": 317.3943828529889,
+            "rmse_m_s": 405.4077553187532
+          },
+          "Sandstone": {
+            "windows": 53,
+            "groups": 24,
+            "wells": 24,
+            "bias_m_s": 77.61282402885321,
+            "mae_m_s": 352.2116703536185,
+            "rmse_m_s": 417.5843868524836
+          }
+        },
+        "by_depth": {
+          "0-1000m": {
+            "windows": 55,
+            "groups": 14,
+            "wells": 14,
+            "bias_m_s": 78.64183224677716,
+            "mae_m_s": 194.02528867375182,
+            "rmse_m_s": 238.72408586866513
+          },
+          "1000-2000m": {
+            "windows": 277,
+            "groups": 32,
+            "wells": 32,
+            "bias_m_s": 25.997284779487597,
+            "mae_m_s": 316.5363533868705,
+            "rmse_m_s": 397.66192067874596
+          },
+          "2000-3000m": {
+            "windows": 110,
+            "groups": 25,
+            "wells": 25,
+            "bias_m_s": 49.293105456115335,
+            "mae_m_s": 322.7195070402124,
+            "rmse_m_s": 393.6902744624135
+          }
+        },
+        "mae_bootstrap_95_percent": [
+          269.412140321166,
+          382.7188106267047
+        ]
+      },
+      "cv_minus_untuned_mae": {
+        "mean_m_s": 14.894337329507449,
+        "parent_bootstrap_95_percent_m_s": [
+          -9.448466112040924,
+          38.12267085172521
+        ]
+      },
+      "cv_minus_baseline_mae": {
+        "mean_m_s": -23.86415039552533,
+        "parent_bootstrap_95_percent_m_s": [
+          -63.05238057826916,
+          11.845004337572902
+        ]
+      },
+      "fold_coefficient_range": {
+        "shale_phi0": [
+          0.43010485870991105,
+          0.49050198718167953
+        ],
+        "shale_L": [
+          2655.6035655281025,
+          3325.0961979562076
+        ],
+        "sand_phi0": [
+          0.3202869555899081,
+          0.34177519290498404
+        ],
+        "sand_L": [
+          7454.7077328328005,
+          12000
+        ]
+      }
+    },
+    "B_compaction_cementation": {
+      "parameters": [
+        "shale_phi0",
+        "shale_L",
+        "sand_phi0",
+        "sand_L",
+        "cement_from",
+        "cement_width"
+      ],
+      "full_fit": {
+        "shale_phi0": 0.5339409243225652,
+        "shale_L": 2642.798219005129,
+        "sand_phi0": 0.41385689187147223,
+        "sand_L": 8963.385971469252,
+        "cement_from": 1406.1199850088594,
+        "cement_width": 100
+      },
+      "full_fit_evaluations": 2018,
+      "in_sample": {
+        "windows": 442,
+        "groups": 44,
+        "wells": 44,
+        "bias_m_s": -8.111125249622475,
+        "mae_m_s": 295.74614474722654,
+        "rmse_m_s": 374.4511595608568,
+        "by_facies": {
+          "Shale": {
+            "windows": 389,
+            "groups": 40,
+            "wells": 40,
+            "bias_m_s": -8.187776126202069,
+            "mae_m_s": 301.0351893729565,
+            "rmse_m_s": 386.70047696510125
+          },
+          "Sandstone": {
+            "windows": 53,
+            "groups": 24,
+            "wells": 24,
+            "bias_m_s": 35.5716159396326,
+            "mae_m_s": 269.87586615385834,
+            "rmse_m_s": 323.1339320889598
+          }
+        },
+        "by_depth": {
+          "0-1000m": {
+            "windows": 55,
+            "groups": 14,
+            "wells": 14,
+            "bias_m_s": -31.492316547730695,
+            "mae_m_s": 149.11638649636032,
+            "rmse_m_s": 219.43320978980748
+          },
+          "1000-2000m": {
+            "windows": 277,
+            "groups": 32,
+            "wells": 32,
+            "bias_m_s": 71.09950611538619,
+            "mae_m_s": 290.9916628194319,
+            "rmse_m_s": 367.1141655422867
+          },
+          "2000-3000m": {
+            "windows": 110,
+            "groups": 25,
+            "wells": 25,
+            "bias_m_s": -16.75170465447778,
+            "mae_m_s": 315.5986825518157,
+            "rmse_m_s": 378.83633961100395
+          }
+        }
+      },
+      "leave_one_parent_out": {
+        "windows": 442,
+        "groups": 44,
+        "wells": 44,
+        "bias_m_s": -7.6339334319455565,
+        "mae_m_s": 339.12244776858324,
+        "rmse_m_s": 420.62812965815544,
+        "by_facies": {
+          "Shale": {
+            "windows": 389,
+            "groups": 40,
+            "wells": 40,
+            "bias_m_s": -7.874102188298392,
+            "mae_m_s": 322.7405625699321,
+            "rmse_m_s": 414.7530692353516
+          },
+          "Sandstone": {
+            "windows": 53,
+            "groups": 24,
+            "wells": 24,
+            "bias_m_s": 59.90407017469931,
+            "mae_m_s": 353.44818155026996,
+            "rmse_m_s": 415.04373164230356
+          }
+        },
+        "by_depth": {
+          "0-1000m": {
+            "windows": 55,
+            "groups": 14,
+            "wells": 14,
+            "bias_m_s": -22.121867401385924,
+            "mae_m_s": 176.9940584740306,
+            "rmse_m_s": 258.5160932051737
+          },
+          "1000-2000m": {
+            "windows": 277,
+            "groups": 32,
+            "wells": 32,
+            "bias_m_s": 70.48900192121718,
+            "mae_m_s": 332.88390150582757,
+            "rmse_m_s": 408.91250458295394
+          },
+          "2000-3000m": {
+            "windows": 110,
+            "groups": 25,
+            "wells": 25,
+            "bias_m_s": 4.420659886090489,
+            "mae_m_s": 336.7059288028436,
+            "rmse_m_s": 404.54995780428874
+          }
+        },
+        "mae_bootstrap_95_percent": [
+          286.6873586528074,
+          393.7048412075905
+        ]
+      },
+      "cv_minus_untuned_mae": {
+        "mean_m_s": 29.645111583218696,
+        "parent_bootstrap_95_percent_m_s": [
+          -4.980133612423683,
+          65.73820783540856
+        ]
+      },
+      "cv_minus_baseline_mae": {
+        "mean_m_s": -9.11337614181409,
+        "parent_bootstrap_95_percent_m_s": [
+          -33.69938057275903,
+          19.32904017639566
+        ]
+      },
+      "fold_coefficient_range": {
+        "shale_phi0": [
+          0.48733801346945094,
+          0.6109272853522186
+        ],
+        "shale_L": [
+          2287.7855520898033,
+          2901.8665963720687
+        ],
+        "sand_phi0": [
+          0.36230529260566546,
+          0.5116882045026017
+        ],
+        "sand_L": [
+          4561.63300072411,
+          12000
+        ],
+        "cement_from": [
+          823.7864333816133,
+          1409.4374971976417
+        ],
+        "cement_width": [
+          100,
+          1401.3482615787282
+        ]
+      }
+    },
+    "C_B_plus_coordination": {
+      "parameters": [
+        "shale_phi0",
+        "shale_L",
+        "sand_phi0",
+        "sand_L",
+        "cement_from",
+        "cement_width",
+        "coordination"
+      ],
+      "full_fit": {
+        "shale_phi0": 0.5843945227119912,
+        "shale_L": 2392.189184451612,
+        "sand_phi0": 0.4375793711220012,
+        "sand_L": 7266.667964599353,
+        "cement_from": 1398.2440434704597,
+        "cement_width": 100,
+        "coordination": 10.823187911992587
+      },
+      "full_fit_evaluations": 3523,
+      "in_sample": {
+        "windows": 442,
+        "groups": 44,
+        "wells": 44,
+        "bias_m_s": -1.2090777323126956,
+        "mae_m_s": 297.86193701401737,
+        "rmse_m_s": 373.2921555252751,
+        "by_facies": {
+          "Shale": {
+            "windows": 389,
+            "groups": 40,
+            "wells": 40,
+            "bias_m_s": -4.225415785446813,
+            "mae_m_s": 302.351282002474,
+            "rmse_m_s": 387.2709630898655
+          },
+          "Sandstone": {
+            "windows": 53,
+            "groups": 24,
+            "wells": 24,
+            "bias_m_s": 52.682967830047744,
+            "mae_m_s": 278.38881540059066,
+            "rmse_m_s": 320.88364499884125
+          }
+        },
+        "by_depth": {
+          "0-1000m": {
+            "windows": 55,
+            "groups": 14,
+            "wells": 14,
+            "bias_m_s": -13.110364547190262,
+            "mae_m_s": 152.85639040585997,
+            "rmse_m_s": 217.7648780422281
+          },
+          "1000-2000m": {
+            "windows": 277,
+            "groups": 32,
+            "wells": 32,
+            "bias_m_s": 76.45556637208045,
+            "mae_m_s": 294.94637645497346,
+            "rmse_m_s": 364.8280868587868
+          },
+          "2000-3000m": {
+            "windows": 110,
+            "groups": 25,
+            "wells": 25,
+            "bias_m_s": -11.129382153038659,
+            "mae_m_s": 313.6002135211522,
+            "rmse_m_s": 377.10902282955163
+          }
+        }
+      },
+      "leave_one_parent_out": {
+        "windows": 442,
+        "groups": 44,
+        "wells": 44,
+        "bias_m_s": -8.525082424791249,
+        "mae_m_s": 330.1952363044052,
+        "rmse_m_s": 410.8333899152218,
+        "by_facies": {
+          "Shale": {
+            "windows": 389,
+            "groups": 40,
+            "wells": 40,
+            "bias_m_s": -5.9436498068241175,
+            "mae_m_s": 320.2299661893761,
+            "rmse_m_s": 411.8418361385293
+          },
+          "Sandstone": {
+            "windows": 53,
+            "groups": 24,
+            "wells": 24,
+            "bias_m_s": 40.133129686468436,
+            "mae_m_s": 333.63292468108085,
+            "rmse_m_s": 387.2389069277886
+          }
+        },
+        "by_depth": {
+          "0-1000m": {
+            "windows": 55,
+            "groups": 14,
+            "wells": 14,
+            "bias_m_s": -14.83367107392995,
+            "mae_m_s": 162.78033515171268,
+            "rmse_m_s": 241.16506859990835
+          },
+          "1000-2000m": {
+            "windows": 277,
+            "groups": 32,
+            "wells": 32,
+            "bias_m_s": 65.95863558752734,
+            "mae_m_s": 325.4370986968599,
+            "rmse_m_s": 398.91517039286316
+          },
+          "2000-3000m": {
+            "windows": 110,
+            "groups": 25,
+            "wells": 25,
+            "bias_m_s": -4.298927831207161,
+            "mae_m_s": 333.5483977951267,
+            "rmse_m_s": 401.0097806382403
+          }
+        },
+        "mae_bootstrap_95_percent": [
+          277.84045134340977,
+          383.6368773609022
+        ]
+      },
+      "cv_minus_untuned_mae": {
+        "mean_m_s": 20.717900119040674,
+        "parent_bootstrap_95_percent_m_s": [
+          -11.624335917535378,
+          51.99841844819782
+        ]
+      },
+      "cv_minus_baseline_mae": {
+        "mean_m_s": -18.04058760599211,
+        "parent_bootstrap_95_percent_m_s": [
+          -43.50175604433186,
+          10.580186731311501
+        ]
+      },
+      "fold_coefficient_range": {
+        "shale_phi0": [
+          0.39133700149679856,
+          0.7094349760556333
+        ],
+        "shale_L": [
+          1422.7945763818534,
+          3657.11360617224
+        ],
+        "sand_phi0": [
+          0.32703869641306293,
+          0.5117349728066561
+        ],
+        "sand_L": [
+          1964.2642854755181,
+          12000
+        ],
+        "cement_from": [
+          911.7868216868324,
+          2725.4188589822584
+        ],
+        "cement_width": [
+          100,
+          3290.0414516730807
+        ],
+        "coordination": [
+          3.000081569868805,
+          13.34928016375335
+        ]
+      }
+    },
+    "D_A_plus_pressure_top": {
+      "parameters": [
+        "shale_phi0",
+        "shale_L",
+        "sand_phi0",
+        "sand_L",
+        "pressure_top"
+      ],
+      "full_fit": {
+        "shale_phi0": 0.642525881448403,
+        "shale_L": 1589.3122460824277,
+        "sand_phi0": 0.3817476554605644,
+        "sand_L": 5021.904346391225,
+        "pressure_top": 1636.4999999998474
+      },
+      "full_fit_evaluations": 1432,
+      "in_sample": {
+        "windows": 442,
+        "groups": 44,
+        "wells": 44,
+        "bias_m_s": -3.5827838723296903,
+        "mae_m_s": 308.03516978413114,
+        "rmse_m_s": 386.40473933567597,
+        "by_facies": {
+          "Shale": {
+            "windows": 389,
+            "groups": 40,
+            "wells": 40,
+            "bias_m_s": -5.715326947981241,
+            "mae_m_s": 310.0298489489646,
+            "rmse_m_s": 390.9291445020633
+          },
+          "Sandstone": {
+            "windows": 53,
+            "groups": 24,
+            "wells": 24,
+            "bias_m_s": 65.47488840717646,
+            "mae_m_s": 319.4000817860179,
+            "rmse_m_s": 383.4580613504448
+          }
+        },
+        "by_depth": {
+          "0-1000m": {
+            "windows": 55,
+            "groups": 14,
+            "wells": 14,
+            "bias_m_s": -6.030069463341907,
+            "mae_m_s": 159.6824054532803,
+            "rmse_m_s": 220.51053870983316
+          },
+          "1000-2000m": {
+            "windows": 277,
+            "groups": 32,
+            "wells": 32,
+            "bias_m_s": 57.60803723283426,
+            "mae_m_s": 314.8393861709457,
+            "rmse_m_s": 386.3523348786699
+          },
+          "2000-3000m": {
+            "windows": 110,
+            "groups": 25,
+            "wells": 25,
+            "bias_m_s": 31.206321593594296,
+            "mae_m_s": 311.44589827513914,
+            "rmse_m_s": 376.42432229474883
+          }
+        }
+      },
+      "leave_one_parent_out": {
+        "windows": 442,
+        "groups": 44,
+        "wells": 44,
+        "bias_m_s": -9.145205991108666,
+        "mae_m_s": 328.65259777684054,
+        "rmse_m_s": 413.3002853429535,
+        "by_facies": {
+          "Shale": {
+            "windows": 389,
+            "groups": 40,
+            "wells": 40,
+            "bias_m_s": -9.271824658422188,
+            "mae_m_s": 324.7514130677913,
+            "rmse_m_s": 411.83975058252395
+          },
+          "Sandstone": {
+            "windows": 53,
+            "groups": 24,
+            "wells": 24,
+            "bias_m_s": 61.89372606894668,
+            "mae_m_s": 351.6117617110542,
+            "rmse_m_s": 423.6908418438241
+          }
+        },
+        "by_depth": {
+          "0-1000m": {
+            "windows": 55,
+            "groups": 14,
+            "wells": 14,
+            "bias_m_s": -8.44569075174327,
+            "mae_m_s": 174.3003781961881,
+            "rmse_m_s": 251.9443989273402
+          },
+          "1000-2000m": {
+            "windows": 277,
+            "groups": 32,
+            "wells": 32,
+            "bias_m_s": 54.47321374177733,
+            "mae_m_s": 329.6146775009269,
+            "rmse_m_s": 406.05516118760244
+          },
+          "2000-3000m": {
+            "windows": 110,
+            "groups": 25,
+            "wells": 25,
+            "bias_m_s": 32.97923576968513,
+            "mae_m_s": 327.40240459818165,
+            "rmse_m_s": 395.024310536341
+          }
+        },
+        "mae_bootstrap_95_percent": [
+          274.8194190575178,
+          386.2366087232364
+        ]
+      },
+      "cv_minus_untuned_mae": {
+        "mean_m_s": 19.17526159147601,
+        "parent_bootstrap_95_percent_m_s": [
+          -7.4951586116471,
+          45.278746588605784
+        ]
+      },
+      "cv_minus_baseline_mae": {
+        "mean_m_s": -19.58322613355676,
+        "parent_bootstrap_95_percent_m_s": [
+          -53.8590875854781,
+          13.33506006003165
+        ]
+      },
+      "fold_coefficient_range": {
+        "shale_phi0": [
+          0.5379287111955442,
+          0.7406139779253729
+        ],
+        "shale_L": [
+          1398.1948100753139,
+          2166.140963342828
+        ],
+        "sand_phi0": [
+          0.32357457687338903,
+          0.5358200467499475
+        ],
+        "sand_L": [
+          2474.7863935022883,
+          12000
+        ],
+        "pressure_top": [
+          1623.4999999999209,
+          2130.499999970074
+        ]
+      }
+    }
+  },
+  "selection": {
+    "rule": "adopt the set with the lowest leave-one-parent-out MAE; ties within 5 m/s favor fewer parameters; adopt nothing if the paired bootstrap interval of (adopted-set CV MAE minus untuned MAE) includes zero",
+    "best_by_loo_mae": "A_compaction",
+    "chosen": "A_compaction",
+    "adopted": false,
+    "cv_minus_untuned_interval_m_s": [
+      -9.448466112040924,
+      38.12267085172521
+    ],
+    "note": "interval includes zero; adopt nothing"
+  }
+}
