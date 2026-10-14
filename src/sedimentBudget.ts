@@ -19,11 +19,12 @@ export function addParcel(to: Inventory, bed: number, solidHeight: number, fract
   const volume = solidHeight * width;
   to.total += volume;
   to.byBed[bed] = (to.byBed[bed] ?? 0) + volume;
-  const parts = { sand: carbonate ? 0 : volume * fraction, shale: carbonate ? 0 : volume * (1 - fraction), carbonate: carbonate ? volume : 0 };
-  for (const key of MATERIALS) {
-    to[key] += parts[key];
-    to.byBedComponents[key][bed] = (to.byBedComponents[key][bed] ?? 0) + parts[key];
-  }
+  // Same operations in the same order as the component loop, without a temporary per parcel.
+  const sand = carbonate ? 0 : volume * fraction, shale = carbonate ? 0 : volume * (1 - fraction), carb = carbonate ? volume : 0;
+  const parts = to.byBedComponents;
+  to.sand += sand; parts.sand[bed] = (parts.sand[bed] ?? 0) + sand;
+  to.shale += shale; parts.shale[bed] = (parts.shale[bed] ?? 0) + shale;
+  to.carbonate += carb; parts.carbonate[bed] = (parts.carbonate[bed] ?? 0) + carb;
 }
 export function addInventory(to: Inventory, from: Inventory, scale = 1) {
   for (const key of COMPONENTS) to[key] += scale * from[key];

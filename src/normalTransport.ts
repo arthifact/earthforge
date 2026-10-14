@@ -1,22 +1,19 @@
 /** Continuous normal-fault shear. Integer-column heave is unchanged; exact
  * represented lengths partition the moving column and its boundary fluxes. */
-import { append, emptyLayer, layerLengths, portionByLengths, withLayerLengths, type Column, type Layer } from './strata';
-import { exactLengthScale } from './exactLength';
+import { append, columnScale, emptyLayer, layerUnits, portionByLengths, withLayerLengths, type Column, type Layer } from './strata';
+import type { LengthScale } from './exactLength';
 import { addParcel, emptyFluxes, type Inventory } from './sedimentBudget';
 export interface NormalTransfer { source: Layer; moved: Layer; sourceColumn: number; destinationColumn: number }
-type LengthScale = ReturnType<typeof exactLengthScale>;
 const min = (...values: bigint[]) => values.reduce((a, b) => a < b ? a : b);
 const max = (...values: bigint[]) => values.reduce((a, b) => a > b ? a : b);
-const scaleFor = (columns: Column[], coordinates: number[]) => exactLengthScale([
-  ...columns.flatMap(column => column.flatMap(p => [...layerLengths(p)])), ...coordinates.map(Math.abs),
-]);
+const scaleFor = (columns: Column[], coordinates: number[]) => columnScale(columns, coordinates.map(Math.abs));
 
 /** Keep source associations for diagnostic transfers, including partial cuts. */
 function cut(column: Column, lower: bigint, upper: bigint, scale: LengthScale,
   visit?: (source: Layer, moved: Layer) => void): Column {
   const result: Column = []; let top = 0n;
   for (const source of column) {
-    const length = layerLengths(source).reduce((sum, height) => sum + scale.units(height), 0n), bottom = top + length;
+    const length = layerUnits(source, scale), bottom = top + length;
     const take = min(bottom, upper) - max(top, lower, 0n);
     if (take > 0n) {
       const parts = take === length ? [{ ...source }] : [portionByLengths(source, scale.chunks(take))];

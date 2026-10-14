@@ -51,12 +51,23 @@ function solve(nx: number, nz: number, allowed: Uint8Array, parcels: CapacityPar
     const maxWeight = parcels.reduce((m, p) => Math.max(m, (p.weight ?? 1) / (p.height ?? 1)), 0);
     const logDensity = parcels.map(p => Math.log(p.weight ?? 1) - Math.log(p.height ?? 1));
     const maxLogDensity = logDensity.reduce((a, b) => Math.max(a, b), -Infinity);
+    // Per-parcel weight and target once; the quantized cost is an exact integer Number, converted to the
+    // same BigInt as before and cached per parcel so repeated relaxations of one arc allocate nothing.
+    const weightOf = parcels.map((q, p) => maxWeight >= 2 ** -1022 && Number.isFinite(maxWeight) ? (q.weight ?? 1) / (q.height ?? 1) / maxWeight : Math.exp(logDensity[p] - maxLogDensity));
+    const targetI = parcels.map(q => q.targetI ?? q.i), targetK = parcels.map(q => q.targetK ?? q.k);
+    const costCache = parcels.map(() => new Map<number, bigint>());
     const cost = (p: number, i: number, k: number) => {
-        const q = parcels[p], weight = maxWeight >= 2 ** -1022 && Number.isFinite(maxWeight) ? (q.weight ?? 1) / (q.height ?? 1) / maxWeight : Math.exp(logDensity[p] - maxLogDensity);
-        return BigInt(Math.round(weight * ((i - (q.targetI ?? q.i)) ** 2 + (k - (q.targetK ?? q.k)) ** 2) / 1e-12));
+        const quantized = Math.round(weightOf[p] * ((i - targetI[p]) ** 2 + (k - targetK[p]) ** 2) / 1e-12);
+        const cached = costCache[p].get(quantized);
+        if (cached !== undefined)
+            return cached;
+        const value = BigInt(quantized);
+        costCache[p].set(quantized, value);
+        return value;
     };
     const { units, chunks, number } = exactLengthScale([...parcels.flatMap(p => p.materialHeights ?? [p.height ?? 1]), ...capacity]);
-    const min = (...xs: bigint[]) => xs.reduce((a, b) => a < b ? a : b);
+    const min = (a: bigint, b: bigint) => a < b ? a : b;
+    const offsetI = Int32Array.from(offsets, o => o[0]), offsetK = Int32Array.from(offsets, o => o[1]);
     const sourceUnits = parcels.map(p => (p.materialHeights ?? [p.height ?? 1]).reduce((s, h) => s + units(h), 0n));
     const remaining = sourceUnits.slice(), free = Array.from(capacity, (c, n) => allowed[n] ? units(c) : 0n);
     const owners = Array.from({ length: allowed.length }, () => new Map<number, bigint>()), u = parcels.map(() => 0n), v = Array<bigint>(allowed.length).fill(0n);
@@ -94,41 +105,35 @@ function solve(nx: number, nz: number, allowed: Uint8Array, parcels: CapacityPar
         while (remaining[root] > 0n) {
             stamp++;
             augmentations++;
-            const touchedP = [root], touchedN: number[] = [], heap: [
-                number,
-                bigint
-            ][] = [];
-            const precedes = (a: [
-                number,
-                bigint
-            ], b: [
-                number,
-                bigint
-            ]) => a[1] < b[1] || (a[1] === b[1] && a[0] < b[0]);
-            const push = (n: number, d: bigint) => { let j = heap.length; heap.push([n, d]); while (j > 0) {
+            // A binary heap ordered by distance then cell, kept in two parallel arrays so that
+            // no tuple is allocated per push; the order and tie-breaking are unchanged.
+            const touchedP = [root], touchedN: number[] = [], heapN: number[] = [], heapD: bigint[] = [];
+            const precedes = (nA: number, dA: bigint, nB: number, dB: bigint) => dA < dB || (dA === dB && nA < nB);
+            const push = (n: number, d: bigint) => { let j = heapN.length; heapN.push(n); heapD.push(d); while (j > 0) {
                 const p = (j - 1) >> 1;
-                if (!precedes([n, d], heap[p]))
+                if (!precedes(n, d, heapN[p], heapD[p]))
                     break;
-                heap[j] = heap[p];
+                heapN[j] = heapN[p]; heapD[j] = heapD[p];
                 j = p;
-            } heap[j] = [n, d]; };
-            const pop = () => { const first = heap[0], last = heap.pop()!; if (heap.length) {
+            } heapN[j] = n; heapD[j] = d; };
+            let poppedN = -1, poppedD = 0n;
+            const pop = () => { poppedN = heapN[0]; poppedD = heapD[0]; const lastN = heapN.pop()!, lastD = heapD.pop()!; if (heapN.length) {
                 let j = 0;
-                while (2 * j + 1 < heap.length) {
+                while (2 * j + 1 < heapN.length) {
                     let c = 2 * j + 1;
-                    if (c + 1 < heap.length && precedes(heap[c + 1], heap[c]))
+                    if (c + 1 < heapN.length && precedes(heapN[c + 1], heapD[c + 1], heapN[c], heapD[c]))
                         c++;
-                    if (!precedes(heap[c], last))
+                    if (!precedes(heapN[c], heapD[c], lastN, lastD))
                         break;
-                    heap[j] = heap[c];
+                    heapN[j] = heapN[c]; heapD[j] = heapD[c];
                     j = c;
                 }
-                heap[j] = last;
-            } return first; };
+                heapN[j] = lastN; heapD[j] = lastD;
+            } };
             const relax = (p: number) => {
                 const q = parcels[p];
-                for (const [di, dk] of offsets) {
-                    const i = q.i + di, k = q.k + dk;
+                for (let o = 0; o < offsetI.length; o++) {
+                    const i = q.i + offsetI[o], k = q.k + offsetK[o];
                     if (i < 0 || i >= nx || k < 0 || k >= nz)
                         continue;
                     const n = k * nx + i;
@@ -154,8 +159,9 @@ function solve(nx: number, nz: number, allowed: Uint8Array, parcels: CapacityPar
             parentP[root] = -1;
             relax(root);
             let end = -1, shortest = 0n;
-            while (heap.length) {
-                const [n, d] = pop();
+            while (heapN.length) {
+                pop();
+                const n = poppedN, d = poppedD;
                 if (doneN[n] === stamp || d > distN[n])
                     continue;
                 doneN[n] = stamp;

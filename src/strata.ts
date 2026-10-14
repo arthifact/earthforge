@@ -18,17 +18,40 @@ export interface ColumnPhysics {
 export const MATERIAL_QUADRATURE_M = 10;
 export const emptyLayer = (bed: number, height: number): Layer => ({ bed, height, solid: 0, fraction: 0, burial: 0, loading: 0, offsetX: 0, offsetZ: 0 });
 export const portion = (p: Layer, height: number): Layer => portionByLengths(p, [height]);
-import { exactLengthScale as lengthScale } from './exactLength';
+import { exactLengthScale as lengthScale, exactLengthScaleAt, exponentWith, type LengthScale } from './exactLength';
+
+/** The exact scale spanned by these columns and extra lengths, found without expanding any arrays. */
+export function columnScale(columns: readonly Column[], extra: readonly number[] = []): LengthScale {
+  let exponent = 0;
+  for (const column of columns) for (const p of column) {
+    if (p.lengths) for (const h of p.lengths) exponent = exponentWith(h, exponent);
+    else exponent = exponentWith(p.height, exponent);
+  }
+  for (const x of extra) exponent = exponentWith(x, exponent);
+  return exactLengthScaleAt(exponent);
+}
+/** One parcel's exact length under a scale, summed in expansion order, without expanding its lengths. */
+export function layerUnits(p: Layer, scale: LengthScale): bigint {
+  if (!p.lengths) return scale.units(p.height);
+  let n = 0n; for (const h of p.lengths) n += scale.units(h); return n;
+}
+/** A parcel with a new Number-valued height and no expansion: the same result as
+ * withLayerLengths(p, [height]), whose single chunk is the height itself. */
+export function withHeight(p: Layer, height: number): Layer {
+  if (!(height >= 0) || !Number.isFinite(height) || (height === 0 && p.solid !== 0)) throw Error('Invalid grouped material extent');
+  const { lengths: _dropped, ...rest } = p; return { ...rest, height };
+}
 
 /** Exact topology uses the complete expansion; physical constitutive laws use
  * the single parcel and its Number-valued height. Never treat binary residuals
  * as independent material quadrature samples. */
 export const layerLengths = (p: Layer): readonly number[] => p.lengths ?? [p.height];
 export function withLayerLengths(p: Layer, lengths: readonly number[]): Layer {
-  const scale = lengthScale(lengths), units = lengths.reduce((n, h) => n + scale.units(h), 0n);
+  const scale = lengthScale(lengths); let units = 0n; for (const h of lengths) units += scale.units(h);
   const pieces = scale.chunks(units), height = scale.number(units);
   if (!Number.isFinite(height) || (height === 0 && p.solid !== 0)) throw Error('Invalid grouped material extent');
-  const out = { ...p, height }; delete out.lengths;
+  // Built without `delete`, which would turn every parcel into a slow dictionary object.
+  const { lengths: _dropped, ...rest } = p, out: Layer = { ...rest, height };
   if (pieces.length > 1) out.lengths = pieces;
   return out;
 }
@@ -74,13 +97,13 @@ export function sliceColumn(column: Column, lo: number | readonly number[], hi: 
   const lows = typeof lo === 'number' ? [lo] : lo, highs = typeof hi === 'number' ? [hi] : hi;
   if ([...lows, ...highs].some(x => !Number.isFinite(x))) throw Error('Invalid column slice bounds');
   const out: Column = [];
-  const scale = lengthScale([...column.flatMap(p => layerLengths(p)), ...lows.map(Math.abs), ...highs.map(Math.abs)]);
+  const scale = columnScale([column], [...lows.map(Math.abs), ...highs.map(Math.abs)]);
   const boundary = (terms: readonly number[]) => terms.reduce((n, x) => n + (x < 0 ? -scale.units(-x) : scale.units(x)), 0n);
   const rawLower = boundary(lows), upper = boundary(highs), lower = rawLower > 0n ? rawLower : 0n;
   if (upper <= lower) return out;
   let start = 0n;
   for (const p of column) {
-    const length = layerLengths(p).reduce((n, h) => n + scale.units(h), 0n), end = start + length;
+    const length = layerUnits(p, scale), end = start + length;
     const a = start > lower ? start : lower, b = end < upper ? end : upper;
     if (b > a) {
       if (b - a === length) append(out, p);
@@ -94,7 +117,7 @@ export function surface(column: Column) {
   let z = 0; for (const p of column) { if (p.bed !== -1) break; z += p.height; } return z;
 }
 export function packColumn(column: Column, numericalBelow: (lo: number, hi: number) => number = () => 0) {
-  const scale = lengthScale(column.flatMap(p => layerLengths(p))), lengths = column.map(p => layerLengths(p).reduce((n, h) => n + scale.units(h), 0n));
+  const scale = columnScale([column]), lengths = column.map(p => layerUnits(p, scale));
   const firstRock = column.findIndex(p => p.bed !== -1);
   let z = lengths.reduce((s, n) => s + n, 0n), numerical = 0, gapUnits = 0n, surfaceUnits = 0n;
   const reversed: Layer[] = [], water: [number, number][] = [];
@@ -141,14 +164,15 @@ export function compactColumn(column: Column, beds: { carbonate: boolean }[], pr
       // G(z + offset) = F(z) + offset for physical G and storage F.
       // The spread above preserves it even when compaction is an identity.
     }
-    next.push(q.height === p.height ? q : withLayerLengths(q, [q.height])); depth += q.height;
+    // q is already a fresh copy; when it carried an expansion, drop it the way withLayerLengths(q, [height]) would.
+    next.push(q.lengths && q.height !== p.height ? withHeight(q, q.height) : q); depth += q.height;
     oldEdges.push(oldEdges.at(-1)! + p.height); newEdges.push(depth);
   }
   // Even an identity compaction must retain a positive bed immediately before
   // a grid boundary: rounded total-minus-rock depth can swallow its water
   // prefix residual. Exact lengths decide support; coordinate maps use Numbers.
-  const scale = lengthScale([...column.flatMap(p => layerLengths(p)), ...next.flatMap(p => layerLengths(p))]);
-  const exactTotal = (parts: Column) => parts.reduce((n, p) => n + layerLengths(p).reduce((u, h) => u + scale.units(h), 0n), 0n);
+  const scale = columnScale([column, next]);
+  const exactTotal = (parts: Column) => { let n = 0n; for (const p of parts) n += layerUnits(p, scale); return n; };
   const topUnits = exactTotal(column) - exactTotal(next);
   if (topUnits < 0n) throw Error('Compacted material exceeds column extent');
   const top = scale.number(topUnits), out: Column = [];
@@ -214,8 +238,8 @@ export function rasterize(columns: Column[], nz: number, h: number) {
   const bottomOutside = new Map<number, Column>();
   for (let i = 0; i < nx; i++) {
     let column = columns[i];
-    const scale = lengthScale([...column.flatMap(p => layerLengths(p)), h, 1e-6]);
-    const cell = scale.units(h), domain = cell * BigInt(nz), total = column.reduce((s, p) => s + layerLengths(p).reduce((u, h) => u + scale.units(h), 0n), 0n);
+    const scale = columnScale([column], [h, 1e-6]);
+    const cell = scale.units(h), domain = cell * BigInt(nz); let total = 0n; for (const p of column) total += layerUnits(p, scale);
     if (total < domain) {
       const difference = domain - total;
       if (difference > scale.units(1e-6)) throw Error(`Column ${i} domain shortage exceeds inert roundoff gate`);
@@ -225,7 +249,7 @@ export function rasterize(columns: Column[], nz: number, h: number) {
       append(column, withLayerLengths({ ...last, solid: 0 }, scale.chunks(difference)));
       domainAdjustments.push({ column: i, bed: last.bed, added: true, lengths: scale.chunks(difference) });
     }
-    const lengths = column.map(p => layerLengths(p).reduce((n, h) => n + scale.units(h), 0n));
+    const lengths = column.map(p => layerUnits(p, scale));
     let j = 0, consumed = 0n;
     for (let k = 0; k < nz; k++) {
       const n = k * nx + i, parts: Column = [];
@@ -261,7 +285,7 @@ export function rasterize(columns: Column[], nz: number, h: number) {
       for (j++; j < column.length; j++) append(outside, column[j]);
     }
     if (outside.length) {
-      const extent = outside.reduce((n, p) => n + layerLengths(p).reduce((u, h) => u + scale.units(h), 0n), 0n);
+      let extent = 0n; for (const p of outside) extent += layerUnits(p, scale);
       if (extent <= scale.units(1e-6) && outside.every(p => (p.bed === -1 || p.bed === -2) && p.solid === 0)) {
         for (const p of outside) domainAdjustments.push({ column: i, bed: p.bed, added: false, lengths: [...layerLengths(p)] });
       } else bottomOutside.set(i, outside);
