@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "status": "development-only calibration plan, frozen before any fitted error was inspected",
+  "date": "2026-10-14",
+  "partition": "development",
+  "inputs": {
+    "windows": "the 442 primary windows produced by compare.py under benchmark-plan.json (20 m, confidence 1, caliper within 1 inch); no new windows are selected for this calibration",
+    "reference_columns": ["present_hydrostatic", "baseline_loo"],
+    "holdout": "never opened; the 24 holdout wells are scored once, later, with the single adopted set"
+  },
+  "physics": "the actual rockVelocity/porosity functions bundled from src/basin.ts; coefficients are overridden in memory, not reimplemented",
+  "history_semantics": "present burial equals maximum burial; brine; isotropic; observed classes mapped to model endmembers f=0 shale, f=1 sandstone; the same 1 m slowness quadrature per 20 m bin as model-profiles.mjs",
+  "parameters": {
+    "shale_phi0": {"path": ["COMPACTION", "shale", "phi0"], "default": 0.63, "bounds": [0.35, 0.80], "meaning": "shale surface porosity"},
+    "shale_L": {"path": ["COMPACTION", "shale", "L"], "default": 1960, "bounds": [600, 8000], "meaning": "shale porosity e-folding depth, m"},
+    "sand_phi0": {"path": ["COMPACTION", "sand", "phi0"], "default": 0.49, "bounds": [0.30, 0.60], "meaning": "sand surface porosity"},
+    "sand_L": {"path": ["COMPACTION", "sand", "L"], "default": 3700, "bounds": [800, 12000], "meaning": "sand porosity e-folding depth, m"},
+    "cement_from": {"path": ["ROCK", "cementFrom"], "default": 1500, "bounds": [300, 4000], "meaning": "burial where the cementation blend starts, m"},
+    "cement_width": {"path": ["ROCK", "cementTo"], "plus": "cement_from", "default": 1000, "bounds": [100, 4000], "meaning": "cementation blend width, m; cementTo = cement_from + cement_width"},
+    "coordination": {"path": ["ROCK", "coordination"], "default": 8.6, "bounds": [3, 15], "meaning": "Hertz-Mindlin coordination number"},
+    "pressure_top": {"scenario": "overpressure", "default": 2000, "bounds": [500, 3000], "meaning": "top of the prescribed overpressure profile, m; the untuned reference uses none"}
+  },
+  "sets": {
+    "A_compaction": ["shale_phi0", "shale_L", "sand_phi0", "sand_L"],
+    "B_compaction_cementation": ["shale_phi0", "shale_L", "sand_phi0", "sand_L", "cement_from", "cement_width"],
+    "C_B_plus_coordination": ["shale_phi0", "shale_L", "sand_phi0", "sand_L", "cement_from", "cement_width", "coordination"],
+    "D_A_plus_pressure_top": ["shale_phi0", "shale_L", "sand_phi0", "sand_L", "pressure_top"]
+  },
+  "objective": "equal-parent-weighted mean squared error of predicted minus observed window velocity, m^2/s^2; every parameter starts at its default; Nelder-Mead in normalized bounds with two restarts",
+  "cross_validation": "leave-one-parent-well-out: each parent's windows are predicted by coefficients fitted on all other parents, from the default start; no warm start from the full fit",
+  "report_metrics": "bias, MAE and root mean per-parent MSE with equal parent weight, as in benchmark-plan.json; by facies and by 1 km depth band",
+  "bootstrap": {"unit": "parent well", "repeats": 2000, "seed": 20261014, "interval_percent": [2.5, 97.5]},
+  "selection_rule": "adopt the set with the lowest leave-one-parent-out MAE; ties within 5 m/s favor fewer parameters; adopt nothing if the paired bootstrap interval of (adopted-set CV MAE minus untuned MAE) includes zero",
+  "adoption": "the adopted set's full-development fit is written to the source coefficients; its in-sample score is reported as in-sample, and the LOO score is the headline",
+  "not_done_here": "no holdout scoring, no window re-selection, no change to quality screens, no change to mineral moduli or fluid properties, no per-well parameters"
+}

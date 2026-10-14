@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "status": "development-only burial-state context plan, frozen before any fitted error was inspected",
+  "date": "2026-10-14",
+  "motivation": "the coefficient calibration found per-well offsets (mean 278 m/s) that cluster by quadrant; quadrant and lithostratigraphic age are confounded in the cohort, so area-based and unit-based explanations are tested against each other",
+  "inputs": {
+    "windows": "the 442 primary windows with context attached by context.py: lithostratigraphic group at the window midpoint from the supplied NPD picks, quadrant and block from the well name, SODIR coordinates",
+    "reference_columns": ["present_hydrostatic", "baseline_loo"],
+    "holdout": "never opened"
+  },
+  "physics": "the actual rockVelocity function from src/basin.ts with unchanged coefficients; only the burial-state history passed to it changes",
+  "burial_state_offset": {
+    "symbol": "delta, m",
+    "bounds_m": [-2500, 3000],
+    "positive": "exhumation: maximum burial and maximum effective loading are present depth plus delta; current stress stays at present depth",
+    "negative": "undercompaction with overpressure: maximum effective loading and current stress depth are present depth plus delta (floored at zero); maximum geometric burial stays at present depth",
+    "zero": "the untuned reference"
+  },
+  "models": {
+    "M0_global": {"keys": ["all"], "meaning": "one offset for every window; control"},
+    "M1_quadrant": {"keys": ["quadrant"], "meaning": "one offset per North Sea quadrant"},
+    "M1b_block": {"keys": ["block"], "meaning": "one offset per quadrant/block; sensitivity to area size"},
+    "M2_group": {"keys": ["group_unit"], "meaning": "one offset per lithostratigraphic group"},
+    "M3_quadrant_plus_group": {"keys": ["quadrant", "group_unit"], "meaning": "additive quadrant and group offsets, fitted by alternation"}
+  },
+  "objective": "equal-parent-weighted mean squared error; every unit's offset starts at zero; each offset is fitted by a 25-point scan over its bounds followed by golden-section refinement; two-key models alternate four sweeps",
+  "cross_validation": {
+    "by_well": "leave-one-parent-well-out: units without training windows keep offset zero",
+    "by_quadrant": "leave-one-quadrant-out: tests whether group offsets transfer to an unseen area; area offsets reduce to the untuned law there by construction"
+  },
+  "report_metrics": "bias, MAE and root mean per-parent MSE with equal parent weight; by facies, depth band, quadrant and group; fitted offsets per unit with fold ranges",
+  "bootstrap": {"unit": "parent well", "repeats": 2000, "seed": 20261014, "interval_percent": [2.5, 97.5]},
+  "selection_rule": "rank by leave-one-well-out MAE; ties within 5 m/s favor fewer units; record the chosen model as a regional scenario table only if the paired bootstrap interval of (chosen CV MAE minus untuned MAE) excludes zero; an area model that wins does not claim transfer to unseen areas",
+  "not_done_here": "no coefficient change, no source change, no holdout scoring, no window re-selection, no per-well offsets, no claim that a fitted offset is a measured exhumation or pore pressure"
+}

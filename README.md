@@ -229,6 +229,24 @@ FWI.
 
 The [constituent thrust-motion correction](docs/coupled-travel-repair.md) integrates each material constituent across fault bends and uses exact quantized matching. 117 distinct tests are verified across the initial full run and the successful targeted rerun; all 36 conservation runs close. Shared 20–10 m travel RMS changes from 0.613 to 0.514 ms; 40–20 m changes from 1.371 to 1.554 ms. Coupled A’s original upstream accommodation defect is largely recovered, but local and coarse-grid regressions remain. The report retains every regression and eligibility change. Holdout untouched.
 
+The [FORCE coefficient calibration](docs/force2020-calibration.md) reproduces the
+development benchmark from the original downloads (309.477 m/s MAE, unchanged by
+the later transport repairs) and then refits the velocity law's global coefficients
+under a pre-registered plan. No set is adopted: every set predicts held-out wells
+worse than the untuned law (best leave-one-well-out MAE 324.4 m/s). Per-well
+offsets of 278 m/s on average dominate the error and cluster by North Sea
+quadrant, so the next step is burial and pressure context per well, not
+coefficient tuning. The holdout remains unscored.
+
+The [burial-state context test](docs/force2020-burial-context.md) attaches the
+NPD lithostratigraphic group and location to each window and fits one burial-state
+offset per unit with unchanged coefficients. Leave-one-well-out MAE falls to
+266.4 m/s per quadrant and 273.1 m/s per group; only group offsets transfer to
+an unseen quadrant (279.0 m/s). Hordaland shale fits 350 m under-loaded and
+pre-Cenozoic units 400–700 m over-buried. The pre-registered interval against
+the untuned law includes zero, so nothing is recorded as a scenario; the finding
+sets a modelling target for the generator. The holdout remains unscored.
+
 ## Origin
 
 This started inside Seismic Glade, a WebGPU FWI sandbox. The 9.2 x 3 km
