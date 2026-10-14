@@ -22,6 +22,14 @@ test('worker transfers final and replay composition without aliasing or losing h
     assert.ok(frames.length > 3);
     const b = simulate({ ...options, record: true });
     assert.deepEqual(section.budget, b.budget.summary);
+    const carried = b.faults.filter(f => f.trace);
+    assert.ok(carried.length > 0, 'the fixture includes cut passive faults');
+    const expectedLines = b.faults.flatMap(f => f.trace ? f.trace.map(([a,c]) => ({x:[a[0],c[0]],z:[a[1],c[1]]})) : [{x:f.x,z:f.z}]);
+    assert.deepEqual(section.now.faults, expectedLines, 'actual branches reach the overlay without fabricated connectors');
+    assert.deepEqual(frames.at(-1).faults, section.now.faults, 'replay retains the same cut geometry');
+    const snapshotTrace = b.snapshots.at(-1).faults.find(f => f.trace).trace;
+    const savedX = snapshotTrace[0][0][0];carried[0].trace[0][0][0] += 100;
+    assert.equal(snapshotTrace[0][0][0], savedX, 'snapshot endpoints do not alias current geometry');
     assert.equal(section.budget.closed, true, 'conservative thrust budget reaches the UI');
     for (const index of [0, frames.length - 1]) {
       const expected = windowOf(b, b.snapshots[index]);

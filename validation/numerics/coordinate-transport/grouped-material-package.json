@@ -1,0 +1,43 @@
+{
+  "schema": "earthforge.grouped-material-package.v1",
+  "status": "source and test payload frozen pending assembled simulation screening",
+  "source_payload": {
+    "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-representation/grouped-candidate/src/strata.ts": "1eea0bec523995da72631b55202eaaa73c9d8c14733196003cf0a6c3904bf483",
+    "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-representation/grouped-candidate/src/exactLength.ts": "326f867070762173178faf4a725328788c3e26f3102eb04002769a9bf0a8b331"
+  },
+  "deposition_reference_only": {
+    "path": "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-representation/grouped-candidate/src/basin.ts",
+    "sha256": "57c044ecb3c2dda48fc7adfbf74ae0143f4f53c55f24bffc37ea94de94dc4a7d",
+    "integration": "Transport agent full grouped assembly owns the final basin.ts with capacity/fallback changes; do not overwrite it with this deposition-only reference."
+  },
+  "test_payload": {
+    "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-representation/grouped-candidate/tests/column-boundaries.test.mjs": "7f4fdd5f72c5f0e80ee669e6971d055a25dd1949ca4c44f732a2924b6d80494d",
+    "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-representation/grouped-candidate/tests/deposition-boundaries.test.mjs": "4e0783a7ba466d1b4d5cd4fc3d10853d89195ddb8de91dfa2913a8bb1d823a4e",
+    "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-representation/grouped-candidate/tests/deposition-support.test.mjs": "4f822f3a50b3a1f4aa98ba03e5a68e6226ca08d7d9e78946d941e19995a79f17",
+    "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-representation/grouped-candidate/tests/exact-length.test.mjs": "8afca31e3588d69f53c1b759713f96fa494722aafcd769fbb3d150d348da855e",
+    "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-representation/grouped-candidate/tests/exact-material.test.mjs": "bd4e767e47d4668ad032fd0bc57cd647ed572396c480c34bc6767cf15c8b913d",
+    "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-representation/grouped-candidate/tests/grouped-material.test.mjs": "a65753ec3d1dce592342abc04fe4bb218dabf75aebe09f3eeb3b2ffa346115d1",
+    "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-representation/grouped-candidate/tests/length-rounding.test.mjs": "efcdb578cbd6721545314f7e25239d48a0b8116bf29f4572c246b5d232a5ce20",
+    "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-representation/grouped-candidate/tests/material-coalescing.test.mjs": "2ae07669c0cb50c71bd93892e6c6bd683cf9d4050f4a151d951dfdbd9f70be6e"
+  },
+  "tests": {
+    "portable_families": 36,
+    "pass": 36,
+    "fail": 0,
+    "log": "grouped-permanent-tests.log",
+    "previous_semantics": "Exact support assertions now independently sum p.lengths??[p.height]. Existing Number grain, memory, coordinate and error tolerances remain unchanged. Binary coefficient count is no longer physical Layer count.",
+    "new_semantics": [
+      "One physical Layer per actual material cut/quadrature bin, with optional complete exact binary expansion.",
+      "Identity compaction samples each grouped material once and retains exact support.",
+      "Resolved height changes reset metadata and finite nonzero geometry is enforced.",
+      "Correctly rounded nearest-ties-even Number projection with sticky-bit, subnormal and overflow tests."
+    ]
+  },
+  "invariants": [
+    "lengths is the complete interval, not a residual added to height.",
+    "height is one correctly rounded Number projection; grains and constitutive history remain one value per physical layer.",
+    "Positive thin beds remain distinct and exact material interval ownership survives repeated lifecycle transforms.",
+    "Exact raster endpoint policy remains unchanged: explicit crop ledger, bounded inert adjustment only, no implicit sediment trim/padding."
+  ],
+  "holdout_or_observational_reads": false
+}

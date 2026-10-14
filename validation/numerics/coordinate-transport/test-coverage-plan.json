@@ -1,0 +1,79 @@
+{
+  "frozen_snapshot_sha256": "498e1c8d95a469459b4ab4fe3b0cfd133c85a167d469e94044511fb1b439c487",
+  "heap_mib": 8192,
+  "all_test_files": [
+    "tests/basin.test.mjs",
+    "tests/capacity-transport.test.mjs",
+    "tests/column-boundaries.test.mjs",
+    "tests/deposition-boundaries.test.mjs",
+    "tests/deposition-support.test.mjs",
+    "tests/diagnostics.test.mjs",
+    "tests/exact-length.test.mjs",
+    "tests/exact-material.test.mjs",
+    "tests/fault-geometry.test.mjs",
+    "tests/fractional-thrust.test.mjs",
+    "tests/grouped-material.test.mjs",
+    "tests/grouped-state-support.test.mjs",
+    "tests/length-rounding.test.mjs",
+    "tests/material-coalescing.test.mjs",
+    "tests/normal-lengths.test.mjs",
+    "tests/numerics.test.mjs",
+    "tests/strata.test.mjs",
+    "tests/subsidence-coordinate.test.mjs",
+    "tests/thrust-capacity-fallback.test.mjs",
+    "tests/thrust-coupling.test.mjs",
+    "tests/thrust-flow-area-displacement.test.mjs",
+    "tests/thrust-matching-stability.test.mjs",
+    "tests/thrust-weighted-transport.test.mjs",
+    "tests/thrust.test.mjs",
+    "tests/travel-thickness.test.mjs",
+    "tests/worker.test.mjs"
+  ],
+  "batches": [
+    {
+      "log": "grouped-focused-tests.log",
+      "files": [
+        "tests/capacity-transport.test.mjs",
+        "tests/column-boundaries.test.mjs",
+        "tests/deposition-boundaries.test.mjs",
+        "tests/deposition-support.test.mjs",
+        "tests/exact-length.test.mjs",
+        "tests/exact-material.test.mjs",
+        "tests/fractional-thrust.test.mjs",
+        "tests/grouped-material.test.mjs",
+        "tests/grouped-state-support.test.mjs",
+        "tests/length-rounding.test.mjs",
+        "tests/material-coalescing.test.mjs",
+        "tests/normal-lengths.test.mjs",
+        "tests/subsidence-coordinate.test.mjs",
+        "tests/thrust-capacity-fallback.test.mjs"
+      ],
+      "concurrency": 2
+    },
+    {
+      "log": "grouped-legacy-focused.log",
+      "files": [
+        "tests/strata.test.mjs",
+        "tests/thrust-flow-area-displacement.test.mjs",
+        "tests/thrust-matching-stability.test.mjs",
+        "tests/thrust-weighted-transport.test.mjs",
+        "tests/thrust.test.mjs"
+      ],
+      "concurrency": 2
+    },
+    {
+      "log": "grouped-remaining-tests.log",
+      "files": [
+        "tests/basin.test.mjs",
+        "tests/diagnostics.test.mjs",
+        "tests/fault-geometry.test.mjs",
+        "tests/numerics.test.mjs",
+        "tests/thrust-coupling.test.mjs",
+        "tests/travel-thickness.test.mjs",
+        "tests/worker.test.mjs"
+      ],
+      "concurrency": 1
+    }
+  ],
+  "executed_all": true
+}

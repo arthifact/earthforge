@@ -1,0 +1,958 @@
+{
+  "schema": "earthforge.coupled-travel-final-verification.v1",
+  "status": "passed",
+  "verified_at_utc": "2026-10-13T17:50:39.930360+00:00",
+  "scope": "Constituent area-mean thrust motion and exact quantized allocation; frozen synthetic 40/20/10 m comparison",
+  "verification_script_sha256": "791e5ceceae0797ca5f8405f85da3f7883177f1e6a25cbd8a89ac1957eaf9e96",
+  "original_manifest_sha256": "0b8b884ebac32dd5676a2e0c42fd377311ab9e3435d01f14ec1020cb2fa21ff9",
+  "snapshot_sha256": "9e17e8ef2f34c280ed3ffb619d1de7094ebb307a6a8370c668eaa8ff83c42aaf",
+  "final_snapshot_sha256": "802d223d2e7e72bc66331b3af5d7c9f131266c92f559d339d2659e31cf3c4db4",
+  "initial_source_and_test_sha256": {
+    "src/app.ts": "d5fcc97b4bc5c77f11c7cef6b3127038d25ac24be2ce5eae35d5bfc2becf9d09",
+    "src/basin.ts": "f82bf4b589246ffc5652dc06b18f5d1e26bacc7f61b38fc7d010a66198379b08",
+    "src/basinVerify.ts": "400c3322bbae9cca8fcbf027dd82ac6cdc4edbfc732c42a9a581e7d6670085f7",
+    "src/checks.ts": "8d5c4cc1937fdd3ce20bf968767a87461347803d63f880a42973f15671143d1a",
+    "src/conservativeTransport.ts": "fb601e0ca361bd598232faa929e1db63045c9515532ab32662624d3761276f27",
+    "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+    "src/main.ts": "a20e1729db46a143c2334f205233dec54f836f731b9855ef7bb7447bd185752e",
+    "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+    "src/normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+    "src/protocol.ts": "d323dc3c917a19701c3dea49756bce1c196d05a817b874fa8c3937f85f4b1c76",
+    "src/render.ts": "bb3b4da6884b58ca24a17e1b267b1d7b2a3fe8a840a2205a44e6c903ec8d4a41",
+    "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+    "src/strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+    "src/styles.css": "b4a0deda9bf63406b5e0bc7339a9d783aeb0e8ddac83441172401fe2b7cf62aa",
+    "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+    "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+    "src/worker.ts": "a2d2d5819972d421a9484e68954a5ab4f6ff2a4b93eadfc761f12cd61c2ded78",
+    "tests/basin.test.mjs": "43739c73f145b5616cba2e6d079e5dd8d43567859e562f9dd8236d12674ff05a",
+    "tests/diagnostics.test.mjs": "2882e10b10428d44f393449d041158495b643d9414e12b5fc39b6b836f70e45b",
+    "tests/fault-geometry.test.mjs": "3132f639f4c7e8d417b82e7931dc04186f9ad94920a860894f1324ed46b962d6",
+    "tests/fractional-thrust.test.mjs": "18d62d6b9422122d177cf0ccce84c6a59b45773ccfdda9b19932c27f68dc1e05",
+    "tests/numerics.test.mjs": "2b7220ce073b39f203cbaba2499fa03828db17adc4ee5bc388b2b14b95ecb8a1",
+    "tests/strata.test.mjs": "86f932e9e1323646ec8a6279d838839e59f66a1a7048e08def2ade14da2f2545",
+    "tests/thrust-coupling.test.mjs": "d94c79e193c4d2a7f11d3a7afd27d500beafab0bbf90fca737f0376d16ce001d",
+    "tests/thrust-flow-area-displacement.test.mjs": "d602585f4fbffce7a688760373f37926c11ae22bae1735d329fe69033691457d",
+    "tests/thrust-matching-stability.test.mjs": "ae564cbac40a3fe34bcba35367d2154d7ff79046368e243a2cd0fe0643630e63",
+    "tests/thrust-weighted-transport.test.mjs": "1aec74c93f65072702363067672a09277aba23145a9aef46172aad50b0d995bd",
+    "tests/thrust.test.mjs": "11f4a7890a72a14a9f586f63262e2d1facd22f3d880b3e410fa7b1830d523688",
+    "tests/travel-thickness.test.mjs": "627d17da4e2056b6e828553144a1fa777014c94ecd2d5a1e423016a9163fa744",
+    "tests/worker.test.mjs": "33a8bc01dfcb0b547acf0ad6f52f1414401dd117aea7439f59a177ad3390ee9b"
+  },
+  "source_and_test_sha256": {
+    "src/app.ts": "d5fcc97b4bc5c77f11c7cef6b3127038d25ac24be2ce5eae35d5bfc2becf9d09",
+    "src/basin.ts": "f82bf4b589246ffc5652dc06b18f5d1e26bacc7f61b38fc7d010a66198379b08",
+    "src/basinVerify.ts": "400c3322bbae9cca8fcbf027dd82ac6cdc4edbfc732c42a9a581e7d6670085f7",
+    "src/checks.ts": "8d5c4cc1937fdd3ce20bf968767a87461347803d63f880a42973f15671143d1a",
+    "src/conservativeTransport.ts": "fb601e0ca361bd598232faa929e1db63045c9515532ab32662624d3761276f27",
+    "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+    "src/main.ts": "a20e1729db46a143c2334f205233dec54f836f731b9855ef7bb7447bd185752e",
+    "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+    "src/normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+    "src/protocol.ts": "d323dc3c917a19701c3dea49756bce1c196d05a817b874fa8c3937f85f4b1c76",
+    "src/render.ts": "bb3b4da6884b58ca24a17e1b267b1d7b2a3fe8a840a2205a44e6c903ec8d4a41",
+    "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+    "src/strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+    "src/styles.css": "b4a0deda9bf63406b5e0bc7339a9d783aeb0e8ddac83441172401fe2b7cf62aa",
+    "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+    "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+    "src/worker.ts": "a2d2d5819972d421a9484e68954a5ab4f6ff2a4b93eadfc761f12cd61c2ded78",
+    "tests/basin.test.mjs": "43739c73f145b5616cba2e6d079e5dd8d43567859e562f9dd8236d12674ff05a",
+    "tests/diagnostics.test.mjs": "2882e10b10428d44f393449d041158495b643d9414e12b5fc39b6b836f70e45b",
+    "tests/fault-geometry.test.mjs": "3132f639f4c7e8d417b82e7931dc04186f9ad94920a860894f1324ed46b962d6",
+    "tests/fractional-thrust.test.mjs": "18d62d6b9422122d177cf0ccce84c6a59b45773ccfdda9b19932c27f68dc1e05",
+    "tests/numerics.test.mjs": "2b7220ce073b39f203cbaba2499fa03828db17adc4ee5bc388b2b14b95ecb8a1",
+    "tests/strata.test.mjs": "86f932e9e1323646ec8a6279d838839e59f66a1a7048e08def2ade14da2f2545",
+    "tests/thrust-coupling.test.mjs": "d94c79e193c4d2a7f11d3a7afd27d500beafab0bbf90fca737f0376d16ce001d",
+    "tests/thrust-flow-area-displacement.test.mjs": "d602585f4fbffce7a688760373f37926c11ae22bae1735d329fe69033691457d",
+    "tests/thrust-matching-stability.test.mjs": "ae564cbac40a3fe34bcba35367d2154d7ff79046368e243a2cd0fe0643630e63",
+    "tests/thrust-weighted-transport.test.mjs": "1aec74c93f65072702363067672a09277aba23145a9aef46172aad50b0d995bd",
+    "tests/thrust.test.mjs": "cdca9de4ecf8774e42cdde8ccc5388869e019d0b01dae4f9b8e674292804760c",
+    "tests/travel-thickness.test.mjs": "627d17da4e2056b6e828553144a1fa777014c94ecd2d5a1e423016a9163fa744",
+    "tests/worker.test.mjs": "33a8bc01dfcb0b547acf0ad6f52f1414401dd117aea7439f59a177ad3390ee9b"
+  },
+  "authorized_changed_test_files": [
+    "tests/thrust.test.mjs"
+  ],
+  "study_directory": "data/numerics/coupled-travel-repair",
+  "plan_sha256": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+  "study_source_sha256": {
+    "src/basin.ts": "f82bf4b589246ffc5652dc06b18f5d1e26bacc7f61b38fc7d010a66198379b08",
+    "src/conservativeTransport.ts": "fb601e0ca361bd598232faa929e1db63045c9515532ab32662624d3761276f27",
+    "src/strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+    "src/normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+    "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+    "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+    "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+    "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+    "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+    "validation/numerics/metrics.mjs": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b",
+    "validation/numerics/run.mjs": "579c12772f2a8ff6b4ace8a8fd3586b905292f443481f0abcc989cfde9510fbd"
+  },
+  "raw_study_sha256": {
+    "compaction-a-10m-budget.json": "1838f07e895c40d7c9f80b1b0787b2da0d05995d8dca3bbeefaea73d46785f0c",
+    "compaction-a-20m-budget.json": "501b4d3864586f0c04477819b76bc33d52b2bc3949b00e42cbee2965f576de0f",
+    "compaction-a-40m-budget.json": "7a51f9a0849be79cc0daf64ab74e0bfd9fe57d709c8a9c21788856a25d08cfd8",
+    "compaction-a-matched.json": "d8cca6886d9d91a90433e3168bbc3608f770c0778e652780d9bfb91218a6f1c1",
+    "compaction-b-10m-budget.json": "120299567ee6fd3416ecb570f19fd0945e9837dded3974647a87f7ba7b698c77",
+    "compaction-b-20m-budget.json": "70a046b776e993d2a73bf5b8bf0175740e321ba310e7221484013ecbf26236c3",
+    "compaction-b-40m-budget.json": "e348f7d2c1b175f8f8d3fc47f3f3430d413a291041087557bb76a2b628aff0d7",
+    "compaction-b-matched.json": "06a51d08b4522919d4b16d4947a7a59b0fb35731f8b4288f7e00f6b7839bfeee",
+    "coupled-compression-a-10m-budget.json": "329c4f7f20914fece19da10d46f6489bc81aaf739100007255e90be6eaedf2b6",
+    "coupled-compression-a-20m-budget.json": "e80472434ac6d0268eab9977061d16a3b815e935f98c86a91b2e84f98d3d6c98",
+    "coupled-compression-a-40m-budget.json": "c0269f6f8abe6f7e4495592b7c61fa38424d0f36732b711d9c5302e98dcd057c",
+    "coupled-compression-a-matched.json": "9c371ed802b58168ad3459a01cb81470f19df8c0bff7fdb1dbb5353cfbfca16e",
+    "coupled-compression-b-10m-budget.json": "5cddf7fa41a7ae287445ac18b5ec4b9ff3ea7e281038f3f7f8dc2e770eb83507",
+    "coupled-compression-b-20m-budget.json": "ad845f669b20b235130421e997376d5130a290dac1c8d9aca8d39c14d86472ba",
+    "coupled-compression-b-40m-budget.json": "bcf432939e5283a2e122b118e18d0832d3b813efa9f470f7e328229297229d23",
+    "coupled-compression-b-matched.json": "8dbf7e8b3e06285742e88822bab058e4188abbe21f98f946abfba49c4a6f2c11",
+    "coupled-compression-c-10m-budget.json": "d1bb31e3e737bb41307ee47079db051a742e0d584f67c8ba99c396544ec1c21d",
+    "coupled-compression-c-20m-budget.json": "fc4804ed112ced1597b0ec233ff15c853737b0dceac67d031ea08cd83e1f6bc4",
+    "coupled-compression-c-40m-budget.json": "b04d9a54dd829d5c04f656d46d5816844881eae54a94f1e665bad3958decc5f6",
+    "coupled-compression-c-matched.json": "024aa086ab4b1f0cf8ba12da2fbdfc41b3c48fee07887b2030e21ef737663edf",
+    "coupled-extension-a-10m-budget.json": "dcd3bc3804cf60ff8a2efb95f9ee16adf062ba854eda230dbc9d8422b099bb69",
+    "coupled-extension-a-20m-budget.json": "3faf08ff8fa497c9187e86a1c34f3313714fe5668d020b01d5872eef3dd7bf38",
+    "coupled-extension-a-40m-budget.json": "6d91f619da0cdabd1c95e957eb61de3602816030c662da539adae45092500e04",
+    "coupled-extension-a-matched.json": "95af7138990baa441505f2ee078b2e87aad0e1cde619decb9f662e0392f35906",
+    "coupled-extension-b-10m-budget.json": "2c4dbef8afc31bfe13fd3ddbbd3765222a47ca79b9cc98b17267b10430a4b6c1",
+    "coupled-extension-b-20m-budget.json": "b797b3012f328d576e770bec4f3fff7d601710aaef977f9beeafae6699b73a87",
+    "coupled-extension-b-40m-budget.json": "772462ecb221338938b99514ee49695c9e92809dc6b5e4aed528e11baae6e390",
+    "coupled-extension-b-matched.json": "b6a5a5330ecaffcac63240473679c5e0c0384bf93dfc585ff3f2ae9316205e83",
+    "coupled-extension-c-10m-budget.json": "37d5029d3120a5390403e48f561bc778f862ce9b709a20e544b2c34d72eeb05c",
+    "coupled-extension-c-20m-budget.json": "6218fb33b93b9ed54bad4343d637d379b7d106783a2ca753e9eba8a059739085",
+    "coupled-extension-c-40m-budget.json": "2ded295cb00397fc7ea92cc8e98a56396675a67dec6611c80a40fee5af513ff9",
+    "coupled-extension-c-matched.json": "b3fcef1f2dc616586fc437043a0580ca35355fc3cb28a2418b5eb157caf531e3",
+    "normal-a-10m-budget.json": "badf61623095226091fa57452c838476a10b2d312738e4eedc9a58fcb78299dc",
+    "normal-a-20m-budget.json": "662eb8d96d3faa224571a1f50de90a4e993c91b74cd63dd6a9c190b9fe64abdd",
+    "normal-a-40m-budget.json": "ca78091d81506ff39857c9efa70c5be10e90e3d4f3ccd935eb77e838f74fc7a5",
+    "normal-a-matched.json": "1e28c58cff20dc92a4283d0f479899177923938cdafd44a52f2108087320d11f",
+    "normal-b-10m-budget.json": "4d68eacbf1015319a3aecea3a919126bffc250083a3ddd9fb7827c9696a8d1ef",
+    "normal-b-20m-budget.json": "f07057cf3963d6cfb32853843e7f3c92ecdb702249ddfdb8de47a5f874089328",
+    "normal-b-40m-budget.json": "59fb96421f98410e30cc45efff54b35c98bd6c0c5ad9be28c34331cdb56ee393",
+    "normal-b-matched.json": "c2416d8a5bc7f64512b85ab01912b2060e6fd55b61190973e6aa16f66dcf77a3",
+    "series.json": "cf8a0213bfdc3ccd3716dc3b107953cb24c9d8b2eee61133967ec3b7c4add51f",
+    "summary.json": "e43c1542e1ce564139b3990c404fc4945a2e75979eec9cd208266bab34418e98",
+    "thrust-a-10m-budget.json": "8a8509145a30a80946ad0f0616c269fa0b189b8e882a1612be997064f01d35b1",
+    "thrust-a-20m-budget.json": "54b7bd8f02f085146f0b6ab39e23292289818ffb5fa26fe78d35ce0ec9b806ee",
+    "thrust-a-40m-budget.json": "cb5fa152fab1d54ace35f3cdeea8403e8face28e6a4e4a59a040c3f1939fed2b",
+    "thrust-a-matched.json": "d0ef8e54c6824e20b96c4622241b424ccfe414281c032fec187672bfbee6c296",
+    "thrust-b-10m-budget.json": "915f1918ac16f98fc9c9a8d0aefd10582d6ae594c941414d27e726976a10afdf",
+    "thrust-b-20m-budget.json": "ccde30b9b2b40ed16bc138f166e7f217477d772b2e5273385373612a2957e2d9",
+    "thrust-b-40m-budget.json": "1d878b4b8218d8b87d89bb7573cd99efe567a4276560b4db47af7634e990a1b5",
+    "thrust-b-matched.json": "38d0cecc787ddc35d01abe24670ad2a78749952aa85c996a7a17112e713516b9"
+  },
+  "evidence_sha256": {
+    "validation/numerics/coupled-travel-a-diagnosis.json": "e01e2d2dbfdf534ddd3109d92cc8a554164320560a5647a44058bdb0168bfeb3",
+    "validation/numerics/coupled-travel-ablation-audit.json": "fdf2cd72641ee0183871667dc62c1e1ca6244851eff16095822fe6c3bd2cac41",
+    "validation/numerics/coupled-travel-audit-budget.py": "5762ead1c4d4fd8e611c3ff7c0480f9bf9ae7bcfbc5e53beb56ad6c9b88b8bcc",
+    "validation/numerics/coupled-travel-bend-oracle-crosscheck.json": "f9f30e1c026890e9e406570d9196ff98a51e4b9ff9b4bb87f20af4e527eb74a5",
+    "validation/numerics/coupled-travel-bend-oracle-review.json": "ed2c1a5c9cb018ae0b92f8c2d3b24f7f61b70a79adaeb2b5cbde2cb092dc4ce6",
+    "validation/numerics/coupled-travel-budget-audit.json": "2112183496145affbba5566881e6b5ae970dfd4292c0acf40d405f6316b75b7d",
+    "validation/numerics/coupled-travel-c-diagnosis.json": "f7d414813a670647b0b58d9a3f97390b19e34cbd951c40a6928b114fc5234709",
+    "validation/numerics/coupled-travel-compare-study.mjs": "d367c8a490a767600fb40d50984ec81b90120c43f46555b2d2feed02f91d2313",
+    "validation/numerics/coupled-travel-current-all-metrics-audit.json": "14dd348847cfb4df6d2dbdcce9046813113e0417d98905b6acd638cbe114e281",
+    "validation/numerics/coupled-travel-current-report.json": "521aace88893309ddbefdbea4bc4429a52592174567e373a124615d955b2ebf2",
+    "validation/numerics/coupled-travel-edge-audit.json": "fff20a1c4732b55ade1ed7c90ae0a833089f710891e9739b15cd38d7584d6005",
+    "validation/numerics/coupled-travel-flat-alternative.json": "8eea6ab5ac90877a706aec0ec1f56bc1ecd310e24e2b6e453d9fdd60e613782a",
+    "validation/numerics/coupled-travel-flat-test-design.json": "3a2a4084f45532dd31a6e2c2334fb4b36fd28c46fd12fb6ef3e8e5ec31556eb4",
+    "validation/numerics/coupled-travel-geometry-audit.json": "88e16023f189dd7e118f977be5d7d5f6d62864375c08ee3ce2cf8b9c0490dacd",
+    "validation/numerics/coupled-travel-geometry-final-audit.json": "c2ce849edf06aadf01eb14e7bdd856b80117bbafeff3ba89973fd6d50fee32ea",
+    "validation/numerics/coupled-travel-geometry-source-review.json": "9b4f6b413cd744dcca11c3fdf054ff405b9d1b414afa61125dc7a4f032c73622",
+    "validation/numerics/coupled-travel-incoming-column-alternative.json": "587a26fe80952f62cf4de566ca8138ac3214999fdeb0059b4db8c078fbb12da0",
+    "validation/numerics/coupled-travel-incoming-column-check.json": "7edb73955c58d5e20bc80e584e3ec5384e5634f65d771d703138907ed9d4ac38",
+    "validation/numerics/coupled-travel-lexicographic-a-alternative.json": "68e488c630f568b94bfea962ad7fd6f5b88b7e3e7fdf385711adf68ce6e84c30",
+    "validation/numerics/coupled-travel-lexicographic-audit.json": "78e264663a132ae6ac4777381061c34626e39017a09ab52025725dab661ccb38",
+    "validation/numerics/coupled-travel-lexicographic-b-alternative.json": "e7f17bee9d91fb70dc550ad2f5d83e5c3846c5485ec2d7e83ab243f6b691d18e",
+    "validation/numerics/coupled-travel-line-alternatives.json": "8cf39b79f26d4a9f7e512b862f60db8d98346441df7d96edbe7494e2df0fbc1a",
+    "validation/numerics/coupled-travel-matching-independent-audit.json": "81c7bd591d0e6449cb217d0eac5bebf49401cb568993eb784cade82d606f0875",
+    "validation/numerics/coupled-travel-order-alternative.json": "b0d16bd8a883dc84497bcd2f0c6531acd7d52cb4885131435732992f58ce2c41",
+    "validation/numerics/coupled-travel-original-five-recovery.json": "9c26d06fd7c992b620f09cb3a904d8a3d6847cbde8c79c3d352fffb3e48de4ad",
+    "validation/numerics/coupled-travel-persistent-footprint-research.json": "ad4c501327259c7f1f6ebb577d7a1fdb718868c83da058a07ed220353ff7827f",
+    "validation/numerics/coupled-travel-physical-flat-alternative.json": "6a0030464da2fbfc53ed36f1c5a26211d4a696d50bdc8a62fc7c50157fcddc6c",
+    "validation/numerics/coupled-travel-prior-all-metrics-audit.json": "4c41264e06eec8fb2df8521cf2c53706efbbb74c09e9b8bbb68a65471eeeef00",
+    "validation/numerics/coupled-travel-prior-report.json": "9d1cd585aa18a3c19b2f5937bbbe8eda48e6915bcecf6fa84324034dc95852f4",
+    "validation/numerics/coupled-travel-remaining-defects.json": "c5ba2a3a291b46e70fc896b07c446d15a9e8986770b1f6372c3816bc5c27c524",
+    "validation/numerics/coupled-travel-report-review.json": "6e5802393a6ad23d5499316bbc6fd0343591e1e956b4b4b153ad20f8d3ad3b87",
+    "validation/numerics/coupled-travel-source-audit.json": "85daeebc2988b349bc7f5621767ba053d9d19adf0aa005cba649ce2aecda2834",
+    "validation/numerics/coupled-travel-three-way-report.json": "394a9651b7ae7d031192b2d3e26495a07da8022c738537fab35074061405cda7",
+    "validation/numerics/coupled-travel-transport-source-review.json": "1918e295037f6e8b7db471b483b52791135ebc58701ad0ca5f1eadabdfb994ae"
+  },
+  "documentation_sha256": {
+    "README.md": "da59b68483acc53b7a3de18bbc89f8ef69ba27b5cdc9e23327458b15eafff36d",
+    "docs/validation-audit.md": "dc7b61573b104daa2449e262e9e0d033dd94ced8d60d7297da3f3b14af028626",
+    "docs/verification-log.md": "7f168e70cbb7ffb45197dbd09732691b9d1f2ea9ac945eed2440025a89413449",
+    "docs/thrust-b-repair.md": "9c397ac9c4f7a7df337abd88f3d6ac2370f2f2ae50fd1ac4b3bbd4a71c5cc052",
+    "docs/coupled-travel-repair.md": "c40a73416e28d366947fb5077ccfc9d47137e715b3da27f900f49a6981475beb"
+  },
+  "tests": {
+    "mode": "full-run-plus-targeted-rerun",
+    "coverage_statement": "117 distinct tests verified across the original full run and the complete corrected thrust-file rerun; the original full run had 116 passes and 1 superseded oracle failure.",
+    "passed": 117,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "total": 117,
+    "duration_ms": 2150562.456625,
+    "duration_definition": "Sum of the two recorded test-run durations; not a single full-suite duration.",
+    "log_sha256": "f0ff2d35bb29071a302285d93c2ac837bfaf9bc0da7a6bb24023a20dd5d5a00e",
+    "original_full_run": {
+      "total": 117,
+      "passed": 116,
+      "failed": 1,
+      "skipped": 0,
+      "cancelled": 0,
+      "duration_ms": 2148434.987542,
+      "log_file": "full-tests.log",
+      "log_sha256": "f0ff2d35bb29071a302285d93c2ac837bfaf9bc0da7a6bb24023a20dd5d5a00e",
+      "snapshot_sha256": "9e17e8ef2f34c280ed3ffb619d1de7094ebb307a6a8370c668eaa8ff83c42aaf",
+      "failed_test_name": "closed packet crossing a bend conserves each parcel over many increments and follows analytical flow",
+      "failed_test_file": "tests/thrust.test.mjs",
+      "command": "node --max-old-space-size=8192 --test --test-concurrency=2 tests/*.test.mjs"
+    },
+    "targeted_rerun": {
+      "total": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "duration_ms": 2127.469083,
+      "log_file": "thrust-tests-rerun.log",
+      "log_sha256": "3c6be36c705bc5717ae9adab6457b1bd17ff426638584b34a9bb96588aa81f89",
+      "snapshot_sha256": "802d223d2e7e72bc66331b3af5d7c9f131266c92f559d339d2659e31cf3c4db4",
+      "test_file": "tests/thrust.test.mjs",
+      "test_names": [
+        "local matching resolves collisions without duplication or rescaling",
+        "augmenting paths can relocate an occupant instead of stranding a constrained parcel",
+        "an impossible local packing fails explicitly and leaves inputs untouched",
+        "zero slip is identity, including memory and fractional carry",
+        "horizontal translations match exact cell transport in both directions and count edge influx/outflux",
+        "analytic 45-degree ramp transports a closed packet exactly and preserves the footwall",
+        "top/bottom and corner outflows count the geometrically departing parcels exactly once",
+        "fractional increments retain exactly the prescribed cumulative horizontal translation",
+        "closed packet crossing a bend conserves each parcel over many increments and follows analytical flow",
+        "minimum-cost matching agrees with exhaustive assignments on small irregular grids",
+        "a full ramp grid balances top/right outflow and prescribed clamped-edge continuation",
+        "zero slip preserves existing subcell positions without reallocating parcels",
+        "compaction conserves the lateral grain moment while repacking a bed vertically",
+        "many subcell ramp increments retain analytical continuous positions in either direction",
+        "crowding uses and reports a bounded third-cell stencil only when two cells cannot fit"
+      ],
+      "command": "node --test tests/thrust.test.mjs"
+    },
+    "coverage": {
+      "unmodified_outside_rerun_file": 102,
+      "rerun_file": 15,
+      "distinct_verified": 117,
+      "outside_passing_test_names": [
+        "original known-answer tolerances and the reported seed 765183 batch",
+        "solid fits each cell, no trapped water, and deterministic deformation across settings",
+        "expansion uses whole units, in both fault directions, without inventing growth",
+        "unavailable intact intervals have no expansion measurement",
+        "thrust transport matches analytical straight ramps and a flat-to-ramp bend",
+        "porosity end members and the independent integral conserve prescribed solid",
+        "displayed velocity preserves composition and loading history within 5 m/s",
+        "pressure is continuous across facies and the overpressure top",
+        "burial, uplift, repressurization and reburial separate irreversible memory from current stress",
+        "compaction transports sand by solid volume and retains parcel loading maxima",
+        "normal and thrust slips carry composition and both memories with each source parcel",
+        "deposited composition survives subsidence and compaction and replay uses its own material state",
+        "velocity reference comparisons use bin centers, with no extrapolation or missing-bin bridge",
+        "checks detect corrupted state, even if the rock IDs are unchanged",
+        "empty measurements cannot pass, and signed errors cannot cancel in the compaction rule",
+        "unseen seeds cover disabled processes and fixed tectonic settings",
+        "both grids preserve physical bounds across compaction, pressure and carbonate extremes",
+        "FORCE exporter keeps uplift in history and leaves the hydrostatic reference unchanged",
+        "checks pass conservative thrust transport and still expose an injected grain failure",
+        "diagnostic observer preserves all physical state, history and budgets and observes every event",
+        "continuous compaction root resolves a known constant-porosity layer below one cell",
+        "continuous root is invariant to splitting identical source grains",
+        "three-group attribution preserves additive effects and divides interactions symmetrically",
+        "velocity attribution integrates unequal subdivisions exactly and recovers harmonic endpoints",
+        "noncontracting classifications do not confuse tiny changes, stable or settled sequences",
+        "listric geometry samples the physical origin, including fractional-cell positions and both dips",
+        "repeated fault growth preserves the analytical zero crossing without accumulating a grid-cell drift",
+        "growth stopping at either open side keeps its finite geometry and does not wrap to another column",
+        "signed tip guards carry no rock, preserve the footwall, and close independent sediment fluxes",
+        "buried thrust bends retain prescribed positions and dip at every grid spacing",
+        "emergent ramps meet an independently defined sloping surface at its exact intersection",
+        "emergent upper flat clears a piecewise-linear floor bump without rounding the ramp intersection",
+        "ramps that leave the open side omit an invented upper flat and keep the prescribed dip",
+        "physical marker sampling reproduces a known affine field without moving the marker",
+        "burial deformation moves fractional thrust markers by the physical column map, with no in-place double update",
+        "the simulator uses the exact normal origin before its first slip on all grids",
+        "the simulator creates physical thrust bends and retains their horizontal positions through vertical deformation",
+        "capacity matching relocates a small occupant for a constrained large parcel in either input order",
+        "indivisible capacity infeasibility fails without changing inputs or inventing outflow",
+        "zero slip preserves cut-cell state and carry and always returns displacement arrays",
+        "a bed below an off-grid fault stays stationary even when its raster cell crosses the fault",
+        "mixed hanging-wall and footwall cells retain footwall state and count only moving grains at edges",
+        "numerical cut-cell padding does not cancel an adjoining natural water gap",
+        "stationary footwall offsets cannot steer moving hanging-wall constituents across a flow bend",
+        "grain inventory has physical area units and excludes basement, water, and pores",
+        "known deposition, erosion, and each boundary produce the correct retained grains",
+        "compaction changes pore volume without changing grains or their constituents",
+        "all four faces are counted, interior cells excluded, corner parcels counted once",
+        "lost or duplicated sediment is a failure, never an inferred open-boundary flux",
+        "offsetting constituent and bed changes cannot hide behind a closed total",
+        "event errors that later cancel still fail the cumulative budget",
+        "closure tolerance accepts only roundoff and rejects nonfinite inventories",
+        "actual 40/20/10 m normal and compaction histories close for every process and constituent",
+        "thrust remapping closes every grain budget independently of the old area screen",
+        "matched unit metrics use grain-weighted composition and travel-time velocity",
+        "missing, unresolved, fragmented, boundary and fault-cut units remain explicit exclusions",
+        "paired refinement uses exactly the same unit cohort for both grid pairs",
+        "refinement classifications distinguish monotonic, oscillatory, divergent and stable triples",
+        "real refinement histories match before rounding and field profiles retain the common physical support",
+        "sub-millimetre beds and mixed carbonate/clastic contacts survive every raster round trip",
+        "continuous compaction has no cell floor and keeps bulk pore volume consistent",
+        "continuous column agrees with independent integrated porosity law and bed subdivision",
+        "material quadrature refines toward the analytical column independently of display cells",
+        "erosion, clipping and unloading preserve retained thin-bed state and never expand grains",
+        "packing a physical overhang retains subcell material volume and the numerical-offset correction",
+        "thrust transport retains all subcell bed constituents and independently counted boundary flux",
+        "subcell grain centroids follow an analytical ramp while each bed and memory survive",
+        "harmonic cell velocity includes a thin bed that does not own the display label",
+        "continuous interval metrics recover physical interfaces and preserve the original resolution eligibility",
+        "replay preserves its thin-bed slowness projection and rejects lossy resampling",
+        "actual deposition retains every declared bed in a positive full deposit at all three grids",
+        "uplifted synthetic history erodes partial layers at the prescribed physical wave base",
+        "normal vertical shear transports thin beds at fractional fault depths in either direction",
+        "normal cutoffs recover prescribed heave from continuous thin horizons on a planar fault",
+        "normal shear counts fractional top outflow and bottom continuation independently",
+        "packing allocation gaps leaves physical markers and material centroids fixed",
+        "real gaps still move geometry, including markers inside a partially numerical gap",
+        "numerical flags in surface water or occupied rock do not cancel real gap closure",
+        "fault markers still follow independently known pore-volume compaction after packing",
+        "isolated thrusts acquire no artificial bend displacement when allocation gaps close on 40/20/10 m grids",
+        "subcell passive translations retain cumulative physical distance in both directions",
+        "cut branches remain separate, and both contribute where a column intersects both",
+        "projection counts shared vertices once regardless of segment subdivision or orientation",
+        "bend-crossing passive traces match independent analytical 45-degree flow at every grid",
+        "rectangular flow moments integrate a partially crossed bend instead of moving only its midpoint",
+        "flow moments cover initial and final bend crossings, reverse slip, and mirrored geometry",
+        "flow integration retains tiny positive intervals and rejects nonfinite inputs",
+        "constituent thrust moments preserve physical positions across storage shifts and arbitrary material partitions",
+        "trajectory displacement retains small straight slips and reverses exactly through bends",
+        "quantized matching is exactly optimal with capacity limits and retains the raw objective bound",
+        "one-ulp target differences away from quantization boundaries do not swap material owners",
+        "common weight scales preserve the physical choice and arbitrarily small parcels remain assigned",
+        "half-cell validation slack initializes feasible duals at the actual nearest destination",
+        "allocation minimizes integrated occupied-rock displacement rather than equal packet counts",
+        "optional weights default to one and invalid weights are rejected without mutation",
+        "weighted matching agrees with exhaustive capacity-constrained assignments on small grids",
+        "arbitrarily small positive weights retain packets and common weight scaling preserves the physical choice",
+        "thrust allocation moves a mostly water packet instead of displacing full rock and preserves actual constituents",
+        "identity compaction preserves fractional physical positions in both directions",
+        "bottom-anchored compaction is invariant to the storage allocation of the same physical bed",
+        "thin parcels retain allocation translations larger than their thickness beside a differently compacting bed",
+        "worker transfers final and replay composition without aliasing or losing history"
+      ],
+      "all_initial_tests_covered": true,
+      "production_source_unchanged": true,
+      "changed_test_files": [
+        "tests/thrust.test.mjs"
+      ]
+    },
+    "superseded_failure": {
+      "test": "closed packet crossing a bend conserves each parcel over many increments and follows analytical flow",
+      "reason": "The previous fixture compared a finite occupied rectangle with its storage-top point trajectory; it was replaced by an independently checked area-mean oracle without changing production code or physical error gates."
+    },
+    "output_logs": [
+      "earthforge-coupled-travel-tests.txt",
+      "earthforge-coupled-travel-thrust-rerun.txt"
+    ]
+  },
+  "typecheck": {
+    "passed": true,
+    "command": "npm run check",
+    "log_sha256": "96f46f27d0d543f0864c6e14e4b577e242055695cf81e2048ac7d9dbed54f193"
+  },
+  "production_build": {
+    "passed": true,
+    "command": "node node_modules/vite/bin/vite.js build --configLoader runner",
+    "log_sha256": "b65b06f50834ec4f04933156db692adb1f21059ea4c1817f16410fbd5bf76402"
+  },
+  "metric_recomputation": {
+    "status": "passed",
+    "study_revisions": 3,
+    "cases_each": 12,
+    "all_recorded_metric_names": [
+      "top_m",
+      "thickness_m",
+      "solid_height_m",
+      "sand_fraction",
+      "porosity",
+      "maximum_burial_m",
+      "effective_loading_m",
+      "effective_velocity_m_s",
+      "vertical_travel_time_s",
+      "seafloor_m",
+      "fault_depth_m"
+    ],
+    "increment_counts": {
+      "current": {
+        "all": 61,
+        "headline": 20,
+        "other": 41
+      },
+      "prior": {
+        "all": 58,
+        "headline": 20,
+        "other": 38
+      }
+    },
+    "original_five_recomputed": true
+  },
+  "budget": {
+    "runs": 36,
+    "events": 4494,
+    "scalar_balances_checked": 755160,
+    "raw_ledgers_independently_rechecked": true,
+    "zero_repair_added": true,
+    "failed_scalar_balances": 0,
+    "maximum_absolute_scalar_residual_m2": 2.2873282432556152e-06,
+    "worst_residual_fraction_of_tolerance": 0.002239008501560218,
+    "tolerance": {
+      "absolute_m2": 1e-06,
+      "relative": 1e-10
+    }
+  },
+  "unchanged_controls": {
+    "cases": [
+      "compaction-a",
+      "compaction-b",
+      "normal-a",
+      "normal-b",
+      "coupled-extension-a",
+      "coupled-extension-b",
+      "coupled-extension-c"
+    ],
+    "budget_files_per_baseline": 21,
+    "both_baselines_byte_identical": true,
+    "checks": [
+      {
+        "baseline": "current",
+        "file": "compaction-a-40m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "7a51f9a0849be79cc0daf64ab74e0bfd9fe57d709c8a9c21788856a25d08cfd8"
+      },
+      {
+        "baseline": "prior",
+        "file": "compaction-a-40m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "7a51f9a0849be79cc0daf64ab74e0bfd9fe57d709c8a9c21788856a25d08cfd8"
+      },
+      {
+        "baseline": "current",
+        "file": "compaction-a-20m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "501b4d3864586f0c04477819b76bc33d52b2bc3949b00e42cbee2965f576de0f"
+      },
+      {
+        "baseline": "prior",
+        "file": "compaction-a-20m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "501b4d3864586f0c04477819b76bc33d52b2bc3949b00e42cbee2965f576de0f"
+      },
+      {
+        "baseline": "current",
+        "file": "compaction-a-10m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "1838f07e895c40d7c9f80b1b0787b2da0d05995d8dca3bbeefaea73d46785f0c"
+      },
+      {
+        "baseline": "prior",
+        "file": "compaction-a-10m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "1838f07e895c40d7c9f80b1b0787b2da0d05995d8dca3bbeefaea73d46785f0c"
+      },
+      {
+        "baseline": "current",
+        "file": "compaction-b-40m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "e348f7d2c1b175f8f8d3fc47f3f3430d413a291041087557bb76a2b628aff0d7"
+      },
+      {
+        "baseline": "prior",
+        "file": "compaction-b-40m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "e348f7d2c1b175f8f8d3fc47f3f3430d413a291041087557bb76a2b628aff0d7"
+      },
+      {
+        "baseline": "current",
+        "file": "compaction-b-20m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "70a046b776e993d2a73bf5b8bf0175740e321ba310e7221484013ecbf26236c3"
+      },
+      {
+        "baseline": "prior",
+        "file": "compaction-b-20m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "70a046b776e993d2a73bf5b8bf0175740e321ba310e7221484013ecbf26236c3"
+      },
+      {
+        "baseline": "current",
+        "file": "compaction-b-10m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "120299567ee6fd3416ecb570f19fd0945e9837dded3974647a87f7ba7b698c77"
+      },
+      {
+        "baseline": "prior",
+        "file": "compaction-b-10m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "120299567ee6fd3416ecb570f19fd0945e9837dded3974647a87f7ba7b698c77"
+      },
+      {
+        "baseline": "current",
+        "file": "normal-a-40m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "ca78091d81506ff39857c9efa70c5be10e90e3d4f3ccd935eb77e838f74fc7a5"
+      },
+      {
+        "baseline": "prior",
+        "file": "normal-a-40m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "ca78091d81506ff39857c9efa70c5be10e90e3d4f3ccd935eb77e838f74fc7a5"
+      },
+      {
+        "baseline": "current",
+        "file": "normal-a-20m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "662eb8d96d3faa224571a1f50de90a4e993c91b74cd63dd6a9c190b9fe64abdd"
+      },
+      {
+        "baseline": "prior",
+        "file": "normal-a-20m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "662eb8d96d3faa224571a1f50de90a4e993c91b74cd63dd6a9c190b9fe64abdd"
+      },
+      {
+        "baseline": "current",
+        "file": "normal-a-10m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "badf61623095226091fa57452c838476a10b2d312738e4eedc9a58fcb78299dc"
+      },
+      {
+        "baseline": "prior",
+        "file": "normal-a-10m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "badf61623095226091fa57452c838476a10b2d312738e4eedc9a58fcb78299dc"
+      },
+      {
+        "baseline": "current",
+        "file": "normal-b-40m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "59fb96421f98410e30cc45efff54b35c98bd6c0c5ad9be28c34331cdb56ee393"
+      },
+      {
+        "baseline": "prior",
+        "file": "normal-b-40m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "59fb96421f98410e30cc45efff54b35c98bd6c0c5ad9be28c34331cdb56ee393"
+      },
+      {
+        "baseline": "current",
+        "file": "normal-b-20m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "f07057cf3963d6cfb32853843e7f3c92ecdb702249ddfdb8de47a5f874089328"
+      },
+      {
+        "baseline": "prior",
+        "file": "normal-b-20m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "f07057cf3963d6cfb32853843e7f3c92ecdb702249ddfdb8de47a5f874089328"
+      },
+      {
+        "baseline": "current",
+        "file": "normal-b-10m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "4d68eacbf1015319a3aecea3a919126bffc250083a3ddd9fb7827c9696a8d1ef"
+      },
+      {
+        "baseline": "prior",
+        "file": "normal-b-10m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "4d68eacbf1015319a3aecea3a919126bffc250083a3ddd9fb7827c9696a8d1ef"
+      },
+      {
+        "baseline": "current",
+        "file": "coupled-extension-a-40m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "6d91f619da0cdabd1c95e957eb61de3602816030c662da539adae45092500e04"
+      },
+      {
+        "baseline": "prior",
+        "file": "coupled-extension-a-40m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "6d91f619da0cdabd1c95e957eb61de3602816030c662da539adae45092500e04"
+      },
+      {
+        "baseline": "current",
+        "file": "coupled-extension-a-20m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "3faf08ff8fa497c9187e86a1c34f3313714fe5668d020b01d5872eef3dd7bf38"
+      },
+      {
+        "baseline": "prior",
+        "file": "coupled-extension-a-20m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "3faf08ff8fa497c9187e86a1c34f3313714fe5668d020b01d5872eef3dd7bf38"
+      },
+      {
+        "baseline": "current",
+        "file": "coupled-extension-a-10m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "dcd3bc3804cf60ff8a2efb95f9ee16adf062ba854eda230dbc9d8422b099bb69"
+      },
+      {
+        "baseline": "prior",
+        "file": "coupled-extension-a-10m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "dcd3bc3804cf60ff8a2efb95f9ee16adf062ba854eda230dbc9d8422b099bb69"
+      },
+      {
+        "baseline": "current",
+        "file": "coupled-extension-b-40m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "772462ecb221338938b99514ee49695c9e92809dc6b5e4aed528e11baae6e390"
+      },
+      {
+        "baseline": "prior",
+        "file": "coupled-extension-b-40m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "772462ecb221338938b99514ee49695c9e92809dc6b5e4aed528e11baae6e390"
+      },
+      {
+        "baseline": "current",
+        "file": "coupled-extension-b-20m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "b797b3012f328d576e770bec4f3fff7d601710aaef977f9beeafae6699b73a87"
+      },
+      {
+        "baseline": "prior",
+        "file": "coupled-extension-b-20m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "b797b3012f328d576e770bec4f3fff7d601710aaef977f9beeafae6699b73a87"
+      },
+      {
+        "baseline": "current",
+        "file": "coupled-extension-b-10m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "2c4dbef8afc31bfe13fd3ddbbd3765222a47ca79b9cc98b17267b10430a4b6c1"
+      },
+      {
+        "baseline": "prior",
+        "file": "coupled-extension-b-10m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "2c4dbef8afc31bfe13fd3ddbbd3765222a47ca79b9cc98b17267b10430a4b6c1"
+      },
+      {
+        "baseline": "current",
+        "file": "coupled-extension-c-40m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "2ded295cb00397fc7ea92cc8e98a56396675a67dec6611c80a40fee5af513ff9"
+      },
+      {
+        "baseline": "prior",
+        "file": "coupled-extension-c-40m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "2ded295cb00397fc7ea92cc8e98a56396675a67dec6611c80a40fee5af513ff9"
+      },
+      {
+        "baseline": "current",
+        "file": "coupled-extension-c-20m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "6218fb33b93b9ed54bad4343d637d379b7d106783a2ca753e9eba8a059739085"
+      },
+      {
+        "baseline": "prior",
+        "file": "coupled-extension-c-20m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "6218fb33b93b9ed54bad4343d637d379b7d106783a2ca753e9eba8a059739085"
+      },
+      {
+        "baseline": "current",
+        "file": "coupled-extension-c-10m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "37d5029d3120a5390403e48f561bc778f862ce9b709a20e544b2c34d72eeb05c"
+      },
+      {
+        "baseline": "prior",
+        "file": "coupled-extension-c-10m-budget.json",
+        "byte_equal": true,
+        "parsed_equal": true,
+        "sha256": "37d5029d3120a5390403e48f561bc778f862ce9b709a20e544b2c34d72eeb05c"
+      }
+    ]
+  },
+  "eligibility": {
+    "candidates": 2820,
+    "before_matched": 1305,
+    "after_matched": 1301,
+    "shared_intervals": 1283,
+    "lost": 22,
+    "gained": 18
+  },
+  "paired_intervals": 1283,
+  "paired_travel_profiles": 144,
+  "paired_fault_depths": 190,
+  "paired_metrics": {
+    "thickness_m": {
+      "before": {
+        "n": 1283,
+        "coarse_rms": 7.556872896130196,
+        "fine_rms": 3.827511505143969,
+        "ratio": 0.5064940958718522,
+        "coarse_mae": 2.4487654177948275,
+        "fine_mae": 1.2138220906211288,
+        "coarse_max": 69.51136733665135,
+        "fine_max": 46.0445603223086,
+        "classes": {
+          "stable": 478,
+          "monotonic-noncontracting": 181,
+          "monotonic-contracting": 171,
+          "oscillatory-noncontracting": 159,
+          "oscillatory-contracting": 264,
+          "new-change": 13,
+          "settled": 17
+        }
+      },
+      "after": {
+        "n": 1283,
+        "coarse_rms": 7.668465964154657,
+        "fine_rms": 3.823971656010604,
+        "ratio": 0.4986618802098503,
+        "coarse_mae": 2.445851321127309,
+        "fine_mae": 1.1833191868152888,
+        "coarse_max": 69.51136733665135,
+        "fine_max": 46.0445603223086,
+        "classes": {
+          "stable": 480,
+          "monotonic-noncontracting": 179,
+          "monotonic-contracting": 168,
+          "oscillatory-noncontracting": 155,
+          "oscillatory-contracting": 257,
+          "new-change": 13,
+          "settled": 31
+        }
+      }
+    },
+    "vertical_travel_time_s": {
+      "before": {
+        "n": 144,
+        "coarse_rms": 0.0013710422136929015,
+        "fine_rms": 0.0006127313738294222,
+        "ratio": 0.4469091963106158,
+        "coarse_mae": 0.0005814939549684663,
+        "fine_mae": 0.00026727592611296993,
+        "coarse_max": 0.007716935495480692,
+        "fine_max": 0.0038997634501294343,
+        "classes": {
+          "monotonic-contracting": 38,
+          "oscillatory-noncontracting": 24,
+          "oscillatory-contracting": 65,
+          "monotonic-noncontracting": 17
+        }
+      },
+      "after": {
+        "n": 144,
+        "coarse_rms": 0.0015541273135449723,
+        "fine_rms": 0.0005142258593565742,
+        "ratio": 0.3308775638101504,
+        "coarse_mae": 0.0006602678244262856,
+        "fine_mae": 0.00024723491198167587,
+        "coarse_max": 0.007747142262185758,
+        "fine_max": 0.003020380725041738,
+        "classes": {
+          "monotonic-contracting": 46,
+          "oscillatory-noncontracting": 21,
+          "oscillatory-contracting": 59,
+          "monotonic-noncontracting": 18
+        }
+      }
+    },
+    "effective_velocity_m_s": {
+      "before": {
+        "n": 1283,
+        "coarse_rms": 7.3231208187961485,
+        "fine_rms": 3.9597874931078763,
+        "ratio": 0.5407240425344816,
+        "coarse_mae": 2.125577500615581,
+        "fine_mae": 1.2138229034038808,
+        "coarse_max": 94.74562428567151,
+        "fine_max": 38.917289180714306,
+        "classes": {
+          "stable": 463,
+          "monotonic-noncontracting": 170,
+          "monotonic-contracting": 176,
+          "oscillatory-noncontracting": 178,
+          "oscillatory-contracting": 280,
+          "settled": 15,
+          "new-change": 1
+        }
+      },
+      "after": {
+        "n": 1283,
+        "coarse_rms": 7.414224037397533,
+        "fine_rms": 3.927292242933068,
+        "ratio": 0.5296970017528074,
+        "coarse_mae": 2.1463040282750403,
+        "fine_mae": 1.1660239932995788,
+        "coarse_max": 94.74562428567151,
+        "fine_max": 38.917289180714306,
+        "classes": {
+          "stable": 461,
+          "monotonic-noncontracting": 174,
+          "monotonic-contracting": 171,
+          "oscillatory-noncontracting": 171,
+          "oscillatory-contracting": 270,
+          "settled": 32,
+          "new-change": 4
+        }
+      }
+    },
+    "fault_depth_m": {
+      "before": {
+        "n": 190,
+        "coarse_rms": 6.485883154067253,
+        "fine_rms": 4.118315079742372,
+        "ratio": 0.6349659686915273,
+        "coarse_mae": 2.4476246322668986,
+        "fine_mae": 1.574372447050138,
+        "coarse_max": 37.242019020394764,
+        "fine_max": 23.879669824004395,
+        "classes": {
+          "stable": 9,
+          "monotonic-contracting": 49,
+          "settled": 10,
+          "oscillatory-noncontracting": 48,
+          "oscillatory-contracting": 50,
+          "monotonic-noncontracting": 18,
+          "new-change": 6
+        }
+      },
+      "after": {
+        "n": 190,
+        "coarse_rms": 6.4933221532341765,
+        "fine_rms": 4.112476675316591,
+        "ratio": 0.6333393874918496,
+        "coarse_mae": 2.481311874964462,
+        "fine_mae": 1.555118014142379,
+        "coarse_max": 37.242019020394764,
+        "fine_max": 23.879669824004395,
+        "classes": {
+          "stable": 10,
+          "monotonic-contracting": 43,
+          "settled": 10,
+          "new-change": 10,
+          "oscillatory-noncontracting": 42,
+          "oscillatory-contracting": 62,
+          "monotonic-noncontracting": 13
+        }
+      }
+    }
+  },
+  "regression_counts": {
+    "all": 61,
+    "headline": 20,
+    "other": 41
+  },
+  "original_five_recovery": {
+    "all_eligible": true,
+    "metrics": {
+      "prior_unweighted": {
+        "n": 5,
+        "coarse_rms": 0.3455466235378245,
+        "fine_rms": 0.12467930881955981,
+        "ratio": 0.360817615704215,
+        "coarse_mae": 0.3009719864513613,
+        "fine_mae": 0.10310951718674914,
+        "coarse_max": 0.5321709049143237,
+        "fine_max": 0.2044241984705195,
+        "classes": {
+          "oscillatory-noncontracting": 1,
+          "oscillatory-contracting": 3,
+          "monotonic-contracting": 1
+        }
+      },
+      "current_weighted": {
+        "n": 5,
+        "coarse_rms": 19.60145306221746,
+        "fine_rms": 0.11381318734842297,
+        "ratio": 0.005806364813218985,
+        "coarse_mae": 18.833967221377044,
+        "fine_mae": 0.09387090540450345,
+        "coarse_max": 25.593799839522262,
+        "fine_max": 0.2127071660988804,
+        "classes": {
+          "monotonic-contracting": 4,
+          "oscillatory-contracting": 1
+        }
+      },
+      "candidate_motion_only": {
+        "n": 5,
+        "coarse_rms": 0.38722415757347733,
+        "fine_rms": 0.3697390247497262,
+        "ratio": 0.9548449328850738,
+        "coarse_mae": 0.29731413690866476,
+        "fine_mae": 0.3250780968306913,
+        "coarse_max": 0.6464174184151261,
+        "fine_max": 0.5883525054643997,
+        "classes": {
+          "oscillatory-noncontracting": 1,
+          "monotonic-noncontracting": 2,
+          "oscillatory-contracting": 2
+        }
+      }
+    },
+    "fraction_of_original_excess_coarse_squared_discrepancy_recovered": 0.9999204887445902
+  },
+  "observational_data": "No observational development arrays, holdout arrays, or split files read or modified. Only enumerated source/tests/docs/logs and synthetic numerical studies were opened.",
+  "limitations": [
+    "Numerical refinement is not field accuracy; 10 m is not ground truth.",
+    "Coarse-grid and local regressions remain; all recorded-field increases and eligibility changes are retained.",
+    "Area first moments do not constitute a persistent deforming polygon mesh.",
+    "Discrete packet allocation and open-boundary continuation remain sensitive to representation."
+  ]
+}

@@ -100,27 +100,65 @@ test('fractional increments retain exactly the prescribed cumulative horizontal 
   for (const key of fields) assert.deepEqual(b[key], once[key]); near(carry[0], 0);
 });
 
+// Independent oracle for this 45-degree flat/ramp/flat geometry. Arc
+// coordinate a=x+1600+(700-z)tan(pi/8) is globally affine and advances by s.
+// Ramp distance is clamp(a+s,0,L)-clamp(a,0,L), L=200*sqrt(2).
+function rectangleDisplacement45(x, top, width, height, slip) {
+  const t = Math.tan(Math.PI / 8), q = 1 / Math.SQRT2, L = 200 * Math.SQRT2;
+  const arc = (x, z) => x + 1600 + (700 - z) * t;
+  const positiveMean = shift => {
+    const lo = arc(x - width / 2, top + height) + shift;
+    const hi = arc(x + width / 2, top) + shift;
+    if (lo >= 0) return arc(x, top + height / 2) + shift;
+    if (hi <= 0) return 0;
+    const cube = (x, z) => Math.max(0, arc(x, z) + shift) ** 3;
+    return (cube(x + width / 2, top) - cube(x - width / 2, top) - cube(x + width / 2, top + height) + cube(x - width / 2, top + height)) / (6 * t * width * height);
+  };
+  const ramp = positiveMean(slip) - positiveMean(slip - L) - positiveMean(0) + positiveMean(-L);
+  return [slip - (1 - q) * ramp, -q * ramp];
+}
+
 test('closed packet crossing a bend conserves each parcel over many increments and follows analytical flow', () => {
   let b = empty(120, 80), carry = [0, 0, 0];
   const initial = [];
   for (let i = 18; i <= 24; i++) for (let k = 36; k <= 48; k++) { put(b, i, k, k % 2); initial.push({ x: -2000 + i * 10, z: k * 10, tag: b.burial[k * 120 + i] }); }
   const original = inventoryOf(b), P = [[-2000, 700], [-1600, 700], [-1400, 500], [-810, 500]], step = 13.7, count = 24;
+  // Full packets retain their 10 m height, so centroid displacement also
+  // translates their represented top; allocation offsets recover that position.
+  const expected = new Map(initial.map(p => [p.tag, [p.x, p.z]]));
+  const positionsOf = b => {
+    const positions = new Map();
+    for (let n = 0; n < b.grid.length; n++) if (b.grid[n] >= 0) positions.set(b.burial[n], [-2000 + n % 120 * 10, Math.floor(n / 120) * 10, b.offsetX[n], b.offsetZ[n]]);
+    return positions;
+  };
   for (let t = 0; t < count; t++) {
     const m = checkStep(b, P, step, carry); carry = m.carry;
     assert.equal(Object.values(m.flux.inflow).reduce((a, f) => a + f.total, 0), 0);
     assert.equal(Object.values(m.flux.outflow).reduce((a, f) => a + f.total, 0), 0);
     b = { ...b, ...m };
+    const positions = positionsOf(b);
+    assert.equal(positions.size, initial.length);
+    for (const [tag, p] of expected) {
+      const d = rectangleDisplacement45(p[0], p[1], 10, 10, step);
+      p[0] += d[0]; p[1] += d[1];
+      const actual = positions.get(tag);
+      near(actual[0] + actual[2], p[0], 1e-7); near(actual[1] + actual[3], p[1], 1e-7);
+    }
   }
   const final = inventoryOf(b); for (const key of ['total', 'sand', 'shale', 'carbonate']) near(final[key], original[key], 1e-8);
-  const positions = new Map(); for (let n = 0; n < b.grid.length; n++) if (b.grid[n] >= 0) positions.set(b.burial[n], [-2000 + n % 120 * 10, Math.floor(n / 120) * 10, b.offsetX[n], b.offsetZ[n]]);
-  assert.equal(positions.size, initial.length);
+  const positions = positionsOf(b);
   let sum = 0, worst = 0;
   for (const p of initial) {
-    // Independent 45° flat/ramp/flat geometry: constant normal offset and exact arc lengths.
+    // Keep the original storage-placement gates against the original independent point-flow trajectory.
     const delta = 700 - p.z, xb = -1600 - delta * Math.tan(Math.PI / 8), remaining = step * count - (xb - p.x), rampLength = 200 * Math.SQRT2;
     const exact = remaining < 0 ? [p.x + step * count, p.z] : remaining <= rampLength ? [xb + remaining / Math.SQRT2, p.z - remaining / Math.SQRT2] : [-1400 - delta * Math.tan(Math.PI / 8) + remaining - rampLength, 500 - delta];
     const actual = positions.get(p.tag), error = Math.hypot(actual[0] - exact[0], actual[1] - exact[1]); sum += error ** 2; worst = Math.max(worst, error);
-    near(actual[0] + actual[2], exact[0], 1e-7); near(actual[1] + actual[3], exact[1], 1e-7);
+    // Here a is globally affine and advances by s. Rectangle reconstruction
+    // preserves its distribution, so the ramp-distance integrals telescope.
+    // Thus the cumulative original-rectangle moment is also exact for this
+    // geometry; no such claim is made for a general deforming footprint.
+    const d = rectangleDisplacement45(p.x, p.z, 10, 10, step * count);
+    near(actual[0] + actual[2], p.x + d[0], 1e-7); near(actual[1] + actual[3], p.z + d[1], 1e-7);
   }
   assert.ok(Math.sqrt(sum / initial.length) <= 20, `RMS displacement ${Math.sqrt(sum / initial.length)} m`);
   assert.ok(worst <= 40, `maximum displacement ${worst} m`);

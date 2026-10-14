@@ -1,0 +1,66 @@
+{
+  "schema": "earthforge.grouped-capacity-focused-verification.v1",
+  "source_manifest": "grouped-source-hashes.json",
+  "source_manifest_sha256": "9a90b932acdb5da0be3ad0a61657a1ea95a9f019537d26a03e2634f9bdb2d8c8",
+  "source_unchanged": true,
+  "tests": {
+    "passed": 24,
+    "failed": 0,
+    "log": "grouped-focused-tests.log",
+    "log_sha256": "2c73639f0df3db6802585194893cf837f505580896b0973d5acbd930c8ad73ee",
+    "files": {
+      "capacity-transport.test.mjs": "99869e15d209974733e01619507b64f33a9d648b1badf2832f005567436a8775",
+      "thrust-capacity-fallback.test.mjs": "d985dac84d61b524419342f8b3e5a8c05dbc2cf847cdf021a82968014c292be7",
+      "thrust-matching-stability.test.mjs": "ae564cbac40a3fe34bcba35367d2154d7ff79046368e243a2cd0fe0643630e63",
+      "thrust-weighted-transport.test.mjs": "1aec74c93f65072702363067672a09277aba23145a9aef46172aad50b0d995bd",
+      "normal-lengths.test.mjs": "1200c94443aea15228ed3042864328457f15db3771d9fc46eb92168c3797dbad"
+    }
+  },
+  "typecheck": {
+    "passed": true
+  },
+  "independent_normal_review": {
+    "schema": "earthforge.grouped-normal-independent-review.v1",
+    "cases": 300,
+    "exactDomain": true,
+    "inputPure": true,
+    "allBudgetClosed": true,
+    "maxNormalizedResidual": 2.611748282350882e-16,
+    "coverage": {
+      "top": 184,
+      "bottom": 33,
+      "lateral": 164
+    },
+    "sourceSha256": {
+      "normalTransport.ts": "80ad4501a24315666ce66947a4814c4b6d558a77c94f4222c36993c252fac413",
+      "strata.ts": "1eea0bec523995da72631b55202eaaa73c9d8c14733196003cf0a6c3904bf483",
+      "exactLength.ts": "326f867070762173178faf4a725328788c3e26f3102eb04002769a9bf0a8b331"
+    }
+  },
+  "ablations": [
+    {
+      "mechanism": "restore prior capacity slack",
+      "passed": 7,
+      "failed": 1,
+      "log": "grouped-capacity-slack-ablation.log"
+    },
+    {
+      "mechanism": "reuse parent flow for child",
+      "passed": 3,
+      "failed": 1,
+      "log": "grouped-fallback-parent-flow-ablation.log"
+    },
+    {
+      "mechanism": "omit destination local-offset correction",
+      "passed": 2,
+      "failed": 2,
+      "log": "grouped-fallback-offset-ablation.log"
+    }
+  ],
+  "additional_existing_fixture_failure": {
+    "test": "fractional-thrust.test.mjs:92",
+    "stage": "fixture rasterization before remap",
+    "evidence": "fractional-fixture-support-witness.json",
+    "reason": "Rounded complementary heights have nonzero exact support error; terminal sediment cannot be extended without inventing grains."
+  }
+}

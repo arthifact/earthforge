@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "free_destination": [
+    7,
+    8
+  ],
+  "constrained_destination": [
+    7,
+    4
+  ],
+  "explicit_infeasibility": true,
+  "checks": [
+    {
+      "h": 40,
+      "dir": -1,
+      "incoming": 8,
+      "inflow": 4224,
+      "outflow": 4224,
+      "budget_closed": true
+    },
+    {
+      "h": 40,
+      "dir": 1,
+      "incoming": 8,
+      "inflow": 4224,
+      "outflow": 4224,
+      "budget_closed": true
+    },
+    {
+      "h": 20,
+      "dir": -1,
+      "incoming": 8,
+      "inflow": 1056,
+      "outflow": 1056,
+      "budget_closed": true
+    },
+    {
+      "h": 20,
+      "dir": 1,
+      "incoming": 8,
+      "inflow": 1056,
+      "outflow": 1056,
+      "budget_closed": true
+    },
+    {
+      "h": 10,
+      "dir": -1,
+      "incoming": 8,
+      "inflow": 264,
+      "outflow": 264,
+      "budget_closed": true
+    },
+    {
+      "h": 10,
+      "dir": 1,
+      "incoming": 8,
+      "inflow": 264,
+      "outflow": 264,
+      "budget_closed": true
+    }
+  ]
+}

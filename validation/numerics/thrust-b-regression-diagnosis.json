@@ -1,0 +1,962 @@
+{
+  "schema": "earthforge.weighted-transport-tradeoff-diagnosis.v1",
+  "observational_data": "None; synthetic studies and source-hashed 40 m trace reruns only. No further fine-grid runs.",
+  "plan_sha256": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+  "metrics_sha256": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b",
+  "source_sha256": {
+    "before": {
+      "src/basin.ts": "3a6ca0df3f881477cfc8c39ded43ab4c18d82ddc7c06afe57af57a02d0e6db51",
+      "src/conservativeTransport.ts": "0f12ee1ccdf70f77eaa109ff71f13f5b3ba183216cf71536aca318a74f4e3243",
+      "src/strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+      "src/normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+      "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+      "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+      "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+      "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+      "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+      "validation/numerics/metrics.mjs": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b",
+      "validation/numerics/run.mjs": "579c12772f2a8ff6b4ace8a8fd3586b905292f443481f0abcc989cfde9510fbd"
+    },
+    "after": {
+      "src/basin.ts": "fe019350381feedd19aa6338db912711c8adb934e7baaf2484c25ebb9db9af64",
+      "src/conservativeTransport.ts": "4995d1c278436de05cc7887ea39847512bb491b6d0993c5ce0a5b56b280c1a73",
+      "src/strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+      "src/normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+      "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+      "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+      "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+      "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+      "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+      "validation/numerics/metrics.mjs": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b",
+      "validation/numerics/run.mjs": "579c12772f2a8ff6b4ace8a8fd3586b905292f443481f0abcc989cfde9510fbd"
+    }
+  },
+  "coupled_a": {
+    "history_sha256": "a47b82f4d9d2b45d9bc2b7218afe6a4d8fc14d12da0028d952b7dad85ec41e18",
+    "shared_interval_count": 49,
+    "before_eligible": 53,
+    "after_eligible": 50,
+    "coarse_rms_m": {
+      "before": 2.4074700940424028,
+      "after": 6.724785098768032
+    },
+    "cohort_confounding": "Ruled out for reported paired differences: identical 49 interval keys, same unchanged metric code/eligibility/history; every top-five interval matched on all 3 grids in both revisions.",
+    "top_five_regressions": [
+      {
+        "key": "unit:9:8400",
+        "before_values_40_20_10_m": [
+          122.94846488057601,
+          122.41629397566169,
+          122.50529204008672
+        ],
+        "after_values_40_20_10_m": [
+          96.82207285771642,
+          122.41587269723868,
+          122.51621791278717
+        ],
+        "before_coarse_m": 0.5321709049143237,
+        "after_coarse_m": -25.593799839522262,
+        "increase_squared_coarse_m2": 654.7593843534925,
+        "before_included": true,
+        "after_included": true,
+        "before_statuses": [
+          "matched",
+          "matched",
+          "matched"
+        ],
+        "after_statuses": [
+          "matched",
+          "matched",
+          "matched"
+        ]
+      },
+      {
+        "key": "unit:10:8400",
+        "before_values_40_20_10_m": [
+          126.12691061782732,
+          126.25412293581655,
+          126.04969873734603
+        ],
+        "after_values_40_20_10_m": [
+          148.77454265781694,
+          126.2628735850077,
+          126.05016641890882
+        ],
+        "before_coarse_m": -0.12721231798923327,
+        "after_coarse_m": 22.51166907280924,
+        "increase_squared_coarse_m2": 506.7590614698279,
+        "before_included": true,
+        "after_included": true,
+        "before_statuses": [
+          "matched",
+          "matched",
+          "matched"
+        ],
+        "after_statuses": [
+          "matched",
+          "matched",
+          "matched"
+        ]
+      },
+      {
+        "key": "unit:13:8400",
+        "before_values_40_20_10_m": [
+          115.34311160119682,
+          114.8650152789553,
+          115.02406432723319
+        ],
+        "after_values_40_20_10_m": [
+          94.85932162901446,
+          114.87152777593792,
+          114.93437816151845
+        ],
+        "before_coarse_m": 0.47809632224152665,
+        "after_coarse_m": -20.01220614692346,
+        "increase_squared_coarse_m2": 400.2598187736203,
+        "before_included": true,
+        "after_included": true,
+        "before_statuses": [
+          "matched",
+          "matched",
+          "matched"
+        ],
+        "after_statuses": [
+          "matched",
+          "matched",
+          "matched"
+        ]
+      },
+      {
+        "key": "unit:7:8400",
+        "before_values_40_20_10_m": [
+          140.6892502999798,
+          140.84498310141498,
+          140.895610946362
+        ],
+        "after_values_40_20_10_m": [
+          124.70209804938395,
+          140.84434878594197,
+          140.77378050047423
+        ],
+        "before_coarse_m": -0.15573280143519241,
+        "after_coarse_m": -16.142250736558026,
+        "increase_squared_coarse_m2": 260.5480061364653,
+        "before_included": true,
+        "after_included": true,
+        "before_statuses": [
+          "matched",
+          "matched",
+          "matched"
+        ],
+        "after_statuses": [
+          "matched",
+          "matched",
+          "matched"
+        ]
+      },
+      {
+        "key": "unit:15:8400",
+        "before_values_40_20_10_m": [
+          253.04780303094998,
+          252.83615544527345,
+          252.84860387508672
+        ],
+        "after_values_40_20_10_m": [
+          242.92589174775344,
+          252.83580205882566,
+          252.85868553315254
+        ],
+        "before_coarse_m": 0.21164758567653053,
+        "after_coarse_m": -9.909910311072224,
+        "increase_squared_coarse_m2": 98.16152767297288,
+        "before_included": true,
+        "after_included": true,
+        "before_statuses": [
+          "matched",
+          "matched",
+          "matched"
+        ],
+        "after_statuses": [
+          "matched",
+          "matched",
+          "matched"
+        ]
+      }
+    ],
+    "top_five_fraction_of_squared_coarse_increase": 0.9940854013086678,
+    "top_five_40m_trace_archive_max_difference_m": 1.1368683772161603e-13,
+    "both_40m_trace_budgets_closed": true,
+    "trace_source_sha256": {
+      "before": {
+        "basin.ts": "3a6ca0df3f881477cfc8c39ded43ab4c18d82ddc7c06afe57af57a02d0e6db51",
+        "conservativeTransport.ts": "0f12ee1ccdf70f77eaa109ff71f13f5b3ba183216cf71536aca318a74f4e3243",
+        "faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+        "normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+        "normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+        "sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+        "strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+        "thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+        "window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc"
+      },
+      "after": {
+        "basin.ts": "d80f1a5628bf805f8625b7f54f152a82ad864b011dc27b37ea81c81f12eb94ef",
+        "conservativeTransport.ts": "0088bc8b4c3b1e304e657d1fef9982d85ddd5ff39aca6f0b6811a982e9c9bf36",
+        "faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+        "normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+        "normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+        "sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+        "strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+        "thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+        "window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc"
+      }
+    },
+    "selected_operation_trajectory": [
+      {
+        "step": 11,
+        "process": "subsidence",
+        "x_m": 8720,
+        "floor_m": {
+          "before": 241.82330569263172,
+          "after": 241.81421869946985,
+          "change": -0.00908699316187267
+        },
+        "units": {
+          "7": {
+            "before_height_m": 156.28203207969977,
+            "after_height_m": 155.765184753541,
+            "height_change_m": -0.5168473261587678,
+            "solid_height_change_m": -0.26190968290374883
+          },
+          "9": {
+            "before_height_m": 138.0834748017311,
+            "after_height_m": 138.07098488195732,
+            "height_change_m": -0.012489919773770453,
+            "solid_height_change_m": -0.006523878643605485
+          },
+          "10": {
+            "before_height_m": 150.02686818823702,
+            "after_height_m": 150.01645779677563,
+            "height_change_m": -0.010410391461391555,
+            "solid_height_change_m": -0.0046225837171576245
+          }
+        }
+      },
+      {
+        "step": 11,
+        "process": "thrust-slip",
+        "x_m": 8720,
+        "floor_m": {
+          "before": 214.08261653454326,
+          "after": 219.60336249005547,
+          "change": 5.520745955512211
+        },
+        "units": {
+          "7": {
+            "before_height_m": 159.74836661329584,
+            "after_height_m": 159.8374686329713,
+            "height_change_m": 0.08910201967546527,
+            "solid_height_change_m": -0.1732401268122743
+          },
+          "9": {
+            "before_height_m": 140.8284006987128,
+            "after_height_m": 109.67411294379104,
+            "height_change_m": -31.154287754921768,
+            "solid_height_change_m": -14.896300668684994
+          },
+          "10": {
+            "before_height_m": 153.43534216981197,
+            "after_height_m": 178.24384562985,
+            "height_change_m": 24.808503460038025,
+            "solid_height_change_m": 11.186348185710628
+          }
+        }
+      },
+      {
+        "step": 11,
+        "process": "compaction",
+        "x_m": 8720,
+        "floor_m": {
+          "before": 238.4178474836217,
+          "after": 243.7638207814216,
+          "change": 5.345973297799901
+        },
+        "units": {
+          "7": {
+            "before_height_m": 158.97153244380195,
+            "after_height_m": 159.0557001427229,
+            "height_change_m": 0.08416769892096454,
+            "solid_height_change_m": -0.17324012681206113
+          },
+          "9": {
+            "before_height_m": 140.06578052280577,
+            "after_height_m": 109.09314775345587,
+            "height_change_m": -30.9726327693499,
+            "solid_height_change_m": -14.896300668685015
+          },
+          "10": {
+            "before_height_m": 152.1855707777005,
+            "after_height_m": 176.81922524831208,
+            "height_change_m": 24.63365447061159,
+            "solid_height_change_m": 11.186348185710756
+          }
+        }
+      },
+      {
+        "step": 12,
+        "process": "subsidence",
+        "x_m": 8400,
+        "floor_m": {
+          "before": 310.0019066228811,
+          "after": 309.9986872133837,
+          "change": -0.0032194094974329346
+        },
+        "units": {
+          "7": {
+            "before_height_m": 157.68312713727278,
+            "after_height_m": 157.32913360548548,
+            "height_change_m": -0.353993531787296,
+            "solid_height_change_m": -0.19143568051642035
+          },
+          "9": {
+            "before_height_m": 138.87096807752454,
+            "after_height_m": 138.8509347341344,
+            "height_change_m": -0.02003334339013918,
+            "solid_height_change_m": -0.01013180990550211
+          },
+          "10": {
+            "before_height_m": 150.68161541145543,
+            "after_height_m": 150.67850005235698,
+            "height_change_m": -0.0031153590984445145,
+            "solid_height_change_m": -0.0014010335910228378
+          }
+        }
+      },
+      {
+        "step": 12,
+        "process": "thrust-slip",
+        "x_m": 8400,
+        "floor_m": {
+          "before": 276.98652837081113,
+          "after": 242.33250166861103,
+          "change": -34.6540267022001
+        },
+        "units": {
+          "4": {
+            "before_height_m": 9.915507011441946,
+            "after_height_m": 13.589356222305582,
+            "height_change_m": 3.6738492108636365,
+            "solid_height_change_m": 2.0924912170641408
+          },
+          "5": {
+            "before_height_m": 149.18496378914904,
+            "after_height_m": 175.1180319615438,
+            "height_change_m": 25.93306817239477,
+            "solid_height_change_m": 14.772415596262931
+          },
+          "6": {
+            "before_height_m": 11.63683231791299,
+            "after_height_m": 0,
+            "height_change_m": -11.63683231791299,
+            "solid_height_change_m": -6.331841036106332
+          },
+          "7": {
+            "before_height_m": 158.97153244380195,
+            "after_height_m": 141.6387104854299,
+            "height_change_m": -17.33282195837205,
+            "solid_height_change_m": -9.502113966522131
+          },
+          "8": {
+            "before_height_m": 75.87977543619468,
+            "after_height_m": 116.03583892657662,
+            "height_change_m": 40.15606349038194,
+            "solid_height_change_m": 20.332245986310205
+          },
+          "9": {
+            "before_height_m": 140.06578052280577,
+            "after_height_m": 109.09314775345581,
+            "height_change_m": -30.972632769349957,
+            "solid_height_change_m": -14.896300668685036
+          },
+          "10": {
+            "before_height_m": 152.1855707777005,
+            "after_height_m": 176.81922524831202,
+            "height_change_m": 24.633654470611532,
+            "solid_height_change_m": 11.186348185710727
+          }
+        }
+      },
+      {
+        "step": 12,
+        "process": "collapse",
+        "x_m": 8400,
+        "floor_m": {
+          "before": 313.28862816136825,
+          "after": 278.6263849400218,
+          "change": -34.66224322134644
+        },
+        "units": {
+          "7": {
+            "before_height_m": 158.97153244380195,
+            "after_height_m": 141.6387104854299,
+            "height_change_m": -17.33282195837205,
+            "solid_height_change_m": -9.502113966522131
+          },
+          "9": {
+            "before_height_m": 140.06578052280577,
+            "after_height_m": 109.09314775345581,
+            "height_change_m": -30.972632769349957,
+            "solid_height_change_m": -14.896300668685036
+          },
+          "10": {
+            "before_height_m": 152.1855707777005,
+            "after_height_m": 176.81922524831202,
+            "height_change_m": 24.633654470611532,
+            "solid_height_change_m": 11.186348185710727
+          }
+        }
+      },
+      {
+        "step": 12,
+        "process": "compaction",
+        "x_m": 8400,
+        "floor_m": {
+          "before": 305.5692329126159,
+          "after": 277.79758253136333,
+          "change": -27.771650381252584
+        },
+        "units": {
+          "7": {
+            "before_height_m": 158.3520016204743,
+            "after_height_m": 138.8152647194362,
+            "height_change_m": -19.536736901038125,
+            "solid_height_change_m": -9.502113966522401
+          },
+          "9": {
+            "before_height_m": 139.46006610536898,
+            "after_height_m": 108.63148398696154,
+            "height_change_m": -30.82858211840744,
+            "solid_height_change_m": -14.896300668685107
+          },
+          "10": {
+            "before_height_m": 151.19882091858028,
+            "after_height_m": 175.69396366209008,
+            "height_change_m": 24.495142743509803,
+            "solid_height_change_m": 11.186348185710798
+          }
+        }
+      },
+      {
+        "step": 13,
+        "process": "deposition",
+        "x_m": 8400,
+        "floor_m": {
+          "before": 216.59346771120556,
+          "after": 212.98788614631366,
+          "change": -3.6055815648919065
+        },
+        "units": {
+          "7": {
+            "before_height_m": 158.3520016204743,
+            "after_height_m": 138.8152647194362,
+            "height_change_m": -19.536736901038125,
+            "solid_height_change_m": -9.50211396652243
+          },
+          "9": {
+            "before_height_m": 139.46006610536904,
+            "after_height_m": 108.63148398696148,
+            "height_change_m": -30.828582118407553,
+            "solid_height_change_m": -14.896300668685157
+          },
+          "10": {
+            "before_height_m": 151.19882091858017,
+            "after_height_m": 175.6939636620899,
+            "height_change_m": 24.495142743509746,
+            "solid_height_change_m": 11.18634818571077
+          },
+          "13": {
+            "before_height_m": 134.6045670939771,
+            "after_height_m": 110.43849827761659,
+            "height_change_m": -24.166068816360507,
+            "solid_height_change_m": -10.312434138025452
+          }
+        }
+      },
+      {
+        "step": 15,
+        "process": "deposition",
+        "x_m": 8400,
+        "floor_m": {
+          "before": 87.75383185093094,
+          "after": 87.21634414199241,
+          "change": -0.5374877089385279
+        },
+        "units": {
+          "7": {
+            "before_height_m": 150.7930662978124,
+            "after_height_m": 133.32465198223645,
+            "height_change_m": -17.468414315575956,
+            "solid_height_change_m": -9.502113966522217
+          },
+          "9": {
+            "before_height_m": 132.23081911140696,
+            "after_height_m": 103.93032847958364,
+            "height_change_m": -28.300490631823322,
+            "solid_height_change_m": -14.896300668685285
+          },
+          "10": {
+            "before_height_m": 139.80519321328802,
+            "after_height_m": 164.56377339466604,
+            "height_change_m": 24.758580181378022,
+            "solid_height_change_m": 11.186348185710614
+          },
+          "13": {
+            "before_height_m": 133.05991204113297,
+            "after_height_m": 109.14489882713713,
+            "height_change_m": -23.91501321399585,
+            "solid_height_change_m": -10.31243413802536
+          },
+          "15": {
+            "before_height_m": 253.04780303102908,
+            "after_height_m": 242.92589174775344,
+            "height_change_m": -10.121911283275637,
+            "solid_height_change_m": -5.03034505488715
+          }
+        }
+      },
+      {
+        "step": 15,
+        "process": "compaction",
+        "x_m": 8400,
+        "floor_m": {
+          "before": 171.23058619414496,
+          "after": 167.8415957559664,
+          "change": -3.3889904381785527
+        },
+        "units": {
+          "7": {
+            "before_height_m": 140.6892502999798,
+            "after_height_m": 124.70209804938395,
+            "height_change_m": -15.987152250595841,
+            "solid_height_change_m": -9.502113966522188
+          },
+          "9": {
+            "before_height_m": 122.9484648805759,
+            "after_height_m": 96.82207285771653,
+            "height_change_m": -26.126392022859363,
+            "solid_height_change_m": -14.8963006686853
+          },
+          "10": {
+            "before_height_m": 126.12691061782743,
+            "after_height_m": 148.77454265781682,
+            "height_change_m": 22.64763203998939,
+            "solid_height_change_m": 11.186348185710557
+          },
+          "13": {
+            "before_height_m": 115.34311160119682,
+            "after_height_m": 94.85932162901446,
+            "height_change_m": -20.483789972182365,
+            "solid_height_change_m": -10.312434138025374
+          },
+          "15": {
+            "before_height_m": 253.04780303094998,
+            "after_height_m": 242.92589174775344,
+            "height_change_m": -10.121911283196539,
+            "solid_height_change_m": -5.030345054887178
+          }
+        }
+      }
+    ],
+    "provenance": {
+      "before": {
+        "step12_incoming_hanging_wall_rock_height_m": 879.487020511225,
+        "step12_direct_boundary_incoming_packet_count": 0,
+        "step12_source_x_min_m": 8680,
+        "step12_source_x_max_m": 8720,
+        "step12_unit_height_destinations_from_source_x8720_m": {
+          "7": {
+            "8400": 158.97153244380195
+          },
+          "9": {
+            "8400": 140.06578052280577
+          },
+          "10": {
+            "8400": 152.1855707777005
+          }
+        },
+        "all_slips_direct_boundary_incoming_to_x8400": 0
+      },
+      "after": {
+        "step12_incoming_hanging_wall_rock_height_m": 914.0828754815454,
+        "step12_direct_boundary_incoming_packet_count": 0,
+        "step12_source_x_min_m": 8680,
+        "step12_source_x_max_m": 8720,
+        "step12_unit_height_destinations_from_source_x8720_m": {
+          "7": {
+            "8400": 141.6387104854299,
+            "8440": 17.416989657293016
+          },
+          "9": {
+            "8400": 109.09314775345581
+          },
+          "10": {
+            "8400": 176.81922524831202
+          }
+        },
+        "all_slips_direct_boundary_incoming_to_x8400": 0
+      }
+    },
+    "interpretation": "At x8720, the second thrust step 11 creates most unit 9/10 height difference. Step 12 transports those units to x8400; it additionally diverts 17.416989657293 m of unit 7 from the same source column to x8440. Larger total retained hanging-wall volume at x8400 changes local surface/accommodation; subsequent unit 13 and 15 deposits preserve/amplify differences. No direct boundary-incoming packet enters x8400, and no grain-budget failure is present. This supports discrete material allocation and accommodation sensitivity; it does not establish a separate constitutive bug or prove geometry accuracy."
+  },
+  "fine_travel": {
+    "unchanged_profile_cohort": 144,
+    "increase_sum_squared_ms2": 7.837142700523245,
+    "case_contributions": [
+      {
+        "case": "thrust-a",
+        "before_fine_rms_ms": 0.10022595557340347,
+        "after_fine_rms_ms": 0.20096893871758723,
+        "increase_sum_squared_ms2": 0.3641192659040578,
+        "largest_regression_profiles": [
+          {
+            "key": "time:6000",
+            "before": [
+              1.450913051275145,
+              1.4518398125992378,
+              1.4517439749446994
+            ],
+            "after": [
+              1.4507850453378597,
+              1.4518005647906376,
+              1.451122897376766
+            ],
+            "before_fine": 9.583765453835547e-05,
+            "after_fine": 0.0006776674138715411,
+            "before_coarse": -0.0009267613240928618,
+            "after_coarse": -0.001015519452777891,
+            "change_fine_squared": 4.5004826779592933e-07,
+            "change_coarse_squared": 1.7239320713595266e-07
+          },
+          {
+            "key": "time:1200",
+            "before": [
+              1.408804941907999,
+              1.408684351630365,
+              1.4086843745290458
+            ],
+            "after": [
+              1.408679467442315,
+              1.4086825767731075,
+              1.4086843724661247
+            ],
+            "before_fine": -2.2898680729355192e-08,
+            "after_fine": -1.7956930171703078e-06,
+            "before_coarse": 0.00012059027763400287,
+            "after_coarse": -3.1093307923946156e-06,
+            "change_fine_squared": 3.2239890623350584e-12,
+            "change_coarse_squared": -1.453234712186936e-08
+          },
+          {
+            "key": "time:3600",
+            "before": [
+              1.4146693416278722,
+              1.4145929839865299,
+              1.4145930281456072
+            ],
+            "after": [
+              1.4145644592228328,
+              1.4145935425429377,
+              1.4145929029761788
+            ],
+            "before_fine": -4.4159077283723036e-08,
+            "after_fine": 6.39566758886545e-07,
+            "before_coarse": 7.635764134228396e-05,
+            "after_coarse": -2.9083320104872357e-05,
+            "change_fine_squared": 4.0709561496609015e-13,
+            "change_coarse_squared": -4.9846498830344e-09
+          }
+        ],
+        "percent_of_net_increase": 4.6460716592508575
+      },
+      {
+        "case": "thrust-b",
+        "before_fine_rms_ms": 0.19781501592064826,
+        "after_fine_rms_ms": 0.1313576857459821,
+        "increase_sum_squared_ms2": -0.2625112670297537,
+        "largest_regression_profiles": [
+          {
+            "key": "time:5200",
+            "before": [
+              1.1549591472634,
+              1.153603353115877,
+              1.153584017757543
+            ],
+            "after": [
+              1.1535557250457809,
+              1.1531437237201263,
+              1.153536014712864
+            ],
+            "before_fine": 1.933535833398281e-05,
+            "after_fine": -0.0003922909927376317,
+            "before_coarse": 0.0013557941475230706,
+            "after_coarse": 0.00041200132565455405,
+            "change_fine_squared": 1.5351836690117309e-07,
+            "change_coarse_squared": -1.6684326781167e-06
+          },
+          {
+            "key": "time:9200",
+            "before": [
+              1.1562956657804437,
+              1.1563132200289872,
+              1.1563042310630585
+            ],
+            "after": [
+              1.1562956657804437,
+              1.1563132200289872,
+              1.156304182121103
+            ],
+            "before_fine": 8.988965928713455e-06,
+            "after_fine": 9.037907884090757e-06,
+            "before_coarse": -1.755424854343879e-05,
+            "after_coarse": -1.755424854343879e-05,
+            "change_fine_squared": 8.822704537385057e-13,
+            "change_coarse_squared": 0
+          },
+          {
+            "key": "time:7600",
+            "before": [
+              1.1554982529035336,
+              1.1555075040728862,
+              1.1554994957215097
+            ],
+            "after": [
+              1.1554982529035336,
+              1.1555075040728862,
+              1.1554994946790358
+            ],
+            "before_fine": 8.008351376487255e-06,
+            "after_fine": 8.009393850372248e-06,
+            "before_coarse": -9.251169352575417e-06,
+            "after_coarse": -9.251169352575417e-06,
+            "change_fine_squared": 1.669808109547921e-14,
+            "change_coarse_squared": 0
+          }
+        ],
+        "percent_of_net_increase": -3.349578756709728
+      },
+      {
+        "case": "coupled-compression-a",
+        "before_fine_rms_ms": 0.3449666116141798,
+        "after_fine_rms_ms": 0.38177579543694706,
+        "increase_sum_squared_ms2": 0.32100953823534306,
+        "largest_regression_profiles": [
+          {
+            "key": "time:2800",
+            "before": [
+              0.9945510776316229,
+              0.99442981521641,
+              0.9939955224138154
+            ],
+            "after": [
+              0.9941328211601239,
+              0.9945366540716689,
+              0.9937426562485304
+            ],
+            "before_fine": 0.0004342928025946602,
+            "after_fine": 0.0007939978231384925,
+            "before_coarse": 0.00012126241521281944,
+            "after_coarse": -0.000403832911544999,
+            "change_fine_squared": 4.4182230476314044e-07,
+            "change_coarse_squared": 1.4837644710366477e-07
+          },
+          {
+            "key": "time:6000",
+            "before": [
+              1.0278334151587978,
+              1.0279325299198019,
+              1.0287940357941001
+            ],
+            "after": [
+              1.0277434505550764,
+              1.0277344307715626,
+              1.028685704300523
+            ],
+            "before_fine": -0.0008615058742982296,
+            "after_fine": -0.0009512735289605168,
+            "before_coarse": -9.911476100410432e-05,
+            "after_coarse": 9.0197835138639e-06,
+            "change_fine_squared": 1.627289554506383e-07,
+            "change_coarse_squared": -9.742379354263747e-09
+          },
+          {
+            "key": "time:4400",
+            "before": [
+              0.9991880405169039,
+              0.9989635280983831,
+              0.9987894414106687
+            ],
+            "after": [
+              0.9982089238791441,
+              0.9990422536105061,
+              0.9988400498843475
+            ],
+            "before_fine": 0.00017408668771434765,
+            "after_fine": 0.00020220372615864513,
+            "before_coarse": 0.00022451241852083914,
+            "after_coarse": -0.0008333297313620758,
+            "change_fine_squared": 1.0580172033087543e-08,
+            "change_coarse_squared": 6.440326151019129e-07
+          }
+        ],
+        "percent_of_net_increase": 4.0960022102686855
+      },
+      {
+        "case": "coupled-compression-b",
+        "before_fine_rms_ms": 0.13076772240323448,
+        "after_fine_rms_ms": 0.27430665585910413,
+        "increase_sum_squared_ms2": 0.6977273307129073,
+        "largest_regression_profiles": [
+          {
+            "key": "time:5200",
+            "before": [
+              1.287153619871253,
+              1.2879176281630602,
+              1.2876619655726498
+            ],
+            "after": [
+              1.2874769115156381,
+              1.2881000604043755,
+              1.2874521633052718
+            ],
+            "before_fine": 0.0002556625904104326,
+            "after_fine": 0.0006478970991037336,
+            "before_coarse": -0.0007640082918072277,
+            "after_coarse": -0.0006231488887373793,
+            "change_fine_squared": 3.544072908916606e-07,
+            "change_coarse_squared": -1.953941324155674e-07
+          },
+          {
+            "key": "time:6000",
+            "before": [
+              1.2918603165304399,
+              1.2923512582938135,
+              1.2923784859941645
+            ],
+            "after": [
+              1.292246062213257,
+              1.2924728294879146,
+              1.2921077538824561
+            ],
+            "before_fine": -2.7227700351017958e-05,
+            "after_fine": 0.00036507560545850914,
+            "before_coarse": -0.0004909417633736091,
+            "after_coarse": -0.00022676727465764657,
+            "change_fine_squared": 1.3253885003449222e-07,
+            "change_coarse_squared": -1.8960041816873226e-07
+          },
+          {
+            "key": "time:6800",
+            "before": [
+              1.29513513412537,
+              1.2948186457620907,
+              1.2950891002194374
+            ],
+            "after": [
+              1.295084131207171,
+              1.2950156768728731,
+              1.2954396609219347
+            ],
+            "before_fine": -0.0002704544573466361,
+            "after_fine": -0.000423984049061632,
+            "before_coarse": 0.0003164883632793547,
+            "after_coarse": 6.845433429791825e-05,
+            "change_fine_squared": 1.0661686036003297e-07,
+            "change_coarse_squared": -9.547888820707365e-08
+          }
+        ],
+        "percent_of_net_increase": 8.902827948587994
+      },
+      {
+        "case": "coupled-compression-c",
+        "before_fine_rms_ms": 1.5785588619306474,
+        "after_fine_rms_ms": 1.7468775667758856,
+        "increase_sum_squared_ms2": 6.71679783270069,
+        "largest_regression_profiles": [
+          {
+            "key": "time:6000",
+            "before": [
+              1.2825673065549532,
+              1.2868543985105945,
+              1.28721208980103
+            ],
+            "after": [
+              1.2858946157430287,
+              1.2868447630274211,
+              1.2907445264775506
+            ],
+            "before_fine": -0.0003576912904355023,
+            "after_fine": -0.0038997634501294343,
+            "before_coarse": -0.0042870919556412534,
+            "after_coarse": -0.0009501472843924663,
+            "change_fine_squared": 1.5080211907712014e-05,
+            "change_coarse_squared": -1.747637757408557e-05
+          },
+          {
+            "key": "time:9200",
+            "before": [
+              1.3324213759360528,
+              1.3225373652142138,
+              1.3227363789449365
+            ],
+            "after": [
+              1.3273873962556122,
+              1.3196704607601315,
+              1.3225476770911981
+            ],
+            "before_fine": -0.0001990137307226192,
+            "after_fine": -0.0028772163310666343,
+            "before_coarse": 0.009884010721838976,
+            "after_coarse": 0.007716935495480692,
+            "change_fine_squared": 8.23876735074041e-06,
+            "change_coarse_squared": -3.8142574508018e-05
+          },
+          {
+            "key": "time:4400",
+            "before": [
+              1.258903563935576,
+              1.2593350975586326,
+              1.2589069404098971
+            ],
+            "after": [
+              1.2559330773846646,
+              1.25712260122469,
+              1.258783472741066
+            ],
+            "before_fine": 0.00042815714873545296,
+            "after_fine": -0.0016608715163759502,
+            "before_coarse": -0.0004315336230567013,
+            "after_coarse": -0.0011895238400254637,
+            "change_fine_squared": 2.575175649895675e-06,
+            "change_coarse_squared": 1.228745698160482e-06
+          }
+        ],
+        "percent_of_net_increase": 85.70467693860219
+      }
+    ],
+    "cohort_confounding": "All 12 fixed full-depth profiles in each of 12 cases remain present; interval eligibility does not enter whole-profile travel-time metric.",
+    "interpretation": "Coupled C accounts 85.70467694% of net squared fine-travel increase; dominated by x6000 and9200. This was diagnosed from saved profile values; no operation-level mechanism beyond changed allocation/feedback is claimed for these fine-grid regressions."
+  },
+  "global_budget_audit": {
+    "runs": 36,
+    "events": 4494,
+    "scalar_balances_checked": 755160,
+    "failed_scalar_balances": 0,
+    "repair_added_m2": 0,
+    "worst_residual_fraction_of_tolerance": 0.0032071855720601262
+  },
+  "caveats": [
+    "The objective is physically weighted displacement, not minimization of individual profile grid differences.",
+    "The proven volume-objective correction improves isolated thrust B and several aggregate metrics, while fine travel consistency worsens overall.",
+    "A closed grain budget rules out unexplained inventory loss but cannot establish correct geometry, pressure, or travel time.",
+    "No observational development/holdout validation was performed."
+  ]
+}

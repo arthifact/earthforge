@@ -1,0 +1,52 @@
+✖ fallback vertical slices retain composition, history, grain and flat-flow first moments (4.822875ms)
+✔ fallback catches placement infeasibility only; unrelated errors propagate (1.672291ms)
+✔ ordinary feasible matching remains unchanged and zero slip bypasses fallback (2.632708ms)
+✖ each vertical child receives its own independent rectangular bend-flow moment (12.679541ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 2
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 106.136375
+
+✖ failing tests:
+
+test at tests/thrust-capacity-fallback.test.mjs:32:1
+✖ fallback vertical slices retain composition, history, grain and flat-flow first moments (4.822875ms)
+  AssertionError [ERR_ASSERTION]: 74.84615384615384 != 67
+      at near (file:///Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-transport/grouped/tests/thrust-capacity-fallback.test.mjs:19:33)
+      at TestContext.<anonymous> (file:///Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-transport/grouped/tests/thrust-capacity-fallback.test.mjs:37:100)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.start (node:internal/test_runner/test:1191:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/thrust-capacity-fallback.test.mjs:55:1
+✖ each vertical child receives its own independent rectangular bend-flow moment (12.679541ms)
+  AssertionError [ERR_ASSERTION]: 648.8809327426403 != 628.8809327426403
+      at near (file:///Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-transport/grouped/tests/thrust-capacity-fallback.test.mjs:19:33)
+      at TestContext.<anonymous> (file:///Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-transport/grouped/tests/thrust-capacity-fallback.test.mjs:74:31)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

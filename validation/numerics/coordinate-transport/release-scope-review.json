@@ -1,0 +1,235 @@
+{
+  "schema": "earthforge.coordinate-release-scope-review.v1",
+  "source_frozen_snapshot_sha256": "498e1c8d95a469459b4ab4fe3b0cfd133c85a167d469e94044511fb1b439c487",
+  "read_only_review": true,
+  "observational_or_holdout_reads": false,
+  "evidence_sha256": {
+    "candidate-vs-current-report.json": "665ad2fbaf26c39e6512a39f49323a7c56b2ad7101401c803240096e0e149d78",
+    "candidate-vs-current-all-metrics-audit.json": "c06f63c247b7638f579436f1be978760e9e1becef3116fd658b4044ff1560b07",
+    "budget-audit.json": "eed946d4ecfcbbe903bd2240eed9ff7604b277042a5c1ed8384651aafbd35196",
+    "source-audit.json": "f19a5dc6d66a03768988db08c0475ff1aa1118a9c1966868b08d2a641ca50446",
+    "fixed-outlier-audit.json": "f1bf0ec4d8b3c7eaaed1aca2acbdc309dfec78b93d09d344fd9e055f98dc6a18",
+    "three-way-recovery-report.json": "348d521f4eb1259bbe913e44ba1159e28ae55b21e3742e488280a9fba4ed8879"
+  },
+  "assessment": "Scientifically justified correctness repair with mixed grid agreement. Not a completed fix of the requested thickness and travel-time regressions.",
+  "coherent_scope": [
+    "Retained material subsides at its remembered physical x; algebraic fixtures establish the corrected displacement independent of comparison metrics.",
+    "Exact grouped interval support prevents positive distinct material from disappearing during repeated projection, slicing and reconstruction, while one physical parcel receives one constitutive evaluation.",
+    "Exact complementary deposition, subsidence and normal-shear boundaries preserve admitted and retained support without altering the frozen forcing or constitutive model.",
+    "Strict transport capacity prevents overfill; conservative bounded splitting handles demonstrated infeasible indivisible assignments, with explicit source identities and child flow moments. This is a specified fallback projection, not a uniquely validated transport continuum."
+  ],
+  "acceptance_recommendation": {
+    "status": "Conditional correctness-only acceptance after the pending full suite succeeds and final source/test integrity audit matches the frozen evidence.",
+    "can_apply_or_commit": "Yes as a clearly named correctness repair if all required checks pass; preserve prior and rejected evidence and expose remaining regressions.",
+    "withhold_now": "Do not apply, publish, tag a release or mark verification complete while the required full suite remains pending or failing.",
+    "withhold_after_green": "Do not mark the user requested accuracy regressions resolved, claim overall improved accuracy or grid convergence, or replace historical evidence with only favorable subsets. A production accuracy endorsement requires further work."
+  },
+  "budget_evidence": {
+    "runs": 36,
+    "events": 4494,
+    "scalar_balances_checked": 755160,
+    "failed_scalar_balances": 0,
+    "repair_added_m2": 0,
+    "tolerance": {
+      "absolute_m2": 1e-06,
+      "relative": 1e-10
+    },
+    "worst_residual_fraction_of_tolerance": 0.001901969797909847
+  },
+  "paired_global": {
+    "thickness_m": {
+      "coarse_rms": {
+        "before": 7.71308484382433,
+        "after": 7.706600176264519,
+        "percent_change": -0.0840735930060843
+      },
+      "fine_rms": {
+        "before": 3.814919683557838,
+        "after": 3.827797945405574,
+        "percent_change": 0.337576224821734
+      }
+    },
+    "vertical_travel_time_s": {
+      "coarse_rms": {
+        "before": 0.0015541273135449723,
+        "after": 0.0014654209669079676,
+        "percent_change": -5.707791495837311
+      },
+      "fine_rms": {
+        "before": 0.0005142258593565742,
+        "after": 0.0007097925991677365,
+        "percent_change": 38.03129233054625
+      }
+    },
+    "effective_velocity_m_s": {
+      "coarse_rms": {
+        "before": 7.407760623415696,
+        "after": 7.413305769852252,
+        "percent_change": 0.0748559074523758
+      },
+      "fine_rms": {
+        "before": 3.9115635848330137,
+        "after": 3.9168023898647113,
+        "percent_change": 0.13393122515024114
+      }
+    },
+    "fault_depth_m": {
+      "coarse_rms": {
+        "before": 6.4933221532341765,
+        "after": 6.494403928961984,
+        "percent_change": 0.016659819153885813
+      },
+      "fine_rms": {
+        "before": 4.112476675316591,
+        "after": 4.107128923503005,
+        "percent_change": -0.13003725579001646
+      }
+    }
+  },
+  "coverage": {
+    "candidates": 2820,
+    "before_matched": 1301,
+    "after_matched": 1305,
+    "shared_intervals": 1294,
+    "lost_intervals": 7,
+    "gained_intervals": 11
+  },
+  "coupled_paired_current_to_candidate": {
+    "coupled-compression-a": {
+      "shared_intervals": 48,
+      "thickness_m": {
+        "coarse_rms": {
+          "before": 6.549201695612322,
+          "after": 6.487316895676,
+          "percent_change": -0.9449212715159083
+        },
+        "fine_rms": {
+          "before": 2.9414110332505627,
+          "after": 2.7961391415650567,
+          "percent_change": -4.938850437538667
+        }
+      },
+      "vertical_travel_time_s": {
+        "coarse_rms": {
+          "before": 0.00042320476065654003,
+          "after": 0.0003292048525209618,
+          "percent_change": -22.21144865897803
+        },
+        "fine_rms": {
+          "before": 0.0001717093298437027,
+          "after": 0.00018899186661398262,
+          "percent_change": 10.064995761157093
+        }
+      }
+    },
+    "coupled-compression-b": {
+      "shared_intervals": 97,
+      "thickness_m": {
+        "coarse_rms": {
+          "before": 4.2991777517380365,
+          "after": 4.997406881256852,
+          "percent_change": 16.24099234409513
+        },
+        "fine_rms": {
+          "before": 0.929216923821971,
+          "after": 0.822515559808019,
+          "percent_change": -11.48293377773163
+        }
+      },
+      "vertical_travel_time_s": {
+        "coarse_rms": {
+          "before": 0.00022641821251420433,
+          "after": 0.0004011922121883333,
+          "percent_change": 77.1907867893642
+        },
+        "fine_rms": {
+          "before": 0.0001559506735240612,
+          "after": 0.00019727319474177434,
+          "percent_change": 26.49717393579425
+        }
+      }
+    },
+    "coupled-compression-c": {
+      "shared_intervals": 67,
+      "thickness_m": {
+        "coarse_rms": {
+          "before": 7.761273331632277,
+          "after": 7.034666547330781,
+          "percent_change": -9.361953293670211
+        },
+        "fine_rms": {
+          "before": 1.6390999752259348,
+          "after": 2.335661325608187,
+          "percent_change": 42.496575005209046
+        }
+      },
+      "vertical_travel_time_s": {
+        "coarse_rms": {
+          "before": 0.004142448145663671,
+          "after": 0.003729165526878491,
+          "percent_change": -9.97677229147228
+        },
+        "fine_rms": {
+          "before": 0.0012327274321715107,
+          "after": 0.002090768966228678,
+          "percent_change": 69.60513019051457
+        }
+      }
+    }
+  },
+  "prespecified_A_five": {
+    "prior_unweighted": {
+      "n": 5,
+      "coarse_rms": 0.3455466235378245,
+      "fine_rms": 0.12467930881955981
+    },
+    "prior_weighted": {
+      "n": 5,
+      "coarse_rms": 19.601453062217455,
+      "fine_rms": 0.11381318734842297
+    },
+    "current_baseline": {
+      "n": 5,
+      "coarse_rms": 0.3872241575734773,
+      "fine_rms": 0.3697390247497262
+    },
+    "candidate": {
+      "n": 5,
+      "coarse_rms": 0.387201679241355,
+      "fine_rms": 0.11751017515897953
+    }
+  },
+  "later_A_unit7_9200": {
+    "prior_unweighted": {
+      "n": 1,
+      "coarse_rms": 0.7447642451990077,
+      "fine_rms": 8.450755636155122
+    },
+    "prior_weighted": {
+      "n": 1,
+      "coarse_rms": 0.7078573565478337,
+      "fine_rms": 5.657155880268988
+    },
+    "current_baseline": {
+      "n": 1,
+      "coarse_rms": 25.21609483747784,
+      "fine_rms": 5.65708840862294
+    },
+    "candidate": {
+      "n": 1,
+      "coarse_rms": 25.18818046619822,
+      "fine_rms": 5.628588009823261
+    }
+  },
+  "reporting_requirements": [
+    "Lead with unresolved fine travel regression: paired global RMS0.5142 to0.7098ms(+38.0%), alongside coarse improvement1.5541 to1.4654ms(-5.7%).",
+    "Thickness is globally almost unchanged, not generally fixed. Coupled B coarse thickness and coupled C fine thickness worsen materially.",
+    "Compare current versus candidate on their shared rows. The C current-pair67-row fine thickness worsens1.6391 to2.3357m; a restricted three-way61-row cohort improves and must not be substituted without labeling.",
+    "Report the original-five A fine recovery0.3697 to0.1175m as a prespecified local finding, alongside the later A unit7 at9200m coarse discrepancy25.188m that remains.",
+    "Retain coverage losses7/gains11 and all11 metrics. The29 case/metric/scale increases are above the report display threshold, not a significance-test result.",
+    "Describe comparisons as grid agreement on the frozen synthetic suite; no observational validation, holdout evaluation, or confidence interval establishes physical accuracy.",
+    "Budget closure uses existing absolute-plus-relative tolerances, not exact grain arithmetic. Exactness applies to represented interval topology."
+  ],
+  "no_new_source_blocker": true,
+  "scope_limits_reference": "work/coarse-travel-representation/grouped-final-physical-review.json"
+}

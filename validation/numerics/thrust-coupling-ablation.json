@@ -1,0 +1,561 @@
+{
+  "scope": "synthetic same-history 40/20/10 m mechanism ablations; not an observational comparison",
+  "prototype_reproduced_exactly": true,
+  "branch_repair_leaves_material_field_unchanged": true,
+  "variants": [
+    {
+      "variant": "accepted-before",
+      "description": "Accepted normal-tip repair; rounded thrust controls and carried column traces.",
+      "cases": [
+        {
+          "id": "coupled-compression-a",
+          "history_hash": "a47b82f4d9d2b45d9bc2b7218afe6a4d8fc14d12da0028d952b7dad85ec41e18",
+          "raw_sha256": "3040a79359d861d77032409d2d1be8da1b3266ea398e3b1bc3afa72ebdede7fc",
+          "field_metrics": {
+            "fault_depth_m": {
+              "n": 24,
+              "coarse_rms": 25.28285805958227,
+              "fine_rms": 4.509678289996,
+              "ratio": 0.1783690071497601,
+              "coarse_mae": 11.905131652910077,
+              "fine_mae": 3.437174579534163,
+              "coarse_max": 111.39076014551995,
+              "fine_max": 10.5483323359515,
+              "classes": {
+                "monotonic-contracting": 8,
+                "oscillatory-contracting": 9,
+                "monotonic-noncontracting": 3,
+                "oscillatory-noncontracting": 4
+              }
+            },
+            "vertical_travel_time_s": {
+              "n": 12,
+              "coarse_rms": 0.0010019805703850903,
+              "fine_rms": 0.0006363642162117943,
+              "ratio": 0.6351063433966798,
+              "coarse_mae": 0.0007182350927058545,
+              "fine_mae": 0.000447892726748463,
+              "coarse_max": 0.002294425183138382,
+              "fine_max": 0.0014688969995557688,
+              "classes": {
+                "oscillatory-noncontracting": 3,
+                "oscillatory-contracting": 2,
+                "monotonic-contracting": 5,
+                "monotonic-noncontracting": 2
+              }
+            }
+          },
+          "fault0_x4400": {
+            "key": "fault:0:4400",
+            "metric": "fault_depth_m",
+            "values": [
+              731.339620924066,
+              619.9488607785461,
+              625.6509859479418
+            ],
+            "coarse": 111.39076014551995,
+            "fine": -5.702125169395686,
+            "ratio": 0.05119028869132841,
+            "classification": "oscillatory-contracting"
+          }
+        },
+        {
+          "id": "coupled-compression-c",
+          "history_hash": "9b7be4934356709818bd62fcd2138e7e766e08dbf89cf3f53d9a954a6eee9c5b",
+          "raw_sha256": "4effb2a020c31a92b5b83ff81de7fc906988023e32209272e33cef6b19922767",
+          "field_metrics": {
+            "fault_depth_m": {
+              "n": 36,
+              "coarse_rms": 23.707334151247125,
+              "fine_rms": 6.08927402373699,
+              "ratio": 0.25685190856504053,
+              "coarse_mae": 9.240728988701449,
+              "fine_mae": 4.263509211394794,
+              "coarse_max": 131.01281817278073,
+              "fine_max": 15.755493567243548,
+              "classes": {
+                "monotonic-noncontracting": 7,
+                "oscillatory-contracting": 14,
+                "monotonic-contracting": 8,
+                "oscillatory-noncontracting": 7
+              }
+            },
+            "vertical_travel_time_s": {
+              "n": 12,
+              "coarse_rms": 0.005451963357068338,
+              "fine_rms": 0.002370480509091002,
+              "ratio": 0.4347939180511423,
+              "coarse_mae": 0.004586796639707143,
+              "fine_mae": 0.0022453957933809185,
+              "coarse_max": 0.010360043091620641,
+              "fine_max": 0.003476311617501171,
+              "classes": {
+                "oscillatory-noncontracting": 4,
+                "oscillatory-contracting": 5,
+                "monotonic-contracting": 3
+              }
+            }
+          },
+          "fault0_x4400": {
+            "key": "fault:0:4400",
+            "metric": "fault_depth_m",
+            "values": [
+              1952.5937914011101,
+              1952.9632957861281,
+              1959.1329258644278
+            ],
+            "coarse": -0.36950438501799,
+            "fine": -6.169630078299633,
+            "ratio": 16.697041573672404,
+            "classification": "monotonic-noncontracting"
+          }
+        }
+      ]
+    },
+    {
+      "variant": "rejected-prototype",
+      "description": "Physical thrust controls, raw continuous carry into a rounded single-valued trace, and uncorrected collapse of fault geometry.",
+      "cases": [
+        {
+          "id": "coupled-compression-a",
+          "history_hash": "a47b82f4d9d2b45d9bc2b7218afe6a4d8fc14d12da0028d952b7dad85ec41e18",
+          "raw_sha256": "8eeaed63603986a3ec04d5bc1068cd08b34a973a0c4b02d8122dda526f059c81",
+          "field_metrics": {
+            "fault_depth_m": {
+              "n": 24,
+              "coarse_rms": 23.44996026008588,
+              "fine_rms": 21.03978864237087,
+              "ratio": 0.897220652360023,
+              "coarse_mae": 10.25468313059775,
+              "fine_mae": 7.101821408744958,
+              "coarse_max": 107.99554813221937,
+              "fine_max": 101.22305328587493,
+              "classes": {
+                "monotonic-contracting": 7,
+                "oscillatory-contracting": 8,
+                "monotonic-noncontracting": 4,
+                "oscillatory-noncontracting": 5
+              }
+            },
+            "vertical_travel_time_s": {
+              "n": 12,
+              "coarse_rms": 0.0009170045051132154,
+              "fine_rms": 0.0005369833985707959,
+              "ratio": 0.585584253486845,
+              "coarse_mae": 0.0006544941724237566,
+              "fine_mae": 0.000455413435909241,
+              "coarse_max": 0.0022944248605684114,
+              "fine_max": 0.0010749814618803422,
+              "classes": {
+                "oscillatory-noncontracting": 4,
+                "oscillatory-contracting": 3,
+                "monotonic-noncontracting": 2,
+                "monotonic-contracting": 3
+              }
+            }
+          },
+          "fault0_x4400": {
+            "key": "fault:0:4400",
+            "metric": "fault_depth_m",
+            "values": [
+              619.9114682594596,
+              727.907016391679,
+              626.6839631058041
+            ],
+            "coarse": -107.99554813221937,
+            "fine": 101.22305328587493,
+            "ratio": 0.9372891293810292,
+            "classification": "oscillatory-contracting"
+          }
+        },
+        {
+          "id": "coupled-compression-c",
+          "history_hash": "9b7be4934356709818bd62fcd2138e7e766e08dbf89cf3f53d9a954a6eee9c5b",
+          "raw_sha256": "ab1c4e60b98fee3db21975a21c6b307ba10a90b5dca158187da12cef1484ef64",
+          "field_metrics": {
+            "fault_depth_m": {
+              "n": 36,
+              "coarse_rms": 28.701503264625977,
+              "fine_rms": 5.969769063326192,
+              "ratio": 0.20799499623017348,
+              "coarse_mae": 9.485961292156718,
+              "fine_mae": 3.785997022296966,
+              "coarse_max": 164.25530969546003,
+              "fine_max": 21.9747670760064,
+              "classes": {
+                "monotonic-noncontracting": 8,
+                "monotonic-contracting": 6,
+                "oscillatory-noncontracting": 8,
+                "oscillatory-contracting": 14
+              }
+            },
+            "vertical_travel_time_s": {
+              "n": 12,
+              "coarse_rms": 0.004943430366494096,
+              "fine_rms": 0.003035750901055043,
+              "ratio": 0.6140980404277468,
+              "coarse_mae": 0.0045133308754469565,
+              "fine_mae": 0.0025756527072798483,
+              "coarse_max": 0.0068017973361449435,
+              "fine_max": 0.006225843483708582,
+              "classes": {
+                "oscillatory-contracting": 7,
+                "monotonic-contracting": 1,
+                "oscillatory-noncontracting": 2,
+                "monotonic-noncontracting": 2
+              }
+            }
+          },
+          "fault0_x4400": {
+            "key": "fault:0:4400",
+            "metric": "fault_depth_m",
+            "values": [
+              1952.6291019746434,
+              1952.657713593364,
+              1959.1326605013808
+            ],
+            "coarse": -0.028611618720560728,
+            "fine": -6.474946908016818,
+            "ratio": 226.30480893986703,
+            "classification": "monotonic-noncontracting"
+          }
+        }
+      ]
+    },
+    {
+      "variant": "carry-rule-only",
+      "description": "Rejected prototype with old horizontal carry correction restored; geometry collapse unchanged.",
+      "cases": [
+        {
+          "id": "coupled-compression-a",
+          "history_hash": "a47b82f4d9d2b45d9bc2b7218afe6a4d8fc14d12da0028d952b7dad85ec41e18",
+          "raw_sha256": "f16bf8022d15938eb970732dafdeb225ff9ab85f2e07cb2c24680ad1e5b2e21d",
+          "field_metrics": {
+            "fault_depth_m": {
+              "n": 24,
+              "coarse_rms": 23.471275031413402,
+              "fine_rms": 3.474546375656395,
+              "ratio": 0.148033984988295,
+              "coarse_mae": 10.488505861030527,
+              "fine_mae": 2.571069013965707,
+              "coarse_max": 107.27774843658312,
+              "fine_max": 10.249726089674596,
+              "classes": {
+                "monotonic-contracting": 8,
+                "oscillatory-contracting": 7,
+                "monotonic-noncontracting": 4,
+                "oscillatory-noncontracting": 5
+              }
+            },
+            "vertical_travel_time_s": {
+              "n": 12,
+              "coarse_rms": 0.0009170045051132154,
+              "fine_rms": 0.0005369833985707959,
+              "ratio": 0.585584253486845,
+              "coarse_mae": 0.0006544941724237566,
+              "fine_mae": 0.000455413435909241,
+              "coarse_max": 0.0022944248605684114,
+              "fine_max": 0.0010749814618803422,
+              "classes": {
+                "oscillatory-noncontracting": 4,
+                "oscillatory-contracting": 3,
+                "monotonic-noncontracting": 2,
+                "monotonic-contracting": 3
+              }
+            }
+          },
+          "fault0_x4400": {
+            "key": "fault:0:4400",
+            "metric": "fault_depth_m",
+            "values": [
+              730.1032168413723,
+              622.8254684047891,
+              626.6839631058041
+            ],
+            "coarse": 107.27774843658312,
+            "fine": -3.8584947010149335,
+            "ratio": 0.035967334859715754,
+            "classification": "oscillatory-contracting"
+          }
+        },
+        {
+          "id": "coupled-compression-c",
+          "history_hash": "9b7be4934356709818bd62fcd2138e7e766e08dbf89cf3f53d9a954a6eee9c5b",
+          "raw_sha256": "0e7e6980181b8bad2d4d40269828adbc32644253a5aef85b1123e08ca415fc8c",
+          "field_metrics": {
+            "fault_depth_m": {
+              "n": 36,
+              "coarse_rms": 31.16128437769022,
+              "fine_rms": 5.6986935754064065,
+              "ratio": 0.18287736494861426,
+              "coarse_mae": 10.700504114451544,
+              "fine_mae": 3.922008615100885,
+              "coarse_max": 177.6198540227449,
+              "fine_max": 15.824562325182342,
+              "classes": {
+                "monotonic-noncontracting": 5,
+                "monotonic-contracting": 6,
+                "oscillatory-noncontracting": 8,
+                "oscillatory-contracting": 17
+              }
+            },
+            "vertical_travel_time_s": {
+              "n": 12,
+              "coarse_rms": 0.004943430366494096,
+              "fine_rms": 0.003035750901055043,
+              "ratio": 0.6140980404277468,
+              "coarse_mae": 0.0045133308754469565,
+              "fine_mae": 0.0025756527072798483,
+              "coarse_max": 0.0068017973361449435,
+              "fine_max": 0.006225843483708582,
+              "classes": {
+                "oscillatory-contracting": 7,
+                "monotonic-contracting": 1,
+                "oscillatory-noncontracting": 2,
+                "monotonic-noncontracting": 2
+              }
+            }
+          },
+          "fault0_x4400": {
+            "key": "fault:0:4400",
+            "metric": "fault_depth_m",
+            "values": [
+              1952.6291019746434,
+              1952.657713593364,
+              1959.1326605013808
+            ],
+            "coarse": -0.028611618720560728,
+            "fine": -6.474946908016818,
+            "ratio": 226.30480893986703,
+            "classification": "monotonic-noncontracting"
+          }
+        }
+      ]
+    },
+    {
+      "variant": "gap-repair-only",
+      "description": "Physical controls with physical-gap correction and old column-trace carry.",
+      "cases": [
+        {
+          "id": "coupled-compression-a",
+          "history_hash": "a47b82f4d9d2b45d9bc2b7218afe6a4d8fc14d12da0028d952b7dad85ec41e18",
+          "raw_sha256": "7fe1fbb1f7435256dc2ae0b65643e3cdf423ab7427eceb7e34909a7d88cf0c0e",
+          "field_metrics": {
+            "fault_depth_m": {
+              "n": 24,
+              "coarse_rms": 22.600562124054658,
+              "fine_rms": 3.2409713565554306,
+              "ratio": 0.1434022454293709,
+              "coarse_mae": 8.169444474716613,
+              "fine_mae": 2.117905081442492,
+              "coarse_max": 106.95610451818368,
+              "fine_max": 7.360810800390823,
+              "classes": {
+                "oscillatory-contracting": 13,
+                "monotonic-contracting": 8,
+                "oscillatory-noncontracting": 2,
+                "monotonic-noncontracting": 1
+              }
+            },
+            "vertical_travel_time_s": {
+              "n": 12,
+              "coarse_rms": 0.000923191184186987,
+              "fine_rms": 0.000718797852972634,
+              "ratio": 0.7786012965512089,
+              "coarse_mae": 0.0006472249714667052,
+              "fine_mae": 0.0005681700030568948,
+              "coarse_max": 0.0022944248605684114,
+              "fine_max": 0.0014501769211224813,
+              "classes": {
+                "oscillatory-noncontracting": 5,
+                "oscillatory-contracting": 1,
+                "monotonic-noncontracting": 3,
+                "monotonic-contracting": 3
+              }
+            }
+          },
+          "fault0_x4400": {
+            "key": "fault:0:4400",
+            "metric": "fault_depth_m",
+            "values": [
+              729.7815729229728,
+              622.8254684047891,
+              622.1678238134792
+            ],
+            "coarse": 106.95610451818368,
+            "fine": 0.6576445913099178,
+            "ratio": 0.006148733578812337,
+            "classification": "monotonic-contracting"
+          }
+        },
+        {
+          "id": "coupled-compression-c",
+          "history_hash": "9b7be4934356709818bd62fcd2138e7e766e08dbf89cf3f53d9a954a6eee9c5b",
+          "raw_sha256": "34bad24e2bd44fdebf2f1c810417c5e8dbaeba668bb5fdc7b353419445bd6f23",
+          "field_metrics": {
+            "fault_depth_m": {
+              "n": 36,
+              "coarse_rms": 4.446160768148204,
+              "fine_rms": 2.9455966443398203,
+              "ratio": 0.6625034041597739,
+              "coarse_mae": 2.729975625290491,
+              "fine_mae": 1.6709927354486733,
+              "coarse_max": 13.945649624995895,
+              "fine_max": 10.140348032981365,
+              "classes": {
+                "monotonic-contracting": 16,
+                "oscillatory-noncontracting": 9,
+                "oscillatory-contracting": 6,
+                "monotonic-noncontracting": 5
+              }
+            },
+            "vertical_travel_time_s": {
+              "n": 12,
+              "coarse_rms": 0.006095534691140169,
+              "fine_rms": 0.002572788535612824,
+              "ratio": 0.42207758071697304,
+              "coarse_mae": 0.004310358871068769,
+              "fine_mae": 0.002256492430027087,
+              "coarse_max": 0.016674096102253122,
+              "fine_max": 0.004732525449060665,
+              "classes": {
+                "oscillatory-noncontracting": 1,
+                "monotonic-contracting": 4,
+                "oscillatory-contracting": 4,
+                "monotonic-noncontracting": 3
+              }
+            }
+          },
+          "fault0_x4400": {
+            "key": "fault:0:4400",
+            "metric": "fault_depth_m",
+            "values": [
+              1952.9942492462985,
+              1952.6567120173274,
+              1953.1628414099985
+            ],
+            "coarse": 0.33753722897108673,
+            "fine": -0.5061293926710277,
+            "ratio": 1.4994772405220596,
+            "classification": "oscillatory-noncontracting"
+          }
+        }
+      ]
+    },
+    {
+      "variant": "gap-and-branches",
+      "description": "Physical controls, physical-gap correction, separately transported passive branch segments.",
+      "cases": [
+        {
+          "id": "coupled-compression-a",
+          "history_hash": "a47b82f4d9d2b45d9bc2b7218afe6a4d8fc14d12da0028d952b7dad85ec41e18",
+          "raw_sha256": "2ccdfc86890e25aa5352a76c9c96018f465cb36e95c7fb21eafd2f369ef8c3a2",
+          "field_metrics": {
+            "fault_depth_m": {
+              "n": 22,
+              "coarse_rms": 3.607747692333631,
+              "fine_rms": 2.6078451935394935,
+              "ratio": 0.7228457796760832,
+              "coarse_mae": 2.5958243057834083,
+              "fine_mae": 1.5625887817191453,
+              "coarse_max": 7.85453735054989,
+              "fine_max": 7.360810800390823,
+              "classes": {
+                "oscillatory-contracting": 13,
+                "monotonic-noncontracting": 2,
+                "monotonic-contracting": 5,
+                "oscillatory-noncontracting": 2
+              }
+            },
+            "vertical_travel_time_s": {
+              "n": 12,
+              "coarse_rms": 0.000923191184186987,
+              "fine_rms": 0.000718797852972634,
+              "ratio": 0.7786012965512089,
+              "coarse_mae": 0.0006472249714667052,
+              "fine_mae": 0.0005681700030568948,
+              "coarse_max": 0.0022944248605684114,
+              "fine_max": 0.0014501769211224813,
+              "classes": {
+                "oscillatory-noncontracting": 5,
+                "oscillatory-contracting": 1,
+                "monotonic-noncontracting": 3,
+                "monotonic-contracting": 3
+              }
+            }
+          },
+          "fault0_x4400": {
+            "key": "fault:0:4400",
+            "metric": "fault_depth_m",
+            "values": [
+              642.2682101412349,
+              646.8931787993452,
+              644.8968881793294
+            ],
+            "coarse": -4.62496865811022,
+            "fine": 1.9962906200157704,
+            "ratio": 0.4316333293448658,
+            "classification": "oscillatory-contracting"
+          }
+        },
+        {
+          "id": "coupled-compression-c",
+          "history_hash": "9b7be4934356709818bd62fcd2138e7e766e08dbf89cf3f53d9a954a6eee9c5b",
+          "raw_sha256": "8cd2e84ace667afef5856c4c97813844c18d3cb52fcbdc95e970965ce362ab69",
+          "field_metrics": {
+            "fault_depth_m": {
+              "n": 31,
+              "coarse_rms": 1.6711410220997795,
+              "fine_rms": 0.8329026131657811,
+              "ratio": 0.4984035471280835,
+              "coarse_mae": 1.2411489150990014,
+              "fine_mae": 0.6465644177024886,
+              "coarse_max": 4.465231619653196,
+              "fine_max": 2.2190713423206034,
+              "classes": {
+                "monotonic-contracting": 14,
+                "oscillatory-noncontracting": 8,
+                "oscillatory-contracting": 5,
+                "monotonic-noncontracting": 4
+              }
+            },
+            "vertical_travel_time_s": {
+              "n": 12,
+              "coarse_rms": 0.006095534691140169,
+              "fine_rms": 0.002572788535612824,
+              "ratio": 0.42207758071697304,
+              "coarse_mae": 0.004310358871068769,
+              "fine_mae": 0.002256492430027087,
+              "coarse_max": 0.016674096102253122,
+              "fine_max": 0.004732525449060665,
+              "classes": {
+                "oscillatory-noncontracting": 1,
+                "monotonic-contracting": 4,
+                "oscillatory-contracting": 4,
+                "monotonic-noncontracting": 3
+              }
+            }
+          },
+          "fault0_x4400": {
+            "key": "fault:0:4400",
+            "metric": "fault_depth_m",
+            "values": [
+              1531.1644376451438,
+              1528.837589487458,
+              1529.5120222939759
+            ],
+            "coarse": 2.326848157685845,
+            "fine": -0.6744328065178706,
+            "ratio": 0.28984822421271544,
+            "classification": "oscillatory-contracting"
+          }
+        }
+      ]
+    }
+  ],
+  "cautions": [
+    "Restoring rounded carry shifts the large branch-loss error to the coarse grid; it is not a sufficient repair.",
+    "Physical-gap correction plus physical controls changes sediment motion; residual travel-time sensitivity is not eliminated.",
+    "Scalar fault depth is a compatibility mean where branches overlap; transported segments retain every branch."
+  ]
+}

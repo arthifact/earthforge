@@ -1,0 +1,4194 @@
+{
+  "schema": "earthforge.coarse-travel-fixed-outlier-audit.v1",
+  "scope": "Prespecified frozen synthetic outliers; raw per-grid values and eligibility retained. Exclusions are reported, never silently replaced. This is not an overall acceptance metric.",
+  "roots": {
+    "prior_unweighted": "/Users/torus/Desktop/Research/earthforge/data/numerics/travel-thickness",
+    "prior_weighted": "/Users/torus/Desktop/Research/earthforge/data/numerics/thrust-b-repair",
+    "current_baseline": "/Users/torus/Desktop/Research/earthforge/data/numerics/coupled-travel-repair",
+    "candidate": "/Users/torus/Documents/Codex/2026-10-12/wha/work/coupled-coordinate-fix/earthforge/data/numerics/coordinate-transport-repair"
+  },
+  "plan_sha256": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+  "metrics_sha256": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b",
+  "candidate_source_sha256": {
+    "src/basin.ts": "80a37ef2b87ad6f1afb2dd1d9f3f82cc336681df5aa84a11d43b28d75668cd46",
+    "src/conservativeTransport.ts": "3b83d2c6063d7c8eaf8c1788323452d937d6327e75eee98458f06deafc6f27e0",
+    "src/capacityTransport.ts": "cf1df2c1b549870bd5494d2781d226cc10342a2a79cea438cd4e43c75f1cd2d0",
+    "src/capacitySlices.ts": "6ff02a7f3f78e212243eaa728c3b83f3468695bfe23b8dc852d2db9738d980a1",
+    "src/exactLength.ts": "326f867070762173178faf4a725328788c3e26f3102eb04002769a9bf0a8b331",
+    "src/subsidence.ts": "69bd760fe11f190d24d65ae7cf574370fd517f66373f39010bf2692029813bf2",
+    "src/strata.ts": "1eea0bec523995da72631b55202eaaa73c9d8c14733196003cf0a6c3904bf483",
+    "src/normalTransport.ts": "80ad4501a24315666ce66947a4814c4b6d558a77c94f4222c36993c252fac413",
+    "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+    "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+    "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+    "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+    "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+    "validation/numerics/metrics.mjs": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b",
+    "validation/numerics/run.mjs": "8cbf8387939091ad860f3994c08a717a6e8f08cd8e698adf25a8f36f38b41bed"
+  },
+  "groups": [
+    {
+      "case": "coupled-compression-a",
+      "metric": "thickness_m",
+      "keys": [
+        "unit:7:8400",
+        "unit:9:8400",
+        "unit:10:8400",
+        "unit:13:8400",
+        "unit:15:8400"
+      ],
+      "label": "original_five_A",
+      "history_sha256": "a47b82f4d9d2b45d9bc2b7218afe6a4d8fc14d12da0028d952b7dad85ec41e18",
+      "prespecified_keys_n": 5,
+      "all_keys_eligible_all_revisions": true,
+      "shared_keys": [
+        "unit:7:8400",
+        "unit:9:8400",
+        "unit:10:8400",
+        "unit:13:8400",
+        "unit:15:8400"
+      ],
+      "shared_summary": {
+        "prior_unweighted": {
+          "n": 5,
+          "coarse_rms": 0.3455466235378245,
+          "fine_rms": 0.12467930881955981,
+          "ratio": 0.360817615704215,
+          "coarse_mae": 0.3009719864513613,
+          "fine_mae": 0.10310951718674914,
+          "coarse_max": 0.5321709049143237,
+          "fine_max": 0.2044241984705195,
+          "classes": {
+            "monotonic-contracting": 1,
+            "oscillatory-contracting": 3,
+            "oscillatory-noncontracting": 1
+          }
+        },
+        "prior_weighted": {
+          "n": 5,
+          "coarse_rms": 19.601453062217455,
+          "fine_rms": 0.11381318734842297,
+          "ratio": 0.005806364813218986,
+          "coarse_mae": 18.833967221377044,
+          "fine_mae": 0.09387090540450345,
+          "coarse_max": 25.593799839522262,
+          "fine_max": 0.2127071660988804,
+          "classes": {
+            "oscillatory-contracting": 1,
+            "monotonic-contracting": 4
+          }
+        },
+        "current_baseline": {
+          "n": 5,
+          "coarse_rms": 0.3872241575734773,
+          "fine_rms": 0.3697390247497262,
+          "ratio": 0.9548449328850739,
+          "coarse_mae": 0.29731413690866476,
+          "fine_mae": 0.3250780968306913,
+          "coarse_max": 0.6464174184151261,
+          "fine_max": 0.5883525054643997,
+          "classes": {
+            "oscillatory-contracting": 2,
+            "oscillatory-noncontracting": 1,
+            "monotonic-noncontracting": 2
+          }
+        },
+        "candidate": {
+          "n": 5,
+          "coarse_rms": 0.387201679241355,
+          "fine_rms": 0.11751017515897953,
+          "ratio": 0.3034857064391287,
+          "coarse_mae": 0.29713575553274724,
+          "fine_mae": 0.09804529341909074,
+          "coarse_max": 0.6464542114035794,
+          "fine_max": 0.22286790351529362,
+          "classes": {
+            "oscillatory-contracting": 2,
+            "oscillatory-noncontracting": 1,
+            "monotonic-contracting": 2
+          }
+        }
+      },
+      "missing_keys_by_revision": {
+        "prior_unweighted": [],
+        "prior_weighted": [],
+        "current_baseline": [],
+        "candidate": []
+      },
+      "rows": [
+        {
+          "key": "unit:7:8400",
+          "revisions": {
+            "prior_unweighted": {
+              "included": true,
+              "series": {
+                "key": "unit:7:8400",
+                "metric": "thickness_m",
+                "values": [
+                  140.6892502999798,
+                  140.84498310141498,
+                  140.895610946362
+                ],
+                "coarse": -0.15573280143519241,
+                "fine": -0.0506278449470301,
+                "ratio": 0.32509429279160995,
+                "classification": "monotonic-contracting"
+              },
+              "coverage": {
+                "key": "unit:7:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      22.269312202593184,
+                      25.78654346009268
+                    ]
+                  ],
+                  [
+                    [
+                      44.44768731947054,
+                      51.48993647454129
+                    ]
+                  ],
+                  [
+                    [
+                      88.87371277126354,
+                      102.96327386589974
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:7:8400",
+                    "unit": 7,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        22.269312202593184,
+                        25.78654346009268
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 890.7724881037274,
+                      "thickness_m": 140.6892502999798,
+                      "solid_height_m": 82.28547601496237,
+                      "sand_fraction": 0.24228187363858947,
+                      "porosity": 0.41512606087876647,
+                      "maximum_burial_m": 790.4537513502783,
+                      "effective_loading_m": 790.4537513502783,
+                      "effective_velocity_m_s": 2058.171211551311
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:7:8400",
+                    "unit": 7,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        44.44768731947054,
+                        51.48993647454129
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 888.9537463894108,
+                      "thickness_m": 140.84498310141498,
+                      "solid_height_m": 82.33136800922856,
+                      "sand_fraction": 0.24228177072147028,
+                      "porosity": 0.4154469247232887,
+                      "maximum_burial_m": 788.7605623783957,
+                      "effective_loading_m": 788.7605623783957,
+                      "effective_velocity_m_s": 2057.3624916514505
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:7:8400",
+                    "unit": 7,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        88.87371277126354,
+                        102.96327386589974
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 888.7371277126354,
+                      "thickness_m": 140.895610946362,
+                      "solid_height_m": 82.40659302783298,
+                      "sand_fraction": 0.2546176702994175,
+                      "porosity": 0.41512306540759025,
+                      "maximum_burial_m": 788.6319638331752,
+                      "effective_loading_m": 788.6319638331752,
+                      "effective_velocity_m_s": 2059.99698270463
+                    }
+                  }
+                }
+              ]
+            },
+            "prior_weighted": {
+              "included": true,
+              "series": {
+                "key": "unit:7:8400",
+                "metric": "thickness_m",
+                "values": [
+                  124.70209804938395,
+                  140.84434878594197,
+                  140.77378050047423
+                ],
+                "coarse": -16.142250736558026,
+                "fine": 0.07056828546774341,
+                "ratio": 0.004371650931423366,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "unit:7:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      22.24266769113233,
+                      25.360220142366927
+                    ]
+                  ],
+                  [
+                    [
+                      44.448186195484865,
+                      51.49040363478197
+                    ]
+                  ],
+                  [
+                    [
+                      88.8835026923867,
+                      102.96088074243411
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:7:8400",
+                    "unit": 7,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        22.24266769113233,
+                        25.360220142366927
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 889.7067076452931,
+                      "thickness_m": 124.70209804938395,
+                      "solid_height_m": 72.78336204844018,
+                      "sand_fraction": 0.23420908410656488,
+                      "porosity": 0.4163421210474193,
+                      "maximum_burial_m": 784.6559843605062,
+                      "effective_loading_m": 784.6559843605062,
+                      "effective_velocity_m_s": 2053.9240517208846
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:7:8400",
+                    "unit": 7,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        44.448186195484865,
+                        51.49040363478197
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 888.9637239096974,
+                      "thickness_m": 140.84434878594197,
+                      "solid_height_m": 82.33136524328354,
+                      "sand_fraction": 0.24228177072767218,
+                      "porosity": 0.41544431173158125,
+                      "maximum_burial_m": 788.7743810208748,
+                      "effective_loading_m": 788.7743810208748,
+                      "effective_velocity_m_s": 2057.3690788483236
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:7:8400",
+                    "unit": 7,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        88.8835026923867,
+                        102.96088074243411
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 888.835026923867,
+                      "thickness_m": 140.77378050047423,
+                      "solid_height_m": 82.28675278144316,
+                      "sand_fraction": 0.24251175679119116,
+                      "porosity": 0.4154681895385629,
+                      "maximum_burial_m": 788.6114183379158,
+                      "effective_loading_m": 788.6114183379158,
+                      "effective_velocity_m_s": 2057.3430080592802
+                    }
+                  }
+                }
+              ]
+            },
+            "current_baseline": {
+              "included": true,
+              "series": {
+                "key": "unit:7:8400",
+                "metric": "thickness_m",
+                "values": [
+                  140.19492964818653,
+                  140.84134706660166,
+                  140.25299456113726
+                ],
+                "coarse": -0.6464174184151261,
+                "fine": 0.5883525054643997,
+                "ratio": 0.910174275481176,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "unit:7:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      22.246059795204715,
+                      25.75093303640938
+                    ]
+                  ],
+                  [
+                    [
+                      44.44798798783644,
+                      51.490055341166524
+                    ]
+                  ],
+                  [
+                    [
+                      88.92857642963891,
+                      102.95387588575264
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:7:8400",
+                    "unit": 7,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        22.246059795204715,
+                        25.75093303640938
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 889.8423918081886,
+                      "thickness_m": 140.19492964818653,
+                      "solid_height_m": 81.96695601245415,
+                      "sand_fraction": 0.24228258802959865,
+                      "porosity": 0.4153358026702757,
+                      "maximum_burial_m": 789.3353480324779,
+                      "effective_loading_m": 789.3353480324779,
+                      "effective_velocity_m_s": 2057.6420996035013
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:7:8400",
+                    "unit": 7,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        44.44798798783644,
+                        51.490055341166524
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 888.9597597567288,
+                      "thickness_m": 140.84134706660166,
+                      "solid_height_m": 82.3294022053772,
+                      "sand_fraction": 0.2422817751299099,
+                      "porosity": 0.4154457911678101,
+                      "maximum_burial_m": 788.7656140992613,
+                      "effective_loading_m": 788.7656140992613,
+                      "effective_velocity_m_s": 2057.365366393919
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:7:8400",
+                    "unit": 7,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        88.92857642963891,
+                        102.95387588575264
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 889.2857642963891,
+                      "thickness_m": 140.25299456113726,
+                      "solid_height_m": 81.97652241151356,
+                      "sand_fraction": 0.23850451612350404,
+                      "porosity": 0.41550964620737973,
+                      "maximum_burial_m": 788.6863766569319,
+                      "effective_loading_m": 788.6863766569319,
+                      "effective_velocity_m_s": 2056.7449152547706
+                    }
+                  }
+                }
+              ]
+            },
+            "candidate": {
+              "included": true,
+              "series": {
+                "key": "unit:7:8400",
+                "metric": "thickness_m",
+                "values": [
+                  140.19486501515996,
+                  140.84131922656354,
+                  140.75894399887898
+                ],
+                "coarse": -0.6464542114035794,
+                "fine": 0.08237522768456529,
+                "ratio": 0.12742623720512616,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "unit:7:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      22.24610191119227,
+                      25.75097353657127
+                    ]
+                  ],
+                  [
+                    [
+                      44.448023938560546,
+                      51.49008989988872
+                    ]
+                  ],
+                  [
+                    [
+                      88.87336636375885,
+                      102.94926076364675
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:7:8400",
+                    "unit": 7,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        22.24610191119227,
+                        25.75097353657127
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 889.8440764476908,
+                      "thickness_m": 140.19486501515996,
+                      "solid_height_m": 81.9669567434405,
+                      "sand_fraction": 0.2422825880279596,
+                      "porosity": 0.4153355279126877,
+                      "maximum_burial_m": 789.3367990582985,
+                      "effective_loading_m": 789.3367990582985,
+                      "effective_velocity_m_s": 2057.642792082852
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:7:8400",
+                    "unit": 7,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        44.448023938560546,
+                        51.49008989988872
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 888.9604787712109,
+                      "thickness_m": 140.84131922656354,
+                      "solid_height_m": 82.32940264428936,
+                      "sand_fraction": 0.24228177512892585,
+                      "porosity": 0.415445672502892,
+                      "maximum_burial_m": 788.7662406002439,
+                      "effective_loading_m": 788.7662406002439,
+                      "effective_velocity_m_s": 2057.365665394859
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:7:8400",
+                    "unit": 7,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        88.87336636375885,
+                        102.94926076364675
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 888.7336636375885,
+                      "thickness_m": 140.75894399887898,
+                      "solid_height_m": 82.27390968001002,
+                      "sand_fraction": 0.24226762951405598,
+                      "porosity": 0.41549781958675913,
+                      "maximum_burial_m": 788.4910483215759,
+                      "effective_loading_m": 788.4910483215759,
+                      "effective_velocity_m_s": 2057.232027420335
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "unit:9:8400",
+          "revisions": {
+            "prior_unweighted": {
+              "included": true,
+              "series": {
+                "key": "unit:9:8400",
+                "metric": "thickness_m",
+                "values": [
+                  122.94846488057601,
+                  122.41629397566169,
+                  122.50529204008672
+                ],
+                "coarse": 0.5321709049143237,
+                "fine": -0.08899806442502722,
+                "ratio": 0.16723587028748851,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "unit:9:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      17.510904509074045,
+                      20.584616131088445
+                    ]
+                  ],
+                  [
+                    [
+                      34.991850143079155,
+                      41.11266484186224
+                    ]
+                  ],
+                  [
+                    [
+                      69.97283029785018,
+                      82.22335950185885
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:9:8400",
+                    "unit": 9,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        17.510904509074045,
+                        20.584616131088445
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 700.4361803629617,
+                      "thickness_m": 122.94846488057601,
+                      "solid_height_m": 68.62881632631562,
+                      "sand_fraction": 0.5517359406282183,
+                      "porosity": 0.441808269887899,
+                      "maximum_burial_m": 592.1316938305945,
+                      "effective_loading_m": 592.1316938305945,
+                      "effective_velocity_m_s": 1990.2225097513888
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:9:8400",
+                    "unit": 9,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        34.991850143079155,
+                        41.11266484186224
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 699.8370028615831,
+                      "thickness_m": 122.41629397566169,
+                      "solid_height_m": 68.31365340616996,
+                      "sand_fraction": 0.5514802880811378,
+                      "porosity": 0.44195620380607337,
+                      "maximum_burial_m": 591.3071383275665,
+                      "effective_loading_m": 591.3071383275665,
+                      "effective_velocity_m_s": 1989.8013630566522
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:9:8400",
+                    "unit": 9,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        69.97283029785018,
+                        82.22335950185885
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 699.7283029785018,
+                      "thickness_m": 122.50529204008672,
+                      "solid_height_m": 68.3649084027774,
+                      "sand_fraction": 0.551732957234663,
+                      "porosity": 0.44194322331473856,
+                      "maximum_burial_m": 591.3182609570022,
+                      "effective_loading_m": 591.3182609570022,
+                      "effective_velocity_m_s": 1989.8372055041636
+                    }
+                  }
+                }
+              ]
+            },
+            "prior_weighted": {
+              "included": true,
+              "series": {
+                "key": "unit:9:8400",
+                "metric": "thickness_m",
+                "values": [
+                  96.82207285771642,
+                  122.41587269723868,
+                  122.51621791278717
+                ],
+                "coarse": -25.593799839522262,
+                "fine": -0.10034521554848652,
+                "ratio": 0.003920684547729102,
+                "classification": "monotonic-contracting"
+              },
+              "coverage": {
+                "key": "unit:9:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      17.237278337458484,
+                      19.657830158901398
+                    ]
+                  ],
+                  [
+                    [
+                      34.9923844524927,
+                      41.11317808735463
+                    ]
+                  ],
+                  [
+                    [
+                      69.97181144136978,
+                      82.22343323264849
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:9:8400",
+                    "unit": 9,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        17.237278337458484,
+                        19.657830158901398
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 689.4911334983394,
+                      "thickness_m": 96.82207285771642,
+                      "solid_height_m": 53.732515657630316,
+                      "sand_fraction": 0.5515631006547044,
+                      "porosity": 0.4450385736257453,
+                      "maximum_burial_m": 571.1903121508126,
+                      "effective_loading_m": 571.1903121508126,
+                      "effective_velocity_m_s": 1980.5843678963379
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:9:8400",
+                    "unit": 9,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        34.9923844524927,
+                        41.11317808735463
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 699.847689049854,
+                      "thickness_m": 122.41587269723868,
+                      "solid_height_m": 68.31372731672532,
+                      "sand_fraction": 0.5514786469864256,
+                      "porosity": 0.4419536796042768,
+                      "maximum_burial_m": 591.3217522363016,
+                      "effective_loading_m": 591.3217522363016,
+                      "effective_velocity_m_s": 1989.8083168314547
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:9:8400",
+                    "unit": 9,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        69.97181144136978,
+                        82.22343323264849
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 699.7181144136978,
+                      "thickness_m": 122.51621791278717,
+                      "solid_height_m": 68.36942784255298,
+                      "sand_fraction": 0.5517330083483297,
+                      "porosity": 0.44195610175281796,
+                      "maximum_burial_m": 591.2458680125934,
+                      "effective_loading_m": 591.2458680125934,
+                      "effective_velocity_m_s": 1989.801914793362
+                    }
+                  }
+                }
+              ]
+            },
+            "current_baseline": {
+              "included": true,
+              "series": {
+                "key": "unit:9:8400",
+                "metric": "thickness_m",
+                "values": [
+                  122.961368600568,
+                  122.41562759424949,
+                  122.49236010231209
+                ],
+                "coarse": 0.545741006318508,
+                "fine": -0.07673250806260512,
+                "ratio": 0.14060242344666718,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "unit:9:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      17.48843977066477,
+                      20.56247398567897
+                    ]
+                  ],
+                  [
+                    [
+                      34.99223938573297,
+                      41.11302076544545
+                    ]
+                  ],
+                  [
+                    [
+                      70.02977537536722,
+                      82.27901138559842
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:9:8400",
+                    "unit": 9,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        17.48843977066477,
+                        20.56247398567897
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 699.5375908265908,
+                      "thickness_m": 122.961368600568,
+                      "solid_height_m": 68.61821211551822,
+                      "sand_fraction": 0.5517358208034197,
+                      "porosity": 0.44195308740894046,
+                      "maximum_burial_m": 591.3046870085467,
+                      "effective_loading_m": 591.3046870085467,
+                      "effective_velocity_m_s": 1989.8227331135279
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:9:8400",
+                    "unit": 9,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        34.99223938573297,
+                        41.11302076544545
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 699.8447877146594,
+                      "thickness_m": 122.41562759424949,
+                      "solid_height_m": 68.31347986342622,
+                      "sand_fraction": 0.551480315233294,
+                      "porosity": 0.4419545836920966,
+                      "maximum_burial_m": 591.3153486233542,
+                      "effective_loading_m": 591.3153486233542,
+                      "effective_velocity_m_s": 1989.8059746300933
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:9:8400",
+                    "unit": 9,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        70.02977537536722,
+                        82.27901138559842
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 700.2977537536722,
+                      "thickness_m": 122.49236010231209,
+                      "solid_height_m": 68.36625950675774,
+                      "sand_fraction": 0.5517329725153752,
+                      "porosity": 0.4418732772423143,
+                      "maximum_burial_m": 591.7150004016844,
+                      "effective_loading_m": 591.7150004016844,
+                      "effective_velocity_m_s": 1990.030419749454
+                    }
+                  }
+                }
+              ]
+            },
+            "candidate": {
+              "included": true,
+              "series": {
+                "key": "unit:9:8400",
+                "metric": "thickness_m",
+                "values": [
+                  122.96130887210302,
+                  122.41560192042664,
+                  122.4799547435091
+                ],
+                "coarse": 0.5457069516763795,
+                "fine": -0.0643528230824586,
+                "ratio": 0.11792560619719161,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "unit:9:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      17.48848415011176,
+                      20.562516871914333
+                    ]
+                  ],
+                  [
+                    [
+                      34.99227728060683,
+                      41.11305737662816
+                    ]
+                  ],
+                  [
+                    [
+                      69.97485216879885,
+                      82.22284764314976
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:9:8400",
+                    "unit": 9,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        17.48848415011176,
+                        20.562516871914333
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 699.5393660044704,
+                      "thickness_m": 122.96130887210302,
+                      "solid_height_m": 68.61821203027661,
+                      "sand_fraction": 0.5517358208024592,
+                      "porosity": 0.4419528170308502,
+                      "maximum_burial_m": 591.306226292752,
+                      "effective_loading_m": 591.306226292752,
+                      "effective_velocity_m_s": 1989.8234786179462
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:9:8400",
+                    "unit": 9,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        34.99227728060683,
+                        41.11305737662816
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 699.8455456121366,
+                      "thickness_m": 122.41560192042664,
+                      "solid_height_m": 68.31347982493682,
+                      "sand_fraction": 0.551480315262897,
+                      "porosity": 0.4419544669694768,
+                      "maximum_burial_m": 591.3160130644807,
+                      "effective_loading_m": 591.3160130644807,
+                      "effective_velocity_m_s": 1989.8062964248954
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:9:8400",
+                    "unit": 9,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        69.97485216879885,
+                        82.22284764314976
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 699.7485216879885,
+                      "thickness_m": 122.4799547435091,
+                      "solid_height_m": 68.34923783184885,
+                      "sand_fraction": 0.5517206427464877,
+                      "porosity": 0.44195572267329675,
+                      "maximum_burial_m": 591.24539366535,
+                      "effective_loading_m": 591.24539366535,
+                      "effective_velocity_m_s": 1989.8027007808223
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "unit:10:8400",
+          "revisions": {
+            "prior_unweighted": {
+              "included": true,
+              "series": {
+                "key": "unit:10:8400",
+                "metric": "thickness_m",
+                "values": [
+                  126.12691061782732,
+                  126.25412293581655,
+                  126.04969873734603
+                ],
+                "coarse": -0.12721231798923327,
+                "fine": 0.2044241984705195,
+                "ratio": 1.6069528619690834,
+                "classification": "oscillatory-noncontracting"
+              },
+              "coverage": {
+                "key": "unit:10:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      14.35773174362836,
+                      17.510904509074045
+                    ]
+                  ],
+                  [
+                    [
+                      28.679143996288325,
+                      34.991850143079155
+                    ]
+                  ],
+                  [
+                    [
+                      57.36786042411558,
+                      69.97283029785018
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:10:8400",
+                    "unit": 10,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        14.35773174362836,
+                        17.510904509074045
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 574.3092697451344,
+                      "thickness_m": 126.12691061782732,
+                      "solid_height_m": 65.73848281047461,
+                      "sand_fraction": 0.28271020040278044,
+                      "porosity": 0.4787909852983996,
+                      "maximum_burial_m": 466.8436343779942,
+                      "effective_loading_m": 466.8436343779942,
+                      "effective_velocity_m_s": 1907.33597405423
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:10:8400",
+                    "unit": 10,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        28.679143996288325,
+                        34.991850143079155
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 573.5828799257665,
+                      "thickness_m": 126.25412293581655,
+                      "solid_height_m": 65.78033113127621,
+                      "sand_fraction": 0.28184542836960735,
+                      "porosity": 0.47898468896166846,
+                      "maximum_burial_m": 466.23115113413854,
+                      "effective_loading_m": 466.23115113413854,
+                      "effective_velocity_m_s": 1906.8789958992124
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:10:8400",
+                    "unit": 10,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        57.36786042411558,
+                        69.97283029785018
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 573.6786042411558,
+                      "thickness_m": 126.04969873734603,
+                      "solid_height_m": 65.68035924433384,
+                      "sand_fraction": 0.2823546671839506,
+                      "porosity": 0.4789328344116538,
+                      "maximum_burial_m": 466.29503837438386,
+                      "effective_loading_m": 466.29503837438386,
+                      "effective_velocity_m_s": 1907.019306828852
+                    }
+                  }
+                }
+              ]
+            },
+            "prior_weighted": {
+              "included": true,
+              "series": {
+                "key": "unit:10:8400",
+                "metric": "thickness_m",
+                "values": [
+                  148.77454265781694,
+                  126.2628735850077,
+                  126.05016641890882
+                ],
+                "coarse": 22.51166907280924,
+                "fine": 0.2127071660988804,
+                "ratio": 0.009448751463559809,
+                "classification": "monotonic-contracting"
+              },
+              "coverage": {
+                "key": "unit:10:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      13.517914771013062,
+                      17.237278337458484
+                    ]
+                  ],
+                  [
+                    [
+                      28.679240773242316,
+                      34.9923844524927
+                    ]
+                  ],
+                  [
+                    [
+                      57.366794799478896,
+                      69.97181144136978
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:10:8400",
+                    "unit": 10,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        13.517914771013062,
+                        17.237278337458484
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 540.7165908405225,
+                      "thickness_m": 148.77454265781694,
+                      "solid_height_m": 76.92483099618516,
+                      "sand_fraction": 0.2827561528312179,
+                      "porosity": 0.48294358952853167,
+                      "maximum_burial_m": 448.2331678634196,
+                      "effective_loading_m": 448.2331678634196,
+                      "effective_velocity_m_s": 1897.7630322239977
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:10:8400",
+                    "unit": 10,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        28.679240773242316,
+                        34.9923844524927
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 573.5848154648463,
+                      "thickness_m": 126.2628735850077,
+                      "solid_height_m": 65.78923952645549,
+                      "sand_fraction": 0.28238093731658187,
+                      "porosity": 0.478950243579224,
+                      "maximum_burial_m": 466.243429345635,
+                      "effective_loading_m": 466.243429345635,
+                      "effective_velocity_m_s": 1906.9646514601543
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:10:8400",
+                    "unit": 10,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        57.366794799478896,
+                        69.97181144136978
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 573.667947994789,
+                      "thickness_m": 126.05016641890882,
+                      "solid_height_m": 65.67846417864982,
+                      "sand_fraction": 0.2823546590585018,
+                      "porosity": 0.4789498019353874,
+                      "maximum_burial_m": 466.21651209475726,
+                      "effective_loading_m": 466.21651209475726,
+                      "effective_velocity_m_s": 1906.9800189404634
+                    }
+                  }
+                }
+              ]
+            },
+            "current_baseline": {
+              "included": true,
+              "series": {
+                "key": "unit:10:8400",
+                "metric": "thickness_m",
+                "values": [
+                  126.19324406635292,
+                  126.25954540938278,
+                  125.96456778223921
+                ],
+                "coarse": -0.06630134302986335,
+                "fine": 0.2949776271435667,
+                "ratio": 4.449044524040837,
+                "classification": "oscillatory-noncontracting"
+              },
+              "coverage": {
+                "key": "unit:10:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      14.333608669005946,
+                      17.48843977066477
+                    ]
+                  ],
+                  [
+                    [
+                      28.679262115263832,
+                      34.99223938573297
+                    ]
+                  ],
+                  [
+                    [
+                      57.4333185971433,
+                      70.02977537536722
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:10:8400",
+                    "unit": 10,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        14.333608669005946,
+                        17.48843977066477
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 573.3443467602378,
+                      "thickness_m": 126.19324406635292,
+                      "solid_height_m": 65.7493563423586,
+                      "sand_fraction": 0.28271024564906966,
+                      "porosity": 0.47897879297098256,
+                      "maximum_burial_m": 465.9755232703753,
+                      "effective_loading_m": 465.9755232703753,
+                      "effective_velocity_m_s": 1906.9010347135584
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:10:8400",
+                    "unit": 10,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        28.679262115263832,
+                        34.99223938573297
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 573.5852423052767,
+                      "thickness_m": 126.25954540938278,
+                      "solid_height_m": 65.78495844403099,
+                      "sand_fraction": 0.2820512633345334,
+                      "porosity": 0.4789704158150542,
+                      "maximum_burial_m": 466.23769226224294,
+                      "effective_loading_m": 466.23769226224294,
+                      "effective_velocity_m_s": 1906.9129652028917
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:10:8400",
+                    "unit": 10,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        57.4333185971433,
+                        70.02977537536722
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 574.333185971433,
+                      "thickness_m": 125.96456778223921,
+                      "solid_height_m": 65.6482363315776,
+                      "sand_fraction": 0.2823545294460105,
+                      "porosity": 0.47883569572463625,
+                      "maximum_burial_m": 466.7412666324974,
+                      "effective_loading_m": 466.7412666324974,
+                      "effective_velocity_m_s": 1907.2443436540702
+                    }
+                  }
+                }
+              ]
+            },
+            "candidate": {
+              "included": true,
+              "series": {
+                "key": "unit:10:8400",
+                "metric": "thickness_m",
+                "values": [
+                  126.19418852901708,
+                  126.25951132357557,
+                  126.03664342006027
+                ],
+                "coarse": -0.06532279455848311,
+                "fine": 0.22286790351529362,
+                "ratio": 3.4117937700255814,
+                "classification": "oscillatory-noncontracting"
+              },
+              "coverage": {
+                "key": "unit:10:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      14.333629436886332,
+                      17.48848415011176
+                    ]
+                  ],
+                  [
+                    [
+                      28.67930171442805,
+                      34.99227728060683
+                    ]
+                  ],
+                  [
+                    [
+                      57.37118782679282,
+                      69.97485216879885
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:10:8400",
+                    "unit": 10,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        14.333629436886332,
+                        17.48848415011176
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 573.3451774754533,
+                      "thickness_m": 126.19418852901708,
+                      "solid_height_m": 65.74987819585161,
+                      "sand_fraction": 0.28271024782054616,
+                      "porosity": 0.4789785570772692,
+                      "maximum_burial_m": 465.9766348731182,
+                      "effective_loading_m": 465.9766348731182,
+                      "effective_velocity_m_s": 1906.9015826273524
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:10:8400",
+                    "unit": 10,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        28.67930171442805,
+                        34.99227728060683
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 573.586034288561,
+                      "thickness_m": 126.25951132357557,
+                      "solid_height_m": 65.7849597036188,
+                      "sand_fraction": 0.28205126337833974,
+                      "porosity": 0.47897026517846797,
+                      "maximum_burial_m": 466.2383882406369,
+                      "effective_loading_m": 466.2383882406369,
+                      "effective_velocity_m_s": 1906.9133139121896
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:10:8400",
+                    "unit": 10,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        57.37118782679282,
+                        69.97485216879885
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 573.7118782679282,
+                      "thickness_m": 126.03664342006027,
+                      "solid_height_m": 65.67214495252279,
+                      "sand_fraction": 0.28235463196337207,
+                      "porosity": 0.47894403428653776,
+                      "maximum_burial_m": 466.2415243730149,
+                      "effective_loading_m": 466.2415243730149,
+                      "effective_velocity_m_s": 1906.9935288884587
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "unit:13:8400",
+          "revisions": {
+            "prior_unweighted": {
+              "included": true,
+              "series": {
+                "key": "unit:13:8400",
+                "metric": "thickness_m",
+                "values": [
+                  115.34311160119682,
+                  114.8650152789553,
+                  115.02406432723319
+                ],
+                "coarse": 0.47809632224152665,
+                "fine": -0.15904904827789323,
+                "ratio": 0.3326715577568158,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "unit:13:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      11.003162616284024,
+                      13.886740406313944
+                    ]
+                  ],
+                  [
+                    [
+                      21.993540314948724,
+                      27.736791078896488
+                    ]
+                  ],
+                  [
+                    [
+                      43.98093265018652,
+                      55.483339082909836
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:13:8400",
+                    "unit": 13,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        11.003162616284024,
+                        13.886740406313944
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 440.12650465136096,
+                      "thickness_m": 115.34311160119682,
+                      "solid_height_m": 55.41089062015359,
+                      "sand_fraction": 0.16967794225504604,
+                      "porosity": 0.5195994814866896,
+                      "maximum_burial_m": 327.49123979132355,
+                      "effective_loading_m": 327.49123979132355,
+                      "effective_velocity_m_s": 1819.005156555449
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:13:8400",
+                    "unit": 13,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        21.993540314948724,
+                        27.736791078896488
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 439.87080629897446,
+                      "thickness_m": 114.8650152789553,
+                      "solid_height_m": 55.16863732554412,
+                      "sand_fraction": 0.16967477706150613,
+                      "porosity": 0.5197089628067834,
+                      "maximum_burial_m": 327.0363282910005,
+                      "effective_loading_m": 327.0363282910005,
+                      "effective_velocity_m_s": 1818.7747066227387
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:13:8400",
+                    "unit": 13,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        43.98093265018652,
+                        55.483339082909836
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 439.80932650186514,
+                      "thickness_m": 115.02406432723319,
+                      "solid_height_m": 55.2475746794491,
+                      "sand_fraction": 0.16967580878614397,
+                      "porosity": 0.5196868150800629,
+                      "maximum_burial_m": 327.1301449748974,
+                      "effective_loading_m": 327.1301449748974,
+                      "effective_velocity_m_s": 1818.8214915320784
+                    }
+                  }
+                }
+              ]
+            },
+            "prior_weighted": {
+              "included": true,
+              "series": {
+                "key": "unit:13:8400",
+                "metric": "thickness_m",
+                "values": [
+                  94.85932162901446,
+                  114.87152777593792,
+                  114.93437816151845
+                ],
+                "coarse": -20.01220614692346,
+                "fine": -0.06285038558053202,
+                "ratio": 0.0031406025462212325,
+                "classification": "monotonic-contracting"
+              },
+              "coverage": {
+                "key": "unit:13:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      10.666986936074487,
+                      13.038469976799849
+                    ]
+                  ],
+                  [
+                    [
+                      21.993314782853822,
+                      27.73689117165072
+                    ]
+                  ],
+                  [
+                    [
+                      43.98874988684476,
+                      55.4821877029966
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:13:8400",
+                    "unit": 13,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        10.666986936074487,
+                        13.038469976799849
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 426.6794774429795,
+                      "thickness_m": 94.85932162901446,
+                      "solid_height_m": 45.09845648212821,
+                      "sand_fraction": 0.1695402383624819,
+                      "porosity": 0.5245753848155917,
+                      "maximum_burial_m": 306.9649947588682,
+                      "effective_loading_m": 306.9649947588682,
+                      "effective_velocity_m_s": 1808.5238453077268
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:13:8400",
+                    "unit": 13,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        21.993314782853822,
+                        27.73689117165072
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 439.8662956570764,
+                      "thickness_m": 114.87152777593792,
+                      "solid_height_m": 55.17184497349488,
+                      "sand_fraction": 0.16967481899275666,
+                      "porosity": 0.519708268517939,
+                      "maximum_burial_m": 327.03931320506604,
+                      "effective_loading_m": 327.03931320506604,
+                      "effective_velocity_m_s": 1818.7761772930105
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:13:8400",
+                    "unit": 13,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        43.98874988684476,
+                        55.4821877029966
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 439.88749886844755,
+                      "thickness_m": 114.93437816151845,
+                      "solid_height_m": 55.20354599593502,
+                      "sand_fraction": 0.16967523336644758,
+                      "porosity": 0.5196950914168004,
+                      "maximum_burial_m": 327.09421308141737,
+                      "effective_loading_m": 327.09421308141737,
+                      "effective_velocity_m_s": 1818.8039285974623
+                    }
+                  }
+                }
+              ]
+            },
+            "current_baseline": {
+              "included": true,
+              "series": {
+                "key": "unit:13:8400",
+                "metric": "thickness_m",
+                "values": [
+                  114.71192077674607,
+                  114.8684665456185,
+                  115.30870791263203
+                ],
+                "coarse": -0.15654576887243365,
+                "fine": -0.44024136701352745,
+                "ratio": 2.8122214364814435,
+                "classification": "monotonic-noncontracting"
+              },
+              "coverage": {
+                "key": "unit:13:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      10.994573943408346,
+                      13.862371962826998
+                    ]
+                  ],
+                  [
+                    [
+                      21.993487925379736,
+                      27.73691125266066
+                    ]
+                  ],
+                  [
+                    [
+                      44.01846024297804,
+                      55.54933103424124
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:13:8400",
+                    "unit": 13,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        10.994573943408346,
+                        13.862371962826998
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 439.78295773633386,
+                      "thickness_m": 114.71192077674607,
+                      "solid_height_m": 55.090987872186076,
+                      "sand_fraction": 0.16967376183219024,
+                      "porosity": 0.5197448748207703,
+                      "maximum_burial_m": 326.8872415794722,
+                      "effective_loading_m": 326.8872415794722,
+                      "effective_velocity_m_s": 1818.6991225231682
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:13:8400",
+                    "unit": 13,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        21.993487925379736,
+                        27.73691125266066
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 439.8697585075947,
+                      "thickness_m": 114.8684665456185,
+                      "solid_height_m": 55.170352308097826,
+                      "sand_fraction": 0.16967479948029793,
+                      "porosity": 0.5197084633650294,
+                      "maximum_burial_m": 327.03843992476516,
+                      "effective_loading_m": 327.03843992476516,
+                      "effective_velocity_m_s": 1818.7757612937785
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:13:8400",
+                    "unit": 13,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        44.01846024297804,
+                        55.54933103424124
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 440.1846024297804,
+                      "thickness_m": 115.30870791263203,
+                      "solid_height_m": 55.3942787176169,
+                      "sand_fraction": 0.16967772531397324,
+                      "porosity": 0.5196002130247748,
+                      "maximum_burial_m": 327.48729792855914,
+                      "effective_loading_m": 327.48729792855914,
+                      "effective_velocity_m_s": 1819.003534335517
+                    }
+                  }
+                }
+              ]
+            },
+            "candidate": {
+              "included": true,
+              "series": {
+                "key": "unit:13:8400",
+                "metric": "thickness_m",
+                "values": [
+                  114.71229419043351,
+                  114.86895374357334,
+                  114.95345866333662
+                ],
+                "coarse": -0.15665955313983204,
+                "fine": -0.08450491976327612,
+                "ratio": 0.5394175973925335,
+                "classification": "monotonic-contracting"
+              },
+              "coverage": {
+                "key": "unit:13:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      10.994585547610344,
+                      13.86239290237118
+                    ]
+                  ],
+                  [
+                    [
+                      21.993503553083542,
+                      27.736951240262208
+                    ]
+                  ],
+                  [
+                    [
+                      43.99127059516174,
+                      55.486616461495395
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:13:8400",
+                    "unit": 13,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        10.994585547610344,
+                        13.86239290237118
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 439.78342190441373,
+                      "thickness_m": 114.71229419043351,
+                      "solid_height_m": 55.09117986027857,
+                      "sand_fraction": 0.16967376434275575,
+                      "porosity": 0.5197447645077877,
+                      "maximum_burial_m": 326.8876967267168,
+                      "effective_loading_m": 326.8876967267168,
+                      "effective_velocity_m_s": 1818.6993544440375
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:13:8400",
+                    "unit": 13,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        21.993503553083542,
+                        27.736951240262208
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 439.87007106167084,
+                      "thickness_m": 114.86895374357334,
+                      "solid_height_m": 55.17059969828553,
+                      "sand_fraction": 0.16967480271424687,
+                      "porosity": 0.5197083467701368,
+                      "maximum_burial_m": 327.038923700887,
+                      "effective_loading_m": 327.038923700887,
+                      "effective_velocity_m_s": 1818.776006664207
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:13:8400",
+                    "unit": 13,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        43.99127059516174,
+                        55.486616461495395
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 439.91270595161734,
+                      "thickness_m": 114.95345866333662,
+                      "solid_height_m": 55.21337505169766,
+                      "sand_fraction": 0.1696753618336834,
+                      "porosity": 0.5196893099719542,
+                      "maximum_burial_m": 327.11805577983444,
+                      "effective_loading_m": 327.11805577983444,
+                      "effective_velocity_m_s": 1818.8160819384257
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "unit:15:8400",
+          "revisions": {
+            "prior_unweighted": {
+              "included": true,
+              "series": {
+                "key": "unit:15:8400",
+                "metric": "thickness_m",
+                "values": [
+                  253.04780303094998,
+                  252.83615544527345,
+                  252.84860387508672
+                ],
+                "coarse": 0.21164758567653053,
+                "fine": -0.012448429813275652,
+                "ratio": 0.05881678155450866,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "unit:15:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      4.280764654853624,
+                      10.606959730627374
+                    ]
+                  ],
+                  [
+                    [
+                      8.559260394528883,
+                      21.201068166792556
+                    ]
+                  ],
+                  [
+                    [
+                      17.111135775453477,
+                      42.39599616296215
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:15:8400",
+                    "unit": 15,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        4.280764654853624,
+                        10.606959730627374
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 171.23058619414496,
+                      "thickness_m": 253.04780303094998,
+                      "solid_height_m": 119.71109662666488,
+                      "sand_fraction": 0.5555381875919976,
+                      "porosity": 0.526922995604814,
+                      "maximum_burial_m": 129.92648876223373,
+                      "effective_loading_m": 129.92648876223373,
+                      "effective_velocity_m_s": 1730.8141706792867
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:15:8400",
+                    "unit": 15,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        8.559260394528883,
+                        21.201068166792556
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 171.18520789057766,
+                      "thickness_m": 252.83615544527345,
+                      "solid_height_m": 119.60571358768303,
+                      "sand_fraction": 0.5555369988576997,
+                      "porosity": 0.5269437894392768,
+                      "maximum_burial_m": 129.81629877393829,
+                      "effective_loading_m": 129.81629877393829,
+                      "effective_velocity_m_s": 1730.7304005097453
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:15:8400",
+                    "unit": 15,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        17.111135775453477,
+                        42.39599616296215
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 171.11135775453477,
+                      "thickness_m": 252.84860387508672,
+                      "solid_height_m": 119.6119116435709,
+                      "sand_fraction": 0.5555370687812365,
+                      "porosity": 0.5269425663799114,
+                      "maximum_burial_m": 129.8227797315824,
+                      "effective_loading_m": 129.8227797315824,
+                      "effective_velocity_m_s": 1730.7353281903381
+                    }
+                  }
+                }
+              ]
+            },
+            "prior_weighted": {
+              "included": true,
+              "series": {
+                "key": "unit:15:8400",
+                "metric": "thickness_m",
+                "values": [
+                  242.92589174775344,
+                  252.83580205882566,
+                  252.85868553315254
+                ],
+                "coarse": -9.909910311072224,
+                "fine": -0.022883474326874875,
+                "ratio": 0.0023091504976899178,
+                "classification": "monotonic-contracting"
+              },
+              "coverage": {
+                "key": "unit:15:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      4.19603989389916,
+                      10.269187187592996
+                    ]
+                  ],
+                  [
+                    [
+                      8.559052420911575,
+                      21.20084252385286
+                    ]
+                  ],
+                  [
+                    [
+                      17.117951170604737,
+                      42.403819723919995
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:15:8400",
+                    "unit": 15,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        4.19603989389916,
+                        10.269187187592996
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 167.8415957559664,
+                      "thickness_m": 242.92589174775344,
+                      "solid_height_m": 114.6807515717777,
+                      "sand_fraction": 0.5554810931410955,
+                      "porosity": 0.5279187790700443,
+                      "maximum_burial_m": 124.6592758689542,
+                      "effective_loading_m": 124.6592758689542,
+                      "effective_velocity_m_s": 1726.783601618145
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:15:8400",
+                    "unit": 15,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        8.559052420911575,
+                        21.20084252385286
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 171.1810484182315,
+                      "thickness_m": 252.83580205882566,
+                      "solid_height_m": 119.60553763750987,
+                      "sand_fraction": 0.5555369968726971,
+                      "porosity": 0.526943824159515,
+                      "maximum_burial_m": 129.81611479242665,
+                      "effective_loading_m": 129.81611479242665,
+                      "effective_velocity_m_s": 1730.730260621637
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:15:8400",
+                    "unit": 15,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        17.117951170604737,
+                        42.403819723919995
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 171.17951170604738,
+                      "thickness_m": 252.85868553315254,
+                      "solid_height_m": 119.61693130863817,
+                      "sand_fraction": 0.5555371254099309,
+                      "porosity": 0.5269415758591568,
+                      "maximum_burial_m": 129.82802849559198,
+                      "effective_loading_m": 129.82802849559198,
+                      "effective_velocity_m_s": 1730.7393189360594
+                    }
+                  }
+                }
+              ]
+            },
+            "current_baseline": {
+              "included": true,
+              "series": {
+                "key": "unit:15:8400",
+                "metric": "thickness_m",
+                "values": [
+                  252.76493689176152,
+                  252.83650203966891,
+                  253.06158851613827
+                ],
+                "coarse": -0.07156514790739266,
+                "fine": -0.22508647646935742,
+                "ratio": 3.1451968318520875,
+                "classification": "monotonic-noncontracting"
+              },
+              "coverage": {
+                "key": "unit:15:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      4.2792032773406845,
+                      10.598326699634722
+                    ]
+                  ],
+                  [
+                    [
+                      8.559190783951362,
+                      21.201015885934808
+                    ]
+                  ],
+                  [
+                    [
+                      17.12749849434822,
+                      42.43365734596205
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:15:8400",
+                    "unit": 15,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        4.2792032773406845,
+                        10.598326699634722
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 171.16813109362738,
+                      "thickness_m": 252.76493689176152,
+                      "solid_height_m": 119.57025453456846,
+                      "sand_fraction": 0.5555365988045988,
+                      "porosity": 0.5269507867470931,
+                      "maximum_burial_m": 129.77922080075493,
+                      "effective_loading_m": 129.77922080075493,
+                      "effective_velocity_m_s": 1730.702207404336
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:15:8400",
+                    "unit": 15,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        8.559190783951362,
+                        21.201015885934808
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 171.18381567902725,
+                      "thickness_m": 252.83650203966891,
+                      "solid_height_m": 119.6058861561708,
+                      "sand_fraction": 0.5555370008045502,
+                      "porosity": 0.5269437553862173,
+                      "maximum_burial_m": 129.8164792193878,
+                      "effective_loading_m": 129.8164792193878,
+                      "effective_velocity_m_s": 1730.7305377094012
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:15:8400",
+                    "unit": 15,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        17.12749849434822,
+                        42.43365734596205
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 171.2749849434822,
+                      "thickness_m": 253.06158851613827,
+                      "solid_height_m": 119.71796095598629,
+                      "sand_fraction": 0.5555382650116598,
+                      "porosity": 0.5269216412574933,
+                      "maximum_burial_m": 129.9336659719575,
+                      "effective_loading_m": 129.9336659719575,
+                      "effective_velocity_m_s": 1730.819626240217
+                    }
+                  }
+                }
+              ]
+            },
+            "candidate": {
+              "included": true,
+              "series": {
+                "key": "unit:15:8400",
+                "metric": "thickness_m",
+                "values": [
+                  252.765202815911,
+                  252.83673808279647,
+                  252.87286367584633
+                ],
+                "coarse": -0.07153526688546208,
+                "fine": -0.03612559304986007,
+                "ratio": 0.5050039599027732,
+                "classification": "monotonic-contracting"
+              },
+              "coverage": {
+                "key": "unit:15:8400",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      4.27920827514646,
+                      10.598338345544235
+                    ]
+                  ],
+                  [
+                    [
+                      8.559194683535937,
+                      21.20103158767576
+                    ]
+                  ],
+                  [
+                    [
+                      17.11906295856501,
+                      42.406349326149645
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:15:8400",
+                    "unit": 15,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        4.27920827514646,
+                        10.598338345544235
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 171.1683310058584,
+                      "thickness_m": 252.765202815911,
+                      "solid_height_m": 119.57038693393048,
+                      "sand_fraction": 0.5555366002984096,
+                      "porosity": 0.5269507606194764,
+                      "maximum_burial_m": 129.77935924634198,
+                      "effective_loading_m": 129.77935924634198,
+                      "effective_velocity_m_s": 1730.7023126795423
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:15:8400",
+                    "unit": 15,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        8.559194683535937,
+                        21.20103158767576
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 171.18389367071873,
+                      "thickness_m": 252.83673808279647,
+                      "solid_height_m": 119.6060036814775,
+                      "sand_fraction": 0.5555370021304248,
+                      "porosity": 0.5269437321948438,
+                      "maximum_burial_m": 129.81660210917678,
+                      "effective_loading_m": 129.81660210917678,
+                      "effective_velocity_m_s": 1730.7306311472228
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:15:8400",
+                    "unit": 15,
+                    "x": 8400,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        17.11906295856501,
+                        42.406349326149645
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 171.1906295856501,
+                      "thickness_m": 252.87286367584633,
+                      "solid_height_m": 119.62399064907648,
+                      "sand_fraction": 0.5555372050477543,
+                      "porosity": 0.5269401828643008,
+                      "maximum_burial_m": 129.83541000092444,
+                      "effective_loading_m": 129.83541000092444,
+                      "effective_velocity_m_s": 1730.7449311614782
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "coupled-compression-c",
+      "metric": "vertical_travel_time_s",
+      "keys": [
+        "time:4400",
+        "time:7600"
+      ],
+      "label": "dominant_C_coarse_profiles",
+      "history_sha256": "9b7be4934356709818bd62fcd2138e7e766e08dbf89cf3f53d9a954a6eee9c5b",
+      "prespecified_keys_n": 2,
+      "all_keys_eligible_all_revisions": true,
+      "shared_keys": [
+        "time:4400",
+        "time:7600"
+      ],
+      "shared_summary": {
+        "prior_unweighted": {
+          "n": 2,
+          "coarse_rms": 0.0004887862694325959,
+          "fine_rms": 0.0006155909369637288,
+          "ratio": 1.2594276383383953,
+          "coarse_mae": 0.0004857680923323615,
+          "fine_mae": 0.0005930857838408743,
+          "coarse_max": 0.0005400025616080217,
+          "fine_max": 0.0007580144189462956,
+          "classes": {
+            "oscillatory-contracting": 1,
+            "monotonic-noncontracting": 1
+          }
+        },
+        "prior_weighted": {
+          "n": 2,
+          "coarse_rms": 0.003920517166575742,
+          "fine_rms": 0.0012793439970637485,
+          "ratio": 0.3263202130501454,
+          "coarse_mae": 0.0033024335554239226,
+          "fine_mae": 0.0011892351212507979,
+          "coarse_max": 0.005415343270822381,
+          "fine_max": 0.0016608715163759502,
+          "classes": {
+            "monotonic-noncontracting": 1,
+            "monotonic-contracting": 1
+          }
+        },
+        "current_baseline": {
+          "n": 2,
+          "coarse_rms": 0.0073472677656461005,
+          "fine_rms": 0.00138544886523776,
+          "ratio": 0.18856654057386557,
+          "coarse_mae": 0.007335740754669251,
+          "fine_mae": 0.0013700551446085285,
+          "coarse_max": 0.007747142262185758,
+          "fine_max": 0.0015760101370712043,
+          "classes": {
+            "oscillatory-contracting": 2
+          }
+        },
+        "candidate": {
+          "n": 2,
+          "coarse_rms": 0.00496453828216302,
+          "fine_rms": 0.00164265328153501,
+          "ratio": 0.3308773521672424,
+          "coarse_mae": 0.004950136374894054,
+          "fine_mae": 0.001639459087671713,
+          "coarse_max": 0.00532801231354707,
+          "fine_max": 0.0017418490441536427,
+          "classes": {
+            "oscillatory-contracting": 2
+          }
+        }
+      },
+      "missing_keys_by_revision": {
+        "prior_unweighted": [],
+        "prior_weighted": [],
+        "current_baseline": [],
+        "candidate": []
+      },
+      "rows": [
+        {
+          "key": "time:4400",
+          "revisions": {
+            "prior_unweighted": {
+              "included": true,
+              "series": {
+                "key": "time:4400",
+                "metric": "vertical_travel_time_s",
+                "values": [
+                  1.258903563935576,
+                  1.2593350975586326,
+                  1.2589069404098971
+                ],
+                "coarse": -0.0004315336230567013,
+                "fine": 0.00042815714873545296,
+                "ratio": 0.9921756402262897,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "time:4400",
+                "included": true,
+                "values": [
+                  1.258903563935576,
+                  1.2593350975586326,
+                  1.2589069404098971
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "time:4400",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.258903563935576
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "time:4400",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.2593350975586326
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "time:4400",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.2589069404098971
+                  }
+                }
+              ]
+            },
+            "prior_weighted": {
+              "included": true,
+              "series": {
+                "key": "time:4400",
+                "metric": "vertical_travel_time_s",
+                "values": [
+                  1.2559330773846646,
+                  1.25712260122469,
+                  1.258783472741066
+                ],
+                "coarse": -0.0011895238400254637,
+                "fine": -0.0016608715163759502,
+                "ratio": 1.396249037211727,
+                "classification": "monotonic-noncontracting"
+              },
+              "coverage": {
+                "key": "time:4400",
+                "included": true,
+                "values": [
+                  1.2559330773846646,
+                  1.25712260122469,
+                  1.258783472741066
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "time:4400",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.2559330773846646
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "time:4400",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.25712260122469
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "time:4400",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.258783472741066
+                  }
+                }
+              ]
+            },
+            "current_baseline": {
+              "included": true,
+              "series": {
+                "key": "time:4400",
+                "metric": "vertical_travel_time_s",
+                "values": [
+                  1.2523712090275987,
+                  1.2592955482747514,
+                  1.2581314481226056
+                ],
+                "coarse": -0.006924339247152744,
+                "fine": 0.0011641001521458527,
+                "ratio": 0.16811714599693034,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "time:4400",
+                "included": true,
+                "values": [
+                  1.2523712090275987,
+                  1.2592955482747514,
+                  1.2581314481226056
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "time:4400",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.2523712090275987
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "time:4400",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.2592955482747514
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "time:4400",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.2581314481226056
+                  }
+                }
+              ]
+            },
+            "candidate": {
+              "included": true,
+              "series": {
+                "key": "time:4400",
+                "metric": "vertical_travel_time_s",
+                "values": [
+                  1.2542216109203848,
+                  1.2595496232339318,
+                  1.258012554102742
+                ],
+                "coarse": -0.00532801231354707,
+                "fine": 0.0015370691311897833,
+                "ratio": 0.2884882843235201,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "time:4400",
+                "included": true,
+                "values": [
+                  1.2542216109203848,
+                  1.2595496232339318,
+                  1.258012554102742
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "time:4400",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.2542216109203848
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "time:4400",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.2595496232339318
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "time:4400",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.258012554102742
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "time:7600",
+          "revisions": {
+            "prior_unweighted": {
+              "included": true,
+              "series": {
+                "key": "time:7600",
+                "metric": "vertical_travel_time_s",
+                "values": [
+                  1.3083037903949502,
+                  1.3077637878333421,
+                  1.3070057734143958
+                ],
+                "coarse": 0.0005400025616080217,
+                "fine": 0.0007580144189462956,
+                "ratio": 1.4037237465857149,
+                "classification": "monotonic-noncontracting"
+              },
+              "coverage": {
+                "key": "time:7600",
+                "included": true,
+                "values": [
+                  1.3083037903949502,
+                  1.3077637878333421,
+                  1.3070057734143958
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "time:7600",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.3083037903949502
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "time:7600",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.3077637878333421
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "time:7600",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.3070057734143958
+                  }
+                }
+              ]
+            },
+            "prior_weighted": {
+              "included": true,
+              "series": {
+                "key": "time:7600",
+                "metric": "vertical_travel_time_s",
+                "values": [
+                  1.3137302002974374,
+                  1.308314857026615,
+                  1.3075972583004893
+                ],
+                "coarse": 0.005415343270822381,
+                "fine": 0.0007175987261256456,
+                "ratio": 0.13251214008759782,
+                "classification": "monotonic-contracting"
+              },
+              "coverage": {
+                "key": "time:7600",
+                "included": true,
+                "values": [
+                  1.3137302002974374,
+                  1.308314857026615,
+                  1.3075972583004893
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "time:7600",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.3137302002974374
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "time:7600",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.308314857026615
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "time:7600",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.3075972583004893
+                  }
+                }
+              ]
+            },
+            "current_baseline": {
+              "included": true,
+              "series": {
+                "key": "time:7600",
+                "metric": "vertical_travel_time_s",
+                "values": [
+                  1.3136615982422486,
+                  1.3059144559800628,
+                  1.307490466117134
+                ],
+                "coarse": 0.007747142262185758,
+                "fine": -0.0015760101370712043,
+                "ratio": 0.20343115999867453,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "time:7600",
+                "included": true,
+                "values": [
+                  1.3136615982422486,
+                  1.3059144559800628,
+                  1.307490466117134
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "time:7600",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.3136615982422486
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "time:7600",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.3059144559800628
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "time:7600",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.307490466117134
+                  }
+                }
+              ]
+            },
+            "candidate": {
+              "included": true,
+              "series": {
+                "key": "time:7600",
+                "metric": "vertical_travel_time_s",
+                "values": [
+                  1.310445650735182,
+                  1.305873390298941,
+                  1.3076152393430946
+                ],
+                "coarse": 0.004572260436241038,
+                "fine": -0.0017418490441536427,
+                "ratio": 0.38096015492627044,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "time:7600",
+                "included": true,
+                "values": [
+                  1.310445650735182,
+                  1.305873390298941,
+                  1.3076152393430946
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "time:7600",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.310445650735182
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "time:7600",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.305873390298941
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "time:7600",
+                    "metric": "vertical_travel_time_s",
+                    "value": 1.3076152393430946
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "coupled-compression-a",
+      "metric": "thickness_m",
+      "keys": [
+        "unit:7:9200"
+      ],
+      "label": "later_A_unit7_9200",
+      "history_sha256": "a47b82f4d9d2b45d9bc2b7218afe6a4d8fc14d12da0028d952b7dad85ec41e18",
+      "prespecified_keys_n": 1,
+      "all_keys_eligible_all_revisions": true,
+      "shared_keys": [
+        "unit:7:9200"
+      ],
+      "shared_summary": {
+        "prior_unweighted": {
+          "n": 1,
+          "coarse_rms": 0.7447642451990077,
+          "fine_rms": 8.450755636155122,
+          "ratio": 11.346886871424667,
+          "coarse_mae": 0.7447642451990077,
+          "fine_mae": 8.450755636155122,
+          "coarse_max": 0.7447642451990077,
+          "fine_max": 8.450755636155122,
+          "classes": {
+            "oscillatory-noncontracting": 1
+          }
+        },
+        "prior_weighted": {
+          "n": 1,
+          "coarse_rms": 0.7078573565478337,
+          "fine_rms": 5.657155880268988,
+          "ratio": 7.991943331434041,
+          "coarse_mae": 0.7078573565478337,
+          "fine_mae": 5.657155880268988,
+          "coarse_max": 0.7078573565478337,
+          "fine_max": 5.657155880268988,
+          "classes": {
+            "oscillatory-noncontracting": 1
+          }
+        },
+        "current_baseline": {
+          "n": 1,
+          "coarse_rms": 25.21609483747784,
+          "fine_rms": 5.65708840862294,
+          "ratio": 0.224344350109875,
+          "coarse_mae": 25.21609483747784,
+          "fine_mae": 5.65708840862294,
+          "coarse_max": 25.21609483747784,
+          "fine_max": 5.65708840862294,
+          "classes": {
+            "oscillatory-contracting": 1
+          }
+        },
+        "candidate": {
+          "n": 1,
+          "coarse_rms": 25.18818046619822,
+          "fine_rms": 5.628588009823261,
+          "ratio": 0.223461476996191,
+          "coarse_mae": 25.18818046619822,
+          "fine_mae": 5.628588009823261,
+          "coarse_max": 25.18818046619822,
+          "fine_max": 5.628588009823261,
+          "classes": {
+            "oscillatory-contracting": 1
+          }
+        }
+      },
+      "missing_keys_by_revision": {
+        "prior_unweighted": [],
+        "prior_weighted": [],
+        "current_baseline": [],
+        "candidate": []
+      },
+      "rows": [
+        {
+          "key": "unit:7:9200",
+          "revisions": {
+            "prior_unweighted": {
+              "included": true,
+              "series": {
+                "key": "unit:7:9200",
+                "metric": "thickness_m",
+                "values": [
+                  140.72555718368994,
+                  141.47032142888895,
+                  133.01956579273383
+                ],
+                "coarse": -0.7447642451990077,
+                "fine": 8.450755636155122,
+                "ratio": 11.346886871424667,
+                "classification": "oscillatory-noncontracting"
+              },
+              "coverage": {
+                "key": "unit:7:9200",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      22.904828187870596,
+                      26.422967117462843
+                    ]
+                  ],
+                  [
+                    [
+                      44.98978079237307,
+                      52.06329686381751
+                    ]
+                  ],
+                  [
+                    [
+                      90.61081202305118,
+                      103.91276860232456
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:7:9200",
+                    "unit": 7,
+                    "x": 9200,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        22.904828187870596,
+                        26.422967117462843
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 916.1931275148238,
+                      "thickness_m": 140.72555718368994,
+                      "solid_height_m": 82.72984666579852,
+                      "sand_fraction": 0.24316063212150463,
+                      "porosity": 0.41211924598876704,
+                      "maximum_burial_m": 806.3147300446168,
+                      "effective_loading_m": 806.3147300446168,
+                      "effective_velocity_m_s": 2065.9105941412545
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:7:9200",
+                    "unit": 7,
+                    "x": 9200,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        44.98978079237307,
+                        52.06329686381751
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 899.7956158474614,
+                      "thickness_m": 141.47032142888895,
+                      "solid_height_m": 82.72984217902821,
+                      "sand_fraction": 0.24316063213015202,
+                      "porosity": 0.41521414991190964,
+                      "maximum_burial_m": 789.8938413546085,
+                      "effective_loading_m": 789.8938413546085,
+                      "effective_velocity_m_s": 2058.0770914050563
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:7:9200",
+                    "unit": 7,
+                    "x": 9200,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        90.61081202305118,
+                        103.91276860232456
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 906.1081202305118,
+                      "thickness_m": 133.01956579273383,
+                      "solid_height_m": 77.84887600318886,
+                      "sand_fraction": 0.24317004282150365,
+                      "porosity": 0.4147562011705097,
+                      "maximum_burial_m": 792.1693861363484,
+                      "effective_loading_m": 792.1693861363484,
+                      "effective_velocity_m_s": 2059.2264480772114
+                    }
+                  }
+                }
+              ]
+            },
+            "prior_weighted": {
+              "included": true,
+              "series": {
+                "key": "unit:7:9200",
+                "metric": "thickness_m",
+                "values": [
+                  140.76192883190606,
+                  141.4697861884539,
+                  135.8126303081849
+                ],
+                "coarse": -0.7078573565478337,
+                "fine": 5.657155880268988,
+                "ratio": 7.991943331434041,
+                "classification": "oscillatory-noncontracting"
+              },
+              "coverage": {
+                "key": "unit:7:9200",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      22.88368876151757,
+                      26.40273698231522
+                    ]
+                  ],
+                  [
+                    [
+                      44.98996873128703,
+                      52.063458040709726
+                    ]
+                  ],
+                  [
+                    [
+                      91.4923284209747,
+                      105.07359145179319
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:7:9200",
+                    "unit": 7,
+                    "x": 9200,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        22.88368876151757,
+                        26.40273698231522
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 915.3475504607027,
+                      "thickness_m": 140.76192883190606,
+                      "solid_height_m": 82.72984434092632,
+                      "sand_fraction": 0.24316063212598563,
+                      "porosity": 0.4122711657374347,
+                      "maximum_burial_m": 805.505615845704,
+                      "effective_loading_m": 805.505615845704,
+                      "effective_velocity_m_s": 2065.5247911221927
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:7:9200",
+                    "unit": 7,
+                    "x": 9200,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        44.98996873128703,
+                        52.063458040709726
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 899.7993746257406,
+                      "thickness_m": 141.4697861884539,
+                      "solid_height_m": 82.72984217902848,
+                      "sand_fraction": 0.24316063213015174,
+                      "porosity": 0.4152119374180513,
+                      "maximum_burial_m": 789.9055557807012,
+                      "effective_loading_m": 789.9055557807012,
+                      "effective_velocity_m_s": 2058.082671467078
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:7:9200",
+                    "unit": 7,
+                    "x": 9200,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        91.4923284209747,
+                        105.07359145179319
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 914.923284209747,
+                      "thickness_m": 135.8126303081849,
+                      "solid_height_m": 79.74472814494929,
+                      "sand_fraction": 0.243166386817824,
+                      "porosity": 0.4128327537432034,
+                      "maximum_burial_m": 802.4288288240904,
+                      "effective_loading_m": 802.4288288240904,
+                      "effective_velocity_m_s": 2064.0959331063136
+                    }
+                  }
+                }
+              ]
+            },
+            "current_baseline": {
+              "included": true,
+              "series": {
+                "key": "unit:7:9200",
+                "metric": "thickness_m",
+                "values": [
+                  116.2532621583191,
+                  141.46935699579694,
+                  135.812268587174
+                ],
+                "coarse": -25.21609483747784,
+                "fine": 5.65708840862294,
+                "ratio": 0.224344350109875,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "unit:7:9200",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      22.733020327484173,
+                      25.63935188144215
+                    ]
+                  ],
+                  [
+                    [
+                      44.989915694571664,
+                      52.063383544361514
+                    ]
+                  ],
+                  [
+                    [
+                      91.4931695939556,
+                      105.074396452673
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:7:9200",
+                    "unit": 7,
+                    "x": 9200,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        22.733020327484173,
+                        25.63935188144215
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 909.3208130993669,
+                      "thickness_m": 116.2532621583191,
+                      "solid_height_m": 67.92976211272196,
+                      "sand_fraction": 0.24318917531016765,
+                      "porosity": 0.41567435741964776,
+                      "maximum_burial_m": 787.0364858048567,
+                      "effective_loading_m": 787.0364858048567,
+                      "effective_velocity_m_s": 2056.897282965375
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:7:9200",
+                    "unit": 7,
+                    "x": 9200,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        44.989915694571664,
+                        52.063383544361514
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 899.7983138914333,
+                      "thickness_m": 141.46935699579694,
+                      "solid_height_m": 82.72984125728715,
+                      "sand_fraction": 0.243160632131928,
+                      "porosity": 0.41521016979143366,
+                      "maximum_burial_m": 789.9143317467428,
+                      "effective_loading_m": 789.9143317467428,
+                      "effective_velocity_m_s": 2058.0871426712
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:7:9200",
+                    "unit": 7,
+                    "x": 9200,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        91.4931695939556,
+                        105.074396452673
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 914.931695939556,
+                      "thickness_m": 135.812268587174,
+                      "solid_height_m": 79.74473424559424,
+                      "sand_fraction": 0.2431663868060615,
+                      "porosity": 0.412831144968259,
+                      "maximum_burial_m": 802.4365899739902,
+                      "effective_loading_m": 802.4365899739902,
+                      "effective_velocity_m_s": 2064.1000292866515
+                    }
+                  }
+                }
+              ]
+            },
+            "candidate": {
+              "included": true,
+              "series": {
+                "key": "unit:7:9200",
+                "metric": "thickness_m",
+                "values": [
+                  116.25323685818773,
+                  141.44141732438595,
+                  135.8128293145627
+                ],
+                "coarse": -25.18818046619822,
+                "fine": 5.628588009823261,
+                "ratio": 0.223461476996191,
+                "classification": "oscillatory-contracting"
+              },
+              "coverage": {
+                "key": "unit:7:9200",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      22.733031841195523,
+                      25.639362762650215
+                    ]
+                  ],
+                  [
+                    [
+                      44.994717856719916,
+                      52.066788722939215
+                    ]
+                  ],
+                  [
+                    [
+                      91.49178919794814,
+                      105.07307212940441
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:7:9200",
+                    "unit": 7,
+                    "x": 9200,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        22.733031841195523,
+                        25.639362762650215
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 909.3212736478209,
+                      "thickness_m": 116.25323685818773,
+                      "solid_height_m": 67.92975786893413,
+                      "sand_fraction": 0.24318917531836273,
+                      "porosity": 0.4156742667578479,
+                      "maximum_burial_m": 787.0369336501257,
+                      "effective_loading_m": 787.0369336501257,
+                      "effective_velocity_m_s": 2056.8975121143153
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:7:9200",
+                    "unit": 7,
+                    "x": 9200,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        44.994717856719916,
+                        52.066788722939215
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 899.8943571343983,
+                      "thickness_m": 141.44141732438595,
+                      "solid_height_m": 82.72984257244704,
+                      "sand_fraction": 0.2431606321293934,
+                      "porosity": 0.41509464386437844,
+                      "maximum_burial_m": 790.5249520379612,
+                      "effective_loading_m": 790.5249520379612,
+                      "effective_velocity_m_s": 2058.3785764504346
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:7:9200",
+                    "unit": 7,
+                    "x": 9200,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        91.49178919794814,
+                        105.07307212940441
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 914.9178919794814,
+                      "thickness_m": 135.8128293145627,
+                      "solid_height_m": 79.74472718766805,
+                      "sand_fraction": 0.243166386819671,
+                      "porosity": 0.41283362116720645,
+                      "maximum_burial_m": 802.4234210740843,
+                      "effective_loading_m": 802.4234210740843,
+                      "effective_velocity_m_s": 2064.093750018468
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "thrust-b",
+      "metric": "thickness_m",
+      "keys": [
+        "unit:12:6000"
+      ],
+      "label": "later_B_unit12_6000",
+      "history_sha256": "9d04013089c8622a034396bc3d922379897d27881cf545e55e1f9eabd540fd7f",
+      "prespecified_keys_n": 1,
+      "all_keys_eligible_all_revisions": false,
+      "shared_keys": [],
+      "shared_summary": {
+        "prior_unweighted": {
+          "n": 0,
+          "coarse_rms": null,
+          "fine_rms": null,
+          "ratio": null,
+          "coarse_mae": null,
+          "fine_mae": null,
+          "coarse_max": null,
+          "fine_max": null,
+          "classes": {}
+        },
+        "prior_weighted": {
+          "n": 0,
+          "coarse_rms": null,
+          "fine_rms": null,
+          "ratio": null,
+          "coarse_mae": null,
+          "fine_mae": null,
+          "coarse_max": null,
+          "fine_max": null,
+          "classes": {}
+        },
+        "current_baseline": {
+          "n": 0,
+          "coarse_rms": null,
+          "fine_rms": null,
+          "ratio": null,
+          "coarse_mae": null,
+          "fine_mae": null,
+          "coarse_max": null,
+          "fine_max": null,
+          "classes": {}
+        },
+        "candidate": {
+          "n": 0,
+          "coarse_rms": null,
+          "fine_rms": null,
+          "ratio": null,
+          "coarse_mae": null,
+          "fine_mae": null,
+          "coarse_max": null,
+          "fine_max": null,
+          "classes": {}
+        }
+      },
+      "missing_keys_by_revision": {
+        "prior_unweighted": [
+          "unit:12:6000"
+        ],
+        "prior_weighted": [],
+        "current_baseline": [],
+        "candidate": []
+      },
+      "rows": [
+        {
+          "key": "unit:12:6000",
+          "revisions": {
+            "prior_unweighted": {
+              "included": false,
+              "series": null,
+              "coverage": {
+                "key": "unit:12:6000",
+                "included": false,
+                "statuses": [
+                  "one-cell",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      4.459648300731132,
+                      6.388319293171182
+                    ]
+                  ],
+                  [
+                    [
+                      9.000138561339273,
+                      13.553589492939299
+                    ]
+                  ],
+                  [
+                    [
+                      17.90099910945527,
+                      26.15304399835087
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:12:6000",
+                    "unit": 12,
+                    "x": 6000,
+                    "status": "one-cell",
+                    "spans": [
+                      [
+                        4.459648300731132,
+                        6.388319293171182
+                      ]
+                    ]
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:12:6000",
+                    "unit": 12,
+                    "x": 6000,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        9.000138561339273,
+                        13.553589492939299
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 180.00277122678546,
+                      "thickness_m": 91.0690186320005,
+                      "solid_height_m": 41.84229865127968,
+                      "sand_fraction": 0.5908852899561344,
+                      "porosity": 0.54054299387633,
+                      "maximum_burial_m": 62.35357378525037,
+                      "effective_loading_m": 62.35357378525037,
+                      "effective_velocity_m_s": 1671.5119859323072
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:12:6000",
+                    "unit": 12,
+                    "x": 6000,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        17.90099910945527,
+                        26.15304399835087
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 179.0099910945527,
+                      "thickness_m": 82.520448888956,
+                      "solid_height_m": 37.84789581392393,
+                      "sand_fraction": 0.5907858798420835,
+                      "porosity": 0.541351309602616,
+                      "maximum_burial_m": 57.90899579511605,
+                      "effective_loading_m": 57.90899579511605,
+                      "effective_velocity_m_s": 1667.3650241449266
+                    }
+                  }
+                }
+              ]
+            },
+            "prior_weighted": {
+              "included": true,
+              "series": {
+                "key": "unit:12:6000",
+                "metric": "thickness_m",
+                "values": [
+                  96.79866262739296,
+                  90.60196017120006,
+                  82.520448888956
+                ],
+                "coarse": 6.196702456192895,
+                "fine": 8.081511282244065,
+                "ratio": 1.3041631963735034,
+                "classification": "monotonic-noncontracting"
+              },
+              "coverage": {
+                "key": "unit:12:6000",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      4.516704451506316,
+                      6.93667101719114
+                    ]
+                  ],
+                  [
+                    [
+                      8.997426491517,
+                      13.527524500077003
+                    ]
+                  ],
+                  [
+                    [
+                      17.90099910945527,
+                      26.15304399835087
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:12:6000",
+                    "unit": 12,
+                    "x": 6000,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        4.516704451506316,
+                        6.93667101719114
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 180.66817806025261,
+                      "thickness_m": 96.79866262739296,
+                      "solid_height_m": 44.52717615041078,
+                      "sand_fraction": 0.5909515098940616,
+                      "porosity": 0.5400021555895951,
+                      "maximum_burial_m": 65.33434433199776,
+                      "effective_loading_m": 65.33434433199776,
+                      "effective_velocity_m_s": 1674.2333355236563
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:12:6000",
+                    "unit": 12,
+                    "x": 6000,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        8.997426491517,
+                        13.527524500077003
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 179.94852983034002,
+                      "thickness_m": 90.60196017120006,
+                      "solid_height_m": 41.623708011032704,
+                      "sand_fraction": 0.5908798775214725,
+                      "porosity": 0.5405871138727993,
+                      "maximum_burial_m": 62.11065670403823,
+                      "effective_loading_m": 62.11065670403823,
+                      "effective_velocity_m_s": 1671.2881775204994
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:12:6000",
+                    "unit": 12,
+                    "x": 6000,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        17.90099910945527,
+                        26.15304399835087
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 179.0099910945527,
+                      "thickness_m": 82.520448888956,
+                      "solid_height_m": 37.84789581392393,
+                      "sand_fraction": 0.5907858798420835,
+                      "porosity": 0.541351309602616,
+                      "maximum_burial_m": 57.90899579511605,
+                      "effective_loading_m": 57.90899579511605,
+                      "effective_velocity_m_s": 1667.3650241449266
+                    }
+                  }
+                }
+              ]
+            },
+            "current_baseline": {
+              "included": true,
+              "series": {
+                "key": "unit:12:6000",
+                "metric": "thickness_m",
+                "values": [
+                  112.98482847189393,
+                  90.60196017120006,
+                  73.56095169538301
+                ],
+                "coarse": 22.382868300693872,
+                "fine": 17.04100847581705,
+                "ratio": 0.7613415870962694,
+                "classification": "monotonic-contracting"
+              },
+              "coverage": {
+                "key": "unit:12:6000",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      4.563698581373828,
+                      7.388319293171176
+                    ]
+                  ],
+                  [
+                    [
+                      8.997426491517,
+                      13.527524500077003
+                    ]
+                  ],
+                  [
+                    [
+                      17.796948828812575,
+                      25.153043998350874
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:12:6000",
+                    "unit": 12,
+                    "x": 6000,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        4.563698581373828,
+                        7.388319293171176
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 182.5479432549531,
+                      "thickness_m": 112.98482847189393,
+                      "solid_height_m": 52.14493118505031,
+                      "sand_fraction": 0.5911368467867076,
+                      "porosity": 0.5384784675048485,
+                      "maximum_burial_m": 73.76419975571757,
+                      "effective_loading_m": 73.76419975571757,
+                      "effective_velocity_m_s": 1681.6819532694435
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:12:6000",
+                    "unit": 12,
+                    "x": 6000,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        8.997426491517,
+                        13.527524500077003
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 179.94852983034002,
+                      "thickness_m": 90.60196017120006,
+                      "solid_height_m": 41.623708011032704,
+                      "sand_fraction": 0.5908798775214725,
+                      "porosity": 0.5405871138727993,
+                      "maximum_burial_m": 62.11065670403823,
+                      "effective_loading_m": 62.11065670403823,
+                      "effective_velocity_m_s": 1671.2881775204994
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:12:6000",
+                    "unit": 12,
+                    "x": 6000,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        17.796948828812575,
+                        25.153043998350874
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 177.96948828812575,
+                      "thickness_m": 73.56095169538301,
+                      "solid_height_m": 33.6761919621348,
+                      "sand_fraction": 0.5906808819738971,
+                      "porosity": 0.5422001593781928,
+                      "maximum_burial_m": 53.25311014053594,
+                      "effective_loading_m": 53.25311014053594,
+                      "effective_velocity_m_s": 1662.9151061474038
+                    }
+                  }
+                }
+              ]
+            },
+            "candidate": {
+              "included": true,
+              "series": {
+                "key": "unit:12:6000",
+                "metric": "thickness_m",
+                "values": [
+                  112.98482847189422,
+                  90.60196017119995,
+                  73.56095169538276
+                ],
+                "coarse": 22.38286830069427,
+                "fine": 17.041008475817193,
+                "ratio": 0.7613415870962622,
+                "classification": "monotonic-contracting"
+              },
+              "coverage": {
+                "key": "unit:12:6000",
+                "included": true,
+                "statuses": [
+                  "matched",
+                  "matched",
+                  "matched"
+                ],
+                "spans": [
+                  [
+                    [
+                      4.563698581373828,
+                      7.388319293171183
+                    ]
+                  ],
+                  [
+                    [
+                      8.997426491517,
+                      13.527524500076998
+                    ]
+                  ],
+                  [
+                    [
+                      17.79694882881257,
+                      25.153043998350846
+                    ]
+                  ]
+                ]
+              },
+              "samples": [
+                {
+                  "h": 40,
+                  "raw": {
+                    "key": "unit:12:6000",
+                    "unit": 12,
+                    "x": 6000,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        4.563698581373828,
+                        7.388319293171183
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 182.5479432549531,
+                      "thickness_m": 112.98482847189422,
+                      "solid_height_m": 52.14493118505044,
+                      "sand_fraction": 0.591136846786708,
+                      "porosity": 0.5384784675048486,
+                      "maximum_burial_m": 73.76419975571773,
+                      "effective_loading_m": 73.76419975571773,
+                      "effective_velocity_m_s": 1681.681953269444
+                    }
+                  }
+                },
+                {
+                  "h": 20,
+                  "raw": {
+                    "key": "unit:12:6000",
+                    "unit": 12,
+                    "x": 6000,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        8.997426491517,
+                        13.527524500076998
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 179.94852983034002,
+                      "thickness_m": 90.60196017119995,
+                      "solid_height_m": 41.62370801103265,
+                      "sand_fraction": 0.5908798775214723,
+                      "porosity": 0.5405871138727993,
+                      "maximum_burial_m": 62.110656704038135,
+                      "effective_loading_m": 62.110656704038135,
+                      "effective_velocity_m_s": 1671.2881775204994
+                    }
+                  }
+                },
+                {
+                  "h": 10,
+                  "raw": {
+                    "key": "unit:12:6000",
+                    "unit": 12,
+                    "x": 6000,
+                    "status": "matched",
+                    "spans": [
+                      [
+                        17.79694882881257,
+                        25.153043998350846
+                      ]
+                    ],
+                    "metrics": {
+                      "top_m": 177.96948828812572,
+                      "thickness_m": 73.56095169538276,
+                      "solid_height_m": 33.676191962134695,
+                      "sand_fraction": 0.5906808819738971,
+                      "porosity": 0.5422001593781927,
+                      "maximum_burial_m": 53.253110140535824,
+                      "effective_loading_m": 53.253110140535824,
+                      "effective_velocity_m_s": 1662.9151061474029
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "original_five_excess_coarse_squared_discrepancy_recovered": 0.9999205340658913
+}

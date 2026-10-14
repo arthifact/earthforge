@@ -1,0 +1,44 @@
+✔ fractional capacity resolves a feasible material flow with no indivisible matching (0.98625ms)
+✔ finite extreme density scales preserve the known displacement optimum (0.619458ms)
+✔ subnormal nonzero density ratios retain relative weights under common rescaling (0.143041ms)
+✔ quantized capacity objective agrees with exhaustive small two-dimensional optima (11.68475ms)
+✔ vertical capacity slices retain tiny distinct material and inherited state (0.452667ms)
+✔ capacity assignment rejects nonfinite or nonpositive material inputs (0.190083ms)
+✔ one exact allocation arc stays one physical slice despite binary residuals (0.328875ms)
+✖ indivisible matching rejects even one-ulp overcapacity in greedy and augmenting edges (0.740083ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 67.7515
+
+✖ failing tests:
+
+test at work/coarse-travel-transport/grouped-capacity-slack-ablation/tests/capacity-transport.test.mjs:86:1
+✖ indivisible matching rejects even one-ulp overcapacity in greedy and augmenting edges (0.740083ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   0
+  -   1
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-transport/grouped-capacity-slack-ablation/tests/capacity-transport.test.mjs:89:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1325:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:911:18)
+      at Test.postRun (node:internal/test_runner/test:1465:19)
+      at Test.run (node:internal/test_runner/test:1390:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:911:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 0 ],
+    expected: [ 1 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

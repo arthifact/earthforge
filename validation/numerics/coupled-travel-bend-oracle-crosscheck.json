@@ -1,0 +1,2088 @@
+{
+  "pass": true,
+  "source_sha256": "f82bf4b589246ffc5652dc06b18f5d1e26bacc7f61b38fc7d010a66198379b08",
+  "tags": 91,
+  "increments": 24,
+  "step_m": 13.7,
+  "max_independent_oracle_error_m": 9.25343817704044e-13,
+  "max_legacy_top_point_error_m": 1.8502102047426194,
+  "max_reprojection_error_vs_original_rectangle_m": 9.374856803373542e-13,
+  "steps": [
+    {
+      "step": 1,
+      "max_error_m": 0,
+      "rms_error_m": 0
+    },
+    {
+      "step": 2,
+      "max_error_m": 2.3437142008433856e-13,
+      "rms_error_m": 3.474553099648157e-14
+    },
+    {
+      "step": 3,
+      "max_error_m": 4.687428401686771e-13,
+      "rms_error_m": 8.235238443053998e-14
+    },
+    {
+      "step": 4,
+      "max_error_m": 4.687428401686771e-13,
+      "rms_error_m": 1.14774774832686e-13
+    },
+    {
+      "step": 5,
+      "max_error_m": 4.687428401686771e-13,
+      "rms_error_m": 1.5572912609129203e-13
+    },
+    {
+      "step": 6,
+      "max_error_m": 5.084229945850415e-13,
+      "rms_error_m": 2.046050728673755e-13
+    },
+    {
+      "step": 7,
+      "max_error_m": 5.084229945850415e-13,
+      "rms_error_m": 2.3670803165074193e-13
+    },
+    {
+      "step": 8,
+      "max_error_m": 7.190186943645084e-13,
+      "rms_error_m": 2.638750274283181e-13
+    },
+    {
+      "step": 9,
+      "max_error_m": 9.25343817704044e-13,
+      "rms_error_m": 3.0313887226720277e-13
+    },
+    {
+      "step": 10,
+      "max_error_m": 9.25343817704044e-13,
+      "rms_error_m": 3.3660680894732485e-13
+    },
+    {
+      "step": 11,
+      "max_error_m": 9.25343817704044e-13,
+      "rms_error_m": 3.6412177524532113e-13
+    },
+    {
+      "step": 12,
+      "max_error_m": 9.25343817704044e-13,
+      "rms_error_m": 3.715545831723299e-13
+    },
+    {
+      "step": 13,
+      "max_error_m": 9.165725883006586e-13,
+      "rms_error_m": 3.646090252629043e-13
+    },
+    {
+      "step": 14,
+      "max_error_m": 9.25343817704044e-13,
+      "rms_error_m": 3.7219908423463536e-13
+    },
+    {
+      "step": 15,
+      "max_error_m": 9.25343817704044e-13,
+      "rms_error_m": 3.73971669127918e-13
+    },
+    {
+      "step": 16,
+      "max_error_m": 9.25343817704044e-13,
+      "rms_error_m": 3.7212752812819027e-13
+    },
+    {
+      "step": 17,
+      "max_error_m": 9.25343817704044e-13,
+      "rms_error_m": 3.820149907966681e-13
+    },
+    {
+      "step": 18,
+      "max_error_m": 9.112693272687351e-13,
+      "rms_error_m": 3.727353171653879e-13
+    },
+    {
+      "step": 19,
+      "max_error_m": 9.25343817704044e-13,
+      "rms_error_m": 3.802448837670358e-13
+    },
+    {
+      "step": 20,
+      "max_error_m": 9.165725883006586e-13,
+      "rms_error_m": 3.777621989103637e-13
+    },
+    {
+      "step": 21,
+      "max_error_m": 9.25343817704044e-13,
+      "rms_error_m": 3.759248461510428e-13
+    },
+    {
+      "step": 22,
+      "max_error_m": 9.25343817704044e-13,
+      "rms_error_m": 3.9452088626776436e-13
+    },
+    {
+      "step": 23,
+      "max_error_m": 9.165725883006586e-13,
+      "rms_error_m": 3.989177016483779e-13
+    },
+    {
+      "step": 24,
+      "max_error_m": 9.165725883006586e-13,
+      "rms_error_m": 4.1394429766436366e-13
+    }
+  ],
+  "quadrature": [
+    {
+      "rectangle": [
+        -1780,
+        360,
+        10,
+        10
+      ],
+      "s": 328.8,
+      "error_m": 1.3257046150564274e-06
+    },
+    {
+      "rectangle": [
+        -1720,
+        400,
+        10,
+        10
+      ],
+      "s": 13.7,
+      "error_m": 2.3373413183182297e-06
+    },
+    {
+      "rectangle": [
+        -1590,
+        450,
+        10,
+        10
+      ],
+      "s": 120,
+      "error_m": 1.1446894194531327e-10
+    },
+    {
+      "rectangle": [
+        -1450,
+        400,
+        10,
+        10
+      ],
+      "s": -180,
+      "error_m": 1.257726379830675e-10
+    }
+  ],
+  "rows": [
+    {
+      "tag": 4838,
+      "initial_top": [
+        -1820,
+        360
+      ],
+      "sequential_rect_centroid": [
+        -1563.7090972993838,
+        189.9475539043972
+      ],
+      "once_rect_centroid": [
+        -1563.709097299384,
+        189.94755390439707
+      ],
+      "top_point_at_total_slip": [
+        -1564.3156990171822,
+        183.4830878103298
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778112796,
+      "reprojection_vs_original_rectangle_m": 2.6812987050722663e-13
+    },
+    {
+      "tag": 4958,
+      "initial_top": [
+        -1820,
+        370
+      ],
+      "sequential_rect_centroid": [
+        -1562.4958938637878,
+        202.87648609253162
+      ],
+      "once_rect_centroid": [
+        -1562.4958938637876,
+        202.8764860925316
+      ],
+      "top_point_at_total_slip": [
+        -1563.1024955815858,
+        196.41201999846433
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778110005,
+      "reprojection_vs_original_rectangle_m": 2.2914314707516465e-13
+    },
+    {
+      "tag": 5078,
+      "initial_top": [
+        -1820,
+        380
+      ],
+      "sequential_rect_centroid": [
+        -1561.2826904281915,
+        215.80541828066592
+      ],
+      "once_rect_centroid": [
+        -1561.282690428191,
+        215.80541828066612
+      ],
+      "top_point_at_total_slip": [
+        -1561.8892921459892,
+        209.34095218659888
+      ],
+      "legacy_top_oracle_error_m": 1.585126677810677,
+      "reprojection_vs_original_rectangle_m": 4.963638160851638e-13
+    },
+    {
+      "tag": 5198,
+      "initial_top": [
+        -1820,
+        390
+      ],
+      "sequential_rect_centroid": [
+        -1560.0694869925946,
+        228.7343504688005
+      ],
+      "once_rect_centroid": [
+        -1560.0694869925946,
+        228.73435046880067
+      ],
+      "top_point_at_total_slip": [
+        -1560.6760887103926,
+        222.2698843747334
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778108166,
+      "reprojection_vs_original_rectangle_m": 1.7053025658242404e-13
+    },
+    {
+      "tag": 5318,
+      "initial_top": [
+        -1820,
+        400
+      ],
+      "sequential_rect_centroid": [
+        -1558.856283556998,
+        241.66328265693508
+      ],
+      "once_rect_centroid": [
+        -1558.8562835569983,
+        241.6632826569352
+      ],
+      "top_point_at_total_slip": [
+        -1559.4628852747965,
+        235.19881656286793
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778110433,
+      "reprojection_vs_original_rectangle_m": 2.5421149729252077e-13
+    },
+    {
+      "tag": 5438,
+      "initial_top": [
+        -1820,
+        410
+      ],
+      "sequential_rect_centroid": [
+        -1557.643080121402,
+        254.59221484506998
+      ],
+      "once_rect_centroid": [
+        -1557.643080121402,
+        254.59221484506972
+      ],
+      "top_point_at_total_slip": [
+        -1558.2496818392003,
+        248.12774875100246
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778113846,
+      "reprojection_vs_original_rectangle_m": 2.5579538487363607e-13
+    },
+    {
+      "tag": 5558,
+      "initial_top": [
+        -1820,
+        420
+      ],
+      "sequential_rect_centroid": [
+        -1556.4298766858053,
+        267.5211470332042
+      ],
+      "once_rect_centroid": [
+        -1556.4298766858053,
+        267.5211470332042
+      ],
+      "top_point_at_total_slip": [
+        -1557.0364784036035,
+        261.056680939137
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778110351,
+      "reprojection_vs_original_rectangle_m": 0
+    },
+    {
+      "tag": 5678,
+      "initial_top": [
+        -1820,
+        430
+      ],
+      "sequential_rect_centroid": [
+        -1555.2166732502092,
+        280.45007922133874
+      ],
+      "once_rect_centroid": [
+        -1555.216673250209,
+        280.4500792213388
+      ],
+      "top_point_at_total_slip": [
+        -1555.8232749680074,
+        273.9856131272715
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778110351,
+      "reprojection_vs_original_rectangle_m": 2.3437142008433856e-13
+    },
+    {
+      "tag": 5798,
+      "initial_top": [
+        -1820,
+        440
+      ],
+      "sequential_rect_centroid": [
+        -1554.0034698146126,
+        293.37901140947315
+      ],
+      "once_rect_centroid": [
+        -1554.0034698146126,
+        293.37901140947326
+      ],
+      "top_point_at_total_slip": [
+        -1554.6100715324108,
+        286.91454531540603
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778109299,
+      "reprojection_vs_original_rectangle_m": 1.1368683772161603e-13
+    },
+    {
+      "tag": 5918,
+      "initial_top": [
+        -1820,
+        450
+      ],
+      "sequential_rect_centroid": [
+        -1552.7902663790162,
+        306.3079435976079
+      ],
+      "once_rect_centroid": [
+        -1552.7902663790162,
+        306.30794359760785
+      ],
+      "top_point_at_total_slip": [
+        -1553.3968680968146,
+        299.84347750354056
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778112272,
+      "reprojection_vs_original_rectangle_m": 5.684341886080802e-14
+    },
+    {
+      "tag": 6038,
+      "initial_top": [
+        -1820,
+        460
+      ],
+      "sequential_rect_centroid": [
+        -1551.5770629434198,
+        319.23687578574254
+      ],
+      "once_rect_centroid": [
+        -1551.5770629434198,
+        319.2368757857423
+      ],
+      "top_point_at_total_slip": [
+        -1552.1836646612178,
+        312.7724096916751
+      ],
+      "legacy_top_oracle_error_m": 1.585126677811158,
+      "reprojection_vs_original_rectangle_m": 2.2737367544323206e-13
+    },
+    {
+      "tag": 6158,
+      "initial_top": [
+        -1820,
+        470
+      ],
+      "sequential_rect_centroid": [
+        -1550.3638595078235,
+        332.1658079738767
+      ],
+      "once_rect_centroid": [
+        -1550.3638595078235,
+        332.1658079738769
+      ],
+      "top_point_at_total_slip": [
+        -1550.9704612256216,
+        325.7013418798096
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778109299,
+      "reprojection_vs_original_rectangle_m": 1.7053025658242404e-13
+    },
+    {
+      "tag": 6278,
+      "initial_top": [
+        -1820,
+        480
+      ],
+      "sequential_rect_centroid": [
+        -1549.1506560722264,
+        345.09474016201125
+      ],
+      "once_rect_centroid": [
+        -1549.150656072227,
+        345.09474016201136
+      ],
+      "top_point_at_total_slip": [
+        -1549.757257790025,
+        338.63027406794413
+      ],
+      "legacy_top_oracle_error_m": 1.585126677811104,
+      "reprojection_vs_original_rectangle_m": 6.915300366811401e-13
+    },
+    {
+      "tag": 4839,
+      "initial_top": [
+        -1810,
+        360
+      ],
+      "sequential_rect_centroid": [
+        -1556.638029487518,
+        182.87648609253142
+      ],
+      "once_rect_centroid": [
+        -1556.6380294875185,
+        182.87648609253156
+      ],
+      "top_point_at_total_slip": [
+        -1557.2446312053166,
+        176.41201999846436
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778110515,
+      "reprojection_vs_original_rectangle_m": 4.764346674119284e-13
+    },
+    {
+      "tag": 4959,
+      "initial_top": [
+        -1810,
+        370
+      ],
+      "sequential_rect_centroid": [
+        -1555.4248260519225,
+        195.80541828066617
+      ],
+      "once_rect_centroid": [
+        -1555.424826051922,
+        195.80541828066612
+      ],
+      "top_point_at_total_slip": [
+        -1556.0314277697203,
+        189.34095218659886
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778109399,
+      "reprojection_vs_original_rectangle_m": 4.582862941503293e-13
+    },
+    {
+      "tag": 5079,
+      "initial_top": [
+        -1810,
+        380
+      ],
+      "sequential_rect_centroid": [
+        -1554.2116226163262,
+        208.73435046880056
+      ],
+      "once_rect_centroid": [
+        -1554.2116226163257,
+        208.73435046880067
+      ],
+      "top_point_at_total_slip": [
+        -1554.818224334124,
+        202.2698843747334
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778107822,
+      "reprojection_vs_original_rectangle_m": 4.687428401686771e-13
+    },
+    {
+      "tag": 5199,
+      "initial_top": [
+        -1810,
+        390
+      ],
+      "sequential_rect_centroid": [
+        -1552.9984191807293,
+        221.663282656935
+      ],
+      "once_rect_centroid": [
+        -1552.9984191807293,
+        221.6632826569352
+      ],
+      "top_point_at_total_slip": [
+        -1553.605020898527,
+        215.19881656286793
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778107036,
+      "reprojection_vs_original_rectangle_m": 1.9895196601282805e-13
+    },
+    {
+      "tag": 5319,
+      "initial_top": [
+        -1810,
+        400
+      ],
+      "sequential_rect_centroid": [
+        -1551.785215745133,
+        234.5922148450698
+      ],
+      "once_rect_centroid": [
+        -1551.785215745133,
+        234.59221484506972
+      ],
+      "top_point_at_total_slip": [
+        -1552.391817462931,
+        228.12774875100246
+      ],
+      "legacy_top_oracle_error_m": 1.585126677811053,
+      "reprojection_vs_original_rectangle_m": 8.526512829121202e-14
+    },
+    {
+      "tag": 5439,
+      "initial_top": [
+        -1810,
+        410
+      ],
+      "sequential_rect_centroid": [
+        -1550.5720123095366,
+        247.5211470332043
+      ],
+      "once_rect_centroid": [
+        -1550.5720123095366,
+        247.52114703320424
+      ],
+      "top_point_at_total_slip": [
+        -1551.1786140273348,
+        241.05668093913698
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778111137,
+      "reprojection_vs_original_rectangle_m": 5.684341886080802e-14
+    },
+    {
+      "tag": 5559,
+      "initial_top": [
+        -1810,
+        420
+      ],
+      "sequential_rect_centroid": [
+        -1549.3588088739396,
+        260.45007922133846
+      ],
+      "once_rect_centroid": [
+        -1549.3588088739402,
+        260.4500792213388
+      ],
+      "top_point_at_total_slip": [
+        -1549.9654105917382,
+        253.9856131272715
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778109463,
+      "reprojection_vs_original_rectangle_m": 7.626344918775623e-13
+    },
+    {
+      "tag": 5679,
+      "initial_top": [
+        -1810,
+        430
+      ],
+      "sequential_rect_centroid": [
+        -1548.1456054383425,
+        273.37901140947315
+      ],
+      "once_rect_centroid": [
+        -1548.1456054383434,
+        273.37901140947326
+      ],
+      "top_point_at_total_slip": [
+        -1548.7522071561418,
+        266.91454531540603
+      ],
+      "legacy_top_oracle_error_m": 1.585126677811365,
+      "reprojection_vs_original_rectangle_m": 9.165725883006586e-13
+    },
+    {
+      "tag": 5799,
+      "initial_top": [
+        -1810,
+        440
+      ],
+      "sequential_rect_centroid": [
+        -1546.9324020027477,
+        286.3079435976076
+      ],
+      "once_rect_centroid": [
+        -1546.932402002747,
+        286.30794359760785
+      ],
+      "top_point_at_total_slip": [
+        -1547.5390037205452,
+        279.84347750354056
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778106163,
+      "reprojection_vs_original_rectangle_m": 7.190186943645084e-13
+    },
+    {
+      "tag": 5919,
+      "initial_top": [
+        -1810,
+        450
+      ],
+      "sequential_rect_centroid": [
+        -1545.7191985671502,
+        299.2368757857421
+      ],
+      "once_rect_centroid": [
+        -1545.7191985671507,
+        299.2368757857423
+      ],
+      "top_point_at_total_slip": [
+        -1546.325800284949,
+        292.7724096916751
+      ],
+      "legacy_top_oracle_error_m": 1.585126677811086,
+      "reprojection_vs_original_rectangle_m": 5.084229945850415e-13
+    },
+    {
+      "tag": 6039,
+      "initial_top": [
+        -1810,
+        460
+      ],
+      "sequential_rect_centroid": [
+        -1544.5059951315538,
+        312.1658079738768
+      ],
+      "once_rect_centroid": [
+        -1544.5059951315543,
+        312.16580797387684
+      ],
+      "top_point_at_total_slip": [
+        -1545.1125968493525,
+        305.7013418798096
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778111566,
+      "reprojection_vs_original_rectangle_m": 4.582862941503293e-13
+    },
+    {
+      "tag": 6159,
+      "initial_top": [
+        -1810,
+        470
+      ],
+      "sequential_rect_centroid": [
+        -1543.292791695957,
+        325.0947401620115
+      ],
+      "once_rect_centroid": [
+        -1543.2927916959577,
+        325.09474016201136
+      ],
+      "top_point_at_total_slip": [
+        -1543.8993934137561,
+        318.63027406794413
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778114883,
+      "reprojection_vs_original_rectangle_m": 6.915300366811401e-13
+    },
+    {
+      "tag": 6279,
+      "initial_top": [
+        -1810,
+        480
+      ],
+      "sequential_rect_centroid": [
+        -1542.079588260361,
+        338.02367235014594
+      ],
+      "once_rect_centroid": [
+        -1542.0795882603613,
+        338.02367235014594
+      ],
+      "top_point_at_total_slip": [
+        -1542.6861899781595,
+        331.55920625607865
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778111748,
+      "reprojection_vs_original_rectangle_m": 2.2737367544323206e-13
+    },
+    {
+      "tag": 4840,
+      "initial_top": [
+        -1800,
+        360
+      ],
+      "sequential_rect_centroid": [
+        -1549.5669616756536,
+        175.80541828066612
+      ],
+      "once_rect_centroid": [
+        -1549.5669616756527,
+        175.8054182806661
+      ],
+      "top_point_at_total_slip": [
+        -1550.173563393451,
+        169.34095218659888
+      ],
+      "legacy_top_oracle_error_m": 1.585126677810774,
+      "reprojection_vs_original_rectangle_m": 9.099386826154683e-13
+    },
+    {
+      "tag": 4960,
+      "initial_top": [
+        -1800,
+        370
+      ],
+      "sequential_rect_centroid": [
+        -1548.3537582400559,
+        188.73435046880059
+      ],
+      "once_rect_centroid": [
+        -1548.3537582400565,
+        188.7343504688006
+      ],
+      "top_point_at_total_slip": [
+        -1548.960359957855,
+        182.2698843747334
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778113307,
+      "reprojection_vs_original_rectangle_m": 6.827128885029375e-13
+    },
+    {
+      "tag": 5080,
+      "initial_top": [
+        -1800,
+        380
+      ],
+      "sequential_rect_centroid": [
+        -1547.1405548044602,
+        201.663282656935
+      ],
+      "once_rect_centroid": [
+        -1547.1405548044602,
+        201.6632826569352
+      ],
+      "top_point_at_total_slip": [
+        -1547.7471565222584,
+        195.19881656286793
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778108775,
+      "reprojection_vs_original_rectangle_m": 1.9895196601282805e-13
+    },
+    {
+      "tag": 5200,
+      "initial_top": [
+        -1800,
+        390
+      ],
+      "sequential_rect_centroid": [
+        -1545.9273513688634,
+        214.5922148450695
+      ],
+      "once_rect_centroid": [
+        -1545.9273513688638,
+        214.59221484506972
+      ],
+      "top_point_at_total_slip": [
+        -1546.5339530866618,
+        208.12774875100246
+      ],
+      "legacy_top_oracle_error_m": 1.585126677810938,
+      "reprojection_vs_original_rectangle_m": 5.084229945850415e-13
+    },
+    {
+      "tag": 5320,
+      "initial_top": [
+        -1800,
+        400
+      ],
+      "sequential_rect_centroid": [
+        -1544.7141479332672,
+        227.5211470332043
+      ],
+      "once_rect_centroid": [
+        -1544.7141479332672,
+        227.52114703320424
+      ],
+      "top_point_at_total_slip": [
+        -1545.3207496510654,
+        221.05668093913698
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778111137,
+      "reprojection_vs_original_rectangle_m": 5.684341886080802e-14
+    },
+    {
+      "tag": 5440,
+      "initial_top": [
+        -1800,
+        410
+      ],
+      "sequential_rect_centroid": [
+        -1543.5009444976706,
+        240.45007922133868
+      ],
+      "once_rect_centroid": [
+        -1543.5009444976708,
+        240.4500792213388
+      ],
+      "top_point_at_total_slip": [
+        -1544.1075462154693,
+        233.9856131272715
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778111566,
+      "reprojection_vs_original_rectangle_m": 2.5421149729252077e-13
+    },
+    {
+      "tag": 5560,
+      "initial_top": [
+        -1800,
+        420
+      ],
+      "sequential_rect_centroid": [
+        -1542.287741062074,
+        253.37901140947318
+      ],
+      "once_rect_centroid": [
+        -1542.2877410620745,
+        253.37901140947326
+      ],
+      "top_point_at_total_slip": [
+        -1542.8943427798727,
+        246.91454531540603
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778111301,
+      "reprojection_vs_original_rectangle_m": 4.62671908852022e-13
+    },
+    {
+      "tag": 5680,
+      "initial_top": [
+        -1800,
+        430
+      ],
+      "sequential_rect_centroid": [
+        -1541.0745376264779,
+        266.3079435976076
+      ],
+      "once_rect_centroid": [
+        -1541.074537626478,
+        266.30794359760785
+      ],
+      "top_point_at_total_slip": [
+        -1541.6811393442765,
+        259.84347750354056
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778110515,
+      "reprojection_vs_original_rectangle_m": 3.2155493553843715e-13
+    },
+    {
+      "tag": 5800,
+      "initial_top": [
+        -1800,
+        440
+      ],
+      "sequential_rect_centroid": [
+        -1539.8613341908813,
+        279.2368757857421
+      ],
+      "once_rect_centroid": [
+        -1539.8613341908815,
+        279.2368757857423
+      ],
+      "top_point_at_total_slip": [
+        -1540.46793590868,
+        272.7724096916751
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778109991,
+      "reprojection_vs_original_rectangle_m": 3.2155493553843715e-13
+    },
+    {
+      "tag": 5920,
+      "initial_top": [
+        -1800,
+        450
+      ],
+      "sequential_rect_centroid": [
+        -1538.6481307552854,
+        292.165807973877
+      ],
+      "once_rect_centroid": [
+        -1538.6481307552851,
+        292.1658079738769
+      ],
+      "top_point_at_total_slip": [
+        -1539.2547324730835,
+        285.7013418798096
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778111928,
+      "reprojection_vs_original_rectangle_m": 2.5421149729252077e-13
+    },
+    {
+      "tag": 6040,
+      "initial_top": [
+        -1800,
+        460
+      ],
+      "sequential_rect_centroid": [
+        -1537.434927319689,
+        305.09474016201125
+      ],
+      "once_rect_centroid": [
+        -1537.4349273196888,
+        305.09474016201136
+      ],
+      "top_point_at_total_slip": [
+        -1538.041529037487,
+        298.63027406794413
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778108428,
+      "reprojection_vs_original_rectangle_m": 2.5421149729252077e-13
+    },
+    {
+      "tag": 6160,
+      "initial_top": [
+        -1800,
+        470
+      ],
+      "sequential_rect_centroid": [
+        -1536.2217238840924,
+        318.02367235014566
+      ],
+      "once_rect_centroid": [
+        -1536.2217238840924,
+        318.02367235014594
+      ],
+      "top_point_at_total_slip": [
+        -1536.8283256018908,
+        311.55920625607865
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778109119,
+      "reprojection_vs_original_rectangle_m": 2.8421709430404007e-13
+    },
+    {
+      "tag": 6280,
+      "initial_top": [
+        -1800,
+        480
+      ],
+      "sequential_rect_centroid": [
+        -1535.0085204484958,
+        330.9526045382804
+      ],
+      "once_rect_centroid": [
+        -1535.0085204484958,
+        330.9526045382804
+      ],
+      "top_point_at_total_slip": [
+        -1535.615122166294,
+        324.4881384442132
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778110351,
+      "reprojection_vs_original_rectangle_m": 0
+    },
+    {
+      "tag": 4841,
+      "initial_top": [
+        -1790,
+        360
+      ],
+      "sequential_rect_centroid": [
+        -1542.4891358490727,
+        168.75066575958056
+      ],
+      "once_rect_centroid": [
+        -1542.4891358490722,
+        168.7506657595806
+      ],
+      "top_point_at_total_slip": [
+        -1543.1024955815858,
+        162.2698843747334
+      ],
+      "legacy_top_oracle_error_m": 1.6027862212966524,
+      "reprojection_vs_original_rectangle_m": 4.582862941503293e-13
+    },
+    {
+      "tag": 4961,
+      "initial_top": [
+        -1790,
+        370
+      ],
+      "sequential_rect_centroid": [
+        -1541.2826904281908,
+        181.6632826569353
+      ],
+      "once_rect_centroid": [
+        -1541.282690428191,
+        181.66328265693517
+      ],
+      "top_point_at_total_slip": [
+        -1541.8892921459894,
+        175.19881656286793
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778113404,
+      "reprojection_vs_original_rectangle_m": 2.6812987050722663e-13
+    },
+    {
+      "tag": 5081,
+      "initial_top": [
+        -1790,
+        380
+      ],
+      "sequential_rect_centroid": [
+        -1540.0694869925946,
+        194.59221484507006
+      ],
+      "once_rect_centroid": [
+        -1540.0694869925946,
+        194.59221484506972
+      ],
+      "top_point_at_total_slip": [
+        -1540.6760887103928,
+        188.12774875100246
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778113766,
+      "reprojection_vs_original_rectangle_m": 3.410605131648481e-13
+    },
+    {
+      "tag": 5201,
+      "initial_top": [
+        -1790,
+        390
+      ],
+      "sequential_rect_centroid": [
+        -1538.8562835569983,
+        207.5211470332042
+      ],
+      "once_rect_centroid": [
+        -1538.8562835569983,
+        207.52114703320424
+      ],
+      "top_point_at_total_slip": [
+        -1539.4628852747962,
+        201.05668093913698
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778109219,
+      "reprojection_vs_original_rectangle_m": 5.684341886080802e-14
+    },
+    {
+      "tag": 5321,
+      "initial_top": [
+        -1790,
+        400
+      ],
+      "sequential_rect_centroid": [
+        -1537.6430801214017,
+        220.45007922133888
+      ],
+      "once_rect_centroid": [
+        -1537.643080121402,
+        220.4500792213388
+      ],
+      "top_point_at_total_slip": [
+        -1538.2496818392,
+        213.9856131272715
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778112534,
+      "reprojection_vs_original_rectangle_m": 2.428351918216984e-13
+    },
+    {
+      "tag": 5441,
+      "initial_top": [
+        -1790,
+        410
+      ],
+      "sequential_rect_centroid": [
+        -1536.4298766858055,
+        233.37901140947332
+      ],
+      "once_rect_centroid": [
+        -1536.4298766858053,
+        233.37901140947326
+      ],
+      "top_point_at_total_slip": [
+        -1537.0364784036037,
+        226.91454531540603
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778110875,
+      "reprojection_vs_original_rectangle_m": 2.3437142008433856e-13
+    },
+    {
+      "tag": 5561,
+      "initial_top": [
+        -1790,
+        420
+      ],
+      "sequential_rect_centroid": [
+        -1535.216673250209,
+        246.30794359760785
+      ],
+      "once_rect_centroid": [
+        -1535.216673250209,
+        246.30794359760782
+      ],
+      "top_point_at_total_slip": [
+        -1535.8232749680071,
+        239.84347750354056
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778110875,
+      "reprojection_vs_original_rectangle_m": 2.842170943040401e-14
+    },
+    {
+      "tag": 5681,
+      "initial_top": [
+        -1790,
+        430
+      ],
+      "sequential_rect_centroid": [
+        -1534.0034698146128,
+        259.23687578574254
+      ],
+      "once_rect_centroid": [
+        -1534.0034698146126,
+        259.2368757857423
+      ],
+      "top_point_at_total_slip": [
+        -1534.610071532411,
+        252.77240969167508
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778112452,
+      "reprojection_vs_original_rectangle_m": 3.2155493553843715e-13
+    },
+    {
+      "tag": 5801,
+      "initial_top": [
+        -1790,
+        440
+      ],
+      "sequential_rect_centroid": [
+        -1532.7902663790162,
+        272.165807973877
+      ],
+      "once_rect_centroid": [
+        -1532.7902663790162,
+        272.1658079738769
+      ],
+      "top_point_at_total_slip": [
+        -1533.3968680968144,
+        265.7013418798096
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778111928,
+      "reprojection_vs_original_rectangle_m": 1.1368683772161603e-13
+    },
+    {
+      "tag": 5921,
+      "initial_top": [
+        -1790,
+        450
+      ],
+      "sequential_rect_centroid": [
+        -1531.5770629434198,
+        285.09474016201125
+      ],
+      "once_rect_centroid": [
+        -1531.5770629434198,
+        285.09474016201136
+      ],
+      "top_point_at_total_slip": [
+        -1532.1836646612182,
+        278.63027406794413
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778110171,
+      "reprojection_vs_original_rectangle_m": 1.1368683772161603e-13
+    },
+    {
+      "tag": 6041,
+      "initial_top": [
+        -1790,
+        460
+      ],
+      "sequential_rect_centroid": [
+        -1530.363859507824,
+        298.0236723501457
+      ],
+      "once_rect_centroid": [
+        -1530.3638595078235,
+        298.0236723501459
+      ],
+      "top_point_at_total_slip": [
+        -1530.9704612256214,
+        291.55920625607865
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778106163,
+      "reprojection_vs_original_rectangle_m": 4.856703836433968e-13
+    },
+    {
+      "tag": 6161,
+      "initial_top": [
+        -1790,
+        470
+      ],
+      "sequential_rect_centroid": [
+        -1529.150656072227,
+        310.95260453828035
+      ],
+      "once_rect_centroid": [
+        -1529.150656072227,
+        310.9526045382804
+      ],
+      "top_point_at_total_slip": [
+        -1529.7572577900253,
+        304.4881384442132
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778109827,
+      "reprojection_vs_original_rectangle_m": 5.684341886080802e-14
+    },
+    {
+      "tag": 6281,
+      "initial_top": [
+        -1790,
+        480
+      ],
+      "sequential_rect_centroid": [
+        -1527.9374526366303,
+        323.8815367264149
+      ],
+      "once_rect_centroid": [
+        -1527.9374526366307,
+        323.881536726415
+      ],
+      "top_point_at_total_slip": [
+        -1528.5440543544287,
+        317.4170706323477
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778110695,
+      "reprojection_vs_original_rectangle_m": 4.687428401686771e-13
+    },
+    {
+      "tag": 4842,
+      "initial_top": [
+        -1780,
+        360
+      ],
+      "sequential_rect_centroid": [
+        -1534.0273741853948,
+        165.0370299058698
+      ],
+      "once_rect_centroid": [
+        -1534.0273741853941,
+        165.0370299058697
+      ],
+      "top_point_at_total_slip": [
+        -1534.042712474619,
+        160.00000000000003
+      ],
+      "legacy_top_oracle_error_m": 0.040080881290832246,
+      "reprojection_vs_original_rectangle_m": 6.87429441225494e-13
+    },
+    {
+      "tag": 4962,
+      "initial_top": [
+        -1780,
+        370
+      ],
+      "sequential_rect_centroid": [
+        -1533.735241982869,
+        175.74229943121205
+      ],
+      "once_rect_centroid": [
+        -1533.735241982869,
+        175.7422994312122
+      ],
+      "top_point_at_total_slip": [
+        -1534.0427124746193,
+        170.00000000000003
+      ],
+      "legacy_top_oracle_error_m": 0.8034591146255543,
+      "reprojection_vs_original_rectangle_m": 1.4210854715202004e-13
+    },
+    {
+      "tag": 5082,
+      "initial_top": [
+        -1780,
+        380
+      ],
+      "sequential_rect_centroid": [
+        -1532.9476463885687,
+        187.6437233966377
+      ],
+      "once_rect_centroid": [
+        -1532.9476463885687,
+        187.6437233966375
+      ],
+      "top_point_at_total_slip": [
+        -1533.6050208985273,
+        181.05668093913698
+      ],
+      "legacy_top_oracle_error_m": 1.7178023775316025,
+      "reprojection_vs_original_rectangle_m": 1.9895196601282805e-13
+    },
+    {
+      "tag": 5202,
+      "initial_top": [
+        -1780,
+        390
+      ],
+      "sequential_rect_centroid": [
+        -1531.785215745133,
+        200.4500792213387
+      ],
+      "once_rect_centroid": [
+        -1531.785215745133,
+        200.4500792213388
+      ],
+      "top_point_at_total_slip": [
+        -1532.3918174629307,
+        193.9856131272715
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778108346,
+      "reprojection_vs_original_rectangle_m": 8.526512829121202e-14
+    },
+    {
+      "tag": 5322,
+      "initial_top": [
+        -1780,
+        400
+      ],
+      "sequential_rect_centroid": [
+        -1530.5720123095361,
+        213.37901140947343
+      ],
+      "once_rect_centroid": [
+        -1530.5720123095366,
+        213.37901140947326
+      ],
+      "top_point_at_total_slip": [
+        -1531.1786140273346,
+        206.91454531540603
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778112796,
+      "reprojection_vs_original_rectangle_m": 4.856703836433968e-13
+    },
+    {
+      "tag": 5442,
+      "initial_top": [
+        -1780,
+        410
+      ],
+      "sequential_rect_centroid": [
+        -1529.3588088739402,
+        226.30794359760787
+      ],
+      "once_rect_centroid": [
+        -1529.3588088739402,
+        226.30794359760782
+      ],
+      "top_point_at_total_slip": [
+        -1529.9654105917384,
+        219.84347750354056
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778111137,
+      "reprojection_vs_original_rectangle_m": 5.684341886080802e-14
+    },
+    {
+      "tag": 5562,
+      "initial_top": [
+        -1780,
+        420
+      ],
+      "sequential_rect_centroid": [
+        -1528.1456054383443,
+        239.2368757857425
+      ],
+      "once_rect_centroid": [
+        -1528.1456054383434,
+        239.23687578574234
+      ],
+      "top_point_at_total_slip": [
+        -1528.7522071561416,
+        232.77240969167508
+      ],
+      "legacy_top_oracle_error_m": 1.585126677810871,
+      "reprojection_vs_original_rectangle_m": 9.25343817704044e-13
+    },
+    {
+      "tag": 5682,
+      "initial_top": [
+        -1780,
+        430
+      ],
+      "sequential_rect_centroid": [
+        -1526.9324020027475,
+        252.1658079738768
+      ],
+      "once_rect_centroid": [
+        -1526.932402002747,
+        252.16580797387687
+      ],
+      "top_point_at_total_slip": [
+        -1527.5390037205455,
+        245.7013418798096
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778109219,
+      "reprojection_vs_original_rectangle_m": 4.582862941503293e-13
+    },
+    {
+      "tag": 5802,
+      "initial_top": [
+        -1780,
+        440
+      ],
+      "sequential_rect_centroid": [
+        -1525.7191985671502,
+        265.0947401620115
+      ],
+      "once_rect_centroid": [
+        -1525.7191985671507,
+        265.09474016201136
+      ],
+      "top_point_at_total_slip": [
+        -1526.3258002849489,
+        258.63027406794413
+      ],
+      "legacy_top_oracle_error_m": 1.585126677811314,
+      "reprojection_vs_original_rectangle_m": 4.687428401686771e-13
+    },
+    {
+      "tag": 5922,
+      "initial_top": [
+        -1780,
+        450
+      ],
+      "sequential_rect_centroid": [
+        -1524.5059951315534,
+        278.0236723501457
+      ],
+      "once_rect_centroid": [
+        -1524.5059951315543,
+        278.02367235014594
+      ],
+      "top_point_at_total_slip": [
+        -1525.1125968493527,
+        271.55920625607865
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778113127,
+      "reprojection_vs_original_rectangle_m": 9.374856803373542e-13
+    },
+    {
+      "tag": 6042,
+      "initial_top": [
+        -1780,
+        460
+      ],
+      "sequential_rect_centroid": [
+        -1523.2927916959577,
+        290.95260453828064
+      ],
+      "once_rect_centroid": [
+        -1523.2927916959577,
+        290.9526045382804
+      ],
+      "top_point_at_total_slip": [
+        -1523.8993934137561,
+        284.4881384442132
+      ],
+      "legacy_top_oracle_error_m": 1.585126677811332,
+      "reprojection_vs_original_rectangle_m": 2.2737367544323206e-13
+    },
+    {
+      "tag": 6162,
+      "initial_top": [
+        -1780,
+        470
+      ],
+      "sequential_rect_centroid": [
+        -1522.0795882603607,
+        303.8815367264151
+      ],
+      "once_rect_centroid": [
+        -1522.0795882603613,
+        303.881536726415
+      ],
+      "top_point_at_total_slip": [
+        -1522.6861899781597,
+        297.4170706323477
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778115407,
+      "reprojection_vs_original_rectangle_m": 6.915300366811401e-13
+    },
+    {
+      "tag": 6282,
+      "initial_top": [
+        -1780,
+        480
+      ],
+      "sequential_rect_centroid": [
+        -1520.8663848247647,
+        316.8104689145496
+      ],
+      "once_rect_centroid": [
+        -1520.866384824765,
+        316.81046891454946
+      ],
+      "top_point_at_total_slip": [
+        -1521.4729865425631,
+        310.3460028204822
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778112272,
+      "reprojection_vs_original_rectangle_m": 2.5421149729252077e-13
+    },
+    {
+      "tag": 4843,
+      "initial_top": [
+        -1770,
+        360
+      ],
+      "sequential_rect_centroid": [
+        -1524.0427124746184,
+        165.00000000000037
+      ],
+      "once_rect_centroid": [
+        -1524.0427124746188,
+        165
+      ],
+      "top_point_at_total_slip": [
+        -1524.042712474619,
+        160.00000000000003
+      ],
+      "legacy_top_oracle_error_m": 7.626344918775623e-13,
+      "reprojection_vs_original_rectangle_m": 5.859285502108464e-13
+    },
+    {
+      "tag": 4963,
+      "initial_top": [
+        -1770,
+        370
+      ],
+      "sequential_rect_centroid": [
+        -1524.0427124746188,
+        175
+      ],
+      "once_rect_centroid": [
+        -1524.042712474619,
+        175
+      ],
+      "top_point_at_total_slip": [
+        -1524.0427124746193,
+        170.00000000000003
+      ],
+      "legacy_top_oracle_error_m": 4.556346636343676e-13,
+      "reprojection_vs_original_rectangle_m": 2.2737367544323206e-13
+    },
+    {
+      "tag": 5083,
+      "initial_top": [
+        -1770,
+        380
+      ],
+      "sequential_rect_centroid": [
+        -1524.042408564167,
+        185.00073370473382
+      ],
+      "once_rect_centroid": [
+        -1524.0424085641678,
+        185.00073370473362
+      ],
+      "top_point_at_total_slip": [
+        -1524.042712474619,
+        180.00000000000003
+      ],
+      "legacy_top_oracle_error_m": 0.0007941562813488044,
+      "reprojection_vs_original_rectangle_m": 7.105427357601002e-13
+    },
+    {
+      "tag": 5203,
+      "initial_top": [
+        -1770,
+        390
+      ],
+      "sequential_rect_centroid": [
+        -1523.9144143859094,
+        195.30973898578776
+      ],
+      "once_rect_centroid": [
+        -1523.9144143859098,
+        195.30973898578782
+      ],
+      "top_point_at_total_slip": [
+        -1524.042712474619,
+        190.00000000000003
+      ],
+      "legacy_top_oracle_error_m": 0.33525906234339786,
+      "reprojection_vs_original_rectangle_m": 4.582862941503293e-13
+    },
+    {
+      "tag": 5323,
+      "initial_top": [
+        -1770,
+        400
+      ],
+      "sequential_rect_centroid": [
+        -1523.334667682871,
+        206.70937133900514
+      ],
+      "once_rect_centroid": [
+        -1523.3346676828712,
+        206.70937133900506
+      ],
+      "top_point_at_total_slip": [
+        -1524.042712474619,
+        200.00000000000003
+      ],
+      "legacy_top_oracle_error_m": 1.8502102047426194,
+      "reprojection_vs_original_rectangle_m": 2.428351918216984e-13
+    },
+    {
+      "tag": 5443,
+      "initial_top": [
+        -1770,
+        410
+      ],
+      "sequential_rect_centroid": [
+        -1522.2862596889963,
+        219.24045213671806
+      ],
+      "once_rect_centroid": [
+        -1522.2862596889966,
+        219.2404521367181
+      ],
+      "top_point_at_total_slip": [
+        -1522.8943427798729,
+        212.77240969167508
+      ],
+      "legacy_top_oracle_error_m": 1.5889976922128526,
+      "reprojection_vs_original_rectangle_m": 2.2914314707516465e-13
+    },
+    {
+      "tag": 5563,
+      "initial_top": [
+        -1770,
+        420
+      ],
+      "sequential_rect_centroid": [
+        -1521.0745376264779,
+        232.16580797387707
+      ],
+      "once_rect_centroid": [
+        -1521.074537626478,
+        232.16580797387687
+      ],
+      "top_point_at_total_slip": [
+        -1521.6811393442763,
+        225.7013418798096
+      ],
+      "legacy_top_oracle_error_m": 1.585126677811332,
+      "reprojection_vs_original_rectangle_m": 3.0212691549237007e-13
+    },
+    {
+      "tag": 5683,
+      "initial_top": [
+        -1770,
+        430
+      ],
+      "sequential_rect_centroid": [
+        -1519.8613341908815,
+        245.09474016201145
+      ],
+      "once_rect_centroid": [
+        -1519.8613341908815,
+        245.0947401620114
+      ],
+      "top_point_at_total_slip": [
+        -1520.46793590868,
+        238.63027406794413
+      ],
+      "legacy_top_oracle_error_m": 1.585126677811201,
+      "reprojection_vs_original_rectangle_m": 5.684341886080802e-14
+    },
+    {
+      "tag": 5803,
+      "initial_top": [
+        -1770,
+        440
+      ],
+      "sequential_rect_centroid": [
+        -1518.648130755285,
+        258.0236723501457
+      ],
+      "once_rect_centroid": [
+        -1518.6481307552851,
+        258.02367235014594
+      ],
+      "top_point_at_total_slip": [
+        -1519.2547324730833,
+        251.55920625607865
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778109643,
+      "reprojection_vs_original_rectangle_m": 3.2155493553843715e-13
+    },
+    {
+      "tag": 5923,
+      "initial_top": [
+        -1770,
+        450
+      ],
+      "sequential_rect_centroid": [
+        -1517.4349273196892,
+        270.9526045382806
+      ],
+      "once_rect_centroid": [
+        -1517.4349273196888,
+        270.9526045382804
+      ],
+      "top_point_at_total_slip": [
+        -1518.0415290374872,
+        264.4881384442132
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778111055,
+      "reprojection_vs_original_rectangle_m": 4.856703836433968e-13
+    },
+    {
+      "tag": 6043,
+      "initial_top": [
+        -1770,
+        460
+      ],
+      "sequential_rect_centroid": [
+        -1516.2217238840926,
+        283.8815367264149
+      ],
+      "once_rect_centroid": [
+        -1516.2217238840924,
+        283.881536726415
+      ],
+      "top_point_at_total_slip": [
+        -1516.8283256018906,
+        277.4170706323477
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778108954,
+      "reprojection_vs_original_rectangle_m": 2.5421149729252077e-13
+    },
+    {
+      "tag": 6163,
+      "initial_top": [
+        -1770,
+        470
+      ],
+      "sequential_rect_centroid": [
+        -1515.008520448496,
+        296.8104689145496
+      ],
+      "once_rect_centroid": [
+        -1515.0085204484958,
+        296.81046891454946
+      ],
+      "top_point_at_total_slip": [
+        -1515.6151221662944,
+        290.3460028204822
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778112272,
+      "reprojection_vs_original_rectangle_m": 2.5421149729252077e-13
+    },
+    {
+      "tag": 6283,
+      "initial_top": [
+        -1770,
+        480
+      ],
+      "sequential_rect_centroid": [
+        -1513.7953170128994,
+        309.73940110268404
+      ],
+      "once_rect_centroid": [
+        -1513.7953170128994,
+        309.73940110268404
+      ],
+      "top_point_at_total_slip": [
+        -1514.4019187306976,
+        303.27493500861675
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778110875,
+      "reprojection_vs_original_rectangle_m": 0
+    },
+    {
+      "tag": 4844,
+      "initial_top": [
+        -1760,
+        360
+      ],
+      "sequential_rect_centroid": [
+        -1514.0427124746188,
+        165.0000000000004
+      ],
+      "once_rect_centroid": [
+        -1514.0427124746188,
+        165
+      ],
+      "top_point_at_total_slip": [
+        -1514.042712474619,
+        160.00000000000003
+      ],
+      "legacy_top_oracle_error_m": 4.338385657113619e-13,
+      "reprojection_vs_original_rectangle_m": 3.979039320256561e-13
+    },
+    {
+      "tag": 4964,
+      "initial_top": [
+        -1760,
+        370
+      ],
+      "sequential_rect_centroid": [
+        -1514.042712474619,
+        175.00000000000017
+      ],
+      "once_rect_centroid": [
+        -1514.042712474619,
+        175
+      ],
+      "top_point_at_total_slip": [
+        -1514.0427124746193,
+        170.00000000000003
+      ],
+      "legacy_top_oracle_error_m": 2.6812987050722663e-13,
+      "reprojection_vs_original_rectangle_m": 1.7053025658242404e-13
+    },
+    {
+      "tag": 5084,
+      "initial_top": [
+        -1760,
+        380
+      ],
+      "sequential_rect_centroid": [
+        -1514.042712474619,
+        184.9999999999999
+      ],
+      "once_rect_centroid": [
+        -1514.042712474619,
+        185.00000000000003
+      ],
+      "top_point_at_total_slip": [
+        -1514.042712474619,
+        180.00000000000003
+      ],
+      "legacy_top_oracle_error_m": 1.4210854715202004e-13,
+      "reprojection_vs_original_rectangle_m": 1.4210854715202004e-13
+    },
+    {
+      "tag": 5204,
+      "initial_top": [
+        -1760,
+        390
+      ],
+      "sequential_rect_centroid": [
+        -1514.042712474619,
+        195.00000000000037
+      ],
+      "once_rect_centroid": [
+        -1514.042712474619,
+        195.00000000000003
+      ],
+      "top_point_at_total_slip": [
+        -1514.0427124746188,
+        190.00000000000003
+      ],
+      "legacy_top_oracle_error_m": 4.099037227506403e-13,
+      "reprojection_vs_original_rectangle_m": 3.410605131648481e-13
+    },
+    {
+      "tag": 5324,
+      "initial_top": [
+        -1760,
+        400
+      ],
+      "sequential_rect_centroid": [
+        -1514.042712474619,
+        205
+      ],
+      "once_rect_centroid": [
+        -1514.042712474619,
+        205.00000000000003
+      ],
+      "top_point_at_total_slip": [
+        -1514.0427124746193,
+        200.00000000000003
+      ],
+      "legacy_top_oracle_error_m": 2.2914314707516465e-13,
+      "reprojection_vs_original_rectangle_m": 2.842170943040401e-14
+    },
+    {
+      "tag": 5444,
+      "initial_top": [
+        -1760,
+        410
+      ],
+      "sequential_rect_centroid": [
+        -1514.0088484485138,
+        215.08175499110058
+      ],
+      "once_rect_centroid": [
+        -1514.0088484485134,
+        215.08175499110067
+      ],
+      "top_point_at_total_slip": [
+        -1514.0427124746193,
+        210.00000000000003
+      ],
+      "legacy_top_oracle_error_m": 0.08849096470217697,
+      "reprojection_vs_original_rectangle_m": 4.62671908852022e-13
+    },
+    {
+      "tag": 5564,
+      "initial_top": [
+        -1760,
+        420
+      ],
+      "sequential_rect_centroid": [
+        -1513.6357731741105,
+        225.9824383783518
+      ],
+      "once_rect_centroid": [
+        -1513.6357731741095,
+        225.982438378352
+      ],
+      "top_point_at_total_slip": [
+        -1514.042712474619,
+        220.00000000000003
+      ],
+      "legacy_top_oracle_error_m": 1.0633836379956538,
+      "reprojection_vs_original_rectangle_m": 9.310008041529271e-13
+    },
+    {
+      "tag": 5684,
+      "initial_top": [
+        -1760,
+        430
+      ],
+      "sequential_rect_centroid": [
+        -1512.7645354429708,
+        238.08579232491996
+      ],
+      "once_rect_centroid": [
+        -1512.7645354429706,
+        238.08579232491994
+      ],
+      "top_point_at_total_slip": [
+        -1513.3968680968146,
+        231.55920625607865
+      ],
+      "legacy_top_oracle_error_m": 1.6523648539888376,
+      "reprojection_vs_original_rectangle_m": 2.2914314707516465e-13
+    },
+    {
+      "tag": 5804,
+      "initial_top": [
+        -1760,
+        440
+      ],
+      "sequential_rect_centroid": [
+        -1511.5770629434198,
+        250.95260453828044
+      ],
+      "once_rect_centroid": [
+        -1511.5770629434198,
+        250.95260453828044
+      ],
+      "top_point_at_total_slip": [
+        -1512.1836646612178,
+        244.48813844421318
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778109743,
+      "reprojection_vs_original_rectangle_m": 0
+    },
+    {
+      "tag": 5924,
+      "initial_top": [
+        -1760,
+        450
+      ],
+      "sequential_rect_centroid": [
+        -1510.3638595078237,
+        263.88153672641505
+      ],
+      "once_rect_centroid": [
+        -1510.3638595078235,
+        263.881536726415
+      ],
+      "top_point_at_total_slip": [
+        -1510.9704612256216,
+        257.4170706323477
+      ],
+      "legacy_top_oracle_error_m": 1.585126677811053,
+      "reprojection_vs_original_rectangle_m": 2.3437142008433856e-13
+    },
+    {
+      "tag": 6044,
+      "initial_top": [
+        -1760,
+        460
+      ],
+      "sequential_rect_centroid": [
+        -1509.1506560722273,
+        276.8104689145496
+      ],
+      "once_rect_centroid": [
+        -1509.150656072227,
+        276.81046891454946
+      ],
+      "top_point_at_total_slip": [
+        -1509.757257790025,
+        270.3460028204822
+      ],
+      "legacy_top_oracle_error_m": 1.585126677810966,
+      "reprojection_vs_original_rectangle_m": 2.5421149729252077e-13
+    },
+    {
+      "tag": 6164,
+      "initial_top": [
+        -1760,
+        470
+      ],
+      "sequential_rect_centroid": [
+        -1507.9374526366307,
+        289.73940110268404
+      ],
+      "once_rect_centroid": [
+        -1507.9374526366307,
+        289.73940110268404
+      ],
+      "top_point_at_total_slip": [
+        -1508.544054354429,
+        283.27493500861675
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778110875,
+      "reprojection_vs_original_rectangle_m": 0
+    },
+    {
+      "tag": 6284,
+      "initial_top": [
+        -1760,
+        480
+      ],
+      "sequential_rect_centroid": [
+        -1506.7242492010346,
+        302.6683332908185
+      ],
+      "once_rect_centroid": [
+        -1506.724249201034,
+        302.6683332908185
+      ],
+      "top_point_at_total_slip": [
+        -1507.3308509188323,
+        296.2038671967513
+      ],
+      "legacy_top_oracle_error_m": 1.5851266778108608,
+      "reprojection_vs_original_rectangle_m": 6.821210263296962e-13
+    }
+  ],
+  "interpretation": "Independent exact 45-degree area moments agree with the candidate at every increment. For this symmetric flat/ramp/flat fixture, the affine arc coordinate advances by exactly slip, so rectangle averages telescope: repeated increments and one-shot original-rectangle first moments coincide. The old test follows a top point, which is a different geometric quantity."
+}

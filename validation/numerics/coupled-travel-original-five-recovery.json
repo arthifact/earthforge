@@ -1,0 +1,306 @@
+{
+  "scope": "Fixed original five coupled-A coarse thickness outliers, measured from official frozen full-study samples rather than pilot outputs",
+  "keys": [
+    "unit:7:8400",
+    "unit:9:8400",
+    "unit:10:8400",
+    "unit:13:8400",
+    "unit:15:8400"
+  ],
+  "all_five_eligible_in_all_revisions": true,
+  "grids_m": [
+    40,
+    20,
+    10
+  ],
+  "plan_sha256": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+  "candidate_source_sha256": {
+    "src/basin.ts": "f82bf4b589246ffc5652dc06b18f5d1e26bacc7f61b38fc7d010a66198379b08",
+    "src/conservativeTransport.ts": "fb601e0ca361bd598232faa929e1db63045c9515532ab32662624d3761276f27",
+    "src/strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+    "src/normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+    "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+    "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+    "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+    "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+    "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+    "validation/numerics/metrics.mjs": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b",
+    "validation/numerics/run.mjs": "579c12772f2a8ff6b4ace8a8fd3586b905292f443481f0abcc989cfde9510fbd"
+  },
+  "history_sha256": "a47b82f4d9d2b45d9bc2b7218afe6a4d8fc14d12da0028d952b7dad85ec41e18",
+  "roots": {
+    "prior_unweighted": "/Users/torus/Desktop/Research/earthforge/data/numerics/travel-thickness",
+    "current_weighted": "/Users/torus/Desktop/Research/earthforge/data/numerics/thrust-b-repair",
+    "candidate_motion_only": "/Users/torus/Documents/Codex/2026-10-12/wha/work/coupled-travel-fix/earthforge/data/numerics/coupled-travel-repair"
+  },
+  "metrics": {
+    "prior_unweighted": {
+      "n": 5,
+      "coarse_rms": 0.3455466235378245,
+      "fine_rms": 0.12467930881955981,
+      "ratio": 0.360817615704215,
+      "coarse_mae": 0.3009719864513613,
+      "fine_mae": 0.10310951718674914,
+      "coarse_max": 0.5321709049143237,
+      "fine_max": 0.2044241984705195,
+      "classes": {
+        "oscillatory-noncontracting": 1,
+        "oscillatory-contracting": 3,
+        "monotonic-contracting": 1
+      }
+    },
+    "current_weighted": {
+      "n": 5,
+      "coarse_rms": 19.60145306221746,
+      "fine_rms": 0.11381318734842297,
+      "ratio": 0.005806364813218985,
+      "coarse_mae": 18.833967221377044,
+      "fine_mae": 0.09387090540450345,
+      "coarse_max": 25.593799839522262,
+      "fine_max": 0.2127071660988804,
+      "classes": {
+        "monotonic-contracting": 4,
+        "oscillatory-contracting": 1
+      }
+    },
+    "candidate_motion_only": {
+      "n": 5,
+      "coarse_rms": 0.38722415757347733,
+      "fine_rms": 0.3697390247497262,
+      "ratio": 0.9548449328850738,
+      "coarse_mae": 0.29731413690866476,
+      "fine_mae": 0.3250780968306913,
+      "coarse_max": 0.6464174184151261,
+      "fine_max": 0.5883525054643997,
+      "classes": {
+        "oscillatory-noncontracting": 1,
+        "monotonic-noncontracting": 2,
+        "oscillatory-contracting": 2
+      }
+    }
+  },
+  "rows": [
+    {
+      "key": "unit:7:8400",
+      "revisions": {
+        "prior_unweighted": {
+          "key": "unit:7:8400",
+          "metric": "thickness_m",
+          "values": [
+            140.6892502999798,
+            140.84498310141498,
+            140.895610946362
+          ],
+          "coarse": -0.15573280143519241,
+          "fine": -0.0506278449470301,
+          "ratio": 0.32509429279160995,
+          "classification": "monotonic-contracting"
+        },
+        "current_weighted": {
+          "key": "unit:7:8400",
+          "metric": "thickness_m",
+          "values": [
+            124.70209804938395,
+            140.84434878594197,
+            140.77378050047423
+          ],
+          "coarse": -16.142250736558026,
+          "fine": 0.07056828546774341,
+          "ratio": 0.004371650931423366,
+          "classification": "oscillatory-contracting"
+        },
+        "candidate_motion_only": {
+          "key": "unit:7:8400",
+          "metric": "thickness_m",
+          "values": [
+            140.19492964818653,
+            140.84134706660166,
+            140.25299456113726
+          ],
+          "coarse": -0.6464174184151261,
+          "fine": 0.5883525054643997,
+          "ratio": 0.910174275481176,
+          "classification": "oscillatory-contracting"
+        }
+      }
+    },
+    {
+      "key": "unit:9:8400",
+      "revisions": {
+        "prior_unweighted": {
+          "key": "unit:9:8400",
+          "metric": "thickness_m",
+          "values": [
+            122.94846488057601,
+            122.41629397566169,
+            122.50529204008672
+          ],
+          "coarse": 0.5321709049143237,
+          "fine": -0.08899806442502722,
+          "ratio": 0.16723587028748851,
+          "classification": "oscillatory-contracting"
+        },
+        "current_weighted": {
+          "key": "unit:9:8400",
+          "metric": "thickness_m",
+          "values": [
+            96.82207285771642,
+            122.41587269723868,
+            122.51621791278717
+          ],
+          "coarse": -25.593799839522262,
+          "fine": -0.10034521554848652,
+          "ratio": 0.003920684547729102,
+          "classification": "monotonic-contracting"
+        },
+        "candidate_motion_only": {
+          "key": "unit:9:8400",
+          "metric": "thickness_m",
+          "values": [
+            122.961368600568,
+            122.41562759424949,
+            122.49236010231209
+          ],
+          "coarse": 0.545741006318508,
+          "fine": -0.07673250806260512,
+          "ratio": 0.14060242344666718,
+          "classification": "oscillatory-contracting"
+        }
+      }
+    },
+    {
+      "key": "unit:10:8400",
+      "revisions": {
+        "prior_unweighted": {
+          "key": "unit:10:8400",
+          "metric": "thickness_m",
+          "values": [
+            126.12691061782732,
+            126.25412293581655,
+            126.04969873734603
+          ],
+          "coarse": -0.12721231798923327,
+          "fine": 0.2044241984705195,
+          "ratio": 1.6069528619690834,
+          "classification": "oscillatory-noncontracting"
+        },
+        "current_weighted": {
+          "key": "unit:10:8400",
+          "metric": "thickness_m",
+          "values": [
+            148.77454265781694,
+            126.2628735850077,
+            126.05016641890882
+          ],
+          "coarse": 22.51166907280924,
+          "fine": 0.2127071660988804,
+          "ratio": 0.009448751463559809,
+          "classification": "monotonic-contracting"
+        },
+        "candidate_motion_only": {
+          "key": "unit:10:8400",
+          "metric": "thickness_m",
+          "values": [
+            126.19324406635292,
+            126.25954540938278,
+            125.96456778223921
+          ],
+          "coarse": -0.06630134302986335,
+          "fine": 0.2949776271435667,
+          "ratio": 4.449044524040837,
+          "classification": "oscillatory-noncontracting"
+        }
+      }
+    },
+    {
+      "key": "unit:13:8400",
+      "revisions": {
+        "prior_unweighted": {
+          "key": "unit:13:8400",
+          "metric": "thickness_m",
+          "values": [
+            115.34311160119682,
+            114.8650152789553,
+            115.02406432723319
+          ],
+          "coarse": 0.47809632224152665,
+          "fine": -0.15904904827789323,
+          "ratio": 0.3326715577568158,
+          "classification": "oscillatory-contracting"
+        },
+        "current_weighted": {
+          "key": "unit:13:8400",
+          "metric": "thickness_m",
+          "values": [
+            94.85932162901446,
+            114.87152777593792,
+            114.93437816151845
+          ],
+          "coarse": -20.01220614692346,
+          "fine": -0.06285038558053202,
+          "ratio": 0.0031406025462212325,
+          "classification": "monotonic-contracting"
+        },
+        "candidate_motion_only": {
+          "key": "unit:13:8400",
+          "metric": "thickness_m",
+          "values": [
+            114.71192077674607,
+            114.8684665456185,
+            115.30870791263203
+          ],
+          "coarse": -0.15654576887243365,
+          "fine": -0.44024136701352745,
+          "ratio": 2.8122214364814435,
+          "classification": "monotonic-noncontracting"
+        }
+      }
+    },
+    {
+      "key": "unit:15:8400",
+      "revisions": {
+        "prior_unweighted": {
+          "key": "unit:15:8400",
+          "metric": "thickness_m",
+          "values": [
+            253.04780303094998,
+            252.83615544527345,
+            252.84860387508672
+          ],
+          "coarse": 0.21164758567653053,
+          "fine": -0.012448429813275652,
+          "ratio": 0.05881678155450866,
+          "classification": "oscillatory-contracting"
+        },
+        "current_weighted": {
+          "key": "unit:15:8400",
+          "metric": "thickness_m",
+          "values": [
+            242.92589174775344,
+            252.83580205882566,
+            252.85868553315254
+          ],
+          "coarse": -9.909910311072224,
+          "fine": -0.022883474326874875,
+          "ratio": 0.0023091504976899178,
+          "classification": "monotonic-contracting"
+        },
+        "candidate_motion_only": {
+          "key": "unit:15:8400",
+          "metric": "thickness_m",
+          "values": [
+            252.76493689176152,
+            252.83650203966891,
+            253.06158851613827
+          ],
+          "coarse": -0.07156514790739266,
+          "fine": -0.22508647646935742,
+          "ratio": 3.1451968318520875,
+          "classification": "monotonic-noncontracting"
+        }
+      }
+    }
+  ],
+  "fraction_of_original_excess_coarse_squared_discrepancy_recovered": 0.9999204887445902,
+  "caveat": "These predefined rows document recovery of the original defect. Aggregate results and new regressions must be reported separately; this five-row subset is not an overall acceptance metric."
+}

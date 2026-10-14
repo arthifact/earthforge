@@ -1,0 +1,30 @@
+{
+  "status": "independent review passed; full suite and frozen study owned by parent",
+  "reviewed_files": {
+    "work/coupled-travel-fix/earthforge/src/basin.ts": "f82bf4b589246ffc5652dc06b18f5d1e26bacc7f61b38fc7d010a66198379b08",
+    "work/coupled-travel-fix/earthforge/src/conservativeTransport.ts": "fb601e0ca361bd598232faa929e1db63045c9515532ab32662624d3761276f27",
+    "work/coupled-travel-fix/earthforge/tests/thrust-flow-area-displacement.test.mjs": "d602585f4fbffce7a688760373f37926c11ae22bae1735d329fe69033691457d",
+    "work/coupled-travel-fix/earthforge/tests/thrust-matching-stability.test.mjs": "ae564cbac40a3fe34bcba35367d2154d7ff79046368e243a2cd0fe0643630e63"
+  },
+  "blocking_findings": [],
+  "checks": [
+    "Compared current basin and conservativeTransport source against the original repository source without modifying either.",
+    "Verified per-constituent physical top, occupied-area integration, rock-height-weighted allocation target, and individual offset reconstruction; no capacity, boundary continuation, flux accounting, or retained-fragment-count changes.",
+    "Verified strict distance/node-index heap ordering, exact integer reduced costs, actual-nearest greedy dual initialization under accepted half-cell slack, finite positive weight validation, and retention of zero-quantized-cost parcels.",
+    "Reviewed permanent analytic geometry and exhaustive matching tests against their independent mathematical oracles.",
+    "Reran 75-case geometry audit against cleaned staging source: closed-form bend integral, x/z partition additivity, mirrored and translated geometry, signed slips, dense independent point-flow quadrature, and tiny intervals all pass.",
+    "Checked a 26-point collinear polyline with positive and negative slips across more than 16 domains; point flow, displacement, and area displacement agree exactly."
+  ],
+  "evidence": [
+    "staging-final-audit.json",
+    "bigint-check.json",
+    "../coupled-travel-transport/bigint-independent-review.json"
+  ],
+  "limits_to_disclose": [
+    "Exact first moments apply to the represented rectangular constituent, not an authoritative deformed material footprint or generally converged transport scheme.",
+    "Whole-packet assignment, storage-column packing, and prescribed incoming continuation remain approximations.",
+    "Quantization is not universal perturbation invariance: bin-boundary changes and tied source insertion order can change ownership. The raw objective bound applies inside the selected radius and allows floating edge-cost evaluation roundoff.",
+    "Full paired comparison must disclose remaining quiet-case and coarse coupled-C regressions as well as gains; focused tests and conservation closure alone do not prove physical convergence."
+  ],
+  "data_access": "Only source, synthetic tests, and previously generated model-only scratch evidence reviewed. No observational arrays, split metadata, or holdout files accessed."
+}

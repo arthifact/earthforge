@@ -1,0 +1,172 @@
+{
+  "long_polyline_passed": true,
+  "long_polyline": [
+    {
+      "dir": -1,
+      "sign": -1,
+      "domains": 33,
+      "expected_displacement": [
+        320,
+        0
+      ],
+      "candidate_displacement": [
+        320,
+        0
+      ],
+      "candidate_point": [
+        -5,
+        490
+      ],
+      "candidate_area": [
+        320,
+        0
+      ],
+      "guard16": {
+        "error": "Flow displacement crossed too many domains",
+        "point": [
+          -170,
+          490
+        ]
+      }
+    },
+    {
+      "dir": -1,
+      "sign": 1,
+      "domains": 33,
+      "expected_displacement": [
+        -320,
+        0
+      ],
+      "candidate_displacement": [
+        -320,
+        0
+      ],
+      "candidate_point": [
+        -325,
+        490
+      ],
+      "candidate_area": [
+        -320,
+        0
+      ],
+      "guard16": {
+        "error": "Flow displacement crossed too many domains",
+        "point": [
+          -160,
+          490
+        ]
+      }
+    },
+    {
+      "dir": 1,
+      "sign": -1,
+      "domains": 33,
+      "expected_displacement": [
+        -320,
+        0
+      ],
+      "candidate_displacement": [
+        -320,
+        0
+      ],
+      "candidate_point": [
+        5,
+        490
+      ],
+      "candidate_area": [
+        -320,
+        0
+      ],
+      "guard16": {
+        "error": "Flow displacement crossed too many domains",
+        "point": [
+          170,
+          490
+        ]
+      }
+    },
+    {
+      "dir": 1,
+      "sign": 1,
+      "domains": 33,
+      "expected_displacement": [
+        320,
+        0
+      ],
+      "candidate_displacement": [
+        320,
+        0
+      ],
+      "candidate_point": [
+        325,
+        490
+      ],
+      "candidate_area": [
+        320,
+        0
+      ],
+      "guard16": {
+        "error": "Flow displacement crossed too many domains",
+        "point": [
+          160,
+          490
+        ]
+      }
+    }
+  ],
+  "invalid_flow_geometry": [
+    {
+      "name": "empty",
+      "error": "Cannot read properties of undefined (reading '0')"
+    },
+    {
+      "name": "one_point",
+      "error": "Cannot read properties of undefined (reading '0')"
+    },
+    {
+      "name": "duplicate",
+      "result": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "reversal",
+      "result": [
+        20,
+        0
+      ]
+    },
+    {
+      "name": "nan",
+      "result": [
+        "NaN",
+        0
+      ]
+    }
+  ],
+  "nonfinite_point_slip": [
+    {
+      "slip": "NaN",
+      "result": [
+        "-Infinity",
+        "NaN"
+      ]
+    },
+    {
+      "slip": "Infinity",
+      "result": [
+        "Infinity",
+        "NaN"
+      ]
+    },
+    {
+      "slip": "-Infinity",
+      "result": [
+        "-Infinity",
+        "NaN"
+      ]
+    }
+  ],
+  "interpretation": "Malformed flowLine geometry is already unsupported by old flowMove; flowLine/remapThrust validate only finite point coordinates, not nonzero segments or reversals. The new exported point-displacement helper does not independently validate finite inputs. Production generated geometries satisfy the required conditions."
+}

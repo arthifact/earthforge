@@ -1,0 +1,60 @@
+{
+  "status": "independent fixture diagnosis passed; no production correction needed",
+  "scope": "Existing closed-packet bend test only; original test name/count retained",
+  "cause": "The old strict expectation follows the point at the storage-cell top. A finite 10 x 10 m material rectangle has a different mean displacement even where its final map is affine, because its centroid lies 5 m below that point.",
+  "first_packet": {
+    "initial_represented_top": [
+      -1820,
+      360
+    ],
+    "old_top_point_expectation": [
+      -1564.3156990171822,
+      183.48308781032983
+    ],
+    "independent_rectangle_mean_top": [
+      -1563.709097299384,
+      184.9475539043971
+    ]
+  },
+  "maximum_legacy_top_point_vs_rectangle_mean_difference_m": 1.8502102047424103,
+  "independent_oracle": {
+    "arc": "a=x+1600+(700-z)*tan(pi/8)",
+    "ramp_length": "L=200*sqrt(2)",
+    "ramp_distance": "R=clamp(a+s,0,L)-clamp(a,0,L)",
+    "point_displacement": "[s-(1-1/sqrt(2))*R, -R/sqrt(2)]",
+    "area_integration": "Exact cubic corner integral of positive parts of affine a; fully positive/negative shortcuts avoid cancellation. Uses no production domain, flow or clipping helper.",
+    "repeated_step_identity": "Gradient(a) dot every segment tangent equals 1. Each point and each rectangle mean advances a by s; replacement by the same-sized rectangle preserves the a-distribution. Expected ramp distances therefore telescope, making the original rectangle one-shot first moment exact for this specialized geometry."
+  },
+  "strict_analytical_tolerance_m": 1e-07,
+  "packets": 91,
+  "increments": 24,
+  "max_per_step_position_error_m": 5.362597410144533e-13,
+  "rms_final_one_shot_rectangle_moment_error_m": 1.0243260964125674e-13,
+  "max_final_one_shot_rectangle_moment_error_m": 2.6203521364587025e-13,
+  "unchanged_physical_gates": {
+    "storage_to_original_point_rms_m": 4.449330464028553,
+    "original_rms_limit_m": 20,
+    "storage_to_original_point_max_m": 8.03762325877464,
+    "original_max_limit_m": 40
+  },
+  "unchanged_checks": [
+    "Every increment has zero inflow and outflow",
+    "Every increment closes constituent budgets",
+    "Input state is pure",
+    "Provenance and physical fields remain exact",
+    "Total/sand/shale/carbonate inventories preserved to original1e-8 tolerance"
+  ],
+  "validation": {
+    "clean_proposed_thrust_file_tests": 15,
+    "passed": 15,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 2173.320125
+  },
+  "clean_fixture_path": "work/coupled-travel-review/thrust.test.proposed.mjs",
+  "clean_fixture_sha256": "cdca9de4ecf8774e42cdde8ccc5388869e019d0b01dae4f9b8e674292804760c",
+  "independent_second_oracle": "work/coupled-travel-transport/closed-bend-oracle.json",
+  "limitations": "This validates first moments in a symmetric flat/ramp/flat geometry. It does not establish preservation of general deformed footprints, true point-marker trajectories, or exact repeated transport for arbitrary domain geometry.",
+  "data_access": "Only synthetic source/test fixtures. No observational or holdout data accessed."
+}

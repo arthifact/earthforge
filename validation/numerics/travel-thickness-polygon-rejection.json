@@ -1,0 +1,233 @@
+{
+  "status": "rejected exploratory prototype; not applied to production",
+  "holdout": "No observational arrays, holdout or split metadata read or changed.",
+  "method": "Exact fractional fault and piecewise-affine flow polygon splits, true geometric boundary clipping, conservative destination strip overlap area, constituent-preserving vertical centroid ordering and bottom packing. No grain rescaling or artificial outflow.",
+  "tests": [
+    "Flow polygon splitting: area and exact vertices pass",
+    "Zero slip and exact fractional-cut footwall identity pass",
+    "Repeated subcell flat slips: homogeneous field, sediment, histories, bounded pieces pass",
+    "Analytic straight ramp: both directions, exact surface rise, thick/thin bed thickness pass"
+  ],
+  "runs": [
+    {
+      "h": 40,
+      "seconds": 10.90723075,
+      "final_parts": 1701716,
+      "events": 98,
+      "failed_events": 0,
+      "closed": true,
+      "max_event_residual_m2": 3.6749988794326782e-06,
+      "unit14_x2000_thickness_m": 115.58078733169259,
+      "time_x2000_s": 1.410711234445689
+    },
+    {
+      "h": 20,
+      "seconds": 22.257122166000002,
+      "final_parts": 3345845,
+      "events": 98,
+      "failed_events": 0,
+      "closed": true,
+      "max_event_residual_m2": 5.602836608886719e-06,
+      "unit14_x2000_thickness_m": 115.58078733169259,
+      "time_x2000_s": 1.4107112602449134
+    }
+  ],
+  "part_growth": [
+    {
+      "step": 8,
+      "h": 40,
+      "pieces": 48458,
+      "beforeParts": 38383,
+      "afterParts": 41593,
+      "maxHeight": 4296.545784488705
+    },
+    {
+      "step": 9,
+      "h": 40,
+      "pieces": 72113,
+      "beforeParts": 49703,
+      "afterParts": 70923,
+      "maxHeight": 4411.650976969197
+    },
+    {
+      "step": 10,
+      "h": 40,
+      "pieces": 120896,
+      "beforeParts": 74057,
+      "afterParts": 118967,
+      "maxHeight": 4458.604032172084
+    },
+    {
+      "step": 11,
+      "h": 40,
+      "pieces": 225974,
+      "beforeParts": 124987,
+      "afterParts": 223463,
+      "maxHeight": 4519.048638681898
+    },
+    {
+      "step": 12,
+      "h": 40,
+      "pieces": 425164,
+      "beforeParts": 225233,
+      "afterParts": 421585,
+      "maxHeight": 4560.000000000001
+    },
+    {
+      "step": 13,
+      "h": 40,
+      "pieces": 838320,
+      "beforeParts": 424532,
+      "afterParts": 832448,
+      "maxHeight": 4551.466707663422
+    },
+    {
+      "step": 14,
+      "h": 40,
+      "pieces": 1699157,
+      "beforeParts": 833940,
+      "afterParts": 1685975,
+      "maxHeight": 4488.2479596453
+    },
+    {
+      "finished": "thrust-a",
+      "h": 40,
+      "seconds": 10.90723075,
+      "closed": true,
+      "fail": 0,
+      "parts": 1701716
+    },
+    {
+      "step": 8,
+      "h": 20,
+      "pieces": 96113,
+      "beforeParts": 76649,
+      "afterParts": 86183,
+      "maxHeight": 4256.545784488705
+    },
+    {
+      "step": 9,
+      "h": 20,
+      "pieces": 148817,
+      "beforeParts": 102373,
+      "afterParts": 144477,
+      "maxHeight": 4371.813460159755
+    },
+    {
+      "step": 10,
+      "h": 20,
+      "pieces": 245683,
+      "beforeParts": 150724,
+      "afterParts": 242694,
+      "maxHeight": 4418.640659690205
+    },
+    {
+      "step": 11,
+      "h": 20,
+      "pieces": 456786,
+      "beforeParts": 254676,
+      "afterParts": 453319,
+      "maxHeight": 4479.098499911224
+    },
+    {
+      "step": 12,
+      "h": 20,
+      "pieces": 857772,
+      "beforeParts": 456931,
+      "afterParts": 853040,
+      "maxHeight": 4519.999999999999
+    },
+    {
+      "step": 13,
+      "h": 20,
+      "pieces": 1667333,
+      "beforeParts": 858887,
+      "afterParts": 1659489,
+      "maxHeight": 4511.466707663426
+    },
+    {
+      "step": 14,
+      "h": 20,
+      "pieces": 3331853,
+      "beforeParts": 1662287,
+      "afterParts": 3314049,
+      "maxHeight": 4448.2479596452995
+    },
+    {
+      "finished": "thrust-a",
+      "h": 20,
+      "seconds": 22.257122166000002,
+      "closed": true,
+      "fail": 0,
+      "parts": 3345845
+    },
+    {
+      "step": 8,
+      "h": 10,
+      "pieces": 191433,
+      "beforeParts": 153181,
+      "afterParts": 183487,
+      "maxHeight": 4246.545784488705
+    },
+    {
+      "step": 9,
+      "h": 10,
+      "pieces": 319160,
+      "beforeParts": 215847,
+      "afterParts": 312605,
+      "maxHeight": 4361.939793196876
+    },
+    {
+      "step": 10,
+      "h": 10,
+      "pieces": 537570,
+      "beforeParts": 325083,
+      "afterParts": 530660,
+      "maxHeight": 4408.777014166124
+    },
+    {
+      "step": 11,
+      "h": 10,
+      "pieces": 998955,
+      "beforeParts": 554679,
+      "afterParts": 990731,
+      "maxHeight": 4469.234854387141
+    },
+    {
+      "step": 12,
+      "h": 10,
+      "pieces": 1878183,
+      "beforeParts": 998007,
+      "afterParts": 1869634,
+      "maxHeight": 4510.000000000004
+    },
+    {
+      "step": 13,
+      "h": 10,
+      "pieces": 3649617,
+      "beforeParts": 1881250,
+      "afterParts": 3637292,
+      "maxHeight": 4501.466707663423
+    },
+    {
+      "step": 14,
+      "h": 10,
+      "pieces": 7253374,
+      "beforeParts": 3643091,
+      "afterParts": 7229488,
+      "maxHeight": 4438.247959645304
+    }
+  ],
+  "limits": [
+    "Distinct physical histories and composition cause near-doubling of material pieces per oblique slip: unacceptable unbounded growth.",
+    "Prototype ghost boundary continues edge material at constant absolute depth, differing from accepted fault-parallel continuation; these are exploratory diagnostics, not the frozen comparison.",
+    "Bottom packing removes internal physical water gaps during remap before the separate collapse geometry map; not a consistent drop-in geometry coupling.",
+    "Vertical centroid sorting is an approximate column-average projection; tests do not establish bed ordering at folds or general timestep convergence.",
+    "The 10 m pilot was interrupted after the last slip, before final samples and budget completion; it is not reported as a completed run."
+  ],
+  "source_sha256": {
+    "thrustColumns.ts": "99aa4edeed6418dda88bdc89b8a92e8ba1b4db9459737c9b6a25e8cb78bd3230",
+    "check.mjs": "a227a0e49be4d6d2d55c3a61e65cdb81ed4283bdbcc148517e0560e0e8dd8a74",
+    "pilot.mjs": "10eaae72d245435d498c7411759a233b923aecfbec61b8a66969de0b99cd8296"
+  }
+}

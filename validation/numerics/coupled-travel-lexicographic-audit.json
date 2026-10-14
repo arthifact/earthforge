@@ -1,0 +1,78 @@
+{
+  "status": "passed",
+  "objective": "Lexicographic occupied-rock horizontal displacement, then vertical storage displacement; each axis quantized at 1e-12 times the maximum parcel weight. This is a changed projection objective.",
+  "stacked_layers": {
+    "target_column_bulk_height": 1.1,
+    "lexicographic_destination": [
+      2,
+      0
+    ],
+    "euclidean_destination": [
+      1,
+      0
+    ],
+    "lexicographic_column_heights": [
+      1.1,
+      0
+    ],
+    "euclidean_column_heights": [
+      1,
+      0.1
+    ]
+  },
+  "rigid_column_translations": [
+    {
+      "direction": -1,
+      "expected": [
+        0.1,
+        0.30000000000000004,
+        1,
+        1.9,
+        0,
+        0,
+        0
+      ],
+      "actual": [
+        0.1,
+        0.30000000000000004,
+        1,
+        1.9,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "direction": 1,
+      "expected": [
+        0,
+        0,
+        0.1,
+        0.30000000000000004,
+        1,
+        1.9,
+        0
+      ],
+      "actual": [
+        0,
+        0,
+        0.1,
+        0.30000000000000004,
+        1,
+        1.9,
+        0
+      ]
+    }
+  ],
+  "exhaustive": {
+    "feasible": 798,
+    "infeasible": 202,
+    "max_horizontal_raw_gap": 3.905209489118988e-13,
+    "max_secondary_raw_gap": 3.992223218673985e-13
+  },
+  "limitations": [
+    "Capacity and stencil constraints can still force horizontal redistribution.",
+    "Horizontal-first projection does not ensure physical vertical ordering or constituent geometry.",
+    "No observational or holdout files read."
+  ]
+}

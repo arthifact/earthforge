@@ -1,0 +1,358 @@
+{
+  "schema": "earthforge.grouped-c-fine-travel-diagnosis-summary.v1",
+  "scope": "Completed synthetic pilot samples and whole-domain budgets only; no new simulations or observational/holdout access.",
+  "case": "coupled-compression-c",
+  "formal_shared_interval_count": 67,
+  "all_travel_profile_count": 12,
+  "profile_fine_rms_ms": {
+    "baseline": 1.232727432171511,
+    "candidate": 2.090768966228678
+  },
+  "supported_findings": [
+    "x3600 contributes86.91877% of the net20\u201310 travel-time squared-error increase. Its20m result changes\u22124.46639ms; its10m result changes only\u22120.08702ms.",
+    "Atx3600 the total sediment-span fine mismatch improves from0.65864m to0.19207m and the inferred nonwater/nonsediment thickness is unchanged. The regression therefore cannot be described as a larger total sediment-column height discrepancy.",
+    "For the eight units with available speed measurements in all four20/10samples atx3600, the change in fine travel difference separates exactly into\u22121.86054ms from thickness and\u22120.72623ms from effective speed. Water contributes+0.31105ms;\u22122.10364ms remains outside the measured interval subset.",
+    "Atx2800 andx5200 the measured common-unit thickness terms are\u22127.92153ms and\u22125.05101ms, compared with speed terms+0.08537ms and+0.48574ms. Large compensating residuals remain in excluded material, preventing complete attribution.",
+    "No capacity fallback occurred in either fine-grid run. All budgets close with no repair contribution. These facts exclude direct fallback splitting and unexplained ledger grain loss as demonstrated causes, but do not establish pointwise transport accuracy.",
+    "No new implementation bug is demonstrated. Final snapshots show grid-sensitive unit redistribution and composition/history differences, while operation-level provenance needed to attribute accommodation versus transport/compaction is unavailable in these saved artifacts."
+  ],
+  "interpretation_limits": [
+    "The supplemental decomposition includes units matched in both versions at20and10m; it is distinct from the unchanged formal six-sample67-interval cohort.",
+    "The exact symmetric identity for a matched unit is delta(thickness/velocity)=delta(thickness)*mean(slowness)+mean(thickness)*delta(slowness). This separates measured kinematic terms, not causal processes.",
+    "Composition, porosity, burial/loading and effective speed are correlated aggregate properties. Their individual contributions to nonlinear speed cannot be identified without constituent state.",
+    "Excluded fragmented/fault-cut/thin units retain span geometry but have no saved velocity/composition/history metrics. The unattributed residual includes those units, basement time/quadrature, and Float32 harmonic-grid velocity projection roundoff; it is not an exact material-only contribution.",
+    "Final unit thickness differences cannot identify deposition accommodation versus transport, erosion or compaction. Whole-domain deposition ledgers show amount changes but lack profile-local provenance.",
+    "Neither candidate20m nor10m invoked capacity fallback, ruling out direct split fallback as the source of this fine-pair difference.",
+    "No new invariant violation or implementation bug is demonstrated by these records. Large constituent/bed redistribution near faults is consistent with the retained discrete allocation/accommodation limits, but its precise operation-level cause remains unidentified."
+  ],
+  "candidate_fallbacks_at_20_10": {
+    "20": [],
+    "10": []
+  },
+  "detailed_evidence": {
+    "file": "grouped-c-travel-diagnosis.json",
+    "sha256": "8a894b6dd4e79ea58ba320b357106000001a7c02a84f224538ef1996e5903f73"
+  },
+  "profiles": [
+    {
+      "profile": {
+        "x_m": 3600,
+        "baseline": {
+          "travel_s_40_20_10": [
+            1.2346983794405426,
+            1.2364573729206838,
+            1.2376636030258017
+          ],
+          "fine_ms": -1.2062301051178892
+        },
+        "candidate": {
+          "travel_s_40_20_10": [
+            1.2350529019865069,
+            1.231990984016144,
+            1.237576583382765
+          ],
+          "fine_ms": -5.5855993666209525
+        },
+        "fine_signed_change_ms": -4.379369261503063,
+        "fine_squared_error_increase_ms2": 29.743929217903673,
+        "candidate_minus_baseline_ms_40_20_10": [
+          0.35452254596424204,
+          -4.466388904539764,
+          -0.08701964303670096
+        ],
+        "share_of_net_fine_SSE_increase": 0.8691876956307809
+      },
+      "decomposition_change": {
+        "thickness_term_ms": -1.8605420669619093,
+        "velocity_term_ms": -0.7262293927935011,
+        "total_ms": -2.586771459755385,
+        "water_ms": 0.3110467151337086,
+        "unattributed_ms": -2.1036445168813867
+      },
+      "measured_units": [
+        1,
+        3,
+        4,
+        15,
+        17,
+        18,
+        19,
+        20
+      ],
+      "top_unit_contributions": [
+        {
+          "unit": 15,
+          "change_of_fine_ms": {
+            "thickness_term_ms": -6.819285312035749,
+            "velocity_term_ms": -0.23481768279229412,
+            "total_ms": -7.054102994828039
+          }
+        },
+        {
+          "unit": 19,
+          "change_of_fine_ms": {
+            "thickness_term_ms": 3.892237971348808,
+            "velocity_term_ms": -0.17277406847918034,
+            "total_ms": 3.719463902869619
+          }
+        },
+        {
+          "unit": 20,
+          "change_of_fine_ms": {
+            "thickness_term_ms": 0.9891035847481502,
+            "velocity_term_ms": -0.03714472952355304,
+            "total_ms": 0.9519588552246021
+          }
+        },
+        {
+          "unit": 18,
+          "change_of_fine_ms": {
+            "thickness_term_ms": -0.16841900563889,
+            "velocity_term_ms": -0.1317992216572797,
+            "total_ms": -0.300218227296166
+          }
+        }
+      ],
+      "largest_geometry_changes": [
+        {
+          "unit": 7,
+          "change_of_fine_height_m": 16.328740149628942,
+          "carbonate_fraction_at_deposition": 1.0
+        },
+        {
+          "unit": 10,
+          "change_of_fine_height_m": -13.370766273273603,
+          "carbonate_fraction_at_deposition": 1.0
+        },
+        {
+          "unit": 15,
+          "change_of_fine_height_m": -12.752723332378082,
+          "carbonate_fraction_at_deposition": 0.0
+        },
+        {
+          "unit": 8,
+          "change_of_fine_height_m": -11.81906349641622,
+          "carbonate_fraction_at_deposition": 0.0
+        },
+        {
+          "unit": 9,
+          "change_of_fine_height_m": 7.946992208289316,
+          "carbonate_fraction_at_deposition": 0.0
+        }
+      ]
+    },
+    {
+      "profile": {
+        "x_m": 2800,
+        "baseline": {
+          "travel_s_40_20_10": [
+            1.2081915337949298,
+            1.211904997558772,
+            1.2113094593077292
+          ],
+          "fine_ms": 0.5955382510427487
+        },
+        "candidate": {
+          "travel_s_40_20_10": [
+            1.2126110701758266,
+            1.2097339978653694,
+            1.2115012935233722
+          ],
+          "fine_ms": -1.767295658002821
+        },
+        "fine_signed_change_ms": -2.3628339090455697,
+        "fine_squared_error_increase_ms2": 2.768668134340568,
+        "candidate_minus_baseline_ms_40_20_10": [
+          4.41953638089676,
+          -2.170999693402509,
+          0.1918342156430608
+        ],
+        "share_of_net_fine_SSE_increase": 0.08090700653649077
+      },
+      "decomposition_change": {
+        "thickness_term_ms": -7.921533899430068,
+        "velocity_term_ms": 0.08537456944959146,
+        "total_ms": -7.836159329980451,
+        "water_ms": 0.1075006550845122,
+        "unattributed_ms": 5.36582476585037
+      },
+      "measured_units": [
+        1,
+        3,
+        4,
+        6,
+        7,
+        9,
+        15,
+        17,
+        18,
+        19,
+        20
+      ],
+      "top_unit_contributions": [
+        {
+          "unit": 15,
+          "change_of_fine_ms": {
+            "thickness_term_ms": -7.997783605392785,
+            "velocity_term_ms": 0.17043719868784726,
+            "total_ms": -7.827346406704932
+          }
+        },
+        {
+          "unit": 18,
+          "change_of_fine_ms": {
+            "thickness_term_ms": 1.5155708005432502,
+            "velocity_term_ms": -0.012456447170833187,
+            "total_ms": 1.5031143533724216
+          }
+        },
+        {
+          "unit": 17,
+          "change_of_fine_ms": {
+            "thickness_term_ms": -0.6000595513067523,
+            "velocity_term_ms": -0.08739855941703017,
+            "total_ms": -0.6874581107237793
+          }
+        },
+        {
+          "unit": 19,
+          "change_of_fine_ms": {
+            "thickness_term_ms": -0.6007836960241878,
+            "velocity_term_ms": 0.006537749479759065,
+            "total_ms": -0.5942459465444333
+          }
+        }
+      ],
+      "largest_geometry_changes": [
+        {
+          "unit": 11,
+          "change_of_fine_height_m": -23.651503697840326,
+          "carbonate_fraction_at_deposition": 0.0
+        },
+        {
+          "unit": 12,
+          "change_of_fine_height_m": 16.131652238402125,
+          "carbonate_fraction_at_deposition": 1.0
+        },
+        {
+          "unit": 10,
+          "change_of_fine_height_m": 15.95019548087933,
+          "carbonate_fraction_at_deposition": 1.0
+        },
+        {
+          "unit": 15,
+          "change_of_fine_height_m": -15.605280376551178,
+          "carbonate_fraction_at_deposition": 0.0
+        },
+        {
+          "unit": 14,
+          "change_of_fine_height_m": 7.048315650503696,
+          "carbonate_fraction_at_deposition": 0.0
+        }
+      ]
+    },
+    {
+      "profile": {
+        "x_m": 5200,
+        "baseline": {
+          "travel_s_40_20_10": [
+            1.2846376768537495,
+            1.2876717157889794,
+            1.2879329600799025
+          ],
+          "fine_ms": -0.26124429092311274
+        },
+        "candidate": {
+          "travel_s_40_20_10": [
+            1.2915690344195443,
+            1.2864397018513503,
+            1.2879934756703404
+          ],
+          "fine_ms": -1.553773818990134
+        },
+        "fine_signed_change_ms": -1.2925295280670213,
+        "fine_squared_error_increase_ms2": 2.3459645010392656,
+        "candidate_minus_baseline_ms_40_20_10": [
+          6.931357565794771,
+          -1.2320139376291728,
+          0.06051559043784849
+        ],
+        "share_of_net_fine_SSE_increase": 0.06855461037953771
+      },
+      "decomposition_change": {
+        "thickness_term_ms": -5.051007920530823,
+        "velocity_term_ms": 0.48574081918608825,
+        "total_ms": -4.565267101344736,
+        "water_ms": -0.49978509833946794,
+        "unattributed_ms": 3.772522671617182
+      },
+      "measured_units": [
+        1,
+        18,
+        19,
+        20
+      ],
+      "top_unit_contributions": [
+        {
+          "unit": 19,
+          "change_of_fine_ms": {
+            "thickness_term_ms": -9.106198075665004,
+            "velocity_term_ms": 0.26332521733217723,
+            "total_ms": -8.842872858332823
+          }
+        },
+        {
+          "unit": 18,
+          "change_of_fine_ms": {
+            "thickness_term_ms": 5.057818431239682,
+            "velocity_term_ms": 0.18516188194787397,
+            "total_ms": 5.242980313187553
+          }
+        },
+        {
+          "unit": 20,
+          "change_of_fine_ms": {
+            "thickness_term_ms": -1.0008421268459073,
+            "velocity_term_ms": 0.04319698360817148,
+            "total_ms": -0.9576451432377342
+          }
+        },
+        {
+          "unit": 1,
+          "change_of_fine_ms": {
+            "thickness_term_ms": -0.0017861492595943166,
+            "velocity_term_ms": -0.005943263702134397,
+            "total_ms": -0.0077294129617322405
+          }
+        }
+      ],
+      "largest_geometry_changes": [
+        {
+          "unit": 19,
+          "change_of_fine_height_m": -15.602690378881618,
+          "carbonate_fraction_at_deposition": 0.0
+        },
+        {
+          "unit": 15,
+          "change_of_fine_height_m": 15.297899423664347,
+          "carbonate_fraction_at_deposition": 0.0
+        },
+        {
+          "unit": 18,
+          "change_of_fine_height_m": 9.193068544918717,
+          "carbonate_fraction_at_deposition": 0.0
+        },
+        {
+          "unit": 12,
+          "change_of_fine_height_m": -7.75600772234867,
+          "carbonate_fraction_at_deposition": 1.0
+        },
+        {
+          "unit": 11,
+          "change_of_fine_height_m": 7.321987435576176,
+          "carbonate_fraction_at_deposition": 0.0
+        }
+      ]
+    }
+  ]
+}

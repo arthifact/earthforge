@@ -1,0 +1,495 @@
+{
+  "version": 1,
+  "observational_data": "none",
+  "baseline_revision": "cbaa6f14b1d185d0563dac49ce41010d0c7c6668",
+  "source_sha256": {
+    "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+    "validation/numerics/fault-geometry-evidence.mjs": "c344a3cc9e0179966f9384ea88340a57d4c26a4e29b18ae89fc88ad99d43b08c"
+  },
+  "normal_fixture": {
+    "origin_m": 217.35,
+    "dip_radians": 1.03,
+    "detachment_m": 3200,
+    "subsidence_m": [
+      1.7,
+      8.3,
+      21.4,
+      64.2,
+      0,
+      31.9,
+      7.1,
+      111.3,
+      3.7
+    ],
+    "runs": [
+      {
+        "h": 40,
+        "dir": -1,
+        "steps": [
+          {
+            "subsidence_total_m": 1.7,
+            "expected_x_m": 218.37087141998995,
+            "before_x_m": 240,
+            "after_x_m": 218.37087141998995,
+            "before_error_m": 21.629128580010047,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 10,
+            "expected_x_m": 223.35512599994092,
+            "before_x_m": 280,
+            "after_x_m": 223.35512599994092,
+            "before_error_m": 56.644874000059076,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 31.4,
+            "expected_x_m": 236.2060956398145,
+            "before_x_m": 320,
+            "after_x_m": 236.2060956398145,
+            "before_error_m": 83.79390436018551,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 95.6,
+            "expected_x_m": 274.7590045594352,
+            "before_x_m": 360,
+            "after_x_m": 274.7590045594352,
+            "before_error_m": 85.2409954405648,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 95.6,
+            "expected_x_m": 274.7590045594352,
+            "before_x_m": 360,
+            "after_x_m": 274.7590045594352,
+            "before_error_m": 85.2409954405648,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 127.5,
+            "expected_x_m": 293.91535649924674,
+            "before_x_m": 400,
+            "after_x_m": 293.91535649924674,
+            "before_error_m": 106.08464350075326,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 134.6,
+            "expected_x_m": 298.1789959592048,
+            "before_x_m": 440,
+            "after_x_m": 298.1789959592048,
+            "before_error_m": 141.82100404079517,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 245.89999999999998,
+            "expected_x_m": 365.0160483385472,
+            "before_x_m": 520,
+            "after_x_m": 365.01604833854725,
+            "before_error_m": 154.9839516614528,
+            "after_error_m": 5.684341886080802e-14
+          },
+          {
+            "subsidence_total_m": 249.59999999999997,
+            "expected_x_m": 367.23794495852536,
+            "before_x_m": 560,
+            "after_x_m": 367.2379449585254,
+            "before_error_m": 192.76205504147464,
+            "after_error_m": 5.684341886080802e-14
+          }
+        ]
+      },
+      {
+        "h": 40,
+        "dir": 1,
+        "steps": [
+          {
+            "subsidence_total_m": 1.7,
+            "expected_x_m": 216.32912858001004,
+            "before_x_m": 160,
+            "after_x_m": 216.32912858001004,
+            "before_error_m": -56.329128580010035,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 10,
+            "expected_x_m": 211.34487400005906,
+            "before_x_m": 120,
+            "after_x_m": 211.34487400005906,
+            "before_error_m": -91.34487400005906,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 31.4,
+            "expected_x_m": 198.4939043601855,
+            "before_x_m": 80,
+            "after_x_m": 198.4939043601855,
+            "before_error_m": -118.4939043601855,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 95.6,
+            "expected_x_m": 159.9409954405648,
+            "before_x_m": 40,
+            "after_x_m": 159.9409954405648,
+            "before_error_m": -119.94099544056479,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 95.6,
+            "expected_x_m": 159.9409954405648,
+            "before_x_m": 40,
+            "after_x_m": 159.9409954405648,
+            "before_error_m": -119.94099544056479,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 127.5,
+            "expected_x_m": 140.78464350075325,
+            "before_x_m": 0,
+            "after_x_m": 140.78464350075325,
+            "before_error_m": -140.78464350075325,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 134.6,
+            "expected_x_m": 136.5210040407952,
+            "before_x_m": -40,
+            "after_x_m": 136.5210040407952,
+            "before_error_m": -176.5210040407952,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 245.89999999999998,
+            "expected_x_m": 69.68395166145277,
+            "before_x_m": -120,
+            "after_x_m": 69.68395166145274,
+            "before_error_m": -189.68395166145277,
+            "after_error_m": -2.842170943040401e-14
+          },
+          {
+            "subsidence_total_m": 249.59999999999997,
+            "expected_x_m": 67.46205504147463,
+            "before_x_m": -160,
+            "after_x_m": 67.4620550414746,
+            "before_error_m": -227.46205504147463,
+            "after_error_m": -2.842170943040401e-14
+          }
+        ]
+      },
+      {
+        "h": 20,
+        "dir": -1,
+        "steps": [
+          {
+            "subsidence_total_m": 1.7,
+            "expected_x_m": 218.37087141998995,
+            "before_x_m": 240,
+            "after_x_m": 218.37087141998995,
+            "before_error_m": 21.629128580010047,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 10,
+            "expected_x_m": 223.35512599994092,
+            "before_x_m": 260,
+            "after_x_m": 223.35512599994092,
+            "before_error_m": 36.644874000059076,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 31.4,
+            "expected_x_m": 236.2060956398145,
+            "before_x_m": 280,
+            "after_x_m": 236.2060956398145,
+            "before_error_m": 43.79390436018551,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 95.6,
+            "expected_x_m": 274.7590045594352,
+            "before_x_m": 320,
+            "after_x_m": 274.7590045594352,
+            "before_error_m": 45.2409954405648,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 95.6,
+            "expected_x_m": 274.7590045594352,
+            "before_x_m": 320,
+            "after_x_m": 274.7590045594352,
+            "before_error_m": 45.2409954405648,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 127.5,
+            "expected_x_m": 293.91535649924674,
+            "before_x_m": 340,
+            "after_x_m": 293.91535649924674,
+            "before_error_m": 46.08464350075326,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 134.6,
+            "expected_x_m": 298.1789959592048,
+            "before_x_m": 360,
+            "after_x_m": 298.17899595920477,
+            "before_error_m": 61.821004040795174,
+            "after_error_m": -5.684341886080802e-14
+          },
+          {
+            "subsidence_total_m": 245.89999999999998,
+            "expected_x_m": 365.0160483385472,
+            "before_x_m": 440,
+            "after_x_m": 365.01604833854725,
+            "before_error_m": 74.9839516614528,
+            "after_error_m": 5.684341886080802e-14
+          },
+          {
+            "subsidence_total_m": 249.59999999999997,
+            "expected_x_m": 367.23794495852536,
+            "before_x_m": 460,
+            "after_x_m": 367.2379449585254,
+            "before_error_m": 92.76205504147464,
+            "after_error_m": 5.684341886080802e-14
+          }
+        ]
+      },
+      {
+        "h": 20,
+        "dir": 1,
+        "steps": [
+          {
+            "subsidence_total_m": 1.7,
+            "expected_x_m": 216.32912858001004,
+            "before_x_m": 200,
+            "after_x_m": 216.32912858001004,
+            "before_error_m": -16.329128580010035,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 10,
+            "expected_x_m": 211.34487400005906,
+            "before_x_m": 180,
+            "after_x_m": 211.34487400005906,
+            "before_error_m": -31.344874000059065,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 31.4,
+            "expected_x_m": 198.4939043601855,
+            "before_x_m": 160,
+            "after_x_m": 198.4939043601855,
+            "before_error_m": -38.493904360185496,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 95.6,
+            "expected_x_m": 159.9409954405648,
+            "before_x_m": 120,
+            "after_x_m": 159.9409954405648,
+            "before_error_m": -39.94099544056479,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 95.6,
+            "expected_x_m": 159.9409954405648,
+            "before_x_m": 120,
+            "after_x_m": 159.9409954405648,
+            "before_error_m": -39.94099544056479,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 127.5,
+            "expected_x_m": 140.78464350075325,
+            "before_x_m": 100,
+            "after_x_m": 140.78464350075325,
+            "before_error_m": -40.78464350075325,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 134.6,
+            "expected_x_m": 136.5210040407952,
+            "before_x_m": 80,
+            "after_x_m": 136.5210040407952,
+            "before_error_m": -56.52100404079519,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 245.89999999999998,
+            "expected_x_m": 69.68395166145277,
+            "before_x_m": 0,
+            "after_x_m": 69.68395166145274,
+            "before_error_m": -69.68395166145277,
+            "after_error_m": -2.842170943040401e-14
+          },
+          {
+            "subsidence_total_m": 249.59999999999997,
+            "expected_x_m": 67.46205504147463,
+            "before_x_m": -20,
+            "after_x_m": 67.4620550414746,
+            "before_error_m": -87.46205504147463,
+            "after_error_m": -2.842170943040401e-14
+          }
+        ]
+      },
+      {
+        "h": 10,
+        "dir": -1,
+        "steps": [
+          {
+            "subsidence_total_m": 1.7,
+            "expected_x_m": 218.37087141998995,
+            "before_x_m": 230,
+            "after_x_m": 218.37087141998995,
+            "before_error_m": 11.629128580010047,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 10,
+            "expected_x_m": 223.35512599994092,
+            "before_x_m": 240,
+            "after_x_m": 223.35512599994092,
+            "before_error_m": 16.644874000059076,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 31.4,
+            "expected_x_m": 236.2060956398145,
+            "before_x_m": 260,
+            "after_x_m": 236.2060956398145,
+            "before_error_m": 23.793904360185508,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 95.6,
+            "expected_x_m": 274.7590045594352,
+            "before_x_m": 300,
+            "after_x_m": 274.7590045594352,
+            "before_error_m": 25.240995440564802,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 95.6,
+            "expected_x_m": 274.7590045594352,
+            "before_x_m": 300,
+            "after_x_m": 274.7590045594352,
+            "before_error_m": 25.240995440564802,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 127.5,
+            "expected_x_m": 293.91535649924674,
+            "before_x_m": 320,
+            "after_x_m": 293.91535649924674,
+            "before_error_m": 26.08464350075326,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 134.6,
+            "expected_x_m": 298.1789959592048,
+            "before_x_m": 330,
+            "after_x_m": 298.17899595920477,
+            "before_error_m": 31.821004040795174,
+            "after_error_m": -5.684341886080802e-14
+          },
+          {
+            "subsidence_total_m": 245.89999999999998,
+            "expected_x_m": 365.0160483385472,
+            "before_x_m": 400,
+            "after_x_m": 365.01604833854725,
+            "before_error_m": 34.98395166145281,
+            "after_error_m": 5.684341886080802e-14
+          },
+          {
+            "subsidence_total_m": 249.59999999999997,
+            "expected_x_m": 367.23794495852536,
+            "before_x_m": 410,
+            "after_x_m": 367.2379449585254,
+            "before_error_m": 42.76205504147464,
+            "after_error_m": 5.684341886080802e-14
+          }
+        ]
+      },
+      {
+        "h": 10,
+        "dir": 1,
+        "steps": [
+          {
+            "subsidence_total_m": 1.7,
+            "expected_x_m": 216.32912858001004,
+            "before_x_m": 210,
+            "after_x_m": 216.32912858001004,
+            "before_error_m": -6.329128580010035,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 10,
+            "expected_x_m": 211.34487400005906,
+            "before_x_m": 200,
+            "after_x_m": 211.34487400005906,
+            "before_error_m": -11.344874000059065,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 31.4,
+            "expected_x_m": 198.4939043601855,
+            "before_x_m": 180,
+            "after_x_m": 198.4939043601855,
+            "before_error_m": -18.493904360185496,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 95.6,
+            "expected_x_m": 159.9409954405648,
+            "before_x_m": 140,
+            "after_x_m": 159.9409954405648,
+            "before_error_m": -19.94099544056479,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 95.6,
+            "expected_x_m": 159.9409954405648,
+            "before_x_m": 140,
+            "after_x_m": 159.9409954405648,
+            "before_error_m": -19.94099544056479,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 127.5,
+            "expected_x_m": 140.78464350075325,
+            "before_x_m": 120,
+            "after_x_m": 140.78464350075325,
+            "before_error_m": -20.784643500753248,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 134.6,
+            "expected_x_m": 136.5210040407952,
+            "before_x_m": 110,
+            "after_x_m": 136.5210040407952,
+            "before_error_m": -26.52100404079519,
+            "after_error_m": 0
+          },
+          {
+            "subsidence_total_m": 245.89999999999998,
+            "expected_x_m": 69.68395166145277,
+            "before_x_m": 40,
+            "after_x_m": 69.68395166145274,
+            "before_error_m": -29.683951661452767,
+            "after_error_m": -2.842170943040401e-14
+          },
+          {
+            "subsidence_total_m": 249.59999999999997,
+            "expected_x_m": 67.46205504147463,
+            "before_x_m": 30,
+            "after_x_m": 67.4620550414746,
+            "before_error_m": -37.46205504147463,
+            "after_error_m": -2.842170943040401e-14
+          }
+        ]
+      }
+    ]
+  }
+}

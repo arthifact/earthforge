@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "generated_at": "2026-10-13T05:25:45.549Z",
+  "source": {
+    "path": "/Users/torus/Documents/Codex/2026-10-12/wha/work/travel-thickness/candidate/src/conservativeTransport.ts",
+    "sha256": "0f12ee1ccdf70f77eaa109ff71f13f5b3ba183216cf71536aca318a74f4e3243"
+  },
+  "audit_source": {
+    "path": "/Users/torus/Documents/Codex/2026-10-12/wha/work/travel-thickness/candidate/validation/numerics/travel-thickness-capacity-evidence.mjs",
+    "sha256": "39b32c89fd548867b61431b6d34567d3ddc7551e9f1a2c4e26884e7bdebd43aa"
+  },
+  "seed": 752361,
+  "generator": "LCG: state=(1664525*state+1013904223) mod 2^32",
+  "trials": 1000,
+  "grid": {
+    "nx": 3,
+    "nz": 3
+  },
+  "packets_per_trial": 4,
+  "packet_heights_and_destination_capacities": [
+    0.2,
+    0.5,
+    0.7,
+    1
+  ],
+  "capacity_and_cost_tolerance": 1e-8,
+  "feasible": 773,
+  "infeasible": 227,
+  "selected_radius": {
+    "2": 700,
+    "3": 73
+  },
+  "maximum_absolute_cost_difference": 0,
+  "input_mutation_failures": 0,
+  "incorrect_infeasibility_failures": 0,
+  "invalid_assignment_failures": 0,
+  "limitations": [
+    "Finite randomized small-grid audit, not a proof for all inputs or large grids.",
+    "Checks optimality within the first feasible 2-cell or 3-cell stencil, not unrestricted-distance optimality.",
+    "One indivisible packet per destination can reject physically feasible continuous transport even when total volume fits.",
+    "A valid optimal assignment does not establish accuracy of thickness, travel time, or a continuous geometric projection.",
+    "No observational development arrays, holdout arrays, or split files were read."
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "earthforge.synthetic.c10-resource-check.v1",
+  "passed": true,
+  "requested_old_space_limit_mib": 4096,
+  "single_grid_in_fresh_process": true,
+  "concurrent_simulation_test_runs": false,
+  "run": {
+    "variant": "coordinate-grouped",
+    "id": "coupled-compression-c",
+    "h": 10,
+    "seconds": 151.069790125,
+    "closed": true,
+    "max_rss_kib": 2961808,
+    "rss_at_completion": 2936045568,
+    "fallbacks": [],
+    "history": "9b7be4934356709818bd62fcd2138e7e766e08dbf89cf3f53d9a954a6eee9c5b",
+    "parts": 718285,
+    "groupedParts": 18538,
+    "lengthTerms": 738339
+  },
+  "source_manifest_sha256": "9a90b932acdb5da0be3ad0a61657a1ea95a9f019537d26a03e2634f9bdb2d8c8",
+  "source_files_verified": 20,
+  "all_samples_byte_identical_to_8192_mib_screen": true,
+  "all_budgets_byte_identical_to_8192_mib_screen": true,
+  "budget_identical_to_formal_36_case_study": true,
+  "evidence_sha256": {
+    "launch-receipt.json": "bdd1dede1ab36b3fa5ef426fa86f806953ed8296254adbbcea96d12866feb83b",
+    "run.log": "81eff7c662d6dd0b74d0ac4f89084b36b64fad1dc81640315fce0445618c1039",
+    "coordinate-grouped-pilot.mjs": "c5165a2aff8a052f299ddaa70b0b699552f8c94ece8228c109854fb121641e7c",
+    "grouped-source-hashes.json": "9a90b932acdb5da0be3ad0a61657a1ea95a9f019537d26a03e2634f9bdb2d8c8",
+    "coordinate-grouped-coupled-compression-c-10-sample.json": "dc6ec41d65c3def012581cae27d3c6d92e907a7541830f27ed0419587dd66ab1",
+    "coordinate-grouped-coupled-compression-c-10-budget.json": "6224e6bab2b24ee76e9016e5cb74f718f4270fb2544e57b6e141c3289bf136b9"
+  },
+  "limitations": [
+    "A single synthetic C10 run, not a full-suite-at-4096MiB guarantee.",
+    "RSS is total resident process memory, not JavaScript old-space usage.",
+    "No controlled speed comparison or browser responsiveness claim."
+  ],
+  "holdout_or_observational_reads": false
+}

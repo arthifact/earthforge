@@ -1,0 +1,98 @@
+{
+  "schema": "earthforge.grouped-coupled-c-screen.v1",
+  "status": "complete",
+  "heap_limit_mib": 8192,
+  "same_process_sequential_grids": [
+    40,
+    20,
+    10
+  ],
+  "source_manifest": "grouped-source-hashes.json",
+  "source_manifest_sha256": "9a90b932acdb5da0be3ad0a61657a1ea95a9f019537d26a03e2634f9bdb2d8c8",
+  "source_unchanged_after_runs": true,
+  "runs": [
+    {
+      "variant": "coordinate-grouped",
+      "id": "coupled-compression-c",
+      "h": 40,
+      "seconds": 15.671258166,
+      "closed": true,
+      "max_rss_kib": 871248,
+      "rss_at_completion": 888881152,
+      "fallbacks": [
+        {
+          "step": 18,
+          "fault": 2,
+          "parcels": 8457,
+          "displaced": 4032,
+          "maxOffsetCells": 3,
+          "radius": 3,
+          "fallback": true,
+          "fallbackReason": "Conservative thrust transport cannot place parcel 8124 within 3 cells; no sediment was discarded",
+          "splitSources": 1794,
+          "slicedConstituents": 69275,
+          "maxChildPhysicalToCellCenterCells": 3.3637602646458027,
+          "maxChildStorageOffsetCells": 3.209913788055175
+        }
+      ],
+      "history": "9b7be4934356709818bd62fcd2138e7e766e08dbf89cf3f53d9a954a6eee9c5b",
+      "parts": 151005,
+      "groupedParts": 2484,
+      "lengthTerms": 153762
+    },
+    {
+      "variant": "coordinate-grouped",
+      "id": "coupled-compression-c",
+      "h": 20,
+      "seconds": 42.557002958,
+      "closed": true,
+      "max_rss_kib": 1913488,
+      "rss_at_completion": 1959428096,
+      "fallbacks": [],
+      "history": "9b7be4934356709818bd62fcd2138e7e766e08dbf89cf3f53d9a954a6eee9c5b",
+      "parts": 316668,
+      "groupedParts": 5555,
+      "lengthTerms": 322694
+    },
+    {
+      "variant": "coordinate-grouped",
+      "id": "coupled-compression-c",
+      "h": 10,
+      "seconds": 155.71219633300004,
+      "closed": true,
+      "max_rss_kib": 4896256,
+      "rss_at_completion": 5013766144,
+      "fallbacks": [],
+      "history": "9b7be4934356709818bd62fcd2138e7e766e08dbf89cf3f53d9a954a6eee9c5b",
+      "parts": 718285,
+      "groupedParts": 18538,
+      "lengthTerms": 738339
+    }
+  ],
+  "c10_original_readonly_reference": {
+    "seconds": 71.049226583,
+    "parts": 708940,
+    "rss": null,
+    "rss_unavailable_reason": "time wrapper sysctl kern.clockrate blocked; simulation completed"
+  },
+  "previous_ungrouped_candidate_c10": {
+    "status": "parent-cancelled",
+    "seconds_lower_bound": 349,
+    "heap_limit_mib": 8192,
+    "memory_limit_success_not_claimed": true
+  },
+  "limitations": [
+    "Pilot convergence requires paired matched cohorts; native comparison alone is not a matched-cohort improvement claim.",
+    "RSS is cumulative process max for the sequential three-grid run; original RSS unavailable.",
+    "Fallback minimizes parent-target cost and uses exact vertical material slices, not geometric overlap flux.",
+    "Candidate C10 and the isolated original reference ran under different concurrent workloads. Their elapsed-time ratio is not a fair controlled before/after performance measurement."
+  ],
+  "timing_comparability": {
+    "controlled_before_after_comparison": false,
+    "candidate_workload": "Grouped coupled-C10 overlapped root legacy strata-test simulations and possibly the end of the compaction-B10 screen.",
+    "reference_workload": "Original C10 reference was run in isolation.",
+    "measured_candidate_seconds": 155.71219633300004,
+    "measured_reference_seconds": 71.049226583,
+    "interpretation": "Retain the measured wall times, but do not infer a performance-regression factor from their ratio because concurrent CPU/memory load differed."
+  }
+}

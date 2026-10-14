@@ -1,3 +1,7 @@
+import {layerLengths, withLayerLengths} from "./strata";
+import { assignCapacityTransport } from './capacityTransport';
+import { sliceCapacityShares } from './capacitySlices';
+import { exactLengthScale } from './exactLength';
 // A 2D basin simulator (lab/basin_simulator.md): a section built forward in
 // time, step by step (each step 0.5-2 Myr), on a grid wider and deeper than
 // the 9.2 x 3 km window, in one of two tectonic settings.
@@ -27,9 +31,13 @@
 // calcite mineral moduli; optional undercompaction under an overpressure top;
 // crystalline basement below, water above. Seeded: one seed, one section.
 
-import { append, cellLayers, movedCellLayers, columnsFromRaster, compactColumn, depositedLayer, emptyLayer, packColumn, portion, rasterize, sliceColumn, surface, type Column, type Layer } from "./strata";
+import { subsideColumn } from './subsidence';
+import { append, cellLayers, columnsFromRaster, compactColumn, depositedLayer, emptyLayer, packColumn, rasterize, sliceColumn, surface, type Column, type Layer } from "./strata";
 import { remapNormal, type NormalTransfer } from "./normalTransport";
-import { assignTransport, type TransportParcel } from "./conservativeTransport";
+import { normalDepth, extendNormal } from "./normalGeometry";
+import { traceFromDepth, projectTrace, transportTrace, type TraceSegment } from "./faultTrace";
+import { thrustGeometry, sampleColumns, markersOf, mapMarkerColumn } from "./thrustGeometry";
+import { assignTransport, PlacementError, type TransportParcel } from "./conservativeTransport";
 import { addParcel, assessBudget, emptyFluxes, inventoryOf, outsideCell, summarizeBudget, type BudgetEntry, type BudgetSummary, type Fluxes, type Inventory, type Process } from "./sedimentBudget";
 import { DEPTH, GNX, GNZ, H, WIDTH } from "./window";
 
@@ -79,7 +87,9 @@ export interface Bed { unit: number; phase: Phase; a: number; b: number; c: numb
 export interface Fault {
   kind: "normal" | "thrust";
   dir: 1 | -1; depth: Float64Array; top: number; x: number[]; z: number[]; dip: number; detachment: number; start: number; end: number; heave: number; heaves: number[]; remainder: number;
-  thrust?: { transport: 1 | -1; bends: [number, number]; emergent: boolean; upper: number; carry: number[] };
+  /** Physical branches of an inactive thrust after it is cut/carried. */
+  trace?: TraceSegment[];
+  thrust?: { transport: 1 | -1; bends: [number, number]; points?: V[]; emergent: boolean; upper: number; carry: number[] };
 }
 export interface StepLog { step: number; phase: Phase; text: string; subsidence: number; deposited: number; shift: number }
 export interface RasterWindow { velocity: Float32Array; beds: Int32Array; sandFraction: Float32Array; nx: number; nz: number; floor: Float64Array }
@@ -94,7 +104,7 @@ export interface MaterialState {
   /** Maximum geometric burial and maximum effective loading, in equivalent metres. */
   burial: Float32Array; effectiveBurial: Float32Array;
 }
-export interface Snapshot extends MaterialState { step: number; faults: { dir: 1 | -1; x: number[]; z: number[] }[] }
+export interface Snapshot extends MaterialState { step: number; faults: { dir: 1 | -1; x: number[]; z: number[]; trace?: TraceSegment[] }[] }
 /** Synchronous diagnostic view after a budgeted operation. Arrays and material
  * columns are borrowed: observers must not mutate them and must copy retained
  * values. Observers never draw random numbers or change the physical state. */
@@ -108,6 +118,18 @@ export interface PhysicalHistory {
   dt: number; phases: number[]; waterDepth: number; basinSlope: number; overpressure: number | null; basementVelocity: number;
   normalFaults: unknown[]; thrusts: unknown[]; beds: Bed[];
   forcing: { step: number; waterDepth: number; fill: number; drape: number; subsidence: number[] }[];
+}
+export interface ThrustPlacementDiagnostics {
+  parcels: number; displaced: number; maxOffsetCells: number; radius: 2 | 3;
+  /** Capacity fallback is used only after the indivisible matching is infeasible. */
+  fallback?: boolean;
+  fallbackReason?: string | null;
+  splitSources?: number;
+  slicedConstituents?: number;
+  /** Child physical centroid distance from the assigned cell center, in cells. */
+  maxChildPhysicalToCellCenterCells?: number;
+  /** Child physical centroid distance from its stored slice centroid, in cells. */
+  maxChildStorageOffsetCells?: number;
 }
 export interface Basin extends MaterialState {
   options: BasinOptions; setting: Setting; nx: number; nz: number; h: number;
@@ -130,7 +152,7 @@ export interface Basin extends MaterialState {
   /** Overpressure top below the sea floor (m), or null. */
   overpressure: number | null;
   /** collapsed: water cells below rock closed after slips (overhangs at thrust fronts; rounding at scarps); trapped: water cells still found below the sea floor at the end; area: largest relative change of hanging-wall rock in one slip (both kinematics keep area), and that change for every slip. */
-  checks: { collapsed: number; trapped: number; area: number; transport: { step: number; fault: number; parcels: number; displaced: number; maxOffsetCells: number; radius: 2 | 3 }[]; slips: { step: number; fault: number; kind: Fault["kind"]; error: number }[]; steps: number; seconds: number };
+  checks: { collapsed: number; trapped: number; area: number; transport: (ThrustPlacementDiagnostics & { step: number; fault: number })[]; slips: { step: number; fault: number; kind: Fault["kind"]; error: number }[]; steps: number; seconds: number };
 }
 
 function mulberry32(seed: number) {
@@ -181,14 +203,20 @@ export function flowMove(F: FlowLine, x: number, z: number, s: number): V {
   let u = dot(q, F.t[j]), left = s;
   const start = (d: number) => d === 0 ? -Infinity : dot(F.b[d], F.t[d]) * delta / dot(F.b[d], F.n[d]);
   const end = (d: number) => d === last ? Infinity : dot([F.P[d + 1][0] - F.P[d][0], F.P[d + 1][1] - F.P[d][1]], F.t[d]) + dot(F.b[d + 1], F.t[d]) * delta / dot(F.b[d + 1], F.n[d]);
-  for (let guard = 0; guard < 16; guard++) {
+  for (let guard = 0; guard <= F.t.length; guard++) {
     if (left >= 0) { const e = end(j); if (u + left <= e) { u += left; break; } left -= Math.max(0, e - u); j++; u = start(j); }
     else { const st = start(j); if (u + left >= st) { u += left; break; } left += Math.max(0, u - st); j--; u = end(j); }
   }
   return [F.P[j][0] + F.t[j][0] * u + F.n[j][0] * delta, F.P[j][1] + F.t[j][1] * u + F.n[j][1] * delta];
 }
-/** A thrust's flow polyline from its depth per column: the hinterland edge, the lower and upper bends, the foreland edge. */
+/** Drawing paths preserve cut passive branches instead of bridging their gaps or
+ * drawing a compatibility mean between overlapping branches. */
+export function faultLines(f: { x: number[]; z: number[]; trace?: TraceSegment[] }) {
+  return f.trace ? f.trace.map(([a, b]) => ({ x: [a[0], b[0]], z: [a[1], b[1]] })) : [{ x: f.x.slice(), z: f.z.slice() }];
+}
+/** Active thrust controls in physical coordinates, with a legacy sampled fallback. */
 export function thrustPoints(b: { nx: number; h: number }, f: Fault): V[] {
+  if (f.thrust?.points) return f.thrust.points.map(p => [...p] as V);
   const th = f.thrust!, X = (i: number) => -MARGIN + i * b.h, back = th.transport > 0 ? 0 : b.nx - 1, front = th.transport > 0 ? b.nx - 1 : 0;
   // A ramp that reaches the grid's edge has no upper flat inside it.
   return [back, th.bends[0], th.bends[1], front].filter((i, j, a) => j === 0 || i !== a[j - 1]).map((i) => [X(i), f.depth[i]] as V);
@@ -252,87 +280,322 @@ export const porosity = (f: number, de: number, carbonate: boolean) => {
 };
 
 /** Debugging only: called after every normal/thrust slip with the grids before and after and how often each cell was taken. */
-export let debugSlip: ((info: { kind: "normal" | "thrust"; before: MaterialState; after: MaterialState; step: number; fault: number; nx: number; nz: number; h: number; grid: Int32Array; next: Int32Array; used: Int32Array; from: Int32Array; depth: Float64Array; F?: FlowLine; s: number; corr: V[]; normalTransfers?: NormalTransfer[] }) => void) | null = null;
+export let debugSlip: ((info: { kind: "normal" | "thrust"; before: MaterialState; after: MaterialState; step: number; fault: number; nx: number; nz: number; h: number; grid: Int32Array; next: Int32Array; used: Int32Array; from: Int32Array; depth: Float64Array; F?: FlowLine; s: number; corr: V[]; normalTransfers?: NormalTransfer[]; thrustTransfers?: ThrustTransfer[] }) => void) | null = null;
 export const setDebugSlip = (f: typeof debugSlip) => { debugSlip = f; };
 
-/** One conservative thrust increment. Pure with respect to input state, geometry
- * and carry: source parcels are assigned once, within at most three cells of their rounded
- * flow target; only actual open-boundary crossings enter the flux ledger.
- * Continuous parcel positions survive raster allocation through offsetX/Z.
- * Grain volume, material fractions and irreversible memories are copied intact.
- * This is a bounded discrete parcel remap, not a high-order subcell overlap scheme.
- */
-export function remapThrust(state: MaterialState & Pick<Basin, "solid" | "nx" | "nz" | "h" | "beds"> & { offsetX?: Float64Array; offsetZ?: Float64Array },
-  P: V[], s: number, carry: readonly number[], recordSources = false) {
-  const { grid, solid, burial, sandFraction, effectiveBurial, nx, nz, h, beds } = state;
-  if (!(h > 0) || !Number.isFinite(h) || !Number.isFinite(s) || P.length < 2 || P.some(p => !p.every(Number.isFinite))) throw Error("Invalid thrust geometry or slip");
-  const X = (i: number) => -MARGIN + i * h, F = flowLine(P);
-  const depth = Float64Array.from({ length: nx }, (_, i) => polylineDepth(P, X(i)));
-  const nextCarry = [...carry];
-  const D = F.t.map((t, j) => {
-    const ex = s * t[0], dx = s === 0 ? 0 : Math.round((ex - (carry[j] ?? 0)) / h);
-    nextCarry[j] = (carry[j] ?? 0) + dx * h - ex;
-    return dx;
-  });
-  const corr = F.t.map((t, j): V => [s * t[0] - D[j] * h, 0]);
-  const parcel = (to: Inventory, n: number) => { for (const p of cellLayers(state, n, h)) if (p.bed >= 0) addParcel(to, p.bed, p.solid, p.fraction, beds[p.bed].carbonate, h); };
-  const topRow = (i: number) => { const z = depth[i]; return Number.isFinite(z) ? Math.ceil(z / h) - 1 : nz - 1; };
-  const rowOf = (j: number, i: number) => { const [a, c] = [P[j], P[j + 1]]; return Math.ceil((a[1] + (c[1] - a[1]) * (X(i) - a[0]) / ((c[0] - a[0]) || 1)) / h) - 1; };
-  const next = grid.slice(), nextSolid = solid.slice(), nextBurial = burial.slice(), nextFraction = sandFraction.slice(), nextEffective = effectiveBurial.slice();
-  const nextSubcells = new Map(state.subcells);
-  const nextX = state.offsetX?.slice() ?? new Float64Array(nx * nz), nextZ = state.offsetZ?.slice() ?? new Float64Array(nx * nz);
-  const used = new Int32Array(recordSources ? nx * nz : 0), from = new Int32Array(recordSources ? nx * nz : 0).fill(-1);
-  const flux = emptyFluxes(), allowed = new Uint8Array(nx * nz), expected = new Int32Array(nx * nz).fill(WATER), parcels: TransportParcel[] = [];
-  let before = 0, inflow = 0, lost = 0;
-  // Forward-transport each source parcel exactly once. Flux is classified from
-  // its geometric target, before and independently of destination allocation.
-  for (let i = 0; i < nx; i++) for (let k = 0; k < nz && k * h < depth[i]; k++) {
-    const n = k * nx + i, x = X(i), z = k * h;
-    allowed[n] = 1; nextSubcells.delete(n);
-    next[n] = WATER; nextSolid[n] = 0; nextBurial[n] = 0; nextFraction[n] = 0; nextEffective[n] = 0; nextX[n] = 0; nextZ[n] = 0;
-    if (grid[n] === WATER) continue;
-    before++;
-    const [xa, za] = flowMove(F, x + (state.offsetX?.[n] ?? 0), z + (state.offsetZ?.[n] ?? 0), s);
-    const ti = s === 0 ? i : (xa + MARGIN) / h, tk = s === 0 ? k : za / h, ia = Math.round(ti), ka = Math.round(tk);
-    const side = outsideCell(ia, ka, nx, nz);
-    if (side) { parcel(flux.outflow[side], n); lost++; }
-    else parcels.push({ source: n, i: ia, k: ka, targetI: ti, targetK: tk });
+/** Displacement summed along the piecewise straight trajectory, without subtracting
+ * two large absolute positions. */
+export function flowDisplacement(F: FlowLine, x: number, z: number, s: number): V {
+  let j = domainOf(F, x, z);
+  const q: V = [x - F.P[j][0], z - F.P[j][1]], delta = dot(q, F.n[j]), last = F.t.length - 1;
+  let u = dot(q, F.t[j]), left = s, dx = 0, dz = 0;
+  const start = (d: number) => d === 0 ? -Infinity : dot(F.b[d], F.t[d]) * delta / dot(F.b[d], F.n[d]);
+  const end = (d: number) => d === last ? Infinity : dot([F.P[d + 1][0] - F.P[d][0], F.P[d + 1][1] - F.P[d][1]], F.t[d]) + dot(F.b[d + 1], F.t[d]) * delta / dot(F.b[d + 1], F.n[d]);
+  for (let guard = 0; guard <= F.t.length; guard++) {
+    if (left >= 0) {
+      const e = end(j), distance = u + left <= e ? left : Math.max(0, e - u);
+      dx += distance * F.t[j][0]; dz += distance * F.t[j][1]; left -= distance;
+      if (!left) return [dx, dz];
+      j++; u = start(j);
+    } else {
+      const st = start(j), distance = u + left >= st ? left : -Math.max(0, u - st);
+      dx += distance * F.t[j][0]; dz += distance * F.t[j][1]; left -= distance;
+      if (!left) return [dx, dz];
+      j--; u = end(j);
+    }
   }
-  // Prescribed edge continuation: only genuinely exterior back-traces supply
-  // new parcels. Interior holes/collisions never become boundary inflow.
-  for (let i = 0; i < nx; i++) for (let k = 0; k < nz && k * h < depth[i]; k++) {
-    const x = X(i), z = k * h, j = domainOf(F, x, z), [xb, zb] = flowMove(F, x, z, -s), within = domainOf(F, xb, zb) === j;
-    const rawI = within ? i - D[j] : Math.round((xb + MARGIN) / h), is = Math.min(nx - 1, Math.max(0, rawI));
-    const ks = Math.min(within ? k + rowOf(j, is) - rowOf(j, i) : Math.round(zb / h), topRow(is));
-    if (ks < 0) continue; // water enters through the top
-    const side = outsideCell(rawI, ks, nx, nz);
-    const src = Math.min(nz - 1, ks) * nx + is;
-    if (grid[src] === WATER) continue;
-    expected[k * nx + i] = grid[src];
-    if (!side) continue;
-    parcel(flux.inflow[side], src); inflow++;
-    // Continue the fractional phase at an open edge as well as its material.
-    // Otherwise each entering column restarts at a cell centre and small repeated
-    // slips pile incoming parcels onto the retained ones.
-    const dx = -(nextCarry[j] ?? 0) / h;
-    parcels.push({ source: src, i, k, targetI: i + dx, targetK: k + dx * F.t[j][1] / F.t[j][0] });
-  }
-  const assignment = assignTransport(nx, nz, allowed, parcels);
-  for (let p = 0; p < parcels.length; p++) {
-    const src = parcels[p].source, n = assignment.destination[p];
-    next[n] = grid[src]; nextSolid[n] = solid[src]; nextBurial[n] = burial[src];
-    nextFraction[n] = sandFraction[src]; nextEffective[n] = effectiveBurial[src];
-    nextX[n] = s === 0 ? (state.offsetX?.[src] ?? 0) : ((parcels[p].targetI ?? parcels[p].i) - n % nx) * h;
-    nextZ[n] = s === 0 ? (state.offsetZ?.[src] ?? 0) : ((parcels[p].targetK ?? parcels[p].k) - Math.floor(n / nx)) * h;
-    if (state.subcells?.has(src)) nextSubcells.set(n, movedCellLayers(state, src, h, nextX[n], nextZ[n]));
-    if (recordSources) { used[src]++; from[n] = src; }
-  }
+  throw Error('Flow displacement crossed too many domains');
+}
 
-  return { grid: next, solid: nextSolid, burial: nextBurial, sandFraction: nextFraction, effectiveBurial: nextEffective,
-    subcells: nextSubcells, depth, carry: nextCarry, F, corr, from, used, flux, offsetX: nextX, offsetZ: nextZ,
-    numericalVacancies: Uint8Array.from(next, (c, n) => Number(c === WATER && expected[n] !== WATER)),
-    rock: { before, after: parcels.length, inflow, outflow: lost },
-    placement: { parcels: parcels.length, displaced: assignment.displaced, maxOffsetCells: assignment.maxOffsetCells, radius: assignment.radius } };
+/** Exact mean displacement of the h-wide rectangular material representation.
+ * The flow is affine for each initial/final dip-domain pair. Clip only for
+ * integration, then average each piece's displacement by its original area.
+ * Unit-square coordinates retain arbitrarily thin positive material intervals.
+ * Cut polygons are temporary; this does not retain a general material mesh. */
+export function flowAreaDisplacement(F: FlowLine, s: number, width: number) {
+  if (!Number.isFinite(s) || !(width > 0) || !Number.isFinite(width)) throw Error('Invalid flow integration width');
+  const count = F.t.length, A = [0], C = [0], B = [0];
+  for (let j = 1; j < count; j++) {
+    const oldBeta = dot(F.b[j], F.t[j-1]) / dot(F.b[j], F.n[j-1]);
+    const newBeta = dot(F.b[j], F.t[j]) / dot(F.b[j], F.n[j]);
+    A[j] = A[j-1] + dot([F.P[j][0]-F.P[j-1][0], F.P[j][1]-F.P[j-1][1]], F.t[j-1]);
+    C[j] = C[j-1] + oldBeta - newBeta; B[j] = newBeta + C[j];
+  }
+  const clip = (poly: V[], value: (p: V) => number): V[] => {
+    if (!poly.length) return [];
+    const out: V[] = []; let a = poly.at(-1)!, fa = value(a);
+    for (const b of poly) {
+      const fb = value(b);
+      if ((fa >= 0) !== (fb >= 0)) { const t = fa/(fa-fb); out.push([a[0]+t*(b[0]-a[0]),a[1]+t*(b[1]-a[1])]); }
+      if (fb >= 0) out.push(b);
+      a=b; fa=fb;
+    }
+    return out;
+  };
+  const measure = (poly: V[]) => {
+    if (poly.length < 3) return {area:0,x:0,z:0};
+    const o=poly[0]; let area2=0, mx=0, mz=0;
+    for(let j=1;j+1<poly.length;j++) {
+      const ax=poly[j][0]-o[0],az=poly[j][1]-o[1],bx=poly[j+1][0]-o[0],bz=poly[j+1][1]-o[1],cross=ax*bz-az*bx;
+      area2+=cross;mx+=cross*(ax+bx);mz+=cross*(az+bz);
+    }
+    return {area:Math.abs(area2)/2,x:o[0]+(area2?mx/(3*area2):0),z:o[1]+(area2?mz/(3*area2):0)};
+  };
+  return (x: number, top: number, height: number): V => {
+    if (!(height>0) || !Number.isFinite(height) || !Number.isFinite(x) || !Number.isFinite(top)) throw Error('Invalid flow integration interval');
+    if (!Number.isFinite(top+height) || !Number.isFinite(x-width/2) || !Number.isFinite(x+width/2)) throw Error('Invalid flow integration extent');
+    const centerZ=top+height/2;
+    if (s===0) return [0,0];
+    if (count===1) return [s*F.t[0][0],s*F.t[0][1]];
+    // Within a fixed source/destination domain pair the map is affine.
+    const initial: V[]=[[-.5,0],[.5,0],[.5,1],[-.5,1]];
+    const sourceDomain=domainOf(F,x,centerZ),center=flowMove(F,x,centerZ,s),targetDomain=domainOf(F,...center);
+    if(initial.every(([dx,dz])=>domainOf(F,x+dx*width,top+dz*height)===sourceDomain && domainOf(F,...flowMove(F,x+dx*width,top+dz*height,s))===targetDomain))return sourceDomain===targetDomain ? [s*F.t[sourceDomain][0],s*F.t[sourceDomain][1]] : flowDisplacement(F,x,centerZ,s);
+    let remaining=initial, area=0, mx=0, mz=0;
+    for(let j=0;j<count && remaining.length;j++) {
+      const side=(p:V)=>(x-F.P[j+1][0])*F.m[j+1][0]+(top-F.P[j+1][1])*F.m[j+1][1]+p[0]*width*F.m[j+1][0]+p[1]*height*F.m[j+1][1];
+      const start=j===count-1?remaining:clip(remaining,p=>-side(p));
+      if(j<count-1)remaining=clip(remaining,side);
+      if(!start.length)continue;
+      const delta0=(x-F.P[j][0])*F.n[j][0]+(top-F.P[j][1])*F.n[j][1];
+      const distance0=(x-F.P[j][0])*F.t[j][0]+(top-F.P[j][1])*F.t[j][1]+A[j]+C[j]*delta0+s;
+      let rest=start;
+      for(let k=0;k<count && rest.length;k++) {
+        const crossed=(p:V)=>distance0-A[k+1]-B[k+1]*delta0+p[0]*width*(F.t[j][0]+(C[j]-B[k+1])*F.n[j][0])+p[1]*height*(F.t[j][1]+(C[j]-B[k+1])*F.n[j][1]);
+        const part=k===count-1?rest:clip(rest,p=>-crossed(p));
+        if(k<count-1)rest=clip(rest,crossed);
+        const q=measure(part);if(!(q.area>0))continue;
+        const px=x+q.x*width,pz=top+q.z*height,moved=j===k ? [s*F.t[j][0],s*F.t[j][1]] : flowDisplacement(F,px,pz,s);
+        area+=q.area;mx+=q.area*moved[0];mz+=q.area*moved[1];
+      }
+    }
+    if(!(area>0))throw Error('Empty flow integration area');
+    return [mx/area,mz/area];
+  };
+}
+
+/** Cropped display projections may report outside material. Full material
+ * refreshes must never discard a sediment identity or infer an unrecorded flux. */
+function fullDomainRasterize(columns: Column[], nz: number, h: number) {
+  const result = rasterize(columns, nz, h);
+  for (const [i, parts] of result.bottomOutside) if (parts.some(p => p.bed >= 0))
+    throw Error(`Full-domain projection would discard sediment from column ${i}`);
+  return result;
+}
+
+export interface ThrustTransfer {
+  source: Layer;
+  moved: Layer;
+  sourceCell: number;
+  destinationCell: number;
+  incoming: boolean;
+  /** Constituent top within the original and assigned transport cells. */
+  sourceLocalTop: number;
+  destinationLocalTop: number;
+}
+/** One conservative thrust increment, pure with respect to state, geometry and carry.
+ * Split each column's fault-cut cell at the represented fault depth. Only its
+ * hanging-wall portion moves; its footwall constituents remain in place.
+ * Moving packets retain grains and histories in distinct destinations when feasible.
+ * Only an infeasible matching invokes exact-capacity vertical slicing in the same
+ * parent-target stencil; each child retains its own integrated physical flow moment.
+ * offsetX/Z retain continuous transport positions after allocation. This remains
+ * a bounded discrete remap, not a general polygon-overlap transport scheme.
+ */
+export function remapThrust(state: MaterialState & Pick<Basin, "solid" | "nx" | "nz" | "h" | "beds"> & { offsetX?: Float64Array; offsetZ?: Float64Array }, P: V[], s: number, carry: readonly number[], recordSources = false) {
+  if (!(state.h > 0) || !Number.isFinite(state.h) || !Number.isFinite(s) || P.length < 2 || P.some(p => !p.every(Number.isFinite)))
+    throw Error('Invalid thrust geometry or slip');
+  const { nx, nz, h, beds } = state, X = (i: number) => -2000 + i * h, F = flowLine(P);
+  const averageFlow = flowAreaDisplacement(F, s, h);
+  const depth = Float64Array.from({ length: nx }, (_, i) => polylineDepth(P, X(i)));
+  const capacity = Float64Array.from({ length: nx * nz }, (_, n) => Math.max(0, Math.min(h, depth[n % nx] - Math.floor(n / nx) * h)));
+  const allowed = Uint8Array.from(capacity, x => Number(x > 1e-10));
+  const nextCarry = [...carry], D = F.t.map((t, j) => { const ex = s * t[0], dx = s === 0 ? 0 : Math.round((ex - (carry[j] ?? 0)) / h); nextCarry[j] = (carry[j] ?? 0) + dx * h - ex; return dx; });
+  const corr = F.t.map((t, j): V => [s * t[0] - D[j] * h, 0]), flux = emptyFluxes(), from = new Int32Array(recordSources ? nx * nz : 0).fill(-1), used = new Int32Array(recordSources ? nx * nz : 0);
+  const numericalWater = new Map<number, [number, number][]>();
+  const transfers: ThrustTransfer[] = [];
+  const parcels: (TransportParcel & {
+    parts: Column;
+    offsetX: number;
+    offsetZ: number;
+    incoming?: boolean;
+    displacements?: (V | null)[];
+  })[] = [], HW = new Map<number, Column>(), FW = new Map<number, Column>();
+  const rock = (c: Column) => c.some(p => p.bed !== -1);
+  const height = (c: Column) => {
+    const lengths = c.flatMap(p => [...layerLengths(p)]), scale = exactLengthScale(lengths);
+    return scale.number(lengths.reduce((sum, h) => sum + scale.units(h), 0n));
+  };
+  const localTops = (c: Column) => {
+    const scale = exactLengthScale(c.flatMap(p => [...layerLengths(p)])); let preceding = 0n;
+    return c.map(p => { const top = scale.number(preceding);
+      preceding += layerLengths(p).reduce((sum, h) => sum + scale.units(h), 0n); return top; });
+  };
+  // Integrate placement error over occupied rock, including basement. A thin
+  // fragment must not count as much as a full rock cell; water has no rock volume.
+  // Normalizing by h retains the unit cost for full cells on every grid.
+  const rockWeight = (c: Column) => height(c.filter(p => p.bed !== -1)) / h;
+  const fluxParts = (to: Inventory, c: Column) => {
+    for (const p of c) if (p.bed >= 0) addParcel(to, p.bed, p.solid, p.fraction, beds[p.bed].carbonate, h);
+  };
+  // A stationary footwall must not influence the moving packet's flow position.
+  const offsets = (c: Column): V => {
+    let v = 0, x = 0, z = 0;
+    for (const p of c) if (p.bed !== -1) {
+      v += p.height; x += p.height * p.offsetX; z += p.height * p.offsetZ;
+    }
+    return v ? [x / v, z / v] : [0, 0];
+  };
+  for (let n = 0; n < nx * nz; n++)
+    if (allowed[n]) {
+      const cell = cellLayers(state, n, h);
+      HW.set(n, sliceColumn(cell, 0, capacity[n]));
+      FW.set(n, sliceColumn(cell, capacity[n], h));
+    }
+  let before = 0, inflow = 0, lost = 0;
+  if (s === 0) {
+    return { ...state, grid: state.grid.slice(), solid: state.solid.slice(), sandFraction: state.sandFraction.slice(), burial: state.burial.slice(), effectiveBurial: state.effectiveBurial.slice(), offsetX: state.offsetX?.slice() ?? new Float64Array(nx * nz), offsetZ: state.offsetZ?.slice() ?? new Float64Array(nx * nz), subcells: new Map([...state.subcells ?? []].map(([n, c]) => [n, c.map(p => ({ ...p }))])), depth, carry: [...carry], F, corr, from, used, flux, transfers, numericalWater, numericalVacancies: new Uint8Array(nx * nz), rock: { before: 0, after: 0, inflow: 0, outflow: 0 }, placement: { parcels: 0, displaced: 0, maxOffsetCells: 0, radius: 2 as const } };
+  }
+  for (const [n, parts] of HW) {
+    if (!rock(parts))
+      continue;
+    before++;
+    const [ox, oz] = offsets(parts), i = n % nx, k = Math.floor(n / nx);
+    const sourceTops = localTops(parts); let volume = 0, meanX = 0, meanZ = 0;
+    // Integrate each constituent at its own physical position. The mean controls
+    // only packet allocation; each constituent keeps its individual flow moment.
+    const displacements = parts.map((p, part) => {
+      const top = sourceTops[part];
+      if (p.bed === -1) return null;
+      const displacement = averageFlow(X(i) + p.offsetX, k * h + top + p.offsetZ, p.height);
+      volume += p.height;
+      meanX += p.height * (p.offsetX + displacement[0]);
+      meanZ += p.height * (p.offsetZ + displacement[1]);
+      return displacement;
+    });
+    const ti = i+meanX/volume/h, tk = k+meanZ/volume/h, ia = Math.round(ti), ka = Math.round(tk), side = outsideCell(ia, ka, nx, nz);
+    if (side) {
+      fluxParts(flux.outflow[side], parts);
+      lost++;
+    }
+    else
+      parcels.push({ source: n, i: ia, k: ka, targetI: ti, targetK: tk, height: height(parts), weight: rockWeight(parts), parts, displacements, offsetX: ox, offsetZ: oz });
+  }
+  const topRow = (i: number) => Math.ceil(depth[i] / h) - 1;
+  const rowOf = (j: number, i: number) => { const [a, b] = [P[j], P[j + 1]]; return Math.ceil((a[1] + (b[1] - a[1]) * (X(i) - a[0]) / ((b[0] - a[0]) || 1)) / h) - 1; };
+  const expected = new Uint8Array(nx * nz);
+  for (const [n] of HW) {
+    const i = n % nx, k = Math.floor(n / nx), x = X(i), z = k * h, j = domainOf(F, x, z), [xb, zb] = flowMove(F, x, z, -s), within = domainOf(F, xb, zb) === j;
+    const rawI = within ? i - D[j] : Math.round((xb + 2000) / h), is = Math.min(nx - 1, Math.max(0, rawI));
+    const ks = Math.min(within ? k + rowOf(j, is) - rowOf(j, i) : Math.round(zb / h), topRow(is));
+    if (ks < 0)
+      continue;
+    const side = outsideCell(rawI, ks, nx, nz), src = Math.min(nz - 1, ks) * nx + is, parts = HW.get(src) ?? [];
+    if (!rock(parts))
+      continue;
+    expected[n] = 1;
+    if (!side)
+      continue;
+    fluxParts(flux.inflow[side], parts);
+    inflow++;
+    const dx = -(nextCarry[j] ?? 0) / h, [ox, oz] = offsets(parts);
+    parcels.push({ source: src, i, k, targetI: i + dx, targetK: k + dx * F.t[j][1] / F.t[j][0], height: height(parts), weight: rockWeight(parts), parts, offsetX: ox, offsetZ: oz, incoming: true });
+  }
+  let assignment: ReturnType<typeof assignTransport>;
+  const assigned = new Map<number, Column>();
+  let splitFallback: ReturnType<typeof assignCapacityTransport> | undefined;
+  let fallbackReason: string | null = null, maxChildCentroidOffsetCells = 0, maxChildStorageOffsetCells = 0, slicedConstituents = 0;
+  try { assignment = assignTransport(nx, nz, allowed, parcels, capacity); }
+  catch (error) {
+    if (!(error instanceof PlacementError)) throw error;
+    fallbackReason = error.message;
+    splitFallback = assignCapacityTransport(nx, nz, allowed, parcels.map(p => ({ ...p, materialHeights: p.parts.flatMap(q => [...layerLengths(q)]) })), capacity);
+    assignment = { destination: new Int32Array(0), radius: splitFallback.radius,
+      maxOffsetCells: splitFallback.maxOffsetCells,
+      displaced: splitFallback.shares.filter(q => q.destination !== parcels[q.parcel].k * nx + parcels[q.parcel].i).length };
+  }
+  if (!splitFallback) {
+  for (let p = 0; p < parcels.length; p++) {
+    const src = parcels[p], n = assignment.destination[p], dx = ((src.targetI ?? src.i) - n % nx) * h - src.offsetX, dz = ((src.targetK ?? src.k) - Math.floor(n / nx)) * h - src.offsetZ;
+    const sourceTops = localTops(src.parts);
+    assigned.set(n, src.parts.map((p, part) => {
+      const localTop = sourceTops[part];
+      const displacement = src.displacements?.[part];
+      // Incoming ghost packets retain the prescribed continuation rule. Natural
+      // water within retained packets receives the packet's common translation.
+      const moved = { ...p,
+        offsetX: displacement ? p.offsetX + displacement[0] + (src.source % nx - n % nx) * h : p.offsetX + dx,
+        offsetZ: displacement ? p.offsetZ + displacement[1] + (Math.floor(src.source / nx) - Math.floor(n / nx)) * h : p.offsetZ + dz,
+      };
+      if (recordSources && p.bed >= 0) transfers.push({ source: p, moved, sourceCell: src.source, destinationCell: n, incoming: !!src.incoming, sourceLocalTop: localTop, destinationLocalTop: localTop });
+      return moved;
+    }));
+    if (recordSources) {
+      from[n] = src.source;
+      used[src.source]++;
+    }
+  }
+  } else {
+    const slices = sliceCapacityShares(parcels, splitFallback.shares, nx);
+    slicedConstituents = slices.length;
+    const grouped = new Map<number, { slice: typeof slices[number]; moved: Layer; center: number }[]>();
+    for (const slice of slices) {
+      const src = parcels[slice.parcel], p = slice.part, n = slice.destination;
+      // A retained child is an actual vertical rectangle. Reintegrate its flow
+      // over its own height at its original local position, not the parent mean.
+      const displacement = !src.incoming && p.bed !== WATER
+        ? averageFlow(X(src.source % nx) + p.offsetX, Math.floor(src.source / nx) * h + slice.sourceLocalTop + p.offsetZ, p.height)
+        : null;
+      const dx = ((src.targetI ?? src.i) - n % nx) * h - src.offsetX;
+      const dz = ((src.targetK ?? src.k) - Math.floor(n / nx)) * h - src.offsetZ;
+      const moved = { ...p,
+        offsetX: displacement ? p.offsetX + displacement[0] + (src.source % nx - n % nx) * h : p.offsetX + dx,
+        offsetZ: (displacement ? p.offsetZ + displacement[1] + (Math.floor(src.source / nx) - Math.floor(n / nx)) * h : p.offsetZ + dz) + slice.sourceLocalTop,
+      };
+      let group = grouped.get(n); if (!group) grouped.set(n, group = []);
+      group.push({ slice, moved, center: moved.offsetZ + p.height / 2 });
+    }
+    for (const [n, group] of grouped) {
+      // Only fallback destinations may contain multiple pieces. Their ordering
+      // follows transported physical centers; footwall remains outside this set.
+      group.sort((a, b) => a.center - b.center || a.slice.parcel - b.slice.parcel || a.slice.sourceLocalTop - b.slice.sourceLocalTop);
+      const parts: Column = [], destinationTops = localTops(group.map(q => q.moved));
+      for (const [index, { slice, moved, center }] of group.entries()) {
+        const local = destinationTops[index];
+        const src = parcels[slice.parcel], p = { ...moved, offsetZ: moved.offsetZ - local };
+        if (recordSources && p.bed >= 0) transfers.push({ source: slice.part, moved: p,
+          sourceCell: src.source, destinationCell: n, incoming: !!src.incoming,
+          sourceLocalTop: slice.sourceLocalTop, destinationLocalTop: local });
+        maxChildCentroidOffsetCells = Math.max(maxChildCentroidOffsetCells, Math.hypot(p.offsetX / h, (center - h / 2) / h));
+        maxChildStorageOffsetCells = Math.max(maxChildStorageOffsetCells, Math.hypot(p.offsetX / h, p.offsetZ / h));
+        parts.push(p);
+        if (recordSources) { from[n] = src.source; used[src.source]++; }
+      }
+      assigned.set(n, parts);
+    }
+  }
+  const subcells = new Map(state.subcells);
+  for (const [n] of HW) {
+    const moved = assigned.get(n), out: Column = [], usedHeight = moved ? height(moved) : 0;
+    if (moved)
+      for (const p of moved)
+        append(out, p);
+    const scale = exactLengthScale([capacity[n], ...(moved ?? []).flatMap(p => [...layerLengths(p)])]);
+    const usedUnits = (moved ?? []).reduce((sum, p) => sum + layerLengths(p).reduce((u, h) => u + scale.units(h), 0n), 0n);
+    const freeUnits = scale.units(capacity[n]) - usedUnits;
+    if (freeUnits < 0n) throw Error('Thrust reconstruction exceeds exact capacity');
+    const gap = scale.number(freeUnits);
+    if (freeUnits > 0n) append(out, withLayerLengths(emptyLayer(-1, 0), scale.chunks(freeUnits)));
+    // Record only newly introduced allocation water, not natural water already
+    // travelling inside a cut source parcel. Collapse must intersect this range.
+    if (gap > 1e-10 && (moved || expected[n]))
+      numericalWater.set(n, [[usedHeight, capacity[n]]]);
+    for (const p of FW.get(n)!)
+      append(out, p);
+    subcells.set(n, out);
+  }
+  const columns = columnsFromRaster({ ...state, subcells }, nx, nz, h), out = fullDomainRasterize(columns, nz, h);
+  return { ...out, depth, carry: nextCarry, F, corr, from, used, flux, transfers, numericalWater, numericalVacancies: Uint8Array.from({ length: nx * nz }, (_, n) => Number(numericalWater.has(n))), rock: { before, after: parcels.length, inflow, outflow: lost }, placement: { parcels: parcels.length, displaced: assignment.displaced, maxOffsetCells: assignment.maxOffsetCells, radius: assignment.radius, fallback: !!splitFallback, fallbackReason, splitSources: splitFallback?.splitSources ?? 0, slicedConstituents, maxChildPhysicalToCellCenterCells: maxChildCentroidOffsetCells, maxChildStorageOffsetCells } };
 }
 
 export function simulate(options: BasinOptions, observe?: SimulationObserver): Basin {
@@ -346,11 +609,11 @@ export function simulate(options: BasinOptions, observe?: SimulationObserver): B
   // Subsidence carries them; compaction remaps the lateral grain moment and
   // reconstructs vertical positions. They never contribute to grain inventory.
   let offsetX = new Float64Array(nx * nz), offsetZ = new Float64Array(nx * nz);
-  let numericalVacancies = new Uint8Array(nx * nz);
+  let numericalWater = new Map<number, [number, number][]>();
   const wd0 = u(30, 150), dt = u(0.5, 2);
   let columns: Column[] = Array.from({ length: nx }, () => [emptyLayer(WATER, wd0), emptyLayer(BASEMENT, nz * h - wd0)]);
   let subcells = new Map<number, Column>();
-  const refresh = () => { ({ grid, solid, burial, sandFraction, effectiveBurial, offsetX, offsetZ, subcells } = rasterize(columns, nz, h)); };
+  const refresh = () => { ({ grid, solid, burial, sandFraction, effectiveBurial, offsetX, offsetZ, subcells } = fullDomainRasterize(columns, nz, h)); };
   const rebuild = () => { columns = columnsFromRaster({ grid, solid, burial, sandFraction, effectiveBurial, offsetX, offsetZ, subcells }, nx, nz, h); };
   refresh();
   const beds: Bed[] = [], deposited: number[] = [], faults: Fault[] = [], log: StepLog[] = [], snapshots: Snapshot[] = [];
@@ -424,8 +687,9 @@ export function simulate(options: BasinOptions, observe?: SimulationObserver): B
   const historyPlan: PhysicalHistory = { dt, phases: [nPre, nSyn, nPost], waterDepth: wd0, basinSlope, overpressure, basementVelocity,
     normalFaults: plan, thrusts: thrustPlan, beds, forcing: [] };
 
-  /** A fault's trace for drawing and measuring: the columns where it is defined, in order of x, and its depth there. */
+  /** Compatibility column projection for measurements; drawing uses separate branches when present. */
   const sync = (f: Fault) => {
+    if (f.trace) f.depth = projectTrace(f.trace, nx, h);
     const xsList: number[] = [], zsList: number[] = [];
     for (let i = 0; i < nx; i++) if (Number.isFinite(f.depth[i])) { xsList.push(X(i)); zsList.push(f.depth[i]); }
     f.x = xsList; f.z = zsList;
@@ -434,30 +698,37 @@ export function simulate(options: BasinOptions, observe?: SimulationObserver): B
   const subside = (s: (x: number) => number) => {
     const flux = emptyFluxes(), shifts = Float64Array.from({ length: nx }, (_, i) => s(X(i)));
     for (let i = 0; i < nx; i++) {
-      const d = shifts[i], old = columns[i], next: Column = [], end = nz * h;
-      if (d >= 0) {
-        materialFlux(flux.outflow.bottom, sliceColumn(old, Math.max(0, end - d), end));
-        append(next, emptyLayer(WATER, Math.min(d, end)));
-        for (const p of sliceColumn(old, 0, Math.max(0, end - d))) append(next, p);
-      } else {
-        materialFlux(flux.outflow.top, sliceColumn(old, 0, Math.min(-d, end)));
-        for (const p of sliceColumn(old, Math.min(-d, end), end)) append(next, p);
-        const donor = portion(old.at(-1)!, Math.min(-d, end));
-        materialFlux(flux.inflow.bottom, [donor]); append(next, donor);
-      }
-      columns[i] = next;
+      const moved = subsideColumn(columns[i], X(i), nz * h, s, shifts[i]);
+      materialFlux(flux.outflow.top, moved.outflowTop);
+      materialFlux(flux.outflow.bottom, moved.outflowBottom);
+      materialFlux(flux.inflow.bottom, moved.inflowBottom);
+      columns[i] = moved.column;
     }
-    for (const f of faults) { for (let i = 0; i < nx; i++) if (Number.isFinite(f.depth[i])) f.depth[i] += shifts[i]; sync(f); }
+    for (const f of faults) {
+      for (let i = 0; i < nx; i++) if (Number.isFinite(f.depth[i])) f.depth[i] += shifts[i];
+      for (const p of [...(f.thrust?.points ?? []), ...(f.trace?.flat() ?? [])]) p[1] += s(p[0]);
+      sync(f);
+    }
     account("subsidence", flux); return shifts[0] / h;
   };
   /**
-   * Other faults' points in a moving hanging wall (above the fault by more than half a cell) move to where the rock
-   * goes; each trace is rebuilt column by column (two points landing in one column are averaged, gaps interpolated).
-   * A normal fault's hanging-wall side reaches the domain edge (flat beyond its last point); a thrust's ends stay open.
+   * Passive thrusts retain physical branches across cuts and flow bends. The legacy
+   * normal-fault path remains column based, with duplicate depths averaged and gaps
+   * interpolated; its hanging-wall side continues flat to the domain edge.
    */
-  const carry = (active: Fault, move: (x: number, z: number) => V | null) => {
+  const carry = (active: Fault, move: (x: number, z: number) => V | null, thrustFlow?: { F: FlowLine; s: number }) => {
     for (const g of faults) {
       if (g === active) continue;
+      if (thrustFlow && g.kind === "thrust") {
+        const { F, s } = thrustFlow;
+        const advect = (x: number, z: number) => flowMove(F, x, z, s);
+        g.trace = transportTrace(g.trace ?? traceFromDepth(g.depth, h), F.P.map(p => p[0]), x => polylineDepth(F.P, x),
+          advect, (x, z) => `${domainOf(F, x, z)}:${domainOf(F, ...advect(x, z))}`);
+        // These branches are passive. Four original flow controls cannot describe
+        // a fault cut by a younger thrust, and must never drive a later remap.
+        delete g.thrust!.points;
+        sync(g); continue;
+      }
       const sum = new Float64Array(nx), count = new Float64Array(nx);
       let movedAny = false;
       for (let i = 0; i < nx; i++) {
@@ -517,22 +788,22 @@ export function simulate(options: BasinOptions, observe?: SimulationObserver): B
    * retains its fractional phase. Footwall cells are immutable during this operation.
    */
   const thrustSlip = (f: Fault, s: number) => {
+    if (f.trace) throw Error("Reactivation of a cut passive thrust requires an explicit new flow geometry");
     refresh();
     const moved = remapThrust({ grid, solid, burial, sandFraction, effectiveBurial, offsetX, offsetZ, subcells, nx, nz, h, beds }, thrustPoints({ nx, h }, f), s, f.thrust!.carry, !!debugSlip);
     const { F, corr, rock } = moved;
     if (rock.before > 0) record(f, Math.abs(rock.after - (rock.before + rock.inflow - rock.outflow)) / rock.before);
-    debugSlip?.({ kind: "thrust", before: { grid, sandFraction, burial, effectiveBurial }, after: moved, step: current, fault: faults.indexOf(f), nx, nz, h, grid, next: moved.grid, used: moved.used, from: moved.from, depth: moved.depth.slice(), F, s, corr });
-    grid = moved.grid; solid = moved.solid; burial = moved.burial; sandFraction = moved.sandFraction; effectiveBurial = moved.effectiveBurial; offsetX = moved.offsetX; offsetZ = moved.offsetZ; numericalVacancies = moved.numericalVacancies; subcells = moved.subcells; rebuild();
+    debugSlip?.({ kind: "thrust", before: { grid, sandFraction, burial, effectiveBurial }, after: moved, step: current, fault: faults.indexOf(f), nx, nz, h, grid, next: moved.grid, used: moved.used, from: moved.from, depth: moved.depth.slice(), F, s, corr, thrustTransfers: moved.transfers });
+    grid = moved.grid; solid = moved.solid; burial = moved.burial; sandFraction = moved.sandFraction; effectiveBurial = moved.effectiveBurial; offsetX = moved.offsetX; offsetZ = moved.offsetZ; numericalWater = moved.numericalWater; subcells = moved.subcells; rebuild();
     f.depth = moved.depth; f.thrust!.carry = moved.carry;
     transport.push({ step: current, fault: faults.indexOf(f), ...moved.placement });
-    carry(f, (x, z) => { const [xa, za] = flowMove(F, x, z, s), j = domainOf(F, xa, za); return [xa - corr[j][0], za - corr[j][1]]; });
+    carry(f, (x, z) => { const [xa, za] = flowMove(F, x, z, s), j = domainOf(F, xa, za); return [xa - corr[j][0], za - corr[j][1]]; }, { F, s });
     f.heave += s; f.heaves.push(s); sync(f);
     account("thrust-slip", moved.flux, faults.indexOf(f));
   };
   /** A normal fault's trace from its top column (at sea level) down to its detachment (listric, exponential), one depth per column. */
   const createFault = (p: NormalPlan): Fault => {
-    const top = col(p.x), tan = Math.tan(p.dip), depth = new Float64Array(nx).fill(NaN);
-    for (let i = top; i >= 0 && i < nx; i += p.dir) { const s = Math.abs(i - top) * h; depth[i] = p.detachment * (1 - Math.exp(-s * tan / p.detachment)); }
+    const { top, depth } = normalDepth(nx, h, p.x, p.dir, p.dip, p.detachment);
     const f: Fault = { kind: "normal", dir: p.dir, x: [], z: [], depth, top, dip: p.dip, detachment: p.detachment, start: p.start, end: p.end, heave: 0, heaves: [], remainder: 0 };
     sync(f); return f;
   };
@@ -544,58 +815,53 @@ export function simulate(options: BasinOptions, observe?: SimulationObserver): B
    * the bumps, leaving no water under the sheet).
    */
   const createThrust = (p: ThrustPlan): Fault => {
-    const i1 = Math.min(nx - 2, Math.max(1, col(p.x1))), floor = surface(columns[i1]);
-    let basement = 0; for (const part of columns[i1]) { if (part.bed === BASEMENT) break; basement += part.height; }
-    const zd = Math.min(ZMAX - 200, floor + p.zdFrac * (basement - floor)), zu = floor + p.zuFrac * (zd - floor), tan = Math.tan(p.dip);
-    const order = (j: number) => p.transport > 0 ? j : nx - 1 - j, ramp = (i: number) => zd - Math.max(0, p.transport * (X(i) - X(i1))) * tan;
-    const reach = (upper: (i: number) => number) => { for (let j = 0; j < nx; j++) { const i = order(j); if (p.transport * (X(i) - X(i1)) > 0 && ramp(i) <= upper(i)) return i; } return order(nx - 1); };
-    let upper = (_: number) => zu;
-    if (p.emergent) {
-      const floorAt = (i: number) => surface(columns[i]), a = reach(floorAt), front = order(nx - 1), za = floorAt(a), zf = floorAt(front);
-      const chord = (i: number) => za + (zf - za) * (X(i) - X(a)) / ((X(front) - X(a)) || 1);
-      let lower = 0;
-      for (let i = 0; i < nx; i++) if (p.transport * (X(i) - X(a)) >= 0) lower = Math.max(lower, floorAt(i) - chord(i));
-      upper = (i) => chord(i) + lower;
-    }
-    const depth = new Float64Array(nx), i2 = reach(upper);
-    for (let i = 0; i < nx; i++) depth[i] = Math.max(ramp(i), upper(i));
+    const x1 = Math.max(X(1), Math.min(X(nx - 2), p.x1));
+    const floorAt = (x: number) => sampleColumns(x, h, nx, i => surface(columns[i]));
+    const floor = floorAt(x1), basement = sampleColumns(x1, h, nx, i => {
+      let z = 0; for (const part of columns[i]) { if (part.bed === BASEMENT) break; z += part.height; } return z;
+    });
+    const zd = Math.min(ZMAX - 200, floor + p.zdFrac * (basement - floor)), zu = floor + p.zuFrac * (zd - floor);
+    const points = thrustGeometry(x1, p.transport, p.dip, zd, zu, Array.from({ length: nx }, (_, i) => X(i)), floorAt, p.emergent);
+    const depth = Float64Array.from({ length: nx }, (_, i) => polylineDepth(points, X(i)));
+    const i1 = col(x1), i2 = col(points[2][0]);
     const f: Fault = { kind: "thrust", dir: (-p.transport) as 1 | -1, x: [], z: [], depth, top: i2, dip: p.dip, detachment: zd, start: p.start, end: p.end, heave: 0, heaves: [], remainder: 0,
-      thrust: { transport: p.transport, bends: [i1, i2], emergent: p.emergent, upper: upper(i2), carry: [0, 0, 0] } };
+      thrust: { transport: p.transport, bends: [i1, i2], points, emergent: p.emergent, upper: points[2][1], carry: [0, 0, 0] } };
     sync(f); return f;
   };
   /** A growing normal fault reaches up to sea level again along its top dip, column by column (it cuts the newest sediment). */
   const extendUp = (f: Fault) => {
-    const tan = Math.tan(f.dip), top = f.top, zt = f.depth[top];
-    for (let j = 1; ; j++) {
-      const i = top - f.dir * j;
-      if (i < 0 || i >= nx || zt - (j - 1) * h * tan <= 0) break;
-      f.depth[i] = Math.max(0, zt - j * h * tan);
-      if (f.depth[i] === 0 || i === 0 || i === nx - 1) { f.top = i; break; }
-      f.top = i;
-    }
+    f.top = extendNormal(f.depth, f.top, f.dir, h, f.dip);
     sync(f);
   };
   /** Continuous pore-volume compaction, with material interfaces below h. */
+  const thrustMarkers = () => faults.flatMap(f => markersOf([...(f.thrust?.points ?? []), ...(f.trace?.flat() ?? [])]));
   const compact = () => {
+    const markers = thrustMarkers();
     for (let i = 0; i < nx; i++) {
       const result = compactColumn(columns[i], beds, overpressure, physics);
       columns[i] = result.column;
+      mapMarkerColumn(markers, i, h, nx, result.mapDepth);
       for (const f of faults) if (Number.isFinite(f.depth[i])) f.depth[i] = result.mapDepth(f.depth[i]);
     }
+    for (const m of markers) m.point[1] = m.nextDepth;
     for (const f of faults) sync(f);
   };
   let collapsed = 0;
   const collapse = () => {
+    const markers = thrustMarkers();
     for (let i = 0; i < nx; i++) {
       const result = packColumn(columns[i], (lo, hi) => {
         let amount = 0;
-        for (let k = Math.max(0, Math.floor(lo / h)); k < nz && k * h < hi; k++) if (numericalVacancies[k * nx + i]) amount += Math.max(0, Math.min(hi, (k + 1) * h) - Math.max(lo, k * h));
+        for (let k = Math.max(0, Math.floor(lo / h)); k < nz && k * h < hi; k++) for (const [a, b] of numericalWater.get(k * nx + i) ?? [])
+          amount += Math.max(0, Math.min(hi, k * h + b) - Math.max(lo, k * h + a));
         return amount;
       });
       columns[i] = result.column; collapsed += result.gaps / h;
-      for (const f of faults) if (Number.isFinite(f.depth[i])) f.depth[i] = result.mapDepth(f.depth[i]);
+      mapMarkerColumn(markers, i, h, nx, result.mapPhysicalDepth);
+      for (const f of faults) if (Number.isFinite(f.depth[i])) f.depth[i] = result.mapPhysicalDepth(f.depth[i]);
     }
-    numericalVacancies.fill(0); for (const f of faults) sync(f);
+    for (const m of markers) m.point[1] = m.nextDepth;
+    numericalWater.clear(); for (const f of faults) sync(f);
   };
   const bury = () => {
     for (const column of columns) {
@@ -662,16 +928,27 @@ export function simulate(options: BasinOptions, observe?: SimulationObserver): B
       const zTop = surface(columns[i]), zBase = wd + basinSlope * (X(i) / WIDTH);
       const thick = Math.max(0, zTop - zBase) * fill + drape, zNew = zTop - thick;
       if (X(i) >= 0 && X(i) <= WIDTH) thickest = Math.max(thickest, thick);
-      const next: Column = []; append(next, emptyLayer(WATER, Math.max(0, zNew)));
+      // The storage forcing remains Number-valued. Exact represented support
+      // supplies shared bed boundaries and the complement containing old rock.
+      const waterHeights: number[] = [];
+      for (const p of columns[i]) { if (p.bed !== WATER) break; waterHeights.push(...layerLengths(p)); }
+      const boundaries = Array.from({ length: nBeds + 1 }, (_, j) => Math.max(0, zNew + j * thick / nBeds));
+      const span = exactLengthScale([...waterHeights, ...boundaries]);
+      const oldTop = waterHeights.reduce((n, t) => n + span.units(t), 0n);
+      const requestedTop = span.units(Math.max(0, zNew)), newTop = requestedTop < oldTop ? requestedTop : oldTop;
+      const cuts = boundaries.map(z => { const u = span.units(z); return u < newTop ? newTop : u > oldTop ? oldTop : u; });
+      cuts[0] = newTop; cuts[nBeds] = oldTop;
+      const next: Column = [];
+      if (newTop > 0n) append(next, withLayerLengths(emptyLayer(WATER, 0), span.chunks(newTop)));
       for (let j = 0; j < nBeds; j++) {
-        const id = first + j, lo = Math.max(0, zNew + j * thick / nBeds), hi = Math.min(zTop, zNew + (j + 1) * thick / nBeds);
+        const id = first + j, lo = cuts[j], hi = cuts[j + 1];
         if (hi <= lo) continue;
         const fraction = beds[id].carbonate ? 0 : sand(beds[id], X(i));
-        const parts = depositedLayer(id, hi - lo, fraction, beds[id].carbonate, lo - Math.max(0, zNew), overpressure, physics);
+        const parts = depositedLayer(id, span.chunks(hi - lo), fraction, beds[id].carbonate, span.number(lo - newTop), overpressure, physics);
         for (const p of parts) { append(next, p); deposited[id] += p.solid; }
         materialFlux(depositionFlux.deposited, parts);
       }
-      for (const p of sliceColumn(columns[i], zTop, nz * h)) append(next, p);
+      for (const p of sliceColumn(columns[i], waterHeights, nz * h)) append(next, p);
       columns[i] = next;
     }
     account("deposition", depositionFlux);
@@ -682,7 +959,7 @@ export function simulate(options: BasinOptions, observe?: SimulationObserver): B
     log.push({ step, phase, text: parts.join("; "), subsidence: meanSubsidence, deposited: thickest, shift });
     if (step === nPre - 1 || o.record) refresh();
     if (step === nPre - 1) pre = grid.slice();
-    if (o.record) snapshots.push({ view: windowOf({ nx, nz, h, columns, beds, overpressure, basementVelocity } as Basin), step, grid: grid.slice(), burial: burial.slice(), sandFraction: sandFraction.slice(), effectiveBurial: effectiveBurial.slice(), faults: faults.map((f) => ({ dir: f.dir, x: f.x.slice(), z: f.z.slice() })) });
+    if (o.record) snapshots.push({ view: windowOf({ nx, nz, h, columns, beds, overpressure, basementVelocity } as Basin), step, grid: grid.slice(), burial: burial.slice(), sandFraction: sandFraction.slice(), effectiveBurial: effectiveBurial.slice(), faults: faults.map((f) => ({ dir: f.dir, x: f.x.slice(), z: f.z.slice(), ...(f.trace ? { trace: f.trace.map(([a, b]): TraceSegment => [[...a], [...b]]) } : {}) })) });
   }
   // Never silently fill a lost layer: count any remaining internal water.
   let trapped = 0;

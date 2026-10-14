@@ -1,0 +1,123 @@
+{
+  "schema": "earthforge.synthetic.coordinate-test-audit.v1",
+  "all_test_files": [
+    "tests/basin.test.mjs",
+    "tests/capacity-transport.test.mjs",
+    "tests/column-boundaries.test.mjs",
+    "tests/deposition-boundaries.test.mjs",
+    "tests/deposition-support.test.mjs",
+    "tests/diagnostics.test.mjs",
+    "tests/exact-length.test.mjs",
+    "tests/exact-material.test.mjs",
+    "tests/fault-geometry.test.mjs",
+    "tests/fractional-thrust.test.mjs",
+    "tests/grouped-material.test.mjs",
+    "tests/grouped-state-support.test.mjs",
+    "tests/length-rounding.test.mjs",
+    "tests/material-coalescing.test.mjs",
+    "tests/normal-lengths.test.mjs",
+    "tests/numerics.test.mjs",
+    "tests/strata.test.mjs",
+    "tests/subsidence-coordinate.test.mjs",
+    "tests/thrust-capacity-fallback.test.mjs",
+    "tests/thrust-coupling.test.mjs",
+    "tests/thrust-flow-area-displacement.test.mjs",
+    "tests/thrust-matching-stability.test.mjs",
+    "tests/thrust-weighted-transport.test.mjs",
+    "tests/thrust.test.mjs",
+    "tests/travel-thickness.test.mjs",
+    "tests/worker.test.mjs"
+  ],
+  "all_test_files_covered_exactly_once": true,
+  "source_and_tests_unchanged": true,
+  "frozen_snapshot_sha256": "498e1c8d95a469459b4ab4fe3b0cfd133c85a167d469e94044511fb1b439c487",
+  "heap_mib": 8192,
+  "tests": 177,
+  "passed": 177,
+  "failed": 0,
+  "cancelled": 0,
+  "skipped": 0,
+  "batches": [
+    {
+      "log": "grouped-focused-tests.log",
+      "files": [
+        "tests/capacity-transport.test.mjs",
+        "tests/column-boundaries.test.mjs",
+        "tests/deposition-boundaries.test.mjs",
+        "tests/deposition-support.test.mjs",
+        "tests/exact-length.test.mjs",
+        "tests/exact-material.test.mjs",
+        "tests/fractional-thrust.test.mjs",
+        "tests/grouped-material.test.mjs",
+        "tests/grouped-state-support.test.mjs",
+        "tests/length-rounding.test.mjs",
+        "tests/material-coalescing.test.mjs",
+        "tests/normal-lengths.test.mjs",
+        "tests/subsidence-coordinate.test.mjs",
+        "tests/thrust-capacity-fallback.test.mjs"
+      ],
+      "concurrency": 2,
+      "sha256": "82b5a04e73e53b3f1401135c25628b9534fb5f50a7fe6a5b15f7e0623d10a216",
+      "duration_ms": 971.810583,
+      "tests": 67,
+      "pass": 67,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "log": "grouped-legacy-focused.log",
+      "files": [
+        "tests/strata.test.mjs",
+        "tests/thrust-flow-area-displacement.test.mjs",
+        "tests/thrust-matching-stability.test.mjs",
+        "tests/thrust-weighted-transport.test.mjs",
+        "tests/thrust.test.mjs"
+      ],
+      "concurrency": 2,
+      "sha256": "7923212c4ada0226eff535cd011e26d2e86cec9fdf41e11ee94bb30d66fa8c1c",
+      "duration_ms": 212691.797042,
+      "tests": 45,
+      "pass": 45,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    {
+      "log": "grouped-remaining-tests.log",
+      "files": [
+        "tests/basin.test.mjs",
+        "tests/diagnostics.test.mjs",
+        "tests/fault-geometry.test.mjs",
+        "tests/numerics.test.mjs",
+        "tests/thrust-coupling.test.mjs",
+        "tests/travel-thickness.test.mjs",
+        "tests/worker.test.mjs"
+      ],
+      "concurrency": 1,
+      "sha256": "5f344b14763326081319840217fb2bed3c4581414db51293657c6b7720962459",
+      "duration_ms": 5069261.318292,
+      "tests": 65,
+      "pass": 65,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    }
+  ],
+  "typecheck_and_build": {
+    "log": "grouped-build.log",
+    "sha256": "8792650fe33d10f68f3be279c98c111fef3f54b8f68e99658e2245b43d96c168",
+    "passed": true
+  },
+  "original_test_adaptation": [
+    "Represent water as exact[z,-15.7] and bottom as exact[960,-z]; leave15.7m hanging-wall physicalbed unchanged.",
+    "Retain all existing footwall numeric-field near checks with unchanged1e-8 tolerance and add exact per-parcel support equality.",
+    "Assert exact full960m support and shared fault boundary before rasterization.",
+    "No case deletion, metric change, eligibility change or gate widening."
+  ],
+  "observational_or_holdout_reads": false,
+  "test_plan_sha256": "6d6b8fbde138844594275e7a51c4125f14972727f925476bfee6d2b90aab35d3"
+}

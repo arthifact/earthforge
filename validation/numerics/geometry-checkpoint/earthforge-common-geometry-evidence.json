@@ -1,0 +1,1215 @@
+{
+  "status": "INCOMPLETE: tested geometry prototype; production simulator not modified or repaired",
+  "new_checks": {
+    "total": 76,
+    "passed": 76,
+    "failed": 0,
+    "scope": "Isolated analytical/guard and evidence checks; not a full simulation acceptance"
+  },
+  "typecheck": "passed",
+  "control": {
+    "scope": "Unchanged baseline reproduction, not candidate convergence",
+    "budget": {
+      "runs": 36,
+      "closed_runs": 36,
+      "failed_events": 0
+    },
+    "metrics": {
+      "top_m": {
+        "n": 1305,
+        "coarse_rms": 9.815618670669572,
+        "fine_rms": 4.657978460564335,
+        "ratio": 0.4745476181224338,
+        "coarse_mae": 3.40121025249101,
+        "fine_mae": 1.5487533410590613,
+        "coarse_max": 75.87505323746018,
+        "fine_max": 49.41910449878969,
+        "classes": {
+          "stable": 453,
+          "monotonic-contracting": 232,
+          "oscillatory-contracting": 294,
+          "monotonic-noncontracting": 147,
+          "settled": 47,
+          "oscillatory-noncontracting": 132
+        }
+      },
+      "thickness_m": {
+        "n": 1305,
+        "coarse_rms": 7.865272984828078,
+        "fine_rms": 3.8379177239881277,
+        "ratio": 0.4879573450777079,
+        "coarse_mae": 2.616467245747333,
+        "fine_mae": 1.1930596091877415,
+        "coarse_max": 69.51136733664953,
+        "fine_max": 46.04456032213034,
+        "classes": {
+          "stable": 492,
+          "monotonic-noncontracting": 175,
+          "monotonic-contracting": 193,
+          "new-change": 18,
+          "oscillatory-contracting": 271,
+          "oscillatory-noncontracting": 119,
+          "settled": 37
+        }
+      },
+      "solid_height_m": {
+        "n": 1305,
+        "coarse_rms": 5.072757886997733,
+        "fine_rms": 2.5908318204330087,
+        "ratio": 0.5107343733225892,
+        "coarse_mae": 1.6544384593280501,
+        "fine_mae": 0.7661927807852577,
+        "coarse_max": 51.792769484681,
+        "fine_max": 33.16576133628911,
+        "classes": {
+          "stable": 489,
+          "monotonic-noncontracting": 165,
+          "oscillatory-contracting": 293,
+          "oscillatory-noncontracting": 154,
+          "monotonic-contracting": 155,
+          "new-change": 14,
+          "settled": 35
+        }
+      },
+      "sand_fraction": {
+        "n": 1305,
+        "coarse_rms": 0.00248645721261029,
+        "fine_rms": 0.0015095458705658433,
+        "ratio": 0.6071071172711303,
+        "coarse_mae": 0.0003532285828084026,
+        "fine_mae": 0.0001371071038537408,
+        "coarse_max": 0.049706647198631826,
+        "fine_max": 0.049958201293607785,
+        "classes": {
+          "stable": 514,
+          "oscillatory-contracting": 291,
+          "monotonic-noncontracting": 145,
+          "oscillatory-noncontracting": 165,
+          "monotonic-contracting": 143,
+          "settled": 31,
+          "new-change": 16
+        }
+      },
+      "porosity": {
+        "n": 1305,
+        "coarse_rms": 0.00130864569007641,
+        "fine_rms": 0.0006080383902460609,
+        "ratio": 0.46463179060373355,
+        "coarse_mae": 0.0004691236960584412,
+        "fine_mae": 0.0002166870577544625,
+        "coarse_max": 0.012698723466192052,
+        "fine_max": 0.0052488549150611075,
+        "classes": {
+          "stable": 490,
+          "monotonic-noncontracting": 162,
+          "monotonic-contracting": 196,
+          "new-change": 13,
+          "oscillatory-contracting": 260,
+          "oscillatory-noncontracting": 147,
+          "settled": 37
+        }
+      },
+      "maximum_burial_m": {
+        "n": 1305,
+        "coarse_rms": 9.081926218883577,
+        "fine_rms": 4.521818277218352,
+        "ratio": 0.49789198549272184,
+        "coarse_mae": 3.4110171650218044,
+        "fine_mae": 1.6064936458359567,
+        "coarse_max": 72.47802921326343,
+        "fine_max": 37.371357028699094,
+        "classes": {
+          "stable": 461,
+          "monotonic-noncontracting": 161,
+          "monotonic-contracting": 199,
+          "new-change": 2,
+          "oscillatory-contracting": 307,
+          "settled": 31,
+          "oscillatory-noncontracting": 144
+        }
+      },
+      "effective_loading_m": {
+        "n": 1305,
+        "coarse_rms": 9.004800339826522,
+        "fine_rms": 4.31208593586752,
+        "ratio": 0.4788652466613816,
+        "coarse_mae": 3.320738564164379,
+        "fine_mae": 1.4889758766094614,
+        "coarse_max": 72.47802921326343,
+        "fine_max": 37.371357028699094,
+        "classes": {
+          "stable": 461,
+          "monotonic-noncontracting": 160,
+          "monotonic-contracting": 200,
+          "new-change": 2,
+          "oscillatory-contracting": 307,
+          "settled": 31,
+          "oscillatory-noncontracting": 144
+        }
+      },
+      "effective_velocity_m_s": {
+        "n": 1305,
+        "coarse_rms": 7.4262479199838065,
+        "fine_rms": 3.904528467459669,
+        "ratio": 0.5257740529982445,
+        "coarse_mae": 2.2060275112020524,
+        "fine_mae": 1.1458434488357276,
+        "coarse_max": 94.74562428702257,
+        "fine_max": 38.91728918174795,
+        "classes": {
+          "stable": 460,
+          "monotonic-noncontracting": 167,
+          "monotonic-contracting": 200,
+          "new-change": 10,
+          "oscillatory-contracting": 276,
+          "oscillatory-noncontracting": 152,
+          "settled": 40
+        }
+      },
+      "vertical_travel_time_s": {
+        "n": 144,
+        "coarse_rms": 0.0014654209669079676,
+        "fine_rms": 0.0007097925991677365,
+        "ratio": 0.48436088686884016,
+        "coarse_mae": 0.000643004973223896,
+        "fine_mae": 0.00029747704988650897,
+        "coarse_max": 0.006757179463404039,
+        "fine_max": 0.0055855993666209525,
+        "classes": {
+          "monotonic-contracting": 40,
+          "oscillatory-noncontracting": 19,
+          "oscillatory-contracting": 66,
+          "monotonic-noncontracting": 19
+        }
+      },
+      "seafloor_m": {
+        "n": 144,
+        "coarse_rms": 0.7696527034419073,
+        "fine_rms": 0.2830805336907083,
+        "ratio": 0.3678029485568811,
+        "coarse_mae": 0.34032454431108417,
+        "fine_mae": 0.12366477858453627,
+        "coarse_max": 3.5653509293381376,
+        "fine_max": 1.9790415422143042,
+        "classes": {
+          "stable": 36,
+          "monotonic-contracting": 32,
+          "monotonic-noncontracting": 19,
+          "oscillatory-contracting": 36,
+          "settled": 5,
+          "oscillatory-noncontracting": 16
+        }
+      },
+      "fault_depth_m": {
+        "n": 190,
+        "coarse_rms": 6.494403928961984,
+        "fine_rms": 4.107128923503005,
+        "ratio": 0.632410451894922,
+        "coarse_mae": 2.4872314506404445,
+        "fine_mae": 1.5431682472278627,
+        "coarse_max": 37.24201902038567,
+        "fine_max": 23.87966982396847,
+        "classes": {
+          "stable": 12,
+          "monotonic-contracting": 53,
+          "settled": 20,
+          "monotonic-noncontracting": 17,
+          "oscillatory-noncontracting": 33,
+          "oscillatory-contracting": 55
+        }
+      }
+    },
+    "coverage": {
+      "compaction-a": {
+        "candidates": 216,
+        "matched": 137,
+        "reasons_by_grid": [
+          {
+            "matched": 137,
+            "one-cell": 79
+          },
+          {
+            "matched": 201,
+            "one-cell": 15
+          },
+          {
+            "matched": 216
+          }
+        ],
+        "field_candidates": 24,
+        "fields_matched": 24
+      },
+      "compaction-b": {
+        "candidates": 288,
+        "matched": 178,
+        "reasons_by_grid": [
+          {
+            "absent": 97,
+            "matched": 178,
+            "one-cell": 1,
+            "window-boundary": 12
+          },
+          {
+            "absent": 97,
+            "matched": 179,
+            "window-boundary": 12
+          },
+          {
+            "absent": 97,
+            "matched": 179,
+            "window-boundary": 12
+          }
+        ],
+        "field_candidates": 24,
+        "fields_matched": 24
+      },
+      "normal-a": {
+        "candidates": 252,
+        "matched": 133,
+        "reasons_by_grid": [
+          {
+            "absent": 10,
+            "fault-cut": 2,
+            "matched": 133,
+            "one-cell": 104,
+            "window-boundary": 3
+          },
+          {
+            "absent": 8,
+            "fault-cut": 2,
+            "matched": 161,
+            "one-cell": 78,
+            "window-boundary": 3
+          },
+          {
+            "absent": 10,
+            "fault-cut": 2,
+            "matched": 172,
+            "one-cell": 65,
+            "window-boundary": 3
+          }
+        ],
+        "field_candidates": 36,
+        "fields_matched": 26
+      },
+      "normal-b": {
+        "candidates": 312,
+        "matched": 152,
+        "reasons_by_grid": [
+          {
+            "absent": 118,
+            "fault-cut": 3,
+            "matched": 152,
+            "one-cell": 27,
+            "window-boundary": 12
+          },
+          {
+            "absent": 117,
+            "fault-cut": 4,
+            "matched": 165,
+            "one-cell": 14,
+            "window-boundary": 12
+          },
+          {
+            "absent": 118,
+            "fault-cut": 4,
+            "matched": 178,
+            "window-boundary": 12
+          }
+        ],
+        "field_candidates": 36,
+        "fields_matched": 34
+      },
+      "thrust-a": {
+        "candidates": 216,
+        "matched": 80,
+        "reasons_by_grid": [
+          {
+            "absent": 1,
+            "fault-cut": 13,
+            "fragmented": 26,
+            "matched": 82,
+            "one-cell": 94
+          },
+          {
+            "fault-cut": 14,
+            "fragmented": 20,
+            "matched": 134,
+            "one-cell": 48
+          },
+          {
+            "fault-cut": 9,
+            "fragmented": 16,
+            "matched": 145,
+            "one-cell": 46
+          }
+        ],
+        "field_candidates": 36,
+        "fields_matched": 36
+      },
+      "thrust-b": {
+        "candidates": 168,
+        "matched": 56,
+        "reasons_by_grid": [
+          {
+            "absent": 3,
+            "fault-cut": 9,
+            "fragmented": 24,
+            "matched": 59,
+            "one-cell": 73
+          },
+          {
+            "fault-cut": 8,
+            "fragmented": 18,
+            "matched": 82,
+            "one-cell": 60
+          },
+          {
+            "fault-cut": 8,
+            "fragmented": 23,
+            "matched": 96,
+            "one-cell": 41
+          }
+        ],
+        "field_candidates": 36,
+        "fields_matched": 36
+      },
+      "coupled-extension-a": {
+        "candidates": 264,
+        "matched": 132,
+        "reasons_by_grid": [
+          {
+            "absent": 101,
+            "fault-cut": 11,
+            "matched": 132,
+            "one-cell": 8,
+            "window-boundary": 12
+          },
+          {
+            "absent": 101,
+            "fault-cut": 12,
+            "matched": 134,
+            "one-cell": 5,
+            "window-boundary": 12
+          },
+          {
+            "absent": 101,
+            "fault-cut": 12,
+            "matched": 136,
+            "one-cell": 3,
+            "window-boundary": 12
+          }
+        ],
+        "field_candidates": 60,
+        "fields_matched": 49
+      },
+      "coupled-extension-b": {
+        "candidates": 180,
+        "matched": 101,
+        "reasons_by_grid": [
+          {
+            "absent": 42,
+            "fault-cut": 9,
+            "matched": 101,
+            "one-cell": 21,
+            "window-boundary": 7
+          },
+          {
+            "absent": 42,
+            "fault-cut": 9,
+            "matched": 109,
+            "one-cell": 13,
+            "window-boundary": 7
+          },
+          {
+            "absent": 41,
+            "fault-cut": 8,
+            "matched": 111,
+            "one-cell": 13,
+            "window-boundary": 7
+          }
+        ],
+        "field_candidates": 60,
+        "fields_matched": 52
+      },
+      "coupled-extension-c": {
+        "candidates": 228,
+        "matched": 113,
+        "reasons_by_grid": [
+          {
+            "absent": 64,
+            "fault-cut": 12,
+            "matched": 113,
+            "one-cell": 31,
+            "window-boundary": 8
+          },
+          {
+            "absent": 62,
+            "fault-cut": 10,
+            "matched": 126,
+            "one-cell": 22,
+            "window-boundary": 8
+          },
+          {
+            "absent": 65,
+            "fault-cut": 12,
+            "matched": 126,
+            "one-cell": 17,
+            "window-boundary": 8
+          }
+        ],
+        "field_candidates": 60,
+        "fields_matched": 48
+      },
+      "coupled-compression-a": {
+        "candidates": 192,
+        "matched": 48,
+        "reasons_by_grid": [
+          {
+            "absent": 9,
+            "fault-cut": 15,
+            "fragmented": 38,
+            "matched": 52,
+            "one-cell": 78
+          },
+          {
+            "absent": 9,
+            "fault-cut": 20,
+            "fragmented": 30,
+            "matched": 76,
+            "one-cell": 57
+          },
+          {
+            "absent": 9,
+            "fault-cut": 16,
+            "fragmented": 32,
+            "matched": 82,
+            "one-cell": 53
+          }
+        ],
+        "field_candidates": 48,
+        "fields_matched": 46
+      },
+      "coupled-compression-b": {
+        "candidates": 240,
+        "matched": 102,
+        "reasons_by_grid": [
+          {
+            "fault-cut": 16,
+            "fragmented": 40,
+            "matched": 112,
+            "one-cell": 72
+          },
+          {
+            "fault-cut": 15,
+            "fragmented": 33,
+            "matched": 140,
+            "one-cell": 52
+          },
+          {
+            "fault-cut": 19,
+            "fragmented": 29,
+            "matched": 162,
+            "one-cell": 30
+          }
+        ],
+        "field_candidates": 48,
+        "fields_matched": 48
+      },
+      "coupled-compression-c": {
+        "candidates": 264,
+        "matched": 73,
+        "reasons_by_grid": [
+          {
+            "absent": 9,
+            "fault-cut": 12,
+            "fragmented": 64,
+            "matched": 80,
+            "one-cell": 99
+          },
+          {
+            "absent": 9,
+            "fault-cut": 21,
+            "fragmented": 50,
+            "matched": 117,
+            "one-cell": 67
+          },
+          {
+            "absent": 10,
+            "fault-cut": 21,
+            "fragmented": 47,
+            "matched": 148,
+            "one-cell": 38
+          }
+        ],
+        "field_candidates": 60,
+        "fields_matched": 55
+      }
+    },
+    "audit": {
+      "schema": "earthforge.common-geometry-control-reproducibility.v1",
+      "role": "UNCHANGED BASELINE CONTROL; not validation of an owned-geometry repair or an improvement claim.",
+      "control": "/Users/torus/Documents/Codex/2026-10-12/wha/work/common-geometry/metrics/baseline/data/numerics/common-geometry-control",
+      "current_baseline": "/Users/torus/Desktop/Research/earthforge/data/numerics/coordinate-transport-repair",
+      "baseline_manifest_sha256": "ec8a3de27f463ec3c6f733b85df89d298d314d33208f6757bb1a79b1ee2ae245",
+      "named_source_files_verified": 69,
+      "sample_identical_cases": [
+        "compaction-a",
+        "compaction-b",
+        "normal-a",
+        "normal-b",
+        "thrust-a",
+        "thrust-b",
+        "coupled-extension-a",
+        "coupled-extension-b",
+        "coupled-extension-c",
+        "coupled-compression-a",
+        "coupled-compression-b",
+        "coupled-compression-c"
+      ],
+      "all11_metrics_and_coverage_recomputed": true,
+      "coverage": {
+        "candidates": 2820,
+        "before_matched": 1305,
+        "after_matched": 1305,
+        "shared_intervals": 1305
+      },
+      "strict_positive_case_metric_scale_changes": 0,
+      "all50_raw_file_identity": [
+        {
+          "file": "compaction-a-10m-budget.json",
+          "control_sha256": "77cc29476db6c305d038a036c7765375a5ca4e275371387c64d3e16477ccd386",
+          "current_sha256": "77cc29476db6c305d038a036c7765375a5ca4e275371387c64d3e16477ccd386",
+          "byte_equal": true
+        },
+        {
+          "file": "compaction-a-20m-budget.json",
+          "control_sha256": "52ed25cb1f8743930e03a9414c1b92ca7841a8d94de37c6337e140bd8b7c658e",
+          "current_sha256": "52ed25cb1f8743930e03a9414c1b92ca7841a8d94de37c6337e140bd8b7c658e",
+          "byte_equal": true
+        },
+        {
+          "file": "compaction-a-40m-budget.json",
+          "control_sha256": "2517fd2388dfacc7ae1a3eb7c66c7b495837b06b873b55cea94c82f1c620ef81",
+          "current_sha256": "2517fd2388dfacc7ae1a3eb7c66c7b495837b06b873b55cea94c82f1c620ef81",
+          "byte_equal": true
+        },
+        {
+          "file": "compaction-a-matched.json",
+          "control_sha256": "246808c7b9687506e67a98cf8f3a73f221413373865b04ce975bcd9347f961b4",
+          "current_sha256": "246808c7b9687506e67a98cf8f3a73f221413373865b04ce975bcd9347f961b4",
+          "byte_equal": true
+        },
+        {
+          "file": "compaction-b-10m-budget.json",
+          "control_sha256": "c16fdab918db790b9f04850c37fecd53de015a42627d24e9b7955b2dc9927639",
+          "current_sha256": "c16fdab918db790b9f04850c37fecd53de015a42627d24e9b7955b2dc9927639",
+          "byte_equal": true
+        },
+        {
+          "file": "compaction-b-20m-budget.json",
+          "control_sha256": "07d18befdb40351289f6dbfd1c243dfa334353224c97b81141c2733c05a9af87",
+          "current_sha256": "07d18befdb40351289f6dbfd1c243dfa334353224c97b81141c2733c05a9af87",
+          "byte_equal": true
+        },
+        {
+          "file": "compaction-b-40m-budget.json",
+          "control_sha256": "0168534eefda2f735aa2a41d774855ef5f15b9b47b8b37472be07f55a18f45d8",
+          "current_sha256": "0168534eefda2f735aa2a41d774855ef5f15b9b47b8b37472be07f55a18f45d8",
+          "byte_equal": true
+        },
+        {
+          "file": "compaction-b-matched.json",
+          "control_sha256": "d4bc034814551fff0fb88dd256a6c68de85867a9098fe5270a58dae003a70e32",
+          "current_sha256": "d4bc034814551fff0fb88dd256a6c68de85867a9098fe5270a58dae003a70e32",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-compression-a-10m-budget.json",
+          "control_sha256": "85cbd35f6e2f2c4d89d7139b0d10f0638ca80a1dd7b230daf5bda7890f470899",
+          "current_sha256": "85cbd35f6e2f2c4d89d7139b0d10f0638ca80a1dd7b230daf5bda7890f470899",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-compression-a-20m-budget.json",
+          "control_sha256": "5b6bfa8825feee8c9638c4eabe2a0e42143e5df6a3f2d7881b4ebc287d87ab3e",
+          "current_sha256": "5b6bfa8825feee8c9638c4eabe2a0e42143e5df6a3f2d7881b4ebc287d87ab3e",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-compression-a-40m-budget.json",
+          "control_sha256": "dad4abc6fc5002d54e4d704496469b66aa0f80d6c31b19a3e90d321196c64df2",
+          "current_sha256": "dad4abc6fc5002d54e4d704496469b66aa0f80d6c31b19a3e90d321196c64df2",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-compression-a-matched.json",
+          "control_sha256": "b92b65daa5984a03d356f8e368c81b4f8e93b02abf11e8bf7119f673c1127314",
+          "current_sha256": "b92b65daa5984a03d356f8e368c81b4f8e93b02abf11e8bf7119f673c1127314",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-compression-b-10m-budget.json",
+          "control_sha256": "0fc397b4998cecc41ed4de50eb788f40ac8df7f9134494c3f802f79fca078434",
+          "current_sha256": "0fc397b4998cecc41ed4de50eb788f40ac8df7f9134494c3f802f79fca078434",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-compression-b-20m-budget.json",
+          "control_sha256": "34cfd7427e0fcb6d12ea1f0ed89102fb4033301a067e0fc9357b4139b41c3deb",
+          "current_sha256": "34cfd7427e0fcb6d12ea1f0ed89102fb4033301a067e0fc9357b4139b41c3deb",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-compression-b-40m-budget.json",
+          "control_sha256": "d27f48e08fad02b94c508b6d86cf0ad0168581cfebafcdecabce8fe661b80c12",
+          "current_sha256": "d27f48e08fad02b94c508b6d86cf0ad0168581cfebafcdecabce8fe661b80c12",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-compression-b-matched.json",
+          "control_sha256": "479f670d131cb2399aa6c888ee1463be63b563600909cf3830d3b2f25b6d1ef5",
+          "current_sha256": "479f670d131cb2399aa6c888ee1463be63b563600909cf3830d3b2f25b6d1ef5",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-compression-c-10m-budget.json",
+          "control_sha256": "2fe8fa413d1c2d02be6e5ea57e37acc2112981cae5743f1cd54ed300955a81c4",
+          "current_sha256": "2fe8fa413d1c2d02be6e5ea57e37acc2112981cae5743f1cd54ed300955a81c4",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-compression-c-20m-budget.json",
+          "control_sha256": "a0231db2bebe2ce3d52799b1fbba9d243c6f3b148af2fa808c2224d0c97d251a",
+          "current_sha256": "a0231db2bebe2ce3d52799b1fbba9d243c6f3b148af2fa808c2224d0c97d251a",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-compression-c-40m-budget.json",
+          "control_sha256": "8602838b51a1f8e7fe13f05435ba5ed085da2d0da462a57a1aaf6172c7066420",
+          "current_sha256": "8602838b51a1f8e7fe13f05435ba5ed085da2d0da462a57a1aaf6172c7066420",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-compression-c-matched.json",
+          "control_sha256": "87f38fa60e6803734c5a9e89ae7633a52d7214ba19dd74187716a53694e29909",
+          "current_sha256": "87f38fa60e6803734c5a9e89ae7633a52d7214ba19dd74187716a53694e29909",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-extension-a-10m-budget.json",
+          "control_sha256": "6a0edcb80eafd35cc2c6357ad06dcd2027f3f578d176a553946a3d30f2433f54",
+          "current_sha256": "6a0edcb80eafd35cc2c6357ad06dcd2027f3f578d176a553946a3d30f2433f54",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-extension-a-20m-budget.json",
+          "control_sha256": "39b9d7c6b70d8a4b6f1c80d4a7ada0b24afa9e6b0adaffb4b904d4530f841e03",
+          "current_sha256": "39b9d7c6b70d8a4b6f1c80d4a7ada0b24afa9e6b0adaffb4b904d4530f841e03",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-extension-a-40m-budget.json",
+          "control_sha256": "7757183b5a7553ac243e9013d7c6f80292e2ad0607b82f02b8c8f62b78030db9",
+          "current_sha256": "7757183b5a7553ac243e9013d7c6f80292e2ad0607b82f02b8c8f62b78030db9",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-extension-a-matched.json",
+          "control_sha256": "745f70d146d0571a5f7cffa0a903927ef1cebb8c90eae035c4e0943aeaa78138",
+          "current_sha256": "745f70d146d0571a5f7cffa0a903927ef1cebb8c90eae035c4e0943aeaa78138",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-extension-b-10m-budget.json",
+          "control_sha256": "62ee470150bc49a004c93a34aa785f6d36c6c9d0b7cc72707fc18ab5a6337144",
+          "current_sha256": "62ee470150bc49a004c93a34aa785f6d36c6c9d0b7cc72707fc18ab5a6337144",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-extension-b-20m-budget.json",
+          "control_sha256": "3db4885710abfd71b92b4286e5aaf09f608666245c3f0aa81e85beddd33c5b45",
+          "current_sha256": "3db4885710abfd71b92b4286e5aaf09f608666245c3f0aa81e85beddd33c5b45",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-extension-b-40m-budget.json",
+          "control_sha256": "f4158e44a0e905f6edc6cb83b1a8b125d84098e5f37f8a1d0309b8115f520aa6",
+          "current_sha256": "f4158e44a0e905f6edc6cb83b1a8b125d84098e5f37f8a1d0309b8115f520aa6",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-extension-b-matched.json",
+          "control_sha256": "efb93d463f596c01973473528a44e15ea0ef9ed48c10479777383687de91b653",
+          "current_sha256": "efb93d463f596c01973473528a44e15ea0ef9ed48c10479777383687de91b653",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-extension-c-10m-budget.json",
+          "control_sha256": "3f1eca56d8c7e4f7c7b944d0099dec1de508ad749bd86b7bb8b861b9d7a71360",
+          "current_sha256": "3f1eca56d8c7e4f7c7b944d0099dec1de508ad749bd86b7bb8b861b9d7a71360",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-extension-c-20m-budget.json",
+          "control_sha256": "295515d62fd1f8dd8616b116ef96dbcd57e23a4d24b137c30de0b53838a250d7",
+          "current_sha256": "295515d62fd1f8dd8616b116ef96dbcd57e23a4d24b137c30de0b53838a250d7",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-extension-c-40m-budget.json",
+          "control_sha256": "49135bdef7dba49f67c15357751515b5d6a06a06dd78173326f9fb1880ce8ccd",
+          "current_sha256": "49135bdef7dba49f67c15357751515b5d6a06a06dd78173326f9fb1880ce8ccd",
+          "byte_equal": true
+        },
+        {
+          "file": "coupled-extension-c-matched.json",
+          "control_sha256": "ccd8125152e1fc71680cabc14a0373817ef2841e6f40fc6b6a202a30e5e45874",
+          "current_sha256": "ccd8125152e1fc71680cabc14a0373817ef2841e6f40fc6b6a202a30e5e45874",
+          "byte_equal": true
+        },
+        {
+          "file": "normal-a-10m-budget.json",
+          "control_sha256": "dc0c7ffeb4a5ce47a9b849be3723bce9256ecd6ec9ec264e79aec2cf09c14a04",
+          "current_sha256": "dc0c7ffeb4a5ce47a9b849be3723bce9256ecd6ec9ec264e79aec2cf09c14a04",
+          "byte_equal": true
+        },
+        {
+          "file": "normal-a-20m-budget.json",
+          "control_sha256": "709944b4a8286fa60bd30ce935075e2d0f11da3a53d8abe5df2d077dc90667a2",
+          "current_sha256": "709944b4a8286fa60bd30ce935075e2d0f11da3a53d8abe5df2d077dc90667a2",
+          "byte_equal": true
+        },
+        {
+          "file": "normal-a-40m-budget.json",
+          "control_sha256": "194db7d1ea4bc8d0af112d9390d9d858fb680348456400efcc5d213c5d41d5a1",
+          "current_sha256": "194db7d1ea4bc8d0af112d9390d9d858fb680348456400efcc5d213c5d41d5a1",
+          "byte_equal": true
+        },
+        {
+          "file": "normal-a-matched.json",
+          "control_sha256": "7e4a1a5a80d913877699b9023e3519b047e612266fc612d1a4b6460324986519",
+          "current_sha256": "7e4a1a5a80d913877699b9023e3519b047e612266fc612d1a4b6460324986519",
+          "byte_equal": true
+        },
+        {
+          "file": "normal-b-10m-budget.json",
+          "control_sha256": "dd3ee94f59a75c5dd00e84a113ed93a5e6bdb0b711ed3f835da9539020dbc7df",
+          "current_sha256": "dd3ee94f59a75c5dd00e84a113ed93a5e6bdb0b711ed3f835da9539020dbc7df",
+          "byte_equal": true
+        },
+        {
+          "file": "normal-b-20m-budget.json",
+          "control_sha256": "7ded0e3e4c1d1351af922e5fbd9b47771d72e604765cf39885260c15d5b133ce",
+          "current_sha256": "7ded0e3e4c1d1351af922e5fbd9b47771d72e604765cf39885260c15d5b133ce",
+          "byte_equal": true
+        },
+        {
+          "file": "normal-b-40m-budget.json",
+          "control_sha256": "9fc1d9e6893de6e04ec44332dc08334ce856658b46d4762da051e5cb543b76ae",
+          "current_sha256": "9fc1d9e6893de6e04ec44332dc08334ce856658b46d4762da051e5cb543b76ae",
+          "byte_equal": true
+        },
+        {
+          "file": "normal-b-matched.json",
+          "control_sha256": "13044f391ca9d2854112c1a7553c35cbd68b58312296ba32d2c9b167707120f4",
+          "current_sha256": "13044f391ca9d2854112c1a7553c35cbd68b58312296ba32d2c9b167707120f4",
+          "byte_equal": true
+        },
+        {
+          "file": "series.json",
+          "control_sha256": "0d8cae75b149445181e8ad3de52c1443c358db5f87448f6102bdfa42896129c3",
+          "current_sha256": "0d8cae75b149445181e8ad3de52c1443c358db5f87448f6102bdfa42896129c3",
+          "byte_equal": true
+        },
+        {
+          "file": "summary.json",
+          "control_sha256": "7caa2d9c383cb13ad12f8d3152d6e57dcc0c08705158ea32f8b52275bd695b7c",
+          "current_sha256": "7caa2d9c383cb13ad12f8d3152d6e57dcc0c08705158ea32f8b52275bd695b7c",
+          "byte_equal": true
+        },
+        {
+          "file": "thrust-a-10m-budget.json",
+          "control_sha256": "d25f42fd5908f6358404256a3c9d3f2b79bed5dd1f31e3774b615987d72b4aab",
+          "current_sha256": "d25f42fd5908f6358404256a3c9d3f2b79bed5dd1f31e3774b615987d72b4aab",
+          "byte_equal": true
+        },
+        {
+          "file": "thrust-a-20m-budget.json",
+          "control_sha256": "0d5df0a345ad70ee6290cfbd8cf3dfabe6357eb16a744549cc8425ee6146cf7a",
+          "current_sha256": "0d5df0a345ad70ee6290cfbd8cf3dfabe6357eb16a744549cc8425ee6146cf7a",
+          "byte_equal": true
+        },
+        {
+          "file": "thrust-a-40m-budget.json",
+          "control_sha256": "f8945655aee5b368b027224f66d077bdf596601c538966cbdd3e5311046e4901",
+          "current_sha256": "f8945655aee5b368b027224f66d077bdf596601c538966cbdd3e5311046e4901",
+          "byte_equal": true
+        },
+        {
+          "file": "thrust-a-matched.json",
+          "control_sha256": "6e6091ac9df521c4eb0eb73d2682cbdf25bc3530df3b9c9f43250b4a00ebf33f",
+          "current_sha256": "6e6091ac9df521c4eb0eb73d2682cbdf25bc3530df3b9c9f43250b4a00ebf33f",
+          "byte_equal": true
+        },
+        {
+          "file": "thrust-b-10m-budget.json",
+          "control_sha256": "d2774d870454990a605d84d9f7d2aa4e7daf6ee4154c67695216cc2d4bbff7e7",
+          "current_sha256": "d2774d870454990a605d84d9f7d2aa4e7daf6ee4154c67695216cc2d4bbff7e7",
+          "byte_equal": true
+        },
+        {
+          "file": "thrust-b-20m-budget.json",
+          "control_sha256": "5f5bfa2d36fb945a3b517c170b4110c247da60f82b4fde52d63c59148f701dd5",
+          "current_sha256": "5f5bfa2d36fb945a3b517c170b4110c247da60f82b4fde52d63c59148f701dd5",
+          "byte_equal": true
+        },
+        {
+          "file": "thrust-b-40m-budget.json",
+          "control_sha256": "258692f6662891a4c4d12617c316adb59fcdf9eadea46db018117d9e3ec5ae8e",
+          "current_sha256": "258692f6662891a4c4d12617c316adb59fcdf9eadea46db018117d9e3ec5ae8e",
+          "byte_equal": true
+        },
+        {
+          "file": "thrust-b-matched.json",
+          "control_sha256": "80c043866c5c9286e84881985f0aad71297fdfced6ba45744897e9ec714fd4bd",
+          "current_sha256": "80c043866c5c9286e84881985f0aad71297fdfced6ba45744897e9ec714fd4bd",
+          "byte_equal": true
+        }
+      ],
+      "raw_byte_identical_files": 50,
+      "budgets": {
+        "runs": 36,
+        "events": 4494,
+        "scalar_balances_checked": 755160,
+        "failed_scalar_balances": 0,
+        "repair_added_m2": 0,
+        "maximum_absolute_scalar_residual_m2": 3.334134817123413e-06,
+        "worst_residual_fraction_of_tolerance": 0.001901969797909847
+      },
+      "candidate_integration": "Owned-geometry prototype remains independently assessed; its rejected/pending integration must not be conflated with this completed control.",
+      "observational_data": "None; named source files and synthetic study outputs only."
+    }
+  },
+  "prototype_pilot": {
+    "case": "coupled-compression-a",
+    "h": 40,
+    "stage": "first thrust only; integration admission, not completed comparison",
+    "step": 4,
+    "domain": {
+      "h": 40,
+      "x0": -2020,
+      "xmax": 11220,
+      "zmax": 4560
+    },
+    "status": "rejected",
+    "sourcePieces": 25343,
+    "transport": {
+      "sourcePieces": 25343,
+      "ghostPieces": 154,
+      "outputPieces": 26252,
+      "areaBefore": 60374400,
+      "areaAfter": 60374400,
+      "grainResidual": 7.067679774763747e-11,
+      "incomingGrains": 12570.546074216665,
+      "outgoingGrains": 2.0253066239108284,
+      "seconds": 0.22650570800000014
+    },
+    "partition": {
+      "maxGap": 7.204903340607416e-12,
+      "maxOverlap": 4.973799150320701e-12,
+      "worst": {
+        "x": 8440,
+        "priorBottom": 9.743975345925364,
+        "section": {
+          "top": 9.743975345932569,
+          "bottom": 211.45170678511911,
+          "height": 201.70773143918606,
+          "bed": -1,
+          "support": {
+            "origin": [
+              8422.635895939187,
+              -60.69963238452664
+            ],
+            "axes": [
+              [
+                35.20403820913531,
+                18.99146370793312
+              ],
+              [
+                -7.002680896806919,
+                259.00623037694004
+              ]
+            ],
+            "ring": [
+              [
+                0,
+                0.601892284648139
+              ],
+              [
+                0.6009908527321559,
+                0.19028861330608426
+              ],
+              [
+                1,
+                0.16103152660032266
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "jacobian": 9251.056390703845,
+            "vertexX": [
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "vertexZ": [
+              null,
+              0,
+              0,
+              null,
+              null
+            ],
+            "xBounds": [
+              -2020,
+              11220
+            ],
+            "zBounds": [
+              0,
+              4560
+            ]
+          }
+        }
+      }
+    },
+    "rockPartition": {
+      "maxRockOverlap": 1.9895196601282805e-12,
+      "rockWitness": {
+        "x": 8400,
+        "beds": [
+          5,
+          5
+        ],
+        "upperBottom": 471.9498201364163,
+        "lowerTop": 471.9498201364143
+      },
+      "maxDistinctBedOverlap": 1.0800249583553523e-12,
+      "distinctBedWitness": {
+        "x": 8400,
+        "beds": [
+          12,
+          13
+        ],
+        "upperBottom": 397.54947223697934,
+        "lowerTop": 397.54947223697826
+      }
+    },
+    "reason": "Owned physical partition has a gap or overlap (-2.842170943040401e-14m)",
+    "stack": [
+      "Error: Owned physical partition has a gap or overlap (-2.842170943040401e-14m)",
+      "    at verify ([bundle]:2752:32)",
+      "    at profile ([bundle]:2786:11)",
+      "    at makeFace ([bundle]:2797:30)",
+      "    at deformOwnedColumns ([bundle]:2904:54)",
+      "    at file:///Users/torus/Documents/Codex/2026-10-12/wha/work/common-geometry/integration/pilot.mjs:39:21",
+      "    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+    ]
+  },
+  "original_source_receipt": {
+    "schema": "earthforge.common-geometry-control-original-source.v1",
+    "named_original_files": 69,
+    "all_match_frozen_manifest": true,
+    "baseline_manifest_sha256": "ec8a3de27f463ec3c6f733b85df89d298d314d33208f6757bb1a79b1ee2ae245",
+    "named_source_sha256": {
+      "index.html": "e0902f7d396395e19c18d5664e58bb84551b7878495c88cc9a6aa285eb8f658a",
+      "package-lock.json": "a497ac362fc60dcfda52bf716ee80c823733b1c8257aea097533dddd440da883",
+      "package.json": "a41f33326f8b42e46bb1bf17da79c2c52f8ad53b9f87e1abaa8a82568fce7cef",
+      "src/app.ts": "d5fcc97b4bc5c77f11c7cef6b3127038d25ac24be2ce5eae35d5bfc2becf9d09",
+      "src/basin.ts": "80a37ef2b87ad6f1afb2dd1d9f3f82cc336681df5aa84a11d43b28d75668cd46",
+      "src/basinVerify.ts": "faa15905d6b12681c5a2d4b8bc9184199dea26a44910b9753179fdfa97c8f084",
+      "src/capacitySlices.ts": "6ff02a7f3f78e212243eaa728c3b83f3468695bfe23b8dc852d2db9738d980a1",
+      "src/capacityTransport.ts": "cf1df2c1b549870bd5494d2781d226cc10342a2a79cea438cd4e43c75f1cd2d0",
+      "src/checks.ts": "8d5c4cc1937fdd3ce20bf968767a87461347803d63f880a42973f15671143d1a",
+      "src/conservativeTransport.ts": "3b83d2c6063d7c8eaf8c1788323452d937d6327e75eee98458f06deafc6f27e0",
+      "src/exactLength.ts": "326f867070762173178faf4a725328788c3e26f3102eb04002769a9bf0a8b331",
+      "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+      "src/main.ts": "a20e1729db46a143c2334f205233dec54f836f731b9855ef7bb7447bd185752e",
+      "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+      "src/normalTransport.ts": "80ad4501a24315666ce66947a4814c4b6d558a77c94f4222c36993c252fac413",
+      "src/protocol.ts": "d323dc3c917a19701c3dea49756bce1c196d05a817b874fa8c3937f85f4b1c76",
+      "src/render.ts": "bb3b4da6884b58ca24a17e1b267b1d7b2a3fe8a840a2205a44e6c903ec8d4a41",
+      "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+      "src/strata.ts": "1eea0bec523995da72631b55202eaaa73c9d8c14733196003cf0a6c3904bf483",
+      "src/styles.css": "b4a0deda9bf63406b5e0bc7339a9d783aeb0e8ddac83441172401fe2b7cf62aa",
+      "src/subsidence.ts": "69bd760fe11f190d24d65ae7cf574370fd517f66373f39010bf2692029813bf2",
+      "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+      "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+      "src/worker.ts": "a2d2d5819972d421a9484e68954a5ab4f6ff2a4b93eadfc761f12cd61c2ded78",
+      "tests/basin.test.mjs": "43739c73f145b5616cba2e6d079e5dd8d43567859e562f9dd8236d12674ff05a",
+      "tests/capacity-transport.test.mjs": "99869e15d209974733e01619507b64f33a9d648b1badf2832f005567436a8775",
+      "tests/column-boundaries.test.mjs": "7f4fdd5f72c5f0e80ee669e6971d055a25dd1949ca4c44f732a2924b6d80494d",
+      "tests/deposition-boundaries.test.mjs": "4e0783a7ba466d1b4d5cd4fc3d10853d89195ddb8de91dfa2913a8bb1d823a4e",
+      "tests/deposition-support.test.mjs": "4f822f3a50b3a1f4aa98ba03e5a68e6226ca08d7d9e78946d941e19995a79f17",
+      "tests/diagnostics.test.mjs": "2882e10b10428d44f393449d041158495b643d9414e12b5fc39b6b836f70e45b",
+      "tests/exact-length.test.mjs": "8afca31e3588d69f53c1b759713f96fa494722aafcd769fbb3d150d348da855e",
+      "tests/exact-material.test.mjs": "bd4e767e47d4668ad032fd0bc57cd647ed572396c480c34bc6767cf15c8b913d",
+      "tests/fault-geometry.test.mjs": "3132f639f4c7e8d417b82e7931dc04186f9ad94920a860894f1324ed46b962d6",
+      "tests/fractional-thrust.test.mjs": "84c42519f5472f4525664ef8f00f76959682fedce7acaa2483aff26fc884528e",
+      "tests/grouped-material.test.mjs": "a65753ec3d1dce592342abc04fe4bb218dabf75aebe09f3eeb3b2ffa346115d1",
+      "tests/grouped-state-support.test.mjs": "343471ae0c470d4e621e9e2028cdc5695ffafa4dffd426ad3632d91c1108652a",
+      "tests/length-rounding.test.mjs": "efcdb578cbd6721545314f7e25239d48a0b8116bf29f4572c246b5d232a5ce20",
+      "tests/material-coalescing.test.mjs": "2ae07669c0cb50c71bd93892e6c6bd683cf9d4050f4a151d951dfdbd9f70be6e",
+      "tests/normal-lengths.test.mjs": "1200c94443aea15228ed3042864328457f15db3771d9fc46eb92168c3797dbad",
+      "tests/numerics.test.mjs": "2b7220ce073b39f203cbaba2499fa03828db17adc4ee5bc388b2b14b95ecb8a1",
+      "tests/strata.test.mjs": "86f932e9e1323646ec8a6279d838839e59f66a1a7048e08def2ade14da2f2545",
+      "tests/subsidence-coordinate.test.mjs": "ec2501fc3e0b0f5dabe8fde7995a9df160dec2ee86e1811569854fd710d737ba",
+      "tests/thrust-capacity-fallback.test.mjs": "d985dac84d61b524419342f8b3e5a8c05dbc2cf847cdf021a82968014c292be7",
+      "tests/thrust-coupling.test.mjs": "d94c79e193c4d2a7f11d3a7afd27d500beafab0bbf90fca737f0376d16ce001d",
+      "tests/thrust-flow-area-displacement.test.mjs": "d602585f4fbffce7a688760373f37926c11ae22bae1735d329fe69033691457d",
+      "tests/thrust-matching-stability.test.mjs": "ae564cbac40a3fe34bcba35367d2154d7ff79046368e243a2cd0fe0643630e63",
+      "tests/thrust-side-continuity.test.mjs": "ace8124f8062925b8c1a907d3ec30e89df80473c38ff49c7b49c4be0635c9368",
+      "tests/thrust-weighted-transport.test.mjs": "1aec74c93f65072702363067672a09277aba23145a9aef46172aad50b0d995bd",
+      "tests/thrust.test.mjs": "cdca9de4ecf8774e42cdde8ccc5388869e019d0b01dae4f9b8e674292804760c",
+      "tests/travel-thickness.test.mjs": "627d17da4e2056b6e828553144a1fa777014c94ecd2d5a1e423016a9163fa744",
+      "tests/worker.test.mjs": "33a8bc01dfcb0b547acf0ad6f52f1414401dd117aea7439f59a177ad3390ee9b",
+      "tsconfig.json": "f0de29c5e89ad3a8586846b62341e1e5f26a3be87ad9cd7ee8368840f114260d",
+      "validation/force2020/benchmark-plan.json": "7b2dfcaace0b71f559d8a473d871d9c7afbcc66fe3e3c0862d324456ead873bf",
+      "validation/force2020/model-profiles.mjs": "66b4bb0b3d735c2d8f7fba231d20137f2398801f21d22b4f2a7c9f6c35dc408b",
+      "validation/numerics/compaction-ablation.mjs": "78c120650452960accb83b4be179fd9ecc33f12f21185de3aa31bc41985b6957",
+      "validation/numerics/compare-revisions.mjs": "fdf64c9241ef49ace59bd7ed3795c56d2b677da6c6de74ca091f51f7a80ba1db",
+      "validation/numerics/coupled-travel-compare-study.mjs": "d367c8a490a767600fb40d50984ec81b90120c43f46555b2d2feed02f91d2313",
+      "validation/numerics/diagnose.mjs": "fa670d8bbb6c9b6115f9c0df01856d3689b2c5e4e561b9b2a8fbb44df9f0a061",
+      "validation/numerics/diagnosis-evidence.mjs": "48dc2bb12e8ea7f383bced0911a122a6ba613d0785a6a3d15f9a90ffb314cc7e",
+      "validation/numerics/diagnostics.mjs": "7c24a3b524a05690783b771a46648dc13a36c1b27393bfcad406651855ca8738",
+      "validation/numerics/fault-geometry-evidence.mjs": "c344a3cc9e0179966f9384ea88340a57d4c26a4e29b18ae89fc88ad99d43b08c",
+      "validation/numerics/metrics.mjs": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b",
+      "validation/numerics/plan.json": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+      "validation/numerics/run.mjs": "8cbf8387939091ad860f3994c08a717a6e8f08cd8e698adf25a8f36f38b41bed",
+      "validation/numerics/thrust-b-weighted-evidence.mjs": "0edd2d57122d14a297e18b5a68301e902bfe2c881d78a27f1e379a65e836a58e",
+      "validation/numerics/thrust-coupling-evidence.mjs": "7d2728bfbfb0b3069363583998777e2d38b10e88383e5ede67c793a3b9dc69ac",
+      "validation/numerics/travel-thickness-capacity-evidence.mjs": "39b32c89fd548867b61431b6d34567d3ddc7551e9f1a2c4e26884e7bdebd43aa",
+      "validation/numerics/travel-thickness-evidence.mjs": "b596b4bee1f8080bbf8feb28ab76dffd101872dc7183d44edd518f485fdaf2d6",
+      "vite.config.ts": "cf827329bb9831eefd5339f17a78e131a9717818ee8c782ba33ac870d18c9743"
+    },
+    "scope": "Named 69 original source/test/protocol files only; no traversal or observational data access."
+  },
+  "holdout": "No holdout/observational data was read, run, written or hashed. Only named numerical source/test files and allowed FORCE metadata were used.",
+  "source_manifest": {
+    "index.html": "e0902f7d396395e19c18d5664e58bb84551b7878495c88cc9a6aa285eb8f658a",
+    "package-lock.json": "a497ac362fc60dcfda52bf716ee80c823733b1c8257aea097533dddd440da883",
+    "package.json": "a41f33326f8b42e46bb1bf17da79c2c52f8ad53b9f87e1abaa8a82568fce7cef",
+    "src/app.ts": "d5fcc97b4bc5c77f11c7cef6b3127038d25ac24be2ce5eae35d5bfc2becf9d09",
+    "src/basin.ts": "80a37ef2b87ad6f1afb2dd1d9f3f82cc336681df5aa84a11d43b28d75668cd46",
+    "src/basinVerify.ts": "faa15905d6b12681c5a2d4b8bc9184199dea26a44910b9753179fdfa97c8f084",
+    "src/capacitySlices.ts": "6ff02a7f3f78e212243eaa728c3b83f3468695bfe23b8dc852d2db9738d980a1",
+    "src/capacityTransport.ts": "cf1df2c1b549870bd5494d2781d226cc10342a2a79cea438cd4e43c75f1cd2d0",
+    "src/checks.ts": "8d5c4cc1937fdd3ce20bf968767a87461347803d63f880a42973f15671143d1a",
+    "src/commonColumnCompaction.ts": "108c60ab88c040738ebbaf049200873a73eb4c47be3ab4efae842690f9987a69",
+    "src/conservativeTransport.ts": "3b83d2c6063d7c8eaf8c1788323452d937d6327e75eee98458f06deafc6f27e0",
+    "src/domainThrust.ts": "d36bf14cbdd8e159b41b096b66653f8db6d8f138056f652739635445a40ec9f8",
+    "src/exactLength.ts": "326f867070762173178faf4a725328788c3e26f3102eb04002769a9bf0a8b331",
+    "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+    "src/geometricSupport.ts": "b8e76ab22659e4298d21c1cb07e64830d4ee1ef11e277d48b9da52e7ba2787d7",
+    "src/main.ts": "a20e1729db46a143c2334f205233dec54f836f731b9855ef7bb7447bd185752e",
+    "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+    "src/normalTransport.ts": "80ad4501a24315666ce66947a4814c4b6d558a77c94f4222c36993c252fac413",
+    "src/ownedColumns.ts": "341ade87086fe0f04701b2102979271e6429528e93fca9185284dbbac0d70e22",
+    "src/ownedProfiles.ts": "1e96fd8eaccb45448dfb9959e3985832a5f8f86cfd2384a4644d395c65d9147c",
+    "src/ownedProjection.ts": "777378def445118ac3f3209e4e40e2f9773a8f77a691a18abec465be7bf2e58e",
+    "src/ownedSurface.ts": "279bf1831b97a5db8853caa60c7643e6caa54173de595e5cc3e009b2980930d4",
+    "src/protocol.ts": "d323dc3c917a19701c3dea49756bce1c196d05a817b874fa8c3937f85f4b1c76",
+    "src/render.ts": "bb3b4da6884b58ca24a17e1b267b1d7b2a3fe8a840a2205a44e6c903ec8d4a41",
+    "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+    "src/strata.ts": "1eea0bec523995da72631b55202eaaa73c9d8c14733196003cf0a6c3904bf483",
+    "src/styles.css": "b4a0deda9bf63406b5e0bc7339a9d783aeb0e8ddac83441172401fe2b7cf62aa",
+    "src/subsidence.ts": "69bd760fe11f190d24d65ae7cf574370fd517f66373f39010bf2692029813bf2",
+    "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+    "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+    "src/worker.ts": "a2d2d5819972d421a9484e68954a5ab4f6ff2a4b93eadfc761f12cd61c2ded78",
+    "tests/basin.test.mjs": "43739c73f145b5616cba2e6d079e5dd8d43567859e562f9dd8236d12674ff05a",
+    "tests/capacity-transport.test.mjs": "99869e15d209974733e01619507b64f33a9d648b1badf2832f005567436a8775",
+    "tests/column-boundaries.test.mjs": "7f4fdd5f72c5f0e80ee669e6971d055a25dd1949ca4c44f732a2924b6d80494d",
+    "tests/deposition-boundaries.test.mjs": "4e0783a7ba466d1b4d5cd4fc3d10853d89195ddb8de91dfa2913a8bb1d823a4e",
+    "tests/deposition-support.test.mjs": "4f822f3a50b3a1f4aa98ba03e5a68e6226ca08d7d9e78946d941e19995a79f17",
+    "tests/diagnostics.test.mjs": "2882e10b10428d44f393449d041158495b643d9414e12b5fc39b6b836f70e45b",
+    "tests/exact-length.test.mjs": "8afca31e3588d69f53c1b759713f96fa494722aafcd769fbb3d150d348da855e",
+    "tests/exact-material.test.mjs": "bd4e767e47d4668ad032fd0bc57cd647ed572396c480c34bc6767cf15c8b913d",
+    "tests/fault-geometry.test.mjs": "3132f639f4c7e8d417b82e7931dc04186f9ad94920a860894f1324ed46b962d6",
+    "tests/fractional-thrust.test.mjs": "84c42519f5472f4525664ef8f00f76959682fedce7acaa2483aff26fc884528e",
+    "tests/grouped-material.test.mjs": "a65753ec3d1dce592342abc04fe4bb218dabf75aebe09f3eeb3b2ffa346115d1",
+    "tests/grouped-state-support.test.mjs": "343471ae0c470d4e621e9e2028cdc5695ffafa4dffd426ad3632d91c1108652a",
+    "tests/horizontal-support-witness.json": "c2de16eca7baa1826acf5d94d8db4cc6bf30fa6e022637b28f0df979c52931b1",
+    "tests/length-rounding.test.mjs": "efcdb578cbd6721545314f7e25239d48a0b8116bf29f4572c246b5d232a5ce20",
+    "tests/material-coalescing.test.mjs": "2ae07669c0cb50c71bd93892e6c6bd683cf9d4050f4a151d951dfdbd9f70be6e",
+    "tests/normal-lengths.test.mjs": "1200c94443aea15228ed3042864328457f15db3771d9fc46eb92168c3797dbad",
+    "tests/numerics.test.mjs": "2b7220ce073b39f203cbaba2499fa03828db17adc4ee5bc388b2b14b95ecb8a1",
+    "tests/owned-common-columns.test.mjs": "0c0130c06d14722b58e9021d67ee83f7e484d92bbe3708e53780e988bcc9dda7",
+    "tests/owned-domain-thrust.test.mjs": "a18a653ab5cd51db229b60edeb4e21c5653e1b7100d2dc87ba74dae421afb2d8",
+    "tests/owned-geometric-support.test.mjs": "ccc2cec0f3effedb493250daf001aaf8b3e163e19a96380e45f8eb0c23295faa",
+    "tests/owned-physical-column.test.mjs": "eae42eb4d214c1e51a93b87205455df75fe5c96de9abbc577ec03c0fa0b3a4ef",
+    "tests/owned-physical-profiles.test.mjs": "33a8812e5ecf0c2b881f0c18c751750ad1db1a248b8bae6487a755ba976cfa84",
+    "tests/owned-projection.test.mjs": "4c70dcdcf1050c3b23cbc4d8bf9e6b4db32203cc17d430431fce9801726611ad",
+    "tests/owned-surface-independent.test.mjs": "048911ccc039685edd7da673173ea350be39b25da7448708533c246c7d02103c",
+    "tests/owned-surface.test.mjs": "f5412d606b68ae9ff050e45007f538919b3de40d0f7d3d5ee81aa515ecb20ec0",
+    "tests/strata.test.mjs": "86f932e9e1323646ec8a6279d838839e59f66a1a7048e08def2ade14da2f2545",
+    "tests/subsidence-coordinate.test.mjs": "ec2501fc3e0b0f5dabe8fde7995a9df160dec2ee86e1811569854fd710d737ba",
+    "tests/thrust-capacity-fallback.test.mjs": "d985dac84d61b524419342f8b3e5a8c05dbc2cf847cdf021a82968014c292be7",
+    "tests/thrust-coupling.test.mjs": "d94c79e193c4d2a7f11d3a7afd27d500beafab0bbf90fca737f0376d16ce001d",
+    "tests/thrust-flow-area-displacement.test.mjs": "d602585f4fbffce7a688760373f37926c11ae22bae1735d329fe69033691457d",
+    "tests/thrust-matching-stability.test.mjs": "ae564cbac40a3fe34bcba35367d2154d7ff79046368e243a2cd0fe0643630e63",
+    "tests/thrust-side-continuity.test.mjs": "ace8124f8062925b8c1a907d3ec30e89df80473c38ff49c7b49c4be0635c9368",
+    "tests/thrust-weighted-transport.test.mjs": "1aec74c93f65072702363067672a09277aba23145a9aef46172aad50b0d995bd",
+    "tests/thrust.test.mjs": "cdca9de4ecf8774e42cdde8ccc5388869e019d0b01dae4f9b8e674292804760c",
+    "tests/travel-thickness.test.mjs": "627d17da4e2056b6e828553144a1fa777014c94ecd2d5a1e423016a9163fa744",
+    "tests/worker.test.mjs": "33a8bc01dfcb0b547acf0ad6f52f1414401dd117aea7439f59a177ad3390ee9b",
+    "tsconfig.json": "f0de29c5e89ad3a8586846b62341e1e5f26a3be87ad9cd7ee8368840f114260d",
+    "validation/force2020/benchmark-plan.json": "7b2dfcaace0b71f559d8a473d871d9c7afbcc66fe3e3c0862d324456ead873bf",
+    "validation/force2020/model-profiles.mjs": "66b4bb0b3d735c2d8f7fba231d20137f2398801f21d22b4f2a7c9f6c35dc408b",
+    "validation/numerics/compaction-ablation.mjs": "78c120650452960accb83b4be179fd9ecc33f12f21185de3aa31bc41985b6957",
+    "validation/numerics/compare-revisions.mjs": "fdf64c9241ef49ace59bd7ed3795c56d2b677da6c6de74ca091f51f7a80ba1db",
+    "validation/numerics/coupled-travel-compare-study.mjs": "d367c8a490a767600fb40d50984ec81b90120c43f46555b2d2feed02f91d2313",
+    "validation/numerics/diagnose.mjs": "fa670d8bbb6c9b6115f9c0df01856d3689b2c5e4e561b9b2a8fbb44df9f0a061",
+    "validation/numerics/diagnosis-evidence.mjs": "48dc2bb12e8ea7f383bced0911a122a6ba613d0785a6a3d15f9a90ffb314cc7e",
+    "validation/numerics/diagnostics.mjs": "7c24a3b524a05690783b771a46648dc13a36c1b27393bfcad406651855ca8738",
+    "validation/numerics/fault-geometry-evidence.mjs": "c344a3cc9e0179966f9384ea88340a57d4c26a4e29b18ae89fc88ad99d43b08c",
+    "validation/numerics/metrics.mjs": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b",
+    "validation/numerics/plan.json": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+    "validation/numerics/run.mjs": "8cbf8387939091ad860f3994c08a717a6e8f08cd8e698adf25a8f36f38b41bed",
+    "validation/numerics/thrust-b-weighted-evidence.mjs": "0edd2d57122d14a297e18b5a68301e902bfe2c881d78a27f1e379a65e836a58e",
+    "validation/numerics/thrust-coupling-evidence.mjs": "7d2728bfbfb0b3069363583998777e2d38b10e88383e5ede67c793a3b9dc69ac",
+    "validation/numerics/travel-thickness-capacity-evidence.mjs": "39b32c89fd548867b61431b6d34567d3ddc7551e9f1a2c4e26884e7bdebd43aa",
+    "validation/numerics/travel-thickness-evidence.mjs": "b596b4bee1f8080bbf8feb28ab76dffd101872dc7183d44edd518f485fdaf2d6",
+    "vite.config.ts": "cf827329bb9831eefd5339f17a78e131a9717818ee8c782ba33ac870d18c9743"
+  },
+  "remaining_work": [
+    "Canonical shared interface ownership through geometric transport, including distinct sub-ULP nodes. No tolerance-based deletion or proximity merge.",
+    "Admit the complete first coupled transport/collapse/compaction chain and preserve physical fault segments through the same maps.",
+    "Define and validate active fault flow after nonuniform compaction creates extra bends; the current simple bisector flow is not automatically valid for an arbitrary polyline.",
+    "Integrate all owned-support operators and separate physical profiles from area inventory in simulate(); primitives are not yet connected to production.",
+    "Run the unchanged full 36 candidate simulations, all-metric/shared-cohort/coverage/budget audit, and appropriate existing regression tests before applying a production repair."
+  ],
+  "references": [
+    {
+      "title": "Conservative rezoning (remapping) for general quadrilateral meshes",
+      "year": 1984,
+      "url": "https://www.sciencedirect.com/science/article/pii/0021999184901256"
+    },
+    {
+      "title": "Reconstruction of multi-material interfaces from moment data",
+      "year": 2008,
+      "url": "https://laro.lanl.gov/esploro/outputs/journalArticle/Reconstruction-of-multi-material-interfaces-from-moment/9916364204103761"
+    },
+    {
+      "title": "Portage concepts: conservative remapping",
+      "url": "https://laristra.github.io/portage/concepts.html"
+    }
+  ]
+}

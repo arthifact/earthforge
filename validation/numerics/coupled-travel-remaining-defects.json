@@ -1,0 +1,1752 @@
+{
+  "scope": "Paired synthetic operation traces; selected remaining defects of area-flow plus exact matching candidate. No observational/holdout reads.",
+  "source_sha256": {
+    "current_basin": "fe019350381feedd19aa6338db912711c8adb934e7baaf2484c25ebb9db9af64",
+    "current_transport": "4995d1c278436de05cc7887ea39847512bb491b6d0993c5ce0a5b56b280c1a73",
+    "pilot_basin": "907492ec8cc90b827c0265105bd1192d1909d1b38d4c1ace789ece11923255d6",
+    "pilot_transport": "743c275332413005a39bae450091e3b75f4310d6f178759844929052ad7c52b3"
+  },
+  "histories": {
+    "coupled_a": "a47b82f4d9d2b45d9bc2b7218afe6a4d8fc14d12da0028d952b7dad85ec41e18",
+    "quiet_b": "9d04013089c8622a034396bc3d922379897d27881cf545e55e1f9eabd540fd7f"
+  },
+  "closed_budgets": true,
+  "coupled_a_unit7_x9200": {
+    "interpretation": "The new coarse discrepancy begins at the open right boundary in step6. An incoming packet nominally targeted to the neighboring column is placed at the edge, increasing its sediment. The continuation copies that edge state inward at step7, reducing accommodation and unit7 deposition. The deficit then advects left into the measured x9200 profile.",
+    "initial_edge_event": [
+      {
+        "step": 6,
+        "process": "subsidence",
+        "x": 11200,
+        "current": {
+          "floor": 278.43031446103237,
+          "total_height": 4560,
+          "sediment_height": 636.5010672701443,
+          "sediment_solid": 312.21555285481116,
+          "basement_height": 3645.0686182688237,
+          "water_height": 278.43031446103237,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 278.43031446103237,
+          "total_height": 4560,
+          "sediment_height": 636.5010672701443,
+          "sediment_solid": 312.21555285481116,
+          "basement_height": 3645.0686182688237,
+          "water_height": 278.43031446103237,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": 0.0,
+          "total_height": 0,
+          "sediment_height": 0.0,
+          "sediment_solid": 0.0,
+          "basement_height": 0.0,
+          "water_height": 0.0,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 0.0,
+          "5": 0.0,
+          "2": 0.0,
+          "0": 0.0,
+          "4": 0.0,
+          "3": 0.0
+        }
+      },
+      {
+        "step": 6,
+        "process": "thrust-slip",
+        "x": 11200,
+        "current": {
+          "floor": 278.43031446103237,
+          "total_height": 4560,
+          "sediment_height": 636.5010672701442,
+          "sediment_solid": 312.21555285481116,
+          "basement_height": 3645.0686182688232,
+          "water_height": 278.43031446103237,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 238.43031446103237,
+          "total_height": 4560,
+          "sediment_height": 672.5170590837844,
+          "sediment_solid": 331.40317703448994,
+          "basement_height": 3645.0686182688232,
+          "water_height": 242.41432264739217,
+          "internal_water": 3.9840081863598016
+        },
+        "difference": {
+          "floor": -40.0,
+          "total_height": 0,
+          "sediment_height": 36.0159918136402,
+          "sediment_solid": 19.187624179678778,
+          "basement_height": 0.0,
+          "water_height": -36.0159918136402,
+          "internal_water": 3.9840081863598016
+        },
+        "unit_height_difference": {
+          "1": 36.0159918136402,
+          "5": 0.0,
+          "2": 0.0,
+          "0": 0.0,
+          "4": 0.0,
+          "3": 0.0
+        }
+      },
+      {
+        "step": 6,
+        "process": "collapse",
+        "x": 11200,
+        "current": {
+          "floor": 278.43031446103237,
+          "total_height": 4560,
+          "sediment_height": 636.5010672701442,
+          "sediment_solid": 312.21555285481116,
+          "basement_height": 3645.0686182688232,
+          "water_height": 278.43031446103237,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 242.41432264739217,
+          "total_height": 4560,
+          "sediment_height": 672.5170590837844,
+          "sediment_solid": 331.40317703448994,
+          "basement_height": 3645.0686182688232,
+          "water_height": 242.41432264739217,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -36.0159918136402,
+          "total_height": 0,
+          "sediment_height": 36.0159918136402,
+          "sediment_solid": 19.187624179678778,
+          "basement_height": 0.0,
+          "water_height": -36.0159918136402,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 36.0159918136402,
+          "5": 0.0,
+          "2": 0.0,
+          "0": 0.0,
+          "4": 0.0,
+          "3": 0.0
+        }
+      },
+      {
+        "step": 6,
+        "process": "deposition",
+        "x": 11200,
+        "current": {
+          "floor": 263.4626434534159,
+          "total_height": 4560,
+          "sediment_height": 651.4687382777606,
+          "sediment_solid": 318.5472547167795,
+          "basement_height": 3645.0686182688232,
+          "water_height": 263.4626434534159,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 227.44665163977572,
+          "total_height": 4560,
+          "sediment_height": 687.4847300914008,
+          "sediment_solid": 337.7348788964583,
+          "basement_height": 3645.0686182688232,
+          "water_height": 227.44665163977572,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -36.0159918136402,
+          "total_height": 0,
+          "sediment_height": 36.0159918136402,
+          "sediment_solid": 19.187624179678835,
+          "basement_height": 0.0,
+          "water_height": -36.0159918136402,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 36.0159918136402,
+          "6": 0.0,
+          "5": 0.0,
+          "2": 0.0,
+          "0": 0.0,
+          "4": 0.0,
+          "3": 0.0
+        }
+      },
+      {
+        "step": 6,
+        "process": "compaction",
+        "x": 11200,
+        "current": {
+          "floor": 267.26939334081544,
+          "total_height": 4560,
+          "sediment_height": 647.6619883903617,
+          "sediment_solid": 318.5472547167795,
+          "basement_height": 3645.0686182688232,
+          "water_height": 267.26939334081544,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 233.62499357525303,
+          "total_height": 4560,
+          "sediment_height": 681.3063881559234,
+          "sediment_solid": 337.7348788964583,
+          "basement_height": 3645.0686182688232,
+          "water_height": 233.62499357525303,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -33.64439976556241,
+          "total_height": 0,
+          "sediment_height": 33.64439976556173,
+          "sediment_solid": 19.187624179678835,
+          "basement_height": 0.0,
+          "water_height": -33.64439976556241,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 34.8438144761931,
+          "6": 0.0,
+          "5": -6.329416265771215e-06,
+          "2": 2.246555936835648e-07,
+          "0": -1.1994090361981478,
+          "4": 3.382941393681449e-08,
+          "3": 3.9649803795782645e-07
+        }
+      }
+    ],
+    "edge_packet_allocation": {
+      "current": {
+        "packets": 13,
+        "incoming_packets": 13,
+        "rock_bulk_height": 477.5856773526084,
+        "packets_detail": [
+          {
+            "source_x": 11200,
+            "source_z": 240,
+            "destination_x": 11200,
+            "destination_z": 240,
+            "implemented_target_x": 11204.68346126656,
+            "implemented_target_z": 240.0341068535411,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 240,
+            "rock_height": 1.569685538967633,
+            "height": 40,
+            "weight": 0.03924213847419082,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 280,
+            "destination_x": 11200,
+            "destination_z": 280,
+            "implemented_target_x": 11204.68346126656,
+            "implemented_target_z": 280.03410685354106,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 280,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 320,
+            "destination_x": 11200,
+            "destination_z": 320,
+            "implemented_target_x": 11204.68346126656,
+            "implemented_target_z": 320.0341068535411,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 320,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 360,
+            "destination_x": 11200,
+            "destination_z": 360,
+            "implemented_target_x": 11204.68346126656,
+            "implemented_target_z": 360.0341068535411,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 360,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 400,
+            "destination_x": 11200,
+            "destination_z": 400,
+            "implemented_target_x": 11204.68346126656,
+            "implemented_target_z": 400.0341068535411,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 400,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 440,
+            "destination_x": 11200,
+            "destination_z": 440,
+            "implemented_target_x": 11204.68346126656,
+            "implemented_target_z": 440.0341068535411,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 440,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 480,
+            "destination_x": 11200,
+            "destination_z": 480,
+            "implemented_target_x": 11204.68346126656,
+            "implemented_target_z": 480.0341068535411,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 480,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 520,
+            "destination_x": 11200,
+            "destination_z": 520,
+            "implemented_target_x": 11204.68346126656,
+            "implemented_target_z": 520.0341068535411,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 520,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 560,
+            "destination_x": 11200,
+            "destination_z": 560,
+            "implemented_target_x": 11204.68346126656,
+            "implemented_target_z": 560.0341068535411,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 560,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 600,
+            "destination_x": 11200,
+            "destination_z": 600,
+            "implemented_target_x": 11204.68346126656,
+            "implemented_target_z": 600.0341068535411,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 600,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 640,
+            "destination_x": 11200,
+            "destination_z": 640,
+            "implemented_target_x": 11204.68346126656,
+            "implemented_target_z": 640.0341068535411,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 640,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 680,
+            "destination_x": 11200,
+            "destination_z": 680,
+            "implemented_target_x": 11204.68346126656,
+            "implemented_target_z": 680.0341068535411,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 680,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 720,
+            "destination_x": 11200,
+            "destination_z": 720,
+            "implemented_target_x": 11204.68346126656,
+            "implemented_target_z": 720.0341068535411,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 720,
+            "rock_height": 36.01599181364077,
+            "height": 36.01599181364077,
+            "weight": 0.9003997953410192,
+            "incoming": true
+          }
+        ]
+      },
+      "candidate": {
+        "packets": 14,
+        "incoming_packets": 14,
+        "rock_bulk_height": 513.6016691662492,
+        "packets_detail": [
+          {
+            "source_x": 11200,
+            "source_z": 240,
+            "destination_x": 11200,
+            "destination_z": 200,
+            "implemented_target_x": 11204.683461266577,
+            "implemented_target_z": 240.03410685354743,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 240,
+            "rock_height": 1.569685538967633,
+            "height": 40,
+            "weight": 0.03924213847419082,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 280,
+            "destination_x": 11200,
+            "destination_z": 240,
+            "implemented_target_x": 11204.683461266577,
+            "implemented_target_z": 280.0341068535474,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 280,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 320,
+            "destination_x": 11200,
+            "destination_z": 280,
+            "implemented_target_x": 11204.683461266577,
+            "implemented_target_z": 320.0341068535474,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 320,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 360,
+            "destination_x": 11200,
+            "destination_z": 320,
+            "implemented_target_x": 11204.683461266577,
+            "implemented_target_z": 360.0341068535474,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 360,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 400,
+            "destination_x": 11200,
+            "destination_z": 360,
+            "implemented_target_x": 11204.683461266577,
+            "implemented_target_z": 400.0341068535474,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 400,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 440,
+            "destination_x": 11200,
+            "destination_z": 400,
+            "implemented_target_x": 11204.683461266577,
+            "implemented_target_z": 440.0341068535474,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 440,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 480,
+            "destination_x": 11200,
+            "destination_z": 440,
+            "implemented_target_x": 11204.683461266577,
+            "implemented_target_z": 480.0341068535474,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 480,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 520,
+            "destination_x": 11200,
+            "destination_z": 480,
+            "implemented_target_x": 11204.683461266577,
+            "implemented_target_z": 520.0341068535474,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 520,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 560,
+            "destination_x": 11200,
+            "destination_z": 520,
+            "implemented_target_x": 11204.683461266577,
+            "implemented_target_z": 560.0341068535474,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 560,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 600,
+            "destination_x": 11200,
+            "destination_z": 560,
+            "implemented_target_x": 11204.683461266577,
+            "implemented_target_z": 600.0341068535474,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 600,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 640,
+            "destination_x": 11200,
+            "destination_z": 600,
+            "implemented_target_x": 11204.683461266577,
+            "implemented_target_z": 640.0341068535474,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 640,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 680,
+            "destination_x": 11200,
+            "destination_z": 640,
+            "implemented_target_x": 11204.683461266577,
+            "implemented_target_z": 680.0341068535474,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 680,
+            "rock_height": 40,
+            "height": 40,
+            "weight": 1,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 720,
+            "destination_x": 11200,
+            "destination_z": 680,
+            "implemented_target_x": 11164.683461266577,
+            "implemented_target_z": 720.0341068535474,
+            "rounded_target_x": 11160,
+            "rounded_target_z": 720,
+            "rock_height": 36.01599181364077,
+            "height": 36.01599181364077,
+            "weight": 0.9003997953410192,
+            "incoming": true
+          },
+          {
+            "source_x": 11200,
+            "source_z": 720,
+            "destination_x": 11200,
+            "destination_z": 720,
+            "implemented_target_x": 11204.683461266577,
+            "implemented_target_z": 720.0341068535474,
+            "rounded_target_x": 11200,
+            "rounded_target_z": 720,
+            "rock_height": 36.01599181364077,
+            "height": 36.01599181364077,
+            "weight": 0.9003997953410192,
+            "incoming": true
+          }
+        ]
+      }
+    },
+    "step7_inflow_and_deposition": [
+      {
+        "step": 7,
+        "process": "subsidence",
+        "x": 11040,
+        "current": {
+          "floor": 352.80672765357275,
+          "total_height": 4560,
+          "sediment_height": 648.1460035974869,
+          "sediment_solid": 318.8122924946588,
+          "basement_height": 3559.04726874894,
+          "water_height": 352.80672765357275,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 352.80673290265867,
+          "total_height": 4560,
+          "sediment_height": 648.1459983484007,
+          "sediment_solid": 318.812292494804,
+          "basement_height": 3559.0472687489405,
+          "water_height": 352.80673290265867,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": 5.249085916148033e-06,
+          "total_height": 0,
+          "sediment_height": -5.249086257208546e-06,
+          "sediment_solid": 1.4523493518936448e-10,
+          "basement_height": 4.547473508864641e-13,
+          "water_height": 5.249085916148033e-06,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 2.316940026503289e-07,
+          "6": 0.0,
+          "5": -6.329416066819249e-06,
+          "2": 2.246558779006591e-07,
+          "0": 1.9365245407243492e-07,
+          "4": 3.3829394396889256e-08,
+          "3": 3.964980805903906e-07
+        }
+      },
+      {
+        "step": 7,
+        "process": "thrust-slip",
+        "x": 11040,
+        "current": {
+          "floor": 314.5769838314111,
+          "total_height": 4560,
+          "sediment_height": 648.0060878206709,
+          "sediment_solid": 318.7361705631698,
+          "basement_height": 3559.04726874894,
+          "water_height": 352.9466434303889,
+          "internal_water": 38.36965959897782
+        },
+        "candidate": {
+          "floor": 280.9325840658487,
+          "total_height": 4560,
+          "sediment_height": 681.7488976293439,
+          "sediment_solid": 337.00976219818403,
+          "basement_height": 3559.0472687489405,
+          "water_height": 319.2038336217155,
+          "internal_water": 38.2712495558668
+        },
+        "difference": {
+          "floor": -33.64439976556241,
+          "total_height": 0,
+          "sediment_height": 33.74280980867297,
+          "sediment_solid": 18.273591635014213,
+          "basement_height": 4.547473508864641e-13,
+          "water_height": -33.74280980867343,
+          "internal_water": -0.09841004311101642
+        },
+        "unit_height_difference": {
+          "1": 33.74281528945323,
+          "6": 0.0,
+          "5": -6.32941600997583e-06,
+          "2": 2.246558779006591e-07,
+          "0": 1.9365245407243492e-07,
+          "4": 3.382945124030812e-08,
+          "3": 3.964979669035529e-07
+        }
+      },
+      {
+        "step": 7,
+        "process": "collapse",
+        "x": 11040,
+        "current": {
+          "floor": 352.9466434303889,
+          "total_height": 4560,
+          "sediment_height": 648.0060878206709,
+          "sediment_solid": 318.7361705631698,
+          "basement_height": 3559.04726874894,
+          "water_height": 352.9466434303889,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 319.2038336217155,
+          "total_height": 4560,
+          "sediment_height": 681.7488976293439,
+          "sediment_solid": 337.00976219818403,
+          "basement_height": 3559.0472687489405,
+          "water_height": 319.2038336217155,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -33.74280980867343,
+          "total_height": 0,
+          "sediment_height": 33.74280980867297,
+          "sediment_solid": 18.273591635014213,
+          "basement_height": 4.547473508864641e-13,
+          "water_height": -33.74280980867343,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 33.74281528945323,
+          "6": 0.0,
+          "5": -6.32941600997583e-06,
+          "2": 2.246558779006591e-07,
+          "0": 1.9365245407243492e-07,
+          "4": 3.382945124030812e-08,
+          "3": 3.964979669035529e-07
+        }
+      },
+      {
+        "step": 7,
+        "process": "deposition",
+        "x": 11040,
+        "current": {
+          "floor": 160.05948070625814,
+          "total_height": 4560,
+          "sediment_height": 840.8932505448017,
+          "sediment_solid": 401.4653808770016,
+          "basement_height": 3559.04726874894,
+          "water_height": 160.05948070625814,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 159.32817706868292,
+          "total_height": 4560,
+          "sediment_height": 841.6245541823764,
+          "sediment_solid": 404.89660885803545,
+          "basement_height": 3559.0472687489405,
+          "water_height": 159.32817706868292,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -0.7313036375752233,
+          "total_height": 0,
+          "sediment_height": 0.7313036375746833,
+          "sediment_solid": 3.431227981033828,
+          "basement_height": 4.547473508864641e-13,
+          "water_height": -0.7313036375752233,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 33.74281528945323,
+          "6": 0.0,
+          "7": -33.01150617109832,
+          "5": -6.32941600997583e-06,
+          "2": 2.246558779006591e-07,
+          "0": 1.9365245407243492e-07,
+          "4": 3.382945124030812e-08,
+          "3": 3.964979669035529e-07
+        }
+      },
+      {
+        "step": 7,
+        "process": "compaction",
+        "x": 11040,
+        "current": {
+          "floor": 205.26909155723024,
+          "total_height": 4560,
+          "sediment_height": 795.6836396938298,
+          "sediment_solid": 401.4653808770016,
+          "basement_height": 3559.04726874894,
+          "water_height": 205.26909155723024,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 200.2246979984311,
+          "total_height": 4560.000000000001,
+          "sediment_height": 800.7280332526285,
+          "sediment_solid": 404.89660885803545,
+          "basement_height": 3559.0472687489405,
+          "water_height": 200.2246979984311,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -5.044393558799129,
+          "total_height": 9.094947017729282e-13,
+          "sediment_height": 5.044393558798674,
+          "sediment_solid": 3.431227981033828,
+          "basement_height": 4.547473508864641e-13,
+          "water_height": -5.044393558799129,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 32.89796428855466,
+          "6": 0.22484856713088774,
+          "7": -33.01150617109832,
+          "5": 2.4955218287074388,
+          "2": 0.9430765088745119,
+          "0": -0.15750303626221296,
+          "4": 0.13089836930248566,
+          "3": 1.5210932035890892
+        }
+      }
+    ],
+    "advection": [
+      {
+        "step": 8,
+        "process": "thrust-slip",
+        "x": 10960,
+        "current": {
+          "floor": 292.0128814282513,
+          "total_height": 4560,
+          "sediment_height": 794.7586188986872,
+          "sediment_solid": 400.95149724117596,
+          "basement_height": 3473.2284996730614,
+          "water_height": 292.0128814282513,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 286.9684878694522,
+          "total_height": 4560,
+          "sediment_height": 799.8030124574883,
+          "sediment_solid": 404.2252200762802,
+          "basement_height": 3473.2284996730596,
+          "water_height": 286.9684878694522,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -5.044393558799129,
+          "total_height": 0,
+          "sediment_height": 5.044393558801062,
+          "sediment_solid": 3.2737228351042518,
+          "basement_height": -1.8189894035458565e-12,
+          "water_height": -5.044393558799129,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 32.73048402371626,
+          "6": 0.2248485671308913,
+          "7": -33.011506171098176,
+          "5": 2.49552182870724,
+          "2": 0.9430765088745829,
+          "0": 0.009977228578122777,
+          "4": 0.13089836930259935,
+          "3": 1.5210932035894302
+        }
+      },
+      {
+        "step": 8,
+        "process": "compaction",
+        "x": 10960,
+        "current": {
+          "floor": 228.80882716277847,
+          "total_height": 4559.999999999999,
+          "sediment_height": 857.9626731641599,
+          "sediment_solid": 440.2434669517379,
+          "basement_height": 3473.2284996730614,
+          "water_height": 228.80882716277847,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 227.0108095301075,
+          "total_height": 4560,
+          "sediment_height": 859.7606907968327,
+          "sediment_solid": 441.6248510826502,
+          "basement_height": 3473.2284996730596,
+          "water_height": 227.0108095301075,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -1.7980176326709625,
+          "total_height": 9.094947017729282e-13,
+          "sediment_height": 1.7980176326727815,
+          "sediment_solid": 1.381384130912295,
+          "basement_height": -1.8189894035458565e-12,
+          "water_height": -1.7980176326709625,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 32.06909912089985,
+          "6": 0.2148506407794155,
+          "7": -31.25308396837957,
+          "5": 2.431045381503168,
+          "2": 0.9387234891496519,
+          "0": -0.0530607215053891,
+          "4": 0.12966120519415725,
+          "3": 1.4997774608845873,
+          "8": -4.178994975852561
+        }
+      },
+      {
+        "step": 9,
+        "process": "thrust-slip",
+        "x": 10640,
+        "current": {
+          "floor": 315.27071672401223,
+          "total_height": 4560,
+          "sediment_height": 853.1349887444418,
+          "sediment_solid": 437.6228638582509,
+          "basement_height": 3391.594294531546,
+          "water_height": 315.27071672401223,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 313.47269909134127,
+          "total_height": 4560,
+          "sediment_height": 854.93300637711,
+          "sediment_solid": 438.73585539873454,
+          "basement_height": 3391.5942945315487,
+          "water_height": 313.47269909134127,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -1.7980176326709625,
+          "total_height": 0,
+          "sediment_height": 1.798017632668234,
+          "sediment_solid": 1.1129915404836197,
+          "basement_height": 2.7284841053187847e-12,
+          "water_height": -1.7980176326709625,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 25.84224023900788,
+          "6": 0.21485064077933202,
+          "7": -31.253083968379656,
+          "5": 2.4310453815036226,
+          "2": 7.028213638245802,
+          "0": 0.08430801128497478,
+          "4": 0.12966120519422475,
+          "3": 1.4997774608847294,
+          "8": -4.1789949758526745
+        }
+      },
+      {
+        "step": 9,
+        "process": "compaction",
+        "x": 10640,
+        "current": {
+          "floor": 205.4913865009721,
+          "total_height": 4560,
+          "sediment_height": 962.9143189674819,
+          "sediment_solid": 507.21166978362834,
+          "basement_height": 3391.594294531546,
+          "water_height": 205.4913865009721,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 204.96748656918226,
+          "total_height": 4560,
+          "sediment_height": 963.4382188992691,
+          "sediment_solid": 507.6503663870192,
+          "basement_height": 3391.5942945315487,
+          "water_height": 204.96748656918226,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -0.523899931789856,
+          "total_height": 0,
+          "sediment_height": 0.5238999317872413,
+          "sediment_solid": 0.43869660339083794,
+          "basement_height": 2.7284841053187847e-12,
+          "water_height": -0.523899931789856,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 24.869462943797856,
+          "5": 2.020476474845424,
+          "2": 6.61365696467405,
+          "0": -0.014325908396244813,
+          "6": 0.17390261848538735,
+          "7": -29.22866841379758,
+          "9": -1.439361187856207,
+          "4": 0.11050962531507835,
+          "3": 1.2672315297612187,
+          "8": -3.848984715042377
+        }
+      },
+      {
+        "step": 10,
+        "process": "thrust-slip",
+        "x": 9920,
+        "current": {
+          "floor": 250.82567482305672,
+          "total_height": 4560,
+          "sediment_height": 952.5106951858147,
+          "sediment_solid": 501.13248596793414,
+          "basement_height": 3319.6593989419216,
+          "water_height": 287.82990587226345,
+          "internal_water": 37.00423104920674
+        },
+        "candidate": {
+          "floor": 250.30177489126686,
+          "total_height": 4560,
+          "sediment_height": 952.8337424619572,
+          "sediment_solid": 501.33946358292343,
+          "basement_height": 3319.6593989419225,
+          "water_height": 287.5068585961201,
+          "internal_water": 37.20508370485322
+        },
+        "difference": {
+          "floor": -0.523899931789856,
+          "total_height": 0,
+          "sediment_height": 0.32304727614246076,
+          "sediment_solid": 0.20697761498928458,
+          "basement_height": 9.094947017729282e-13,
+          "water_height": -0.32304727614337025,
+          "internal_water": 0.2008526556464858
+        },
+        "unit_height_difference": {
+          "1": 21.042590208375486,
+          "5": 2.0204764748453954,
+          "2": 10.203107875762953,
+          "0": 0.022243260292043487,
+          "6": 0.17390261848538557,
+          "7": -29.22866841379698,
+          "9": -1.4393611878560364,
+          "4": 0.11050962531510322,
+          "3": 1.2672315297616024,
+          "8": -3.8489847150424907
+        }
+      },
+      {
+        "step": 10,
+        "process": "compaction",
+        "x": 9920,
+        "current": {
+          "floor": 177.9623176675159,
+          "total_height": 4560,
+          "sediment_height": 1062.3782833905623,
+          "sediment_solid": 568.0813120818947,
+          "basement_height": 3319.6593989419216,
+          "water_height": 177.9623176675159,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 177.86551480525213,
+          "total_height": 4560,
+          "sediment_height": 1062.4750862528253,
+          "sediment_solid": 568.1669410059001,
+          "basement_height": 3319.6593989419225,
+          "water_height": 177.86551480525213,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -0.09680286226375756,
+          "total_height": 0,
+          "sediment_height": 0.09680286226307544,
+          "sediment_solid": 0.08562892400539113,
+          "basement_height": 9.094947017729282e-13,
+          "water_height": -0.09680286226375756,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 20.351042651132644,
+          "5": 1.6647241519772251,
+          "2": 9.700484370949383,
+          "0": -0.0025628121402831994,
+          "10": -0.2696340683659457,
+          "6": 0.14049965216933735,
+          "7": -27.672542192457684,
+          "9": -1.3319847971090155,
+          "4": 0.09298842091911297,
+          "3": 1.056799616298136,
+          "8": -3.6330121311101777
+        }
+      },
+      {
+        "step": 11,
+        "process": "thrust-slip",
+        "x": 9200,
+        "current": {
+          "floor": 220.7595032015148,
+          "total_height": 4560,
+          "sediment_height": 1052.5430202942048,
+          "sediment_solid": 562.0156976661774,
+          "basement_height": 3252.798708928465,
+          "water_height": 254.65827077733013,
+          "internal_water": 33.89876757581533
+        },
+        "candidate": {
+          "floor": 220.66270033925105,
+          "total_height": 4560,
+          "sediment_height": 1052.261461341685,
+          "sediment_solid": 561.859380153494,
+          "basement_height": 3252.798708928465,
+          "water_height": 254.93982972984975,
+          "internal_water": 34.2771293905987
+        },
+        "difference": {
+          "floor": -0.09680286226375756,
+          "total_height": 0,
+          "sediment_height": -0.28155895251984475,
+          "sediment_solid": -0.15631751268335847,
+          "basement_height": 0.0,
+          "water_height": 0.2815589525196174,
+          "internal_water": 0.37836181478337494
+        },
+        "unit_height_difference": {
+          "1": 20.323355253118734,
+          "5": 1.6647241519767704,
+          "2": 9.340491933113071,
+          "0": 0.006755208927188505,
+          "10": -0.269634068366031,
+          "6": 0.1404996521692965,
+          "7": -27.6725421924574,
+          "9": -1.3319847971091576,
+          "4": 0.09298842091914139,
+          "3": 1.0567996162986901,
+          "8": -3.633012131109922
+        }
+      },
+      {
+        "step": 11,
+        "process": "compaction",
+        "x": 9200,
+        "current": {
+          "floor": 245.0830109336439,
+          "total_height": 4560.000000000002,
+          "sediment_height": 1062.118280137891,
+          "sediment_solid": 566.288925681558,
+          "basement_height": 3252.798708928465,
+          "water_height": 245.0830109336439,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 245.42042399715774,
+          "total_height": 4559.999999999999,
+          "sediment_height": 1061.7808670743773,
+          "sediment_solid": 566.1326081688746,
+          "basement_height": 3252.798708928465,
+          "water_height": 245.42042399715774,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": 0.3374130635138499,
+          "total_height": -2.7284841053187847e-12,
+          "sediment_height": -0.33741306351362255,
+          "sediment_solid": -0.15631751268335847,
+          "basement_height": 0.0,
+          "water_height": 0.3374130635138499,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 20.264320154721474,
+          "5": 1.6379087301757522,
+          "2": 9.245647831536552,
+          "0": 0.009501186551659657,
+          "10": -0.2677340403565438,
+          "6": 0.1380388369747294,
+          "7": -27.554470748981657,
+          "9": -1.325653427663184,
+          "4": 0.09164060066245483,
+          "3": 1.0406829174002752,
+          "8": -3.6172951045367228,
+          "11": 0.0
+        }
+      }
+    ],
+    "final": {
+      "step": 15,
+      "process": "repair",
+      "x": 9200,
+      "current": {
+        "floor": 180.78188023729672,
+        "total_height": 4560.000000000001,
+        "sediment_height": 1347.2231693049182,
+        "sediment_solid": 760.1729439153199,
+        "basement_height": 3031.9949504577853,
+        "water_height": 180.78188023729672,
+        "internal_water": 0
+      },
+      "candidate": {
+        "floor": 180.80534056502893,
+        "total_height": 4560.000000000001,
+        "sediment_height": 1347.199708977182,
+        "sediment_solid": 760.1649434347559,
+        "basement_height": 3031.994950457789,
+        "water_height": 180.80534056502893,
+        "internal_water": 0
+      },
+      "difference": {
+        "floor": 0.023460327732209407,
+        "total_height": 0.0,
+        "sediment_height": -0.023460327736302133,
+        "sediment_solid": -0.008000480564078316,
+        "basement_height": 3.637978807091713e-12,
+        "water_height": 0.023460327732209407,
+        "internal_water": 0
+      },
+      "unit_height_difference": {
+        "1": 18.06105250217388,
+        "5": 1.0933974302870695,
+        "2": 10.519727122372196,
+        "0": 0.0005096460475044751,
+        "14": -0.0003477686432642457,
+        "10": -0.3672680263761947,
+        "12": 0.4523737609288325,
+        "6": 0.08927518977641569,
+        "7": -24.508666673587072,
+        "9": -2.048457689005076,
+        "13": 0.12387898946847997,
+        "15": 0.057185815867740075,
+        "4": 0.06378883752506859,
+        "3": 0.7076533067367166,
+        "8": -4.263152422419246,
+        "11": -0.004410348889065219
+      }
+    },
+    "extra_packet": {
+      "source_x": 11200,
+      "source_z": 720,
+      "destination_x": 11200,
+      "destination_z": 680,
+      "implemented_target_x": 11164.683461266577,
+      "implemented_target_z": 720.0341068535474,
+      "rounded_target_x": 11160,
+      "rounded_target_z": 720,
+      "rock_height": 36.01599181364077,
+      "height": 36.01599181364077,
+      "weight": 0.9003997953410192,
+      "incoming": true
+    },
+    "caution": "Repeated source identifiers are expected for distinct ghost inflow cells. The extra edge packet is a lateral reallocation of one accounted inflow parcel, not an unbudgeted duplicate. The target-neighbor ghost parcel has rounded target11160 but is placed11200,z680; a separate edge-target ghost parcel remains at11200,z720. The cellwise boundary reservoir is then reused by continuation."
+  },
+  "quiet_b_unit12_x6000": {
+    "interpretation": "The 10m trajectory changes local sediment inventory during successive thrust slips. Final slip leaves one additional cell height of sediment with unchanged basement. The first post-thrust deposition therefore produces a thinner unit12 by exactly the fill factor times that surface rise.",
+    "events": [
+      {
+        "step": 7,
+        "process": "subsidence",
+        "x": 6000,
+        "current": {
+          "floor": 276.42759242828936,
+          "water": 276.42759242828936,
+          "basement": 3305.5933933425695,
+          "sediment": 927.9790142291414,
+          "solid": 417.14637163847794,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 276.42759242828936,
+          "water": 276.42759242828936,
+          "basement": 3305.5933933425695,
+          "sediment": 927.9790142291414,
+          "solid": 417.3570188691391,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": 0.0,
+          "water": 0.0,
+          "basement": 0.0,
+          "sediment": 0.0,
+          "solid": 0.2106472306611522,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 0.0,
+          "6": 0.0,
+          "5": 2.016128776877963,
+          "2": 0.0,
+          "0": 0.0,
+          "4": -2.016128776877963,
+          "3": 0.0
+        }
+      },
+      {
+        "step": 7,
+        "process": "thrust-slip",
+        "x": 6000,
+        "current": {
+          "floor": 197.6197769756923,
+          "water": 204.52344173798545,
+          "basement": 3305.5933933425695,
+          "sediment": 999.8831649194453,
+          "solid": 445.9563456302476,
+          "internal_water": 6.903664762293147
+        },
+        "candidate": {
+          "floor": 195.1860881578472,
+          "water": 202.08975292014034,
+          "basement": 3305.5933933425695,
+          "sediment": 1002.3168537372904,
+          "solid": 446.87150038242055,
+          "internal_water": 6.903664762293147
+        },
+        "difference": {
+          "floor": -2.433688817845109,
+          "water": -2.433688817845109,
+          "basement": 0.0,
+          "sediment": 2.433688817845109,
+          "solid": 0.9151547521729526,
+          "internal_water": 0.0
+        },
+        "unit_height_difference": {
+          "1": 0.5644850087893474,
+          "6": 1.7597368419401391,
+          "5": 3.36829072237299,
+          "2": 0.0,
+          "0": 0.0,
+          "4": -5.752467755121188,
+          "3": 2.4936439998638207
+        }
+      },
+      {
+        "step": 8,
+        "process": "collapse",
+        "x": 6000,
+        "current": {
+          "floor": 129.12900149086238,
+          "water": 129.12900149086238,
+          "basement": 3228.681704029441,
+          "sediment": 1152.189294479697,
+          "solid": 516.6375014938197,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 119.12900149086238,
+          "water": 119.12900149086238,
+          "basement": 3228.681704029441,
+          "sediment": 1162.189294479697,
+          "solid": 520.9924526325406,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -10.0,
+          "water": -10.0,
+          "basement": 0.0,
+          "sediment": 10.0,
+          "solid": 4.354951138720821,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": -5.793275011918922,
+          "6": 4.59556866691841,
+          "7": 6.37686461237405,
+          "5": 3.7083556643208624,
+          "2": 5.793275011918922,
+          "0": 0.0,
+          "4": -2.2565126583087363,
+          "3": -2.424276285304586
+        }
+      },
+      {
+        "step": 9,
+        "process": "collapse",
+        "x": 6000,
+        "current": {
+          "floor": 109.07425769775728,
+          "water": 109.07425769775728,
+          "basement": 3151.7700147163123,
+          "sediment": 1249.1557275859307,
+          "solid": 562.9117335011377,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 105.98594701088587,
+          "water": 105.98594701088587,
+          "basement": 3151.7700147163123,
+          "sediment": 1252.244038272802,
+          "solid": 563.9112911728465,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -3.0883106868714094,
+          "water": -3.0883106868714094,
+          "basement": 0.0,
+          "sediment": 3.0883106868714094,
+          "solid": 0.9995576717087715,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": -0.8535146971611312,
+          "6": -7.792135415685621,
+          "7": 0.7240972889584185,
+          "5": 10.156348813598612,
+          "2": -3.9884282782977607,
+          "0": 0.0,
+          "4": 1.2528421542597243,
+          "3": 3.5891008211991675,
+          "8": 0.0
+        }
+      },
+      {
+        "step": 10,
+        "process": "collapse",
+        "x": 6000,
+        "current": {
+          "floor": 153.98126539698433,
+          "water": 153.98126539698433,
+          "basement": 3074.8583254031837,
+          "sediment": 1281.1604091998322,
+          "solid": 576.3176273813679,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 150,
+          "water": 150,
+          "basement": 3074.8583254031837,
+          "sediment": 1285.1416745968165,
+          "solid": 578.1123657093414,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -3.981265396984327,
+          "water": -3.981265396984327,
+          "basement": 0.0,
+          "sediment": 3.981265396984327,
+          "solid": 1.794738327973505,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 1.870764677238185,
+          "5": -6.680679379240587,
+          "2": -1.8707646772384123,
+          "0": 0.0,
+          "6": 11.565795553610371,
+          "7": 3.2986717362002764,
+          "9": -0.9156610991144021,
+          "4": -3.2868614144711046,
+          "3": -5.684341886080802e-14,
+          "8": 5.684341886080802e-14
+        }
+      },
+      {
+        "step": 11,
+        "process": "subsidence",
+        "x": 6000,
+        "current": {
+          "floor": 212.67013007349897,
+          "water": 212.67013007349897,
+          "basement": 2997.946636090055,
+          "sediment": 1299.3832338364462,
+          "solid": 584.4021214145291,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 208.68886467651464,
+          "water": 208.68886467651464,
+          "basement": 2997.946636090055,
+          "sediment": 1303.3644992334305,
+          "solid": 586.1968597425027,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -3.981265396984327,
+          "water": -3.981265396984327,
+          "basement": 0.0,
+          "sediment": 3.981265396984327,
+          "solid": 1.7947383279736187,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 1.870764677238185,
+          "5": -6.680679379240587,
+          "2": -1.8707646772384123,
+          "0": 0.0,
+          "10": 0.0,
+          "6": 11.565795553610371,
+          "7": 3.2986717362002764,
+          "9": -0.9156610991144021,
+          "4": -3.2868614144711046,
+          "3": -5.684341886080802e-14,
+          "8": 5.684341886080802e-14
+        }
+      },
+      {
+        "step": 11,
+        "process": "thrust-slip",
+        "x": 6000,
+        "current": {
+          "floor": 206.85179039199386,
+          "water": 206.85179039199386,
+          "basement": 2997.946636090055,
+          "sediment": 1305.2015735179514,
+          "solid": 586.3324820029844,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 196.85179039199386,
+          "water": 196.85179039199386,
+          "basement": 2997.946636090055,
+          "sediment": 1315.2015735179514,
+          "solid": 592.6473162117699,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -10.0,
+          "water": -10.0,
+          "basement": 0.0,
+          "sediment": 10.0,
+          "solid": 6.314834208785442,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 0.0,
+          "5": 9.662886029392268,
+          "2": 0.0,
+          "0": 0.0,
+          "10": 0.0,
+          "6": 5.990366847236487,
+          "7": 4.346747123371188,
+          "9": 0.0,
+          "4": -10.000000000000057,
+          "3": 1.1368683772161603e-13,
+          "8": 0.0
+        }
+      },
+      {
+        "step": 11,
+        "process": "collapse",
+        "x": 6000,
+        "current": {
+          "floor": 206.85179039199386,
+          "water": 206.85179039199386,
+          "basement": 2997.946636090055,
+          "sediment": 1305.2015735179514,
+          "solid": 586.3324820029844,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 196.85179039199386,
+          "water": 196.85179039199386,
+          "basement": 2997.946636090055,
+          "sediment": 1315.2015735179514,
+          "solid": 592.6473162117699,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -10.0,
+          "water": -10.0,
+          "basement": 0.0,
+          "sediment": 10.0,
+          "solid": 6.314834208785442,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 0.0,
+          "5": 9.662886029392268,
+          "2": 0.0,
+          "0": 0.0,
+          "10": 0.0,
+          "6": 5.990366847236487,
+          "7": 4.346747123371188,
+          "9": 0.0,
+          "4": -10.000000000000057,
+          "3": 1.1368683772161603e-13,
+          "8": 0.0
+        }
+      },
+      {
+        "step": 12,
+        "process": "erosion",
+        "x": 6000,
+        "current": {
+          "floor": 224.557145814798,
+          "water": 224.557145814798,
+          "basement": 2960.9733419213444,
+          "sediment": 1324.469512263858,
+          "solid": 594.5531708183031,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 214.557145814798,
+          "water": 214.557145814798,
+          "basement": 2960.9733419213444,
+          "sediment": 1334.469512263858,
+          "solid": 600.8680050270888,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -10.0,
+          "water": -10.0,
+          "basement": 0.0,
+          "sediment": 10.0,
+          "solid": 6.314834208785669,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 0.0,
+          "5": 9.662886029392268,
+          "2": 0.0,
+          "0": 0.0,
+          "10": 0.0,
+          "6": 5.990366847236487,
+          "7": 4.346747123371188,
+          "9": 0.0,
+          "4": -10.000000000000057,
+          "3": 1.1368683772161603e-13,
+          "8": 0.0,
+          "11": 0.0
+        }
+      },
+      {
+        "step": 12,
+        "process": "deposition",
+        "x": 6000,
+        "current": {
+          "floor": 142.036696925842,
+          "water": 142.036696925842,
+          "basement": 2960.9733419213444,
+          "sediment": 1406.9899611528137,
+          "solid": 632.4010666322272,
+          "internal_water": 0
+        },
+        "candidate": {
+          "floor": 140.99619411941504,
+          "water": 140.99619411941504,
+          "basement": 2960.9733419213435,
+          "sediment": 1408.0304639592412,
+          "solid": 634.544196989224,
+          "internal_water": 0
+        },
+        "difference": {
+          "floor": -1.0405028064269572,
+          "water": -1.0405028064269572,
+          "basement": -9.094947017729282e-13,
+          "sediment": 1.040502806427412,
+          "solid": 2.143130356996835,
+          "internal_water": 0
+        },
+        "unit_height_difference": {
+          "1": 3.410605131648481e-13,
+          "5": 9.662886029392268,
+          "2": 0.0,
+          "0": 0.0,
+          "10": 0.0,
+          "12": -8.959497193573029,
+          "6": 5.990366847236487,
+          "7": 4.346747123371188,
+          "9": 0.0,
+          "4": -9.999999999999943,
+          "3": 1.1368683772161603e-13,
+          "8": 0.0,
+          "11": 0.0
+        }
+      }
+    ],
+    "deposition_identity": {
+      "forcing": {
+        "step": 12,
+        "waterDepth": 68.66335408296436,
+        "fill": 0.8959497193573043,
+        "drape": 9.881321096327156
+      },
+      "surface_difference_m": -10.0,
+      "expected_unit12_difference_m": -8.959497193573043,
+      "observed_unit12_difference_m": -8.959497193573029,
+      "residual_m": 1.4210854715202004e-14
+    },
+    "final": {
+      "step": 13,
+      "process": "repair",
+      "x": 6000,
+      "current": {
+        "floor": 163.83185070784648,
+        "water": 163.83185070784648,
+        "basement": 2924.0000477526337,
+        "sediment": 1422.1681015395195,
+        "solid": 638.4592231350657,
+        "internal_water": 0
+      },
+      "candidate": {
+        "floor": 162.79134790141953,
+        "water": 162.79134790141953,
+        "basement": 2924.000047752633,
+        "sediment": 1423.2086043459478,
+        "solid": 640.6023534920625,
+        "internal_water": 0
+      },
+      "difference": {
+        "floor": -1.0405028064269572,
+        "water": -1.0405028064269572,
+        "basement": -9.094947017729282e-13,
+        "sediment": 1.0405028064283215,
+        "solid": 2.143130356996835,
+        "internal_water": 0
+      },
+      "unit_height_difference": {
+        "1": 1.0231815394945443e-12,
+        "5": 9.662886029392268,
+        "2": 0.0,
+        "0": 0.0,
+        "10": 0.0,
+        "12": -8.959497193573014,
+        "6": 5.990366847236487,
+        "7": 4.346747123371188,
+        "9": 0.0,
+        "13": 0.0,
+        "4": -9.999999999999943,
+        "3": 1.1368683772161603e-13,
+        "8": 0.0,
+        "11": -2.842170943040401e-14
+      }
+    },
+    "final_slip_hanging_wall": {
+      "current": {
+        "packets": 87,
+        "packet_bulk_height": 866.5745753425208,
+        "unit_bulk_heights": {
+          "10": 18.22282463661395,
+          "1": 179.71284728076125,
+          "7": 9.009833608878694,
+          "6": 31.311932283225133,
+          "5": 95.45447807117108,
+          "-1": 6.851790391993859,
+          "9": 14.695222151931375,
+          "2": 67.94299041425654,
+          "4": 147.60154264945436,
+          "3": 289.2881415843567,
+          "8": 6.482972269877848
+        }
+      },
+      "candidate": {
+        "packets": 88,
+        "packet_bulk_height": 876.5745753425208,
+        "unit_bulk_heights": {
+          "10": 18.22282463661395,
+          "1": 179.71284728076125,
+          "7": 13.356580732249881,
+          "6": 37.30229913046162,
+          "5": 105.11736410056335,
+          "-1": 6.851790391993859,
+          "9": 14.695222151931375,
+          "2": 67.94299041425654,
+          "4": 137.6015426494543,
+          "3": 289.2881415843568,
+          "8": 6.482972269877848
+        }
+      }
+    },
+    "caution": "This establishes discrete allocation/accommodation sensitivity, not a particular near-half-cell threshold. Several earlier packet distributions differ, so the final10m surface jump alone cannot identify one causal rounding decision."
+  },
+  "separation_from_original_fix": "All five original coarse outlier rows atx8400 remain eligible across prior/current/candidate; their coarse RMS drops19.601453\u2192.387224m (prior.345547). The new x9200 defect and quietB unit12 discrepancy are separate tradeoffs; neither should be suppressed by eligibility changes."
+}

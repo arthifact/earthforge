@@ -16,7 +16,7 @@ await mkdir(out, { recursive: true });
 const hash = x => createHash('sha256').update(x).digest('hex');
 const planBytes = await readFile(resolve(root, 'validation/numerics/plan.json'));
 const plan = JSON.parse(planBytes);
-const sourceFiles = ['src/basin.ts', 'src/conservativeTransport.ts', 'src/strata.ts', 'src/normalTransport.ts', 'src/sedimentBudget.ts', 'src/window.ts', 'validation/numerics/metrics.mjs', 'validation/numerics/run.mjs'];
+const sourceFiles = ['src/basin.ts', 'src/conservativeTransport.ts', 'src/capacityTransport.ts', 'src/capacitySlices.ts', 'src/exactLength.ts', 'src/subsidence.ts', 'src/strata.ts', 'src/normalTransport.ts', 'src/normalGeometry.ts', 'src/thrustGeometry.ts', 'src/faultTrace.ts', 'src/sedimentBudget.ts', 'src/window.ts', 'validation/numerics/metrics.mjs', 'validation/numerics/run.mjs'];
 const hashes = Object.fromEntries(await Promise.all(sourceFiles.map(async p => [p, hash(await readFile(resolve(root, p)))])));
 const bundle = await build({ entryPoints: [resolve(root, 'src/basin.ts')], bundle: true, platform: 'node', format: 'esm', write: false });
 const { simulate, BASIN_DEFAULTS, windowOf, layerVelocity } = await import(`data:text/javascript;base64,${Buffer.from(bundle.outputFiles[0].contents).toString('base64')}`);

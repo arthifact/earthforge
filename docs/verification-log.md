@@ -851,3 +851,60 @@ No observational arrays or split files were read or changed. The unchanged
 synthetic exporter helper and its benchmark metadata were used by the existing
 regression. Python importer tests were not rerun because that code and data
 path were unchanged. The holdout remains untouched.
+
+## Normal-fault grid sensitivity (2026-10-12)
+
+The [fault geometry repair](fault-grid-sensitivity.md) preserves prescribed normal
+fault origins and fractional growth tips. All 77 tests, the build and all 4,494
+budgets across the unchanged 36-run study pass. On 197 shared fault samples,
+20-to-10 m RMS differences change from 10.089
+to 5.479 m. Changes to bed metrics are smaller
+and not uniformly improving. All no-fault and compression controls reproduce
+the baseline. A broader thrust-bend prototype was rejected for coupled numerical
+regressions. Existing tolerances, physical histories and holdout remain unchanged.
+
+
+## Thrust coupling repair (2026-10-12)
+
+The [thrust coupling diagnosis](thrust-coupling-repair.md) separates artificial
+allocation-gap displacement from physical deformation and retains separate
+passive fault branches. All 93 tests, the build and 4,494 event budgets pass.
+The rejected prototype's 101.223 m fine-grid fault-depth jump at coupled A,
+x=4,400 m falls to 1.996 m. Relative to the accepted baseline, shared fault-depth
+RMS improves, but travel-time RMS changes from 0.823 to 0.840 ms and thickness
+differences worsen. No uniform convergence or field accuracy is claimed. All
+21 no-fault/extension runs are unchanged; holdout and development arrays remain
+untouched. The report includes unchanged gates, coverage and both comparison baselines.
+
+
+## Travel-time and thickness repair (2026-10-12)
+
+The [travel-time and thickness repair](travel-thickness-repair.md) preserves
+parcel displacement during compaction and moves only the hanging-wall portion
+of cells cut by a thrust. On 1,277 shared intervals, fine-grid thickness RMS
+changes from 4.265 to 3.877 m; on 144 profiles, travel-time RMS changes from
+0.840 to 0.567 ms. All three coupled compression cases improve on both measures.
+Quiet thrust B still worsens, and coarse thickness/fault-depth regressions
+remain documented. The same 36 runs close all 4,494 budgets, with zero repair-added
+sediment. Eligibility changes from 1,311 to 1,299, with all status transitions
+retained. All 103 tests pass. Type checking and the build pass. Existing
+physical gates and all 21 no-fault/extension ledgers and samples are unchanged.
+No observational arrays or split files were read or changed; holdout untouched.
+
+
+## Isolated thrust B repair (2026-10-13)
+
+The [isolated thrust B repair](thrust-b-repair.md) weights placement cost by
+occupied rock volume, resolving the equal-cost treatment of thin and full packets.
+Its fine thickness RMS changes from 2.156 to 0.459 m and fine travel RMS from
+0.198 to 0.131 ms on shared samples. Recovery against the earlier pre-cut version
+is incomplete; coupled and isolated-A tradeoffs remain documented. The same 36 runs
+close all 4,494 event budgets, with zero repair-added grains. All 21 no-fault/extension
+runs reproduce the baseline. All 108 tests pass. Type checking and the build pass.
+Eligibility rules, history, physical gates and tolerances are unchanged. No observational
+arrays or split files were read or modified; holdout untouched.
+
+
+## 2026-10-13 — constituent thrust flow and coupled comparison
+
+The [constituent thrust-motion correction](coupled-travel-repair.md) integrates each material constituent across fault bends and uses exact quantized matching. 117 distinct tests are verified across the initial full run and the successful targeted rerun; all 36 conservation runs close. Shared 20–10 m travel RMS changes from 0.613 to 0.514 ms; 40–20 m changes from 1.371 to 1.554 ms. Coupled A’s original upstream accommodation defect is largely recovered, but local and coarse-grid regressions remain. The report retains every regression and eligibility change. Holdout untouched.

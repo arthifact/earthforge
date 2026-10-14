@@ -1,0 +1,1082 @@
+{
+  "schema": "earthforge-incoming-boundary-column-prototype-v1",
+  "status": "rejected standalone: fixes new boundary-associated A row while reviving prior A thickness errors",
+  "production_source_changed": false,
+  "holdout_accessed": false,
+  "scope": "Current area-moment + exact quantized matching candidate; only incoming ghost packets receive fixed destination column equal to prescribed backtrace target i. Retained packets, ghost donor/flux calculation, capacity, radius2/3, and continuous offsets unchanged. Both greedy and augmenting edges enforce constraint; no silent unlock.",
+  "analytical_justification": "Boundary continuation prescribes spatial injection locations, so allocator redistribution between boundary columns can change the edge profile reused by later inflow. The hard incoming-column rule is a plausible boundary projection, but it competes for destination slots with free retained parcels.",
+  "interpretation": [
+    "Budgets close at every tested grid in all four pilot cases; no sediment is discarded or manufactured by the assignment constraint. The prescribed inflow calculation is unchanged within an event. Later flux amounts can change through feedback because the next boundary donor column has changed.",
+    "A fixed incoming slot removes alternatives from global matching; retained packets on augmenting paths must use other slots. These changes alter per-column inventories and deposition accommodation, and later transport carries those differences into the model interior.",
+    "For coupledA, the newu7@9200 boundary-associated deficit largely disappears, but five original8400 interval regressions return. Conserved total sediment does not imply stable per-column deposition or thickness."
+  ],
+  "checks": {
+    "passed": true,
+    "free_destination": [
+      7,
+      8
+    ],
+    "constrained_destination": [
+      7,
+      4
+    ],
+    "explicit_infeasibility": true,
+    "checks": [
+      {
+        "h": 40,
+        "dir": -1,
+        "incoming": 8,
+        "inflow": 4224,
+        "outflow": 4224,
+        "budget_closed": true
+      },
+      {
+        "h": 40,
+        "dir": 1,
+        "incoming": 8,
+        "inflow": 4224,
+        "outflow": 4224,
+        "budget_closed": true
+      },
+      {
+        "h": 20,
+        "dir": -1,
+        "incoming": 8,
+        "inflow": 1056,
+        "outflow": 1056,
+        "budget_closed": true
+      },
+      {
+        "h": 20,
+        "dir": 1,
+        "incoming": 8,
+        "inflow": 1056,
+        "outflow": 1056,
+        "budget_closed": true
+      },
+      {
+        "h": 10,
+        "dir": -1,
+        "incoming": 8,
+        "inflow": 264,
+        "outflow": 264,
+        "budget_closed": true
+      },
+      {
+        "h": 10,
+        "dir": 1,
+        "incoming": 8,
+        "inflow": 264,
+        "outflow": 264,
+        "budget_closed": true
+      }
+    ]
+  },
+  "runs": [
+    {
+      "id": "coupled-compression-a",
+      "sources": {
+        "basin_sha256": "7fe5549c767bf9a57597209d8152a7c364ed463feddb17133d0152df85d5dd81",
+        "transport_sha256": "5c52a44fe38148c32037a6a26bfc194460de61eb431a30bef7aa25d4dae15701"
+      },
+      "coverage": [
+        {
+          "name": "weighted_baseline",
+          "included": 50
+        },
+        {
+          "name": "area_bigint",
+          "included": 48
+        },
+        {
+          "name": "incoming_column",
+          "included": 48
+        }
+      ],
+      "metrics": {
+        "thickness_m": {
+          "weighted_baseline": {
+            "n": 43,
+            "coarse_rms": 7.177597696204578,
+            "fine_rms": 2.86180754150657,
+            "coarse_max": 25.593799839522262,
+            "fine_max": 15.811922587136223
+          },
+          "area_bigint": {
+            "n": 43,
+            "coarse_rms": 4.673571189212793,
+            "fine_rms": 2.8624493249556697,
+            "coarse_max": 25.21609483747784,
+            "fine_max": 15.79046491929148
+          },
+          "incoming_column": {
+            "n": 43,
+            "coarse_rms": 7.067696000040831,
+            "fine_rms": 2.2411856737782934,
+            "coarse_max": 25.602271520337695,
+            "fine_max": 14.14711976067224
+          }
+        },
+        "effective_velocity_m_s": {
+          "weighted_baseline": {
+            "n": 43,
+            "coarse_rms": 3.1814618948574354,
+            "fine_rms": 1.2170021514146634,
+            "coarse_max": 10.252331985283718,
+            "fine_max": 6.0132616392356795
+          },
+          "area_bigint": {
+            "n": 43,
+            "coarse_rms": 1.3666541855634404,
+            "fine_rms": 1.2268966640780332,
+            "coarse_max": 6.955307428145261,
+            "fine_max": 6.012886615451407
+          },
+          "incoming_column": {
+            "n": 43,
+            "coarse_rms": 5.444811022361581,
+            "fine_rms": 0.7280711290360503,
+            "coarse_max": 16.6803795952153,
+            "fine_max": 4.325058053814246
+          }
+        },
+        "vertical_travel_time_s": {
+          "weighted_baseline": {
+            "n": 12,
+            "coarse_rms": 0.0005666176661776568,
+            "fine_rms": 0.00038177579543694705,
+            "coarse_max": 0.001057859429104524,
+            "fine_max": 0.0009512735289605168
+          },
+          "area_bigint": {
+            "n": 12,
+            "coarse_rms": 0.00042320476065654003,
+            "fine_rms": 0.0001717093298437027,
+            "coarse_max": 0.0009046510302029853,
+            "fine_max": 0.0003787372373003084
+          },
+          "incoming_column": {
+            "n": 12,
+            "coarse_rms": 0.0005053785765826436,
+            "fine_rms": 0.0001775536511329657,
+            "coarse_max": 0.0009052108995801778,
+            "fine_max": 0.0003768308938182363
+          }
+        },
+        "fault_depth_m": {
+          "weighted_baseline": {
+            "n": 22,
+            "coarse_rms": 2.8960232958455396,
+            "fine_rms": 0.47215735590194857,
+            "coarse_max": 7.440453309746999,
+            "fine_max": 1.0146014932906837
+          },
+          "area_bigint": {
+            "n": 22,
+            "coarse_rms": 2.868509654253694,
+            "fine_rms": 0.40260319750573864,
+            "coarse_max": 7.443106711787777,
+            "fine_max": 0.8621659245868614
+          },
+          "incoming_column": {
+            "n": 22,
+            "coarse_rms": 2.865298575468503,
+            "fine_rms": 0.40323580714487184,
+            "coarse_max": 7.443102464165804,
+            "fine_max": 0.8621747683089325
+          }
+        }
+      },
+      "budgets": [
+        {
+          "h": 40,
+          "summary": {
+            "closed": true,
+            "failedEvents": 0,
+            "totalResidual": -3.334134817123413e-7,
+            "maxEventResidual": 1.2945383787155151e-7,
+            "maxNormalizedEventResidual": 1.8717426539656985e-13
+          }
+        },
+        {
+          "h": 20,
+          "summary": {
+            "closed": true,
+            "failedEvents": 0,
+            "totalResidual": -2.4586915969848633e-7,
+            "maxEventResidual": 2.2910535335540771e-7,
+            "maxNormalizedEventResidual": 5.1284398815582496e-14
+          }
+        },
+        {
+          "h": 10,
+          "summary": {
+            "closed": true,
+            "failedEvents": 0,
+            "totalResidual": 0.0000011175870895385742,
+            "maxEventResidual": 0.0000016987323760986328,
+            "maxNormalizedEventResidual": 2.813081165796134e-13
+          }
+        }
+      ],
+      "performance": [
+        {
+          "variant": "incomingcolumn",
+          "id": "coupled-compression-a",
+          "h": 40,
+          "seconds": 2.2637486250000003,
+          "closed": true,
+          "parts": 77256,
+          "stats": {
+            "parcels": 27063,
+            "incoming": 1388
+          }
+        },
+        {
+          "variant": "incomingcolumn",
+          "id": "coupled-compression-a",
+          "h": 20,
+          "seconds": 7.065782875000001,
+          "closed": true,
+          "parts": 162465,
+          "stats": {
+            "parcels": 101644,
+            "incoming": 5321
+          }
+        },
+        {
+          "variant": "incomingcolumn",
+          "id": "coupled-compression-a",
+          "h": 10,
+          "seconds": 30.667589457999995,
+          "closed": true,
+          "parts": 343734,
+          "stats": {
+            "parcels": 394405,
+            "incoming": 20802
+          }
+        }
+      ],
+      "original_five_rows": {
+        "weighted_baseline": {
+          "summary": {
+            "n": 5,
+            "coarse_rms": 19.60145306221746,
+            "fine_rms": 0.11381318734842297
+          },
+          "rows": [
+            {
+              "key": "unit:10:8400",
+              "metric": "thickness_m",
+              "values": [
+                148.77454265781694,
+                126.2628735850077,
+                126.05016641890882
+              ],
+              "coarse": 22.51166907280924,
+              "fine": 0.2127071660988804,
+              "ratio": 0.009448751463559809,
+              "classification": "monotonic-contracting"
+            },
+            {
+              "key": "unit:13:8400",
+              "metric": "thickness_m",
+              "values": [
+                94.85932162901446,
+                114.87152777593792,
+                114.93437816151845
+              ],
+              "coarse": -20.01220614692346,
+              "fine": -0.06285038558053202,
+              "ratio": 0.0031406025462212325,
+              "classification": "monotonic-contracting"
+            },
+            {
+              "key": "unit:15:8400",
+              "metric": "thickness_m",
+              "values": [
+                242.92589174775344,
+                252.83580205882566,
+                252.85868553315254
+              ],
+              "coarse": -9.909910311072224,
+              "fine": -0.022883474326874875,
+              "ratio": 0.0023091504976899178,
+              "classification": "monotonic-contracting"
+            },
+            {
+              "key": "unit:7:8400",
+              "metric": "thickness_m",
+              "values": [
+                124.70209804938395,
+                140.84434878594197,
+                140.77378050047423
+              ],
+              "coarse": -16.142250736558026,
+              "fine": 0.07056828546774341,
+              "ratio": 0.004371650931423366,
+              "classification": "oscillatory-contracting"
+            },
+            {
+              "key": "unit:9:8400",
+              "metric": "thickness_m",
+              "values": [
+                96.82207285771642,
+                122.41587269723868,
+                122.51621791278717
+              ],
+              "coarse": -25.593799839522262,
+              "fine": -0.10034521554848652,
+              "ratio": 0.003920684547729102,
+              "classification": "monotonic-contracting"
+            }
+          ]
+        },
+        "area_bigint": {
+          "summary": {
+            "n": 5,
+            "coarse_rms": 0.38722415757347733,
+            "fine_rms": 0.3697390247497262
+          },
+          "rows": [
+            {
+              "key": "unit:10:8400",
+              "metric": "thickness_m",
+              "values": [
+                126.19324406635292,
+                126.25954540938278,
+                125.96456778223921
+              ],
+              "coarse": -0.06630134302986335,
+              "fine": 0.2949776271435667,
+              "ratio": 4.449044524040837,
+              "classification": "oscillatory-noncontracting"
+            },
+            {
+              "key": "unit:13:8400",
+              "metric": "thickness_m",
+              "values": [
+                114.71192077674607,
+                114.8684665456185,
+                115.30870791263203
+              ],
+              "coarse": -0.15654576887243365,
+              "fine": -0.44024136701352745,
+              "ratio": 2.8122214364814435,
+              "classification": "monotonic-noncontracting"
+            },
+            {
+              "key": "unit:15:8400",
+              "metric": "thickness_m",
+              "values": [
+                252.76493689176152,
+                252.83650203966891,
+                253.06158851613827
+              ],
+              "coarse": -0.07156514790739266,
+              "fine": -0.22508647646935742,
+              "ratio": 3.1451968318520875,
+              "classification": "monotonic-noncontracting"
+            },
+            {
+              "key": "unit:7:8400",
+              "metric": "thickness_m",
+              "values": [
+                140.19492964818653,
+                140.84134706660166,
+                140.25299456113726
+              ],
+              "coarse": -0.6464174184151261,
+              "fine": 0.5883525054643997,
+              "ratio": 0.910174275481176,
+              "classification": "oscillatory-contracting"
+            },
+            {
+              "key": "unit:9:8400",
+              "metric": "thickness_m",
+              "values": [
+                122.961368600568,
+                122.41562759424949,
+                122.49236010231209
+              ],
+              "coarse": 0.545741006318508,
+              "fine": -0.07673250806260512,
+              "ratio": 0.14060242344666718,
+              "classification": "oscillatory-contracting"
+            }
+          ]
+        },
+        "incoming_column": {
+          "summary": {
+            "n": 5,
+            "coarse_rms": 19.66764163217191,
+            "fine_rms": 0.10647711297764997
+          },
+          "rows": [
+            {
+              "key": "unit:10:8400",
+              "metric": "thickness_m",
+              "values": [
+                148.77851552992115,
+                126.22872456020127,
+                126.03700347807387
+              ],
+              "coarse": 22.54979096971988,
+              "fine": 0.19172108212740113,
+              "ratio": 0.008502122364896704,
+              "classification": "monotonic-contracting"
+            },
+            {
+              "key": "unit:13:8400",
+              "metric": "thickness_m",
+              "values": [
+                94.83740022927498,
+                114.78197190119806,
+                114.85309845752232
+              ],
+              "coarse": -19.944571671923086,
+              "fine": -0.07112655632425913,
+              "ratio": 0.0035662112726335122,
+              "classification": "monotonic-contracting"
+            },
+            {
+              "key": "unit:15:8400",
+              "metric": "thickness_m",
+              "values": [
+                242.9518371549159,
+                252.79226632449996,
+                252.82338385286266
+              ],
+              "coarse": -9.84042916958407,
+              "fine": -0.03111752836269943,
+              "ratio": 0.0031622125241123696,
+              "classification": "monotonic-contracting"
+            },
+            {
+              "key": "unit:7:8400",
+              "metric": "thickness_m",
+              "values": [
+                124.25004656639464,
+                140.84797630659045,
+                140.90575237363828
+              ],
+              "coarse": -16.59792974019581,
+              "fine": -0.05777606704782556,
+              "ratio": 0.0034809200877569187,
+              "classification": "monotonic-contracting"
+            },
+            {
+              "key": "unit:9:8400",
+              "metric": "thickness_m",
+              "values": [
+                96.82184093301669,
+                122.42411245335438,
+                122.5268964165914
+              ],
+              "coarse": -25.602271520337695,
+              "fine": -0.102783963237016,
+              "ratio": 0.004014642339659878,
+              "classification": "monotonic-contracting"
+            }
+          ]
+        }
+      },
+      "new_boundary_row": {
+        "weighted_baseline": {
+          "key": "unit:7:9200",
+          "metric": "thickness_m",
+          "values": [
+            140.76192883190606,
+            141.4697861884539,
+            135.8126303081849
+          ],
+          "coarse": -0.7078573565478337,
+          "fine": 5.657155880268988,
+          "ratio": 7.991943331434041,
+          "classification": "oscillatory-noncontracting"
+        },
+        "area_bigint": {
+          "key": "unit:7:9200",
+          "metric": "thickness_m",
+          "values": [
+            116.2532621583191,
+            141.46935699579694,
+            135.812268587174
+          ],
+          "coarse": -25.21609483747784,
+          "fine": 5.65708840862294,
+          "ratio": 0.224344350109875,
+          "classification": "oscillatory-contracting"
+        },
+        "incoming_column": {
+          "key": "unit:7:9200",
+          "metric": "thickness_m",
+          "values": [
+            139.23051947994486,
+            140.6732929468626,
+            140.73383136060727
+          ],
+          "coarse": -1.4427734669177426,
+          "fine": -0.060538413744666286,
+          "ratio": 0.04195974983792642,
+          "classification": "monotonic-contracting"
+        }
+      }
+    },
+    {
+      "id": "coupled-compression-b",
+      "sources": {
+        "basin_sha256": "7fe5549c767bf9a57597209d8152a7c364ed463feddb17133d0152df85d5dd81",
+        "transport_sha256": "5c52a44fe38148c32037a6a26bfc194460de61eb431a30bef7aa25d4dae15701"
+      },
+      "coverage": [
+        {
+          "name": "weighted_baseline",
+          "included": 103
+        },
+        {
+          "name": "area_bigint",
+          "included": 101
+        },
+        {
+          "name": "incoming_column",
+          "included": 97
+        }
+      ],
+      "metrics": {
+        "thickness_m": {
+          "weighted_baseline": {
+            "n": 89,
+            "coarse_rms": 4.360667651672935,
+            "fine_rms": 1.365390340579107,
+            "coarse_max": 21.450532034116804,
+            "fine_max": 7.324842858136776
+          },
+          "area_bigint": {
+            "n": 89,
+            "coarse_rms": 4.452183262561221,
+            "fine_rms": 1.0772210760973029,
+            "coarse_max": 21.89616123169003,
+            "fine_max": 7.446319266496971
+          },
+          "incoming_column": {
+            "n": 89,
+            "coarse_rms": 5.200844203561859,
+            "fine_rms": 0.9823714949901967,
+            "coarse_max": 27.53171775924443,
+            "fine_max": 7.575954958243415
+          }
+        },
+        "effective_velocity_m_s": {
+          "weighted_baseline": {
+            "n": 89,
+            "coarse_rms": 3.430942020859264,
+            "fine_rms": 1.6245770181162913,
+            "coarse_max": 17.264224567820747,
+            "fine_max": 6.547484942017036
+          },
+          "area_bigint": {
+            "n": 89,
+            "coarse_rms": 4.026907493067812,
+            "fine_rms": 1.0078058884404715,
+            "coarse_max": 17.382098376679096,
+            "fine_max": 3.963074480819614
+          },
+          "incoming_column": {
+            "n": 89,
+            "coarse_rms": 3.671764731873549,
+            "fine_rms": 0.7465117257046519,
+            "coarse_max": 20.12528734839907,
+            "fine_max": 5.90884338267324
+          }
+        },
+        "vertical_travel_time_s": {
+          "weighted_baseline": {
+            "n": 12,
+            "coarse_rms": 0.0002592474187587496,
+            "fine_rms": 0.00027430665585910415,
+            "coarse_max": 0.0006231488887373793,
+            "fine_max": 0.0006478970991037336
+          },
+          "area_bigint": {
+            "n": 12,
+            "coarse_rms": 0.00022641821251420433,
+            "fine_rms": 0.0001559506735240612,
+            "coarse_max": 0.0005286928587215911,
+            "fine_max": 0.0003638019112657265
+          },
+          "incoming_column": {
+            "n": 12,
+            "coarse_rms": 0.0003367232320172919,
+            "fine_rms": 0.00020898908311697687,
+            "coarse_max": 0.0007119407481133155,
+            "fine_max": 0.0005953807196585892
+          }
+        },
+        "fault_depth_m": {
+          "weighted_baseline": {
+            "n": 24,
+            "coarse_rms": 0.4887385852991888,
+            "fine_rms": 0.3313398223990614,
+            "coarse_max": 1.1319079876234355,
+            "fine_max": 0.8189125533663173
+          },
+          "area_bigint": {
+            "n": 24,
+            "coarse_rms": 0.665757018614377,
+            "fine_rms": 0.21344822622045187,
+            "coarse_max": 1.3222698788699745,
+            "fine_max": 0.6069899281692415
+          },
+          "incoming_column": {
+            "n": 24,
+            "coarse_rms": 0.43089620716100946,
+            "fine_rms": 0.13221647781741155,
+            "coarse_max": 0.9911409268813713,
+            "fine_max": 0.3841769855043822
+          }
+        }
+      },
+      "budgets": [
+        {
+          "h": 40,
+          "summary": {
+            "closed": true,
+            "failedEvents": 0,
+            "totalResidual": -2.980232238769531e-7,
+            "maxEventResidual": 3.632158041000366e-7,
+            "maxNormalizedEventResidual": 3.9472609095836936e-14
+          }
+        },
+        {
+          "h": 20,
+          "summary": {
+            "closed": true,
+            "failedEvents": 0,
+            "totalResidual": 8.046627044677734e-7,
+            "maxEventResidual": 6.332993507385254e-7,
+            "maxNormalizedEventResidual": 4.339708488724137e-14
+          }
+        },
+        {
+          "h": 10,
+          "summary": {
+            "closed": true,
+            "failedEvents": 0,
+            "totalResidual": -3.501772880554199e-7,
+            "maxEventResidual": 9.611248970031738e-7,
+            "maxNormalizedEventResidual": 1.0529025165484434e-13
+          }
+        }
+      ],
+      "performance": [
+        {
+          "variant": "incomingcolumn",
+          "id": "coupled-compression-b",
+          "h": 40,
+          "seconds": 5.79377475,
+          "closed": true,
+          "parts": 155742,
+          "stats": {
+            "parcels": 72686,
+            "incoming": 1711
+          }
+        },
+        {
+          "variant": "incomingcolumn",
+          "id": "coupled-compression-b",
+          "h": 20,
+          "seconds": 21.173386667000003,
+          "closed": true,
+          "parts": 314549,
+          "stats": {
+            "parcels": 284779,
+            "incoming": 6752
+          }
+        },
+        {
+          "variant": "incomingcolumn",
+          "id": "coupled-compression-b",
+          "h": 10,
+          "seconds": 132.004392583,
+          "closed": true,
+          "parts": 718620,
+          "stats": {
+            "parcels": 1126621,
+            "incoming": 26585
+          }
+        }
+      ]
+    },
+    {
+      "id": "coupled-compression-c",
+      "sources": {
+        "basin_sha256": "7fe5549c767bf9a57597209d8152a7c364ed463feddb17133d0152df85d5dd81",
+        "transport_sha256": "5c52a44fe38148c32037a6a26bfc194460de61eb431a30bef7aa25d4dae15701"
+      },
+      "coverage": [
+        {
+          "name": "weighted_baseline",
+          "included": 71
+        },
+        {
+          "name": "area_bigint",
+          "included": 70
+        },
+        {
+          "name": "incoming_column",
+          "included": 71
+        }
+      ],
+      "metrics": {
+        "thickness_m": {
+          "weighted_baseline": {
+            "n": 58,
+            "coarse_rms": 7.095376825623249,
+            "fine_rms": 3.0127230135266743,
+            "coarse_max": 26.104986310298727,
+            "fine_max": 12.239639768271218
+          },
+          "area_bigint": {
+            "n": 58,
+            "coarse_rms": 8.101449943047117,
+            "fine_rms": 1.5118594082013308,
+            "coarse_max": 35.72905033504844,
+            "fine_max": 6.822285856681049
+          },
+          "incoming_column": {
+            "n": 58,
+            "coarse_rms": 9.244225898355179,
+            "fine_rms": 1.5650660357128299,
+            "coarse_max": 39.401621393098026,
+            "fine_max": 8.594746216676867
+          }
+        },
+        "effective_velocity_m_s": {
+          "weighted_baseline": {
+            "n": 58,
+            "coarse_rms": 6.123188034679513,
+            "fine_rms": 2.7243424228656203,
+            "coarse_max": 29.024527651270546,
+            "fine_max": 10.88819021412155
+          },
+          "area_bigint": {
+            "n": 58,
+            "coarse_rms": 7.8374353144401505,
+            "fine_rms": 1.8618260975233416,
+            "coarse_max": 31.709877641285402,
+            "fine_max": 10.748479573845088
+          },
+          "incoming_column": {
+            "n": 58,
+            "coarse_rms": 5.308098339276422,
+            "fine_rms": 1.1166393496912008,
+            "coarse_max": 17.878025632671097,
+            "fine_max": 4.489765917037175
+          }
+        },
+        "vertical_travel_time_s": {
+          "weighted_baseline": {
+            "n": 12,
+            "coarse_rms": 0.0032647251897157227,
+            "fine_rms": 0.0017468775667758855,
+            "coarse_max": 0.007716935495480692,
+            "fine_max": 0.0038997634501294343
+          },
+          "area_bigint": {
+            "n": 12,
+            "coarse_rms": 0.004142448145663671,
+            "fine_rms": 0.0012327274321715107,
+            "coarse_max": 0.007747142262185758,
+            "fine_max": 0.003020380725041738
+          },
+          "incoming_column": {
+            "n": 12,
+            "coarse_rms": 0.0028086917020171934,
+            "fine_rms": 0.0010364641552155377,
+            "coarse_max": 0.005196875481557006,
+            "fine_max": 0.0023451917726746707
+          }
+        },
+        "fault_depth_m": {
+          "weighted_baseline": {
+            "n": 31,
+            "coarse_rms": 1.8532925856596747,
+            "fine_rms": 1.2104168059582971,
+            "coarse_max": 6.255025018997003,
+            "fine_max": 3.39191421446003
+          },
+          "area_bigint": {
+            "n": 31,
+            "coarse_rms": 1.9951950066616548,
+            "fine_rms": 1.1240473588014546,
+            "coarse_max": 6.706715229307747,
+            "fine_max": 3.085272211090796
+          },
+          "incoming_column": {
+            "n": 31,
+            "coarse_rms": 2.074576952744743,
+            "fine_rms": 1.0552864944308542,
+            "coarse_max": 7.179211161983403,
+            "fine_max": 2.8907391105926763
+          }
+        }
+      },
+      "budgets": [
+        {
+          "h": 40,
+          "summary": {
+            "closed": true,
+            "failedEvents": 0,
+            "totalResidual": -7.82310962677002e-8,
+            "maxEventResidual": 1.2479722499847412e-7,
+            "maxNormalizedEventResidual": 2.1021083354179666e-14
+          }
+        },
+        {
+          "h": 20,
+          "summary": {
+            "closed": true,
+            "failedEvents": 0,
+            "totalResidual": 1.862645149230957e-7,
+            "maxEventResidual": 2.2351741790771484e-7,
+            "maxNormalizedEventResidual": 3.877213194599978e-14
+          }
+        },
+        {
+          "h": 10,
+          "summary": {
+            "closed": true,
+            "failedEvents": 0,
+            "totalResidual": 0.000004231929779052734,
+            "maxEventResidual": 8.67992639541626e-7,
+            "maxNormalizedEventResidual": 9.508737760834711e-14
+          }
+        }
+      ],
+      "performance": [
+        {
+          "variant": "incomingcolumn",
+          "id": "coupled-compression-c",
+          "h": 40,
+          "seconds": 6.341862292,
+          "closed": true,
+          "parts": 143336,
+          "stats": {
+            "parcels": 77900,
+            "incoming": 3067
+          }
+        },
+        {
+          "variant": "incomingcolumn",
+          "id": "coupled-compression-c",
+          "h": 20,
+          "seconds": 20.321029291,
+          "closed": true,
+          "parts": 315734,
+          "stats": {
+            "parcels": 303122,
+            "incoming": 11975
+          }
+        },
+        {
+          "variant": "incomingcolumn",
+          "id": "coupled-compression-c",
+          "h": 10,
+          "seconds": 104.72334020800001,
+          "closed": true,
+          "parts": 705214,
+          "stats": {
+            "parcels": 1195365,
+            "incoming": 47584
+          }
+        }
+      ]
+    },
+    {
+      "id": "thrust-b",
+      "sources": {
+        "basin_sha256": "7fe5549c767bf9a57597209d8152a7c364ed463feddb17133d0152df85d5dd81",
+        "transport_sha256": "5c52a44fe38148c32037a6a26bfc194460de61eb431a30bef7aa25d4dae15701"
+      },
+      "coverage": [
+        {
+          "name": "weighted_baseline",
+          "included": 57
+        },
+        {
+          "name": "area_bigint",
+          "included": 56
+        },
+        {
+          "name": "incoming_column",
+          "included": 56
+        }
+      ],
+      "metrics": {
+        "thickness_m": {
+          "weighted_baseline": {
+            "n": 56,
+            "coarse_rms": 1.0869757541302143,
+            "fine_rms": 1.1717676360003828,
+            "coarse_max": 6.196702456192895,
+            "fine_max": 8.081511282244065
+          },
+          "area_bigint": {
+            "n": 56,
+            "coarse_rms": 4.9906137828242345,
+            "fine_rms": 2.3219325101012824,
+            "coarse_max": 29.814685928424154,
+            "fine_max": 17.04100847581705
+          },
+          "incoming_column": {
+            "n": 56,
+            "coarse_rms": 4.9906137828242345,
+            "fine_rms": 2.3219325101012824,
+            "coarse_max": 29.814685928424154,
+            "fine_max": 17.04100847581705
+          }
+        },
+        "effective_velocity_m_s": {
+          "weighted_baseline": {
+            "n": 56,
+            "coarse_rms": 0.48241478047473035,
+            "fine_rms": 0.55652112439237,
+            "coarse_max": 2.9451580031568483,
+            "fine_max": 3.923153375572838
+          },
+          "area_bigint": {
+            "n": 56,
+            "coarse_rms": 2.105963276894169,
+            "fine_rms": 1.1343075909111262,
+            "coarse_max": 11.818174631748434,
+            "fine_max": 8.373071373095627
+          },
+          "incoming_column": {
+            "n": 56,
+            "coarse_rms": 2.105963276894169,
+            "fine_rms": 1.1343075909111262,
+            "coarse_max": 11.818174631748434,
+            "fine_max": 8.373071373095627
+          }
+        },
+        "vertical_travel_time_s": {
+          "weighted_baseline": {
+            "n": 12,
+            "coarse_rms": 0.00043944130766609225,
+            "fine_rms": 0.0001313576857459821,
+            "coarse_max": 0.0012119919870952067,
+            "fine_max": 0.0003922909927376317
+          },
+          "area_bigint": {
+            "n": 12,
+            "coarse_rms": 0.0005997153307998217,
+            "fine_rms": 0.0003327805190409494,
+            "coarse_max": 0.0019250609810959052,
+            "fine_max": 0.0010313315124277356
+          },
+          "incoming_column": {
+            "n": 12,
+            "coarse_rms": 0.0005997153307998217,
+            "fine_rms": 0.0003327805190409494,
+            "coarse_max": 0.0019250609810959052,
+            "fine_max": 0.0010313315124277356
+          }
+        },
+        "fault_depth_m": {
+          "weighted_baseline": {
+            "n": 12,
+            "coarse_rms": 5.412576099041909e-13,
+            "fine_rms": 1.4676907639293468e-13,
+            "coarse_max": 6.821210263296962e-13,
+            "fine_max": 2.2737367544323206e-13
+          },
+          "area_bigint": {
+            "n": 12,
+            "coarse_rms": 5.412576099041909e-13,
+            "fine_rms": 1.4676907639293468e-13,
+            "coarse_max": 6.821210263296962e-13,
+            "fine_max": 2.2737367544323206e-13
+          },
+          "incoming_column": {
+            "n": 12,
+            "coarse_rms": 5.412576099041909e-13,
+            "fine_rms": 1.4676907639293468e-13,
+            "coarse_max": 6.821210263296962e-13,
+            "fine_max": 2.2737367544323206e-13
+          }
+        }
+      },
+      "budgets": [
+        {
+          "h": 40,
+          "summary": {
+            "closed": true,
+            "failedEvents": 0,
+            "totalResidual": -1.564621925354004e-7,
+            "maxEventResidual": 1.7369166016578674e-7,
+            "maxNormalizedEventResidual": 4.495026452365755e-14
+          }
+        },
+        {
+          "h": 20,
+          "summary": {
+            "closed": true,
+            "failedEvents": 0,
+            "totalResidual": -8.270144462585449e-7,
+            "maxEventResidual": 4.4051557779312134e-7,
+            "maxNormalizedEventResidual": 1.1417562744330162e-13
+          }
+        },
+        {
+          "h": 10,
+          "summary": {
+            "closed": true,
+            "failedEvents": 0,
+            "totalResidual": -5.774199962615967e-8,
+            "maxEventResidual": 3.511086106300354e-7,
+            "maxNormalizedEventResidual": 9.481809029518308e-14
+          }
+        }
+      ],
+      "performance": [
+        {
+          "variant": "incomingcolumn",
+          "id": "thrust-b",
+          "h": 40,
+          "seconds": 1.278239459,
+          "closed": true,
+          "parts": 64235,
+          "stats": {
+            "parcels": 47221,
+            "incoming": 1051
+          }
+        },
+        {
+          "variant": "incomingcolumn",
+          "id": "thrust-b",
+          "h": 20,
+          "seconds": 3.4313297080000003,
+          "closed": true,
+          "parts": 134620,
+          "stats": {
+            "parcels": 184334,
+            "incoming": 4229
+          }
+        },
+        {
+          "variant": "incomingcolumn",
+          "id": "thrust-b",
+          "h": 10,
+          "seconds": 17.653165709,
+          "closed": true,
+          "parts": 289200,
+          "stats": {
+            "parcels": 725496,
+            "incoming": 16759
+          }
+        }
+      ]
+    }
+  ]
+}

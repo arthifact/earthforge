@@ -1,0 +1,210 @@
+{
+  "schema": "earthforge.synthetic.grouped-support-site-audit.v1",
+  "observational_or_holdout_reads": false,
+  "source_sha256": {
+    "src/app.ts": "d5fcc97b4bc5c77f11c7cef6b3127038d25ac24be2ce5eae35d5bfc2becf9d09",
+    "src/basin.ts": "80a37ef2b87ad6f1afb2dd1d9f3f82cc336681df5aa84a11d43b28d75668cd46",
+    "src/basinVerify.ts": "faa15905d6b12681c5a2d4b8bc9184199dea26a44910b9753179fdfa97c8f084",
+    "src/capacitySlices.ts": "6ff02a7f3f78e212243eaa728c3b83f3468695bfe23b8dc852d2db9738d980a1",
+    "src/capacityTransport.ts": "cf1df2c1b549870bd5494d2781d226cc10342a2a79cea438cd4e43c75f1cd2d0",
+    "src/checks.ts": "8d5c4cc1937fdd3ce20bf968767a87461347803d63f880a42973f15671143d1a",
+    "src/conservativeTransport.ts": "3b83d2c6063d7c8eaf8c1788323452d937d6327e75eee98458f06deafc6f27e0",
+    "src/exactLength.ts": "326f867070762173178faf4a725328788c3e26f3102eb04002769a9bf0a8b331",
+    "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+    "src/main.ts": "a20e1729db46a143c2334f205233dec54f836f731b9855ef7bb7447bd185752e",
+    "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+    "src/normalTransport.ts": "80ad4501a24315666ce66947a4814c4b6d558a77c94f4222c36993c252fac413",
+    "src/protocol.ts": "d323dc3c917a19701c3dea49756bce1c196d05a817b874fa8c3937f85f4b1c76",
+    "src/render.ts": "bb3b4da6884b58ca24a17e1b267b1d7b2a3fe8a840a2205a44e6c903ec8d4a41",
+    "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+    "src/strata.ts": "1eea0bec523995da72631b55202eaaa73c9d8c14733196003cf0a6c3904bf483",
+    "src/subsidence.ts": "69bd760fe11f190d24d65ae7cf574370fd517f66373f39010bf2692029813bf2",
+    "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+    "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+    "src/worker.ts": "a2d2d5819972d421a9484e68954a5ab4f6ff2a4b93eadfc761f12cd61c2ded78"
+  },
+  "contract": {
+    "lengths": "Optional complete exact positive binary expansion of ONE physical interval; never additive alongside height. Canonical single-coefficient support may omit metadata.",
+    "height": "One correctly rounded Number projection of exact total; used by physical laws and frozen output sampling.",
+    "grains": "One floating-point solid value per physical parcel; stable/residual grain accounting, no duplicated solid per coefficient.",
+    "identity": "Keep support through no-op compaction, translations, memory updates and pure copies.",
+    "physical_change": "Replace/recompute support whenever a physical cut or height change occurs.",
+    "immutability": "Constructors return new canonical arrays; readonly support arrays may be shared only when never mutated.",
+    "known_rounding_counterexample": {
+      "terms": [
+        1,
+        1.1102230246251565e-16,
+        6.162975822039155e-33
+      ],
+      "incorrect_sequential_chunk_sum": 1,
+      "correct_nearest_even": 1.0000000000000002
+    }
+  },
+  "sites": [
+    {
+      "path": "src/strata.ts",
+      "site": "portion",
+      "action": "replace",
+      "review": "A Number cut replaces authoritative support with [height]; inherited lengths must not survive a new height.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/strata.ts",
+      "site": "append compatible run",
+      "action": "recompute",
+      "review": "Sum complete expansions and produce ONE physical parcel with canonical support, compensated grains and unchanged common histories.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/strata.ts",
+      "site": "sliceColumn / rasterize intersections",
+      "action": "recompute",
+      "review": "Exact interval clipping returns ONE physical portion for each source/target intersection, with complete support expansion and proportional grains.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/strata.ts",
+      "site": "compactColumn q.height",
+      "action": "conditional replacement",
+      "review": "Preserve lengths when Number height is unchanged; after resolved physical shortening replace lengths by new Number height. Water prefix derives exact old total minus exact new rock total.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/strata.ts",
+      "site": "packColumn / compactColumn water prefix",
+      "action": "recompute",
+      "review": "Produce one inert parcel from exact accumulated gap/water support, not one physical parcel per coefficient.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/strata.ts",
+      "site": "depositedLayer",
+      "action": "recompute",
+      "review": "One physical layer per constitutive quadrature bin, with exact support expansion; no independent history or porosity sample per coefficient.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/strata.ts",
+      "site": "rasterize domain adjustment",
+      "action": "replace and report",
+      "review": "Replacement inert tail must not retain donor expansion. domainAdjustments/bottomOutside preserve complete support coefficients.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/basin.ts",
+      "site": "deposition leading-water / retained-rock cut",
+      "action": "read exact support",
+      "review": "Flatten all leading water expansions for oldTop, and use shared exact bed boundaries plus exact old-rock complement.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/basin.ts",
+      "site": "fallback materialHeights",
+      "action": "read exact support",
+      "review": "Flatten constituent expansions into allocator demand; Number packet height remains physical cost normalization.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/basin.ts",
+      "site": "fallback free capacity",
+      "action": "read exact support",
+      "review": "Subtract exact assigned constituent expansions from exact capacity; add one inert grouped complement; no scalar-rounded padding.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/basin.ts",
+      "site": "retained/child local top traversal",
+      "action": "read exact cumulative support",
+      "review": "Accumulate support exactly and project once for physical flow coordinates, preventing cumulative sidecar loss.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/basin.ts",
+      "site": "offset-only moves, zero-slip copies",
+      "action": "preserve",
+      "review": "Offsets and history changes retain complete support. Metadata must be immutable or copied before mutation; shared readonly arrays are acceptable if no API mutates them.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/capacityTransport.ts",
+      "site": "source demand and emitted CapacityShare",
+      "action": "read/recompute",
+      "review": "Use complete materialHeights demand; one share per real parent/destination arc with optional expansion, not one share per coefficient.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/capacitySlices.ts",
+      "site": "source lengths / child {...source,height}",
+      "action": "read/recompute",
+      "review": "Read full source/share support; create one child per contiguous sourcePart/destination interval and reset inherited support. Allocate tiny real child grains before largest residual.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/normalTransport.ts",
+      "site": "overlap loop and boundary complements",
+      "action": "read/recompute",
+      "review": "Exact shared source/cell/face cuts consume complete support; portionByLengths assigns each output full exact support, with source grains allocated once.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/subsidence.ts",
+      "site": "offset correction / portions / signed boundary",
+      "action": "preserve/recompute",
+      "review": "Offset correction preserves metadata; negative-shift donor portion resets it. Exact signed complementary cuts consume complete support.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/basinVerify.ts",
+      "site": "samePhysicalState",
+      "action": "semantic comparison",
+      "review": "Compare symmetric non-support keys plus exact support value, not array reference or rounded height only.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/basinVerify.ts",
+      "site": "invalidStateCells",
+      "action": "validate",
+      "review": "Reject nonempty/positive/finite support violations, overflow or rounded exact support != height; count invalid state rather than throwing.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/sedimentBudget.ts",
+      "site": "inventory and material flux",
+      "action": "unchanged material semantics",
+      "review": "Grain ledger sums each physical parcel solid once; coefficients are geometry, not extra grain-bearing parcels.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    },
+    {
+      "path": "src/worker.ts",
+      "site": "messages and transfer buffers",
+      "action": "no new serialization requirement",
+      "review": "Worker emits raster/window arrays and budget summaries, not columns/length metadata. Source state remains internal.",
+      "review_status": "Reviewed current grouped implementation; support preserved or recomputed as described."
+    }
+  ],
+  "test_requirements": [
+    "63 thin-material lifecycle checks and45 bounded100-cycle checks retained with independent flattened-support oracle",
+    "24 actual deposition-block fixtures retain old thin identities and exact per-bed support",
+    "Physical-state equality across structured clones/equivalent expansions; detect sub-ULP exactspan difference and asymmetric keys",
+    "State validation catches invalid support/overflow/projection mismatch",
+    "One constitutive evaluation per grouped physical parcel; no-op material count bounded by interfaces, not coefficient history",
+    "Full36 runs and all11 paired metrics still required; representation proof alone does not certify model accuracy or runtime"
+  ],
+  "selected_checkout": "/Users/torus/Documents/Codex/2026-10-12/wha/work/coupled-coordinate-fix/earthforge",
+  "selected_production20_match_grouped_pilot": true,
+  "frozen_snapshot_sha256": "498e1c8d95a469459b4ab4fe3b0cfd133c85a167d469e94044511fb1b439c487",
+  "frozen_snapshot_files": 66,
+  "all_frozen_files_unchanged_at_review": true,
+  "independent_evidence": {
+    "grouped-length-lifecycle-review.json": "e02a79ce3f8059d891a88cb66e15be868cb921d8a1a26695cb4e7303e820fefb",
+    "grouped-canonical-cycle-review.json": "7c5db9dc9e40c01cc1bb2a1bd90f8891b9a289bfb819fb44c6f0d97805e87d69",
+    "grouped-rounding-review.json": "c8dca840c9fb5d2962278a83763e0c8afc4aeb8d1229209ab0e8ff304240ffbe",
+    "grouped-test-adaptation-manifest.json": "a4945c8c9919e23009b3f727ce160a5082109ff04f0fae28dbca7873d1472843"
+  },
+  "limitations": [
+    "Physical positions and constitutive laws remain Number-valued, using the correctly rounded full support once per physical parcel.",
+    "Thrust classification, incoming continuation, physical-versus-storage accommodation and local matching objectives retain previously documented approximations.",
+    "Exact grouped geometry and closed grains do not establish convergence; shared-cohort metrics are reported independently.",
+    "Readonly support arrays may be shared by offset/history copies; current APIs do not mutate them."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "earthforge.synthetic.test-resource-snapshot.v1",
+  "batch": "grouped-remaining-tests.log",
+  "frozen_snapshot_sha256": "498e1c8d95a469459b4ab4fe3b0cfd133c85a167d469e94044511fb1b439c487",
+  "method": "Read-only ps sample restricted to the test runner and its child processes.",
+  "simulation_process": {
+    "pid": 62647,
+    "state": "R",
+    "elapsed": "01:04:57",
+    "cpu_time": "77:06.99",
+    "cpu_percent": 115.6,
+    "resident_memory_kib": 5954688
+  },
+  "interpretation": "One active-computation snapshot. RSS is not heap usage or peak memory; elapsed time is not completed batch duration.",
+  "observational_or_holdout_reads": false
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "earthforge.synthetic.grouped-final-physical-review.v1",
+  "review_type": "read-only source review against original; no additional simulations",
+  "observational_or_holdout_reads": false,
+  "source_sha256": {
+    "strata.ts": "1eea0bec523995da72631b55202eaaa73c9d8c14733196003cf0a6c3904bf483",
+    "exactLength.ts": "326f867070762173178faf4a725328788c3e26f3102eb04002769a9bf0a8b331",
+    "basin.ts": "80a37ef2b87ad6f1afb2dd1d9f3f82cc336681df5aa84a11d43b28d75668cd46",
+    "subsidence.ts": "69bd760fe11f190d24d65ae7cf574370fd517f66373f39010bf2692029813bf2",
+    "normalTransport.ts": "80ad4501a24315666ce66947a4814c4b6d558a77c94f4222c36993c252fac413",
+    "conservativeTransport.ts": "3b83d2c6063d7c8eaf8c1788323452d937d6327e75eee98458f06deafc6f27e0",
+    "capacityTransport.ts": "cf1df2c1b549870bd5494d2781d226cc10342a2a79cea438cd4e43c75f1cd2d0",
+    "capacitySlices.ts": "6ff02a7f3f78e212243eaa728c3b83f3468695bfe23b8dc852d2db9738d980a1",
+    "basinVerify.ts": "faa15905d6b12681c5a2d4b8bc9184199dea26a44910b9753179fdfa97c8f084",
+    "sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c"
+  },
+  "original_source_sha256": {
+    "strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+    "basin.ts": "f82bf4b589246ffc5652dc06b18f5d1e26bacc7f61b38fc7d010a66198379b08",
+    "normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+    "conservativeTransport.ts": "fb601e0ca361bd598232faa929e1db63045c9515532ab32662624d3761276f27",
+    "basinVerify.ts": "400c3322bbae9cca8fcbf027dd82ac6cdc4edbfc732c42a9a581e7d6670085f7",
+    "sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c"
+  },
+  "blocking_findings": [],
+  "verified_semantics": [
+    "One Layer remains one physical constitutive sample; complete lengths expansion is geometry metadata, not independent histories.",
+    "Compaction retains original implicit midpoint porosity law, 36 bisection iterations, irreversible loading/burial, and unchanged offset translation. Unchanged Number height preserves support; resolved shortening replaces it. Exact leading water is old support minus new rock support.",
+    "Subsidence retained rock marker displacement is prescribed at storage-column x plus retained offsetX: storage shift plus offset correction equals physical displacement. Paired retained/outflow cuts use one exact complementary boundary.",
+    "Depositional forcing, lithology draws, and nominal midpoint locations remain Number-valued. Exact leading water and shared bed boundaries partition admitted storage support without gaps or overlaps and retain pre-existing rock from its exact interface.",
+    "Normal shear uses matching exact source cuts for flux and reconstruction while retaining existing integer-column heave and continuation law.",
+    "Indivisible transport uses strict Number capacity comparison. Source HW exact support equals its represented cut capacity, so ordinary packet demand projection agrees with exact support. Exact capacity fallback retains separate source identities and reintegrates flow for each genuine child rectangle.",
+    "Full-domain raster refresh rejects any cropped sediment identity. Only reported zero-grain terminal water/basement adjustments at the established 1e-6 m gate are allowed."
+  ],
+  "scope_limits": [
+    "Exact support controls interval topology; physical coordinates, porosity, grains, maps, and observable arrays remain floating point. This is not arbitrary precision physical evolution.",
+    "Genuine raster or transport cuts remain physical subparcels and may change subsequent midpoint constitutive sampling. Grouping removes independent sampling of binary residual coefficients, not every grid dependence.",
+    "Subsidence clipping remains in storage coordinates; bottom continuation and fault-cut classification are unchanged. It is not a full physical-boundary or representation-gauge correction.",
+    "Deposition still uses the original storage-surface accommodation and zero-offset creation convention; physical-contact/accommodation proposals were not selected.",
+    "Capacity fallback minimizes quantized parent-target placement cost on the original 2/3-cell stencil; child physical offsets can exceed that parent placement bound. It is not finite-volume polygon overlap.",
+    "Synthetic correctness and successful compaction-B screening do not by themselves establish improvement in the full coupled grid comparison."
+  ],
+  "evidence": [
+    "work/coarse-travel-representation/grouped-material-package.json",
+    "work/coarse-travel-representation/grouped-permanent-tests.log",
+    "work/coarse-travel-metrics/grouped-length-lifecycle-review.json",
+    "work/coarse-travel-metrics/grouped-canonical-cycle-review.json",
+    "work/coarse-travel-metrics/grouped-test-adaptation-manifest.json",
+    "work/coarse-travel-representation/grouped-compaction-b-screen.log"
+  ]
+}

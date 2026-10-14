@@ -10,14 +10,14 @@ import { execFileSync } from "node:child_process";
 // Exercise the same TypeScript simulator and checks used by the worker, without a browser.
 const bundle = await build({
   stdin: {
-    contents: 'export * from "./src/basin.ts"; export * from "./src/basinVerify.ts"; export * from "./src/checks.ts";',
+    contents: 'export * from "./src/basin.ts"; export * from "./src/basinVerify.ts"; export * from "./src/checks.ts"; export {cellLayers, sliceColumn} from "./src/strata.ts";',
     resolveDir: fileURLToPath(new URL("..", import.meta.url)),
   },
   bundle: true, platform: "node", format: "esm", write: false,
 });
 const { BASIN_DEFAULTS, DOMAIN, simulate, verify, checkRows, measureFault,
   flowLine, flowMove, porosity, compactedThickness, rockVelocity, windowOf,
-  medianVelocityAt, invalidStateCells, samePhysicalState, sand, setDebugSlip, effectiveDepth, advanceHistory, rockState, remapCompactedMaterial } =
+  medianVelocityAt, invalidStateCells, samePhysicalState, sand, setDebugSlip, effectiveDepth, advanceHistory, rockState, remapCompactedMaterial, cellLayers, sliceColumn } =
   await import(`data:text/javascript;base64,${Buffer.from(bundle.outputFiles[0].contents).toString("base64")}`);
 
 let benchmark;
@@ -233,6 +233,13 @@ test("compaction transports sand by solid volume and retains parcel loading maxi
 
 test("normal and thrust slips carry composition and both memories with each source parcel", () => {
   const counts = { normal: 0, thrust: 0 }, changedPosition = { normal: 0, thrust: 0 };
+  const addConstituent = (groups, p) => {
+    if (p.bed < 0) return;
+    const key = JSON.stringify([p.bed, p.fraction, p.burial, p.loading]);
+    const total = groups.get(key) ?? { height: 0, solid: 0 };
+    total.height += p.height; total.solid += p.solid;
+    groups.set(key, total);
+  };
   try {
     setDebugSlip(info => {
       for (const { source, moved, sourceColumn, destinationColumn } of info.normalTransfers ?? []) {
@@ -241,14 +248,33 @@ test("normal and thrust slips carry composition and both memories with each sour
         assert.ok(Math.abs(moved.solid / moved.height - source.solid / source.height) < 1e-12);
         if (sourceColumn !== destinationColumn) changedPosition.normal++;
       }
-      for (let n = 0; n < info.from.length; n++) {
-        const source = info.from[n];
-        if (source < 0 || info.next[n] < 0) continue;
-        counts[info.kind]++;
-        for (const field of ["sandFraction", "burial", "effectiveBurial"]) {
-          assert.equal(info.after[field][n], info.before[field][source], `${info.kind}: ${field}`);
+      // A cut cell contains stationary footwall plus moving hanging-wall
+      // material. Accumulate the source payload for each destination, then
+      // inspect the actual output after column assembly and rasterization.
+      const expected = new Map();
+      for (const { source, moved, sourceCell, destinationCell } of info.thrustTransfers ?? []) {
+        if (source.bed < 0) continue;
+        counts.thrust++;
+        for (const field of ["bed", "fraction", "burial", "loading"]) assert.equal(moved[field], source[field]);
+        assert.ok(Math.abs(moved.solid / moved.height - source.solid / source.height) < 1e-12);
+        if (sourceCell % info.nx !== destinationCell % info.nx) changedPosition.thrust++;
+        if (!expected.has(destinationCell)) expected.set(destinationCell, new Map());
+        addConstituent(expected.get(destinationCell), source);
+      }
+      if (info.kind === "thrust") for (let n = 0; n < info.next.length; n++) {
+        const capacity = Math.max(0, Math.min(info.h, info.depth[n % info.nx] - Math.floor(n / info.nx) * info.h));
+        if (capacity <= 0 || (!expected.has(n) && info.next[n] < 0)) continue;
+        const actual = new Map(), wanted = expected.get(n) ?? new Map();
+        for (const p of sliceColumn(cellLayers(info.after, n, info.h), 0, capacity)) addConstituent(actual, p);
+        // Grouping permits harmless splitting/merging while exact state keys
+        // expose altered composition or either irreversible memory.
+        for (const key of new Set([...wanted.keys(), ...actual.keys()])) {
+          for (const field of ["height", "solid"]) {
+            const a = actual.get(key)?.[field] ?? 0, e = wanted.get(key)?.[field] ?? 0;
+            assert.ok(Math.abs(a - e) <= 1e-8,
+              `thrust step ${info.step}, cell ${n}, ${key}: output ${field} ${a} != source ${e}`);
+          }
         }
-        if (source % info.nx !== n % info.nx) changedPosition[info.kind]++;
       }
     });
     for (const setting of ["extension", "compression"]) simulate({ ...BASIN_DEFAULTS, seed: 765184, setting, overpressure: 1 });

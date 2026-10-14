@@ -1,0 +1,353 @@
+{
+  "schema": "earthforge.grouped-remaining-regressions-assessment.v1",
+  "scope": "Read-only assessment using saved synthetic evidence only; no new simulations, source edits, observational data or holdout access.",
+  "status": "no_new_narrow_causal_fix_demonstrated",
+  "source_sha256": {
+    "src/app.ts": "d5fcc97b4bc5c77f11c7cef6b3127038d25ac24be2ce5eae35d5bfc2becf9d09",
+    "src/basin.ts": "80a37ef2b87ad6f1afb2dd1d9f3f82cc336681df5aa84a11d43b28d75668cd46",
+    "src/basinVerify.ts": "faa15905d6b12681c5a2d4b8bc9184199dea26a44910b9753179fdfa97c8f084",
+    "src/capacitySlices.ts": "6ff02a7f3f78e212243eaa728c3b83f3468695bfe23b8dc852d2db9738d980a1",
+    "src/capacityTransport.ts": "cf1df2c1b549870bd5494d2781d226cc10342a2a79cea438cd4e43c75f1cd2d0",
+    "src/checks.ts": "8d5c4cc1937fdd3ce20bf968767a87461347803d63f880a42973f15671143d1a",
+    "src/conservativeTransport.ts": "3b83d2c6063d7c8eaf8c1788323452d937d6327e75eee98458f06deafc6f27e0",
+    "src/exactLength.ts": "326f867070762173178faf4a725328788c3e26f3102eb04002769a9bf0a8b331",
+    "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+    "src/main.ts": "a20e1729db46a143c2334f205233dec54f836f731b9855ef7bb7447bd185752e",
+    "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+    "src/normalTransport.ts": "80ad4501a24315666ce66947a4814c4b6d558a77c94f4222c36993c252fac413",
+    "src/protocol.ts": "d323dc3c917a19701c3dea49756bce1c196d05a817b874fa8c3937f85f4b1c76",
+    "src/render.ts": "bb3b4da6884b58ca24a17e1b267b1d7b2a3fe8a840a2205a44e6c903ec8d4a41",
+    "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+    "src/strata.ts": "1eea0bec523995da72631b55202eaaa73c9d8c14733196003cf0a6c3904bf483",
+    "src/subsidence.ts": "69bd760fe11f190d24d65ae7cf574370fd517f66373f39010bf2692029813bf2",
+    "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+    "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+    "src/worker.ts": "a2d2d5819972d421a9484e68954a5ab4f6ff2a4b93eadfc761f12cd61c2ded78"
+  },
+  "all_current_stage_hashes_match_reviewed_pilot": true,
+  "conclusion": "The current exact-support, capacity and subsidence implementation has no newly demonstrated local contract failure. Real pre-existing storage/physical-coordinate identities still fail. Saved evidence does not causally assign the remaining Cfine/Bcoarse outliers to a single one of those operations, and partially correcting them has not yielded a validated overall cure. Treat the remaining work as a coherent transport/occupancy/free-surface/boundary design problem, not a score-tuned allocator adjustment.",
+  "coupled_b": {
+    "paired_current_baseline": {
+      "thickness_m": {
+        "shared": 97,
+        "units": "m",
+        "baseline_rms_coarse_fine": [
+          4.299177751738037,
+          0.929216923821971
+        ],
+        "candidate_rms_coarse_fine": [
+          4.997406881256852,
+          0.8225155598080192
+        ],
+        "largest_coarse_squared_error_increases": [
+          {
+            "key": "unit:9:6000",
+            "baseline_coarse": 3.8965437767360527,
+            "candidate_coarse": -32.670949226956964,
+            "increase": 1052.2078699863794
+          },
+          {
+            "key": "unit:13:7600",
+            "baseline_coarse": -1.9586738255985665,
+            "candidate_coarse": 21.670387649007353,
+            "increase": 465.7692977031655
+          },
+          {
+            "key": "unit:11:4400",
+            "baseline_coarse": 0.22035085054983483,
+            "candidate_coarse": 10.270052370866779,
+            "increase": 105.42542120300831
+          }
+        ]
+      },
+      "vertical_travel_time_s": {
+        "shared": 12,
+        "units": "ms",
+        "baseline_rms_coarse_fine": [
+          0.22641821251420433,
+          0.1559506735240612
+        ],
+        "candidate_rms_coarse_fine": [
+          0.4011922121883333,
+          0.19727319474177432
+        ],
+        "largest_coarse_squared_error_increases": [
+          {
+            "key": "time:8400",
+            "baseline_coarse": -0.14714834959361767,
+            "candidate_coarse": -0.656621806981672,
+            "increase": 0.40949956061575066
+          },
+          {
+            "key": "time:4400",
+            "baseline_coarse": 0.13406838231322382,
+            "candidate_coarse": 0.5680870210740263,
+            "increase": 0.30474853237667654
+          },
+          {
+            "key": "time:6800",
+            "baseline_coarse": -0.306908238454362,
+            "candidate_coarse": 0.5396367770644783,
+            "increase": 0.19701518432937798
+          }
+        ]
+      }
+    },
+    "three_way_40_20_10_examples": [
+      {
+        "key": "unit:9:6000",
+        "metric": "thickness_m",
+        "h_m": [
+          40,
+          20,
+          10
+        ],
+        "baseline": [
+          139.5335501683394,
+          135.63700639160334,
+          135.12631506326375
+        ],
+        "pure_physical_subsidence": [
+          102.86610229142639,
+          135.63261865691857,
+          136.3450519821074
+        ],
+        "grouped_candidate": [
+          102.96351184479636,
+          135.63446107175332,
+          136.34594405863663
+        ]
+      },
+      {
+        "key": "unit:13:7600",
+        "metric": "thickness_m",
+        "h_m": [
+          40,
+          20,
+          10
+        ],
+        "baseline": [
+          215.71802252923067,
+          217.67669635482923,
+          217.80688108101458
+        ],
+        "pure_physical_subsidence": [
+          239.39583477863425,
+          217.67669631385877,
+          217.90417373530863
+        ],
+        "grouped_candidate": [
+          239.3460991119207,
+          217.67571146291334,
+          217.9140768858167
+        ]
+      },
+      {
+        "key": "time:8400",
+        "metric": "vertical_travel_time_s",
+        "h_m": [
+          40,
+          20,
+          10
+        ],
+        "baseline": [
+          1.3011199232287922,
+          1.3012670715783858,
+          1.3013779591191605
+        ],
+        "pure_physical_subsidence": [
+          1.3006101645490755,
+          1.3012668434971684,
+          1.3013847915266052
+        ],
+        "grouped_candidate": [
+          1.3006101680526574,
+          1.301266789859639,
+          1.3013471971162909
+        ]
+      }
+    ],
+    "pure_subsidence_provenance": {
+      "baseline_root": "/Users/torus/Desktop/Research/earthforge/",
+      "baseline": {
+        "src/basin.ts": "f82bf4b589246ffc5652dc06b18f5d1e26bacc7f61b38fc7d010a66198379b08",
+        "src/conservativeTransport.ts": "fb601e0ca361bd598232faa929e1db63045c9515532ab32662624d3761276f27",
+        "src/strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+        "src/normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+        "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+        "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+        "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+        "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+        "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+        "validation/numerics/metrics.mjs": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b",
+        "validation/numerics/run.mjs": "579c12772f2a8ff6b4ace8a8fd3586b905292f443481f0abcc989cfde9510fbd"
+      },
+      "candidate_basin_sha256": "9c14f9e7e8385e800c4b86637e4ddef84d60812d4a53ef084246103c5c88fb6a",
+      "plan_sha256": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833"
+    },
+    "finding": "The dominant Bcoarse bed and travel anomalies are already present in the pure physical-x subsidence experiment, before grouped support and conservative capacity fallback. Grouped changes are therefore not necessary to produce these anomalies. The saved pure experiment and grouped candidate are close at these specific40m outputs.",
+    "limits": [
+      "This ablation isolates an upstream trigger, not the downstream cause: subsequent allocation, accommodation, compaction, geometry and extraction all respond to the corrected offsets.",
+      "The subsidence identity is correct: stored top changes by s(x), retained offset changes by s(x+offsetX)\u2212s(x), hence physical position changes by s(physicalX). Recovering the prior metric by reverting that identity is not an accuracy fix.",
+      "No capacity fallback occurs in B40/20/10, so direct fallback splitting is not the cause.",
+      "Different shared cohorts must not be compared as if identical; three-way examples use the same explicit profile/unit keys and all three grids."
+    ]
+  },
+  "coupled_c": {
+    "fine_travel_rms_ms": {
+      "baseline": 1.232727432171511,
+      "candidate": 2.090768966228678
+    },
+    "largest_profile": {
+      "x_m": 3600,
+      "baseline": {
+        "travel_s_40_20_10": [
+          1.2346983794405426,
+          1.2364573729206838,
+          1.2376636030258017
+        ],
+        "fine_ms": -1.2062301051178892
+      },
+      "candidate": {
+        "travel_s_40_20_10": [
+          1.2350529019865069,
+          1.231990984016144,
+          1.237576583382765
+        ],
+        "fine_ms": -5.5855993666209525
+      },
+      "fine_signed_change_ms": -4.379369261503063,
+      "fine_squared_error_increase_ms2": 29.743929217903673,
+      "candidate_minus_baseline_ms_40_20_10": [
+        0.35452254596424204,
+        -4.466388904539764,
+        -0.08701964303670096
+      ],
+      "share_of_net_fine_SSE_increase": 0.8691876956307809
+    },
+    "findings": [
+      "x3600 contributes86.91877% of the net20\u201310 travel-time squared-error increase. Its20m result changes\u22124.46639ms; its10m result changes only\u22120.08702ms.",
+      "Atx3600 the total sediment-span fine mismatch improves from0.65864m to0.19207m and the inferred nonwater/nonsediment thickness is unchanged. The regression therefore cannot be described as a larger total sediment-column height discrepancy.",
+      "For the eight units with available speed measurements in all four20/10samples atx3600, the change in fine travel difference separates exactly into\u22121.86054ms from thickness and\u22120.72623ms from effective speed. Water contributes+0.31105ms;\u22122.10364ms remains outside the measured interval subset.",
+      "Atx2800 andx5200 the measured common-unit thickness terms are\u22127.92153ms and\u22125.05101ms, compared with speed terms+0.08537ms and+0.48574ms. Large compensating residuals remain in excluded material, preventing complete attribution.",
+      "No capacity fallback occurred in either fine-grid run. All budgets close with no repair contribution. These facts exclude direct fallback splitting and unexplained ledger grain loss as demonstrated causes, but do not establish pointwise transport accuracy.",
+      "No new implementation bug is demonstrated. Final snapshots show grid-sensitive unit redistribution and composition/history differences, while operation-level provenance needed to attribute accommodation versus transport/compaction is unavailable in these saved artifacts."
+    ],
+    "limits": [
+      "The supplemental decomposition includes units matched in both versions at20and10m; it is distinct from the unchanged formal six-sample67-interval cohort.",
+      "The exact symmetric identity for a matched unit is delta(thickness/velocity)=delta(thickness)*mean(slowness)+mean(thickness)*delta(slowness). This separates measured kinematic terms, not causal processes.",
+      "Composition, porosity, burial/loading and effective speed are correlated aggregate properties. Their individual contributions to nonlinear speed cannot be identified without constituent state.",
+      "Excluded fragmented/fault-cut/thin units retain span geometry but have no saved velocity/composition/history metrics. The unattributed residual includes those units, basement time/quadrature, and Float32 harmonic-grid velocity projection roundoff; it is not an exact material-only contribution.",
+      "Final unit thickness differences cannot identify deposition accommodation versus transport, erosion or compaction. Whole-domain deposition ledgers show amount changes but lack profile-local provenance.",
+      "Neither candidate20m nor10m invoked capacity fallback, ruling out direct split fallback as the source of this fine-pair difference.",
+      "No new invariant violation or implementation bug is demonstrated by these records. Large constituent/bed redistribution near faults is consistent with the retained discrete allocation/accommodation limits, but its precise operation-level cause remains unidentified."
+    ]
+  },
+  "remaining_independently_testable_failed_identities": [
+    {
+      "operation": "HW/FW classification and capacity",
+      "source": "src/basin.ts",
+      "lines": [
+        411,
+        449,
+        453
+      ],
+      "identity": "Compensated storage translation must not change which part of a physical layer lies above the fault. On a flat fault D, moving height is clamp(D-(storageTop+offsetZ),0,height).",
+      "demonstrated_failure": "For D60 and a physical10m layer50\u201360, storage50/offset0 moves10m while storage60/offset\u221210 remains stationary under the retained storage-only cut. Physical55\u201365 must split5m; current storage cut can classify10m or0m.",
+      "evidence": "work/coarse-travel-representation/physical-classification-gauge.json",
+      "evidence_note": "Saved corrected nine-case fixture and its explicit baseline inference; source expression above establishes that the retained current classifier has the old failure. Earlier real-case discrepancy is recorded separately in physical-classification-evidence.json.",
+      "repair_scope": "Physical stationary supports, free-capacity intervals, moving support and destination projection must be defined together. Prior classification/contact-only comparison does not validate this as a standalone regression cure."
+    },
+    {
+      "operation": "Deposition accommodation and vertical contact",
+      "source": "src/basin.ts",
+      "lines": [
+        928,
+        929,
+        947,
+        951
+      ],
+      "identity": "Equal physical free surfaces represented by compensating storage/offset shifts should receive equal prescribed accommodation and attached new layers should share the physical contact.",
+      "demonstrated_failure": "Saved physicalTop1200m, storage gauges\u2212200/0/+200 produce412/572/732m deposits. Interior physical-surface correction gives572m, but at physicalTop200/storageTop20 its160m target is then clipped to20m by storage boundary.",
+      "evidence": "work/coarse-travel-representation/deposition-gauge-check.json",
+      "repair_scope": "Requires agreement between physical free surface, storage occupancy, top-domain clipping/flux and subsequent stress/extraction. Replacing only surface() or inheriting offsets did not complete that contract."
+    },
+    {
+      "operation": "Creation of new thrust geometry",
+      "source": "src/basin.ts",
+      "lines": [
+        819,
+        821,
+        823
+      ],
+      "identity": "Compensating a vertical storage rebase with opposite offsets must leave the physical seafloor, basement interface and generated thrust geometry invariant.",
+      "demonstrated_failure": "Saved \u00b180m uniform storage gauge changes generated floor/basement/detachment/upper by80m; ten nonzero baseline failures.",
+      "evidence": "work/coarse-travel-representation/thrust-creation-gauge.json",
+      "repair_scope": "The saved repair samples physical vertical interfaces at a fixed stored x only; lateral offsets, overlapping constituents and downstream storage classification remain unresolved."
+    },
+    {
+      "operation": "Incoming affine ghost continuation",
+      "source": "src/basin.ts",
+      "lines": [
+        488,
+        490,
+        502
+      ],
+      "identity": "Within one affine fault domain with slope m, copied physical material must preserve z\u2212m*x. Actual donor row and offset residual offsetZ\u2212m*offsetX must enter its target.",
+      "demonstrated_failure": "Saved baseline vertical-gauge normal error24m and independent phase error5.2m. Using only full offsetZ causes6m repeated drift; same-domain actual-donor-row formula passes about2.3e\u221213m.",
+      "evidence": "work/coarse-travel-metrics/boundary-affine-check.json",
+      "repair_scope": "Guarded affine correction is locally proved, but saved joint A40 trial repairs unit7@9200 while reviving five old8400 outliers. A complete reservoir-footprint/placement boundary contract is still required; the trial does not justify silently changing the current boundary experiment."
+    }
+  ],
+  "source_operations_requiring_consistent_design": [
+    {
+      "source": "src/strata.ts",
+      "lines": [
+        93,
+        95,
+        124,
+        138
+      ],
+      "note": "surface and compaction overburden are based on packed stored ordering. Offsets do not define a globally ordered nonoverlapping physical column; changing loading to use one offset is not a proven correction."
+    },
+    {
+      "source": "src/basin.ts",
+      "lines": [
+        1074,
+        1080
+      ],
+      "note": "columnWindow samples stored columns and stored interval depth. The frozen development measurement contract is unchanged; substituting physical-offset profiles to improve reported convergence would change the experiment."
+    }
+  ],
+  "what_is_not_established": [
+    "Whole-domain budget closure proves conservation under recorded flows, not local placement or physical interface accuracy.",
+    "Final unit redistribution and effective-speed changes do not identify which deposition, transport, erosion or compaction event caused an outlier.",
+    "No existing saved evidence establishes that another weight, tie order, column lock or threshold would be a general physical improvement.",
+    "An analytically correct partial coordinate repair can worsen grid agreement; this does not invalidate its identity and does not demonstrate that the current mixed representation is physically consistent."
+  ],
+  "next_design_acceptance_criteria": [
+    "Use one physical-support/occupancy definition for HW/FW classification, stationary footwall capacity, free surfaces and new fault geometry.",
+    "Preserve physical contact, exact grain support/history and explicit top/bottom/side flux when converting physical support back to storage.",
+    "Define the incoming reservoir footprint and its geometric continuation before assigning incoming material.",
+    "Require compensated-storage-gauge, affine-translation, contact and closed-budget fixtures together; retain the frozen comparison/cohort/forcing and assess all coupled controls before accepting a repair."
+  ],
+  "evidence_sha256": {
+    "work/coarse-travel-transport/grouped-c-travel-diagnosis-summary.json": "8bd915a844859fd6d0c5e7fc0eae2a053acb806e3708f2d9bdccf6af39adb979",
+    "work/coarse-travel-transport/grouped-c-travel-diagnosis.json": "8a894b6dd4e79ea58ba320b357106000001a7c02a84f224538ef1996e5903f73",
+    "work/coarse-travel-transport/grouped-transport-source-review.json": "24ae15411e7918a84d40a2ed56131ea95661b9ca576de6ea2fa4ff748cd0759d",
+    "work/coarse-travel-transport/physicalsubsidence-sources.json": "c3e874e3f355487ae8b9291b6dfdbb7d754bb2cdaf4c437429c726bc98c1ff9c",
+    "work/coarse-travel-transport/physicalsubsidence-paired-summary.json": "f6c6fcb2d3b45c672cc2cebed3b0ca0d2c8f9ca72b890d68f389c8a40e62f94a",
+    "work/coarse-travel-representation/deposition-gauge-check.json": "3d096c16248def7eacd05294601db5b6ff6a3f330887ce3a48e043fc7894350b",
+    "work/coarse-travel-representation/thrust-creation-gauge.json": "c89e1910844d18a9fd1d0d9deb81f577b623636dd1b1d7e1511b108b44e911d7",
+    "work/coarse-travel-metrics/physical-classification-evidence.json": "d8ea14d4cf8333ce89b6ed141832aae2ad8733652e1db6249716f0d2a0526c25",
+    "work/coarse-travel-representation/physical-classification-gauge.json": "39f681875cd0dc103701f6d579f4980795db41735527dba600b074e3cfca411d",
+    "work/coarse-travel-metrics/boundary-affine-check.json": "bbea0bbb45525f9da87294e89a4138c03d195f221a6819b106ff48c9af3f57c6",
+    "work/coarse-travel-transport/guarded-affine-continuation-evidence.json": "2ca2d9015a1b7dec317503a8bc83c5ba7f8e91368a2250157702342b7ac14b64",
+    "work/coarse-travel-representation/classification-contact-paired-report.json": "8e61b3ad4f842fbb758202ecbbdfb21c3b065933310d413c76953dbf8b8d8395",
+    "/Users/torus/Desktop/Research/earthforge/data/numerics/coupled-travel-repair/coupled-compression-b-matched.json": "8dbf7e8b3e06285742e88822bab058e4188abbe21f98f946abfba49c4a6f2c11",
+    "work/coupled-coordinate-fix/earthforge/data/numerics/coordinate-transport-repair/coupled-compression-b-matched.json": "479f670d131cb2399aa6c888ee1463be63b563600909cf3830d3b2f25b6d1ef5",
+    "work/coarse-travel-transport/physicalsubsidence-coupled-compression-b-40-sample.json": "6da50106951edd1b20a46cc1de4283dee86278f8fd300f0467203570cf6fbd3e",
+    "work/coarse-travel-transport/physicalsubsidence-coupled-compression-b-20-sample.json": "11fce04cce269b738240fe14f6f29b6d672cddad0e25719341a88b4c00810e6b",
+    "work/coarse-travel-transport/physicalsubsidence-coupled-compression-b-10-sample.json": "3adaf143ad533a7c75e40bc0a4974aca4d6bdc21fa6362d64df3de793d19b5db"
+  }
+}

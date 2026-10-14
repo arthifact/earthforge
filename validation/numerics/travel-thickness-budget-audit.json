@@ -1,0 +1,9 @@
+{
+  "runs": 36,
+  "events": 4494,
+  "component_checks": 755160,
+  "max_absolute_event_component_residual_m2": 1.255422830581665e-06,
+  "raw_ledgers_independently_rechecked": true,
+  "unchanged_control_and_extension_runs": 21,
+  "zero_repair_added": true
+}

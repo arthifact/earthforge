@@ -1,0 +1,487 @@
+{
+  "version": 1,
+  "case": {
+    "name": "thrust-b",
+    "seed": 920006,
+    "grids_m": [
+      40,
+      20,
+      10
+    ],
+    "setting": "compression",
+    "thrusts": [
+      1,
+      1
+    ],
+    "quiet": true,
+    "compaction": false,
+    "overpressure": 0
+  },
+  "observational_data": "none; no observational arrays, split files or holdout read or changed",
+  "status": "diagnosis only; no simulator source, tests, plan, metrics, eligibility or thresholds changed",
+  "conclusion": "The dominant thickness regression is a post-thrust accommodation response to residual column-allocation phase, not transport of unit12 itself. Partial capacity placement introduces different internal water padding and redistribution near the ramp; packing preserves remembered material positions but deposition consumes stored column surface. The prior nearly zero 20\u201310m bed difference coexisted with a10m remembered surface-depth discrepancy. No new conservation/provenance violation was found. This does not establish physical accuracy or justify tuning the case.",
+  "operation_timing": {
+    "phases": [
+      4,
+      8,
+      2
+    ],
+    "last_thrust_step": 11,
+    "affected_unit_deposited_step": 12,
+    "unit12_later_thrusts": 0,
+    "x_m": 5200
+  },
+  "shared_interval_comparison": {
+    "count": 54,
+    "key": "unit:12:5200",
+    "before_thickness_m": [
+      177.1915190100034,
+      161.29215540983137,
+      161.29216586031907
+    ],
+    "after_thickness_m": [
+      166.9533768055274,
+      183.94146511120425,
+      167.97756112269724
+    ],
+    "before_fine_rms_m": 0.22109289703984708,
+    "after_fine_rms_m": 2.1757005079343146,
+    "unit12_fraction_of_after_squared_error": 0.9969794995900197,
+    "unit12_fraction_of_squared_error_increase": 1.0073821887702066
+  },
+  "fine_surface_diagnosis": {
+    "before": {
+      "post_last_slip_stored_surface_difference_m": -1.1664145404211013e-05,
+      "remembered_surface_depth_difference_m": 9.999988335854937,
+      "remembered_surface_x_m": [
+        5202.842542628396,
+        5202.842542628396
+      ],
+      "unit12_thickness_difference_m": -1.0450487707203138e-05
+    },
+    "after": {
+      "post_last_slip_stored_surface_difference_m": 17.817857010947137,
+      "remembered_surface_depth_difference_m": 8.874690842435882,
+      "remembered_surface_x_m": [
+        5202.842542628396,
+        5202.842542628396
+      ],
+      "unit12_thickness_difference_m": 15.963903988507013
+    }
+  },
+  "deposition_known_answer": {
+    "fill": 0.8959497193573043,
+    "drape_m": 9.881321096327156,
+    "water_depth_m": 68.66335408296436,
+    "predeposition_stored_surface_difference_m": 17.817857010947137,
+    "predicted_unit12_difference_m": 15.963903988506663,
+    "measured_unit12_difference_m": 15.963903988507013,
+    "prediction_residual_m": -3.4994229736184934e-13
+  },
+  "travel_time_regression": {
+    "profiles": 12,
+    "before_fine_rms_ms": 0.07250763812797965,
+    "after_fine_rms_ms": 0.1978150159206483,
+    "dominant_after_squared_error_fraction": 0.9969357879746974,
+    "profiles_6000_6800": [
+      {
+        "key": "time:6000",
+        "before_fine_ms": 0.13748708920457986,
+        "after_fine_ms": -0.4239650282600316
+      },
+      {
+        "key": "time:6800",
+        "before_fine_ms": -0.08031421098175784,
+        "after_fine_ms": -0.5370141161997743
+      }
+    ]
+  },
+  "operation_samples": {
+    "before-40": {
+      "11:subsidence": {
+        "stored_surface_m": 309.45868447443706,
+        "remembered_surface_point_m": [
+          5200,
+          309.45868447443706
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:thrust-slip": {
+        "stored_surface_m": 302.54155822257377,
+        "remembered_surface_point_m": [
+          5182.842542628396,
+          310.30129169584706
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:collapse": {
+        "stored_surface_m": 302.54155822257377,
+        "remembered_surface_point_m": [
+          5182.842542628396,
+          310.30129169584706
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:deposition": {
+        "stored_surface_m": 283.2736194766672,
+        "remembered_surface_point_m": [
+          5200,
+          283.2736194766672
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "12:subsidence": {
+        "stored_surface_m": 320.2469136453779,
+        "remembered_surface_point_m": [
+          5200,
+          320.2469136453779
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "12:deposition": {
+        "stored_surface_m": 143.0553946353744,
+        "remembered_surface_point_m": [
+          5200,
+          143.0553946353744
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": 177.19151901000345
+      }
+    },
+    "before-20": {
+      "11:subsidence": {
+        "stored_surface_m": 309.24113545677426,
+        "remembered_surface_point_m": [
+          5200,
+          309.24113545677426
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:thrust-slip": {
+        "stored_surface_m": 284.79573693744913,
+        "remembered_surface_point_m": [
+          5202.842542628396,
+          292.55547041072265
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:collapse": {
+        "stored_surface_m": 284.79573693744913,
+        "remembered_surface_point_m": [
+          5202.842542628396,
+          292.55547041072265
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:deposition": {
+        "stored_surface_m": 265.52779819154256,
+        "remembered_surface_point_m": [
+          5200,
+          265.52779819154256
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "12:subsidence": {
+        "stored_surface_m": 302.50109236025327,
+        "remembered_surface_point_m": [
+          5200,
+          302.50109236025327
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "12:deposition": {
+        "stored_surface_m": 141.20893695042207,
+        "remembered_surface_point_m": [
+          5200,
+          141.20893695042207
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": 161.29215540983114
+      }
+    },
+    "before-10": {
+      "11:subsidence": {
+        "stored_surface_m": 313.12011377890775,
+        "remembered_surface_point_m": [
+          5200,
+          313.12011377890775
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:thrust-slip": {
+        "stored_surface_m": 284.79574860159454,
+        "remembered_surface_point_m": [
+          5202.842542628396,
+          282.5554820748677
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:collapse": {
+        "stored_surface_m": 284.79574860159454,
+        "remembered_surface_point_m": [
+          5202.842542628396,
+          282.5554820748677
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:deposition": {
+        "stored_surface_m": 265.52780985568796,
+        "remembered_surface_point_m": [
+          5200,
+          265.52780985568796
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "12:subsidence": {
+        "stored_surface_m": 302.50110402439867,
+        "remembered_surface_point_m": [
+          5200,
+          302.50110402439867
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "12:deposition": {
+        "stored_surface_m": 141.20893816407965,
+        "remembered_surface_point_m": [
+          5200,
+          141.20893816407965
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": 161.292165860319
+      }
+    },
+    "after-40": {
+      "11:subsidence": {
+        "stored_surface_m": 326.6044059735847,
+        "remembered_surface_point_m": [
+          5200,
+          326.6044059735847
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:thrust-slip": {
+        "stored_surface_m": 291.1144189721477,
+        "remembered_surface_point_m": [
+          5182.842542628397,
+          338.87415244542126
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:collapse": {
+        "stored_surface_m": 291.1144189721477,
+        "remembered_surface_point_m": [
+          5182.842542628397,
+          338.87415244542126
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:deposition": {
+        "stored_surface_m": 271.8464802262411,
+        "remembered_surface_point_m": [
+          5200,
+          271.8464802262411
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "12:subsidence": {
+        "stored_surface_m": 308.8197743949518,
+        "remembered_surface_point_m": [
+          5200,
+          308.8197743949518
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "12:deposition": {
+        "stored_surface_m": 141.8663975894244,
+        "remembered_surface_point_m": [
+          5200,
+          141.8663975894244
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": 166.9533768055274
+      }
+    },
+    "after-20": {
+      "11:subsidence": {
+        "stored_surface_m": 316.7713964918563,
+        "remembered_surface_point_m": [
+          5200,
+          316.7713964918563
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:thrust-slip": {
+        "stored_surface_m": 300.85735277156454,
+        "remembered_surface_point_m": [
+          5202.842542628396,
+          308.61708624483765
+        ],
+        "internal_water_height_m": 9.218050214131154,
+        "unit12_height_m": null
+      },
+      "11:collapse": {
+        "stored_surface_m": 310.0754029856957,
+        "remembered_surface_point_m": [
+          5202.842542628396,
+          308.61708624483765
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:deposition": {
+        "stored_surface_m": 290.8074642397891,
+        "remembered_surface_point_m": [
+          5200,
+          290.8074642397891
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "12:subsidence": {
+        "stored_surface_m": 327.7807584084998,
+        "remembered_surface_point_m": [
+          5200,
+          327.7807584084998
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "12:deposition": {
+        "stored_surface_m": 143.83929329729574,
+        "remembered_surface_point_m": [
+          5200,
+          143.83929329729574
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": 183.9414651112041
+      }
+    },
+    "after-10": {
+      "11:subsidence": {
+        "stored_surface_m": 320.0770524827917,
+        "remembered_surface_point_m": [
+          5200,
+          320.0770524827917
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:thrust-slip": {
+        "stored_surface_m": 291.9826619291279,
+        "remembered_surface_point_m": [
+          5202.842542628396,
+          299.74239540240154
+        ],
+        "internal_water_height_m": 0.27488404562063806,
+        "unit12_height_m": null
+      },
+      "11:collapse": {
+        "stored_surface_m": 292.25754597474855,
+        "remembered_surface_point_m": [
+          5202.842542628396,
+          299.74239540240177
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "11:deposition": {
+        "stored_surface_m": 272.989607228842,
+        "remembered_surface_point_m": [
+          5200,
+          272.989607228842
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "12:subsidence": {
+        "stored_surface_m": 309.9629013975527,
+        "remembered_surface_point_m": [
+          5200,
+          309.9629013975527
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": null
+      },
+      "12:deposition": {
+        "stored_surface_m": 141.98534027485528,
+        "remembered_surface_point_m": [
+          5200,
+          141.98534027485528
+        ],
+        "internal_water_height_m": 0,
+        "unit12_height_m": 167.97756112269738
+      }
+    }
+  },
+  "source_sha256": {
+    "before": {
+      "src/basin.ts": "2c6edb7d1c4188cb7e40f9167ff5f466d84791e8e2fd83754d891a0791f9e7ec",
+      "src/strata.ts": "e6616f8f8f107c059b2e8492bf804a734db243336b08080df491bd44fa261d3d",
+      "src/conservativeTransport.ts": "320cac5c2040e4a634860d476c637c2d0c87b0edea248a6b782acfeb861d79b5",
+      "src/normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+      "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+      "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+      "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+      "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+      "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+      "validation/numerics/plan.json": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+      "validation/numerics/metrics.mjs": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b"
+    },
+    "after": {
+      "src/basin.ts": "3a6ca0df3f881477cfc8c39ded43ab4c18d82ddc7c06afe57af57a02d0e6db51",
+      "src/strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+      "src/conservativeTransport.ts": "0f12ee1ccdf70f77eaa109ff71f13f5b3ba183216cf71536aca318a74f4e3243",
+      "src/normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+      "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+      "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+      "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+      "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+      "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+      "validation/numerics/plan.json": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+      "validation/numerics/metrics.mjs": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b"
+    }
+  },
+  "diagnostic_script_sha256": "f40068527ad32ddabf2c2799f886cea6b39bec59528954ed20c382ab575b41e0",
+  "reproduction": {
+    "script": "/Users/torus/Documents/Codex/2026-10-12/wha/work/thrust-b-regression/diagnose.mjs",
+    "commands": [
+      "node --max-old-space-size=8192 diagnose.mjs before 40 20 10",
+      "node --max-old-space-size=8192 diagnose.mjs after 40 20 10"
+    ],
+    "instrumentation": "Observer-only eager raster refresh removed in memory; only authoritative columns/faults inspected. No physics or random sequence changed. Original and final matching thickness values reproduced.",
+    "raw_traces": [
+      "before-40.json",
+      "before-20.json",
+      "before-10.json",
+      "after-40.json",
+      "after-20.json",
+      "after-10.json"
+    ]
+  },
+  "limitations": [
+    "Remembered surface points are material-marker positions, not a reconstructed continuous free surface. For these20m/10m samples their horizontal positions coincide.",
+    "Whole-profile travel-time worsening is concentrated at6000m and6800m and reflects redistribution of several beds with compensating thickness/slowness effects, not the unit12x5200 thickness outlier.",
+    "Physical area-overlap transport, general coordinate-gauge invariance and all-case convergence remain unestablished."
+  ]
+}

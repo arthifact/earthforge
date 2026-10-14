@@ -1,0 +1,1459 @@
+{
+  "schema": "earthforge-physical-target-column-prototype-v1",
+  "production_source_changed": false,
+  "holdout_accessed": false,
+  "status": "rejected: all three frozen pilots fail at40m;20/10m runs skipped after explicit infeasibility",
+  "eligibility": "Every represented h-wide nonwater constituent rectangle starts and ends in one common outer flow domain; entire transported physical footprint must remain inside lateral domain. Existing incoming and boundary behavior unchanged.",
+  "constraint": "Eligible retained packets must use their existing rounded continuous target column i. Original whole-height capacity, one packet per cell, and radius2/3 remain unchanged. Constraint gates greedy and every augmenting edge; no silent unlock.",
+  "runs": [
+    {
+      "id": "coupled-compression-a",
+      "h": 40,
+      "slip_m": 242.67272790893912,
+      "error": "Error: Conservative thrust transport cannot place parcel 1601 within 3 cells; no sediment was discarded",
+      "statistics": {
+        "retained": 2347,
+        "locked": 2039,
+        "offsetBeyondStencil": 0,
+        "maxColumnOffset": 0
+      },
+      "failed_packet": {
+        "id": 1601,
+        "source_column": 231,
+        "source_row": 12,
+        "height_m": 6.759484184501787,
+        "weight": 0.16898710461254468,
+        "physical_target": [
+          224.92616573966166,
+          11.845008879972463
+        ],
+        "rounded_target": [
+          225,
+          12
+        ],
+        "locked_column": 225,
+        "candidate_rows": [
+          9,
+          10,
+          11
+        ]
+      },
+      "forced_column_packets": 8,
+      "max_forced_column_matching": 7,
+      "hall_witness": {
+        "packets": [
+          {
+            "id": 1601,
+            "source_column": 231,
+            "source_row": 12,
+            "height_m": 6.759484184501787,
+            "weight": 0.16898710461254468,
+            "physical_target": [
+              224.92616573966166,
+              11.845008879972463
+            ],
+            "rounded_target": [
+              225,
+              12
+            ],
+            "locked_column": 225,
+            "candidate_rows": [
+              9,
+              10,
+              11
+            ]
+          },
+          {
+            "id": 1495,
+            "source_column": 231,
+            "source_row": 11,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              224.63273043792623,
+              9.526717889621981
+            ],
+            "rounded_target": [
+              225,
+              10
+            ],
+            "locked_column": 225,
+            "candidate_rows": [
+              7,
+              8,
+              9,
+              10,
+              11
+            ]
+          },
+          {
+            "id": 1167,
+            "source_column": 232,
+            "source_row": 9,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              225.43775415812033,
+              8.834902710738607
+            ],
+            "rounded_target": [
+              225,
+              9
+            ],
+            "locked_column": 225,
+            "candidate_rows": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ]
+          },
+          {
+            "id": 942,
+            "source_column": 231,
+            "source_row": 8,
+            "height_m": 40,
+            "weight": 0.8130485613200988,
+            "physical_target": [
+              224.9351579094704,
+              7.845166343550271
+            ],
+            "rounded_target": [
+              225,
+              8
+            ],
+            "locked_column": 225,
+            "candidate_rows": [
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ]
+          },
+          {
+            "id": 1351,
+            "source_column": 232,
+            "source_row": 10,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              225.45997237817772,
+              9.87405272893321
+            ],
+            "rounded_target": [
+              225,
+              10
+            ],
+            "locked_column": 225,
+            "candidate_rows": [
+              7,
+              8,
+              9,
+              10,
+              11
+            ]
+          },
+          {
+            "id": 1496,
+            "source_column": 232,
+            "source_row": 11,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              225.4941352330671,
+              10.625238192049771
+            ],
+            "rounded_target": [
+              225,
+              11
+            ],
+            "locked_column": 225,
+            "candidate_rows": [
+              8,
+              9,
+              10,
+              11
+            ]
+          },
+          {
+            "id": 943,
+            "source_column": 232,
+            "source_row": 8,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              225.43775415812038,
+              7.834902710738609
+            ],
+            "rounded_target": [
+              225,
+              8
+            ],
+            "locked_column": 225,
+            "candidate_rows": [
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ]
+          },
+          {
+            "id": 1166,
+            "source_column": 231,
+            "source_row": 9,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              224.6473992903732,
+              7.682186198287679
+            ],
+            "rounded_target": [
+              225,
+              8
+            ],
+            "locked_column": 225,
+            "candidate_rows": [
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ]
+          }
+        ],
+        "candidate_rows": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "packet_count": 8,
+        "slot_count": 7,
+        "total_height_m": 286.7594841845018,
+        "total_available_height_m": 280
+      },
+      "sources": {
+        "basin_sha256": "0fc87ded83bcc480a03c76f73c3e65bc88ab8a92e068de60f486855c8b5aec50",
+        "transport_sha256": "4cbbc696e00a6473f58bfdb6f24c18e4c546b949bf5862e31ccbb5863e8d343d"
+      }
+    },
+    {
+      "id": "thrust-b",
+      "h": 40,
+      "slip_m": 355.0818086503422,
+      "error": "Error: Conservative thrust transport cannot place parcel 3407 within 3 cells; no sediment was discarded",
+      "statistics": {
+        "retained": 5965,
+        "locked": 5363,
+        "offsetBeyondStencil": 0,
+        "maxColumnOffset": 0
+      },
+      "failed_packet": {
+        "id": 3407,
+        "source_column": 204,
+        "source_row": 17,
+        "height_m": 40,
+        "weight": 1,
+        "physical_target": [
+          213.12361275759002,
+          17.800877493365505
+        ],
+        "rounded_target": [
+          213,
+          18
+        ],
+        "locked_column": 213,
+        "candidate_rows": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ]
+      },
+      "forced_column_packets": 17,
+      "max_forced_column_matching": 16,
+      "hall_witness": {
+        "packets": [
+          {
+            "id": 4051,
+            "source_column": 204,
+            "source_row": 19,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              212.7143007487019,
+              18.832847170476356
+            ],
+            "rounded_target": [
+              213,
+              19
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              16,
+              17,
+              18,
+              19
+            ]
+          },
+          {
+            "id": 3407,
+            "source_column": 204,
+            "source_row": 17,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              213.12361275759002,
+              17.800877493365505
+            ],
+            "rounded_target": [
+              213,
+              18
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              15,
+              16,
+              17,
+              18,
+              19
+            ]
+          },
+          {
+            "id": 1796,
+            "source_column": 204,
+            "source_row": 12,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              212.55335225635662,
+              13.572883457496422
+            ],
+            "rounded_target": [
+              213,
+              14
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17
+            ]
+          },
+          {
+            "id": 2762,
+            "source_column": 204,
+            "source_row": 15,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              212.73115196909725,
+              15.486974434145258
+            ],
+            "rounded_target": [
+              213,
+              15
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ]
+          },
+          {
+            "id": 3084,
+            "source_column": 204,
+            "source_row": 16,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              213.09919900856866,
+              16.56891216873043
+            ],
+            "rounded_target": [
+              213,
+              17
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              14,
+              15,
+              16,
+              17,
+              18,
+              19
+            ]
+          },
+          {
+            "id": 3729,
+            "source_column": 204,
+            "source_row": 18,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              213.05750617023494,
+              18.001372008170666
+            ],
+            "rounded_target": [
+              213,
+              18
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              15,
+              16,
+              17,
+              18,
+              19
+            ]
+          },
+          {
+            "id": 1152,
+            "source_column": 204,
+            "source_row": 10,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              212.90065456386452,
+              12.008307306279324
+            ],
+            "rounded_target": [
+              213,
+              12
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ]
+          },
+          {
+            "id": 2118,
+            "source_column": 204,
+            "source_row": 13,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              213.1681849795133,
+              14.30387964397534
+            ],
+            "rounded_target": [
+              213,
+              14
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17
+            ]
+          },
+          {
+            "id": 2440,
+            "source_column": 204,
+            "source_row": 14,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              213.1157349695984,
+              15.165107078629083
+            ],
+            "rounded_target": [
+              213,
+              15
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ]
+          },
+          {
+            "id": 1797,
+            "source_column": 205,
+            "source_row": 12,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              213.48797302243833,
+              10.860888861654047
+            ],
+            "rounded_target": [
+              213,
+              11
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ]
+          },
+          {
+            "id": 589,
+            "source_column": 204,
+            "source_row": 8,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              212.64009463993892,
+              10.287792800705859
+            ],
+            "rounded_target": [
+              213,
+              10
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ]
+          },
+          {
+            "id": 1474,
+            "source_column": 204,
+            "source_row": 11,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              213.2077874435929,
+              12.980863887911084
+            ],
+            "rounded_target": [
+              213,
+              13
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ]
+          },
+          {
+            "id": 832,
+            "source_column": 204,
+            "source_row": 9,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              212.61324080436617,
+              11.176619585309261
+            ],
+            "rounded_target": [
+              213,
+              11
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ]
+          },
+          {
+            "id": 183,
+            "source_column": 204,
+            "source_row": 6,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              213.06662887724707,
+              8.851939720812037
+            ],
+            "rounded_target": [
+              213,
+              9
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ]
+          },
+          {
+            "id": 380,
+            "source_column": 204,
+            "source_row": 7,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              212.502022213186,
+              9.319971990260202
+            ],
+            "rounded_target": [
+              213,
+              9
+            ],
+            "locked_column": 213,
+            "candidate_rows": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ]
+          }
+        ],
+        "candidate_rows": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "packet_count": 15,
+        "slot_count": 14,
+        "total_height_m": 600,
+        "total_available_height_m": 560
+      },
+      "sources": {
+        "basin_sha256": "0fc87ded83bcc480a03c76f73c3e65bc88ab8a92e068de60f486855c8b5aec50",
+        "transport_sha256": "4cbbc696e00a6473f58bfdb6f24c18e4c546b949bf5862e31ccbb5863e8d343d"
+      }
+    },
+    {
+      "id": "coupled-compression-c",
+      "h": 40,
+      "slip_m": 630.4626112393131,
+      "error": "Error: Conservative thrust transport cannot place parcel 3904 within 3 cells; no sediment was discarded",
+      "statistics": {
+        "retained": 5174,
+        "locked": 4346,
+        "offsetBeyondStencil": 0,
+        "maxColumnOffset": 0
+      },
+      "failed_packet": {
+        "id": 3904,
+        "source_column": 261,
+        "source_row": 20,
+        "height_m": 40,
+        "weight": 1,
+        "physical_target": [
+          245.2876711741307,
+          19.631965543602416
+        ],
+        "rounded_target": [
+          245,
+          20
+        ],
+        "locked_column": 245,
+        "candidate_rows": [
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ]
+      },
+      "forced_column_packets": 20,
+      "max_forced_column_matching": 18,
+      "hall_witness": {
+        "packets": [
+          {
+            "id": 4569,
+            "source_column": 260,
+            "source_row": 24,
+            "height_m": 16.393161428498047,
+            "weight": 0.40982903571245116,
+            "physical_target": [
+              244.98653887561278,
+              23.90760319080308
+            ],
+            "rounded_target": [
+              245,
+              24
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              21,
+              22,
+              23
+            ]
+          },
+          {
+            "id": 4570,
+            "source_column": 261,
+            "source_row": 24,
+            "height_m": 17.189208555281766,
+            "weight": 0.42973021388204413,
+            "physical_target": [
+              244.97541466392795,
+              23.263082564931715
+            ],
+            "rounded_target": [
+              245,
+              23
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              20,
+              21,
+              22,
+              23
+            ]
+          },
+          {
+            "id": 3296,
+            "source_column": 260,
+            "source_row": 18,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              244.71353542027327,
+              17.602239913391024
+            ],
+            "rounded_target": [
+              245,
+              18
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ]
+          },
+          {
+            "id": 3612,
+            "source_column": 261,
+            "source_row": 19,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              244.85635842060384,
+              18.754740463243305
+            ],
+            "rounded_target": [
+              245,
+              19
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22
+            ]
+          },
+          {
+            "id": 4338,
+            "source_column": 261,
+            "source_row": 22,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              244.93338519011485,
+              21.43664862232718
+            ],
+            "rounded_target": [
+              245,
+              21
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              18,
+              19,
+              20,
+              21,
+              22,
+              23
+            ]
+          },
+          {
+            "id": 2982,
+            "source_column": 261,
+            "source_row": 17,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              245.21064440461296,
+              16.950057384518956
+            ],
+            "rounded_target": [
+              245,
+              17
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20
+            ]
+          },
+          {
+            "id": 2666,
+            "source_column": 260,
+            "source_row": 16,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              244.64099878295065,
+              14.918867665914235
+            ],
+            "rounded_target": [
+              245,
+              15
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ]
+          },
+          {
+            "id": 2352,
+            "source_column": 261,
+            "source_row": 15,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              245.4653008192644,
+              15.149486917126959
+            ],
+            "rounded_target": [
+              245,
+              15
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ]
+          },
+          {
+            "id": 4145,
+            "source_column": 260,
+            "source_row": 21,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              244.79056218977948,
+              20.28414807247691
+            ],
+            "rounded_target": [
+              245,
+              20
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23
+            ]
+          },
+          {
+            "id": 3904,
+            "source_column": 261,
+            "source_row": 20,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              245.2876711741307,
+              19.631965543602416
+            ],
+            "rounded_target": [
+              245,
+              20
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23
+            ]
+          },
+          {
+            "id": 4479,
+            "source_column": 261,
+            "source_row": 23,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              244.95906077995178,
+              22.330618008688575
+            ],
+            "rounded_target": [
+              245,
+              22
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              19,
+              20,
+              21,
+              22,
+              23
+            ]
+          },
+          {
+            "id": 1113,
+            "source_column": 261,
+            "source_row": 11,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              245.01416570745786,
+              10.694501388622177
+            ],
+            "rounded_target": [
+              245,
+              11
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ]
+          },
+          {
+            "id": 2036,
+            "source_column": 260,
+            "source_row": 14,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              244.69544035908876,
+              13.087087219226404
+            ],
+            "rounded_target": [
+              245,
+              13
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ]
+          },
+          {
+            "id": 2667,
+            "source_column": 261,
+            "source_row": 16,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              244.7793316510928,
+              16.072832304159597
+            ],
+            "rounded_target": [
+              245,
+              16
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19
+            ]
+          },
+          {
+            "id": 1406,
+            "source_column": 260,
+            "source_row": 12,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              244.64408889368133,
+              11.299149626475995
+            ],
+            "rounded_target": [
+              245,
+              11
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14
+            ]
+          },
+          {
+            "id": 1721,
+            "source_column": 260,
+            "source_row": 13,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              244.66976476925157,
+              12.19311783286533
+            ],
+            "rounded_target": [
+              245,
+              12
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ]
+          },
+          {
+            "id": 1112,
+            "source_column": 260,
+            "source_row": 11,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              244.5951946116411,
+              9.59675479973258
+            ],
+            "rounded_target": [
+              245,
+              10
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ]
+          },
+          {
+            "id": 2351,
+            "source_column": 260,
+            "source_row": 15,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              244.72111594892567,
+              13.98105660558769
+            ],
+            "rounded_target": [
+              245,
+              14
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17
+            ]
+          },
+          {
+            "id": 847,
+            "source_column": 261,
+            "source_row": 10,
+            "height_m": 40,
+            "weight": 1,
+            "physical_target": [
+              245.35915006215018,
+              9.78829963314831
+            ],
+            "rounded_target": [
+              245,
+              10
+            ],
+            "locked_column": 245,
+            "candidate_rows": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ]
+          }
+        ],
+        "candidate_rows": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "packet_count": 19,
+        "slot_count": 17,
+        "total_height_m": 713.5823699837798,
+        "total_available_height_m": 680
+      },
+      "sources": {
+        "basin_sha256": "0fc87ded83bcc480a03c76f73c3e65bc88ab8a92e068de60f486855c8b5aec50",
+        "transport_sha256": "4cbbc696e00a6473f58bfdb6f24c18e4c546b949bf5862e31ccbb5863e8d343d"
+      }
+    }
+  ],
+  "analytical_checks": {
+    "passed": true,
+    "results": [
+      {
+        "h": 40,
+        "dir": -1,
+        "runs": [
+          {
+            "name": "baseline",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 63,
+              "displaced": 17,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          },
+          {
+            "name": "physicalflat",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 63,
+              "displaced": 17,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          }
+        ]
+      },
+      {
+        "h": 40,
+        "dir": 1,
+        "runs": [
+          {
+            "name": "baseline",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 61,
+              "displaced": 16,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          },
+          {
+            "name": "physicalflat",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 61,
+              "displaced": 16,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          }
+        ]
+      },
+      {
+        "h": 20,
+        "dir": -1,
+        "runs": [
+          {
+            "name": "baseline",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 63,
+              "displaced": 17,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          },
+          {
+            "name": "physicalflat",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 63,
+              "displaced": 17,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          }
+        ]
+      },
+      {
+        "h": 20,
+        "dir": 1,
+        "runs": [
+          {
+            "name": "baseline",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 61,
+              "displaced": 16,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          },
+          {
+            "name": "physicalflat",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 61,
+              "displaced": 16,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          }
+        ]
+      },
+      {
+        "h": 10,
+        "dir": -1,
+        "runs": [
+          {
+            "name": "baseline",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 63,
+              "displaced": 17,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          },
+          {
+            "name": "physicalflat",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 63,
+              "displaced": 17,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          }
+        ]
+      },
+      {
+        "h": 10,
+        "dir": 1,
+        "runs": [
+          {
+            "name": "baseline",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 61,
+              "displaced": 16,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          },
+          {
+            "name": "physicalflat",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 61,
+              "displaced": 16,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "root_cause_packet": [
+    {
+      "mode": "weighted",
+      "step": 9,
+      "source_m": [
+        10440,
+        720
+      ],
+      "destination_m": [
+        10160,
+        680
+      ],
+      "continuous_target_m": [
+        10141.562368961133,
+        718.8018507110882
+      ],
+      "rounded_target_m": [
+        10160,
+        720
+      ],
+      "height_m": 40,
+      "units": {
+        "4": 3.904749630269066,
+        "5": 36.095250369730934
+      },
+      "constituent_target_x_range_m": [
+        10130.522205772011,
+        10142.756683245956
+      ]
+    },
+    {
+      "mode": "unweighted",
+      "step": 9,
+      "source_m": [
+        10440,
+        720
+      ],
+      "destination_m": [
+        10120,
+        720
+      ],
+      "continuous_target_m": [
+        10141.563191426776,
+        718.8010365463417
+      ],
+      "rounded_target_m": [
+        10160,
+        720
+      ],
+      "height_m": 40,
+      "units": {
+        "4": 3.9020556238710924,
+        "5": 36.09794437612891
+      },
+      "constituent_target_x_range_m": [
+        10130.522204243638,
+        10142.756681717585
+      ]
+    }
+  ],
+  "interpretation": [
+    "The coupled-A weighted packet already uses its rounded physical target column10160m; forcing that column preserves its extra40m contribution instead of removing it.",
+    "Its unit5 andunit4 constituents have distinct physical lateral positions, so a single column target cannot resolve constituent footprints.",
+    "Even rigid-flat motion can inherit overlapping rounded supports from earlier remapping; eight packets may require seven admissible destination slots. Joint material-volume and column projection needs a broader contract; tightening assignment alone cannot represent it."
+  ]
+}

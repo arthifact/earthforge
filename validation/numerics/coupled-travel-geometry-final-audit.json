@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "cases": 75,
+  "known_45degree_exact_centroid": [
+    -1638.6723585780428,
+    608.3767828021114
+  ],
+  "known_45degree_error_m": 0,
+  "max_partition_error_m": 9.25343817704044e-13,
+  "max_mirror_error_m": 0,
+  "max_translation_error_m": 2.3437142008433856e-13,
+  "max_dense_integral_error_m": 0.00008150671003822615,
+  "tiny_intervals": [
+    {
+      "height": 0.0001,
+      "error_m": 0
+    },
+    {
+      "height": 1e-12,
+      "error_m": 0
+    },
+    {
+      "height": 1e-100,
+      "error_m": 0
+    },
+    {
+      "height": 5e-324,
+      "error_m": 0
+    }
+  ],
+  "checks": [
+    "Independent closed-form cubic integral for partial bend crossing",
+    "21-rectangle partition additivity in both x and z",
+    "Positive/negative/zero slip, mirror and rigid translation",
+    "200x200 independent point-flow quadrature",
+    "Tiny positive intervals on a flat"
+  ],
+  "limitations": [
+    "Validates area first moments only; no claim about preserved material shape or indivisible assignment.",
+    "No observational or holdout files read."
+  ]
+}

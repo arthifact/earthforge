@@ -1,0 +1,150 @@
+{
+  "schema": "earthforge.synthetic.grouped-test-adaptation.v1",
+  "observational_or_holdout_reads": false,
+  "original_fractional_test_sha256": "18d62d6b9422122d177cf0ccce84c6a59b45773ccfdda9b19932c27f68dc1e05",
+  "adapted_fractional_test_sha256": "84c42519f5472f4525664ef8f00f76959682fedce7acaa2483aff26fc884528e",
+  "original_fixture_exact_binary_witnesses": [
+    {
+      "z": 500,
+      "exact_bulk_error_m": 1.0658141036401503e-14,
+      "water_rock_boundary_error_m": 1.0658141036401503e-14
+    },
+    {
+      "z": 510,
+      "exact_bulk_error_m": 1.0658141036401503e-14,
+      "water_rock_boundary_error_m": 1.0658141036401503e-14
+    },
+    {
+      "z": 520,
+      "exact_bulk_error_m": 1.0658141036401503e-14,
+      "water_rock_boundary_error_m": 1.0658141036401503e-14
+    },
+    {
+      "z": 530,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 540,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 550,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 560,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 570,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 580,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 590,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 600,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 610,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 620,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 630,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 640,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 650,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 660,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 670,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 680,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 690,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    },
+    {
+      "z": 700,
+      "exact_bulk_error_m": -4.618527782440651e-14,
+      "water_rock_boundary_error_m": -4.618527782440651e-14
+    }
+  ],
+  "changes": [
+    "Represent water as exact[z,-15.7] and bottom as exact[960,-z]; leave15.7m hanging-wall physicalbed unchanged.",
+    "Retain all existing footwall numeric-field near checks with unchanged1e-8 tolerance and add exact per-parcel support equality.",
+    "Assert exact full960m support and shared fault boundary before rasterization.",
+    "No case deletion, metric change, eligibility change or gate widening."
+  ],
+  "fractional_tests": {
+    "total": 7,
+    "passed": 7,
+    "failed": 0,
+    "source_root": "work/coarse-travel-transport/grouped"
+  },
+  "portable_grouped_material_tests": {
+    "total": 36,
+    "passed": 36,
+    "failed": 0
+  },
+  "checker_tests": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "typecheck_passed": true
+  },
+  "file_sha256": {
+    "work/coarse-travel-metrics/fractional-thrust-grouped.test.mjs": "84c42519f5472f4525664ef8f00f76959682fedce7acaa2483aff26fc884528e",
+    "work/coarse-travel-metrics/fractional-thrust-grouped-tests.log": "402ba0b3bff3651d6bae7e5dc493d62abf3b7e6a4d9c09ba25d84971b116f36f",
+    "work/coarse-travel-metrics/grouped-basinVerify.ts": "faa15905d6b12681c5a2d4b8bc9184199dea26a44910b9753179fdfa97c8f084",
+    "work/coarse-travel-metrics/grouped-state-support.test.mjs": "343471ae0c470d4e621e9e2028cdc5695ffafa4dffd426ad3632d91c1108652a",
+    "work/coarse-travel-representation/grouped-candidate/tests/length-rounding.test.mjs": "efcdb578cbd6721545314f7e25239d48a0b8116bf29f4572c246b5d232a5ce20",
+    "work/coarse-travel-representation/grouped-candidate/tests/deposition-boundaries.test.mjs": "4e0783a7ba466d1b4d5cd4fc3d10853d89195ddb8de91dfa2913a8bb1d823a4e",
+    "work/coarse-travel-representation/grouped-candidate/tests/grouped-material.test.mjs": "a65753ec3d1dce592342abc04fe4bb218dabf75aebe09f3eeb3b2ffa346115d1",
+    "work/coarse-travel-representation/grouped-candidate/tests/column-boundaries.test.mjs": "7f4fdd5f72c5f0e80ee669e6971d055a25dd1949ca4c44f732a2924b6d80494d",
+    "work/coarse-travel-representation/grouped-candidate/tests/deposition-support.test.mjs": "4f822f3a50b3a1f4aa98ba03e5a68e6226ca08d7d9e78946d941e19995a79f17",
+    "work/coarse-travel-representation/grouped-candidate/tests/exact-length.test.mjs": "8afca31e3588d69f53c1b759713f96fa494722aafcd769fbb3d150d348da855e",
+    "work/coarse-travel-representation/grouped-candidate/tests/exact-material.test.mjs": "bd4e767e47d4668ad032fd0bc57cd647ed572396c480c34bc6767cf15c8b913d",
+    "work/coarse-travel-representation/grouped-candidate/tests/material-coalescing.test.mjs": "2ae07669c0cb50c71bd93892e6c6bd683cf9d4050f4a151d951dfdbd9f70be6e"
+  }
+}

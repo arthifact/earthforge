@@ -1,0 +1,54 @@
+{
+  "observational_data": "none",
+  "source_sha256": {
+    "src/basin.ts": "2c6edb7d1c4188cb7e40f9167ff5f466d84791e8e2fd83754d891a0791f9e7ec",
+    "src/strata.ts": "e6616f8f8f107c059b2e8492bf804a734db243336b08080df491bd44fa261d3d",
+    "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+    "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+    "validation/numerics/thrust-coupling-evidence.mjs": "7d2728bfbfb0b3069363583998777e2d38b10e88383e5ede67c793a3b9dc69ac"
+  },
+  "gap_controls": [
+    {
+      "gap_m": 0.0001,
+      "marker_depth_m": 12.5,
+      "old_geometry_error_m": 0.00009999999999976694,
+      "new_geometry_error_m": 3.552713678800501e-15
+    },
+    {
+      "gap_m": 7.3,
+      "marker_depth_m": 12.5,
+      "old_geometry_error_m": 7.300000000000001,
+      "new_geometry_error_m": 3.552713678800501e-15
+    },
+    {
+      "gap_m": 40,
+      "marker_depth_m": 12.5,
+      "old_geometry_error_m": 40,
+      "new_geometry_error_m": 0
+    }
+  ],
+  "branch_controls": [
+    {
+      "h": 40,
+      "first_at_560_m": 500,
+      "expected_first_m": 500,
+      "second_at_600_m": 480,
+      "expected_second_m": 480
+    },
+    {
+      "h": 20,
+      "first_at_560_m": 500,
+      "expected_first_m": 500,
+      "second_at_600_m": 480,
+      "expected_second_m": 480
+    },
+    {
+      "h": 10,
+      "first_at_560_m": 500,
+      "expected_first_m": 500,
+      "second_at_600_m": 480,
+      "expected_second_m": 480
+    }
+  ],
+  "interpretation": "Known-answer mechanism tests, not geological accuracy or field calibration. Single-depth compatibility output is a mean of distinct branch intersections; physical segments remain separate."
+}

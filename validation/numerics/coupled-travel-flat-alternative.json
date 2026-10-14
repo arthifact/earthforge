@@ -1,0 +1,300 @@
+{
+  "schema": "earthforge-rigid-flat-column-prototype-evidence-v1",
+  "holdout_accessed": false,
+  "production_source_changed": false,
+  "eligibility": "Every nonwater constituent rectangle starts and ends in the same outer flow domain. Interior variant additionally excludes transported physical footprints crossing a lateral domain edge.",
+  "constraint": "Each eligible retained packet must use destination column source_i + D[segment], with existing heave/carry. All original capacity and radius2/3 constraints remain enforced. Existing continuous offset updates and boundary contract remain unchanged.",
+  "status": "rejected_as_drop_in: both variants fail a frozen development case explicitly; no fallback unlock, no flux invented",
+  "runs": [
+    {
+      "variant": "flatlock",
+      "h": 40,
+      "slip_m": 299.95998798075914,
+      "carry_m": [
+        15.364504384899249,
+        16.238625473207804,
+        15.32083171081345
+      ],
+      "statistics": {
+        "retained": 2229,
+        "locked": 1936,
+        "offsetBeyondStencil": 0,
+        "maxColumnOffset": 1
+      },
+      "error": "Error: Invalid constrained destination column",
+      "sources": {
+        "basin_sha256": "dd85ab0a4ce7c2b7d65d24123bca2d74e603932be06c9fd9403c832ea4d7beb9",
+        "transport_sha256": "4cbbc696e00a6473f58bfdb6f24c18e4c546b949bf5862e31ccbb5863e8d343d"
+      },
+      "failure": {
+        "mechanism": "Existing continuous boundary classification retains a packet whose carry-based coherent-column target lies outside the grid.",
+        "parcels": [
+          {
+            "source": 669,
+            "i": 0,
+            "k": 2,
+            "targetI": -0.4974037513500207,
+            "targetK": 1.8452954990069934,
+            "column": -1,
+            "offsetX": 0,
+            "offsetZ": 0,
+            "height": 40
+          },
+          {
+            "source": 1000,
+            "i": 0,
+            "k": 3,
+            "targetI": -0.4974037513499866,
+            "targetK": 2.8452954990069936,
+            "column": -1,
+            "offsetX": 0,
+            "offsetZ": 0,
+            "height": 40
+          },
+          {
+            "source": 1331,
+            "i": 0,
+            "k": 4,
+            "targetI": -0.4974037513499979,
+            "targetK": 3.8452954990069927,
+            "column": -1,
+            "offsetX": 0,
+            "offsetZ": 0,
+            "height": 40
+          },
+          {
+            "source": 1662,
+            "i": 0,
+            "k": 5,
+            "targetI": -0.497403751350015,
+            "targetK": 4.845295499006992,
+            "column": -1,
+            "offsetX": 0,
+            "offsetZ": 0,
+            "height": 15.848564189058635
+          }
+        ]
+      }
+    },
+    {
+      "variant": "flatinterior",
+      "h": 40,
+      "slip_m": 301.9481871176555,
+      "carry_m": [
+        -0.14596994882936087,
+        -12.31143263990873,
+        -0.5780981349587364
+      ],
+      "statistics": {
+        "retained": 4565,
+        "locked": 3762,
+        "offsetBeyondStencil": 0,
+        "maxColumnOffset": 3
+      },
+      "error": "Error: Conservative thrust transport cannot place parcel 1587 within 3 cells; no sediment was discarded",
+      "sources": {
+        "basin_sha256": "cf10d838d74a5e706a529b5045d7d69d36eb43e5b2d40bb1e2a1d8f1a0198f95",
+        "transport_sha256": "4cbbc696e00a6473f58bfdb6f24c18e4c546b949bf5862e31ccbb5863e8d343d"
+      },
+      "failure": {
+        "mechanism": "Remembered material phase differs from global carry; the prescribed storage-column target has no cell satisfying radius and whole-packet capacity.",
+        "source_column": 139,
+        "source_row": 11,
+        "target_column": 134,
+        "target_row": 11,
+        "continuous_target": [
+          134.20771529066198,
+          10.565751463758941
+        ],
+        "prescribed_column": 131,
+        "offsetX_m": 110.11479191913168,
+        "offsetZ_m": -8.110500818710511,
+        "height_m": 21.66514117321998,
+        "prescribed_same_row_capacity_m": 11.847512524843637,
+        "admissible_destinations": []
+      }
+    }
+  ],
+  "analytical_checks": {
+    "passed": true,
+    "results": [
+      {
+        "h": 40,
+        "dir": -1,
+        "runs": [
+          {
+            "name": "baseline",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 63,
+              "displaced": 17,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          },
+          {
+            "name": "flatinterior",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 63,
+              "displaced": 17,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          }
+        ]
+      },
+      {
+        "h": 40,
+        "dir": 1,
+        "runs": [
+          {
+            "name": "baseline",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 61,
+              "displaced": 16,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          },
+          {
+            "name": "flatinterior",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 61,
+              "displaced": 16,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          }
+        ]
+      },
+      {
+        "h": 20,
+        "dir": -1,
+        "runs": [
+          {
+            "name": "baseline",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 63,
+              "displaced": 17,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          },
+          {
+            "name": "flatinterior",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 63,
+              "displaced": 17,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          }
+        ]
+      },
+      {
+        "h": 20,
+        "dir": 1,
+        "runs": [
+          {
+            "name": "baseline",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 61,
+              "displaced": 16,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          },
+          {
+            "name": "flatinterior",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 61,
+              "displaced": 16,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          }
+        ]
+      },
+      {
+        "h": 10,
+        "dir": -1,
+        "runs": [
+          {
+            "name": "baseline",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 63,
+              "displaced": 17,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          },
+          {
+            "name": "flatinterior",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 63,
+              "displaced": 17,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          }
+        ]
+      },
+      {
+        "h": 10,
+        "dir": 1,
+        "runs": [
+          {
+            "name": "baseline",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 61,
+              "displaced": 16,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          },
+          {
+            "name": "flatinterior",
+            "checked": 40,
+            "lateralColumnViolations": 0,
+            "placement": {
+              "parcels": 61,
+              "displaced": 16,
+              "maxOffsetCells": 1,
+              "radius": 2
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "interpretation": [
+    "A packed coherent zero-lateral-offset integer-translation fixture passes baseline as well; this prototype has not established a universal physical advection defect.",
+    "Previous transport can give constituents distinct lateral offsets multiple cells from storage columns. Current storage column plus global carry is then not a physical material-track invariant.",
+    "The weighted Euclidean projection may exchange column inventories for a lower vertical placement cost; forbidding that trade requires a justified joint column/vertical projection contract."
+  ],
+  "related_evidence": [
+    "../coupled-travel-metrics/flat-column-fixture.json",
+    "column-order-evidence.json"
+  ]
+}

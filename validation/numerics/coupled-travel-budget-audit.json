@@ -1,0 +1,259 @@
+{
+  "schema": "earthforge.independent-synthetic-budget-audit.v1",
+  "observational_data": "None; only frozen numerical plan, summary, and 36 synthetic budget files read.",
+  "plan_sha256": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+  "source_sha256": {
+    "src/basin.ts": "f82bf4b589246ffc5652dc06b18f5d1e26bacc7f61b38fc7d010a66198379b08",
+    "src/conservativeTransport.ts": "fb601e0ca361bd598232faa929e1db63045c9515532ab32662624d3761276f27",
+    "src/strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+    "src/normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+    "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+    "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+    "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+    "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+    "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+    "validation/numerics/metrics.mjs": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b",
+    "validation/numerics/run.mjs": "579c12772f2a8ff6b4ace8a8fd3586b905292f443481f0abcc989cfde9510fbd"
+  },
+  "runs": 36,
+  "events": 4494,
+  "scalar_balances_checked": 755160,
+  "failed_scalar_balances": 0,
+  "repair_added_m2": 0,
+  "tolerance": {
+    "absolute_m2": 1e-06,
+    "relative": 1e-10
+  },
+  "maximum_absolute_scalar_residual_m2": 2.2873282432556152e-06,
+  "worst_residual_fraction_of_tolerance": 0.002239008501560218,
+  "by_process_events": {
+    "subsidence": 705,
+    "collapse": 705,
+    "erosion": 705,
+    "deposition": 705,
+    "compaction": 468,
+    "burial-memory": 705,
+    "repair": 36,
+    "normal-slip": 330,
+    "thrust-slip": 135
+  },
+  "run_checks": [
+    {
+      "id": "compaction-a",
+      "h": 40,
+      "events": 109,
+      "worst_residual_fraction_of_tolerance": 8.886494949405877e-05
+    },
+    {
+      "id": "compaction-a",
+      "h": 20,
+      "events": 109,
+      "worst_residual_fraction_of_tolerance": 0.00018400128982889546
+    },
+    {
+      "id": "compaction-a",
+      "h": 10,
+      "events": 109,
+      "worst_residual_fraction_of_tolerance": 0.00024141958661012914
+    },
+    {
+      "id": "compaction-b",
+      "h": 40,
+      "events": 145,
+      "worst_residual_fraction_of_tolerance": 0.00017220004090099015
+    },
+    {
+      "id": "compaction-b",
+      "h": 20,
+      "events": 145,
+      "worst_residual_fraction_of_tolerance": 0.0001899027778780303
+    },
+    {
+      "id": "compaction-b",
+      "h": 10,
+      "events": 145,
+      "worst_residual_fraction_of_tolerance": 0.0003102705581988302
+    },
+    {
+      "id": "normal-a",
+      "h": 40,
+      "events": 117,
+      "worst_residual_fraction_of_tolerance": 0.00013761078258625465
+    },
+    {
+      "id": "normal-a",
+      "h": 20,
+      "events": 117,
+      "worst_residual_fraction_of_tolerance": 0.00012550904765400942
+    },
+    {
+      "id": "normal-a",
+      "h": 10,
+      "events": 117,
+      "worst_residual_fraction_of_tolerance": 0.00018536915714725916
+    },
+    {
+      "id": "normal-b",
+      "h": 40,
+      "events": 144,
+      "worst_residual_fraction_of_tolerance": 0.0003340076367176421
+    },
+    {
+      "id": "normal-b",
+      "h": 20,
+      "events": 144,
+      "worst_residual_fraction_of_tolerance": 0.0005064644827631598
+    },
+    {
+      "id": "normal-b",
+      "h": 10,
+      "events": 144,
+      "worst_residual_fraction_of_tolerance": 0.0006575554155694233
+    },
+    {
+      "id": "thrust-a",
+      "h": 40,
+      "events": 98,
+      "worst_residual_fraction_of_tolerance": 0.0006110910853968733
+    },
+    {
+      "id": "thrust-a",
+      "h": 20,
+      "events": 98,
+      "worst_residual_fraction_of_tolerance": 0.0008560170488552672
+    },
+    {
+      "id": "thrust-a",
+      "h": 10,
+      "events": 98,
+      "worst_residual_fraction_of_tolerance": 0.0016929097525548158
+    },
+    {
+      "id": "thrust-b",
+      "h": 40,
+      "events": 79,
+      "worst_residual_fraction_of_tolerance": 0.0004483423645492692
+    },
+    {
+      "id": "thrust-b",
+      "h": 20,
+      "events": 79,
+      "worst_residual_fraction_of_tolerance": 0.001138804648161578
+    },
+    {
+      "id": "thrust-b",
+      "h": 10,
+      "events": 79,
+      "worst_residual_fraction_of_tolerance": 0.0009422134446996622
+    },
+    {
+      "id": "coupled-extension-a",
+      "h": 40,
+      "events": 161,
+      "worst_residual_fraction_of_tolerance": 0.00013602949265146514
+    },
+    {
+      "id": "coupled-extension-a",
+      "h": 20,
+      "events": 161,
+      "worst_residual_fraction_of_tolerance": 0.00021052485517419667
+    },
+    {
+      "id": "coupled-extension-a",
+      "h": 10,
+      "events": 161,
+      "worst_residual_fraction_of_tolerance": 0.00034583439096767885
+    },
+    {
+      "id": "coupled-extension-b",
+      "h": 40,
+      "events": 117,
+      "worst_residual_fraction_of_tolerance": 0.0002837532251864212
+    },
+    {
+      "id": "coupled-extension-b",
+      "h": 20,
+      "events": 117,
+      "worst_residual_fraction_of_tolerance": 0.00045729704257860406
+    },
+    {
+      "id": "coupled-extension-b",
+      "h": 10,
+      "events": 117,
+      "worst_residual_fraction_of_tolerance": 0.0009320062507488577
+    },
+    {
+      "id": "coupled-extension-c",
+      "h": 40,
+      "events": 147,
+      "worst_residual_fraction_of_tolerance": 0.00020894214211445876
+    },
+    {
+      "id": "coupled-extension-c",
+      "h": 20,
+      "events": 147,
+      "worst_residual_fraction_of_tolerance": 0.0003258170832485129
+    },
+    {
+      "id": "coupled-extension-c",
+      "h": 10,
+      "events": 147,
+      "worst_residual_fraction_of_tolerance": 0.0005952332485974084
+    },
+    {
+      "id": "coupled-compression-a",
+      "h": 40,
+      "events": 106,
+      "worst_residual_fraction_of_tolerance": 0.0013359838421496918
+    },
+    {
+      "id": "coupled-compression-a",
+      "h": 20,
+      "events": 106,
+      "worst_residual_fraction_of_tolerance": 0.0006544902634107547
+    },
+    {
+      "id": "coupled-compression-a",
+      "h": 10,
+      "events": 106,
+      "worst_residual_fraction_of_tolerance": 0.002239008501560218
+    },
+    {
+      "id": "coupled-compression-b",
+      "h": 40,
+      "events": 130,
+      "worst_residual_fraction_of_tolerance": 0.00038193291205840973
+    },
+    {
+      "id": "coupled-compression-b",
+      "h": 20,
+      "events": 130,
+      "worst_residual_fraction_of_tolerance": 0.0006076432503295009
+    },
+    {
+      "id": "coupled-compression-b",
+      "h": 10,
+      "events": 130,
+      "worst_residual_fraction_of_tolerance": 0.0012658043495746593
+    },
+    {
+      "id": "coupled-compression-c",
+      "h": 40,
+      "events": 145,
+      "worst_residual_fraction_of_tolerance": 0.00020975559902130703
+    },
+    {
+      "id": "coupled-compression-c",
+      "h": 20,
+      "events": 145,
+      "worst_residual_fraction_of_tolerance": 0.000395767132511682
+    },
+    {
+      "id": "coupled-compression-c",
+      "h": 10,
+      "events": 145,
+      "worst_residual_fraction_of_tolerance": 0.0008957539864188365
+    }
+  ],
+  "failures": []
+}

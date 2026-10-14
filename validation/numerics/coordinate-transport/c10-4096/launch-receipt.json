@@ -1,0 +1,18 @@
+{
+  "tool": "exec_command",
+  "session_id": 11917,
+  "command": "node --max-old-space-size=4096 work/coarse-travel-transport/grouped-c10-4096/coordinate-grouped-pilot.mjs coupled-compression-c 10 > work/coarse-travel-transport/grouped-c10-4096/run.log 2>&1",
+  "argv": [
+    "node",
+    "--max-old-space-size=4096",
+    "work/coarse-travel-transport/grouped-c10-4096/coordinate-grouped-pilot.mjs",
+    "coupled-compression-c",
+    "10"
+  ],
+  "working_directory": "/Users/torus/Documents/Codex/2026-10-12/wha",
+  "launched_after_test_session_43309_exit_0": true,
+  "test_audit_sha256": "167211f118c9fc371af4f8281bcad31f0625a47fa9495a7754bb4f54fba93dd3",
+  "receipt_written_utc": "2026-10-14T05:23:54.957817+00:00",
+  "exit_code": 0,
+  "result_observed_utc": "2026-10-14T05:24:16.771238+00:00"
+}

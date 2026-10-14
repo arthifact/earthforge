@@ -1,0 +1,205 @@
+{
+  "status": "passed",
+  "script_sha256": "0edd2d57122d14a297e18b5a68301e902bfe2c881d78a27f1e379a65e836a58e",
+  "source_sha256": {
+    "src/basin.ts": "fe019350381feedd19aa6338db912711c8adb934e7baaf2484c25ebb9db9af64",
+    "src/conservativeTransport.ts": "4995d1c278436de05cc7887ea39847512bb491b6d0993c5ce0a5b56b280c1a73",
+    "src/faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+    "src/normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+    "src/normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+    "src/sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+    "src/strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+    "src/thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+    "src/window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+    "tests/thrust-weighted-transport.test.mjs": "1aec74c93f65072702363067672a09277aba23145a9aef46172aad50b0d995bd"
+  },
+  "ablation": {
+    "description": "Production code with only the squared-cost multiplier changed from (point.weight ?? 1) to 1.",
+    "exact_replacement_count": 1,
+    "transport_sha256": "7d76bcbbce4ab8341e0e207cf073abf84c8821b9b5ba759beab71662e8d69df2",
+    "production_files_modified": false
+  },
+  "seed": 246813579,
+  "trials": 2000,
+  "feasible": 1564,
+  "infeasible": 436,
+  "radius_counts": {
+    "2": 1430,
+    "3": 134
+  },
+  "max_absolute_optimal_cost_difference": 1.2127933206318442e-12,
+  "absolute_cost_tolerance": 1e-10,
+  "default_weight_parity_cases": 2000,
+  "weights_tested": [
+    1,
+    0.1,
+    0.001,
+    0.000001,
+    1e-12,
+    1e-16
+  ],
+  "simulator_collision": [
+    {
+      "variant": "unit-objective-ablation",
+      "grid_m": 40,
+      "direction": -1,
+      "full_packet_destination": 2,
+      "thin_water_packet_destination": 3,
+      "grain_budget_closed": true,
+      "actual_constituent_provenance": true,
+      "footwall_retained": true,
+      "input_unchanged": true
+    },
+    {
+      "variant": "production-weighted",
+      "grid_m": 40,
+      "direction": -1,
+      "full_packet_destination": 3,
+      "thin_water_packet_destination": 2,
+      "grain_budget_closed": true,
+      "actual_constituent_provenance": true,
+      "footwall_retained": true,
+      "input_unchanged": true
+    },
+    {
+      "variant": "unit-objective-ablation",
+      "grid_m": 40,
+      "direction": 1,
+      "full_packet_destination": 4,
+      "thin_water_packet_destination": 3,
+      "grain_budget_closed": true,
+      "actual_constituent_provenance": true,
+      "footwall_retained": true,
+      "input_unchanged": true
+    },
+    {
+      "variant": "production-weighted",
+      "grid_m": 40,
+      "direction": 1,
+      "full_packet_destination": 3,
+      "thin_water_packet_destination": 4,
+      "grain_budget_closed": true,
+      "actual_constituent_provenance": true,
+      "footwall_retained": true,
+      "input_unchanged": true
+    },
+    {
+      "variant": "unit-objective-ablation",
+      "grid_m": 20,
+      "direction": -1,
+      "full_packet_destination": 2,
+      "thin_water_packet_destination": 3,
+      "grain_budget_closed": true,
+      "actual_constituent_provenance": true,
+      "footwall_retained": true,
+      "input_unchanged": true
+    },
+    {
+      "variant": "production-weighted",
+      "grid_m": 20,
+      "direction": -1,
+      "full_packet_destination": 3,
+      "thin_water_packet_destination": 2,
+      "grain_budget_closed": true,
+      "actual_constituent_provenance": true,
+      "footwall_retained": true,
+      "input_unchanged": true
+    },
+    {
+      "variant": "unit-objective-ablation",
+      "grid_m": 20,
+      "direction": 1,
+      "full_packet_destination": 4,
+      "thin_water_packet_destination": 3,
+      "grain_budget_closed": true,
+      "actual_constituent_provenance": true,
+      "footwall_retained": true,
+      "input_unchanged": true
+    },
+    {
+      "variant": "production-weighted",
+      "grid_m": 20,
+      "direction": 1,
+      "full_packet_destination": 3,
+      "thin_water_packet_destination": 4,
+      "grain_budget_closed": true,
+      "actual_constituent_provenance": true,
+      "footwall_retained": true,
+      "input_unchanged": true
+    },
+    {
+      "variant": "unit-objective-ablation",
+      "grid_m": 10,
+      "direction": -1,
+      "full_packet_destination": 2,
+      "thin_water_packet_destination": 3,
+      "grain_budget_closed": true,
+      "actual_constituent_provenance": true,
+      "footwall_retained": true,
+      "input_unchanged": true
+    },
+    {
+      "variant": "production-weighted",
+      "grid_m": 10,
+      "direction": -1,
+      "full_packet_destination": 3,
+      "thin_water_packet_destination": 2,
+      "grain_budget_closed": true,
+      "actual_constituent_provenance": true,
+      "footwall_retained": true,
+      "input_unchanged": true
+    },
+    {
+      "variant": "unit-objective-ablation",
+      "grid_m": 10,
+      "direction": 1,
+      "full_packet_destination": 4,
+      "thin_water_packet_destination": 3,
+      "grain_budget_closed": true,
+      "actual_constituent_provenance": true,
+      "footwall_retained": true,
+      "input_unchanged": true
+    },
+    {
+      "variant": "production-weighted",
+      "grid_m": 10,
+      "direction": 1,
+      "full_packet_destination": 3,
+      "thin_water_packet_destination": 4,
+      "grain_budget_closed": true,
+      "actual_constituent_provenance": true,
+      "footwall_retained": true,
+      "input_unchanged": true
+    }
+  ],
+  "independent_two_packet_integrated_cost": {
+    "unit_objective_ablation": 0.6410000000000001,
+    "production_weighted": 0.12100000000000002
+  },
+  "permanent_test_ablation": {
+    "run": true,
+    "changed_production_files": false,
+    "exact_replacement_count": 1,
+    "objective_multiplier": "1",
+    "test_file_sha256": "1aec74c93f65072702363067672a09277aba23145a9aef46172aad50b0d995bd",
+    "exit_code": 1,
+    "failed_tests": [
+      "allocation minimizes integrated occupied-rock displacement rather than equal packet counts",
+      "weighted matching agrees with exhaustive capacity-constrained assignments on small grids",
+      "arbitrarily small positive weights retain packets and common weight scaling preserves the physical choice",
+      "thrust allocation moves a mostly water packet instead of displacing full rock and preserves actual constituents"
+    ],
+    "passed_tests": [
+      "optional weights default to one and invalid weights are rejected without mutation"
+    ],
+    "expected_regressions_detected": true
+  },
+  "limitations": [
+    "The objective is occupied-rock bulk-area squared allocation displacement, not a physical advection error estimate.",
+    "Weighting retains the existing capacity, stencil, and indivisible-packet restrictions; it does not prove global grid convergence.",
+    "Tiny-weight ties use absolute objective tolerance 1e-10; their relative error can be large while total objective error is negligible.",
+    "Default-weight parity compares the same production solver with a unit-cost ablation, not an independently loaded historical revision.",
+    "This audit does not resolve independent material-centroid sampling or physical-fault-classification limitations.",
+    "Only synthetic fixtures and implementation/test source were read; no observational or holdout files were read."
+  ]
+}

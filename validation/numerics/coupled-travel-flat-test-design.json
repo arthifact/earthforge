@@ -1,0 +1,83 @@
+{
+  "scope": "Synthetic test design only; no source edits or observational inputs.",
+  "physical_invariant": {
+    "statement": "A rigid horizontal translation by an integer number of cell widths preserves the entire heterogeneous column inventory under the corresponding integer column shift when all source lateral offsets are zero and material remains in the same flat flow domain.",
+    "preconditions": [
+      "Use slip +h and -h on a horizontal fault, no flow bends or boundary-crossing sediment.",
+      "Use zero offsetX, and zero offsetZ for the strongest unambiguous known answer.",
+      "Use fully feasible destination hanging-wall capacities, fixed footwall basement, and distinct material labels for adjacent source columns.",
+      "Disable compaction, deposition and erosion during the remap test."
+    ],
+    "minimal_integration_fixture": "11 columns \u00d78 rows; fault at4h; basement below4h. Three interior labeled source columns use water depths1.9h/.75h/2.1h, a0.1h thin bed, and a full remaining sediment interval down to4h. Other columns have water above basement. Translate\u00b1h at h40/20/10.",
+    "assertions": [
+      "Every retained sediment source-column label arrives at sourceColumn+direction.",
+      "Each expected destination retains source bulk height, solid and sand-grain inventory per constituent, with burial/loading/fraction unchanged.",
+      "Each remembered material x advances exactly\u00b1h and remembered z is unchanged.",
+      "Footwall columns/constituents remain identical, all grains are conserved and no sediment boundary flux occurs.",
+      "The input is unchanged."
+    ],
+    "baseline_result": "Existing weighted implementation passes all six cases; max inventory-height discrepancy1.4210854715202004e-14. This is a protection test, not a new failing regression."
+  },
+  "projection_contract_regression": {
+    "statement": "If a selected column-model policy explicitly constrains a packet to a coherent destination column, vertical slot-cost improvements must not relax that column constraint.",
+    "fixture": {
+      "nx": 3,
+      "nz": 4,
+      "all_allowed": true,
+      "all_capacity": 1,
+      "packets": [
+        {
+          "source": 0,
+          "height": 1,
+          "weight": 1,
+          "i": 1,
+          "k": 2,
+          "targetI": 1.4,
+          "targetK": 1.6
+        },
+        {
+          "source": 1,
+          "height": 1,
+          "weight": 0.1,
+          "i": 1,
+          "k": 2,
+          "targetI": 1.4,
+          "targetK": 1.7
+        }
+      ]
+    },
+    "unconstrained_result": {
+      "destination": [
+        7,
+        8
+      ],
+      "weighted_cost": 0.365
+    },
+    "best_both_column1": {
+      "destination": [
+        7,
+        4
+      ],
+      "weighted_cost": 0.385
+    },
+    "assertions": [
+      "With an explicit column1 constraint on both packets, both destinations have n%nx==1, are unique, fit capacity, retain packet weight/constituents and minimize the constrained objective.",
+      "Reverse input order and mirror the fixture; compare invariants and objective, not arbitrary equal-cost tie order.",
+      "If the required column has insufficient reachable capacity, fail without discarding grains or silently changing the column constraint."
+    ],
+    "limitation": "This is an allocation-policy test only. The target vertical supports have no independently valid non-overlapping geological reconstruction. It does not prove that same-column placement is more physically accurate."
+  },
+  "offset_validity": [
+    "Flat flow adds the same dx but preserves all existing differences in physical offsetX. Parts stored in one column may legitimately have distinct physical lateral tracks.",
+    "Source storage column plus carry cannot be asserted for arbitrary offsets; a supplied offset can place the correct continuous target several columns away.",
+    "Common nonzero offsetX requires either a clear canonical representation or an expectation derived from source physical supports. Integer shift preserves the existing representation, but regridding can change storage columns while offsets preserve material positions.",
+    "A fractional shift has an exact overlap-remap solution that splits cell supports; an indivisible whole-column shift with carry is a discretization choice, not uniquely mandated physical advection.",
+    "If prior material offsets imply crossed or overlapping vertical supports, changing packet order/columns can repair a numerical representation but should not be claimed as an independent physical known answer."
+  ],
+  "recommended_sequence": [
+    "Add exact integer-translation protection test regardless of selected repair.",
+    "Only add a constrained-column policy test if that policy is explicitly selected and its eligibility is derived from valid physical tracks.",
+    "Keep an offset counterexample to ensure packets with different physical lateral tracks are not indiscriminately locked to storage-column+carry.",
+    "Use full frozen paired studies and unchanged eligibility to assess whether a candidate improves coupled cases; the small tests cannot establish global convergence."
+  ]
+}

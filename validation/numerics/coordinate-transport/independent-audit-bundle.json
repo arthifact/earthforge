@@ -1,0 +1,25 @@
+{
+  "schema": "earthforge.coordinate-independent-audit-bundle.v1",
+  "synthetic_only": true,
+  "final_study": "/Users/torus/Documents/Codex/2026-10-12/wha/work/coupled-coordinate-fix/earthforge/data/numerics/coordinate-transport-repair",
+  "output_sha256": {
+    "candidate-vs-current-report.json": "665ad2fbaf26c39e6512a39f49323a7c56b2ad7101401c803240096e0e149d78",
+    "candidate-vs-current-all-metrics-audit.json": "c06f63c247b7638f579436f1be978760e9e1becef3116fd658b4044ff1560b07",
+    "candidate-vs-prior-report.json": "d4867a390fa1d605141b728cd86acee78e6ea622fe3d1b9191c990e27715203c",
+    "candidate-vs-prior-all-metrics-audit.json": "fbdb98834e17a4655b1a0ebb52baf22cf03e5b6850888e8a22a7ba1f5daa06e6",
+    "three-way-recovery-report.json": "348d521f4eb1259bbe913e44ba1159e28ae55b21e3742e488280a9fba4ed8879",
+    "budget-audit.json": "eed946d4ecfcbbe903bd2240eed9ff7604b277042a5c1ed8384651aafbd35196",
+    "independent-source-audit.json": "ffdaa6858c3a90c8a7f60f7781e9a296f858199d1d8d7915af6d12493ab625fe",
+    "fixed-outlier-audit.json": "f1bf0ec4d8b3c7eaaed1aca2acbdc309dfec78b93d09d344fd9e055f98dc6a18",
+    "control-state-differences.json": "5d9b5fc8113e98d978e6786df7898673ebd65d8eb8c2ed354c71feaf603f5eb8"
+  },
+  "audit_script_sha256": {
+    "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-metrics/compare-study.mjs": "7e7d5fd139e2bcc840a2aea76f6e3a59f631cbd0cf8394ebb5ad3974c5e0e5db",
+    "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-metrics/audit-budget.py": "5762ead1c4d4fd8e611c3ff7c0480f9bf9ae7bcfbc5e53beb56ad6c9b88b8bcc",
+    "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-metrics/audit-coordinate-source.py": "e93652c6315478b5f20ac663da1acd15f0ff7ee4129e55628dfa66f9282dae03",
+    "/Users/torus/Documents/Codex/2026-10-12/wha/work/coarse-travel-metrics/audit-outliers.mjs": "6836f0b42ef7bdd41fd9aa5d45400a3cf1a7a1b9bc6372caf00da7301754ec46"
+  },
+  "frozen_snapshot_sha256": "498e1c8d95a469459b4ab4fe3b0cfd133c85a167d469e94044511fb1b439c487",
+  "test_status": "Not certified by this bundle; parent runs independent test audit.",
+  "interpretation": "Correctness and conservation checks pass. Convergence is mixed: aggregate coarse travel improves, fine travel worsens, with all field/case regressions and cohort changes retained."
+}

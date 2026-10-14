@@ -1,0 +1,18 @@
+{
+  "schema": "earthforge.grouped-normal-independent-review.v1",
+  "cases": 300,
+  "exactDomain": true,
+  "inputPure": true,
+  "allBudgetClosed": true,
+  "maxNormalizedResidual": 2.611748282350882e-16,
+  "coverage": {
+    "top": 184,
+    "bottom": 33,
+    "lateral": 164
+  },
+  "sourceSha256": {
+    "normalTransport.ts": "80ad4501a24315666ce66947a4814c4b6d558a77c94f4222c36993c252fac413",
+    "strata.ts": "1eea0bec523995da72631b55202eaaa73c9d8c14733196003cf0a6c3904bf483",
+    "exactLength.ts": "326f867070762173178faf4a725328788c3e26f3102eb04002769a9bf0a8b331"
+  }
+}

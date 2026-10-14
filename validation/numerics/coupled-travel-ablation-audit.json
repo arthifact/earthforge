@@ -1,0 +1,80 @@
+{
+  "source_root": "/Users/torus/Documents/Codex/2026-10-12/wha/work/coupled-travel-fix/earthforge/",
+  "production_changed": false,
+  "holdout_accessed": false,
+  "results": [
+    {
+      "name": "candidate",
+      "exit_status": 0,
+      "basin_sha256": "f82bf4b589246ffc5652dc06b18f5d1e26bacc7f61b38fc7d010a66198379b08",
+      "transport_sha256": "fb601e0ca361bd598232faa929e1db63045c9515532ab32662624d3761276f27",
+      "test_summary": [
+        "✔ rectangular flow moments integrate a partially crossed bend instead of moving only its midpoint (1.753083ms)",
+        "✔ flow moments cover initial and final bend crossings, reverse slip, and mirrored geometry (38.4815ms)",
+        "✔ flow integration retains tiny positive intervals and rejects nonfinite inputs (0.491666ms)",
+        "✔ constituent thrust moments preserve physical positions across storage shifts and arbitrary material partitions (25.22175ms)",
+        "✔ trajectory displacement retains small straight slips and reverses exactly through bends (0.246292ms)",
+        "✔ quantized matching is exactly optimal with capacity limits and retains the raw objective bound (22.698375ms)",
+        "✔ one-ulp target differences away from quantization boundaries do not swap material owners (0.302708ms)",
+        "✔ common weight scales preserve the physical choice and arbitrarily small parcels remain assigned (0.340166ms)",
+        "✔ half-cell validation slack initializes feasible duals at the actual nearest destination (0.201666ms)",
+        "ℹ tests 9",
+        "ℹ suites 0",
+        "ℹ pass 9",
+        "ℹ fail 0",
+        "ℹ cancelled 0",
+        "ℹ skipped 0",
+        "ℹ todo 0",
+        "ℹ duration_ms 153.59325"
+      ]
+    },
+    {
+      "name": "common-offset",
+      "exit_status": 1,
+      "basin_sha256": "4a3ed3ada341b639dd3854a60f9fa22aec994ad9bbe0e013631f0b230350f017",
+      "transport_sha256": "fb601e0ca361bd598232faa929e1db63045c9515532ab32662624d3761276f27",
+      "test_summary": [
+        "✔ rectangular flow moments integrate a partially crossed bend instead of moving only its midpoint (1.863333ms)",
+        "✔ flow moments cover initial and final bend crossings, reverse slip, and mirrored geometry (37.829458ms)",
+        "✔ flow integration retains tiny positive intervals and rejects nonfinite inputs (0.458375ms)",
+        "✖ constituent thrust moments preserve physical positions across storage shifts and arbitrary material partitions (11.914375ms)",
+        "✔ trajectory displacement retains small straight slips and reverses exactly through bends (0.234417ms)",
+        "ℹ tests 5",
+        "ℹ suites 0",
+        "ℹ pass 4",
+        "ℹ fail 1",
+        "ℹ cancelled 0",
+        "ℹ skipped 0",
+        "ℹ todo 0",
+        "ℹ duration_ms 112.290375",
+        "✖ failing tests:",
+        "✖ constituent thrust moments preserve physical positions across storage shifts and arbitrary material partitions (11.914375ms)"
+      ]
+    },
+    {
+      "name": "old-matching",
+      "exit_status": 1,
+      "basin_sha256": "f82bf4b589246ffc5652dc06b18f5d1e26bacc7f61b38fc7d010a66198379b08",
+      "transport_sha256": "4995d1c278436de05cc7887ea39847512bb491b6d0993c5ce0a5b56b280c1a73",
+      "test_summary": [
+        "✖ quantized matching is exactly optimal with capacity limits and retains the raw objective bound (3.471459ms)",
+        "✖ one-ulp target differences away from quantization boundaries do not swap material owners (0.31375ms)",
+        "✖ common weight scales preserve the physical choice and arbitrarily small parcels remain assigned (0.13825ms)",
+        "✖ half-cell validation slack initializes feasible duals at the actual nearest destination (0.1535ms)",
+        "ℹ tests 4",
+        "ℹ suites 0",
+        "ℹ pass 0",
+        "ℹ fail 4",
+        "ℹ cancelled 0",
+        "ℹ skipped 0",
+        "ℹ todo 0",
+        "ℹ duration_ms 55.67275",
+        "✖ failing tests:",
+        "✖ quantized matching is exactly optimal with capacity limits and retains the raw objective bound (3.471459ms)",
+        "✖ one-ulp target differences away from quantization boundaries do not swap material owners (0.31375ms)",
+        "✖ common weight scales preserve the physical choice and arbitrarily small parcels remain assigned (0.13825ms)",
+        "✖ half-cell validation slack initializes feasible duals at the actual nearest destination (0.1535ms)"
+      ]
+    }
+  ]
+}

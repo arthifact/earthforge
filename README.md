@@ -87,6 +87,35 @@ differences fall from 35.20 to 4.40 m/s; all 4,494 operation budgets still close
 Local convergence and boundary sensitivity remain open questions. Neither the
 observational development arrays nor the holdout were used for this repair.
 
+
+The [normal-fault geometry repair](docs/fault-grid-sensitivity.md) removes
+accumulating grid snapping of growing fault tips. All 77 tests and 36 conservation
+runs pass. Shared fault-depth RMS differences at 20-to-10 m change from
+10.09 to 5.48 m; local convergence remains mixed.
+No-fault and compression controls are unchanged; a broader thrust prototype was
+rejected for numerical regressions. The holdout remains untouched.
+
+The [thrust coupling repair](docs/thrust-coupling-repair.md) fixes artificial fault
+displacement during gap packing and retains cut passive branches through later
+slips, display and replay. All 93 tests and 36 budget runs pass. Fault geometry
+converges better, while some travel-time and thickness differences remain worse
+than the prior accepted baseline. The report preserves both comparisons and
+coverage; the holdout remains untouched.
+
+The [travel-time and thickness repair](docs/travel-thickness-repair.md) preserves
+compaction displacement and separates moving and stationary material inside
+fault-cut cells. Fine-grid travel-time RMS improves from 0.840 to 0.567 ms and
+thickness RMS from 4.265 to 3.877 m on common samples. All coupled compression
+cases improve on both measures; quiet thrust B and some coarse/fault-depth
+metrics still regress. Eligibility changes remain explicit. All 103 tests pass.
+All 36 conservation runs pass, and the holdout remains untouched.
+
+The [isolated thrust B repair](docs/thrust-b-repair.md) weights transport allocation
+by occupied rock volume. Its fine-grid thickness RMS improves from 2.156 to 0.459 m
+and travel-time RMS from 0.198 to 0.131 ms. Historical recovery is partial; overall
+fine-grid travel disagreement worsens 8.15%, with coupled tradeoffs documented. All 108 tests pass; all 36 conservation runs pass.
+Physical histories and eligibility rules are unchanged; holdout untouched.
+
 ## Run
 
 ```sh
@@ -197,6 +226,8 @@ Related work: Noddy and the Noddyverse (Jessell et al. 2022) generate
 geological models from event histories, mostly hard-rock models with gravity
 and magnetics. Earth Forge targets process physics and seismic velocity for
 FWI.
+
+The [constituent thrust-motion correction](docs/coupled-travel-repair.md) integrates each material constituent across fault bends and uses exact quantized matching. 117 distinct tests are verified across the initial full run and the successful targeted rerun; all 36 conservation runs close. Shared 20–10 m travel RMS changes from 0.613 to 0.514 ms; 40–20 m changes from 1.371 to 1.554 ms. Coupled A’s original upstream accommodation defect is largely recovered, but local and coarse-grid regressions remain. The report retains every regression and eligibility change. Holdout untouched.
 
 ## Origin
 

@@ -1,0 +1,33 @@
+{
+  "status": "research note only; not implemented or part of the selected patch",
+  "problem": "Indivisible packets alias lateral volume, while the rejected full-polygon remap repeatedly destroys clipped horizontal support by converting each strip-overlap area into a new full-width column layer.",
+  "old_prototype": "work/travel-thickness-prototype/thrustColumns.ts",
+  "observed_rejection": "The rejected prototype reached approximately 1.70 million parts at 40 m and 3.35 million at 20 m; the interrupted 10 m run reached 7.23 million before completion. These are representation and runtime evidence, not a completed comparable 10 m study.",
+  "minimal_authoritative_representation": {
+    "geometry": "Persistent polygons or piecewise-affine ribbons with retained horizontal support; temporary raster/column intersections are views and must not become new full-width source material.",
+    "payload": "Immutable references to material and history leaves (bed, composition, solid amount, maximum burial/loading), with persistent interval ranges for shared unchanged history.",
+    "splitting": "Split only at actual flow/fault/deformation/history discontinuities. Merge only exact-compatible geometry and identical payload/history; no averaged maxima or dropped thin material.",
+    "expected_flat_case": "Repeated rigid translation preserves primitive count away from physical boundaries, regardless of how many grid strips each footprint crosses."
+  },
+  "required_invariants": [
+    "Exact solid/component accounting with explicit physical boundary flux",
+    "Retained horizontal footprint and physical interfaces",
+    "Distinct loading and burial histories preserved",
+    "Thin positive material retained",
+    "Same physical geometry consumed by deposition, erosion, compaction, collapse and observation",
+    "Accepted fault-parallel boundary continuation preserved or explicitly replaced under a separately reviewed contract"
+  ],
+  "cost_and_limits": [
+    "Practical work scales with persistent physical pieces and their actual cuts, plus transient raster overlaps; payload sharing reduces duplication but does not remove genuine history complexity.",
+    "A remap-only change is insufficient: current compaction and erosion consume ordered full-width columns and storage-based overburden.",
+    "No fixed-size exact metadata closure is available for arbitrary distinct nonlinear loading histories. Persistent sharing is not permission to average histories. Complexity monitoring should expose growth rather than silently merge or discard material."
+  ],
+  "next_analytical_gates": [
+    "Repeated sub-cell flat translation of distinctly tagged materials without fragment growth or lateral diffusion",
+    "Piece partition and coordinate invariance",
+    "Composition and loading-history closure under nonlinear compaction",
+    "Accepted boundary-continuation equivalence and full budget closure",
+    "Runtime scaling before any full coupled development comparison"
+  ],
+  "data_access": "No holdout or observational files read."
+}

@@ -1,0 +1,1114 @@
+{
+  "schema": "earthforge.synthetic.coupled-a-allocation-diagnosis.v1",
+  "scope": {
+    "case": "coupled-compression-a",
+    "seed": 765184,
+    "h_m": 40,
+    "setting": "compression",
+    "overpressure": 1,
+    "current": "thrust-b-repair",
+    "prior": "travel-thickness",
+    "holdout_or_observational_inputs_read": false
+  },
+  "history_sha256": "a47b82f4d9d2b45d9bc2b7218afe6a4d8fc14d12da0028d952b7dad85ec41e18",
+  "source_sha256": {
+    "unweighted": {
+      "basin.ts": "3a6ca0df3f881477cfc8c39ded43ab4c18d82ddc7c06afe57af57a02d0e6db51",
+      "conservativeTransport.ts": "0f12ee1ccdf70f77eaa109ff71f13f5b3ba183216cf71536aca318a74f4e3243",
+      "faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+      "normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+      "normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+      "sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+      "strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+      "thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+      "window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc"
+    },
+    "weighted": {
+      "basin.ts": "fe019350381feedd19aa6338db912711c8adb934e7baaf2484c25ebb9db9af64",
+      "conservativeTransport.ts": "4995d1c278436de05cc7887ea39847512bb491b6d0993c5ce0a5b56b280c1a73",
+      "faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+      "normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+      "normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+      "sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+      "strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+      "thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+      "window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc"
+    }
+  },
+  "reproduction": {
+    "unweighted": {
+      "budget_closed": true,
+      "final_unit_height_max_archive_error_m": 1.4210854715202004e-13
+    },
+    "weighted": {
+      "budget_closed": true,
+      "final_unit_height_max_archive_error_m": 9.947598300641403e-14
+    }
+  },
+  "interpretation": "The large unit9/10 anomaly is created by lateral packet redistribution at step9 x10160, which increases local sediment bulk and raises the bottom-packed surface. It is not created by a fresh vertical-order inversion at step11 x8720 or by a free storage-gauge change.",
+  "step9_x10160_whole_column": [
+    {
+      "process": "subsidence",
+      "unweighted": {
+        "floor": 302.98224639125056,
+        "sediment_height": 858.1819324476189,
+        "sediment_solid": 440.29366241669567,
+        "basement_height": 3398.8358211611303,
+        "water_height": 302.98224639125056,
+        "internal_water": 0,
+        "total_height": 4559.999999999999,
+        "remembered_surface_marker": {
+          "x": 10160,
+          "z": 302.98224639125056
+        }
+      },
+      "weighted": {
+        "floor": 302.9551682808142,
+        "sediment_height": 858.2090105580542,
+        "sediment_solid": 440.31226966726666,
+        "basement_height": 3398.8358211611317,
+        "water_height": 302.9551682808142,
+        "internal_water": 0,
+        "total_height": 4560,
+        "remembered_surface_marker": {
+          "x": 10160,
+          "z": 302.9551682808142
+        }
+      },
+      "weighted_minus_unweighted": {
+        "floor": -0.027078110436377756,
+        "sediment_height": 0.027078110435240887,
+        "sediment_solid": 0.018607250570994438,
+        "basement_height": 1.3642420526593924e-12,
+        "water_height": -0.027078110436377756,
+        "internal_water": 0,
+        "total_height": 9.094947017729282e-13
+      }
+    },
+    {
+      "process": "thrust-slip",
+      "unweighted": {
+        "floor": 307.94937626198873,
+        "sediment_height": 853.2148025768803,
+        "sediment_solid": 437.56074273010563,
+        "basement_height": 3398.835821161131,
+        "water_height": 307.94937626198873,
+        "internal_water": 0,
+        "total_height": 4560,
+        "remembered_surface_marker": {
+          "x": 10178.051812882346,
+          "z": 307.94937626198873
+        }
+      },
+      "weighted": {
+        "floor": 267.9346568318698,
+        "sediment_height": 893.2295220069983,
+        "sediment_solid": 458.4740322078659,
+        "basement_height": 3398.835821161132,
+        "water_height": 267.9346568318698,
+        "internal_water": 0,
+        "total_height": 4560,
+        "remembered_surface_marker": {
+          "x": 10178.051812882346,
+          "z": 307.9346568318698
+        }
+      },
+      "weighted_minus_unweighted": {
+        "floor": -40.01471943011893,
+        "sediment_height": 40.01471943011802,
+        "sediment_solid": 20.91328947776026,
+        "basement_height": 9.094947017729282e-13,
+        "water_height": -40.01471943011893,
+        "internal_water": 0,
+        "total_height": 0
+      }
+    },
+    {
+      "process": "collapse",
+      "unweighted": {
+        "floor": 307.94937626198873,
+        "sediment_height": 853.2148025768803,
+        "sediment_solid": 437.56074273010563,
+        "basement_height": 3398.835821161131,
+        "water_height": 307.94937626198873,
+        "internal_water": 0,
+        "total_height": 4560,
+        "remembered_surface_marker": {
+          "x": 10178.051812882346,
+          "z": 307.94937626198873
+        }
+      },
+      "weighted": {
+        "floor": 267.9346568318698,
+        "sediment_height": 893.2295220069983,
+        "sediment_solid": 458.4740322078659,
+        "basement_height": 3398.835821161132,
+        "water_height": 267.9346568318698,
+        "internal_water": 0,
+        "total_height": 4560,
+        "remembered_surface_marker": {
+          "x": 10178.051812882346,
+          "z": 307.9346568318698
+        }
+      },
+      "weighted_minus_unweighted": {
+        "floor": -40.01471943011893,
+        "sediment_height": 40.01471943011802,
+        "sediment_solid": 20.91328947776026,
+        "basement_height": 9.094947017729282e-13,
+        "water_height": -40.01471943011893,
+        "internal_water": 0,
+        "total_height": 0
+      }
+    },
+    {
+      "process": "erosion",
+      "unweighted": {
+        "floor": 307.94937626198873,
+        "sediment_height": 853.2148025768803,
+        "sediment_solid": 437.56074273010563,
+        "basement_height": 3398.835821161131,
+        "water_height": 307.94937626198873,
+        "internal_water": 0,
+        "total_height": 4560,
+        "remembered_surface_marker": {
+          "x": 10178.051812882346,
+          "z": 307.94937626198873
+        }
+      },
+      "weighted": {
+        "floor": 267.9346568318698,
+        "sediment_height": 893.2295220069983,
+        "sediment_solid": 458.4740322078659,
+        "basement_height": 3398.835821161132,
+        "water_height": 267.9346568318698,
+        "internal_water": 0,
+        "total_height": 4560,
+        "remembered_surface_marker": {
+          "x": 10178.051812882346,
+          "z": 307.9346568318698
+        }
+      },
+      "weighted_minus_unweighted": {
+        "floor": -40.01471943011893,
+        "sediment_height": 40.01471943011802,
+        "sediment_solid": 20.91328947776026,
+        "basement_height": 9.094947017729282e-13,
+        "water_height": -40.01471943011893,
+        "internal_water": 0,
+        "total_height": 0
+      }
+    },
+    {
+      "process": "deposition",
+      "unweighted": {
+        "floor": 156.81468885050734,
+        "sediment_height": 1004.3494899883617,
+        "sediment_solid": 506.18955905642133,
+        "basement_height": 3398.835821161131,
+        "water_height": 156.81468885050734,
+        "internal_water": 0,
+        "total_height": 4560,
+        "remembered_surface_marker": {
+          "x": 10160,
+          "z": 156.81468885050734
+        }
+      },
+      "weighted": {
+        "floor": 148.83282218155415,
+        "sediment_height": 1012.331356657314,
+        "sediment_solid": 512.2065478654969,
+        "basement_height": 3398.835821161132,
+        "water_height": 148.83282218155415,
+        "internal_water": 0,
+        "total_height": 4560,
+        "remembered_surface_marker": {
+          "x": 10160,
+          "z": 148.83282218155415
+        }
+      },
+      "weighted_minus_unweighted": {
+        "floor": -7.981866668953188,
+        "sediment_height": 7.981866668952307,
+        "sediment_solid": 6.016988809075542,
+        "basement_height": 9.094947017729282e-13,
+        "water_height": -7.981866668953188,
+        "internal_water": 0,
+        "total_height": 0
+      }
+    },
+    {
+      "process": "compaction",
+      "unweighted": {
+        "floor": 199.6347548352469,
+        "sediment_height": 961.5294240036216,
+        "sediment_solid": 506.18955905642133,
+        "basement_height": 3398.835821161131,
+        "water_height": 199.6347548352469,
+        "internal_water": 0,
+        "total_height": 4560,
+        "remembered_surface_marker": {
+          "x": 10160,
+          "z": 199.6347548352469
+        }
+      },
+      "weighted": {
+        "floor": 189.36136166563392,
+        "sediment_height": 971.8028171732337,
+        "sediment_solid": 512.2065478654969,
+        "basement_height": 3398.835821161132,
+        "water_height": 189.36136166563392,
+        "internal_water": 0,
+        "total_height": 4559.999999999998,
+        "remembered_surface_marker": {
+          "x": 10160,
+          "z": 189.36136166563392
+        }
+      },
+      "weighted_minus_unweighted": {
+        "floor": -10.273393169612973,
+        "sediment_height": 10.273393169612177,
+        "sediment_solid": 6.016988809075542,
+        "basement_height": 9.094947017729282e-13,
+        "water_height": -10.273393169612973,
+        "internal_water": 0,
+        "total_height": -1.8189894035458565e-12
+      }
+    }
+  ],
+  "step9_x10160_arriving_hanging_wall": {
+    "unweighted": {
+      "packet_count": 17,
+      "sediment_height": 641.4277273543547,
+      "sediment_solid": 313.8148509433926,
+      "basement_height": 0,
+      "water_height": 27.949376261988732,
+      "units": {
+        "-1": {
+          "height": 27.949376261988732,
+          "solid": 0
+        },
+        "8": {
+          "height": 87.05270081808214,
+          "solid": 38.59020338876866
+        },
+        "7": {
+          "height": 182.78074725966815,
+          "solid": 82.2854760149629
+        },
+        "6": {
+          "height": 12.984254192371509,
+          "solid": 6.331841036106388
+        },
+        "5": {
+          "height": 165.7734252471514,
+          "solid": 83.78786306295045
+        },
+        "4": {
+          "height": 10.770140941171462,
+          "solid": 5.721600032439641
+        },
+        "3": {
+          "height": 109.50874490258877,
+          "solid": 57.67241330938765
+        },
+        "2": {
+          "height": 72.55771399332127,
+          "solid": 39.425454098776946
+        }
+      }
+    },
+    "weighted": {
+      "packet_count": 18,
+      "sediment_height": 681.4484696478005,
+      "sediment_solid": 334.7305656119945,
+      "basement_height": 0,
+      "water_height": 27.934656831869802,
+      "units": {
+        "-1": {
+          "height": 27.934656831869802,
+          "solid": 0
+        },
+        "8": {
+          "height": 87.01487927600567,
+          "solid": 38.573073172035386
+        },
+        "7": {
+          "height": 182.41805124468124,
+          "solid": 82.11223588815001
+        },
+        "6": {
+          "height": 13.522195694366928,
+          "solid": 6.5751026291756425
+        },
+        "5": {
+          "height": 201.7449806736813,
+          "solid": 102.55378220574855
+        },
+        "4": {
+          "height": 14.674837248634844,
+          "solid": 7.814091249504182
+        },
+        "3": {
+          "height": 109.50812855437096,
+          "solid": 57.67241330938767
+        },
+        "2": {
+          "height": 72.56539695605954,
+          "solid": 39.42986715799306
+        }
+      }
+    }
+  },
+  "step9_lateral_exchanges": [
+    {
+      "destination_x": 10120,
+      "lost_from_column": [
+        {
+          "source_x": 10400,
+          "source_z": 600,
+          "destination_x": 10120,
+          "destination_z": 600,
+          "target_x": 10102.756681717581,
+          "target_z": 598.7723634449418,
+          "weight": 1,
+          "squared_displacement_m2": 298.839116900115,
+          "packet_count": 1,
+          "sediment_height": 40.0,
+          "sediment_solid": 19.648886639914547,
+          "basement_height": 0,
+          "water_height": 0,
+          "units": {
+            "5": {
+              "height": 40.0,
+              "solid": 19.64888663991455
+            }
+          }
+        },
+        {
+          "source_x": 10440,
+          "source_z": 720,
+          "destination_x": 10120,
+          "destination_z": 720,
+          "target_x": 10141.563191426776,
+          "target_z": 718.8010365463417,
+          "weight": 1,
+          "squared_displacement_m2": 466.4087378709955,
+          "packet_count": 1,
+          "sediment_height": 40.0,
+          "sediment_solid": 20.92290615303733,
+          "basement_height": 0,
+          "water_height": 0,
+          "units": {
+            "5": {
+              "height": 36.09794437612891,
+              "solid": 18.831902369901844
+            },
+            "4": {
+              "height": 3.9020556238710924,
+              "solid": 2.0910037831354877
+            }
+          }
+        }
+      ],
+      "gained_by_column": [
+        {
+          "source_x": 10400,
+          "source_z": 720,
+          "destination_x": 10120,
+          "destination_z": 720,
+          "target_x": 10101.346294586852,
+          "target_z": 718.8199949613156,
+          "weight": 1,
+          "squared_displacement_m2": 349.353137531816,
+          "packet_count": 1,
+          "sediment_height": 40.0,
+          "sediment_solid": 20.944406081823463,
+          "basement_height": 0,
+          "water_height": 0,
+          "units": {
+            "5": {
+              "height": 35.38880622532349,
+              "solid": 18.46444774474432
+            },
+            "4": {
+              "height": 4.611193774676508,
+              "solid": 2.4799583370791427
+            }
+          }
+        },
+        {
+          "source_x": 10440,
+          "source_z": 600,
+          "destination_x": 10120,
+          "destination_z": 600,
+          "target_x": 10136.752404961891,
+          "target_z": 598.7731578135792,
+          "weight": 1,
+          "squared_displacement_m2": 282.1482137575867,
+          "packet_count": 1,
+          "sediment_height": 40.0,
+          "sediment_solid": 19.643619418850342,
+          "basement_height": 0,
+          "water_height": 0,
+          "units": {
+            "5": {
+              "height": 40.0,
+              "solid": 19.643619418850342
+            }
+          }
+        }
+      ]
+    },
+    {
+      "destination_x": 10160,
+      "lost_from_column": [
+        {
+          "source_x": 10440,
+          "source_z": 600,
+          "destination_x": 10160,
+          "destination_z": 600,
+          "target_x": 10142.756681717581,
+          "target_z": 598.7723634449419,
+          "weight": 1,
+          "squared_displacement_m2": 298.83911690011473,
+          "packet_count": 1,
+          "sediment_height": 40.0,
+          "sediment_solid": 19.643450138817464,
+          "basement_height": 0,
+          "water_height": 0,
+          "units": {
+            "5": {
+              "height": 40.0,
+              "solid": 19.643450138817467
+            }
+          }
+        }
+      ],
+      "gained_by_column": [
+        {
+          "source_x": 10440,
+          "source_z": 720,
+          "destination_x": 10160,
+          "destination_z": 680,
+          "target_x": 10141.562368961133,
+          "target_z": 718.8018507110882,
+          "weight": 1,
+          "squared_displacement_m2": 1845.5298569309653,
+          "packet_count": 1,
+          "sediment_height": 40.0,
+          "sediment_solid": 20.923098987117164,
+          "basement_height": 0,
+          "water_height": 0,
+          "units": {
+            "5": {
+              "height": 36.095250369730934,
+              "solid": 18.830607770052648
+            },
+            "4": {
+              "height": 3.904749630269066,
+              "solid": 2.092491217064517
+            }
+          }
+        },
+        {
+          "source_x": 10480,
+          "source_z": 600,
+          "destination_x": 10160,
+          "destination_z": 560,
+          "target_x": 10176.625916167977,
+          "target_z": 599.0341896414437,
+          "weight": 1,
+          "squared_displacement_m2": 1800.089049388801,
+          "packet_count": 1,
+          "sediment_height": 40.0,
+          "sediment_solid": 19.638373184559665,
+          "basement_height": 0,
+          "water_height": 0,
+          "units": {
+            "5": {
+              "height": 40.0,
+              "solid": 19.63837318455967
+            }
+          }
+        }
+      ]
+    },
+    {
+      "destination_x": 10200,
+      "lost_from_column": [
+        {
+          "source_x": 10480,
+          "source_z": 600,
+          "destination_x": 10200,
+          "destination_z": 560,
+          "target_x": 10182.756681717583,
+          "target_z": 599.0354351711934,
+          "weight": 1,
+          "squared_displacement_m2": 1821.0972243931797,
+          "packet_count": 1,
+          "sediment_height": 40.0,
+          "sediment_solid": 19.638201204485664,
+          "basement_height": 0,
+          "water_height": 0,
+          "units": {
+            "5": {
+              "height": 40.0,
+              "solid": 19.638201204485664
+            }
+          }
+        }
+      ],
+      "gained_by_column": [
+        {
+          "source_x": 10520,
+          "source_z": 600,
+          "destination_x": 10200,
+          "destination_z": 560,
+          "target_x": 10216.504259393863,
+          "target_z": 599.180742913835,
+          "weight": 1,
+          "squared_displacement_m2": 1807.521193419961,
+          "packet_count": 1,
+          "sediment_height": 40.0,
+          "sediment_solid": 19.6338355765603,
+          "basement_height": 0,
+          "water_height": 0,
+          "units": {
+            "5": {
+              "height": 40.0,
+              "solid": 19.6338355765603
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "step9_extra_source_packet": {
+    "unweighted": {
+      "source_x": 10440,
+      "source_z": 720,
+      "destination_x": 10120,
+      "destination_z": 720,
+      "target_x": 10141.563191426776,
+      "target_z": 718.8010365463417,
+      "weight": 1,
+      "squared_displacement_m2": 466.4087378709955,
+      "packet_count": 1,
+      "sediment_height": 40.0,
+      "sediment_solid": 20.92290615303733,
+      "basement_height": 0,
+      "water_height": 0,
+      "units": {
+        "5": {
+          "height": 36.09794437612891,
+          "solid": 18.831902369901844
+        },
+        "4": {
+          "height": 3.9020556238710924,
+          "solid": 2.0910037831354877
+        }
+      }
+    },
+    "weighted": {
+      "source_x": 10440,
+      "source_z": 720,
+      "destination_x": 10160,
+      "destination_z": 680,
+      "target_x": 10141.562368961133,
+      "target_z": 718.8018507110882,
+      "weight": 1,
+      "squared_displacement_m2": 1845.5298569309653,
+      "packet_count": 1,
+      "sediment_height": 40.0,
+      "sediment_solid": 20.923098987117164,
+      "basement_height": 0,
+      "water_height": 0,
+      "units": {
+        "5": {
+          "height": 36.095250369730934,
+          "solid": 18.830607770052648
+        },
+        "4": {
+          "height": 3.904749630269066,
+          "solid": 2.092491217064517
+        }
+      }
+    }
+  },
+  "deposition_trigger": {
+    "forcing": {
+      "step": 9,
+      "waterDepth": 30.63324309885502,
+      "fill": 0.8005267365952022,
+      "drape": 12.478175727883354
+    },
+    "surface_difference_m": -40.01471943011893,
+    "expected_unit9_deposition_difference_m": -32.032852761165735,
+    "observed_unit9_deposition_difference_m": -32.032852761165756,
+    "identity_error_m": -2.1316282072803006e-14
+  },
+  "anomaly_trajectory": [
+    {
+      "step": 9,
+      "x": 10160,
+      "process": "subsidence",
+      "surface_difference_m": -0.027078110436377756,
+      "unit_bulk_height_difference_m": {
+        "7": -0.40002666344366844,
+        "9": 0,
+        "10": 0,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 9,
+      "x": 10160,
+      "process": "thrust-slip",
+      "surface_difference_m": -40.01471943011893,
+      "unit_bulk_height_difference_m": {
+        "7": -0.3626960149869092,
+        "9": 0,
+        "10": 0,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 9,
+      "x": 10160,
+      "process": "deposition",
+      "surface_difference_m": -7.981866668953188,
+      "unit_bulk_height_difference_m": {
+        "7": -0.3626960149869092,
+        "9": -32.032852761165756,
+        "10": 0,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 9,
+      "x": 10160,
+      "process": "compaction",
+      "surface_difference_m": -10.273393169612973,
+      "unit_bulk_height_difference_m": {
+        "7": 2.181273747372501,
+        "9": -32.032852761165756,
+        "10": 0,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 10,
+      "x": 9440,
+      "process": "subsidence",
+      "surface_difference_m": -0.008814079953481269,
+      "unit_bulk_height_difference_m": {
+        "7": -0.5435798180423035,
+        "9": -0.013979954071146494,
+        "10": 0,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 10,
+      "x": 9440,
+      "process": "thrust-slip",
+      "surface_difference_m": 29.726606830387027,
+      "unit_bulk_height_difference_m": {
+        "7": 2.181273747372984,
+        "9": -32.03285276116583,
+        "10": 0,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 10,
+      "x": 9440,
+      "process": "deposition",
+      "surface_difference_m": 4.914444810496462,
+      "unit_bulk_height_difference_m": {
+        "7": 2.1812737473730976,
+        "9": -32.03285276116583,
+        "10": 24.808503460074633,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 10,
+      "x": 9440,
+      "process": "compaction",
+      "surface_difference_m": 5.520745955512211,
+      "unit_bulk_height_difference_m": {
+        "7": 0.08910201967484,
+        "9": -31.15428775492191,
+        "10": 24.80850346003865,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 11,
+      "x": 8720,
+      "process": "subsidence",
+      "surface_difference_m": -0.00908699316187267,
+      "unit_bulk_height_difference_m": {
+        "7": -0.5168473261587678,
+        "9": -0.01248991977371361,
+        "10": -0.010410391461391555,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 11,
+      "x": 8720,
+      "process": "thrust-slip",
+      "surface_difference_m": 5.520745955512211,
+      "unit_bulk_height_difference_m": {
+        "7": 0.08910201967546527,
+        "9": -31.154287754921768,
+        "10": 24.808503460038025,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 11,
+      "x": 8720,
+      "process": "deposition",
+      "surface_difference_m": 5.4998686485701,
+      "unit_bulk_height_difference_m": {
+        "7": 0.08910201967546527,
+        "9": -31.154287754921768,
+        "10": 24.808503460038025,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 11,
+      "x": 8720,
+      "process": "compaction",
+      "surface_difference_m": 5.345973297799901,
+      "unit_bulk_height_difference_m": {
+        "7": 0.08416769892050979,
+        "9": -30.972632769349815,
+        "10": 24.633654470611276,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 12,
+      "x": 8400,
+      "process": "subsidence",
+      "surface_difference_m": -0.0032194094974329346,
+      "unit_bulk_height_difference_m": {
+        "7": -0.353993531787296,
+        "9": -0.02003334338979812,
+        "10": -0.0031153590984445145,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 12,
+      "x": 8400,
+      "process": "thrust-slip",
+      "surface_difference_m": -34.6540267022001,
+      "unit_bulk_height_difference_m": {
+        "7": -17.33282195837205,
+        "9": -30.972632769349957,
+        "10": 24.633654470611532,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 12,
+      "x": 8400,
+      "process": "deposition",
+      "surface_difference_m": -34.66224322134644,
+      "unit_bulk_height_difference_m": {
+        "7": -17.33282195837205,
+        "9": -30.972632769349957,
+        "10": 24.633654470611532,
+        "13": 0,
+        "15": 0
+      }
+    },
+    {
+      "step": 12,
+      "x": 8400,
+      "process": "compaction",
+      "surface_difference_m": -27.771650381252584,
+      "unit_bulk_height_difference_m": {
+        "7": -19.536736901037585,
+        "9": -30.828582118407326,
+        "10": 24.495142743509746,
+        "13": 0,
+        "15": 0
+      }
+    }
+  ],
+  "order_checks": [
+    {
+      "step": 9,
+      "x": 10160,
+      "mode": "unweighted",
+      "packet_count": 17,
+      "packet_depth_inversions": [],
+      "constituent_depth_inversions": []
+    },
+    {
+      "step": 9,
+      "x": 10160,
+      "mode": "weighted",
+      "packet_count": 18,
+      "packet_depth_inversions": [],
+      "constituent_depth_inversions": [
+        {
+          "shallower": {
+            "packet_source": [
+              10440,
+              720
+            ],
+            "packet_destination_z": 680,
+            "unit": 4,
+            "height": 0.2575698648336129,
+            "solid": 0.14129016816315867,
+            "stored_centre": [
+              10160,
+              719.8712150675832
+            ],
+            "remembered_centre": [
+              10130.522205772011,
+              758.9383010478894
+            ],
+            "pointwise_flow_centre": [
+              10130.522205772011,
+              758.9383010478894
+            ]
+          },
+          "deeper": {
+            "packet_source": [
+              10480,
+              720
+            ],
+            "packet_destination_z": 720,
+            "unit": 5,
+            "height": 2.8272181675615684,
+            "solid": 1.46353329706015,
+            "stored_centre": [
+              10160,
+              721.4136090837808
+            ],
+            "remembered_centre": [
+              10182.756683245962,
+              720.4477987252245
+            ],
+            "pointwise_flow_centre": [
+              10182.756683245962,
+              720.4477987252246
+            ]
+          },
+          "inherited_within_same_source_packet": false,
+          "represented_depth_drop_m": 38.49050232266484
+        }
+      ]
+    },
+    {
+      "step": 10,
+      "x": 9440,
+      "mode": "unweighted",
+      "packet_count": 19,
+      "packet_depth_inversions": [],
+      "constituent_depth_inversions": []
+    },
+    {
+      "step": 10,
+      "x": 9440,
+      "mode": "weighted",
+      "packet_count": 19,
+      "packet_depth_inversions": [],
+      "constituent_depth_inversions": [
+        {
+          "shallower": {
+            "packet_source": [
+              10160,
+              800
+            ],
+            "packet_destination_z": 760,
+            "unit": 4,
+            "height": 0.2510171481309271,
+            "solid": 0.14129016816314138,
+            "stored_centre": [
+              9440,
+              781.5327668336552
+            ],
+            "remembered_centre": [
+              9401.560460506447,
+              857.7264304945104
+            ],
+            "pointwise_flow_centre": [
+              9401.560460506447,
+              857.7264304945104
+            ]
+          },
+          "deeper": {
+            "packet_source": [
+              10160,
+              800
+            ],
+            "packet_destination_z": 760,
+            "unit": 5,
+            "height": 2.6840423208388984,
+            "solid": 1.4635332970601456,
+            "stored_centre": [
+              9440,
+              783.00029656814
+            ],
+            "remembered_centre": [
+              9453.794937980398,
+              819.161063890133
+            ],
+            "pointwise_flow_centre": [
+              9453.794937980398,
+              819.161063890133
+            ]
+          },
+          "inherited_within_same_source_packet": true,
+          "represented_depth_drop_m": 38.565366604377346
+        }
+      ]
+    },
+    {
+      "step": 11,
+      "x": 8720,
+      "mode": "unweighted",
+      "packet_count": 23,
+      "packet_depth_inversions": [],
+      "constituent_depth_inversions": []
+    },
+    {
+      "step": 11,
+      "x": 8720,
+      "mode": "weighted",
+      "packet_count": 23,
+      "packet_depth_inversions": [],
+      "constituent_depth_inversions": [
+        {
+          "shallower": {
+            "packet_source": [
+              9440,
+              400
+            ],
+            "packet_destination_z": 360,
+            "unit": 10,
+            "height": 8.912192281494299,
+            "solid": 4.0034946655884385,
+            "stored_centre": [
+              8720,
+              393.3911119791583
+            ],
+            "remembered_centre": [
+              8711.056080556416,
+              427.5391958255774
+            ],
+            "pointwise_flow_centre": [
+              8711.056080556415,
+              427.5391958255774
+            ]
+          },
+          "deeper": {
+            "packet_source": [
+              9440,
+              400
+            ],
+            "packet_destination_z": 360,
+            "unit": 9,
+            "height": 2.152791880094526,
+            "solid": 0.9398300538402009,
+            "stored_centre": [
+              8720,
+              398.9236040599527
+            ],
+            "remembered_centre": [
+              8702.09433529085,
+              393.03636248767253
+            ],
+            "pointwise_flow_centre": [
+              8702.09433529085,
+              393.03636248767236
+            ]
+          },
+          "inherited_within_same_source_packet": true,
+          "represented_depth_drop_m": 34.50283333790486
+        },
+        {
+          "shallower": {
+            "packet_source": [
+              9440,
+              880
+            ],
+            "packet_destination_z": 840,
+            "unit": 4,
+            "height": 0.2444133851671495,
+            "solid": 0.14129016816311762,
+            "stored_centre": [
+              8720,
+              872.0064829304729
+            ],
+            "remembered_centre": [
+              8672.616541062864,
+              945.1863273384987
+            ],
+            "pointwise_flow_centre": [
+              8672.616541062862,
+              945.1863273384989
+            ]
+          },
+          "deeper": {
+            "packet_source": [
+              9440,
+              880
+            ],
+            "packet_destination_z": 840,
+            "unit": 5,
+            "height": 2.5914877967792336,
+            "solid": 1.4635332970601589,
+            "stored_centre": [
+              8720,
+              873.4244335214462
+            ],
+            "remembered_centre": [
+              8724.851018536814,
+              906.5713815906098
+            ],
+            "pointwise_flow_centre": [
+              8724.851018536814,
+              906.57138159061
+            ]
+          },
+          "inherited_within_same_source_packet": true,
+          "represented_depth_drop_m": 38.614945747888896
+        }
+      ]
+    }
+  ],
+  "caveats": [
+    "Packet assignment snapshots precede bottom-packing; remembered offsets are material-center provenance, not a reconstruction of the free surface.",
+    "Constituent target-depth inversions with different remembered lateral positions do not alone prove intersecting physical strata.",
+    "Reordering parcels within one destination column preserves its summed unit bulk and grain totals immediately; lateral assignment or later physical operations must change those totals.",
+    "Paired trajectories have tiny pre-existing source-state differences; the extra full packet has weight1 under both objectives, so its changed placement is a coupled allocation effect, not simply its own weight changing.",
+    "Closed budgets establish grain conservation, not local geometric accuracy or convergence. This diagnosis isolates the 40m trajectory and does not make the 10m result physical truth.",
+    "These traces reproduce the frozen synthetic baseline; metrics, eligibility, development observations and holdout were not changed."
+  ]
+}

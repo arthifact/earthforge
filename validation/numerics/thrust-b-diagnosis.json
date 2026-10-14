@@ -1,0 +1,1023 @@
+{
+  "schema": "earthforge.thrust-b-weighted-transport-mechanism.v1",
+  "observational_data": "None read; synthetic-only archived and source-hashed regenerated traces.",
+  "note": "Midpoint per-layer travel sums in this diagnostic are for attribution. Frozen comparison remains unchanged and is authoritative for headline grid metrics.",
+  "source_sha256": {
+    "current": {
+      "basin.ts": "3a6ca0df3f881477cfc8c39ded43ab4c18d82ddc7c06afe57af57a02d0e6db51",
+      "conservativeTransport.ts": "0f12ee1ccdf70f77eaa109ff71f13f5b3ba183216cf71536aca318a74f4e3243",
+      "faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+      "normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+      "normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+      "sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+      "strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+      "thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+      "window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc"
+    },
+    "weighted": {
+      "basin.ts": "d80f1a5628bf805f8625b7f54f152a82ad864b011dc27b37ea81c81f12eb94ef",
+      "conservativeTransport.ts": "0088bc8b4c3b1e304e657d1fef9982d85ddd5ff39aca6f0b6811a982e9c9bf36",
+      "faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+      "normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+      "normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+      "sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+      "strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+      "thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+      "window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc"
+    }
+  },
+  "instrumentation_sha256": {
+    "operations.mjs": "c44f67c0ab9b4a603443c9c7a7785171b73aad86d110685afb937cf5d6780189",
+    "weighted-cost.mjs": "f4b253a7f8809b964cd59db6d22648467222c503f96bb9195d1488e211ae6879",
+    "weighted-known-answer.mjs": "6db8e30778b901a5bc1a339ce4a72b1026cfba8dbe5b2745f000c6d807005d9e",
+    "summarize-mechanism.py": "758281bf41b0f80baacf7c9a81f90409e137d645d5170f9e43f1551f80aaf7f6"
+  },
+  "history_sha256": "9d04013089c8622a034396bc3d922379897d27881cf545e55e1f9eabd540fd7f",
+  "baseline_archive_reproduction_max_difference_s": {
+    "20": 0,
+    "10": 0
+  },
+  "all_four_budgets_closed": true,
+  "same_input_objective_20m": [
+    {
+      "step": 4,
+      "baseline_objective": {
+        "normalized_volume_cost": 3097.7568284473546,
+        "unweighted_cost": 3281.7924244358296,
+        "rock_area_weighted_rms_distance_m": 9.746206553312255,
+        "rock_area_displaced_m2": 137683.96456048687,
+        "packets_displaced": 361,
+        "partial_displaced": {
+          "packets": 26,
+          "rock_area_m2": 3683.964560486852
+        },
+        "full_displaced": {
+          "packets": 335,
+          "rock_area_m2": 134000
+        },
+        "profiles": {
+          "5200": {
+            "cost": 3.9614046644448306,
+            "rockArea": 9280.892520638168,
+            "displacedArea": 0,
+            "smallCount": 2,
+            "fullCount": 23,
+            "packets": 25,
+            "upstreamMin": 5140,
+            "upstreamMax": 5140,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 2.1930454603550142,
+            "rockArea": 3996.7185048220267,
+            "displacedArea": 0,
+            "smallCount": 2,
+            "fullCount": 9,
+            "packets": 11,
+            "upstreamMin": 5920,
+            "upstreamMax": 5920,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 2.083568314145212,
+            "rockArea": 3797.201739656115,
+            "displacedArea": 0,
+            "smallCount": 2,
+            "fullCount": 9,
+            "packets": 11,
+            "upstreamMin": 6720,
+            "upstreamMax": 6720,
+            "incoming": 0
+          }
+        }
+      },
+      "identical_input_weighted_assignment": {
+        "normalized_volume_cost": 3095.503239483056,
+        "unweighted_cost": 3287.02145106029,
+        "rock_area_weighted_rms_distance_m": 9.742660771502516,
+        "rock_area_displaced_m2": 141854.00612563477,
+        "packets_displaced": 387,
+        "partial_displaced": {
+          "packets": 46,
+          "rock_area_m2": 5454.006125634748
+        },
+        "full_displaced": {
+          "packets": 341,
+          "rock_area_m2": 136400
+        },
+        "profiles": {
+          "5200": {
+            "cost": 3.9614046644448306,
+            "rockArea": 9280.892520638168,
+            "displacedArea": 0,
+            "smallCount": 2,
+            "fullCount": 23,
+            "packets": 25,
+            "upstreamMin": 5140,
+            "upstreamMax": 5140,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 2.1930454603550142,
+            "rockArea": 3996.7185048220267,
+            "displacedArea": 0,
+            "smallCount": 2,
+            "fullCount": 9,
+            "packets": 11,
+            "upstreamMin": 5920,
+            "upstreamMax": 5920,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 2.083568314145212,
+            "rockArea": 3797.201739656115,
+            "displacedArea": 0,
+            "smallCount": 2,
+            "fullCount": 9,
+            "packets": 11,
+            "upstreamMin": 6720,
+            "upstreamMax": 6720,
+            "incoming": 0
+          }
+        },
+        "changed_destinations": 341
+      },
+      "cost_reduction_percent": 0.07274905969388845
+    },
+    {
+      "step": 5,
+      "baseline_objective": {
+        "normalized_volume_cost": 2709.0412514166956,
+        "unweighted_cost": 2816.370973816037,
+        "rock_area_weighted_rms_distance_m": 7.775519224710392,
+        "rock_area_displaced_m2": 249929.68971448616,
+        "packets_displaced": 644,
+        "partial_displaced": {
+          "packets": 30,
+          "rock_area_m2": 4329.689714486129
+        },
+        "full_displaced": {
+          "packets": 614,
+          "rock_area_m2": 245600
+        },
+        "profiles": {
+          "5200": {
+            "cost": 20.509881876208166,
+            "rockArea": 13466.829715536296,
+            "displacedArea": 10000,
+            "smallCount": 2,
+            "fullCount": 33,
+            "packets": 35,
+            "upstreamMin": 5000,
+            "upstreamMax": 5040,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 1.7106852328587783,
+            "rockArea": 6885.5762689168505,
+            "displacedArea": 0,
+            "smallCount": 2,
+            "fullCount": 16,
+            "packets": 18,
+            "upstreamMin": 5800,
+            "upstreamMax": 5800,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 1.6016837549090455,
+            "rockArea": 6686.059503750939,
+            "displacedArea": 0,
+            "smallCount": 2,
+            "fullCount": 16,
+            "packets": 18,
+            "upstreamMin": 6600,
+            "upstreamMax": 6600,
+            "incoming": 0
+          }
+        }
+      },
+      "identical_input_weighted_assignment": {
+        "normalized_volume_cost": 2700.2507353557835,
+        "unweighted_cost": 2823.6046408213474,
+        "rock_area_weighted_rms_distance_m": 7.76289365758287,
+        "rock_area_displaced_m2": 250600.34097015052,
+        "packets_displaced": 659,
+        "partial_displaced": {
+          "packets": 45,
+          "rock_area_m2": 5000.3409701504925
+        },
+        "full_displaced": {
+          "packets": 614,
+          "rock_area_m2": 245600
+        },
+        "profiles": {
+          "5200": {
+            "cost": 17.09075607375934,
+            "rockArea": 13469.307507682523,
+            "displacedArea": 8825.489742635342,
+            "smallCount": 2,
+            "fullCount": 33,
+            "packets": 35,
+            "upstreamMin": 5000,
+            "upstreamMax": 5040,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 1.7106852328587783,
+            "rockArea": 6885.5762689168505,
+            "displacedArea": 0,
+            "smallCount": 2,
+            "fullCount": 16,
+            "packets": 18,
+            "upstreamMin": 5800,
+            "upstreamMax": 5800,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 1.6016837549090455,
+            "rockArea": 6686.059503750939,
+            "displacedArea": 0,
+            "smallCount": 2,
+            "fullCount": 16,
+            "packets": 18,
+            "upstreamMin": 6600,
+            "upstreamMax": 6600,
+            "incoming": 0
+          }
+        },
+        "changed_destinations": 170
+      },
+      "cost_reduction_percent": 0.32448808434774046
+    },
+    {
+      "step": 6,
+      "baseline_objective": {
+        "normalized_volume_cost": 2644.2566527436684,
+        "unweighted_cost": 2697.9343165543837,
+        "rock_area_weighted_rms_distance_m": 7.026678143033679,
+        "rock_area_displaced_m2": 466601.21861769597,
+        "packets_displaced": 1186,
+        "partial_displaced": {
+          "packets": 55,
+          "rock_area_m2": 14201.21861769598
+        },
+        "full_displaced": {
+          "packets": 1131,
+          "rock_area_m2": 452400
+        },
+        "profiles": {
+          "5200": {
+            "cost": 20.27823257646993,
+            "rockArea": 15898.628613058525,
+            "displacedArea": 9200,
+            "smallCount": 2,
+            "fullCount": 38,
+            "packets": 40,
+            "upstreamMin": 4900,
+            "upstreamMax": 4940,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 3.934837275582741,
+            "rockArea": 8981.666751422617,
+            "displacedArea": 1240.3225755375524,
+            "smallCount": 2,
+            "fullCount": 22,
+            "packets": 24,
+            "upstreamMin": 5680,
+            "upstreamMax": 5700,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 1.3233421109666645,
+            "rockArea": 8754.746303712032,
+            "displacedArea": 0,
+            "smallCount": 2,
+            "fullCount": 21,
+            "packets": 23,
+            "upstreamMin": 6500,
+            "upstreamMax": 6500,
+            "incoming": 0
+          }
+        }
+      },
+      "identical_input_weighted_assignment": {
+        "normalized_volume_cost": 2640.7468081700513,
+        "unweighted_cost": 2702.1342462210673,
+        "rock_area_weighted_rms_distance_m": 7.022013176511343,
+        "rock_area_displaced_m2": 470188.8446084716,
+        "packets_displaced": 1196,
+        "partial_displaced": {
+          "packets": 64,
+          "rock_area_m2": 17388.844608471634
+        },
+        "full_displaced": {
+          "packets": 1132,
+          "rock_area_m2": 452800
+        },
+        "profiles": {
+          "5200": {
+            "cost": 20.27823257646993,
+            "rockArea": 15898.628613058525,
+            "displacedArea": 9200,
+            "smallCount": 2,
+            "fullCount": 38,
+            "packets": 40,
+            "upstreamMin": 4900,
+            "upstreamMax": 4940,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 3.934837275582741,
+            "rockArea": 8981.666751422617,
+            "displacedArea": 1240.3225755375524,
+            "smallCount": 2,
+            "fullCount": 22,
+            "packets": 24,
+            "upstreamMin": 5680,
+            "upstreamMax": 5700,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 1.3233421109666645,
+            "rockArea": 8754.746303712032,
+            "displacedArea": 0,
+            "smallCount": 2,
+            "fullCount": 21,
+            "packets": 23,
+            "upstreamMin": 6500,
+            "upstreamMax": 6500,
+            "incoming": 0
+          }
+        },
+        "changed_destinations": 99
+      },
+      "cost_reduction_percent": 0.132734640942489
+    },
+    {
+      "step": 7,
+      "baseline_objective": {
+        "normalized_volume_cost": 3193.452550373886,
+        "unweighted_cost": 3254.1678521236204,
+        "rock_area_weighted_rms_distance_m": 7.472134323917564,
+        "rock_area_displaced_m2": 487411.23682470364,
+        "packets_displaced": 1246,
+        "partial_displaced": {
+          "packets": 69,
+          "rock_area_m2": 16611.236824703697
+        },
+        "full_displaced": {
+          "packets": 1177,
+          "rock_area_m2": 470800
+        },
+        "profiles": {
+          "5200": {
+            "cost": 12.66845317590792,
+            "rockArea": 17944.629549887584,
+            "displacedArea": 6400,
+            "smallCount": 2,
+            "fullCount": 44,
+            "packets": 46,
+            "upstreamMin": 4880,
+            "upstreamMax": 4900,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 10.187569154555339,
+            "rockArea": 11454.572381421076,
+            "displacedArea": 5454.572381421077,
+            "smallCount": 2,
+            "fullCount": 27,
+            "packets": 29,
+            "upstreamMin": 5640,
+            "upstreamMax": 5660,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 2.1918462314670415,
+            "rockArea": 9512.220992618371,
+            "displacedArea": 400,
+            "smallCount": 2,
+            "fullCount": 22,
+            "packets": 24,
+            "upstreamMin": 6440,
+            "upstreamMax": 6460,
+            "incoming": 0
+          }
+        }
+      },
+      "identical_input_weighted_assignment": {
+        "normalized_volume_cost": 3190.333646109245,
+        "unweighted_cost": 3263.592786446401,
+        "rock_area_weighted_rms_distance_m": 7.468484580539262,
+        "rock_area_displaced_m2": 484292.3652453972,
+        "packets_displaced": 1242,
+        "partial_displaced": {
+          "packets": 74,
+          "rock_area_m2": 17092.365245397297
+        },
+        "full_displaced": {
+          "packets": 1168,
+          "rock_area_m2": 467200
+        },
+        "profiles": {
+          "5200": {
+            "cost": 12.66845317590792,
+            "rockArea": 17944.629549887584,
+            "displacedArea": 6400,
+            "smallCount": 2,
+            "fullCount": 44,
+            "packets": 46,
+            "upstreamMin": 4880,
+            "upstreamMax": 4900,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 6.897566828212142,
+            "rockArea": 11054.572381421076,
+            "displacedArea": 3978.5563618001243,
+            "smallCount": 2,
+            "fullCount": 26,
+            "packets": 28,
+            "upstreamMin": 5640,
+            "upstreamMax": 5660,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 2.1918462314670415,
+            "rockArea": 9512.220992618371,
+            "displacedArea": 400,
+            "smallCount": 2,
+            "fullCount": 22,
+            "packets": 24,
+            "upstreamMin": 6440,
+            "upstreamMax": 6460,
+            "incoming": 0
+          }
+        },
+        "changed_destinations": 191
+      },
+      "cost_reduction_percent": 0.09766558968524741
+    },
+    {
+      "step": 8,
+      "baseline_objective": {
+        "normalized_volume_cost": 2777.7783168278024,
+        "unweighted_cost": 2838.4751962600903,
+        "rock_area_weighted_rms_distance_m": 6.8455796777966125,
+        "rock_area_displaced_m2": 623516.8794917732,
+        "packets_displaced": 1598,
+        "partial_displaced": {
+          "packets": 85,
+          "rock_area_m2": 18316.879491773914
+        },
+        "full_displaced": {
+          "packets": 1513,
+          "rock_area_m2": 605200
+        },
+        "profiles": {
+          "5200": {
+            "cost": 15.011427569320498,
+            "rockArea": 18552.363472548983,
+            "displacedArea": 7600,
+            "smallCount": 2,
+            "fullCount": 45,
+            "packets": 47,
+            "upstreamMin": 4860,
+            "upstreamMax": 4900,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 14.666684830606856,
+            "rockArea": 14483.855275723308,
+            "displacedArea": 6967.065127660613,
+            "smallCount": 2,
+            "fullCount": 35,
+            "packets": 37,
+            "upstreamMin": 5620,
+            "upstreamMax": 5660,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 7.6161525904137575,
+            "rockArea": 9564.956498183506,
+            "displacedArea": 2316.790148062696,
+            "smallCount": 2,
+            "fullCount": 23,
+            "packets": 25,
+            "upstreamMin": 6440,
+            "upstreamMax": 6460,
+            "incoming": 0
+          }
+        }
+      },
+      "identical_input_weighted_assignment": {
+        "normalized_volume_cost": 2773.3897770832295,
+        "unweighted_cost": 2841.933793394261,
+        "rock_area_weighted_rms_distance_m": 6.840169963606395,
+        "rock_area_displaced_m2": 617797.1736525189,
+        "packets_displaced": 1588,
+        "partial_displaced": {
+          "packets": 90,
+          "rock_area_m2": 18597.173652519705
+        },
+        "full_displaced": {
+          "packets": 1498,
+          "rock_area_m2": 599200
+        },
+        "profiles": {
+          "5200": {
+            "cost": 15.011427569320498,
+            "rockArea": 18552.363472548983,
+            "displacedArea": 7600,
+            "smallCount": 2,
+            "fullCount": 45,
+            "packets": 47,
+            "upstreamMin": 4860,
+            "upstreamMax": 4900,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 14.845665111983147,
+            "rockArea": 14483.855275723308,
+            "displacedArea": 6967.065127660613,
+            "smallCount": 2,
+            "fullCount": 35,
+            "packets": 37,
+            "upstreamMin": 5620,
+            "upstreamMax": 5660,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 7.6161525904137575,
+            "rockArea": 9564.956498183506,
+            "displacedArea": 2316.790148062696,
+            "smallCount": 2,
+            "fullCount": 23,
+            "packets": 25,
+            "upstreamMin": 6440,
+            "upstreamMax": 6460,
+            "incoming": 0
+          }
+        },
+        "changed_destinations": 114
+      },
+      "cost_reduction_percent": 0.15798740014589807
+    },
+    {
+      "step": 9,
+      "baseline_objective": {
+        "normalized_volume_cost": 2698.3755378005185,
+        "unweighted_cost": 2745.0541832078666,
+        "rock_area_weighted_rms_distance_m": 6.666918926994581,
+        "rock_area_displaced_m2": 625997.5640411564,
+        "packets_displaced": 1600,
+        "partial_displaced": {
+          "packets": 82,
+          "rock_area_m2": 18797.56404115709
+        },
+        "full_displaced": {
+          "packets": 1518,
+          "rock_area_m2": 607200
+        },
+        "profiles": {
+          "5200": {
+            "cost": 14.032813103087612,
+            "rockArea": 18756.841704883755,
+            "displacedArea": 7600,
+            "smallCount": 2,
+            "fullCount": 46,
+            "packets": 48,
+            "upstreamMin": 4920,
+            "upstreamMax": 4940,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 13.44073650700876,
+            "rockArea": 16129.659445397556,
+            "displacedArea": 7874.635511072288,
+            "smallCount": 2,
+            "fullCount": 39,
+            "packets": 41,
+            "upstreamMin": 5680,
+            "upstreamMax": 5720,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 5.350729348170836,
+            "rockArea": 10329.78175889753,
+            "displacedArea": 4000,
+            "smallCount": 2,
+            "fullCount": 25,
+            "packets": 27,
+            "upstreamMin": 6500,
+            "upstreamMax": 6500,
+            "incoming": 0
+          }
+        }
+      },
+      "identical_input_weighted_assignment": {
+        "normalized_volume_cost": 2693.576774123095,
+        "unweighted_cost": 2751.306769317656,
+        "rock_area_weighted_rms_distance_m": 6.660988098502887,
+        "rock_area_displaced_m2": 626967.7281441329,
+        "packets_displaced": 1608,
+        "partial_displaced": {
+          "packets": 91,
+          "rock_area_m2": 20167.728144133795
+        },
+        "full_displaced": {
+          "packets": 1517,
+          "rock_area_m2": 606800
+        },
+        "profiles": {
+          "5200": {
+            "cost": 14.032813103087612,
+            "rockArea": 18756.841704883755,
+            "displacedArea": 7600,
+            "smallCount": 2,
+            "fullCount": 46,
+            "packets": 48,
+            "upstreamMin": 4920,
+            "upstreamMax": 4940,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 13.44073650700876,
+            "rockArea": 16129.659445397556,
+            "displacedArea": 7874.635511072288,
+            "smallCount": 2,
+            "fullCount": 39,
+            "packets": 41,
+            "upstreamMin": 5680,
+            "upstreamMax": 5720,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 5.350729348170836,
+            "rockArea": 10329.78175889753,
+            "displacedArea": 4000,
+            "smallCount": 2,
+            "fullCount": 25,
+            "packets": 27,
+            "upstreamMin": 6500,
+            "upstreamMax": 6500,
+            "incoming": 0
+          }
+        },
+        "changed_destinations": 122
+      },
+      "cost_reduction_percent": 0.17783898535245202
+    },
+    {
+      "step": 10,
+      "baseline_objective": {
+        "normalized_volume_cost": 2785.2155100771975,
+        "unweighted_cost": 2846.922773437694,
+        "rock_area_weighted_rms_distance_m": 6.3983250748327425,
+        "rock_area_displaced_m2": 618402.4329864096,
+        "packets_displaced": 1585,
+        "partial_displaced": {
+          "packets": 74,
+          "rock_area_m2": 14002.432986408698
+        },
+        "full_displaced": {
+          "packets": 1511,
+          "rock_area_m2": 604400
+        },
+        "profiles": {
+          "5200": {
+            "cost": 16.830265287771848,
+            "rockArea": 19105.613258343008,
+            "displacedArea": 7600,
+            "smallCount": 2,
+            "fullCount": 47,
+            "packets": 49,
+            "upstreamMin": 5000,
+            "upstreamMax": 5040,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 5.84276936918376,
+            "rockArea": 16564.70963992516,
+            "displacedArea": 3793.2577205878397,
+            "smallCount": 2,
+            "fullCount": 40,
+            "packets": 42,
+            "upstreamMin": 5780,
+            "upstreamMax": 5800,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 7.619556855456465,
+            "rockArea": 12546.415233690834,
+            "displacedArea": 3393.2577205878397,
+            "smallCount": 2,
+            "fullCount": 30,
+            "packets": 32,
+            "upstreamMin": 6600,
+            "upstreamMax": 6600,
+            "incoming": 0
+          }
+        }
+      },
+      "identical_input_weighted_assignment": {
+        "normalized_volume_cost": 2779.7679343897016,
+        "unweighted_cost": 2856.382855516275,
+        "rock_area_weighted_rms_distance_m": 6.392064801616142,
+        "rock_area_displaced_m2": 613293.5609944605,
+        "packets_displaced": 1575,
+        "partial_displaced": {
+          "packets": 78,
+          "rock_area_m2": 14493.560994459793
+        },
+        "full_displaced": {
+          "packets": 1497,
+          "rock_area_m2": 598800
+        },
+        "profiles": {
+          "5200": {
+            "cost": 20.588600712578813,
+            "rockArea": 18822.27193229121,
+            "displacedArea": 9030.839555750172,
+            "smallCount": 3,
+            "fullCount": 46,
+            "packets": 49,
+            "upstreamMin": 5000,
+            "upstreamMax": 5040,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 5.84276936918376,
+            "rockArea": 16564.70963992516,
+            "displacedArea": 3793.2577205878397,
+            "smallCount": 2,
+            "fullCount": 40,
+            "packets": 42,
+            "upstreamMin": 5780,
+            "upstreamMax": 5800,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 7.619556855456465,
+            "rockArea": 12546.415233690834,
+            "displacedArea": 3393.2577205878397,
+            "smallCount": 2,
+            "fullCount": 30,
+            "packets": 32,
+            "upstreamMin": 6600,
+            "upstreamMax": 6600,
+            "incoming": 0
+          }
+        },
+        "changed_destinations": 263
+      },
+      "cost_reduction_percent": 0.19558901879535018
+    },
+    {
+      "step": 11,
+      "baseline_objective": {
+        "normalized_volume_cost": 3606.2271179347586,
+        "unweighted_cost": 3725.977009245027,
+        "rock_area_weighted_rms_distance_m": 7.127918355484305,
+        "rock_area_displaced_m2": 985097.1643728727,
+        "packets_displaced": 2494,
+        "partial_displaced": {
+          "packets": 63,
+          "rock_area_m2": 12697.164372871917
+        },
+        "full_displaced": {
+          "packets": 2431,
+          "rock_area_m2": 972400
+        },
+        "profiles": {
+          "5200": {
+            "cost": 19.174107993976744,
+            "rockArea": 19603.9896211985,
+            "displacedArea": 8421.13667662979,
+            "smallCount": 2,
+            "fullCount": 48,
+            "packets": 50,
+            "upstreamMin": 5120,
+            "upstreamMax": 5160,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 14.626033466359749,
+            "rockArea": 17003.62870150499,
+            "displacedArea": 8531.491506850412,
+            "smallCount": 2,
+            "fullCount": 42,
+            "packets": 44,
+            "upstreamMin": 5920,
+            "upstreamMax": 5940,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 7.066258547506878,
+            "rockArea": 13222.241950465792,
+            "displacedArea": 3200,
+            "smallCount": 2,
+            "fullCount": 32,
+            "packets": 34,
+            "upstreamMin": 6720,
+            "upstreamMax": 6740,
+            "incoming": 0
+          }
+        }
+      },
+      "identical_input_weighted_assignment": {
+        "normalized_volume_cost": 3598.1490179178086,
+        "unweighted_cost": 3739.369639942612,
+        "rock_area_weighted_rms_distance_m": 7.119930461614185,
+        "rock_area_displaced_m2": 985089.3515013644,
+        "packets_displaced": 2509,
+        "partial_displaced": {
+          "packets": 83,
+          "rock_area_m2": 14689.351501363763
+        },
+        "full_displaced": {
+          "packets": 2426,
+          "rock_area_m2": 970400
+        },
+        "profiles": {
+          "5200": {
+            "cost": 17.212980470593333,
+            "rockArea": 19603.9896211985,
+            "displacedArea": 8021.13667662979,
+            "smallCount": 2,
+            "fullCount": 48,
+            "packets": 50,
+            "upstreamMin": 5120,
+            "upstreamMax": 5160,
+            "incoming": 0
+          },
+          "6000": {
+            "cost": 13.329455242417128,
+            "rockArea": 17003.62870150499,
+            "displacedArea": 7731.4915068504115,
+            "smallCount": 2,
+            "fullCount": 42,
+            "packets": 44,
+            "upstreamMin": 5920,
+            "upstreamMax": 5940,
+            "incoming": 0
+          },
+          "6800": {
+            "cost": 7.066258547506878,
+            "rockArea": 13222.241950465792,
+            "displacedArea": 3200,
+            "smallCount": 2,
+            "fullCount": 32,
+            "packets": 34,
+            "upstreamMin": 6720,
+            "upstreamMax": 6740,
+            "incoming": 0
+          }
+        },
+        "changed_destinations": 268
+      },
+      "cost_reduction_percent": 0.22400419476563682
+    }
+  ],
+  "profile_bed_slowness_attribution": [
+    {
+      "x_m": 6000,
+      "current": {
+        "unit_fine_time_ms": {
+          "-2": 2.220446049250313e-13,
+          "-1": 0.6618534214885008,
+          "0": -1.5265566588595902e-13,
+          "1": -4.472540729287183,
+          "2": 6.089106031821418,
+          "3": -6.906256108537873,
+          "4": 2.5435267967114927,
+          "5": 2.290841952894994,
+          "6": -1.1802578285265881,
+          "7": -4.369403378462122,
+          "8": -0.006702002259791669,
+          "9": -0.016543477338799503,
+          "10": -0.0217396441120829,
+          "11": -0.02733912567246498,
+          "12": 4.9914869427506865,
+          "13": 0.0
+        },
+        "net_fine_time_ms": -0.4239671485297443,
+        "sum_absolute_unit_fine_time_ms": 33.57759743986437
+      },
+      "weighted": {
+        "unit_fine_time_ms": {
+          "-2": -2.220446049250313e-13,
+          "-1": 0.6256924905248817,
+          "0": -1.5265566588595902e-13,
+          "1": -7.25677970060315,
+          "2": 4.5468655303243235,
+          "3": 0.39123464307522227,
+          "4": -2.237518469665398,
+          "5": 3.6570448449635418,
+          "6": -0.30387801695637084,
+          "7": -4.2978369852730065,
+          "8": -0.00634370214087519,
+          "9": -0.015658635468570117,
+          "10": -0.020579796856627294,
+          "11": -0.02588587702195659,
+          "12": 4.719322806694709,
+          "13": 0.0
+        },
+        "net_fine_time_ms": -0.2243208684036501,
+        "sum_absolute_unit_fine_time_ms": 28.104641499569006
+      }
+    },
+    {
+      "x_m": 6800,
+      "current": {
+        "unit_fine_time_ms": {
+          "-2": -1.1102230246251565e-13,
+          "-1": 0.010764775169036511,
+          "0": 1.5265566588595902e-13,
+          "1": 5.226592953391923,
+          "2": -8.65769331541652,
+          "3": 0.01984411225852689,
+          "4": -6.964313899174367,
+          "5": -0.10305633966697057,
+          "6": -1.8293382810685,
+          "7": 5.41973833574883,
+          "8": 3.683032212349579,
+          "9": 2.0643478790057546,
+          "10": -0.0014291659107181637,
+          "11": 0.5174077537499905,
+          "12": 0.07708686812837873,
+          "13": 0.0
+        },
+        "net_fine_time_ms": -0.537016111435014,
+        "sum_absolute_unit_fine_time_ms": 34.57464589103936
+      },
+      "weighted": {
+        "unit_fine_time_ms": {
+          "-2": 0.0,
+          "-1": -0.02766366592668601,
+          "0": 1.5265566588595902e-13,
+          "1": 3.178477385271883,
+          "2": -1.4551583951361025,
+          "3": -1.211635288318469,
+          "4": -2.0251901215034147,
+          "5": -1.2139355494294968,
+          "6": 0.5497899470829539,
+          "7": -1.7466657709445423,
+          "8": 3.096682978219662,
+          "9": 2.3320927723369507,
+          "10": 0.003602629588235831,
+          "11": -1.3304437853414384,
+          "12": -0.19811927076687774,
+          "13": 0.0
+        },
+        "net_fine_time_ms": -0.04816613486718928,
+        "sum_absolute_unit_fine_time_ms": 18.369457559866866
+      }
+    }
+  ],
+  "independent_known_answer_and_exhaustive_checks": {
+    "source_sha256": "0088bc8b4c3b1e304e657d1fef9982d85ddd5ff39aca6f0b6811a982e9c9bf36",
+    "fixture": {
+      "parcels": [
+        {
+          "source": 0,
+          "i": 0,
+          "k": 0,
+          "targetI": 0.1,
+          "targetK": 0,
+          "height": 0.1,
+          "weight": 0.1
+        },
+        {
+          "source": 1,
+          "i": 0,
+          "k": 0,
+          "targetI": 0.2,
+          "targetK": 0,
+          "height": 1,
+          "weight": 1
+        }
+      ],
+      "unweighted_destinations": [
+        0,
+        1
+      ],
+      "weighted_destinations": [
+        1,
+        0
+      ],
+      "unweighted_choice_physical_cost": 0.6410000000000001,
+      "weighted_choice_physical_cost": 0.12100000000000002
+    },
+    "exhaustive_four_cell_checks": 100,
+    "maximum_cost_disagreement": 0
+  },
+  "cautions": [
+    "Squared-distance objective does not minimize number of off-target packets or total displaced area; those can rise while objective falls.",
+    "Same-input comparisons isolate the objective; later full weighted and baseline trajectories have different materials/targets and cannot be interpreted as identical optimization problems.",
+    "Small global objective reductions can alter local column allocation and accommodation discontinuously; their percent improvement is not a physical accuracy estimate.",
+    "Per-unit grid differences remain large and cancel in total profile times; grid agreement is not accuracy against an external truth.",
+    "This repair retains current source reference-point convention and discrete packet placement; it does not solve a polygon-overlap remap."
+  ]
+}

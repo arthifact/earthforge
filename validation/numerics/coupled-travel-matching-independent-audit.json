@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "exhaustive_cases": 1000,
+  "feasible": 735,
+  "infeasible": 265,
+  "accepted_half_cell_slack_parcels": 1336,
+  "benchmarks": [
+    {
+      "nx": 50,
+      "nz": 50,
+      "parcels": 1843,
+      "runs": [
+        {
+          "name": "baseline",
+          "average_ms": 2.2494443333333316,
+          "radius": 2,
+          "displaced": 662
+        },
+        {
+          "name": "bigint",
+          "average_ms": 1.6656666666666666,
+          "radius": 2,
+          "displaced": 662
+        }
+      ]
+    },
+    {
+      "nx": 100,
+      "nz": 100,
+      "parcels": 7683,
+      "runs": [
+        {
+          "name": "baseline",
+          "average_ms": 3.5129583333333323,
+          "radius": 2,
+          "displaced": 2822
+        },
+        {
+          "name": "bigint",
+          "average_ms": 6.190263666666667,
+          "radius": 2,
+          "displaced": 2822
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Exhaustive objective comparison uses the exact same normalized quantized edge cost; every returned assignment is globally optimal within its selected feasible stencil.",
+    "Runtime here is a synthetic contention fixture, not a prediction for the frozen full study.",
+    "The N*q*maxWeight raw bound compares optima on the same stencil, excluding floating cost-evaluation rounding; no guarantee against all perturbations or insertion-order ties."
+  ]
+}

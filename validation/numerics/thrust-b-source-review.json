@@ -1,0 +1,34 @@
+{
+  "status": "no blocking findings",
+  "reviewed_files": [
+    "src/basin.ts",
+    "src/conservativeTransport.ts"
+  ],
+  "source_sha256": {
+    "original": {
+      "basin.ts": "3a6ca0df3f881477cfc8c39ded43ab4c18d82ddc7c06afe57af57a02d0e6db51",
+      "conservativeTransport.ts": "0f12ee1ccdf70f77eaa109ff71f13f5b3ba183216cf71536aca318a74f4e3243"
+    },
+    "candidate": {
+      "basin.ts": "fe019350381feedd19aa6338db912711c8adb934e7baaf2484c25ebb9db9af64",
+      "conservativeTransport.ts": "4995d1c278436de05cc7887ea39847512bb491b6d0993c5ce0a5b56b280c1a73"
+    }
+  },
+  "checks": [
+    "Retained and incoming hanging-wall packets both derive the same occupied non-water height/h weight; basement contributes, water does not.",
+    "The weight changes only displacement cost. Whole-packet height still governs each greedy and relaxed capacity edge, and no source constituent, destination capacity or flux quantity is rescaled.",
+    "Every emitted packet contains positive occupied height because the existing rock guard excludes all-water packets; malformed external API weights are rejected before allocation.",
+    "Positive per-packet cost scaling preserves each packet nearest rounded target as its individual minimum, so the initial greedy dual potentials and subsequent augmenting-path method remain valid.",
+    "Omitted weights remain exactly one, preserving legacy external matching API behavior.",
+    "Production changes have the same numerical semantics as the independently audited scratch implementation; helper extraction and comments do not change the formula."
+  ],
+  "validation_referenced": {
+    "known_answer": "weight-check.json",
+    "independent_capacity_and_small_weight_audit": "work/thrust-b-fix/review-evidence/weighted-allocation-audit.json",
+    "production_tests": "tests/thrust-weighted-transport.test.mjs"
+  },
+  "limitations": [
+    "Existing bounded indivisible-packet feasibility and equal-cost ordering sensitivity remain; this correction does not eliminate all grid sensitivity.",
+    "Root owns and is running full production suite and frozen comparison; this review did not alter source or rerun that expensive suite."
+  ]
+}

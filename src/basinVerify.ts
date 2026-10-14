@@ -12,6 +12,8 @@
 
 import { BASEMENT, BASIN_DEFAULTS, COMPACTION, DOMAIN, domainOf, faultDepth, flowLine, flowMove, simulate, thrustPoints, WATER, windowOf, type Basin, type BasinOptions, type Fault } from "./basin";
 import { DEPTH, WIDTH } from "./window";
+import { layerLengths, type Layer } from "./strata";
+import { exactLengthScale } from "./exactLength";
 
 export interface Verification {
   sections: number;
@@ -80,8 +82,16 @@ export function invalidStateCells(b: Pick<Basin, "grid" | "solid" | "burial" | "
       !Number.isFinite(b.effectiveBurial[i]) || b.effectiveBurial[i] < 0 || b.effectiveBurial[i] > burial + 0.001 ||
       (id < 0 && (burial !== 0 || b.effectiveBurial[i] !== 0))) invalid++;
   }
+  const validSupport = (p: Layer) => {
+    try {
+      const lengths = layerLengths(p);
+      if (!Array.isArray(lengths) || !lengths.length || lengths.some(x => !(x > 0) || !Number.isFinite(x))) return false;
+      const scale = exactLengthScale(lengths), total = lengths.reduce((n, x) => n + scale.units(x), 0n);
+      return Object.is(scale.number(total), p.height);
+    } catch { return false; }
+  };
   for (const column of b.columns ?? []) for (const p of column) {
-    if (!Number.isInteger(p.bed) || p.bed < BASEMENT || p.bed >= b.beds.length ||
+    if (!validSupport(p) || !Number.isInteger(p.bed) || p.bed < BASEMENT || p.bed >= b.beds.length ||
       ![p.height, p.solid, p.fraction, p.burial, p.loading, p.offsetX, p.offsetZ].every(Number.isFinite) ||
       p.height <= 0 || p.solid < 0 || p.solid > p.height + 1e-9 || p.fraction < 0 || p.fraction > 1 ||
       p.loading < 0 || p.burial < 0 || p.loading > p.burial + 1e-8 || (p.bed < 0 && p.solid !== 0)) invalid++;
@@ -96,8 +106,18 @@ export function samePhysicalState(a: Basin, b: Basin) {
     for (let i = 0; i < x.length; i++) if (!Object.is(x[i], y[i])) return false;
     return true;
   };
+  const sameLayer = (p: Layer, q: Layer) => {
+    // Exact support is physical state, but the array storing its expansion is
+    // representation. Compare its value, not its JavaScript object identity.
+    const keys = new Set([...Object.keys(p), ...Object.keys(q)]);
+    for (const key of keys) if (key !== "lengths" && !Object.is(p[key as keyof Layer], q[key as keyof Layer])) return false;
+    const left = layerLengths(p), right = layerLengths(q);
+    if (left.length === right.length && left.every((n, i) => Object.is(n, right[i]))) return true;
+    const scale = exactLengthScale([...left, ...right]);
+    return left.reduce((n, x) => n + scale.units(x), 0n) === right.reduce((n, x) => n + scale.units(x), 0n);
+  };
   const columnsEqual = a.columns === undefined && b.columns === undefined || !!a.columns && !!b.columns && a.columns.length === b.columns.length && a.columns.every((c, i) =>
-    c.length === b.columns![i].length && c.every((p, j) => Object.keys(p).every(k => Object.is(p[k as keyof typeof p], b.columns![i][j][k as keyof typeof p]))));
+    c.length === b.columns![i].length && c.every((p, j) => sameLayer(p, b.columns![i][j])));
   return columnsEqual && same(a.grid, b.grid) && same(a.solid, b.solid) && same(a.burial, b.burial) && same(a.sandFraction, b.sandFraction) && same(a.effectiveBurial, b.effectiveBurial) &&
     a.setting === b.setting && a.dt === b.dt && a.overpressure === b.overpressure && a.basementVelocity === b.basementVelocity &&
     JSON.stringify(a.beds) === JSON.stringify(b.beds) && JSON.stringify(a.faults) === JSON.stringify(b.faults);

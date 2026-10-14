@@ -1,0 +1,325 @@
+{
+  "scope": "Seven prescribed noncompression synthetic controls; native matched intervals at each resolution plus finite field samples. No observational reads.",
+  "cases": 7,
+  "grids": 21,
+  "status_changes": [
+    {
+      "case": "normal-a",
+      "h": 40,
+      "key": "unit:8:8400",
+      "before": "one-cell",
+      "after": "absent",
+      "before_span_height_m": 5.684341886080801e-13,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 0,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "normal-a",
+      "h": 40,
+      "key": "unit:9:8400",
+      "before": "one-cell",
+      "after": "absent",
+      "before_span_height_m": 5.684341886080801e-13,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 0,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "normal-a",
+      "h": 20,
+      "key": "unit:7:8400",
+      "before": "absent",
+      "after": "one-cell",
+      "before_span_height_m": 0,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 0.0,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "normal-a",
+      "h": 20,
+      "key": "unit:9:8400",
+      "before": "one-cell",
+      "after": "absent",
+      "before_span_height_m": 8.526512829121202e-13,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 0,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "normal-a",
+      "h": 10,
+      "key": "unit:8:8400",
+      "before": "one-cell",
+      "after": "absent",
+      "before_span_height_m": 1.4210854715202004e-12,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 0,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "normal-a",
+      "h": 10,
+      "key": "unit:9:8400",
+      "before": "one-cell",
+      "after": "absent",
+      "before_span_height_m": 8.526512829121202e-13,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 0,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "coupled-extension-a",
+      "h": 40,
+      "key": "unit:7:5200",
+      "before": "absent",
+      "after": "one-cell",
+      "before_span_height_m": 0,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 5.684341886080801e-13,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "coupled-extension-a",
+      "h": 40,
+      "key": "unit:8:5200",
+      "before": "absent",
+      "after": "one-cell",
+      "before_span_height_m": 0,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 1.7053025658242404e-12,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "coupled-extension-a",
+      "h": 20,
+      "key": "unit:10:4400",
+      "before": "absent",
+      "after": "one-cell",
+      "before_span_height_m": 0,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 1.7053025658242404e-12,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "coupled-extension-a",
+      "h": 10,
+      "key": "unit:10:4400",
+      "before": "absent",
+      "after": "one-cell",
+      "before_span_height_m": 0,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 1.7053025658242404e-12,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "coupled-extension-b",
+      "h": 40,
+      "key": "unit:5:3600",
+      "before": "absent",
+      "after": "one-cell",
+      "before_span_height_m": 0,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 0.0,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "coupled-extension-b",
+      "h": 20,
+      "key": "unit:5:3600",
+      "before": "one-cell",
+      "after": "absent",
+      "before_span_height_m": 3.126388037344441e-12,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 0,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "coupled-extension-b",
+      "h": 20,
+      "key": "unit:6:5200",
+      "before": "absent",
+      "after": "one-cell",
+      "before_span_height_m": 0,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 5.115907697472721e-12,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "coupled-extension-b",
+      "h": 10,
+      "key": "unit:5:3600",
+      "before": "absent",
+      "after": "one-cell",
+      "before_span_height_m": 0,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 4.831690603168681e-12,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "coupled-extension-c",
+      "h": 20,
+      "key": "unit:4:2800",
+      "before": "absent",
+      "after": "one-cell",
+      "before_span_height_m": 0,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 0.0,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "coupled-extension-c",
+      "h": 20,
+      "key": "unit:5:2800",
+      "before": "one-cell",
+      "after": "absent",
+      "before_span_height_m": 2.8421709430404007e-13,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 0,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "coupled-extension-c",
+      "h": 20,
+      "key": "unit:6:2800",
+      "before": "absent",
+      "after": "one-cell",
+      "before_span_height_m": 0,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 0.0,
+      "after_formal_three_grid_eligible": false
+    },
+    {
+      "case": "coupled-extension-c",
+      "h": 20,
+      "key": "unit:7:2800",
+      "before": "absent",
+      "after": "one-cell",
+      "before_span_height_m": 0,
+      "before_formal_three_grid_eligible": false,
+      "after_span_height_m": 2.8421709430404007e-13,
+      "after_formal_three_grid_eligible": false
+    }
+  ],
+  "field_differences": {
+    "sand_fraction": {
+      "comparisons": 3139,
+      "maximum_absolute_difference": 4.4853010194856324e-14,
+      "maximum_at": {
+        "case": "coupled-extension-b",
+        "h": 40,
+        "key": "unit:1:2000",
+        "before": 0.45187300897413846,
+        "after": 0.4518730089740936
+      }
+    },
+    "maximum_burial_m": {
+      "comparisons": 3139,
+      "maximum_absolute_difference": 4.0245140553452075e-10,
+      "maximum_at": {
+        "case": "coupled-extension-a",
+        "h": 10,
+        "key": "unit:15:5200",
+        "before": 1386.1535334864689,
+        "after": 1386.1535334868713
+      }
+    },
+    "porosity": {
+      "comparisons": 3139,
+      "maximum_absolute_difference": 7.220890552162018e-13,
+      "maximum_at": {
+        "case": "compaction-a",
+        "h": 10,
+        "key": "unit:11:1200",
+        "before": 0.4169467250851513,
+        "after": 0.4169467250844292
+      }
+    },
+    "thickness_m": {
+      "comparisons": 3139,
+      "maximum_absolute_difference": 3.877858034684323e-10,
+      "maximum_at": {
+        "case": "coupled-extension-a",
+        "h": 10,
+        "key": "unit:20:3600",
+        "before": 232.6264968092168,
+        "after": 232.62649680882902
+      }
+    },
+    "effective_loading_m": {
+      "comparisons": 3139,
+      "maximum_absolute_difference": 4.0245140553452075e-10,
+      "maximum_at": {
+        "case": "coupled-extension-a",
+        "h": 10,
+        "key": "unit:15:5200",
+        "before": 1386.1535334864689,
+        "after": 1386.1535334868713
+      }
+    },
+    "top_m": {
+      "comparisons": 3139,
+      "maximum_absolute_difference": 3.923332769772969e-10,
+      "maximum_at": {
+        "case": "coupled-extension-a",
+        "h": 20,
+        "key": "unit:20:6000",
+        "before": 438.5993717602912,
+        "after": 438.59937176068354
+      }
+    },
+    "solid_height_m": {
+      "comparisons": 3139,
+      "maximum_absolute_difference": 2.22655671677785e-10,
+      "maximum_at": {
+        "case": "coupled-extension-b",
+        "h": 10,
+        "key": "unit:3:400",
+        "before": 129.62144265931468,
+        "after": 129.62144265909203
+      }
+    },
+    "effective_velocity_m_s": {
+      "comparisons": 3139,
+      "maximum_absolute_difference": 2.8694557840935886e-09,
+      "maximum_at": {
+        "case": "compaction-a",
+        "h": 20,
+        "key": "unit:13:8400",
+        "before": 2009.472001581176,
+        "after": 2009.4720015840455
+      }
+    },
+    "seafloor_m": {
+      "comparisons": 252,
+      "maximum_absolute_difference": 2.5562485461705364e-10,
+      "maximum_at": {
+        "case": "compaction-a",
+        "h": 40,
+        "key": "floor:2800",
+        "before": 280.67564079878866,
+        "after": 280.6756407990443
+      }
+    },
+    "vertical_travel_time_s": {
+      "comparisons": 252,
+      "maximum_absolute_difference": 0,
+      "maximum_at": null
+    },
+    "fault_depth_m": {
+      "comparisons": 267,
+      "maximum_absolute_difference": 4.099547368241474e-10,
+      "maximum_at": {
+        "case": "coupled-extension-a",
+        "h": 20,
+        "key": "fault:1:2800",
+        "before": 1803.9292194509742,
+        "after": 1803.9292194513841
+      }
+    }
+  },
+  "qualification": "Numerical state agreement, not byte identity. All21 grain budget files differ and are independently checked for closure.",
+  "maximum_status_changed_span_height_m": 5.115907697472721e-12,
+  "all_changed_status_rows_remain_formally_excluded": true
+}

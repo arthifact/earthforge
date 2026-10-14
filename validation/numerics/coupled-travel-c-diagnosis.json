@@ -1,0 +1,1759 @@
+{
+  "schema": "earthforge.coupled-c-travel-attribution.v1",
+  "observational_data": "None; immutable synthetic plan/reference studies and source-hashed reruns only. Frozen metrics and eligibility were not changed.",
+  "history_sha256": "9b7be4934356709818bd62fcd2138e7e766e08dbf89cf3f53d9a954a6eee9c5b",
+  "source_sha256": {
+    "unweighted": {
+      "basin.ts": "3a6ca0df3f881477cfc8c39ded43ab4c18d82ddc7c06afe57af57a02d0e6db51",
+      "conservativeTransport.ts": "0f12ee1ccdf70f77eaa109ff71f13f5b3ba183216cf71536aca318a74f4e3243",
+      "faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+      "normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+      "normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+      "sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+      "strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+      "thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+      "window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc"
+    },
+    "weighted": {
+      "basin.ts": "fe019350381feedd19aa6338db912711c8adb934e7baaf2484c25ebb9db9af64",
+      "conservativeTransport.ts": "4995d1c278436de05cc7887ea39847512bb491b6d0993c5ce0a5b56b280c1a73",
+      "faultTrace.ts": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+      "normalGeometry.ts": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+      "normalTransport.ts": "f316b7a56d7c582b3cde3cae8a2c51b2f955a08044960709962e87752c2e77d5",
+      "sedimentBudget.ts": "ee3bf1e98e6d18acfe5cbc9f3bf4975aeb53ddf4641de70cb7ccf9f702251b4c",
+      "strata.ts": "1ee4cce19613b6c1d8c00d27e9297a231769bae87dde33d8d97bf7d968e2dcdf",
+      "thrustGeometry.ts": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+      "window.ts": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc"
+    }
+  },
+  "instrumentation_sha256": {
+    "trace-c.mjs": "877da3725e841be3d70f0243811e1d3c47c800a8b07c5d1b63bd1e10473c8c25",
+    "summarize-c-diagnosis.py": "556f2cfe7dec174e089d4bd1fda4de9431cefa8f6a12bb354e98fb12efc6e044"
+  },
+  "all_four_budgets_closed": true,
+  "all_eight_archived_profile_times_reproduced_exactly": true,
+  "maximum_analytic_basement_midpoint_vs_projected_time_difference_s": 4.754340698909232e-09,
+  "quadrature_method": "Independent Gauss-Legendre 4 integration of constitutive slowness within each unchanged parcel, max panel 2 m, checked by panel 1 m; exact analytical basement gradient integral. Fixed fields/history/porosity retained, no simulation or metric change.",
+  "profiles": [
+    {
+      "x_m": 6000,
+      "variants": {
+        "unweighted": {
+          "fine_midpoint_time_ms": -0.35768700356997307,
+          "fine_integrated_time_ms": -0.35889483890461094,
+          "fine_offset_sensitivity_time_ms": -0.5589889378272428,
+          "sum_absolute_unit_fine_time_ms": 62.317318474818364,
+          "by_unit": [
+            {
+              "unit": -2,
+              "fine_time_ms": -0.0008334436442936077,
+              "fine_height_m": 1.3642420526593924e-11,
+              "fine_solid_height_m": 0
+            },
+            {
+              "unit": -1,
+              "fine_time_ms": -0.3475987028092875,
+              "fine_height_m": -0.5213980542139325,
+              "fine_solid_height_m": 0
+            },
+            {
+              "unit": 0,
+              "fine_time_ms": -0.00030441047861422266,
+              "fine_height_m": -0.00011497088007672573,
+              "fine_solid_height_m": 2.877698079828406e-13
+            },
+            {
+              "unit": 1,
+              "fine_time_ms": -0.0034087526512432964,
+              "fine_height_m": -0.0018094893398483691,
+              "fine_solid_height_m": -7.815970093361102e-13
+            },
+            {
+              "unit": 2,
+              "fine_time_ms": -0.0025895944906761947,
+              "fine_height_m": -0.0020112215270273737,
+              "fine_solid_height_m": 1.55964130499342e-12
+            },
+            {
+              "unit": 3,
+              "fine_time_ms": 4.8400273188091845,
+              "fine_height_m": 11.824672728054566,
+              "fine_solid_height_m": 8.430611684436172
+            },
+            {
+              "unit": 4,
+              "fine_time_ms": 2.344354119665798,
+              "fine_height_m": 5.119042918750438,
+              "fine_solid_height_m": 3.4284985003671125
+            },
+            {
+              "unit": 5,
+              "fine_time_ms": -4.829469355170368,
+              "fine_height_m": -11.676856043974112,
+              "fine_solid_height_m": -8.158515942908963
+            },
+            {
+              "unit": 6,
+              "fine_time_ms": -3.137537239507885,
+              "fine_height_m": -7.285810102288906,
+              "fine_solid_height_m": -4.840478091887604
+            },
+            {
+              "unit": 7,
+              "fine_time_ms": 0.6679767829360084,
+              "fine_height_m": 2.4081270568910895,
+              "fine_solid_height_m": 1.6895706150936576
+            },
+            {
+              "unit": 8,
+              "fine_time_ms": -0.602262578324509,
+              "fine_height_m": -1.1864050397414303,
+              "fine_solid_height_m": -0.7569873136192218
+            },
+            {
+              "unit": 9,
+              "fine_time_ms": -5.06171271858679,
+              "fine_height_m": -10.86061936621445,
+              "fine_solid_height_m": -6.718831444233416
+            },
+            {
+              "unit": 10,
+              "fine_time_ms": 4.294582027129118,
+              "fine_height_m": 13.986832986302261,
+              "fine_solid_height_m": 9.125130057888077
+            },
+            {
+              "unit": 11,
+              "fine_time_ms": 2.2275123104715626,
+              "fine_height_m": 4.846070951751244,
+              "fine_solid_height_m": 2.988043380035484
+            },
+            {
+              "unit": 12,
+              "fine_time_ms": -5.341201066548538,
+              "fine_height_m": -15.802284017731836,
+              "fine_solid_height_m": -9.935580229947583
+            },
+            {
+              "unit": 13,
+              "fine_time_ms": 3.6991549618035355,
+              "fine_height_m": 7.504435370501255,
+              "fine_solid_height_m": 4.464194125693908
+            },
+            {
+              "unit": 14,
+              "fine_time_ms": -2.3564351134283195,
+              "fine_height_m": -4.809213896089318,
+              "fine_solid_height_m": -2.753274085844482
+            },
+            {
+              "unit": 15,
+              "fine_time_ms": 5.777849241233375,
+              "fine_height_m": 11.314042415177028,
+              "fine_solid_height_m": 6.196034229867749
+            },
+            {
+              "unit": 16,
+              "fine_time_ms": -3.2806620727315243,
+              "fine_height_m": -6.4217987584745515,
+              "fine_solid_height_m": -3.4933181663740545
+            },
+            {
+              "unit": 17,
+              "fine_time_ms": 5.872080942027319,
+              "fine_height_m": 11.066990715105817,
+              "fine_solid_height_m": 5.663560944484757
+            },
+            {
+              "unit": 18,
+              "fine_time_ms": 1.2562780315481803,
+              "fine_height_m": 1.9848891177900896,
+              "fine_solid_height_m": 0.7612241228486027
+            },
+            {
+              "unit": 19,
+              "fine_time_ms": -4.912684446541207,
+              "fine_height_m": -8.989625385118984,
+              "fine_solid_height_m": -4.356259185698093
+            },
+            {
+              "unit": 20,
+              "fine_time_ms": -0.8847532656741584,
+              "fine_height_m": -1.54238784697651,
+              "fine_solid_height_m": -0.6772119361584501
+            },
+            {
+              "unit": 21,
+              "fine_time_ms": -0.5760499786068678,
+              "fine_height_m": -0.9547700677664466,
+              "fine_solid_height_m": -0.4304525223969691
+            }
+          ]
+        },
+        "weighted": {
+          "fine_midpoint_time_ms": -3.8997664317659275,
+          "fine_integrated_time_ms": -3.9001509027283277,
+          "fine_offset_sensitivity_time_ms": -3.8722300547802124,
+          "sum_absolute_unit_fine_time_ms": 43.63199123696191,
+          "by_unit": [
+            {
+              "unit": -2,
+              "fine_time_ms": 0.0006008832623000115,
+              "fine_height_m": 5.4569682106375694e-12,
+              "fine_solid_height_m": 0
+            },
+            {
+              "unit": -1,
+              "fine_time_ms": 0.2506066736380763,
+              "fine_height_m": 0.3759100104571189,
+              "fine_solid_height_m": 0
+            },
+            {
+              "unit": 0,
+              "fine_time_ms": 0.0002194572860949283,
+              "fine_height_m": 8.28894562800997e-05,
+              "fine_solid_height_m": -8.881784197001252e-14
+            },
+            {
+              "unit": 1,
+              "fine_time_ms": 0.002457463063883225,
+              "fine_height_m": 0.0013045525975030614,
+              "fine_solid_height_m": -2.8137492336099967e-12
+            },
+            {
+              "unit": 2,
+              "fine_time_ms": 0.0018669269338401212,
+              "fine_height_m": 0.001449978044092859,
+              "fine_solid_height_m": -7.389644451905042e-13
+            },
+            {
+              "unit": 3,
+              "fine_time_ms": -0.5374178486975828,
+              "fine_height_m": -1.3278960700718017,
+              "fine_solid_height_m": -0.9349333177449637
+            },
+            {
+              "unit": 4,
+              "fine_time_ms": -0.3114561996212101,
+              "fine_height_m": -0.9366975884204294,
+              "fine_solid_height_m": -0.6865782601473427
+            },
+            {
+              "unit": 5,
+              "fine_time_ms": 4.980406834133644,
+              "fine_height_m": 11.715341000481885,
+              "fine_solid_height_m": 7.902444549531367
+            },
+            {
+              "unit": 6,
+              "fine_time_ms": -2.4407667218573623,
+              "fine_height_m": -5.7338282113480545,
+              "fine_solid_height_m": -3.830432442794624
+            },
+            {
+              "unit": 7,
+              "fine_time_ms": 2.2266504297200758,
+              "fine_height_m": 7.633530912523838,
+              "fine_solid_height_m": 5.164355699571978
+            },
+            {
+              "unit": 8,
+              "fine_time_ms": -0.5843867819043755,
+              "fine_height_m": -1.2867264852891367,
+              "fine_solid_height_m": -0.8824205383507646
+            },
+            {
+              "unit": 9,
+              "fine_time_ms": -6.798891768533003,
+              "fine_height_m": -14.76339648983003,
+              "fine_solid_height_m": -9.367695215631812
+            },
+            {
+              "unit": 10,
+              "fine_time_ms": 3.6230628739124215,
+              "fine_height_m": 11.666733643693988,
+              "fine_solid_height_m": 7.548212316715341
+            },
+            {
+              "unit": 11,
+              "fine_time_ms": -3.264163272219711,
+              "fine_height_m": -7.111402254462746,
+              "fine_solid_height_m": -4.390944856911671
+            },
+            {
+              "unit": 12,
+              "fine_time_ms": 4.061083640933709,
+              "fine_height_m": 11.124227621136242,
+              "fine_solid_height_m": 6.8455377393844685
+            },
+            {
+              "unit": 13,
+              "fine_time_ms": -1.165653894870708,
+              "fine_height_m": -3.383117369599063,
+              "fine_solid_height_m": -2.598311697112848
+            },
+            {
+              "unit": 14,
+              "fine_time_ms": -4.856772607998469,
+              "fine_height_m": -9.87409914823479,
+              "fine_solid_height_m": -5.628077795066164
+            },
+            {
+              "unit": 15,
+              "fine_time_ms": 1.9851428451913429,
+              "fine_height_m": 3.936068423672282,
+              "fine_solid_height_m": 2.168308366428249
+            },
+            {
+              "unit": 16,
+              "fine_time_ms": 0.004270928876372315,
+              "fine_height_m": 0.005071523590117977,
+              "fine_solid_height_m": -2.4868995751603507e-14
+            },
+            {
+              "unit": 17,
+              "fine_time_ms": -3.453629161953131,
+              "fine_height_m": -6.6098153516303455,
+              "fine_solid_height_m": -3.468546454223528
+            },
+            {
+              "unit": 18,
+              "fine_time_ms": 2.261832253843715,
+              "fine_height_m": 4.350299046075293,
+              "fine_solid_height_m": 2.3055170897456065
+            },
+            {
+              "unit": 19,
+              "fine_time_ms": -0.3527405767084907,
+              "fine_height_m": -0.5853796262581454,
+              "fine_solid_height_m": -0.2366360811067807
+            },
+            {
+              "unit": 20,
+              "fine_time_ms": 0.1875813810589197,
+              "fine_height_m": 0.33773373736909207,
+              "fine_solid_height_m": 0.15397552098798428
+            },
+            {
+              "unit": 21,
+              "fine_time_ms": 0.2803298107434682,
+              "fine_height_m": 0.4646052560413523,
+              "fine_solid_height_m": 0.2094572117518929
+            }
+          ]
+        }
+      },
+      "weighted_change_by_grid": [
+        {
+          "h_m": 20,
+          "time_change_ms": -0.009642202783322062,
+          "midpoint_error_before_ms": 0.014405805893513701,
+          "midpoint_error_after_ms": 0.01413881718104193,
+          "integral_refinement_difference_before_ns": 187.99631102404177,
+          "integral_refinement_difference_after_ns": 212.77940361036752,
+          "largest_unit_time_changes": [
+            {
+              "unit": 5,
+              "height_before_m": 318.0460992273804,
+              "height_after_m": 343.02458589571756,
+              "solid_height_change_m": 17.03169319196104,
+              "time_change_ms": 10.67144317390986,
+              "symmetric_thickness_contribution_ms": 10.29577967495939,
+              "symmetric_mean_slowness_contribution_ms": 0.37566349895047263,
+              "velocity_before_m_s": 2429.4392367441656,
+              "velocity_after_m_s": 2422.7497054977275
+            },
+            {
+              "unit": 17,
+              "height_before_m": 152.52011314067488,
+              "height_after_m": 135.55593864517016,
+              "solid_height_change_m": -9.041194028141433,
+              "time_change_ms": -8.787916584120135,
+              "symmetric_thickness_contribution_ms": -8.935434832074767,
+              "symmetric_mean_slowness_contribution_ms": 0.14751824795462962,
+              "velocity_before_m_s": 1900.3756879444636,
+              "velocity_after_m_s": 1896.6841862326376
+            },
+            {
+              "unit": 4,
+              "height_before_m": 335.4589006795195,
+              "height_after_m": 317.97224019372493,
+              "solid_height_change_m": -12.165587673580433,
+              "time_change_ms": -7.304122226379925,
+              "symmetric_thickness_contribution_ms": -6.762089632137923,
+              "symmetric_mean_slowness_contribution_ms": -0.5420325942420002,
+              "velocity_before_m_s": 2580.4493505080013,
+              "velocity_after_m_s": 2591.5438950703137
+            },
+            {
+              "unit": 8,
+              "height_before_m": 20.650404780810277,
+              "height_after_m": 30.039400030739444,
+              "solid_height_change_m": 6.010365064371747,
+              "time_change_ms": 4.296343564114434,
+              "symmetric_thickness_contribution_ms": 4.20181067355604,
+              "symmetric_mean_slowness_contribution_ms": 0.09453289055839353,
+              "velocity_before_m_s": 2243.862369485155,
+              "velocity_after_m_s": 2225.238705169665
+            },
+            {
+              "unit": 12,
+              "height_before_m": 87.51255870328055,
+              "height_after_m": 99.1758720080029,
+              "solid_height_change_m": 7.222152118467271,
+              "time_change_ms": 4.159581682706605,
+              "symmetric_thickness_contribution_ms": 3.852368636866599,
+              "symmetric_mean_slowness_contribution_ms": 0.3072130458400031,
+              "velocity_before_m_s": 3042.7286897800914,
+              "velocity_after_m_s": 3012.560362436686
+            },
+            {
+              "unit": 9,
+              "height_before_m": 126.96415634532354,
+              "height_after_m": 118.65371152742841,
+              "solid_height_change_m": -5.3438036614590345,
+              "time_change_ms": -3.7977342688986018,
+              "symmetric_thickness_contribution_ms": -3.807805536662901,
+              "symmetric_mean_slowness_contribution_ms": 0.010071267764304462,
+              "velocity_before_m_s": 2182.671490113008,
+              "velocity_after_m_s": 2182.2808712577817
+            },
+            {
+              "unit": 16,
+              "height_before_m": 0,
+              "height_after_m": 6.447066351484864,
+              "solid_height_change_m": 3.493318166374083,
+              "time_change_ms": 3.301935519767009,
+              "symmetric_thickness_contribution_ms": 1.6509677598835042,
+              "symmetric_mean_slowness_contribution_ms": 1.6509677598835042,
+              "velocity_before_m_s": null,
+              "velocity_after_m_s": 1952.5112810015692
+            },
+            {
+              "unit": 7,
+              "height_before_m": 93.59883494313794,
+              "height_after_m": 87.04821033404096,
+              "solid_height_change_m": -4.636653005579738,
+              "time_change_ms": -1.7922652686570388,
+              "symmetric_thickness_contribution_ms": -1.8347000878976927,
+              "symmetric_mean_slowness_contribution_ms": 0.04243481924065648,
+              "velocity_before_m_s": 3573.4032523044434,
+              "velocity_after_m_s": 3567.4142144720627
+            },
+            {
+              "unit": 15,
+              "height_before_m": 77.5608167614613,
+              "height_after_m": 74.42681591513212,
+              "solid_height_change_m": -1.8090828110116561,
+              "time_change_ms": -1.5638142604302643,
+              "symmetric_thickness_contribution_ms": -1.6063959838557342,
+              "symmetric_mean_slowness_contribution_ms": 0.04258172342546902,
+              "velocity_before_m_s": 1952.0185728874847,
+              "velocity_after_m_s": 1949.8858319309418
+            },
+            {
+              "unit": 11,
+              "height_before_m": 8.159652152150784,
+              "height_after_m": 4.856025563770572,
+              "solid_height_change_m": -2.0360291342323364,
+              "time_change_ms": -1.524711224503612,
+              "symmetric_thickness_contribution_ms": -1.5194580966866145,
+              "symmetric_mean_slowness_contribution_ms": -0.005253127816997638,
+              "velocity_before_m_s": 2172.307458147842,
+              "velocity_after_m_s": 2176.123261294691
+            }
+          ]
+        },
+        {
+          "h_m": 10,
+          "time_change_ms": 3.5324372254126324,
+          "midpoint_error_before_ms": 0.013197970558875838,
+          "midpoint_error_after_ms": 0.0137543462186418,
+          "integral_refinement_difference_before_ns": 225.2739458539219,
+          "integral_refinement_difference_after_ns": 195.6474510951588,
+          "largest_unit_time_changes": [
+            {
+              "unit": 3,
+              "height_before_m": 125.65567689426189,
+              "height_after_m": 140.13052745915547,
+              "solid_height_change_m": 10.328169763844357,
+              "time_change_ms": 5.910937373266992,
+              "symmetric_thickness_contribution_ms": 5.357155046579326,
+              "symmetric_mean_slowness_contribution_ms": 0.5537823266876626,
+              "velocity_before_m_s": 2717.26338013129,
+              "velocity_after_m_s": 2686.8398109349746
+            },
+            {
+              "unit": 12,
+              "height_before_m": 103.31484272101238,
+              "height_after_m": 88.05164438686666,
+              "solid_height_change_m": -9.55896585086478,
+              "time_change_ms": -5.242703024775642,
+              "symmetric_thickness_contribution_ms": -5.020380919080142,
+              "symmetric_mean_slowness_contribution_ms": -0.222322105695499,
+              "velocity_before_m_s": 3029.546580604088,
+              "velocity_after_m_s": 3051.023398304782
+            },
+            {
+              "unit": 4,
+              "height_before_m": 330.33985776076906,
+              "height_after_m": 318.90893778214536,
+              "solid_height_change_m": -8.050510913065978,
+              "time_change_ms": -4.648311907092917,
+              "symmetric_thickness_contribution_ms": -4.413201016577034,
+              "symmetric_mean_slowness_contribution_ms": -0.23511089051589332,
+              "velocity_before_m_s": 2587.738043225368,
+              "velocity_after_m_s": 2592.597043476498
+            },
+            {
+              "unit": 13,
+              "height_before_m": 190.8754727674957,
+              "height_after_m": 200.1562830817005,
+              "solid_height_change_m": 5.510310967505589,
+              "time_change_ms": 4.537463551599105,
+              "symmetric_thickness_contribution_ms": 4.569764581461687,
+              "symmetric_mean_slowness_contribution_ms": -0.03230102986260265,
+              "velocity_before_m_s": 2030.575849708882,
+              "velocity_after_m_s": 2031.2572753750326
+            },
+            {
+              "unit": 8,
+              "height_before_m": 21.836809820551707,
+              "height_after_m": 31.32612651602858,
+              "solid_height_change_m": 6.13579828910329,
+              "time_change_ms": 4.2784677676943,
+              "symmetric_thickness_contribution_ms": 4.263613990451039,
+              "symmetric_mean_slowness_contribution_ms": 0.014853777243260188,
+              "velocity_before_m_s": 2227.035869461609,
+              "velocity_after_m_s": 2224.2678302704117
+            },
+            {
+              "unit": 11,
+              "height_before_m": 3.3135812003995397,
+              "height_after_m": 11.967427818233318,
+              "solid_height_change_m": 5.342959102714818,
+              "time_change_ms": 3.9669643581876617,
+              "symmetric_thickness_contribution_ms": 3.983205499938765,
+              "symmetric_mean_slowness_contribution_ms": -0.01624114175110277,
+              "velocity_before_m_s": 2167.5783827279874,
+              "velocity_after_m_s": 2177.6118213221007
+            },
+            {
+              "unit": 19,
+              "height_before_m": 185.791921186335,
+              "height_after_m": 178.76209915311654,
+              "solid_height_change_m": -3.4036277355609315,
+              "time_change_ms": -3.8439736019841018,
+              "symmetric_thickness_contribution_ms": -4.0194556021802414,
+              "symmetric_mean_slowness_contribution_ms": 0.1754820001961352,
+              "velocity_before_m_s": 1750.4224327530449,
+              "velocity_after_m_s": 1747.4776370095078
+            },
+            {
+              "unit": 7,
+              "height_before_m": 91.19070788624686,
+              "height_after_m": 79.41467942151712,
+              "solid_height_change_m": -8.111438090058058,
+              "time_change_ms": -3.3509389154411062,
+              "symmetric_thickness_contribution_ms": -3.2921749796324056,
+              "symmetric_mean_slowness_contribution_ms": -0.05876393580870141,
+              "velocity_before_m_s": 3572.5736158569994,
+              "velocity_after_m_s": 3581.3877704442816
+            },
+            {
+              "unit": 15,
+              "height_before_m": 66.24677434628427,
+              "height_after_m": 70.49074749145984,
+              "solid_height_change_m": 2.2186430524278435,
+              "time_change_ms": 2.228892135611768,
+              "symmetric_thickness_contribution_ms": 2.1769262474059063,
+              "symmetric_mean_slowness_contribution_ms": 0.05196588820586192,
+              "velocity_before_m_s": 1950.9709348587915,
+              "velocity_after_m_s": 1948.0821266676185
+            },
+            {
+              "unit": 14,
+              "height_before_m": 5.60064363120398,
+              "height_after_m": 10.057337216843734,
+              "solid_height_change_m": 2.53623451917478,
+              "time_change_ms": 2.1948854612145947,
+              "symmetric_thickness_contribution_ms": 2.190652666363461,
+              "symmetric_mean_slowness_contribution_ms": 0.0042327948511334595,
+              "velocity_before_m_s": 2035.533064555653,
+              "velocity_after_m_s": 2033.2953736738496
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "x_m": 9200,
+      "variants": {
+        "unweighted": {
+          "fine_midpoint_time_ms": -0.19901200405136876,
+          "fine_integrated_time_ms": -0.20327994424795826,
+          "fine_offset_sensitivity_time_ms": -0.32684161913354437,
+          "sum_absolute_unit_fine_time_ms": 18.607558924916543,
+          "by_unit": [
+            {
+              "unit": -2,
+              "fine_time_ms": -4.2666360729193276e-05,
+              "fine_height_m": -1.0913936421275139e-11,
+              "fine_solid_height_m": 0
+            },
+            {
+              "unit": -1,
+              "fine_time_ms": -0.04232481434762736,
+              "fine_height_m": -0.06348722152142727,
+              "fine_solid_height_m": 0
+            },
+            {
+              "unit": 0,
+              "fine_time_ms": -1.989363811140052e-05,
+              "fine_height_m": -1.3407610367721645e-05,
+              "fine_solid_height_m": -5.693223670277803e-13
+            },
+            {
+              "unit": 1,
+              "fine_time_ms": -9.58332712127502e-05,
+              "fine_height_m": -5.3869615840085316e-05,
+              "fine_solid_height_m": 4.973799150320701e-14
+            },
+            {
+              "unit": 2,
+              "fine_time_ms": -8.736735667043416e-05,
+              "fine_height_m": -5.067164875072194e-05,
+              "fine_solid_height_m": 2.8066438062523957e-13
+            },
+            {
+              "unit": 3,
+              "fine_time_ms": -0.00031595427371633455,
+              "fine_height_m": -0.00015135137846300495,
+              "fine_solid_height_m": -2.0463630789890885e-12
+            },
+            {
+              "unit": 4,
+              "fine_time_ms": 3.548056048928293,
+              "fine_height_m": 10.62770430133196,
+              "fine_solid_height_m": 8.198883345029031
+            },
+            {
+              "unit": 5,
+              "fine_time_ms": -0.12463706093194388,
+              "fine_height_m": -0.8297356814596242,
+              "fine_solid_height_m": -0.763862712257648
+            },
+            {
+              "unit": 6,
+              "fine_time_ms": 0.42256503428773734,
+              "fine_height_m": 1.052646641755473,
+              "fine_solid_height_m": 0.7559658805802805
+            },
+            {
+              "unit": 7,
+              "fine_time_ms": -0.15153233613307387,
+              "fine_height_m": -0.8709316307445079,
+              "fine_solid_height_m": -0.8053981559173806
+            },
+            {
+              "unit": 8,
+              "fine_time_ms": 0.0432603866024079,
+              "fine_height_m": 0.03175052630194841,
+              "fine_solid_height_m": 1.1084466677857563e-12
+            },
+            {
+              "unit": 9,
+              "fine_time_ms": -2.6690020391279266,
+              "fine_height_m": -7.361694091955087,
+              "fine_solid_height_m": -5.555860991318141
+            },
+            {
+              "unit": 10,
+              "fine_time_ms": -0.2845407468186831,
+              "fine_height_m": -1.3015050692863497,
+              "fine_solid_height_m": -1.0647650847746633
+            },
+            {
+              "unit": 11,
+              "fine_time_ms": -0.7313347242687701,
+              "fine_height_m": -1.8354506288394532,
+              "fine_solid_height_m": -1.2683376923370417
+            },
+            {
+              "unit": 12,
+              "fine_time_ms": 0.6284793688258218,
+              "fine_height_m": 2.5203823024194207,
+              "fine_solid_height_m": 1.898409462193996
+            },
+            {
+              "unit": 13,
+              "fine_time_ms": -3.5689450066768993,
+              "fine_height_m": -8.04763239830686,
+              "fine_solid_height_m": -5.410228534580455
+            },
+            {
+              "unit": 14,
+              "fine_time_ms": -1.3617347562002307,
+              "fine_height_m": -2.845488705441312,
+              "fine_solid_height_m": -1.7202922047191578
+            },
+            {
+              "unit": 15,
+              "fine_time_ms": 3.0330159067205043,
+              "fine_height_m": 6.724970960423434,
+              "fine_solid_height_m": 4.408561211861013
+            },
+            {
+              "unit": 16,
+              "fine_time_ms": 0.7366845354855531,
+              "fine_height_m": 1.5396483441525106,
+              "fine_solid_height_m": 0.9234111771457307
+            },
+            {
+              "unit": 17,
+              "fine_time_ms": 0.589461731561769,
+              "fine_height_m": 1.1693275554371212,
+              "fine_solid_height_m": 0.6573321911593268
+            },
+            {
+              "unit": 18,
+              "fine_time_ms": 0.20275044802060826,
+              "fine_height_m": 0.35990675285779616,
+              "fine_solid_height_m": 0.1690708095221538
+            },
+            {
+              "unit": 19,
+              "fine_time_ms": -0.2727320938947786,
+              "fine_height_m": -0.528289266923025,
+              "fine_solid_height_m": -0.28183414432947984
+            },
+            {
+              "unit": 20,
+              "fine_time_ms": -0.12086430218125749,
+              "fine_height_m": -0.21575829561606952,
+              "fine_solid_height_m": -0.09934138968325357
+            },
+            {
+              "unit": 21,
+              "fine_time_ms": -0.07507586900221824,
+              "fine_height_m": -0.12609509432161303,
+              "fine_solid_height_m": -0.05813657384764781
+            }
+          ]
+        },
+        "weighted": {
+          "fine_midpoint_time_ms": -2.877219189955982,
+          "fine_integrated_time_ms": -2.880413952444094,
+          "fine_offset_sensitivity_time_ms": -2.973555155746155,
+          "sum_absolute_unit_fine_time_ms": 25.61869091574509,
+          "by_unit": [
+            {
+              "unit": -2,
+              "fine_time_ms": -7.687321699340055e-05,
+              "fine_height_m": -1.8189894035458565e-11,
+              "fine_solid_height_m": 0
+            },
+            {
+              "unit": -1,
+              "fine_time_ms": -0.07625775976760618,
+              "fine_height_m": -0.11438663965145679,
+              "fine_solid_height_m": 0
+            },
+            {
+              "unit": 0,
+              "fine_time_ms": -3.584796574645707e-05,
+              "fine_height_m": -2.4156970539479516e-05,
+              "fine_solid_height_m": 1.830535723001958e-12
+            },
+            {
+              "unit": 1,
+              "fine_time_ms": -0.00017268996279663773,
+              "fine_height_m": -9.705884349386906e-05,
+              "fine_solid_height_m": -5.968558980384842e-13
+            },
+            {
+              "unit": 2,
+              "fine_time_ms": -0.0001574289050145644,
+              "fine_height_m": -9.129702084464952e-05,
+              "fine_solid_height_m": -1.573852159708622e-12
+            },
+            {
+              "unit": 3,
+              "fine_time_ms": -0.0005693126126464498,
+              "fine_height_m": -0.00027269530028206646,
+              "fine_solid_height_m": 3.716138508025324e-12
+            },
+            {
+              "unit": 4,
+              "fine_time_ms": 3.6629793865401856,
+              "fine_height_m": 10.97561852727813,
+              "fine_solid_height_m": 8.465716006986383
+            },
+            {
+              "unit": 5,
+              "fine_time_ms": -0.11893007181720816,
+              "fine_height_m": -0.857237802227246,
+              "fine_solid_height_m": -0.7715799977056434
+            },
+            {
+              "unit": 6,
+              "fine_time_ms": 0.0689767838979085,
+              "fine_height_m": 0.04731159242965077,
+              "fine_solid_height_m": 1.3145040611561853e-13
+            },
+            {
+              "unit": 7,
+              "fine_time_ms": 0.05912941221665989,
+              "fine_height_m": 0.10651346320946686,
+              "fine_solid_height_m": 0.0023993941158266807
+            },
+            {
+              "unit": 8,
+              "fine_time_ms": 0.044316841297468296,
+              "fine_height_m": 0.03252719004603932,
+              "fine_solid_height_m": 1.8900436771218665e-12
+            },
+            {
+              "unit": 9,
+              "fine_time_ms": -8.959424913921376,
+              "fine_height_m": -23.601221829838323,
+              "fine_solid_height_m": -17.434449442765256
+            },
+            {
+              "unit": 10,
+              "fine_time_ms": 3.2508585734304445,
+              "fine_height_m": 14.274321428459416,
+              "fine_solid_height_m": 11.396954033451507
+            },
+            {
+              "unit": 11,
+              "fine_time_ms": -0.49952556708696483,
+              "fine_height_m": -1.2422274349946747,
+              "fine_solid_height_m": -0.8716335667515978
+            },
+            {
+              "unit": 12,
+              "fine_time_ms": 0.12563063570166996,
+              "fine_height_m": 0.5142003836094773,
+              "fine_solid_height_m": 0.39250769576928235
+            },
+            {
+              "unit": 13,
+              "fine_time_ms": -3.212863283516429,
+              "fine_height_m": -6.83848074411253,
+              "fine_solid_height_m": -4.6428928046512965
+            },
+            {
+              "unit": 14,
+              "fine_time_ms": -1.132359080211351,
+              "fine_height_m": -2.3553669357950184,
+              "fine_solid_height_m": -1.387263123453323
+            },
+            {
+              "unit": 15,
+              "fine_time_ms": 2.7767407004396367,
+              "fine_height_m": 6.206056744588523,
+              "fine_solid_height_m": 4.107151717400484
+            },
+            {
+              "unit": 16,
+              "fine_time_ms": 0.4247451127909266,
+              "fine_height_m": 0.9096549069784032,
+              "fine_solid_height_m": 0.5631719046571391
+            },
+            {
+              "unit": 17,
+              "fine_time_ms": 0.7298016748450153,
+              "fine_height_m": 1.973996838592484,
+              "fine_solid_height_m": 1.3145198630533343
+            },
+            {
+              "unit": 18,
+              "fine_time_ms": 0.22755674173477458,
+              "fine_height_m": 0.4300887851995867,
+              "fine_solid_height_m": 0.22233617837339636
+            },
+            {
+              "unit": 19,
+              "fine_time_ms": -0.11999580327445858,
+              "fine_height_m": -0.23749534256410243,
+              "fine_solid_height_m": -0.1305770942694977
+            },
+            {
+              "unit": 20,
+              "fine_time_ms": -0.046424922603982566,
+              "fine_height_m": -0.08706584911999471,
+              "fine_solid_height_m": -0.04249728020455734
+            },
+            {
+              "unit": 21,
+              "fine_time_ms": -0.08116149798782779,
+              "fine_height_m": -0.1363220739344797,
+              "fine_solid_height_m": -0.06285364154353346
+            }
+          ]
+        }
+      },
+      "weighted_change_by_grid": [
+        {
+          "h_m": 20,
+          "time_change_ms": -2.866902989757447,
+          "midpoint_error_before_ms": 0.013175441121893172,
+          "midpoint_error_after_ms": 0.011502730295376296,
+          "integral_refinement_difference_before_ns": 143.3905154057675,
+          "integral_refinement_difference_after_ns": 144.47325940493567,
+          "largest_unit_time_changes": [
+            {
+              "unit": 9,
+              "height_before_m": 139.3473319126938,
+              "height_after_m": 122.5936686617656,
+              "solid_height_change_m": -12.257114332619182,
+              "time_change_ms": -6.490960349732456,
+              "symmetric_thickness_contribution_ms": -6.345667845725744,
+              "symmetric_mean_slowness_contribution_ms": -0.1452925040067079,
+              "velocity_before_m_s": 2636.3126414625976,
+              "velocity_after_m_s": 2644.045419520491
+            },
+            {
+              "unit": 10,
+              "height_before_m": 132.09669868279366,
+              "height_after_m": 147.7244891230216,
+              "solid_height_change_m": 12.511871728788918,
+              "time_change_ms": 3.5432272621712113,
+              "symmetric_thickness_contribution_ms": 3.625106421450057,
+              "symmetric_mean_slowness_contribution_ms": -0.08187915927884674,
+              "velocity_before_m_s": 4305.556804678123,
+              "velocity_after_m_s": 4316.433002607274
+            },
+            {
+              "unit": 6,
+              "height_before_m": 37.28412947266361,
+              "height_after_m": 36.27892975529403,
+              "solid_height_change_m": -0.7559658805775449,
+              "time_change_ms": -0.35339110836885707,
+              "symmetric_thickness_contribution_ms": -0.3481695747913788,
+              "symmetric_mean_slowness_contribution_ms": -0.00522153357747785,
+              "velocity_before_m_s": 2886.506574576604,
+              "velocity_after_m_s": 2887.689865106298
+            },
+            {
+              "unit": 11,
+              "height_before_m": 61.15330202305722,
+              "height_after_m": 61.81311435710995,
+              "solid_height_change_m": 0.46233445731559897,
+              "time_change_ms": 0.26146033913581473,
+              "symmetric_thickness_contribution_ms": 0.2664666631037337,
+              "symmetric_mean_slowness_contribution_ms": -0.005006323967920656,
+              "velocity_before_m_s": 2475.9038013118757,
+              "velocity_after_m_s": 2476.4030506826857
+            },
+            {
+              "unit": 16,
+              "height_before_m": 58.63900691204685,
+              "height_after_m": 58.15819014277349,
+              "solid_height_change_m": -0.2724575309494668,
+              "time_change_ms": -0.23957839169177,
+              "symmetric_thickness_contribution_ms": -0.23285470261831281,
+              "symmetric_mean_slowness_contribution_ms": -0.00672368907345756,
+              "velocity_before_m_s": 2064.6335087764533,
+              "velocity_after_m_s": 2065.1244103101035
+            },
+            {
+              "unit": 7,
+              "height_before_m": 67.22174044382382,
+              "height_after_m": 68.19948125371866,
+              "solid_height_change_m": 0.8077975500324541,
+              "time_change_ms": 0.2108285490359813,
+              "symmetric_thickness_contribution_ms": 0.21158757825332766,
+              "symmetric_mean_slowness_contribution_ms": -0.0007590292173454662,
+              "velocity_before_m_s": 4620.854847953185,
+              "velocity_after_m_s": 4621.094217507684
+            },
+            {
+              "unit": 17,
+              "height_before_m": 214.29658634463408,
+              "height_after_m": 215.22694100869785,
+              "solid_height_change_m": 0.7206561533502196,
+              "time_change_ms": 0.20762372855789857,
+              "symmetric_thickness_contribution_ms": 0.46870937564506765,
+              "symmetric_mean_slowness_contribution_ms": -0.26108564708717297,
+              "velocity_before_m_s": 1982.5366356638822,
+              "velocity_after_m_s": 1987.3264255722195
+            },
+            {
+              "unit": 14,
+              "height_before_m": 128.07207711569663,
+              "height_after_m": 127.79269867065568,
+              "solid_height_change_m": -0.17450581096936446,
+              "time_change_ms": -0.1268525152438721,
+              "symmetric_thickness_contribution_ms": -0.12277918275176497,
+              "symmetric_mean_slowness_contribution_ms": -0.004073332492111634,
+              "velocity_before_m_s": 2275.372084114931,
+              "velocity_after_m_s": 2275.53694046146
+            },
+            {
+              "unit": 15,
+              "height_before_m": 255.07884605314962,
+              "height_after_m": 254.85820637246638,
+              "solid_height_change_m": -0.10746341345100063,
+              "time_change_ms": -0.12000046007214216,
+              "symmetric_thickness_contribution_ms": -0.10418028622073083,
+              "symmetric_mean_slowness_contribution_ms": -0.015820173851423043,
+              "velocity_before_m_s": 2117.7248853689416,
+              "velocity_after_m_s": 2118.0031902530754
+            },
+            {
+              "unit": 4,
+              "height_before_m": 111.87546286840325,
+              "height_after_m": 112.19507839878452,
+              "solid_height_change_m": 0.2463832648003148,
+              "time_change_ms": 0.10682284105882622,
+              "symmetric_thickness_contribution_ms": 0.10458506354077668,
+              "symmetric_mean_slowness_contribution_ms": 0.002237777518052707,
+              "velocity_before_m_s": 3056.1274684425857,
+              "velocity_after_m_s": 3055.9409256140043
+            }
+          ]
+        },
+        {
+          "h_m": 10,
+          "time_change_ms": -0.18869580385283413,
+          "midpoint_error_before_ms": 0.00890750092530368,
+          "midpoint_error_after_ms": 0.00830796780726395,
+          "integral_refinement_difference_before_ns": 167.62064066315756,
+          "integral_refinement_difference_after_ns": 169.5710915226281,
+          "largest_unit_time_changes": [
+            {
+              "unit": 12,
+              "height_before_m": 116.20521876324256,
+              "height_after_m": 118.20508245263045,
+              "solid_height_change_m": 1.505128564610473,
+              "time_change_ms": 0.49928661030907917,
+              "symmetric_thickness_contribution_ms": 0.4931318063773176,
+              "symmetric_mean_slowness_contribution_ms": 0.006154803931762452,
+              "velocity_before_m_s": 4055.866271558367,
+              "velocity_after_m_s": 4055.0026125827617
+            },
+            {
+              "unit": 13,
+              "height_before_m": 218.88239929868791,
+              "height_after_m": 217.65794256891172,
+              "solid_height_change_m": -0.7713238005932226,
+              "time_change_ms": -0.3665873879594994,
+              "symmetric_thickness_contribution_ms": -0.5325168274149242,
+              "symmetric_mean_slowness_contribution_ms": 0.16592943945542976,
+              "velocity_before_m_s": 2301.3879983274414,
+              "velocity_after_m_s": 2297.3687059229433
+            },
+            {
+              "unit": 14,
+              "height_before_m": 130.91756582113794,
+              "height_after_m": 130.1480656064507,
+              "solid_height_change_m": -0.5075348922351992,
+              "time_change_ms": -0.35622819123275196,
+              "symmetric_thickness_contribution_ms": -0.33878859576800724,
+              "symmetric_mean_slowness_contribution_ms": -0.017439595464742733,
+              "velocity_before_m_s": 2270.9839912874445,
+              "velocity_after_m_s": 2271.6732410664513
+            },
+            {
+              "unit": 9,
+              "height_before_m": 146.70902600464888,
+              "height_after_m": 146.19489049160393,
+              "solid_height_change_m": -0.37852588117206665,
+              "time_change_ms": -0.20053747493900542,
+              "symmetric_thickness_contribution_ms": -0.1945777142550364,
+              "symmetric_mean_slowness_contribution_ms": -0.00595976068396852,
+              "velocity_before_m_s": 2642.1724334441747,
+              "velocity_after_m_s": 2642.456553996618
+            },
+            {
+              "unit": 19,
+              "height_before_m": 221.7947812127802,
+              "height_after_m": 221.55066154938152,
+              "solid_height_change_m": -0.1142881531782507,
+              "time_change_ms": -0.1367792490236247,
+              "symmetric_thickness_contribution_ms": -0.1362412721073012,
+              "symmetric_mean_slowness_contribution_ms": -0.0005379769163342572,
+              "velocity_before_m_s": 1791.8148358383487,
+              "velocity_after_m_s": 1791.8226276695048
+            },
+            {
+              "unit": 15,
+              "height_before_m": 248.35387509272618,
+              "height_after_m": 248.65214962787786,
+              "solid_height_change_m": 0.19394608100952837,
+              "time_change_ms": 0.13627474620872548,
+              "symmetric_thickness_contribution_ms": 0.14101504381895072,
+              "symmetric_mean_slowness_contribution_ms": -0.00474029761022752,
+              "velocity_before_m_s": 2115.153885485809,
+              "velocity_after_m_s": 2115.239229961193
+            },
+            {
+              "unit": 16,
+              "height_before_m": 57.09935856789434,
+              "height_after_m": 57.24853523579509,
+              "solid_height_change_m": 0.08778174153912488,
+              "time_change_ms": 0.07236103100285649,
+              "symmetric_thickness_contribution_ms": 0.07227706836295161,
+              "symmetric_mean_slowness_contribution_ms": 8.396263990355683e-05,
+              "velocity_before_m_s": 2063.9588372682033,
+              "velocity_after_m_s": 2063.9525813846253
+            },
+            {
+              "unit": 17,
+              "height_before_m": 213.12725878919696,
+              "height_after_m": 213.25294417010537,
+              "solid_height_change_m": 0.06346848145621209,
+              "time_change_ms": 0.06728378527465217,
+              "symmetric_thickness_contribution_ms": 0.0633975995186508,
+              "symmetric_mean_slowness_contribution_ms": 0.003886185756015664,
+              "velocity_before_m_s": 1982.5301420821377,
+              "velocity_after_m_s": 1982.4584979835909
+            },
+            {
+              "unit": 18,
+              "height_before_m": 189.99634046346284,
+              "height_after_m": 189.8988060555563,
+              "solid_height_change_m": -0.05811662709668042,
+              "time_change_ms": -0.046018871225031455,
+              "symmetric_thickness_contribution_ms": -0.0501472669594581,
+              "symmetric_mean_slowness_contribution_ms": 0.004128395734421757,
+              "velocity_before_m_s": 1945.0007024641775,
+              "velocity_after_m_s": 1944.9184841178462
+            },
+            {
+              "unit": 21,
+              "height_before_m": 59.24950425354291,
+              "height_after_m": 59.32073187881292,
+              "solid_height_change_m": 0.03284120869938434,
+              "time_change_ms": 0.04240561090085998,
+              "symmetric_thickness_contribution_ms": 0.04349798066807522,
+              "symmetric_mean_slowness_contribution_ms": -0.0010923697672126174,
+              "velocity_before_m_s": 1637.467984815933,
+              "velocity_after_m_s": 1637.5173911603454
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "x9200_20m_persistent_material_change": [
+    {
+      "h_m": 20,
+      "step": 14,
+      "process": "thrust-slip",
+      "x_m": 9200,
+      "time_change_ms": -0.002308255111271862,
+      "stored_surface_change_m": -0.007094050048181089,
+      "remembered_top_depth_change_m": -0.011079908653982784,
+      "internal_water_change_m": -0.003989185342788915,
+      "units": {
+        "9": {
+          "height_change_m": -7.115412040548108e-05,
+          "solid_height_change_m": 6.470744096986891e-06,
+          "time_change_ms": -7.241422109172113e-05
+        },
+        "10": {
+          "height_change_m": 0.009380518597026821,
+          "solid_height_change_m": 0.005210751439832961,
+          "time_change_ms": 0.005137062787527458
+        }
+      }
+    },
+    {
+      "h_m": 20,
+      "step": 15,
+      "process": "thrust-slip",
+      "x_m": 9200,
+      "time_change_ms": -2.7800964625552815,
+      "stored_surface_change_m": -0.16384414558069693,
+      "remembered_top_depth_change_m": -0.1621552413535028,
+      "internal_water_change_m": 0.001658805459328505,
+      "units": {
+        "9": {
+          "height_change_m": -19.98695009151561,
+          "solid_height_change_m": -12.25711433262228,
+          "time_change_ms": -9.377071484329507
+        },
+        "10": {
+          "height_change_m": 20.031513690770907,
+          "solid_height_change_m": 12.511871728791107,
+          "time_change_ms": 6.824453936566776
+        }
+      }
+    },
+    {
+      "h_m": 20,
+      "step": 16,
+      "process": "thrust-slip",
+      "x_m": 9200,
+      "time_change_ms": -3.0709976008160833,
+      "stored_surface_change_m": -0.04650004961149534,
+      "remembered_top_depth_change_m": -0.04650004961149534,
+      "internal_water_change_m": 0,
+      "units": {
+        "9": {
+          "height_change_m": -18.81269513929692,
+          "solid_height_change_m": -12.257114332622024,
+          "time_change_ms": -8.38850027777862
+        },
+        "10": {
+          "height_change_m": 18.03664405743484,
+          "solid_height_change_m": 12.511871728791021,
+          "time_change_ms": 5.081035544593653
+        }
+      }
+    },
+    {
+      "h_m": 20,
+      "step": 17,
+      "process": "thrust-slip",
+      "x_m": 9200,
+      "time_change_ms": -3.077903001423188,
+      "stored_surface_change_m": -0.022674010271657608,
+      "remembered_top_depth_change_m": -0.02351745645273695,
+      "internal_water_change_m": 0.19462566578067708,
+      "units": {
+        "9": {
+          "height_change_m": -18.634525204365673,
+          "solid_height_change_m": -12.257114332621555,
+          "time_change_ms": -8.230833675381188
+        },
+        "10": {
+          "height_change_m": 17.75205401488938,
+          "solid_height_change_m": 12.51187172879149,
+          "time_change_ms": 4.886397356068092
+        }
+      }
+    },
+    {
+      "h_m": 20,
+      "step": 18,
+      "process": "thrust-slip",
+      "x_m": 9200,
+      "time_change_ms": -1.6788887421110843,
+      "stored_surface_change_m": 0.39005331678049515,
+      "remembered_top_depth_change_m": 0.38457125786453616,
+      "internal_water_change_m": 0.33809408310503386,
+      "units": {
+        "9": {
+          "height_change_m": -17.945539216669886,
+          "solid_height_change_m": -12.25711433262208,
+          "time_change_ms": -7.6536114287396595
+        },
+        "10": {
+          "height_change_m": 16.93487736234556,
+          "solid_height_change_m": 12.51187172879196,
+          "time_change_ms": 4.347227922378794
+        }
+      }
+    },
+    {
+      "h_m": 20,
+      "step": 19,
+      "process": "thrust-slip",
+      "x_m": 9200,
+      "time_change_ms": -3.0921404494184124,
+      "stored_surface_change_m": 0.09315041329045926,
+      "remembered_top_depth_change_m": 0.09442232308970233,
+      "internal_water_change_m": 0.001483957167238259,
+      "units": {
+        "9": {
+          "height_change_m": -17.440794781311297,
+          "solid_height_change_m": -12.257114332619622,
+          "time_change_ms": -7.227191221055314
+        },
+        "10": {
+          "height_change_m": 16.489387746700004,
+          "solid_height_change_m": 12.511871728792357,
+          "time_change_ms": 4.065697109966355
+        }
+      }
+    }
+  ],
+  "x6000_10m_late_coupled_response": [
+    {
+      "h_m": 10,
+      "step": 19,
+      "process": "subsidence",
+      "x_m": 6000,
+      "time_change_ms": 1.6969199965295445,
+      "stored_surface_change_m": 0.17558609670049918,
+      "remembered_top_depth_change_m": 0.17558609670049918,
+      "internal_water_change_m": 0,
+      "units": {
+        "3": {
+          "height_change_m": 13.174509791293985,
+          "solid_height_change_m": 9.08956471267635,
+          "time_change_ms": 5.5933080405547315
+        },
+        "4": {
+          "height_change_m": -4.765192929194427,
+          "solid_height_change_m": -3.3614804060657093,
+          "time_change_ms": -1.7777588329148108
+        },
+        "7": {
+          "height_change_m": -6.042456833701408,
+          "solid_height_change_m": -3.8467787702772256,
+          "time_change_ms": -1.974057926028741
+        },
+        "8": {
+          "height_change_m": 0.3133557188536997,
+          "solid_height_change_m": 0.18011264237548907,
+          "time_change_ms": 0.1703003356617449
+        },
+        "9": {
+          "height_change_m": 3.4521265381492867,
+          "solid_height_change_m": 1.9082385502865122,
+          "time_change_ms": 1.8204246416102174
+        },
+        "12": {
+          "height_change_m": 3.04525258171725,
+          "solid_height_change_m": 1.5398902201871323,
+          "time_change_ms": 2.1273944971442473
+        },
+        "13": {
+          "height_change_m": -0.9311191786706559,
+          "solid_height_change_m": -0.7633016719815373,
+          "time_change_ms": -0.3273533184703359
+        },
+        "19": {
+          "height_change_m": 0,
+          "solid_height_change_m": 0,
+          "time_change_ms": 0.0
+        }
+      }
+    },
+    {
+      "h_m": 10,
+      "step": 19,
+      "process": "thrust-slip",
+      "x_m": 6000,
+      "time_change_ms": 0.03767140797683588,
+      "stored_surface_change_m": -10.64859731503384,
+      "remembered_top_depth_change_m": -0.654373103416674,
+      "internal_water_change_m": 1.563149754267215,
+      "units": {
+        "3": {
+          "height_change_m": 15.013703943831615,
+          "solid_height_change_m": 10.328169763842496,
+          "time_change_ms": 6.3353087429779755
+        },
+        "4": {
+          "height_change_m": -11.777548591727054,
+          "solid_height_change_m": -8.050510913066034,
+          "time_change_ms": -5.081859791247506
+        },
+        "7": {
+          "height_change_m": -12.57587368514237,
+          "solid_height_change_m": -8.11143809005815,
+          "time_change_ms": -3.921967161272275
+        },
+        "8": {
+          "height_change_m": 10.077620889204582,
+          "solid_height_change_m": 6.135798289103507,
+          "time_change_ms": 4.756510521444166
+        },
+        "9": {
+          "height_change_m": -4.637584847286689,
+          "solid_height_change_m": -2.69493989006115,
+          "time_change_ms": -2.306000041376266
+        },
+        "12": {
+          "height_change_m": -16.939797772749444,
+          "solid_height_change_m": -9.558965850864482,
+          "time_change_ms": -8.8248253341867
+        },
+        "13": {
+          "height_change_m": 10.39164967972033,
+          "solid_height_change_m": 5.510310967504893,
+          "time_change_ms": 5.312730192222837
+        },
+        "19": {
+          "height_change_m": 0,
+          "solid_height_change_m": 0,
+          "time_change_ms": 0.0
+        }
+      }
+    },
+    {
+      "h_m": 10,
+      "step": 19,
+      "process": "collapse",
+      "x_m": 6000,
+      "time_change_ms": 0.23041893807240754,
+      "stored_surface_change_m": -9.085447560766625,
+      "remembered_top_depth_change_m": -0.654373103416674,
+      "internal_water_change_m": 0,
+      "units": {
+        "3": {
+          "height_change_m": 15.013703943831615,
+          "solid_height_change_m": 10.328169763842496,
+          "time_change_ms": 6.378240034384509
+        },
+        "4": {
+          "height_change_m": -11.777548591727054,
+          "solid_height_change_m": -8.050510913066034,
+          "time_change_ms": -5.005832779681446
+        },
+        "7": {
+          "height_change_m": -12.57587368514237,
+          "solid_height_change_m": -8.11143809005815,
+          "time_change_ms": -3.921967161272275
+        },
+        "8": {
+          "height_change_m": 10.077620889204582,
+          "solid_height_change_m": 6.135798289103507,
+          "time_change_ms": 4.756510521444166
+        },
+        "9": {
+          "height_change_m": -4.637584847286689,
+          "solid_height_change_m": -2.69493989006115,
+          "time_change_ms": -2.306000041376266
+        },
+        "12": {
+          "height_change_m": -16.939797772749444,
+          "solid_height_change_m": -9.558965850864482,
+          "time_change_ms": -8.8248253341867
+        },
+        "13": {
+          "height_change_m": 10.39164967972033,
+          "solid_height_change_m": 5.510310967504893,
+          "time_change_ms": 5.312730192222837
+        },
+        "19": {
+          "height_change_m": 0,
+          "solid_height_change_m": 0,
+          "time_change_ms": 0.0
+        }
+      }
+    },
+    {
+      "h_m": 10,
+      "step": 19,
+      "process": "deposition",
+      "x_m": 6000,
+      "time_change_ms": 1.126030922024679,
+      "stored_surface_change_m": -1.4038597160718211,
+      "remembered_top_depth_change_m": -1.4038597160718211,
+      "internal_water_change_m": 0,
+      "units": {
+        "3": {
+          "height_change_m": 15.013703943831615,
+          "solid_height_change_m": 10.328169763842496,
+          "time_change_ms": 6.30034650575495
+        },
+        "4": {
+          "height_change_m": -11.777548591727054,
+          "solid_height_change_m": -8.050510913066034,
+          "time_change_ms": -4.918854036997821
+        },
+        "7": {
+          "height_change_m": -12.57587368514237,
+          "solid_height_change_m": -8.11143809005815,
+          "time_change_ms": -3.921967161272275
+        },
+        "8": {
+          "height_change_m": 10.077620889204582,
+          "solid_height_change_m": 6.135798289103507,
+          "time_change_ms": 4.706924097895658
+        },
+        "9": {
+          "height_change_m": -4.637584847286689,
+          "solid_height_change_m": -2.69493989006115,
+          "time_change_ms": -2.233204537075997
+        },
+        "12": {
+          "height_change_m": -16.939797772749444,
+          "solid_height_change_m": -9.558965850864482,
+          "time_change_ms": -8.8248253341867
+        },
+        "13": {
+          "height_change_m": 10.391649679720217,
+          "solid_height_change_m": 5.510310967504836,
+          "time_change_ms": 5.325602102204896
+        },
+        "19": {
+          "height_change_m": -7.681587844694917,
+          "solid_height_change_m": -3.4036277355608746,
+          "time_change_ms": -4.407455614971259
+        }
+      }
+    },
+    {
+      "h_m": 10,
+      "step": 19,
+      "process": "compaction",
+      "x_m": 6000,
+      "time_change_ms": 2.448046806913684,
+      "stored_surface_change_m": -1.3234458365941464,
+      "remembered_top_depth_change_m": -1.3234458365941464,
+      "internal_water_change_m": 0,
+      "units": {
+        "3": {
+          "height_change_m": 14.64624548440338,
+          "solid_height_change_m": 10.328169763843391,
+          "time_change_ms": 6.069652431538564
+        },
+        "4": {
+          "height_change_m": -11.622688598623881,
+          "solid_height_change_m": -8.050510913066688,
+          "time_change_ms": -4.837757242349055
+        },
+        "7": {
+          "height_change_m": -12.11202581940006,
+          "solid_height_change_m": -8.111438090058364,
+          "time_change_ms": -3.5862181190668903
+        },
+        "8": {
+          "height_change_m": 9.674688848432424,
+          "solid_height_change_m": 6.135798289103393,
+          "time_change_ms": 4.432232699804905
+        },
+        "9": {
+          "height_change_m": -4.55400069365237,
+          "solid_height_change_m": -2.6949398900622725,
+          "time_change_ms": -2.1831316369546605
+        },
+        "12": {
+          "height_change_m": -15.900729261298238,
+          "solid_height_change_m": -9.558965850864247,
+          "time_change_ms": -6.5067309480098885
+        },
+        "13": {
+          "height_change_m": 9.4718264278564,
+          "solid_height_change_m": 5.510310967504395,
+          "time_change_ms": 4.688680726866748
+        },
+        "19": {
+          "height_change_m": -7.681587844654928,
+          "solid_height_change_m": -3.4036277355609315,
+          "time_change_ms": -4.407455614943697
+        }
+      }
+    },
+    {
+      "h_m": 10,
+      "step": 20,
+      "process": "deposition",
+      "x_m": 6000,
+      "time_change_ms": 2.5836543053792127,
+      "stored_surface_change_m": -0.19976613185497172,
+      "remembered_top_depth_change_m": -0.19976613185497172,
+      "internal_water_change_m": 0,
+      "units": {
+        "3": {
+          "height_change_m": 14.64624548440338,
+          "solid_height_change_m": 10.328169763843377,
+          "time_change_ms": 6.032954502812847
+        },
+        "4": {
+          "height_change_m": -11.622688598623881,
+          "solid_height_change_m": -8.05051091306666,
+          "time_change_ms": -4.779994434660706
+        },
+        "7": {
+          "height_change_m": -12.11202581940006,
+          "solid_height_change_m": -8.111438090058371,
+          "time_change_ms": -3.586218119066887
+        },
+        "8": {
+          "height_change_m": 9.674688848432424,
+          "solid_height_change_m": 6.135798289103393,
+          "time_change_ms": 4.4122117515137775
+        },
+        "9": {
+          "height_change_m": -4.55400069365237,
+          "solid_height_change_m": -2.6949398900622725,
+          "time_change_ms": -2.166104984967637
+        },
+        "12": {
+          "height_change_m": -15.900729261298238,
+          "solid_height_change_m": -9.558965850864247,
+          "time_change_ms": -6.5067309480098885
+        },
+        "13": {
+          "height_change_m": 9.471826427856854,
+          "solid_height_change_m": 5.5103109675046795,
+          "time_change_ms": 4.672250302284603
+        },
+        "19": {
+          "height_change_m": -7.681587844654587,
+          "solid_height_change_m": -3.4036277355608036,
+          "time_change_ms": -4.3194737565392245
+        }
+      }
+    },
+    {
+      "h_m": 10,
+      "step": 20,
+      "process": "compaction",
+      "x_m": 6000,
+      "time_change_ms": 3.2158028551421136,
+      "stored_surface_change_m": -0.8405488324024191,
+      "remembered_top_depth_change_m": -0.8405488324024191,
+      "internal_water_change_m": 0,
+      "units": {
+        "3": {
+          "height_change_m": 14.528527430814847,
+          "solid_height_change_m": 10.328169763843476,
+          "time_change_ms": 5.961972946665388
+        },
+        "4": {
+          "height_change_m": -11.496958263536726,
+          "solid_height_change_m": -8.050510913065636,
+          "time_change_ms": -4.716380093290839
+        },
+        "7": {
+          "height_change_m": -11.884552231436828,
+          "solid_height_change_m": -8.111438090058414,
+          "time_change_ms": -3.426234117218246
+        },
+        "8": {
+          "height_change_m": 9.54800685155783,
+          "solid_height_change_m": 6.1357982891031675,
+          "time_change_ms": 4.327170838482178
+        },
+        "9": {
+          "height_change_m": -4.457343262261475,
+          "solid_height_change_m": -2.694939890061576,
+          "time_change_ms": -2.102150243706663
+        },
+        "12": {
+          "height_change_m": -15.465637766955751,
+          "solid_height_change_m": -9.558965850863885,
+          "time_change_ms": -5.599592043289279
+        },
+        "13": {
+          "height_change_m": 9.335640723830352,
+          "solid_height_change_m": 5.510310967504552,
+          "time_change_ms": 4.580719135179947
+        },
+        "19": {
+          "height_change_m": -7.2368346967773505,
+          "solid_height_change_m": -3.4036277355608604,
+          "time_change_ms": -4.019326027261294
+        }
+      }
+    },
+    {
+      "h_m": 10,
+      "step": 21,
+      "process": "deposition",
+      "x_m": 6000,
+      "time_change_ms": 3.333448239505099,
+      "stored_surface_change_m": -0.059201689366034316,
+      "remembered_top_depth_change_m": -0.059201689366034316,
+      "internal_water_change_m": 0,
+      "units": {
+        "3": {
+          "height_change_m": 14.528527430814847,
+          "solid_height_change_m": 10.328169763843476,
+          "time_change_ms": 5.942609307376119
+        },
+        "4": {
+          "height_change_m": -11.496958263536726,
+          "solid_height_change_m": -8.050510913065636,
+          "time_change_ms": -4.67936577832917
+        },
+        "7": {
+          "height_change_m": -11.884552231436828,
+          "solid_height_change_m": -8.111438090058414,
+          "time_change_ms": -3.4262341172182422
+        },
+        "8": {
+          "height_change_m": 9.54800685155783,
+          "solid_height_change_m": 6.1357982891031675,
+          "time_change_ms": 4.317733907279521
+        },
+        "9": {
+          "height_change_m": -4.457343262261475,
+          "solid_height_change_m": -2.694939890061576,
+          "time_change_ms": -2.0933224468867446
+        },
+        "12": {
+          "height_change_m": -15.465637766955751,
+          "solid_height_change_m": -9.558965850863885,
+          "time_change_ms": -5.599592043289289
+        },
+        "13": {
+          "height_change_m": 9.33564072383183,
+          "solid_height_change_m": 5.510310967505362,
+          "time_change_ms": 4.574274802697162
+        },
+        "19": {
+          "height_change_m": -7.236834696777464,
+          "solid_height_change_m": -3.4036277355609457,
+          "time_change_ms": -3.983560694922825
+        }
+      }
+    },
+    {
+      "h_m": 10,
+      "step": 21,
+      "process": "compaction",
+      "x_m": 6000,
+      "time_change_ms": 3.5324372254126324,
+      "stored_surface_change_m": -0.4877226127500762,
+      "remembered_top_depth_change_m": -0.4877226127500762,
+      "internal_water_change_m": 0,
+      "units": {
+        "3": {
+          "height_change_m": 14.474850564893586,
+          "solid_height_change_m": 10.328169763844357,
+          "time_change_ms": 5.910937373266992
+        },
+        "4": {
+          "height_change_m": -11.430919978623706,
+          "solid_height_change_m": -8.050510913065978,
+          "time_change_ms": -4.648311907092917
+        },
+        "7": {
+          "height_change_m": -11.776028464729734,
+          "solid_height_change_m": -8.111438090058058,
+          "time_change_ms": -3.3509389154411062
+        },
+        "8": {
+          "height_change_m": 9.489316695476873,
+          "solid_height_change_m": 6.13579828910329,
+          "time_change_ms": 4.2784677676943
+        },
+        "9": {
+          "height_change_m": -4.407667694279553,
+          "solid_height_change_m": -2.6949398900606383,
+          "time_change_ms": -2.0605552189523895
+        },
+        "12": {
+          "height_change_m": -15.263198334145727,
+          "solid_height_change_m": -9.55896585086478,
+          "time_change_ms": -5.242703024775642
+        },
+        "13": {
+          "height_change_m": 9.280810314204814,
+          "solid_height_change_m": 5.510310967505589,
+          "time_change_ms": 4.537463551599105
+        },
+        "19": {
+          "height_change_m": -7.0298220332184655,
+          "solid_height_change_m": -3.4036277355609315,
+          "time_change_ms": -3.8439736019841018
+        }
+      }
+    }
+  ],
+  "diagnosis": {
+    "x9200": "At 20 m, step 15 of the second thrust changes clastic unit 9 height by \u221219.98695 m and carbonate unit 10 by +20.03151 m. The redistributed solid persists through later compaction: final \u221216.75366/+15.62779 m. Their different slownesses account for most of the \u22122.86690 ms time change. At 10 m the final change is only \u22120.18870 ms.",
+    "x6000": "The 10 m run produces the dominant +3.53244 ms final change; 20 m changes \u22120.00964 ms. There is repeated multi-bed material redistribution from the second thrust onward. Last step 19 slip has only +0.03767 ms net difference, but collapse/deposition/compaction and later loading increase it to +3.53244 ms. Stored accommodation differs materially despite a much smaller remembered surface-marker displacement.",
+    "quadrature": "Changing only within-parcel midpoint quadrature cannot explain the regression: the final whole-profile midpoint error is at most 0.01441 ms, while new fine-grid discrepancies change by 3.54207 and 2.67820 ms.",
+    "offsets": "Evaluating constitutive depth using stored parcel offsetZ and remembered top offset changes the fine discrepancy by up to 0.20131 ms in these comparisons, much less than the main regression. This is sensitivity only: parcels can have different offsetX and displaced supports, so these offsets do not define a unique physical profile or surface. It is not a validated replacement extractor.",
+    "cancellation": "At x6000 summed absolute per-unit fine-time terms improve 62.3173\u219243.6320 ms while net time discrepancy worsens; at x9200 they worsen 18.6076\u219225.6187 ms. A smaller net travel error alone does not prove better material geometry."
+  },
+  "limits": [
+    "A closed sediment budget does not prove local geometry accuracy.",
+    "No separate new velocity constitutive bug is established by these traces.",
+    "Mean-slowness attribution includes composition, porosity, loading memory, present-depth changes and within-unit redistribution; it cannot isolate those causes by itself.",
+    "The remembered top depth is a material marker, not a reconstructed continuous physical free surface.",
+    "This evidence supports transport/allocation and coupled accommodation as the primary mechanism; no metric tuning or holdout evaluation is justified."
+  ]
+}
