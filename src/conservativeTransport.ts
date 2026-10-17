@@ -32,10 +32,11 @@ export function assignTransport(nx: number, nz: number, allowed: Uint8Array, par
     return solveTransport(nx, nz, allowed, parcels, 3, capacity);
   }
 }
-class OverflowError extends Error {}
+export class OverflowError extends Error {}
 /** Exact integer arithmetic in Numbers while every stored value stays within 2^51, so sums of three
  * terms are exact; the first value beyond that bound falls back to the BigInt solver, which gives
- * the same answer. Decisions, tie-breaking and the result are identical in both paths. */
+ * the same answer. Decisions, tie-breaking and the result are identical in both paths. Both paths
+ * are exported so that tests can check this on the same problems; callers use assignTransport. */
 function solveTransport(nx: number, nz: number, allowed: Uint8Array, parcels: TransportParcel[], radius: 2 | 3, capacity?: Float64Array): TransportAssignment {
   try { return solveTransportFast(nx, nz, allowed, parcels, radius, capacity); }
   catch (error) {
@@ -44,7 +45,7 @@ function solveTransport(nx: number, nz: number, allowed: Uint8Array, parcels: Tr
   }
 }
 const SAFE = 2 ** 51;
-function solveTransportFast(nx: number, nz: number, allowed: Uint8Array, parcels: TransportParcel[], radius: 2 | 3, capacity?: Float64Array): TransportAssignment {
+export function solveTransportFast(nx: number, nz: number, allowed: Uint8Array, parcels: TransportParcel[], radius: 2 | 3, capacity?: Float64Array): TransportAssignment {
   if (!Number.isInteger(nx) || !Number.isInteger(nz) || nx < 1 || nz < 1 || allowed.length !== nx * nz) throw Error('Invalid transport grid');
   if (capacity && (capacity.length !== nx * nz || capacity.some(c => !Number.isFinite(c) || c < 0))) throw Error('Invalid destination capacity');
   if (parcels.some(p => p.height !== undefined && (!(p.height > 0) || !Number.isFinite(p.height)))) throw Error('Invalid parcel height');
@@ -134,7 +135,7 @@ function solveTransportFast(nx: number, nz: number, allowed: Uint8Array, parcels
   }
   return { destination, displaced, maxOffsetCells, radius };
 }
-function solveTransportExact(nx: number, nz: number, allowed: Uint8Array, parcels: TransportParcel[], radius: 2 | 3, capacity?: Float64Array): TransportAssignment {
+export function solveTransportExact(nx: number, nz: number, allowed: Uint8Array, parcels: TransportParcel[], radius: 2 | 3, capacity?: Float64Array): TransportAssignment {
   if (!Number.isInteger(nx) || !Number.isInteger(nz) || nx < 1 || nz < 1 || allowed.length !== nx * nz) throw Error('Invalid transport grid');
   if (capacity && (capacity.length !== nx * nz || capacity.some(c => !Number.isFinite(c) || c < 0))) throw Error('Invalid destination capacity');
   if (parcels.some(p => p.height !== undefined && (!(p.height > 0) || !Number.isFinite(p.height)))) throw Error('Invalid parcel height');
