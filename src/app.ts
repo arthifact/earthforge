@@ -4,7 +4,7 @@
 // and How to use, Gallery, Checks and About in dialogs. Sections are simulated in a pool of workers (in parallel, off
 // the page's thread); the checks in a worker of their own.
 
-import { BASIN_DEFAULTS, type BasinOptions } from "./basin";
+import { BASIN_DEFAULTS, settingOf, type BasinOptions } from "./basin";
 import { hamilton1979, hamilton1985, type Verification } from "./basinVerify";
 import { checkRows } from "./checks";
 import type { Frame, Reply, Request, Section } from "./protocol";
@@ -109,7 +109,7 @@ export function start(root: HTMLElement) {
     <main class="work">
       <section class="stage" aria-label="Section">
         <div class="plots" id="plots">
-          <div class="panels"><canvas id="section" aria-label="The simulated section"></canvas><canvas id="section2" aria-label="The simulated section, lithology"></canvas></div>
+          <div class="panels"><canvas id="section" aria-label="The simulated section"></canvas><canvas id="section2" aria-label="The simulated section, lithology"></canvas><span class="busy" id="busy">Simulating</span></div>
           <section class="profile" id="profile" aria-labelledby="profileTitle">
             <canvas id="log" role="img" aria-label="Seismic velocity versus depth"></canvas>
             <div class="profile-controls">
@@ -131,7 +131,6 @@ export function start(root: HTMLElement) {
             </div>
             <button type="button" class="link profile-reset" id="resetProfiles" disabled>Reset positions</button>
           </section>
-          <span class="busy" id="busy">Simulating</span>
         </div>
         <div class="under">
           <div class="legend" id="legend"></div>
@@ -198,6 +197,8 @@ export function start(root: HTMLElement) {
   let mode: Mode = hash.get("view") === "velocity" || hash.get("view") === "lithology" ? hash.get("view") as Mode : "both";
   const topView = () => (mode === "lithology" ? "lithology" : "velocity") as Look["view"];
   let current: Section | null = null, step = 0, playing = false, generation = 0, placement: Placement | null = null;
+  // What the step note says while there is no section yet: simulating, or why it failed.
+  let pendingNote = "";
   const savedProfiles = hash.get("profiles")?.split(",") ?? ["A"];
   const logView: LogView = { selected: 0, active: LOG_LABELS.flatMap((label, i) => i === 0 || savedProfiles.includes(label) ? [i] : []), depth: 1500 };
   const savedLocations = hash.get("locations")?.split(",").map(Number);
@@ -242,6 +243,9 @@ export function start(root: HTMLElement) {
     const width = `${iw + pad.l + pad.r}px`, height = `${sectionHeight}px`;
     for (const c of [canvas, canvas2]) { c.style.width = width; c.style.height = height; }
     canvas2.hidden = mode !== "both";
+    // The simulating badge sits in the middle of the top section's image area.
+    const busy = $("busy");
+    busy.style.left = `${pad.l + iw / 2}px`; busy.style.top = `${pad.t + iw * TRUE_RATIO / 2}px`;
     // The graph retains the full stack height, minus its compact controls, in every view.
     // Align the card with the top image border and the bottom of the model stack.
     const cardTop = narrow ? 0 : pad.t;
@@ -254,9 +258,15 @@ export function start(root: HTMLElement) {
   const frame = (): Frame | null => current ? (current.history.length && step < current.history.length - 1 ? current.history[step] : current.now) : null;
   function draw() {
     const f = frame();
-    if (!f || !current) return;
     layout();
     drawProfiles(f);
+    if (!f || !current) {
+      // Still simulating: the same layout and axes, with empty panels and graph.
+      $("stepLabel").textContent = " ";
+      drawStepNote(pendingNote);
+      $("title").textContent = `Seed ${seed} · ${settingOf(options(seed))} · true scale`;
+      return;
+    }
     const steps = current.log.length, at = current.history.length ? step : steps - 1, entry = current.log[at];
     $("stepLabel").textContent = `${String(at + 1).padStart(2, "0")} / ${steps} · ${entry.phase}`;
     drawStepNote(`${at === steps - 1 ? "Today. " : ""}Step ${at + 1}: ${entry.text}.`);
@@ -275,14 +285,26 @@ export function start(root: HTMLElement) {
     $<HTMLButtonElement>("resetProfiles").disabled = !logColumns.some(([x], i) => logView.active.includes(i) && x !== LOG_COLUMNS[i][0]);
     profile.classList.toggle("comparing", logView.active.length > 1);
   }
-  function drawProfiles(f: Frame) {
-    if (!current) return;
-    const axes = { columns: logColumns, ...logView };
-    placement = paintSection(canvas, f, { ...look, view: topView() }, current.unitOfBed, { ...axes, title: mode === "both" ? "Velocity" : undefined, hoveredDot: hoveredDot?.canvas === canvas ? hoveredDot.index : undefined });
-    if (mode === "both") paintSection(canvas2, f, { ...look, view: "lithology" }, current.unitOfBed, { ...axes, sharedDistance: true, hoveredDot: hoveredDot?.canvas === canvas2 ? hoveredDot.index : undefined });
+  function drawProfiles(f: Frame | null) {
+    const axes = { columns: logColumns, ...logView }, units = current?.unitOfBed ?? new Int32Array(0);
+    if (!current) f = null;
+    const top = paintSection(canvas, f, { ...look, view: topView() }, units, { ...axes, title: mode === "both" ? "Velocity" : undefined, hoveredDot: hoveredDot?.canvas === canvas ? hoveredDot.index : undefined });
+    if (mode === "both") paintSection(canvas2, f, { ...look, view: "lithology" }, units, { ...axes, sharedDistance: true, hoveredDot: hoveredDot?.canvas === canvas2 ? hoveredDot.index : undefined });
+    // Nothing to point at or drag until there is a section.
+    placement = f ? top : null;
     profileDepth.value = String(logView.depth);
     $("profileDepthValue").textContent = `${(logView.depth / 1000).toFixed(2)} km`;
     drawProfileControls();
+    if (!f) {
+      for (const i of logView.active) {
+        $(`profileVelocity${i}`).textContent = "–";
+        const materialLabel = $(`profileMaterial${i}`);
+        materialLabel.textContent = ""; materialLabel.title = ""; materialLabel.removeAttribute("aria-label");
+      }
+      profileDepth.setAttribute("aria-valuetext", `${(logView.depth / 1000).toFixed(2)} kilometres depth`);
+      logPlacement = paintLog(logCanvas, null, logView, logColumns);
+      return;
+    }
     const k = Math.round(logView.depth / DEPTH * (f.nz - 1));
     const descriptions: string[] = [];
     logColumns.forEach(([x], i) => {
@@ -323,7 +345,14 @@ export function start(root: HTMLElement) {
     const swatches = lithologyLegend.map(([name, color]) => `<span class="swatch mono"><i style="background:${color}"></i>${name}</span>`).join("");
     $("legend").innerHTML = mode === "velocity" ? ramp : mode === "lithology" ? swatches : `${ramp}<span class="sep"></span>${swatches}`;
   }
-  function drawFacts(s: Section) {
+  function drawFacts(s: Section | null) {
+    if (!s) {
+      // Still simulating: the same rows, with only the setting known in advance.
+      const o = options(seed), setting = settingOf(o), row = (k: string, v = "–") => `<div><dt>${k}</dt><dd>${v}</dd></div>`;
+      $("facts").innerHTML = [row("Setting", setting + (o.setting === "any" ? " (drawn)" : "")), row("History"), row("Phases"), row("Beds"),
+        row(setting === "extension" ? "Faults" : "Thrusts"), row("Overpressure"), row("Exhumation"), row("Basement"), row("Sediment balance"), row("Simulated")].join("");
+      return;
+    }
     const phases = [...new Set(s.log.map((l) => l.phase))].map((p) => `${s.log.filter((l) => l.phase === p).length} ${p}`).join(", ");
     const fault = (f: Section["faults"][number], n: number) => f.kind === "normal"
       ? `${n + 1}: dips ${f.dir > 0 ? "E" : "W"}, heave ${f.heave.toFixed(0)} m`
@@ -355,9 +384,16 @@ export function start(root: HTMLElement) {
   }
 
   // ------------------------------------------------------------ simulation
+  /** Until a new section arrives, show its layout empty rather than the previous seed's section. */
+  function showPending(s: number) {
+    current = null; step = 0; slider.max = "0"; slider.value = "0"; slider.disabled = true;
+    pendingNote = `Simulating seed ${s}…`;
+    drawFacts(null); draw();
+  }
   async function open(s: number) {
     seed = s; seedInput.value = String(s); remember(); stopPlaying();
     const mine = ++generation;
+    showPending(s);
     $("busy").classList.add("on");
     try {
       // The section shows as soon as it is simulated; its history (one frame per step) follows.
@@ -373,7 +409,11 @@ export function start(root: HTMLElement) {
       current.history = r.frames; step = Math.max(0, r.frames.length - 1);
       slider.max = String(step); slider.value = String(step); slider.disabled = false;
       draw();
-    } catch (e) { if ((e as Error).message !== "stale") $("logline").textContent = `Could not simulate: ${(e as Error).message}`; }
+    } catch (e) {
+      if ((e as Error).message === "stale" || mine !== generation) return;
+      const message = `Could not simulate: ${(e as Error).message}`;
+      if (current) $("logline").textContent = message; else { pendingNote = message; draw(); }
+    }
     finally { if (mine === generation) $("busy").classList.remove("on"); }
   }
   let galleryGeneration = 0;
@@ -475,7 +515,7 @@ export function start(root: HTMLElement) {
     const next = LOG_LABELS.findIndex((_, i) => !logView.active.includes(i));
     if (next < 0) return;
     logView.active = [...logView.active, next].sort();
-    remember(); drawProfileControls(); const f = frame(); if (f) drawProfiles(f);
+    remember(); drawProfiles(frame());
     if (logView.active.length === LOG_LABELS.length) profileDepth.focus();
   });
   document.querySelectorAll<HTMLButtonElement>("[data-remove-profile]").forEach((b) => b.addEventListener("click", () => {
@@ -483,12 +523,12 @@ export function start(root: HTMLElement) {
     if (index === 0) return;
     logView.active = logView.active.filter((i) => i !== index);
     if (logView.selected === index) logView.selected = 0;
-    remember(); drawProfileControls(); const f = frame(); if (f) drawProfiles(f);
+    remember(); drawProfiles(frame());
     $("addProfile").focus();
   }));
   $("resetProfiles").addEventListener("click", () => {
     LOG_COLUMNS.forEach(([x], i) => { logColumns[i][0] = x; }); remember();
-    const f = frame(); if (f) drawProfiles(f);
+    drawProfiles(frame());
   });
   profileDepth.addEventListener("input", () => inspectDepth(Number(profileDepth.value)));
   const readLog = (e: PointerEvent) => {

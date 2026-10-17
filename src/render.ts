@@ -89,17 +89,21 @@ export function profileMarkers(p: Placement, columns: [number, string][], active
   return markers;
 }
 
+/** Fill of a section's image area while it is still being simulated. */
+const PENDING = "#efeee8";
 /**
  * The section on a canvas, scaled to it, with the faults where they cut rock (with rock above them). With axes:
  * ticks every km of distance and every 0.5 km of depth, and markers where the log's columns are.
+ * Without a frame (still simulating) the axes and markers are drawn around an empty image area.
  */
-export function paintSection(canvas: HTMLCanvasElement, f: Frame, look: Look, unitOfBed: Int32Array, axes?: { columns: [number, string][]; selected?: number; depth?: number; active: number[]; sharedDistance?: boolean; title?: string; hoveredDot?: number }): Placement {
+export function paintSection(canvas: HTMLCanvasElement, f: Frame | null, look: Look, unitOfBed: Int32Array, axes?: { columns: [number, string][]; selected?: number; depth?: number; active: number[]; sharedDistance?: boolean; title?: string; hoveredDot?: number }): Placement {
   const { c, width, height, dpr } = box(canvas), p = axes ? SECTION_PAD : { l: 0, r: 0, t: 0, b: 0 };
   const L = p.l * dpr, T = p.t * dpr, iw = width - L - p.r * dpr, ih = height - T - p.b * dpr;
   c.clearRect(0, 0, width, height);
   c.imageSmoothingEnabled = true; c.imageSmoothingQuality = "high";
-  c.drawImage(image(f, look.view, look.palette, look.boundaries, unitOfBed), L, T, iw, ih);
-  if (look.faults) {
+  if (f) c.drawImage(image(f, look.view, look.palette, look.boundaries, unitOfBed), L, T, iw, ih);
+  else { c.fillStyle = PENDING; c.fillRect(L, T, iw, ih); }
+  if (f && look.faults) {
     const rock = (i: number, k: number) => i < 0 || i >= f.nx || k < 0 || k >= f.nz || f.beds[k * f.nx + i] !== -1;
     c.save(); c.beginPath(); c.rect(L, T, iw, ih); c.clip();
     c.strokeStyle = RUST; c.lineWidth = Math.max(1.2, 1.3 * dpr); c.lineJoin = "round"; c.beginPath();
@@ -116,7 +120,7 @@ export function paintSection(canvas: HTMLCanvasElement, f: Frame, look: Look, un
     c.stroke(); c.restore();
   }
   if (axes) {
-    if (axes.depth !== undefined) {
+    if (f && axes.depth !== undefined) {
       const Y = T + axes.depth / DEPTH * ih;
       c.save(); c.beginPath(); c.rect(L, T, iw, ih); c.clip();
       c.setLineDash([4 * dpr, 4 * dpr]); c.lineWidth = dpr;
@@ -170,8 +174,9 @@ export const LOG_LABELS = ["A", "B", "C"];
 // Space for the graph's velocity title and tick labels inside its card.
 export const LOG_PAD = { l: 50, r: 18, t: SECTION_PAD.t, b: 12 };
 export interface LogView { selected: number; active: number[]; depth: number }
-/** Raw grid samples, with cell boundaries halfway between depth nodes; no smoothing or averaging. */
-export function paintLog(canvas: HTMLCanvasElement, f: Frame, view: LogView, columns: [number, string][]): Placement {
+/** Raw grid samples, with cell boundaries halfway between depth nodes; no smoothing or averaging.
+ * Without a frame (still simulating) only the axes and grid are drawn. */
+export function paintLog(canvas: HTMLCanvasElement, f: Frame | null, view: LogView, columns: [number, string][]): Placement {
   const { c, width, height, dpr } = box(canvas), T = LOG_PAD.t * dpr, ih = height - T - LOG_PAD.b * dpr, L = LOG_PAD.l * dpr, iw = width - L - LOG_PAD.r * dpr;
   const comparing = view.active.length > 1;
   c.clearRect(0, 0, width, height);
@@ -193,6 +198,8 @@ export function paintLog(canvas: HTMLCanvasElement, f: Frame, view: LogView, col
   c.save(); c.translate(14 * dpr, T + ih / 2); c.rotate(-Math.PI / 2);
   c.textAlign = "center"; c.fillText("Depth (km)", 0, 0); c.restore();
   c.strokeStyle = "#aeb1a6"; c.beginPath(); c.moveTo(L, T); c.lineTo(L, T + ih); c.lineTo(L + iw, T + ih); c.stroke();
+  const placement = { left: LOG_PAD.l, top: LOG_PAD.t, width: iw / dpr, height: ih / dpr };
+  if (!f) return placement;
   c.save(); c.beginPath(); c.rect(L, T, iw, ih); c.clip();
   columns.forEach(([x, color], index) => {
     if (!view.active.includes(index)) return;
@@ -219,7 +226,7 @@ export function paintLog(canvas: HTMLCanvasElement, f: Frame, view: LogView, col
     c.beginPath(); c.arc(X(v), Y(view.depth), 4.5 * dpr, 0, 2 * Math.PI); c.fill(); c.stroke();
   });
   c.restore();
-  return { left: LOG_PAD.l, top: LOG_PAD.t, width: iw / dpr, height: ih / dpr };
+  return placement;
 }
 
 /** The checks' chart: simulated 10-90% band and median below the sea floor, and reference curves to their stated depth. */
