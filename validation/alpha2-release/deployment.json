@@ -1,0 +1,119 @@
+{
+  "schema": "earthforge-pages-alpha2-verification-v1",
+  "verifiedAt": "2026-10-18T07:23:37.245583+00:00",
+  "url": "https://arthifact.github.io/earthforge/",
+  "version": "0.2.0-alpha.2",
+  "sourceCommit": "11d9b65a9a178980e0bb165b05c54632f2dd8b23",
+  "appAssetsVerified": 18,
+  "allAssetHashesMatch": true,
+  "files": [
+    {
+      "path": "3d.html",
+      "bytes": 552,
+      "contentType": "text/html",
+      "sha256": "e36c62043f849d140fd561f4eefa9d501069facdc122574b7c31a4eb9523e028"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1081,
+      "contentType": "application/octet-stream",
+      "sha256": "3c08c30dc4ca9c7f577c7f259d5bf3591079508f7a3989f93100428bc34cfb01"
+    },
+    {
+      "path": "assets/classic-E-WjDsi0.css",
+      "bytes": 14271,
+      "contentType": "text/css",
+      "sha256": "3ee6c750d14411f3656aa6ac43764694c781811f7585866c234a05652b7bf590"
+    },
+    {
+      "path": "assets/classic-KiN3v9LS.js",
+      "bytes": 50627,
+      "contentType": "application/javascript",
+      "sha256": "f7f5fd1b81a5e9750b4f631fb3f8c6edb0aab6dc56e8b5a22b16da3c8d049aac"
+    },
+    {
+      "path": "assets/conditioning.worker-DkxMl8fi.js",
+      "bytes": 2610,
+      "contentType": "application/javascript",
+      "sha256": "76302466a53f1bd2e23eb028fbfd014312bca8a1342a24d75ba70e3ec2ac539f"
+    },
+    {
+      "path": "assets/history3d.worker-DXaB3--G.js",
+      "bytes": 4242,
+      "contentType": "application/javascript",
+      "sha256": "033776aeb1c10963e30be74aa812b670570b3620b1b943d95a428e5442386fc8"
+    },
+    {
+      "path": "assets/history3dApp-BXK4MUMr.css",
+      "bytes": 13266,
+      "contentType": "text/css",
+      "sha256": "4b282fc6c93551195b47bdb4b0a84a3fea499c35b2ce3963e3d44baba6fa5168"
+    },
+    {
+      "path": "assets/history3dApp-Ddm_Gu2d.js",
+      "bytes": 77895,
+      "contentType": "application/javascript",
+      "sha256": "0cf0ef9d39536325a74047fb93a96f81ed3d25d8f15ccfa1693c24907b01dcc4"
+    },
+    {
+      "path": "assets/modulepreload-polyfill-B5Qt9EMX.js",
+      "bytes": 711,
+      "contentType": "application/javascript",
+      "sha256": "d2a32840421496e872ade591618d2fa5c33797605d1aec04301717e5a90757d0"
+    },
+    {
+      "path": "assets/worker-Ls_YYlCF.js",
+      "bytes": 78209,
+      "contentType": "application/javascript",
+      "sha256": "5dc7b3816a63685ac7620221b22f9033b549a4191ad5cff93443b2d16e99b57a"
+    },
+    {
+      "path": "benchmarks/curved-conditioning-verification.json",
+      "bytes": 20008,
+      "contentType": "application/json",
+      "sha256": "22ce29d425490e8ec3adc8041798e955f47fdaec1f115619ff43f523ad1d65af"
+    },
+    {
+      "path": "benchmarks/curved-conditioning.json",
+      "bytes": 8057,
+      "contentType": "application/json",
+      "sha256": "180d5bc34add0a0187e2a9da0f0aaafde269df7789b4e59bb888d3e4e30a5449"
+    },
+    {
+      "path": "classic.html",
+      "bytes": 762,
+      "contentType": "text/html",
+      "sha256": "b37dbba4727058924ef0af29cac35caa42f965da5d2f74de12cb58e9b484ee4f"
+    },
+    {
+      "path": "index.html",
+      "bytes": 752,
+      "contentType": "text/html",
+      "sha256": "3fea14085094206b1546f5c2a8903c050abd251bc49ee686f0b6d48b92a0baa2"
+    },
+    {
+      "path": "rust/earthforge_core.wasm",
+      "bytes": 1408064,
+      "contentType": "application/wasm",
+      "sha256": "3e48e6401de8268e452e433242a9013d9d01e936b9b9bf9194839ee36a81e80e"
+    },
+    {
+      "path": "rust/earthforge_core_deterministic.wasm",
+      "bytes": 1424844,
+      "contentType": "application/wasm",
+      "sha256": "b03ffd3e81faf4cc2fd8a29833912cd229310696176ee966f17b5855911b86b6"
+    },
+    {
+      "path": "rust/earthforge_core_deterministic_simd.wasm",
+      "bytes": 1392409,
+      "contentType": "application/wasm",
+      "sha256": "007a672eacc7ea46c935e6db90f4ea2ce1511ce398f1d71cea15ef778e35dc72"
+    },
+    {
+      "path": "rust/earthforge_core_simd.wasm",
+      "bytes": 1375466,
+      "contentType": "application/wasm",
+      "sha256": "1ef2ac3066a57d2536fd8401ff8e5d102faac57235c760b5bc57ad60adf8cbbd"
+    }
+  ]
+}

@@ -83,6 +83,23 @@ and [MDN's Wasm loading guide](https://developer.mozilla.org/en-US/docs/WebAssem
 
 ## Public status
 
+### Alpha 2 deployment, 18 October 2026
+
+The public site now serves `0.2.0-alpha.2` from source commit
+`11d9b65a9a178980e0bb165b05c54632f2dd8b23`, including curved faults, well and
+horizon conditioning, and the recorded synthetic benchmarks. The
+[release workflow](https://github.com/arthifact/earthforge/actions/runs/39101952130)
+completed successfully: all 14 jobs passed, including all 217 JavaScript tests
+across six shards and the six native/Python platform combinations.
+
+The [retained release evidence](../validation/alpha2-release/README.md) records
+the deployed asset hashes and a small native-parity test using the four engines
+downloaded from the public site. These are release checks, rather than evidence
+of field accuracy. The separate [real-log diagnostic](field-validation-alpha2.md)
+on the research branch reports all controls and uncertainty; it does not
+establish SOTA performance or validate generated 3D field geometry. This web
+deployment does not publish a new installer release or upload to PyPI.
+
 The web alpha is live on [GitHub Pages](https://arthifact.github.io/earthforge/),
 with the [3D basin](https://arthifact.github.io/earthforge/3d.html) at a separate
 entry page. The public site uses HTTPS and needs no sign-in. The original
@@ -123,4 +140,4 @@ The alpha release provides the tagged source and verified platform installers.
 Python registry publication remains separate; nothing is uploaded to PyPI by
 the build or deployment workflow. See the
 [research example](../examples/research/README.md) for installation and complete
-verification. This release does not change the numerical engine.
+verification. The initial alpha packaging did not change the numerical engine.

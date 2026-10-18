@@ -1,0 +1,26 @@
+{
+  "schema": "earthforge-pages-browser-check-v1",
+  "verifiedAt": "2026-10-18T07:29:53.145Z",
+  "url": "https://arthifact.github.io/earthforge/3d.html",
+  "sourceCommit": "11d9b65a9a178980e0bb165b05c54632f2dd8b23",
+  "scenario": "listric-rift-v1",
+  "seed": 1001,
+  "stage": 12,
+  "ready": "Ready",
+  "conditioning": [
+    "Search complete \u00b7 0.27 s \u00b7 same Rust scoring as Python.",
+    "9 candidates \u00b7 effective sample size 5.82 \u00b7 stage 12. Synthetic example generated from the displayed basin; not field observations."
+  ],
+  "selectedCandidate": "Viewing candidate-1 \u00b7 exact source history \u00b7 stage 12.",
+  "sharedSection": {
+    "status": "Ready",
+    "context": "Continuous section \u00b7 same 3D history",
+    "elapsed": "13.00 s",
+    "blockEvaluations": "2"
+  },
+  "cutaway": true,
+  "rotation": "45",
+  "recordedBenchmarksLoaded": true,
+  "consoleWarningsOrErrors": [],
+  "scope": "Published app workflow smoke test using clearly labelled synthetic observations. Not field geometry validation or a controlled performance benchmark."
+}

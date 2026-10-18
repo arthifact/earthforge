@@ -1,0 +1,30 @@
+{
+  "schema": "earthforge-public-engine-smoke-v1",
+  "scenario": "listric-rift-v1",
+  "seed": 1001,
+  "stage": 12,
+  "candidates": 9,
+  "results": [
+    {
+      "name": "earthforge_core.wasm",
+      "curvedGeologyExactWithNative": true,
+      "conditioningExactWithNative": true
+    },
+    {
+      "name": "earthforge_core_simd.wasm",
+      "curvedGeologyExactWithNative": true,
+      "conditioningExactWithNative": true
+    },
+    {
+      "name": "earthforge_core_deterministic.wasm",
+      "curvedGeologyExactWithNative": true,
+      "conditioningExactWithNative": true
+    },
+    {
+      "name": "earthforge_core_deterministic_simd.wasm",
+      "curvedGeologyExactWithNative": true,
+      "conditioningExactWithNative": true
+    }
+  ],
+  "scope": "Small public-byte smoke test; extended regression and local synthetic verification are separate. Not field geometry validation."
+}

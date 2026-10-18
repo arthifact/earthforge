@@ -1,0 +1,158 @@
+{
+  "databaseId": 39101952130,
+  "status": "completed",
+  "conclusion": "success",
+  "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130",
+  "headSha": "11d9b65a9a178980e0bb165b05c54632f2dd8b23",
+  "jobs": [
+    {
+      "name": "Native and Python (macos-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130/job/117599905298"
+    },
+    {
+      "name": "Browser engine and Pages build",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130/job/117599905486"
+    },
+    {
+      "name": "Native and Python (macos-latest, 3.10)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130/job/117599905518"
+    },
+    {
+      "name": "Native and Python (ubuntu-latest, 3.10)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130/job/117599905532"
+    },
+    {
+      "name": "Native and Python (windows-latest, 3.10)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130/job/117599905550"
+    },
+    {
+      "name": "Native and Python (ubuntu-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130/job/117599905558"
+    },
+    {
+      "name": "Native and Python (windows-latest, 3.12)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130/job/117599905580"
+    },
+    {
+      "name": "Browser regressions (2/6)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130/job/117600292797"
+    },
+    {
+      "name": "Browser regressions (4/6)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130/job/117600292801"
+    },
+    {
+      "name": "Browser regressions (5/6)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130/job/117600292819"
+    },
+    {
+      "name": "Browser regressions (1/6)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130/job/117600292832"
+    },
+    {
+      "name": "Browser regressions (3/6)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130/job/117600292843"
+    },
+    {
+      "name": "Browser regressions (6/6)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130/job/117600292932"
+    },
+    {
+      "name": "Publish verified alpha to GitHub Pages",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/arthifact/earthforge/actions/runs/39101952130/job/117616307540"
+    }
+  ],
+  "browserRegressions": {
+    "workflowRun": 39101952130,
+    "sourceCommit": "11d9b65a9a178980e0bb165b05c54632f2dd8b23",
+    "productionTestFiles": 35,
+    "shards": [
+      {
+        "shard": "browser-regressions-1",
+        "reporter": "Node default text",
+        "tests": 51,
+        "pass": 51,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      },
+      {
+        "shard": "browser-regressions-2",
+        "reporter": "Node default text",
+        "tests": 28,
+        "pass": 28,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      },
+      {
+        "shard": "browser-regressions-3",
+        "reporter": "Node default text",
+        "tests": 41,
+        "pass": 41,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      },
+      {
+        "shard": "browser-regressions-4",
+        "reporter": "Node default text",
+        "tests": 30,
+        "pass": 30,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      },
+      {
+        "shard": "browser-regressions-5",
+        "reporter": "Node default text",
+        "tests": 36,
+        "pass": 36,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      },
+      {
+        "shard": "browser-regressions-6",
+        "reporter": "Node default text",
+        "tests": 31,
+        "pass": 31,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0
+      }
+    ],
+    "totalTestsPassed": 217,
+    "totalFailed": 0,
+    "totalSkipped": 0,
+    "completeFileCoverageVerifiedSeparately": true
+  }
+}
