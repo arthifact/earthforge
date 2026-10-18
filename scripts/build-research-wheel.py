@@ -37,7 +37,10 @@ def main():
     cargo = json.loads(subprocess.check_output(["cargo", "metadata", "--locked", "--offline", "--format-version", "1"], cwd=root))
     plat = sysconfig.get_platform().replace("-", "_").replace(".", "_")
     if sys.platform == "darwin":
-        major, minor, *_ = platform.mac_ver()[0].split(".")
+        major, minor, *_ = map(int, platform.mac_ver()[0].split("."))
+        # macOS 11+ wheel tags use major_0, including on later minor releases.
+        if major >= 11:
+            minor = 0
         plat = f"macosx_{major}_{minor}_{platform.machine()}"  # Conservative host platform, no older-OS claim.
     with tempfile.TemporaryDirectory(prefix="earthforge-wheel-") as tmp:
         stage = Path(tmp)
