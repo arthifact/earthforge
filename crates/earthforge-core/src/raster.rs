@@ -170,8 +170,8 @@ pub fn rasterize(columns: &[Column], nz: usize, h: f64) -> Result<Raster, String
                 "Full-domain projection would discard sediment from column {i}"
             ));
         }
-        if !outside.is_empty()
-            && !(material::total(&outside, s)? <= s.units(1e-6)?
+        if !(outside.is_empty()
+            || material::total(&outside, s)? <= s.units(1e-6)?
                 && outside
                     .iter()
                     .all(|p| [-1, -2].contains(&p.bed) && p.solid == 0.0))

@@ -1,7 +1,7 @@
 # Research alpha 0.2.0a1
 
 Earth Forge now has a reproducible research workflow around its shared Rust
-physics. This is a local alpha, not an independently field-validated or SOTA
+physics. This is a research alpha, not an independently field-validated or SOTA
 release. The [Python guide](../python/README.md) is the practical entry point.
 
 ## Available now
@@ -37,17 +37,26 @@ bed/unit contact queries and capability metadata.
 
 The release passes 85 Rust tests, 26 Python tests with the independent VTK
 reader, ten focused worker/loader/view checks, native/Wasm Clippy, TypeScript
-checking and production builds. Python 3.12 and 3.14 were exercised locally;
-the latter omits the separately installed external VTK reader. CI definitions
-cover Linux/macOS/Windows and Python 3.10/3.12, but unrun CI jobs are not claimed
-as passing. See the logs in `validation/research-release/`.
+checking and production builds locally. Python 3.12 and 3.14 were exercised
+locally; the latter omits the separately installed external VTK reader.
+Historical checkpoint logs remain in `validation/research-release/`.
+
+The [release workflow](../.github/workflows/research.yml) checks Linux, macOS
+and Windows with Python 3.10/3.12. On each platform Python 3.12 also installs
+the bundled wheel and executes the complete research example outside the source
+checkout with the independent VTK reader. The browser/reference regression
+suite is a required deployment gate. The
+[public Actions run](https://github.com/arthifact/earthforge/actions/workflows/research.yml)
+and verification reports attached to the tagged release record the actual
+results for that source revision; an unrun definition alone is not evidence.
 
 Nine existing scenario/replay queries retain exact physical results against
 the frozen previous native engine and all four new Wasm modules. New globally
 indexed windows, material-state arrays and horizon queries also agree across
 native and all four modules. Existing classic-recipe/acoustic validation remains
 recorded in the earlier history/block-viewer checkpoints; its numerical laws
-were not modified here. The full legacy TypeScript suite was not rerun.
+were not modified here. Those earlier checkpoint results are separate from the
+full legacy TypeScript suite run by the public release workflow.
 
 A frozen cohort tests six seeds in each of the three families on two grids:
 36 cases total. Every local grain gate passes, and all legacy velocity, bed,
@@ -127,14 +136,16 @@ and [the broader protocol](../validation/research-release/comparison-protocol.js
 4. **Matched research comparisons:** complex common geological tasks, identical
    field-scale outputs, precision and hardware; quantify memory, cost, quality
    and downstream FWI/generalization on whole-model/geology holdouts.
-5. **Public distribution and independent use:** finalized citation authors,
-   tested platform wheels, public documentation/release,
+5. **Independent use and distribution coverage:** finalized citation authors,
+   broader platform/OS coverage for installers,
    independently reproduced experiments and outside researchers completing
    useful tasks without developer assistance.
 
 The project now uses the MIT license; dependency notices remain in place.
 The [web alpha](https://arthifact.github.io/earthforge/) is published on GitHub
 Pages. No Python registry upload or messages to outside researchers were
-performed. The local wheel and evidence package are reviewable
-artifacts. A SOTA claim requires the remaining comparative evidence; adding
+performed. The tagged source, platform wheels, complete example and verification
+reports are distributed through the
+[alpha release](https://github.com/arthifact/earthforge/releases/tag/v0.2.0-alpha.1).
+A SOTA claim requires the remaining comparative evidence; adding
 features or passing internal tests alone cannot establish it.

@@ -438,8 +438,7 @@ impl MaterialVolume {
         };
         if !check.closed {
             return Err(format!(
-                "3D erosion grain-volume closure failed: normalized residual {}",
-                worst
+                "3D erosion grain-volume closure failed: normalized residual {worst}"
             ));
         }
         *self = candidate;
