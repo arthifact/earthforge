@@ -35,7 +35,7 @@ impl Bounds {
         let mut reach = vec![[0.0, 0.0]];
         for e in &s.events {
             let mut r = *reach.last().unwrap();
-            if let Some((fault, bend)) = e.fault_transform() {
+            if let Some((fault, bend, _)) = e.fault_transform() {
                 r[0] += fault.slip.x.abs() + bend.map_or(0.0, |b| 2.0 * b.amplitude.abs());
                 r[1] += fault.slip.y.abs();
             }
@@ -89,6 +89,11 @@ impl Bounds {
                 E::Fault { fault } | E::SweptFault { fault, .. } => {
                     lo += fault.slip.z.min(0.0);
                     hi += fault.slip.z.max(0.0);
+                }
+                E::ListricFault { fault, curve, .. } => {
+                    let extra = curve.displacement_bound(*fault);
+                    lo += (fault.slip.z - extra).min(0.0);
+                    hi += (fault.slip.z + extra).max(0.0);
                 }
                 E::Erosion { surface } => {
                     let r = range(surface, region);

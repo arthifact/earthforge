@@ -17,11 +17,11 @@ self.onmessage=async(event:MessageEvent<ViewerRequest>)=>{
    const p=value!.plane,plane={...p,velocity:p.velocity.slice(),beds:p.beds.slice(),lithology:p.lithology.slice()};post({id:r.id,kind:'plane',ok:true,plane,elapsedMs:value!.elapsedMs,cached,query:value!.query},[plane.velocity,plane.beds,plane.lithology].map(a=>a.buffer as ArrayBuffer));
   }catch(error){post({id:r.id,ok:false,message:(error as Error).message});}return;
  }
- const key=JSON.stringify([r.options,r.stage??r.options.steps,r.detail,r.depth??3000]);
+ const key=JSON.stringify([r.model??r.options,r.stage??r.options.steps,r.detail,r.depth??3000]);
  try{
   let value=replay.get(key);const cached=Boolean(value);
   if(!value){
-   const start=performance.now(),query=blockQuery(r.detail,r.depth),result=await rustRequest<History3dResult>({kind:'history3d',options:r.options,includeModel:true,query:{...query,stage:r.stage}});
+   const start=performance.now(),query=blockQuery(r.detail,r.depth),result=await rustRequest<History3dResult>({kind:'history3d',options:r.options,model:r.model,includeModel:true,query:{...query,stage:r.stage}});
    const elapsedMs=performance.now()-start,packing=performance.now(),p=result.projection;
    if(!p||!p.lithology||!p.surface)throw Error('The engine did not return the full material volume. Rebuild the Rust browser modules.');
    const volume:DisplayVolume={grid:p.grid,velocity:new Float32Array(p.velocity),beds:new Int32Array(p.beds),lithology:new Float32Array(p.lithology),surface:new Float32Array(p.surface),basement:new Float32Array(p.basement)};

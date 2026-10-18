@@ -138,5 +138,12 @@ def run_ensemble(engine: Engine, plan: EnsemblePlan, grid: Grid, path: str | Pat
 
 def condition_histories(engine: Engine, histories: list[History], observations: list[dict], *, prior_weights: list[float] | None = None) -> dict:
     rows = validate_observations(observations)
-    scores = [score_history(engine, h, rows) for h in histories]
-    return {"schema": "earthforge-conditioning-v1", "observations": rows, "engineSha256": engine.sha256, "models": [h.model_sha256 for h in histories], "scores": scores, **normalize_weights(scores, prior_weights)}
+    if not histories:
+        raise ValueError("No candidates supplied")
+    for history in histories:
+        for row in rows:
+            for axis in ("x", "y", "z"):
+                if axis in row and not history.model["bounds"]["min"][axis] <= row[axis] <= history.model["bounds"]["max"][axis]:
+                    raise ValueError(f"Observation {row['id']} is outside the model coordinate bounds")
+    result = engine.request({"kind": "condition", "candidates": [{"id": str(i), "model": h.model, "stage": h.stage} for i, h in enumerate(histories)], "observations": rows, "priorWeights": prior_weights})
+    return {"schema": "earthforge-conditioning-v1", "observations": rows, "engineSha256": engine.sha256, "models": [h.model_sha256 for h in histories], "scores": result["scores"], **{k: result[k] for k in ("status", "weights", "effectiveSampleSize", "positiveWeightCandidates")}, "interpretation": result.get("interpretation", "No compatible candidates")}

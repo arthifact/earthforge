@@ -1,0 +1,26 @@
+{
+  "schema": "earthforge-curved-conditioning-plan-v1",
+  "status": "Frozen before implementing new geometry and conditioning",
+  "baseSourceCommit": "632f5d8",
+  "scope": "Prescribed listric 3D kinematics, shared native/browser observation scoring, app workflow, realistic synthetic benchmark. No independent field-accuracy or stress-equilibrium claim.",
+  "geometry": "Conjugate tangential planar slip by an along-strike horizontal shear and a smooth vertical shear. Each shear has determinant one; vertical source rays remain vertical. The dip curve flattens with depth and has globally bounded slope.",
+  "requiredGates": [
+    "Point-space independent inverse occupancy for two intersecting curved faults",
+    "Roundtrip map error below 1e-8 m on the declared finite domain",
+    "Finite-difference moving-branch Jacobian within 1e-7 of one, with analytical determinant derivation",
+    "Zero-curvature exact planar/swept reduction and zero-slip identity",
+    "Pruned and unpruned profiles agree exactly at interior and regional exterior probes",
+    "Old recipe f64 results unchanged against frozen native executable",
+    "Native and all four Wasm modules agree on physical outputs",
+    "Observation mixture likelihoods and finite-library weights match analytical and existing Python reference cases",
+    "Invalid observations and missing horizons remain visible; missing horizons have zero likelihood",
+    "Browser conditioning preserves model/stage and exported history for the selected candidate"
+  ],
+  "realisticSyntheticTasks": ["Listric rift growth strata", "Curved reverse-fault growth strata", "Curved fault erosion and reburial"],
+  "seeds": [1001, 908054, 20261014],
+  "materialSubdivisionsMetres": [20, 10, 5],
+  "measurements": ["Fixed-point velocity error and bed-boundary disagreements under material refinement", "All local grain residuals and failures", "Fresh-process elapsed time and peak RSS, fixed four native threads", "Separate coarse block, refined plane and conditioning times", "Synthetic held-out prediction errors with truth parameters excluded from candidate library"],
+  "timingPolicy": "One warmup and three isolated trials. Retain every trial; report median and maximum, not a reliable p95 from three samples. No speed superiority claim for unmatched workloads.",
+  "observationPolicy": "Synthetic development inputs only in this milestone. Freeze an independent observational protocol and resolve datum/quality before any field score. Reserved FORCE holdout and observational arrays remain unread.",
+  "convergencePolicy": "Report all refinement metrics and boundary differences; do not change tolerances or hide non-monotone cases. These are numerical diagnostics, not geological field errors."
+}

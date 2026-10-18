@@ -83,7 +83,7 @@ class Engine:
             raise EngineError(str(response.get("error", "Invalid engine response")) if isinstance(response, dict) else "Invalid engine response")
         return response["value"]
 
-    def build_history(self, scenario: str = "rift-v1", *, seed: int = 1001, parameters: Parameters | None = None, material_step: float = 10, steps: int | None = None, faults: int | None = None, compaction: bool | None = None, overpressure: bool | None = None) -> History:
+    def build_history(self, scenario: str = "rift-v1", *, seed: int = 1001, parameters: Parameters | None = None, material_step: float = 10, steps: int | None = None, faults: int | None = None, compaction: bool | None = None, overpressure: bool | None = None, curve_strength: float | None = None, curve_length_m: float | None = None, fault_dip_degrees: float | None = None, fault_slip_scale: float | None = None) -> History:
         if scenario not in SCENARIOS:
             raise ValueError(f"Unknown scenario {scenario!r}; choose {', '.join(SCENARIOS)}")
         integer(seed, "seed", 1, 2**32-1)
@@ -97,6 +97,11 @@ class Engine:
                 if not isinstance(value, bool):
                     raise ValueError(f"{name} must be boolean")
                 options[name] = value
+        for name, value, limits in [("curveStrength", curve_strength, (0, .95)), ("curveLength", curve_length_m, (100, 10000)), ("faultDipDegrees", fault_dip_degrees, (15, 80)), ("faultSlipScale", fault_slip_scale, (.25, 2))]:
+            if value is not None:
+                if options["geology"] != "listric-v1":
+                    raise ValueError("Curve controls require a versioned listric scenario")
+                options[name] = finite_number(value, name, *limits)
         p = parameters or Parameters()
         raw = self.request({"kind": "history3d", "options": options, "includeModel": True, "query": {"sectionsY": []}})
         history = History(transform_model(raw["sourceModel"], p), scenario=scenario, seed=seed, parameters={**p.to_dict(), "recipeOptions": options})

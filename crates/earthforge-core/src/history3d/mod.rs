@@ -5,6 +5,7 @@
 //! laws. This does not solve 3D stress equilibrium or a pore-fluid-flow PDE.
 pub mod audit;
 mod bounds;
+pub mod curved;
 pub mod model;
 pub mod output;
 pub mod preset;

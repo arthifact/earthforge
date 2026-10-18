@@ -14,7 +14,7 @@ pub fn request(input: Value) -> Result<Value, String> {
             "schema":"earthforge-capabilities-v1", "engine":"earthforge-core", "abi":1,
             "version":env!("CARGO_PKG_VERSION"), "geologicalHistoryDimensions":[2,3],
             "acousticDimensions":[2,3], "sourcePrecision":"binary64", "coordinates":"metres, z positive down",
-            "history3d":{"recipes":["classic","detailed"],"materialStepIndependentOfSampling":true,
+            "history3d":{"recipes":["classic","detailed","listric-v1"],"listricFaults":true,"conditioning":true,"materialStepIndependentOfSampling":true,
                 "globallyIndexedGridWindows":true,"materialStateProjection":true,"maxProjectionPointsPerRequest":4000000,
                 "maxUniqueRaysPerRequest":8192,"orthogonalSections":true,"explicitPointQueries":true,"allBedContactOccurrences":true,"depositionalUnitContacts":true},
             "assumptions":["Prescribed regional fault kinematics and pressure", "Vertical drained quasistatic compaction", "Open regional observation window"],
@@ -29,6 +29,7 @@ pub fn request(input: Value) -> Result<Value, String> {
             serde_json::to_value(crate::acoustic::simulate(shot)?)
                 .map_err(|error| error.to_string())
         }
+        "condition" => crate::conditioning::request(input),
         "history3d" => crate::history3d::output::request(input),
         "volume3d" => {
             let bounds: crate::polyhedron::Aabb = serde_json::from_value(input["bounds"].clone())

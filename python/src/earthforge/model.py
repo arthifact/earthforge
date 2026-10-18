@@ -119,7 +119,7 @@ def transform_model(model: dict, parameters: Parameters) -> dict:
             term["amplitude"] *= factor
     for event in spec["events"]:
         kind = event["kind"]
-        if kind in ("fault", "sweptFault") and parameters.slip_scale != 1:
+        if kind in ("fault", "sweptFault", "listricFault") and parameters.slip_scale != 1:
             for a in "xyz":
                 event["fault"]["slip"][a] *= parameters.slip_scale
         if kind == "subsidence":

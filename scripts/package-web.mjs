@@ -16,7 +16,7 @@ const output = resolve(values.out);
 if (existsSync(output)) throw new Error('Choose a new output folder; existing releases are never overwritten.');
 const dist = resolve(values.dist ?? join(root, 'dist'));
 const wasmNames = ['earthforge_core.wasm', 'earthforge_core_simd.wasm', 'earthforge_core_deterministic.wasm', 'earthforge_core_deterministic_simd.wasm'];
-const appFiles = ['index.html', '3d.html', 'classic.html', ...wasmNames.map(name => `rust/${name}`)];
+const appFiles = ['index.html', '3d.html', 'classic.html', 'benchmarks/curved-conditioning.json', 'benchmarks/curved-conditioning-verification.json', ...wasmNames.map(name => `rust/${name}`)];
 for (const name of readdirSync(join(dist, 'assets')).sort()) {
   if (!/\.(?:js|css)$/.test(name)) throw new Error(`Review the new asset type before packaging: ${name}`);
   appFiles.push(`assets/${name}`);

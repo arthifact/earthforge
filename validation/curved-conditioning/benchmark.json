@@ -1,0 +1,268 @@
+{
+  "schema": "earthforge-curved-conditioning-benchmark-v1",
+  "createdAt": "2026-10-18T05:15:49.046Z",
+  "runtime": "v24.18.0",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "cpu": "Apple M4 Pro",
+  "nativeThreads": 4,
+  "nativeSha256": "930f3e07d04778475eaed8210f9724fab7a71bf8c80b9482999a14214713987d",
+  "planSha256": "996279674989f564473cc1d5bdc03f6d98019cfff6f4ae64f05e71ce8af6441e",
+  "warmups": 1,
+  "trialsPerTask": 3,
+  "tasks": [
+    {
+      "scenario": "listric-rift-v1",
+      "task": "coarse-block",
+      "seed": 1001,
+      "stage": 12,
+      "materialSubdivisionMetres": 10,
+      "trials": [
+        {
+          "elapsedMs": 968.300834,
+          "peakRssBytes": 236453888,
+          "outputBytes": 16635018
+        },
+        {
+          "elapsedMs": 954.4812919999999,
+          "peakRssBytes": 237125632,
+          "outputBytes": 16635018
+        },
+        {
+          "elapsedMs": 968.697083,
+          "peakRssBytes": 237240320,
+          "outputBytes": 16635018
+        }
+      ],
+      "medianMs": 968.300834,
+      "maximumMs": 968.697083,
+      "maximumPeakRssBytes": 237240320,
+      "resultSha256": "e711c31aba66e42146595240095c6bbf5e68d96c91fa3625c9d4a3d162187364"
+    },
+    {
+      "scenario": "listric-rift-v1",
+      "task": "refined-10m-plane",
+      "seed": 1001,
+      "stage": 12,
+      "materialSubdivisionMetres": 10,
+      "trials": [
+        {
+          "elapsedMs": 413.45429200000035,
+          "peakRssBytes": 126828544,
+          "outputBytes": 8605658
+        },
+        {
+          "elapsedMs": 406.2698329999994,
+          "peakRssBytes": 127844352,
+          "outputBytes": 8605658
+        },
+        {
+          "elapsedMs": 414.6960829999998,
+          "peakRssBytes": 128073728,
+          "outputBytes": 8605658
+        }
+      ],
+      "medianMs": 413.45429200000035,
+      "maximumMs": 414.6960829999998,
+      "maximumPeakRssBytes": 128073728,
+      "resultSha256": "2c6bfe6d630cc1a99a1fdd9b917153958278da02bbe663c80510c2e45a0becc0"
+    },
+    {
+      "scenario": "listric-rift-v1",
+      "task": "nine-candidate-conditioning",
+      "seed": 1001,
+      "stage": 12,
+      "materialSubdivisionMetres": 10,
+      "trials": [
+        {
+          "elapsedMs": 21.455417000000125,
+          "peakRssBytes": 6488064,
+          "outputBytes": 21264
+        },
+        {
+          "elapsedMs": 21.04649999999947,
+          "peakRssBytes": 6848512,
+          "outputBytes": 21264
+        },
+        {
+          "elapsedMs": 19.453875000000153,
+          "peakRssBytes": 6881280,
+          "outputBytes": 21264
+        }
+      ],
+      "medianMs": 21.04649999999947,
+      "maximumMs": 21.455417000000125,
+      "maximumPeakRssBytes": 6881280,
+      "resultSha256": "fd1df80e3122a6536774dea04150d12a7c787914d780d84043c86b2378023da2"
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "task": "coarse-block",
+      "seed": 1001,
+      "stage": 12,
+      "materialSubdivisionMetres": 10,
+      "trials": [
+        {
+          "elapsedMs": 694.9891250000001,
+          "peakRssBytes": 228032512,
+          "outputBytes": 16288958
+        },
+        {
+          "elapsedMs": 686.662292,
+          "peakRssBytes": 228376576,
+          "outputBytes": 16288958
+        },
+        {
+          "elapsedMs": 689.255416,
+          "peakRssBytes": 228229120,
+          "outputBytes": 16288958
+        }
+      ],
+      "medianMs": 689.255416,
+      "maximumMs": 694.9891250000001,
+      "maximumPeakRssBytes": 228376576,
+      "resultSha256": "ec8dbfb2e995ba2cf938f725189b4786a0eae27e65b10433675453f95a727131"
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "task": "refined-10m-plane",
+      "seed": 1001,
+      "stage": 12,
+      "materialSubdivisionMetres": 10,
+      "trials": [
+        {
+          "elapsedMs": 297.91741600000023,
+          "peakRssBytes": 121749504,
+          "outputBytes": 8230706
+        },
+        {
+          "elapsedMs": 299.2529169999998,
+          "peakRssBytes": 119603200,
+          "outputBytes": 8230706
+        },
+        {
+          "elapsedMs": 287.1740000000009,
+          "peakRssBytes": 123371520,
+          "outputBytes": 8230706
+        }
+      ],
+      "medianMs": 297.91741600000023,
+      "maximumMs": 299.2529169999998,
+      "maximumPeakRssBytes": 123371520,
+      "resultSha256": "e0ea7ed43aabf809d57b8bde3b6acf7ec8ce124a0e35ce3a594eed5cf84e582d"
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "task": "nine-candidate-conditioning",
+      "seed": 1001,
+      "stage": 12,
+      "materialSubdivisionMetres": 10,
+      "trials": [
+        {
+          "elapsedMs": 16.25995900000089,
+          "peakRssBytes": 6438912,
+          "outputBytes": 21260
+        },
+        {
+          "elapsedMs": 16.24395799999911,
+          "peakRssBytes": 6979584,
+          "outputBytes": 21260
+        },
+        {
+          "elapsedMs": 16.848541999999725,
+          "peakRssBytes": 6848512,
+          "outputBytes": 21260
+        }
+      ],
+      "medianMs": 16.25995900000089,
+      "maximumMs": 16.848541999999725,
+      "maximumPeakRssBytes": 6979584,
+      "resultSha256": "8d16cfb464007f355890459e7e1bb9f1d9a456d366f9f543dabd5b488a1c299a"
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "task": "coarse-block",
+      "seed": 1001,
+      "stage": 12,
+      "materialSubdivisionMetres": 10,
+      "trials": [
+        {
+          "elapsedMs": 953.252833999999,
+          "peakRssBytes": 233177088,
+          "outputBytes": 16282229
+        },
+        {
+          "elapsedMs": 953.3397079999995,
+          "peakRssBytes": 233046016,
+          "outputBytes": 16282229
+        },
+        {
+          "elapsedMs": 964.3559159999986,
+          "peakRssBytes": 233160704,
+          "outputBytes": 16282229
+        }
+      ],
+      "medianMs": 953.3397079999995,
+      "maximumMs": 964.3559159999986,
+      "maximumPeakRssBytes": 233177088,
+      "resultSha256": "496309b5c82220ac10ce2bde32bfba38198428bb8bc0e58056318dd97a62c521"
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "task": "refined-10m-plane",
+      "seed": 1001,
+      "stage": 12,
+      "materialSubdivisionMetres": 10,
+      "trials": [
+        {
+          "elapsedMs": 426.02791699999943,
+          "peakRssBytes": 127270912,
+          "outputBytes": 8432644
+        },
+        {
+          "elapsedMs": 416.6787089999998,
+          "peakRssBytes": 125911040,
+          "outputBytes": 8432644
+        },
+        {
+          "elapsedMs": 416.7947919999988,
+          "peakRssBytes": 126484480,
+          "outputBytes": 8432644
+        }
+      ],
+      "medianMs": 416.7947919999988,
+      "maximumMs": 426.02791699999943,
+      "maximumPeakRssBytes": 127270912,
+      "resultSha256": "d59ef9dfab0de36fbeccf7ddb1add32951ac629a4748359342440a1887822509"
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "task": "nine-candidate-conditioning",
+      "seed": 1001,
+      "stage": 12,
+      "materialSubdivisionMetres": 10,
+      "trials": [
+        {
+          "elapsedMs": 22.039042000000336,
+          "peakRssBytes": 6864896,
+          "outputBytes": 21584
+        },
+        {
+          "elapsedMs": 21.755833999999595,
+          "peakRssBytes": 6586368,
+          "outputBytes": 21584
+        },
+        {
+          "elapsedMs": 21.93933300000026,
+          "peakRssBytes": 7127040,
+          "outputBytes": 21584
+        }
+      ],
+      "medianMs": 21.93933300000026,
+      "maximumMs": 22.039042000000336,
+      "maximumPeakRssBytes": 7127040,
+      "resultSha256": "4fd568f1a75c47ac77f957e75a840411db0aabe36c9ffc6099cd5aca4e5cc88f"
+    }
+  ],
+  "scope": "Fresh native process wall time includes request parsing, model compilation/evaluation, sampling/scoring and output serialization; caller result decoding is outside timing. Native peak RSS is process-specific, not combined browser/Python memory. The coarse full block is 49×49×241 over 10×10×3 km. The fine plane is 1001×301 at 10×10 m. These are different workloads and do not establish 10 m whole-basin throughput, field accuracy, energy efficiency or superiority over another generator."
+}

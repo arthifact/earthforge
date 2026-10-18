@@ -1,0 +1,70 @@
+{
+  "schema": "earthforge-curved-conditioning-workflow-v1",
+  "createdAt": "2026-10-18T05:25:22.393745+00:00",
+  "verification": "Manual production-browser actions plus Python/native reproduction of actual DOM-exported JSON",
+  "scenario": "listric-rift-v1",
+  "seed": 1001,
+  "stage": 12,
+  "candidate": {
+    "id": "candidate-1",
+    "slipScale": 0.7,
+    "curveStrength": 0.4
+  },
+  "uiChecks": {
+    "manualWellAndHorizonEntry": true,
+    "zeroUncertaintyRejectedWithoutAddingObservation": true,
+    "stageChangeClearsScores": true,
+    "selectedCandidateBadgeAndReadyStatus": true,
+    "selectedHistoryRetainedAcross2d3dAndSectionMotion": true,
+    "recordedNativeReportsLoadInProduction": true,
+    "customScenarioAnd45DegreeDipSurviveReload": true,
+    "browserWarningsAndErrors": []
+  },
+  "browserMeasurements": {
+    "scope": "Single observed browser runs on this machine; not repeated latency distributions. Native reports measure separate fresh-process tasks.",
+    "initialStandardBlockSeconds": 6.64,
+    "selectedCandidate10mPlaneSeconds": 2.45,
+    "plane": {
+      "axis": "y",
+      "positionMetres": 4810,
+      "nu": 1001,
+      "nv": 301
+    },
+    "blockEvaluationsBeforeAndAfterViewSwitchAndSectionMotion": [
+      3,
+      3
+    ]
+  },
+  "exportReproduction": {
+    "selectedCandidate": "candidate-1",
+    "sourceModelExact": true,
+    "stage": 12,
+    "pythonWeightsExact": true,
+    "pythonEssExact": true,
+    "cropGrid": {
+      "nx": 17,
+      "ny": 17,
+      "nz": 101,
+      "dx": 10,
+      "dy": 10,
+      "dz": 10,
+      "origin": {
+        "x": 3400.0,
+        "y": 4100.0,
+        "z": 800.0
+      }
+    },
+    "npzAllFieldsExact": true,
+    "independentVtkVelocityExact": true,
+    "modelDigest": "8481b16936b5a19056c27d984d99fb51a511019e88a8996741b4fa3aaa844870",
+    "volumeDigest": "b03501090e8d0c65993bc2c0a1093395f5136e86ec83dc26862d95deb0b169a6"
+  },
+  "testSuites": {
+    "rustTestsPassed": 96,
+    "pythonTestsPassed": 29,
+    "focusedJavascriptTestsPassed": 18,
+    "nativeAndWasmClippyWarningsDenied": "passed",
+    "typescriptAndProductionBuild": "passed"
+  },
+  "scope": "Synthetic workflow and numerical checks only. No independent observed field validation, calibrated uncertainty or SOTA ranking."
+}

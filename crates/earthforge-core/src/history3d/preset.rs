@@ -1,4 +1,5 @@
 //! Deterministic 3D event recipes. Seeds choose parameters, not a rendered volume.
+use super::curved::DipCurve;
 use super::model::{
     FaciesFront, HistoryEvent as E, HistorySpec, SpatialField as F, StrikeBend, Wave,
 };
@@ -23,6 +24,24 @@ fn ten() -> f64 {
 fn yes() -> bool {
     true
 }
+fn curvature() -> f64 {
+    0.7
+}
+fn curve_length() -> f64 {
+    1800.0
+}
+fn one() -> f64 {
+    1.0
+}
+fn is_curvature(v: &f64) -> bool {
+    *v == curvature()
+}
+fn is_length(v: &f64) -> bool {
+    *v == curve_length()
+}
+fn is_one(v: &f64) -> bool {
+    *v == 1.0
+}
 fn classic(v: &str) -> bool {
     v == "classic"
 }
@@ -42,6 +61,14 @@ pub struct HistoryOptions {
     pub material_step: f64,
     #[serde(skip_serializing_if = "classic")]
     pub geology: String,
+    #[serde(skip_serializing_if = "is_curvature")]
+    pub curve_strength: f64,
+    #[serde(skip_serializing_if = "is_length")]
+    pub curve_length: f64,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub fault_dip_degrees: Option<f64>,
+    #[serde(skip_serializing_if = "is_one")]
+    pub fault_slip_scale: f64,
 }
 impl Default for HistoryOptions {
     fn default() -> Self {
@@ -55,6 +82,10 @@ impl Default for HistoryOptions {
             overpressure: false,
             material_step: ten(),
             geology: "classic".into(),
+            curve_strength: curvature(),
+            curve_length: curve_length(),
+            fault_dip_degrees: None,
+            fault_slip_scale: one(),
         }
     }
 }
@@ -70,7 +101,7 @@ impl Rng {
     }
 }
 pub fn generate(o: &HistoryOptions) -> Result<HistorySpec, String> {
-    if !matches!(o.geology.as_str(), "classic" | "detailed") {
+    if !matches!(o.geology.as_str(), "classic" | "detailed" | "listric-v1") {
         return Err("Unknown geological recipe".into());
     }
     if !(2..=24).contains(&o.steps)
@@ -78,6 +109,66 @@ pub fn generate(o: &HistoryOptions) -> Result<HistorySpec, String> {
         || !matches!(o.setting.as_str(), "extension" | "compression")
     {
         return Err("Unsupported 3D history options".into());
+    }
+    if !o.curve_strength.is_finite()
+        || !(0.0..=0.95).contains(&o.curve_strength)
+        || !o.curve_length.is_finite()
+        || !(100.0..=10000.0).contains(&o.curve_length)
+        || !o.fault_slip_scale.is_finite()
+        || !(0.25..=2.0).contains(&o.fault_slip_scale)
+        || o.fault_dip_degrees
+            .is_some_and(|v| !v.is_finite() || !(15.0..=80.0).contains(&v))
+    {
+        return Err("Invalid listric recipe geometry controls".into());
+    }
+    if o.geology != "listric-v1"
+        && (o.curve_strength != curvature()
+            || o.curve_length != curve_length()
+            || o.fault_dip_degrees.is_some()
+            || o.fault_slip_scale != 1.0)
+    {
+        return Err("Listric geometry controls require the listric-v1 recipe".into());
+    }
+    if o.geology == "listric-v1" {
+        let mut spec = detailed(o)?;
+        for event in &mut spec.events {
+            if let E::SweptFault { fault, bend } = event {
+                let mut f = *fault;
+                if let Some(degrees) = o.fault_dip_degrees {
+                    let h = crate::math::hypot(f.normal.x, f.normal.y);
+                    let ux = f.normal.x / h;
+                    let uy = f.normal.y / h;
+                    let amount =
+                        crate::math::hypot(crate::math::hypot(f.slip.x, f.slip.y), f.slip.z)
+                            * f.slip.z.signum();
+                    let angle = degrees.to_radians();
+                    let horizontal_normal = crate::math::sin(angle);
+                    let vertical_normal = crate::math::sin(std::f64::consts::FRAC_PI_2 - angle);
+                    f.normal = P {
+                        x: ux * horizontal_normal,
+                        y: uy * horizontal_normal,
+                        z: vertical_normal,
+                    };
+                    f.slip = P {
+                        x: -amount * vertical_normal * ux,
+                        y: -amount * vertical_normal * uy,
+                        z: amount * horizontal_normal,
+                    };
+                }
+                f.slip.x *= o.fault_slip_scale;
+                f.slip.y *= o.fault_slip_scale;
+                f.slip.z *= o.fault_slip_scale;
+                *event = E::ListricFault {
+                    fault: f,
+                    bend: Some(*bend),
+                    curve: DipCurve {
+                        strength: o.curve_strength,
+                        length: o.curve_length,
+                    },
+                };
+            }
+        }
+        return Ok(spec);
     }
     if o.geology == "detailed" {
         return detailed(o);

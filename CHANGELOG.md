@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- Versioned dip-curved/along-strike-bent 3D fault scenarios, with conservative
+  inverse material transport and explicit curve/dip/slip controls.
+- Shared Rust well/horizon likelihoods and candidate weights for Python and Wasm.
+- A Data panel for observations, candidate search, predictions, exact model
+  selection and study export; export dialogs include inspectable JSON.
+- Realistic synthetic curved-basin, refinement, held-out conditioning and
+  fresh-process time/memory benchmarks, with recorded results in Measure.
+
 - One persistent workspace for 2D and 3D, with settings that scroll beside the model.
 - 2D sections now sample the same Rust 3D history, preserving model and stage when switching views.
 - Debounced continuous-model section refinement at 20 × 10 m or 10 × 10 m display spacing; the selected refined plane is shared with WebGL2.

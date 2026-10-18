@@ -1,3 +1,4 @@
+use super::curved::DipCurve;
 use super::profile::{Profile, grains};
 use crate::{
     material::{self, Bed, Column},
@@ -172,6 +173,12 @@ pub enum HistoryEvent {
         fault: PlanarFault,
         bend: StrikeBend,
     },
+    ListricFault {
+        fault: PlanarFault,
+        #[serde(default)]
+        bend: Option<StrikeBend>,
+        curve: DipCurve,
+    },
     Pressure {
         #[serde(default)]
         top: Option<SpatialField>,
@@ -181,10 +188,13 @@ pub enum HistoryEvent {
     Compact {},
 }
 impl HistoryEvent {
-    pub(super) fn fault_transform(&self) -> Option<(PlanarFault, Option<StrikeBend>)> {
+    pub(super) fn fault_transform(
+        &self,
+    ) -> Option<(PlanarFault, Option<StrikeBend>, Option<DipCurve>)> {
         match self {
-            Self::Fault { fault } => Some((*fault, None)),
-            Self::SweptFault { fault, bend } => Some((*fault, Some(*bend))),
+            Self::Fault { fault } => Some((*fault, None, None)),
+            Self::SweptFault { fault, bend } => Some((*fault, Some(*bend), None)),
+            Self::ListricFault { fault, bend, curve } => Some((*fault, *bend, Some(*curve))),
             _ => None,
         }
     }
@@ -215,6 +225,7 @@ impl HistoryEvent {
             Self::Erosion { .. } => "erosion",
             Self::Fault { .. } => "fault slip",
             Self::SweptFault { .. } => "curved-strike fault slip",
+            Self::ListricFault { .. } => "listric 3D fault slip",
             Self::Pressure { .. } => "pressure",
             Self::Compact {} => "compaction",
         }
@@ -323,6 +334,14 @@ impl HistoryModel {
                     bend.validate()?;
                     dep[0] |= fault.normal.x != 0.0;
                     dep[1] |= fault.normal.y != 0.0 || bend.amplitude != 0.0;
+                }
+                HistoryEvent::ListricFault { fault, bend, curve } => {
+                    curve.validate(*fault)?;
+                    if let Some(b) = bend {
+                        b.validate()?;
+                    }
+                    dep[0] |= fault.normal.x != 0.0;
+                    dep[1] |= fault.normal.y != 0.0 || bend.is_some_and(|b| b.amplitude != 0.0);
                 }
                 HistoryEvent::Deposit {
                     bed,
@@ -433,25 +452,40 @@ impl Evaluator<'_> {
             return Err("3D ray evaluation budget exceeded".into());
         }
         let (mut profile, start) = if let Some(i) = self.model.last_fault[n] {
-            let (fault, bend) = self.model.spec.events[i].fault_transform().unwrap();
+            let (fault, bend, curve) = self.model.spec.events[i].fault_transform().unwrap();
             let reference_x = bend.map_or(x, |b| x - b.offset(y));
             let source_y = y - fault.slip.y;
             let source_x = bend.map_or(x - fault.slip.x, |b| {
                 reference_x - fault.slip.x + b.offset(source_y)
             });
             let actual_dx = bend.map_or(fault.slip.x, |_| x - source_x);
+            let actual_dz = curve.map_or(fault.slip.z, |c| {
+                fault.slip.z + c.offset(fault, reference_x, y)
+                    - c.offset(fault, reference_x - fault.slip.x, source_y)
+            });
+            if !actual_dz.is_finite() {
+                return Err("Nonfinite listric displacement".into());
+            }
             let pressure = self.model.pressure_at(i + 1, x, y)?;
             let moving = |e: &mut Self| -> Result<Profile, String> {
                 let mut p = (*e.evaluate(i, source_x, source_y)?).clone();
-                p.translated(fault.slip.z)?;
+                p.translated(actual_dz)?;
                 for l in &mut p.layers {
                     l.offset_x += actual_dx;
                     l.offset_y += fault.slip.y;
-                    l.offset_z += fault.slip.z;
+                    l.offset_z += actual_dz;
                 }
                 Ok(p)
             };
-            let mut p = if fault.normal.z == 0.0 {
+            let mut p = if curve.is_some()
+                && fault.slip.x == 0.0
+                && fault.slip.y == 0.0
+                && fault.slip.z == 0.0
+            {
+                // An exact identity avoids a round-trip through the shears and
+                // unnecessary cuts, including for horizontally varying fields.
+                (*self.evaluate(i, x, y)?).clone()
+            } else if fault.normal.z == 0.0 {
                 if (reference_x - fault.point.x) * fault.normal.x
                     + (y - fault.point.y) * fault.normal.y
                     < 0.0
@@ -464,13 +498,14 @@ impl Evaluator<'_> {
                 let cut = fault.point.z
                     - ((reference_x - fault.point.x) * fault.normal.x
                         + (y - fault.point.y) * fault.normal.y)
-                        / fault.normal.z;
+                        / fault.normal.z
+                    + curve.map_or(0.0, |c| c.offset(fault, reference_x, y));
                 if !cut.is_finite() {
                     return Err("3D fault/ray intersection exceeds finite bounds".into());
                 }
                 let envelope = self.model.bounds.envelopes[i];
-                let below = cut < envelope[0].min(envelope[0] + fault.slip.z);
-                let above = cut > envelope[1].max(envelope[1] + fault.slip.z);
+                let below = cut < envelope[0].min(envelope[0] + actual_dz);
+                let above = cut > envelope[1].max(envelope[1] + actual_dz);
                 if self.pruning && self.model.bounds.valid_for(i + 1, x, y) && (below || above) {
                     self.stats.pruned_fault_branches += 1;
                     let use_moving = if below {
@@ -580,7 +615,9 @@ impl Evaluator<'_> {
                         .compact_with_work(&self.model.spec.beds, pressure)?
                         .1;
                 }
-                HistoryEvent::Fault { .. } | HistoryEvent::SweptFault { .. } => unreachable!(),
+                HistoryEvent::Fault { .. }
+                | HistoryEvent::SweptFault { .. }
+                | HistoryEvent::ListricFault { .. } => unreachable!(),
             }
             let after = profile.grains();
             let input = grains(&incoming);

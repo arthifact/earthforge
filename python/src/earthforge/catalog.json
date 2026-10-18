@@ -5,22 +5,91 @@
       "id": "rift-v1",
       "name": "Rift growth strata",
       "description": "Differential subsidence, normal-fault slip episodes, migrating facies and accommodation-limited sediment packages.",
-      "options": {"steps": 12, "faults": 2, "setting": "extension", "geology": "detailed", "compaction": true, "exhumation": false, "overpressure": false},
+      "options": {
+        "steps": 12,
+        "faults": 2,
+        "setting": "extension",
+        "geology": "detailed",
+        "compaction": true,
+        "exhumation": false,
+        "overpressure": false
+      },
       "limits": "Kinematic regional rift analogue. Faults bend along strike, not in dip. No stress-equilibrium solution."
     },
     {
       "id": "reverse-fault-v1",
       "name": "Reverse-fault growth strata",
       "description": "Repeated reverse-fault slip with deposition between episodes and retained burial/loading histories.",
-      "options": {"steps": 12, "faults": 2, "setting": "compression", "geology": "detailed", "compaction": true, "exhumation": false, "overpressure": false},
+      "options": {
+        "steps": 12,
+        "faults": 2,
+        "setting": "compression",
+        "geology": "detailed",
+        "compaction": true,
+        "exhumation": false,
+        "overpressure": false
+      },
       "limits": "Reverse-fault analogue; not a mechanically balanced fold-and-thrust belt or a curved-dip thrust model."
     },
     {
       "id": "erosion-reburial-v1",
       "name": "Erosion and reburial",
       "description": "An extensional history with a later prescribed erosional episode and subsequent sedimentation; irreversible material memories retained.",
-      "options": {"steps": 12, "faults": 2, "setting": "extension", "geology": "detailed", "compaction": true, "exhumation": true, "overpressure": true},
+      "options": {
+        "steps": 12,
+        "faults": 2,
+        "setting": "extension",
+        "geology": "detailed",
+        "compaction": true,
+        "exhumation": true,
+        "overpressure": true
+      },
       "limits": "Prescribed erosion surface and pressure threshold, without a coupled uplift, erosion-transport or pore-fluid-flow solver."
+    },
+    {
+      "id": "listric-rift-v1",
+      "name": "Curved-fault rift",
+      "description": "Dip-curved, along-strike-bent fault transport with growth strata and retained material history. Differential subsidence, normal-fault slip episodes, migrating facies and accommodation-limited sediment packages.",
+      "options": {
+        "steps": 12,
+        "faults": 2,
+        "setting": "extension",
+        "geology": "listric-v1",
+        "compaction": true,
+        "exhumation": false,
+        "overpressure": false
+      },
+      "limits": "Volume-preserving prescribed kinematics. Dip flattens down-fault; vertical drained compaction. No stress equilibrium or balanced fold-and-thrust solution."
+    },
+    {
+      "id": "listric-reverse-v1",
+      "name": "Curved reverse-fault basin",
+      "description": "Dip-curved, along-strike-bent fault transport with growth strata and retained material history. Repeated reverse-fault slip with deposition between episodes and retained burial/loading histories.",
+      "options": {
+        "steps": 12,
+        "faults": 2,
+        "setting": "compression",
+        "geology": "listric-v1",
+        "compaction": true,
+        "exhumation": false,
+        "overpressure": false
+      },
+      "limits": "Volume-preserving prescribed kinematics. Dip flattens down-fault; vertical drained compaction. No stress equilibrium or balanced fold-and-thrust solution."
+    },
+    {
+      "id": "listric-reburial-v1",
+      "name": "Curved-fault erosion and reburial",
+      "description": "Dip-curved, along-strike-bent fault transport with growth strata and retained material history. An extensional history with a later prescribed erosional episode and subsequent sedimentation; irreversible material memories retained.",
+      "options": {
+        "steps": 12,
+        "faults": 2,
+        "setting": "extension",
+        "geology": "listric-v1",
+        "compaction": true,
+        "exhumation": true,
+        "overpressure": true
+      },
+      "limits": "Volume-preserving prescribed kinematics. Dip flattens down-fault; vertical drained compaction. No stress equilibrium or balanced fold-and-thrust solution."
     }
   ]
 }

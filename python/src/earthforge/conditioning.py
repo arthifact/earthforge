@@ -75,52 +75,14 @@ def log_mean_exp(values: list[float]) -> float:
 def score_history(engine: Engine, history: History, observations: list[dict]) -> dict:
     rows = validate_observations(observations)
     model = history.model
-    query: dict = {"sectionsY": [], "points": [], "rays": [], "horizons": []}
-    if history.stage is not None:
-        query["stage"] = history.stage
-    indices = []
-    unavailable = set()
     for row in rows:
-        for a in ("x", "y", "z"):
-            if a in row and not model["bounds"]["min"][a] <= row[a] <= model["bounds"]["max"][a]:
+        for axis in ("x", "y", "z"):
+            if axis in row and not model["bounds"]["min"][axis] <= row[axis] <= model["bounds"]["max"][axis]:
                 raise ValueError(f"Observation {row['id']} is outside the model coordinate bounds")
-        kind = row["kind"]
-        target = "points" if kind == "velocity" else "horizons" if kind == "horizon" else "rays"
-        indices.append((target, len(query[target])))
-        if target == "points":
-            query[target].append({a: row[a] for a in "xyz"})
-        elif target == "horizons":
-            selector = "bed" if "bed" in row else "unit"
-            known = row[selector] < len(model["beds"]) if selector == "bed" else any(b["unit"] == row[selector] for b in model["beds"])
-            if not known:
-                unavailable.add(row["id"])
-                query[target].append({"x": row["x"], "y": row["y"], "bed": 0})
-            else:
-                query[target].append({a: row[a] for a in ("x", "y", selector)})
-        else:
-            query[target].append([row["x"], row["y"]])
-    if not model["beds"] and query["horizons"]:
-        return {"status": "incompatible", "logLikelihood": None, "reason": "No sediment beds for a horizon observation", "predictions": []}
-    result = engine.request({"kind": "history3d", "model": model, "query": query})
-    predictions = []
-    total = 0.0
-    for row, (target, i) in zip(rows, indices):
-        sample = result[target][i]
-        if target == "horizons":
-            depths = [] if row["id"] in unavailable else [c[0 if row["side"] == "top" else 1] for c in sample["contacts"]]
-            occurrence = row.get("occurrence")
-            if occurrence is not None:
-                depths = depths[occurrence:occurrence+1]
-            likelihood = log_mean_exp([gaussian_log_likelihood(row["value"], d, row["sigma"]) for d in depths])
-            prediction = depths
-            interpretation = "Equal-weight mixture across all occurrences" if occurrence is None else f"Occurrence {occurrence}, shallowest first"
-        else:
-            prediction = sample["velocity" if target == "points" else row["kind"]]
-            likelihood = gaussian_log_likelihood(row["value"], prediction, row["sigma"])
-            interpretation = "Independent Gaussian; sigma supplied by caller"
-        total += likelihood
-        predictions.append({"id": row["id"], "kind": row["kind"], "prediction": prediction, "value": row["value"], "sigma": row["sigma"], "logLikelihood": likelihood if math.isfinite(likelihood) else None, "interpretation": interpretation})
-    return {"status": "compatible" if math.isfinite(total) else "incompatible", "logLikelihood": total if math.isfinite(total) else None, "predictions": predictions, "assumptions": "Independent Gaussian observation/model-discrepancy errors. Horizons use the explicit occurrence or a normalized equal-weight mixture. Missing horizons have zero likelihood. No field-calibrated coverage claim."}
+    if not engine.capabilities.get("history3d", {}).get("conditioning"):
+        raise ValueError("Engine lacks shared conditioning; rebuild the current Rust core")
+    result = engine.request({"kind": "condition", "candidates": [{"id": "history", "model": model, "stage": history.stage}], "observations": rows})
+    return result["scores"][0]
 
 
 def normalize_weights(scores: list[dict], prior_weights: list[float] | None = None) -> dict:

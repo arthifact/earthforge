@@ -57,11 +57,15 @@ earthforge generate --scenario rift-v1 --seed 1001 \
 earthforge inspect rift-model
 ```
 
-`rift-v1`, `reverse-fault-v1` and `erosion-reburial-v1` are versioned families
-of the supported detailed recipe, not three independent physics engines. The
+`rift-v1`, `reverse-fault-v1` and `erosion-reburial-v1` retain the detailed
+recipe. Current source also includes `listric-rift-v1`, `listric-reverse-v1`
+and `listric-reburial-v1`, using the same core with curved fault geometry.
+The listric families accept `curve_strength`, `curve_length_m`,
+`fault_dip_degrees` and `fault_slip_scale` in `Engine.build_history`.
+See [the geometry and conditioning notes](../docs/curved-faults-and-conditioning.md). The
 reverse-fault recipe is not a balanced fold-and-thrust model. Erosion, pressure
-and fault motion are prescribed; compaction is vertical and drained. Faults
-bend along strike, not in dip. There is no stress equilibrium, fluid-flow,
+and fault motion are prescribed; compaction is vertical and drained. Detailed-recipe faults bend along strike; listric faults also flatten down dip
+through an invertible, volume-preserving prescribed slip map. There is no stress equilibrium, fluid-flow,
 salt-dynamics or field-calibrated uncertainty solver.
 
 The default 33 × 33 × 161 output is a coarse, 10 × 10 × 3 km preview. It is
@@ -155,6 +159,11 @@ observations = [
 weighted = condition_histories(engine, histories, observations)
 print(weighted["weights"], weighted["effectiveSampleSize"])
 ```
+
+Current source delegates scoring and batch weights to the shared Rust API,
+including the browser Data panel. Rebuild the native engine when updating from
+the published alpha. A batch supports up to 64 candidates and 1024 observations;
+larger ensembles can score individual histories through `run_ensemble`.
 
 Observation kinds are `velocity`, `surface`, `basement` and `horizon`. Queries
 use the continuous model, not display voxels. `sigma` is a caller-specified

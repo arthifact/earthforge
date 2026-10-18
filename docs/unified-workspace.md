@@ -42,17 +42,24 @@ histories at stages 0, 6 and 12. All three plane directions match intersecting
 3D block nodes exactly; native and portable Wasm planes agree exactly. These
 are synthetic software identity checks, not independent field validation.
 
-## Next research milestone
+## Curved faults and conditioning follow-up
+
+The next milestone below is now implemented in the current source, with
+versioned curved scenarios, a Data panel and recorded synthetic benchmarks.
+See [the implementation, verification and limits](curved-faults-and-conditioning.md).
+Independent field validation and the following broader coverage remain open.
+
+## Implemented milestone design
 
 The preferred display strategy is a coarse preview followed by targeted
 refinement. Micro-voxel rendering is no longer a development objective. Finer
 sampling should answer a scientific query and retain the same material field.
 
-The recommended next release is **controllable 3D fault geometry with a
-reproducible growth-strata benchmark**. Current faults can bend along strike
-but do not curve in dip. Begin with a fault that flattens with depth (listric
-geometry), explicit fault location/dip/slip controls, and consistent transport
-of beds, composition and burial/loading memory through its history.
+This milestone adds **controllable 3D fault geometry with a reproducible
+growth-strata benchmark**. The listric geometry flattens down dip and bends
+along strike while transporting beds, composition and burial/loading memory.
+The app exposes curve, reference dip and slip controls; individual fault
+locations remain part of the explicit source model rather than app controls.
 
 Derive and verify the transport before adding the viewer controls. Require
 zero-slip and planar-fault reductions, analytical cases where available,
@@ -75,8 +82,8 @@ holdouts.
 - Extend geological coverage one process at a time: depositional clinoforms,
   channels, carbonate platforms and eventually salt-related structures. Label
   prescribed geometry separately from solved sediment transport or salt flow.
-- Bring the existing Python well/horizon conditioning into the workspace, then
-  improve candidate exploration and correlated observation errors. Evaluate
+- Improve the shared app/Python conditioning with broader candidate exploration
+  and correlated observation errors. Evaluate
   uncertainty coverage on unseen cases; a weighted finite library is not an
   independently calibrated posterior.
 - Profile generation and refinement separately. Reuse unaffected history/ray

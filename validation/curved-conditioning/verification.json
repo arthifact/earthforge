@@ -1,0 +1,617 @@
+{
+  "schema": "earthforge-curved-conditioning-verification-v1",
+  "createdAt": "2026-10-18T05:13:59.240Z",
+  "runtime": "v24.18.0",
+  "planSha256": "996279674989f564473cc1d5bdc03f6d98019cfff6f4ae64f05e71ce8af6441e",
+  "nativeSha256": "930f3e07d04778475eaed8210f9724fab7a71bf8c80b9482999a14214713987d",
+  "beforeNativeSha256": "4b12794dac905bd9e65c81dbc959bc8b49294ed7315e63065ccf6e6360213e44",
+  "wasmSha256": {
+    "earthforge_core.wasm": "f9ffb5cb3fc9866f2fb415ae7ec184e6a0a7dbe5788d88dfe924e6b8e39a1c33",
+    "earthforge_core_simd.wasm": "852384c3bea3724f6fa7cea56924e4ab8367ae146c00136178197fb103905da9",
+    "earthforge_core_deterministic.wasm": "afb43baff45a0e75f4618150f09b539c684f2ac1d1e0919433000a573cf6a5cc",
+    "earthforge_core_deterministic_simd.wasm": "f0b497a2d93f0fd78dfe4dd4c7772da900882f3c8c6e31c88398f7cc572c7cf9"
+  },
+  "regressions": [
+    {
+      "scenario": "rift-v1",
+      "stage": 0,
+      "physicalSourceExact": true
+    },
+    {
+      "scenario": "rift-v1",
+      "stage": 6,
+      "physicalSourceExact": true
+    },
+    {
+      "scenario": "rift-v1",
+      "stage": 12,
+      "physicalSourceExact": true
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "stage": 0,
+      "physicalSourceExact": true
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "stage": 6,
+      "physicalSourceExact": true
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "stage": 12,
+      "physicalSourceExact": true
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "stage": 0,
+      "physicalSourceExact": true
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "stage": 6,
+      "physicalSourceExact": true
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "stage": 12,
+      "physicalSourceExact": true
+    }
+  ],
+  "curved": [
+    {
+      "scenario": "listric-rift-v1",
+      "seed": 1001,
+      "stage": 6,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 24375,
+      "maxNormalizedGrainResidual": 0,
+      "physicalSha256": "7ae06130fbaf3e52bc29a12e5cd67ab9d69b1bcb70d61155d265565e1b9f8c1b"
+    },
+    {
+      "scenario": "listric-rift-v1",
+      "seed": 1001,
+      "stage": 12,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 88665,
+      "maxNormalizedGrainResidual": 0,
+      "physicalSha256": "37d7ee418c5dc6f27fe86cc79710ad0b44cb985d5099baaa6caf2e5aed8ba84a"
+    },
+    {
+      "scenario": "listric-rift-v1",
+      "seed": 908054,
+      "stage": 6,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 28180,
+      "maxNormalizedGrainResidual": 0,
+      "physicalSha256": "e1cb595d7ee3c32f938d72052f790c4112465b0405cee1145e97150b87e9d475"
+    },
+    {
+      "scenario": "listric-rift-v1",
+      "seed": 908054,
+      "stage": 12,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 102126,
+      "maxNormalizedGrainResidual": 0,
+      "physicalSha256": "0316ff82d563dc4d207ad8d20ef26bb8ece82fb49d33ecb5cd9da5299abc5c53"
+    },
+    {
+      "scenario": "listric-rift-v1",
+      "seed": 20261014,
+      "stage": 6,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 22276,
+      "maxNormalizedGrainResidual": 0,
+      "physicalSha256": "099c977d4cbbc958b068dd63358656dcfe139767e0f6fb8577bccf57792d637f"
+    },
+    {
+      "scenario": "listric-rift-v1",
+      "seed": 20261014,
+      "stage": 12,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 74497,
+      "maxNormalizedGrainResidual": 0,
+      "physicalSha256": "5e1e625fe87bdd9dba40fe92ffe05288fe1e15354d1a53e37fcf5251614d546c"
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "seed": 1001,
+      "stage": 6,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 23517,
+      "maxNormalizedGrainResidual": 0.0000028477523543439947,
+      "physicalSha256": "afb7041ad1f0107f7dccf576709f38a86eb24030788f91fc4d60e5206491cedb"
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "seed": 1001,
+      "stage": 12,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 58343,
+      "maxNormalizedGrainResidual": 0.000005777730655656517,
+      "physicalSha256": "bc5f7503b11c1acde777bf3999557f95870fc41e6158834c1f2c3c1225175fbd"
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "seed": 908054,
+      "stage": 6,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 26812,
+      "maxNormalizedGrainResidual": 0.000004139903175646404,
+      "physicalSha256": "f109cee4e19433f70682ed086dd24d668c5ce0d289db2be75d1e388c3fbaeee1"
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "seed": 908054,
+      "stage": 12,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 63836,
+      "maxNormalizedGrainResidual": 0.000006303331443365951,
+      "physicalSha256": "aea8c2a071594a09fa11aa43cb1609ff0b54b96c7717720b2906379f21f9d6e5"
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "seed": 20261014,
+      "stage": 6,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 21532,
+      "maxNormalizedGrainResidual": 0.0000048905591828975066,
+      "physicalSha256": "39f6c7799177a9c29eb44657c6592aab4ca3bc72314878b05acfa31520c2b942"
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "seed": 20261014,
+      "stage": 12,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 49953,
+      "maxNormalizedGrainResidual": 0.00000640922192729654,
+      "physicalSha256": "33e09ba07aa3116e540f86aee3a569ad8296982f333b2f0d3a31cfdde992c6cb"
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "seed": 1001,
+      "stage": 6,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 24894,
+      "maxNormalizedGrainResidual": 0,
+      "physicalSha256": "8b7486d9b883f297267e0b61f0a28e4bc000732f9bedabda85f0ca634ee0737c"
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "seed": 1001,
+      "stage": 12,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 89837,
+      "maxNormalizedGrainResidual": 0.00000549345258060506,
+      "physicalSha256": "d8e3c51533f32a3ae6ce33631ab66465affb1104abbbafb41d9a59033e03a194"
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "seed": 908054,
+      "stage": 6,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 28707,
+      "maxNormalizedGrainResidual": 0,
+      "physicalSha256": "d514b670ce91b2284d0740499c22e65ab66f7c29a926c51aaedbb6fa51eb8886"
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "seed": 908054,
+      "stage": 12,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 103330,
+      "maxNormalizedGrainResidual": 0.000005377384268970037,
+      "physicalSha256": "9c4bcd6c6768ca8c7394304ac86c279bcf44a289ab9f986ea464ec0b5a9f449b"
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "seed": 20261014,
+      "stage": 6,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 22790,
+      "maxNormalizedGrainResidual": 0,
+      "physicalSha256": "c784bd86613d500addcc81a61d915ad6204a7b00b31ac2a7caa73c54290c2e81"
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "seed": 20261014,
+      "stage": 12,
+      "allFiveEnginesExact": true,
+      "localGrainChecks": 75243,
+      "maxNormalizedGrainResidual": 0.000006069322655462419,
+      "physicalSha256": "2e3ad0144befb212af0bc53cfaad0fd7389bbed0da12183ac1d8b64199ea7325"
+    }
+  ],
+  "refinement": [
+    {
+      "scenario": "listric-rift-v1",
+      "seed": 1001,
+      "points": 128,
+      "material20to10": {
+        "velocityRmsMps": 0.8802445391661717,
+        "velocityMaxMps": 2.919711298590755,
+        "matchingBedVelocityRmsMps": 0.8802445391661717,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "material10to5": {
+        "velocityRmsMps": 0.4643651270902723,
+        "velocityMaxMps": 1.2852221056909912,
+        "matchingBedVelocityRmsMps": 0.4643651270902723,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "grainGates": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "scenario": "listric-rift-v1",
+      "seed": 908054,
+      "points": 128,
+      "material20to10": {
+        "velocityRmsMps": 1.1712189250309233,
+        "velocityMaxMps": 9.325387189798448,
+        "matchingBedVelocityRmsMps": 1.1712189250309233,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "material10to5": {
+        "velocityRmsMps": 0.5008781641593649,
+        "velocityMaxMps": 1.8506515697067698,
+        "matchingBedVelocityRmsMps": 0.5008781641593649,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "grainGates": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "scenario": "listric-rift-v1",
+      "seed": 20261014,
+      "points": 128,
+      "material20to10": {
+        "velocityRmsMps": 0.9092382604318615,
+        "velocityMaxMps": 2.785709632449425,
+        "matchingBedVelocityRmsMps": 0.9092382604318615,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "material10to5": {
+        "velocityRmsMps": 0.48390368051914046,
+        "velocityMaxMps": 1.498583980479907,
+        "matchingBedVelocityRmsMps": 0.48390368051914046,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "grainGates": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "seed": 1001,
+      "points": 128,
+      "material20to10": {
+        "velocityRmsMps": 1.0562567247176036,
+        "velocityMaxMps": 3.5648529157433586,
+        "matchingBedVelocityRmsMps": 1.0562567247176036,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "material10to5": {
+        "velocityRmsMps": 0.5864096291434452,
+        "velocityMaxMps": 1.7757709128181887,
+        "matchingBedVelocityRmsMps": 0.5864096291434452,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "grainGates": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "seed": 908054,
+      "points": 128,
+      "material20to10": {
+        "velocityRmsMps": 1.3452532158137631,
+        "velocityMaxMps": 9.325387189798448,
+        "matchingBedVelocityRmsMps": 1.3452532158137631,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "material10to5": {
+        "velocityRmsMps": 0.6289855004041858,
+        "velocityMaxMps": 4.5343994469560585,
+        "matchingBedVelocityRmsMps": 0.6289855004041858,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "grainGates": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "seed": 20261014,
+      "points": 128,
+      "material20to10": {
+        "velocityRmsMps": 1.0263601531270885,
+        "velocityMaxMps": 3.9351741206010047,
+        "matchingBedVelocityRmsMps": 1.0263601531270885,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "material10to5": {
+        "velocityRmsMps": 0.48469596636710904,
+        "velocityMaxMps": 1.498583980479907,
+        "matchingBedVelocityRmsMps": 0.48469596636710904,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "grainGates": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "seed": 1001,
+      "points": 128,
+      "material20to10": {
+        "velocityRmsMps": 0.8030099872776172,
+        "velocityMaxMps": 2.418723476400828,
+        "matchingBedVelocityRmsMps": 0.8030099872776172,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "material10to5": {
+        "velocityRmsMps": 0.44662271266672976,
+        "velocityMaxMps": 1.5278554869698837,
+        "matchingBedVelocityRmsMps": 0.44662271266672976,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "grainGates": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "seed": 908054,
+      "points": 128,
+      "material20to10": {
+        "velocityRmsMps": 1.507195071878015,
+        "velocityMaxMps": 13.72576156401692,
+        "matchingBedVelocityRmsMps": 1.507195071878015,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "material10to5": {
+        "velocityRmsMps": 0.7697394343030655,
+        "velocityMaxMps": 6.750506448023771,
+        "matchingBedVelocityRmsMps": 0.7697394343030655,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "grainGates": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "seed": 20261014,
+      "points": 128,
+      "material20to10": {
+        "velocityRmsMps": 0.8488883285235412,
+        "velocityMaxMps": 3.097672415169427,
+        "matchingBedVelocityRmsMps": 0.8488883285235412,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "material10to5": {
+        "velocityRmsMps": 0.48644099706351085,
+        "velocityMaxMps": 1.3934938276577213,
+        "matchingBedVelocityRmsMps": 0.48644099706351085,
+        "matchingBedSamples": 128,
+        "bedBoundaryDisagreements": 0
+      },
+      "grainGates": [
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "conditioning": [
+    {
+      "scenario": "listric-rift-v1",
+      "seed": 1001,
+      "candidates": 27,
+      "observations": 6,
+      "truthParameters": {
+        "slipScale": 1.12,
+        "subsidenceScale": 1.07,
+        "curveStrength": 0.63
+      },
+      "truthExactlyInLibrary": false,
+      "heldOutPoints": 12,
+      "priorPredictionRmsMps": 271.28809084422124,
+      "weightedPredictionRmsMps": 112.96488907561641,
+      "effectiveSampleSize": 2.976344553229673,
+      "elapsedMs": 129.2477910000016,
+      "allFiveEnginesExact": true,
+      "scope": "Synthetic off-grid truth within the same recipe family; no observed field data, realistic noise model or calibrated coverage established."
+    },
+    {
+      "scenario": "listric-rift-v1",
+      "seed": 908054,
+      "candidates": 27,
+      "observations": 6,
+      "truthParameters": {
+        "slipScale": 1.12,
+        "subsidenceScale": 1.07,
+        "curveStrength": 0.63
+      },
+      "truthExactlyInLibrary": false,
+      "heldOutPoints": 12,
+      "priorPredictionRmsMps": 81.47287130724787,
+      "weightedPredictionRmsMps": 59.05907963060318,
+      "effectiveSampleSize": 2.194929141754862,
+      "elapsedMs": 164.815125000001,
+      "allFiveEnginesExact": true,
+      "scope": "Synthetic off-grid truth within the same recipe family; no observed field data, realistic noise model or calibrated coverage established."
+    },
+    {
+      "scenario": "listric-rift-v1",
+      "seed": 20261014,
+      "candidates": 27,
+      "observations": 6,
+      "truthParameters": {
+        "slipScale": 1.12,
+        "subsidenceScale": 1.07,
+        "curveStrength": 0.63
+      },
+      "truthExactlyInLibrary": false,
+      "heldOutPoints": 12,
+      "priorPredictionRmsMps": 62.204080847810125,
+      "weightedPredictionRmsMps": 38.315537229703054,
+      "effectiveSampleSize": 3.1199332438707117,
+      "elapsedMs": 115.83216600000014,
+      "allFiveEnginesExact": true,
+      "scope": "Synthetic off-grid truth within the same recipe family; no observed field data, realistic noise model or calibrated coverage established."
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "seed": 1001,
+      "candidates": 27,
+      "observations": 6,
+      "truthParameters": {
+        "slipScale": 1.12,
+        "subsidenceScale": 1.07,
+        "curveStrength": 0.63
+      },
+      "truthExactlyInLibrary": false,
+      "heldOutPoints": 12,
+      "priorPredictionRmsMps": 356.38286162541715,
+      "weightedPredictionRmsMps": 252.38259722226306,
+      "effectiveSampleSize": 3.395547159295542,
+      "elapsedMs": 114.95420800000284,
+      "allFiveEnginesExact": true,
+      "scope": "Synthetic off-grid truth within the same recipe family; no observed field data, realistic noise model or calibrated coverage established."
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "seed": 908054,
+      "candidates": 27,
+      "observations": 6,
+      "truthParameters": {
+        "slipScale": 1.12,
+        "subsidenceScale": 1.07,
+        "curveStrength": 0.63
+      },
+      "truthExactlyInLibrary": false,
+      "heldOutPoints": 12,
+      "priorPredictionRmsMps": 599.5108275966056,
+      "weightedPredictionRmsMps": 70.02656715353739,
+      "effectiveSampleSize": 1.0952587192974192,
+      "elapsedMs": 104.63804199999868,
+      "allFiveEnginesExact": true,
+      "scope": "Synthetic off-grid truth within the same recipe family; no observed field data, realistic noise model or calibrated coverage established."
+    },
+    {
+      "scenario": "listric-reverse-v1",
+      "seed": 20261014,
+      "candidates": 27,
+      "observations": 6,
+      "truthParameters": {
+        "slipScale": 1.12,
+        "subsidenceScale": 1.07,
+        "curveStrength": 0.63
+      },
+      "truthExactlyInLibrary": false,
+      "heldOutPoints": 12,
+      "priorPredictionRmsMps": 491.43205545880795,
+      "weightedPredictionRmsMps": 152.23893555423726,
+      "effectiveSampleSize": 2.6220256817001997,
+      "elapsedMs": 79.61454199999571,
+      "allFiveEnginesExact": true,
+      "scope": "Synthetic off-grid truth within the same recipe family; no observed field data, realistic noise model or calibrated coverage established."
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "seed": 1001,
+      "candidates": 27,
+      "observations": 6,
+      "truthParameters": {
+        "slipScale": 1.12,
+        "subsidenceScale": 1.07,
+        "curveStrength": 0.63
+      },
+      "truthExactlyInLibrary": false,
+      "heldOutPoints": 12,
+      "priorPredictionRmsMps": 272.74900704472066,
+      "weightedPredictionRmsMps": 141.17407195167317,
+      "effectiveSampleSize": 2.8357982903010526,
+      "elapsedMs": 127.61695899999904,
+      "allFiveEnginesExact": true,
+      "scope": "Synthetic off-grid truth within the same recipe family; no observed field data, realistic noise model or calibrated coverage established."
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "seed": 908054,
+      "candidates": 27,
+      "observations": 6,
+      "truthParameters": {
+        "slipScale": 1.12,
+        "subsidenceScale": 1.07,
+        "curveStrength": 0.63
+      },
+      "truthExactlyInLibrary": false,
+      "heldOutPoints": 12,
+      "priorPredictionRmsMps": 33.95478329766548,
+      "weightedPredictionRmsMps": 20.753498484051917,
+      "effectiveSampleSize": 2.339674692700438,
+      "elapsedMs": 167.1049159999966,
+      "allFiveEnginesExact": true,
+      "scope": "Synthetic off-grid truth within the same recipe family; no observed field data, realistic noise model or calibrated coverage established."
+    },
+    {
+      "scenario": "listric-reburial-v1",
+      "seed": 20261014,
+      "candidates": 27,
+      "observations": 6,
+      "truthParameters": {
+        "slipScale": 1.12,
+        "subsidenceScale": 1.07,
+        "curveStrength": 0.63
+      },
+      "truthExactlyInLibrary": false,
+      "heldOutPoints": 12,
+      "priorPredictionRmsMps": 26.03868810818379,
+      "weightedPredictionRmsMps": 23.839534273309308,
+      "effectiveSampleSize": 3.2316441840671586,
+      "elapsedMs": 114.63537499999802,
+      "allFiveEnginesExact": true,
+      "scope": "Synthetic off-grid truth within the same recipe family; no observed field data, realistic noise model or calibrated coverage established."
+    }
+  ],
+  "scope": "Synthetic numerical and workflow verification. Constitutive laws and acceptance tolerances unchanged. Curved transport is prescribed, invertible and volume-preserving; it is not stress equilibrium. Refinement and held-out synthetic errors are fully retained, including worse outcomes. Independent field validity and superiority remain unestablished."
+}

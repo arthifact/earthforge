@@ -268,6 +268,48 @@ class ResearchTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             score_history(self.engine, self.history, [dict(base, x=1001)])
 
+    def test_curved_recipe_controls_and_parameter_transform_preserve_source(self):
+        h = self.engine.build_history("listric-rift-v1", steps=6, faults=1, curve_strength=.65, curve_length_m=2200, fault_dip_degrees=60, fault_slip_scale=1.1)
+        faults = [e for e in h.model["events"] if e["kind"] == "listricFault"]
+        self.assertEqual(len(faults), 2)
+        self.assertEqual(faults[0]["curve"], {"strength": .65, "length": 2200})
+        self.assertAlmostEqual(faults[0]["fault"]["normal"]["z"], .5)
+        scaled = self.engine.build_history("listric-rift-v1", steps=6, faults=1, curve_strength=.65, curve_length_m=2200, fault_dip_degrees=60, fault_slip_scale=1.1, parameters=Parameters(slip_scale=1.2))
+        changed = [e for e in scaled.model["events"] if e["kind"] == "listricFault"]
+        for axis in "xyz":
+            self.assertEqual(changed[0]["fault"]["slip"][axis], faults[0]["fault"]["slip"][axis]*1.2)
+        self.assertEqual(faults[0]["curve"], {"strength": .65, "length": 2200})
+        with self.assertRaises(ValueError):
+            self.engine.build_history("rift-v1", curve_strength=.5)
+
+    def test_shared_rust_conditioning_matches_python_reference_weights(self):
+        histories = []
+        for shift in [-20, 0, 35]:
+            model = self.history.model
+            model["initialSurface"]["value"] += shift
+            histories.append(History(model))
+        obs = [{"id":"surface", "kind":"surface", "x":50, "y":60, "value":117, "sigma":12}, {"id":"horizon", "kind":"horizon", "x":0, "y":0, "unit":0, "side":"top", "value":160, "sigma":20}]
+        result = condition_histories(self.engine, histories, obs, prior_weights=[1, 2, .5])
+        reference = []
+        for shift in [-20, 0, 35]:
+            ll = gaussian_log_likelihood(117, 117+shift, 12) + log_mean_exp([gaussian_log_likelihood(160,100+shift,20),gaussian_log_likelihood(160,225+shift,20)])
+            reference.append({"logLikelihood": ll})
+        expected = normalize_weights(reference, [1, 2, .5])
+        np.testing.assert_allclose(result["weights"], expected["weights"], rtol=1e-12, atol=1e-14)
+        self.assertAlmostEqual(result["effectiveSampleSize"], expected["effectiveSampleSize"], places=12)
+        for score, ref in zip(result["scores"], reference):
+            self.assertAlmostEqual(score["logLikelihood"], ref["logLikelihood"], places=12)
+
+    def test_selected_conditioned_browser_model_reproduces_the_same_history(self):
+        base = self.engine.build_history("listric-rift-v1", steps=6, faults=1)
+        report = self.engine.request({"kind":"condition", "baseModel":base.model, "stage":4, "library":{"slipScales":[.7,1,1.3],"subsidenceScales":[1]}, "observations":[{"id":"well", "kind":"velocity", "x":3500,"y":4200,"z":1400,"value":3000,"sigma":100}], "includeModels":True})
+        candidate = report["candidates"][0]
+        browser = {"format":"earthforge-block-v1", "request":{"model":candidate["model"],"query":{"stage":4}},"conditioning":{"schema":"earthforge-browser-conditioning-v1","result":report}}
+        restored = History.from_record(browser)
+        expected = History(candidate["model"],stage=4)
+        self.assertEqual(self.engine.points(restored,[(3500,4200,1400)]),self.engine.points(expected,[(3500,4200,1400)]))
+        self.assertEqual(restored.model_sha256,expected.model_sha256)
+
     def test_finite_prior_draws_repeat_and_stay_in_explicit_ranges(self):
         plan = EnsemblePlan(count=20, priors={"slip_scale": [.7, 1.4], "facies_shift_m": [-100, 200]})
         self.assertEqual(plan.to_record(), plan.to_record())

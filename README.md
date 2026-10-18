@@ -46,6 +46,19 @@ The intended uses are candidate priors for full-waveform inversion (FWI),
 training data and synthetic test models. Suitability for any of these uses
 needs validation in the target setting.
 
+## Curved faults and app conditioning (unreleased)
+
+The current source adds three versioned curved-fault scenarios with down-dip
+flattening and along-strike bends. The unified workspace now includes a **Data**
+panel for well velocities and horizon depths, finite candidate-history search,
+prediction/weight inspection and exact selected-model export. Browser and Python
+use the same Rust scoring implementation. **Measure** separates live timings
+from recorded synthetic geology, refinement and held-out prediction benchmarks.
+
+The previous scenarios retain their source histories and physical outputs.
+Curved motion remains prescribed; stress equilibrium and independent field
+accuracy are not established. See the [model, workflow and benchmark scope](docs/curved-faults-and-conditioning.md).
+
 ## Rust migration (2026-10-17)
 
 The browser simulation worker now runs `earthforge-core` in WebAssembly.
