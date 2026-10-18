@@ -1,0 +1,329 @@
+{
+  "schema": "earthforge-subsurfacegen-control-results-v1",
+  "planSha256": "4b550a029997138826b3dbfea80739ba1e44f445a24159758771b8f534cf18dc",
+  "python": "3.12.14",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "threads": 4,
+  "sourceArchive": {
+    "source": "https://anonymous.4open.science/r/subsurfacegen-8961/",
+    "archiveDownload": "https://anonymous.4open.science/api/repo/subsurfacegen-8961/zip",
+    "archiveSha256": "457c640e14889c49db5ac65c5e0733191a13651aac8de45da4af85282dd2bee7",
+    "files": 170,
+    "access": "Root URL gave HTTP403 to direct client; published browser download succeeded.",
+    "sourceModified": false
+  },
+  "subsurfacegenPythonSourceHashes": {
+    "subsurfacegen/__init__.py": "b0979f08768cb5eb837a5a637c0c3945d3776bedc7597a3d79b16412548e93ec",
+    "dataset/config.py": "f28132150ea3d18a4df08bf50c065f171dec924662de89e026b86573c7c492e7",
+    "dataset/__init__.py": "492332ca5548b05097198fc9e442e1badbc2867c9e5043e4458eeb62d5e3d148",
+    "dataset/parquet_index.py": "2ee8299a13327271d12465a99b26ca46098b3e16439594a2f8c901f2688cd813",
+    "dataset/huggingface.py": "4669e4e54c9766957f2dc9fa0f892341d171054a1a3df061565c89e5583c8fdb",
+    "dataset/fake_dataset.py": "dcd581b3fccd4f5979663d4e3741cbde3362affbf606dbe701aae3f16be906f9",
+    "dataset/schema.py": "0deafc34324d9378487f89d7fef1da84f64e9a95a1a0e84ed230faa2f05c6a1c",
+    "paper_figures/fig_cube_cutaway.py": "21c1bc5eed35a732988f518cb323d43b03e02c2908ed7a0e6dd3f62438ebd4c3",
+    "paper_figures/fig_wavefield_panels_2x3.py": "871b471ac4076f390066e05d477e24338d3e7cd4f65bf5f72151962ce726dbb9",
+    "paper_figures/render_single_cubes.py": "65da0988004093af1187bfe088344e8cd7c26906f7464bc6ad3e81cdc0cf0f44",
+    "paper_figures/render_build_stages.py": "49321a036c6cb4eb6389319f79550e5645e1f73b48e60b9da2b8cf0ef7fe5179",
+    "paper_figures/fig_build_panels.py": "6ae82662dc397ec3e5099945d1ffed1d19f2c213366a8d9b9bc0b196304aa2f4",
+    "paper_figures/build_stages_render.py": "5687269f731e21e957582bdf3cb81a51f8006fa8647cbe470c0676810f24e8bf",
+    "paper_figures/fig_subsurfacegen_overview.py": "1ec7a5a0f92b9ebdf2d41d7f9c37b3ab72f4ac4ccbc9b0c656cf8ae98c816957",
+    "paper_figures/fig_build_panels_penobscot.py": "b527e369b50b375a39b22f837bc115c1076e1615afec98f5d3f4442904dc6824",
+    "paper_figures/fig_cube_cutaways_d619.py": "5bc02b17dbff6f461ff30b447ffeaed40197c85d6f1cb2963431451686793c8f",
+    "paper_figures/fig_shotgather_main_3x4.py": "4445d7cd12f98bd1abb816e8c101df7dc63c9c31583289479d4a0cdd91bd8299",
+    "paper_figures/fig_build_stages_flow.py": "4ea80896959cde6cb169034944509ad59a0c688701aa7205d04e9efde58f69d9",
+    "paper_figures/fig_cube_cutaway_penobscot.py": "12daff099550fe3e56b2c2f0d8e1bce9fcc2a3fb8f5ee8d6b1734f1d7da26c9f",
+    "subsurfacegen/wavefield/config.py": "216e3716d534049b510b7e874e5efbe5df6a673f1cb978ff625c309fd3ec8007",
+    "subsurfacegen/wavefield/cli_shot_gather_cube.py": "037b6b535cbaa28bda1936552ccf1168d36b8b9a7f761bc93b7c4623deb04199",
+    "subsurfacegen/wavefield/wavefield_generator.py": "78b29c2075d9cc04cd9339fa4d3f706b6ff33e9ae61528d9c8c37fb522e6129a",
+    "subsurfacegen/wavefield/__init__.py": "6b7ec203b5f4811fd693f4b1cb4c97a2f8fed12eb7870a68630d024081571961",
+    "subsurfacegen/wavefield/model_io.py": "eabdcfca32e5a752fa52cd6adfeb8299e26c65470ecacd6a57e4699369feb07a",
+    "subsurfacegen/wavefield/cli_2d_slice.py": "bb8f86190ad436b5f371c53a4cb4928748354a606495f094554bef9291e00f7f",
+    "subsurfacegen/wavefield/environment.py": "e731ee4355657adcfab070afe5564e011baf071dc57b8da5b0841dbb6f11a32a",
+    "subsurfacegen/wavefield/device_setup.py": "f35c7c5f0910c974417bd8143e2e9766da1f2a452533d9a6ba945d8401c482f6",
+    "subsurfacegen/model_builder/grid.py": "c12e6c3cc512d804514474b95f58c06b22b0ca7340398f0b332f1410cae7d9dd",
+    "subsurfacegen/model_builder/deposit_utils.py": "dfaba5452b18976bb4d4d9d24642c96f5236a04e753c52e78371e1aed7519f6b",
+    "subsurfacegen/model_builder/event.py": "ddf2b9f56ab0a9a4ec0d900e033943ef60491efbfa2b2f45059e1fc88f5d65de",
+    "subsurfacegen/model_builder/parameter_sampling.py": "5d51c9bcc616134de36a2736ff3b677d009a3216e83d0505261ef28471625394",
+    "subsurfacegen/model_builder/structural_smoothing.py": "4e6c046980d9650137402cd1c514277f9a321a1180dfb41648cbb3401c07baeb",
+    "subsurfacegen/model_builder/deposit.py": "a7334299e2f52caf5905b97a960bcba87af1d7a5c67cf49775c453179faba9c4",
+    "subsurfacegen/model_builder/salt_wedge.py": "ac5ffa67b818695c7f2fe480f7da533e6d5b462f1edc192adbc25f85c304dc80",
+    "subsurfacegen/model_builder/geo_model.py": "c80f3509c603d583fb4e007c3fa94a4745aab4e1145207732678533d62bd698e",
+    "subsurfacegen/model_builder/simplex_noise.py": "d717f9eb4efdf6335b4808431db3fd5bd8a93ae52ec1b8966962b0f550a484f9",
+    "subsurfacegen/model_builder/delta_clinoform.py": "c531d3da9f518b23aad6cdcdc627b87a98296c5f76233947bddc2e26c307ec38",
+    "subsurfacegen/model_builder/sinc_interpolation.py": "d610d057bd9eb4de073d144c6ae17a083a8899f02a3437db98dfa443800c4831",
+    "subsurfacegen/model_builder/__init__.py": "df3122d22516abd2a6b64f545741fd68fc0bd71f40ec4c28b47be44ab14fba3c",
+    "subsurfacegen/model_builder/salt_sdt.py": "2795c08476adcd2c7d206b8dd7153d7fe6739f951679fff480f2122caaabafd2",
+    "subsurfacegen/model_builder/carbonate.py": "e88df11eac67a1688ca36df6b668a003cc09c40e2fea1adfc3edaa01f5c4ead8",
+    "subsurfacegen/model_builder/visualization.py": "50efe6270e1fb1e9ff182b79141d9de5c653902f34e39a5b6b0cea2040edfa0b",
+    "subsurfacegen/model_builder/utils.py": "c02ed4f00201384f1014e64859691340c372064ddc7a1ec808268d841dddc549",
+    "subsurfacegen/model_builder/squish_utils.py": "588524e8f6aa90d66951070df505e07ae0bcc7e2979a77dcb12e048300286be2",
+    "subsurfacegen/model_builder/noise.py": "2cf1c56d411cae8e34a08aef293933070cd67c099ad8939d0690a92bae15c596",
+    "subsurfacegen/model_builder/opensimplex.py": "92d8b423a60c7a0a3c1d37ebffef66fd31824949fe5f7c257d2cca457fd842d6",
+    "subsurfacegen/model_builder/squish.py": "bbc24f448b9c765b2d87847fb506c27597b901ce6217d8b19bec88ba8d20e0d1",
+    "subsurfacegen/model_builder/fault.py": "71ad3614988d6ebd94a3ba64536b05002a6132f660c7f42fdb3ba3a0af7c38fc",
+    "subsurfacegen/slicing/metadata.py": "b049709678f5c08a24e7747020f7baf40b4e6880a350567e3d69b267a0db6d4e",
+    "subsurfacegen/slicing/__init__.py": "d7a647c21afdd2a90c4d9f0ed6e7f3a0dcdf48a4f7691ec6046027d0ec9d6d2f",
+    "subsurfacegen/slicing/cli_extract.py": "4b4529ca2c58e6f54b53a4629651eaca58b966466fa73674dd50f8dfe2fa0cd6",
+    "subsurfacegen/slicing/extractor.py": "81d236b5717ebc77a1a257a27bda68747577f667ba62611bad8ba2d676e49dad",
+    "subsurfacegen/slicing/model_loader.py": "5c7ecb5c1980f984a2810fe210f8400f8b5f9a78d6c642007975cfc716818334",
+    "subsurfacegen/slicing/processing.py": "9415d84e0e2006038a721245ff68cdd8e85c911e30f21f90c1ec368a28bb5960",
+    "subsurfacegen/wavefield/wavelets/__init__.py": "4b55350eae3aa2c2977f055178aa2fea5013bdf36c70292dc7e66f9d731e8251",
+    "subsurfacegen/wavefield/wavelets/ricker.py": "045071e4e519256856861040919afd4eb40619cb3398d7db1778921e1a85b541",
+    "subsurfacegen/wavefield/wavelets/visualization.py": "55fe20a5d46aa84fe459ac684f98abc69653f304ce76c2d80c3d6a4ba450c359",
+    "subsurfacegen/wavefield/wavelets/factory.py": "7a73006594f77b3df2d3957e10c921958a19e5d1f30a215116fefbfd3637f618",
+    "subsurfacegen/wavefield/wavelets/base.py": "5aa65e55fc64a57763d42467bf2759af65eb0e8c31c1d26e02fa00839be93d11",
+    "subsurfacegen/wavefield/sources/custom.py": "762dfadb2f7d360ac9c5a2574a41af5bddc00fbe04ae76e5793c3a3267b40a6d",
+    "subsurfacegen/wavefield/sources/__init__.py": "2eb9dc5fbb39236a43b8535d4b506be50b1e9408ff4476b62eb9389b780608eb",
+    "subsurfacegen/wavefield/geometry/streamer.py": "9dc63addb480989aba67831efe547ebd81e0a6a96215217d0d129e14e3b3b5bf",
+    "subsurfacegen/wavefield/geometry/__init__.py": "b43bc814e6bcd9f1f84be59408dbc53051384118202cbfc0aa5b04d1cfd3f9e8",
+    "subsurfacegen/wavefield/geometry/factory.py": "df3410e73971c98b92d7d6e74534a8b3da5f552ebbbd5e4c8e1f72e43649ba41",
+    "subsurfacegen/wavefield/geometry/obn.py": "cd9c9c80d2a4034d15507879851ec512cdf726c16b4f0cc25f2cbc076a250959",
+    "subsurfacegen/wavefield/geometry/transmission.py": "21bae958495ab9177c15e7b9277b5f27f761f5695ecd4e95a97d54b2ddf90c24",
+    "subsurfacegen/wavefield/geometry/base.py": "8ac9da21d48dcaa86933a536b47381b7ef8f2d43f8edc4c32edf625ab9e16005",
+    "subsurfacegen/wavefield/geometry/surface.py": "ef2cec249d50778c58b34eada12591b3278ffbaf0acd5c5b1f59a5393fa2551e",
+    "subsurfacegen/model_builder/analysis/sos_viewer.py": "6f1c9d4c971ff225a7a5d9b1005e035a3c49ac1d0ba0e9a95f22411f8e52b61b",
+    "subsurfacegen/model_builder/analysis/__init__.py": "ed6bd897a60f97a517424a0bfd81a9a010655115110446f2f33670465ab6e1d5",
+    "subsurfacegen/model_builder/analysis/sos_sweep.py": "05cb2e80ae713e7eff4167fc178f574cb5277100b451e6b2f59918fffc148a77",
+    "examples/improved_faulted_complex/generate_batch.py": "daee773272aeaa51708a13d1b2cc31b804ea2d2b659f67327f6d172579afe2a6",
+    "examples/improved_faulted_complex/generate_faulted_complex_model.py": "14e6bd1d59b5d9c6d490ba8cf904523bca944d4f7354cea37c85a0bbc0aacf04",
+    "examples/batch_generation/generate_models_batch.py": "7202cd9c4721284c495e87d968ff87c931e438060ff7f29f465693f174e32962",
+    "examples/batch_generation/check_files.py": "422770cca40342374a35f085f0265b0bcda683839ae0c57a01619af95a2952e9",
+    "examples/batch_generation/plot_saved_models.py": "6e68218acd5cb944125195f3c8c82196164cf1279b036dfd5ba2c247686fa93c",
+    "examples/batch_generation/correct_velocity_models.py": "d4cba1da44a58382bcf8dab5e8c755043eb8b0db834887064abb8d8347c06362",
+    "examples/batch_generation/run_batch_notebook.py": "b97a79617cb0e8c610a9115a26a6fd5da3d7df7043d62dc71a248b6e3874e7f1",
+    "examples/batch_generation/run_f3_only.py": "f834b2093fe9457a855f68f78f33cc1526b3fe67361d2b15d836f79e4ee86a44",
+    "examples/sos_smoothing/visualize_f3_d619.py": "421e8072a1399c1567a8d0dc1a7fba55c1ccc5ef125b5035b0dd43126a8d891a",
+    "examples/sos_smoothing/run_sos_smoothing_volumes.py": "bf5e4eb0b90855828cfffa0ff8fd3a61218294092e6ca1587115258515ef28ec",
+    "examples/sos_smoothing/smooth_all_d619.py": "ccf1312cf64cc0dd380f1359e1ac2bf840f22e94a44ae1f605d0195a7284ed19",
+    "examples/sos_smoothing/smooth_f3_d619.py": "15ea3d75d8c0c9869f45145ac856cc7eb65ba248e524b2402dc3532932bcfce4",
+    "examples/sos_smoothing/subsample_f3_depth.py": "11032f4bbc853b1f23ca3fd84df7e8e3e008c94127d6ae2424221dec8194b61a",
+    "examples/sos_smoothing/sos_utils.py": "b2e27ac4f757468e80af5320fe216614006f14f502e6af11af407571a9860a9a",
+    "examples/nova_scotia/sos_viewer.py": "eef8aa26f658f97900ce66a30d5018e4a74d50925ac75b478af8df282d71452b",
+    "examples/nova_scotia/compare_smoothing.py": "a6f3e9bf95f8225949fccf1df6f8fd73d940452e2669fa8e628840cdd4e75110",
+    "examples/nova_scotia/smooth_saved_model.py": "e2c4eec75ba8184ae236901606cc6c2f09bdde4082dd71d0b89aa780a28aa674",
+    "examples/nova_scotia/gaussian_smooth_volumes.py": "15f548b60eb980c2dcdbd0eb95041ca47709333b4c5f617b02963d4bcb3b24ff",
+    "examples/nova_scotia/generate_penobscot_model.py": "9b1ac82d476238a2acd43a04437cfe998a2ebae9aebe1e0f41e59f6ef001bee2",
+    "examples/nova_scotia/run_penobscot.py": "c1b95cc77cd0a6072b4f659ee34fa6495163cf4dccea1fb45756d8ab6f2d65c9",
+    "examples/nova_scotia/sos_hyperparam_search.py": "b2dbc204a3abcceadff1f76ac7b2ab4634a2751103677a598944045b3f41297f",
+    "examples/gom_salt_2/test_small_grid.py": "ea34746e0270272cb16f0b2eb60931418473958dcf9aafc6b515815ae0c522c9",
+    "examples/gom_salt_2/run_continuous_generation.py": "516cbc5d84b8a8b1aae447f5922754cc86336fe6488b6dd64da2d814ffac852d",
+    "examples/gom_salt_2/generate_gom_model.py": "ad96bff1655937c88c06e15e92c923e4ed04ae2190b19613081a0246e9911844",
+    "examples/gom_salt_2/__init__.py": "f989f32b741fff8e3584680d5f946158c6d1fbc43e6dd5211710b27517ea3b9d",
+    "examples/gom_salt_2/run_gom_generation.py": "e0ac4050ea04ed2a9b06e61e9865107052a7b0188398787e6d7da672a64656f7",
+    "examples/_benchmark/variants.py": "95c50412224ecd273799437e2850b281aba15793e92bf67c14976feb879ad9a3",
+    "examples/_benchmark/run_one_model.py": "ea04c86898655eb5b44ff9c0e13895cf4f09b3252ae6525b646039e8f4dbabbd",
+    "examples/_benchmark/__init__.py": "3cb7d04e3288e3cb9eaf6a60e66c16034ee04c2bb0b744a4fee9f542724294a1",
+    "examples/_benchmark/run_benchmarks.py": "23dd03dde49d5723ce6a67968df08f032727e67537147de1d1c880e6b4707ff6",
+    "examples/_benchmark/profiler.py": "14e72e06658459f76733b3ee24bd6e0e0c943cfee5020de213249919de7485bd",
+    "examples/netherlands_f3/debug_fault_crash.py": "0bf13ed231587c0d1f5b5d30c56757748e990edd8fba924d649af742828b82fe",
+    "examples/netherlands_f3/__init__.py": "3dc6d8be2547e866ddc6661271ff8f724733158e9e807ddfc81effb01fc37002",
+    "examples/netherlands_f3/generate_f3_model.py": "1352b010ac7d6d2705011ab01bbf347199d001a36db9571308e2e94af22e62e3",
+    "examples/old_examples/faulted_complex/geo_model_generator.py": "8fa0b6f6ee567c614111f63182f5f41d8aa127bc013f3aa9668d7b267300f99d",
+    "examples/old_examples/faulted_complex/generate_faulted_complex_scaled.py": "9f95940f5fe2752a2c4f4b61448b1f0aaafea7e6de9ff4c8625c62a7731a6904",
+    "examples/old_examples/salt_bp/run_synthetic_model.py": "054c191a45f5ec3d0395bcc343eb46a5e3205605d90112c8525d0ed4aa6cec2e",
+    "scripts/benchmarks/audit_benchmark_appendix.py": "050231973adfb1975990c5baec630a85df91ce84313c2aec2768119a491aa0ec",
+    "scripts/benchmarks/build_benchmark_appendix.py": "2242cb276752c3f58479054e1c1f69a0f0228d7c7caf6b7a6d1a3ebc50ecd56f",
+    "paper_figures/code_snippets/penobscot_build.py": "eb95e5999ed661444ef9d220561d49bd380799185026a0373a1ff0864365ed8e",
+    "paper_figures/code_snippets/f3_build.py": "cf6d3501fc876cb355868b8637ccb1e70e113f7a61b3f7c6a5d6ab4b695b58a7"
+  },
+  "rows": [
+    {
+      "engine": "earthforge",
+      "grid": {
+        "nx": 33,
+        "ny": 33,
+        "nz": 220,
+        "dx": 10,
+        "dy": 10,
+        "dz": 10,
+        "origin": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "setupSeconds": 0.03601054198225029,
+      "medianSeconds": 0.04659270797856152,
+      "trials": [
+        {
+          "warmup": true,
+          "seconds": 0.04385450002155267,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 0.0,
+          "fieldSha256": "5a2eb53838e2a1a487551df6cefec75167d5d4c566a9c4fc2a9bdc9388729147"
+        },
+        {
+          "warmup": false,
+          "seconds": 0.04832541701034643,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 0.0,
+          "fieldSha256": "5a2eb53838e2a1a487551df6cefec75167d5d4c566a9c4fc2a9bdc9388729147"
+        },
+        {
+          "warmup": false,
+          "seconds": 0.04613312499714084,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 0.0,
+          "fieldSha256": "5a2eb53838e2a1a487551df6cefec75167d5d4c566a9c4fc2a9bdc9388729147"
+        },
+        {
+          "warmup": false,
+          "seconds": 0.04659270797856152,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 0.0,
+          "fieldSha256": "5a2eb53838e2a1a487551df6cefec75167d5d4c566a9c4fc2a9bdc9388729147"
+        }
+      ],
+      "numpy": "2.5.4",
+      "torch": null,
+      "nativeSha256": "e7b8f22071c7d26564bbe1adc77bfc02006cf8921551e89bce668505e9c2694d"
+    },
+    {
+      "engine": "subsurfacegen",
+      "grid": {
+        "nx": 33,
+        "ny": 33,
+        "nz": 220,
+        "dx": 10,
+        "dy": 10,
+        "dz": 10,
+        "origin": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "setupSeconds": 0.4506740840151906,
+      "medianSeconds": 0.35804912500316277,
+      "trials": [
+        {
+          "warmup": true,
+          "seconds": 0.3764006670098752,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 1.8189894035458565e-12,
+          "fieldSha256": "f191a28bc42f6e0d8fdcd285e80609fc6ef534e20ee3e1ce3579166cb0550a72"
+        },
+        {
+          "warmup": false,
+          "seconds": 0.40679475001525134,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 1.8189894035458565e-12,
+          "fieldSha256": "f191a28bc42f6e0d8fdcd285e80609fc6ef534e20ee3e1ce3579166cb0550a72"
+        },
+        {
+          "warmup": false,
+          "seconds": 0.35804912500316277,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 1.8189894035458565e-12,
+          "fieldSha256": "f191a28bc42f6e0d8fdcd285e80609fc6ef534e20ee3e1ce3579166cb0550a72"
+        },
+        {
+          "warmup": false,
+          "seconds": 0.3564350829983596,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 1.8189894035458565e-12,
+          "fieldSha256": "f191a28bc42f6e0d8fdcd285e80609fc6ef534e20ee3e1ce3579166cb0550a72"
+        }
+      ],
+      "numpy": "2.5.4",
+      "torch": "2.14.1",
+      "nativeSha256": null
+    },
+    {
+      "engine": "earthforge",
+      "grid": {
+        "nx": 65,
+        "ny": 65,
+        "nz": 220,
+        "dx": 10,
+        "dy": 10,
+        "dz": 10,
+        "origin": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "setupSeconds": 0.03564474999438971,
+      "medianSeconds": 0.16920254201977514,
+      "trials": [
+        {
+          "warmup": true,
+          "seconds": 0.1642838749976363,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 0.0,
+          "fieldSha256": "6340112a4de7759e1771718c46001db246741663fe5c40cd9e0c21d38fa340cd"
+        },
+        {
+          "warmup": false,
+          "seconds": 0.169716915988829,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 0.0,
+          "fieldSha256": "6340112a4de7759e1771718c46001db246741663fe5c40cd9e0c21d38fa340cd"
+        },
+        {
+          "warmup": false,
+          "seconds": 0.16920254201977514,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 0.0,
+          "fieldSha256": "6340112a4de7759e1771718c46001db246741663fe5c40cd9e0c21d38fa340cd"
+        },
+        {
+          "warmup": false,
+          "seconds": 0.16788758299662732,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 0.0,
+          "fieldSha256": "6340112a4de7759e1771718c46001db246741663fe5c40cd9e0c21d38fa340cd"
+        }
+      ],
+      "numpy": "2.5.4",
+      "torch": null,
+      "nativeSha256": "e7b8f22071c7d26564bbe1adc77bfc02006cf8921551e89bce668505e9c2694d"
+    },
+    {
+      "engine": "subsurfacegen",
+      "grid": {
+        "nx": 65,
+        "ny": 65,
+        "nz": 220,
+        "dx": 10,
+        "dy": 10,
+        "dz": 10,
+        "origin": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "setupSeconds": 0.45404124999186024,
+      "medianSeconds": 0.5634032500092871,
+      "trials": [
+        {
+          "warmup": true,
+          "seconds": 0.5769345420121681,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 1.8189894035458565e-12,
+          "fieldSha256": "0e40eb67a50125eb8949aa0b398a2c2cb0a4b3ef2f136fbf1e0d80726279274e"
+        },
+        {
+          "warmup": false,
+          "seconds": 0.5696324999735225,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 1.8189894035458565e-12,
+          "fieldSha256": "0e40eb67a50125eb8949aa0b398a2c2cb0a4b3ef2f136fbf1e0d80726279274e"
+        },
+        {
+          "warmup": false,
+          "seconds": 0.561532374995295,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 1.8189894035458565e-12,
+          "fieldSha256": "0e40eb67a50125eb8949aa0b398a2c2cb0a4b3ef2f136fbf1e0d80726279274e"
+        },
+        {
+          "warmup": false,
+          "seconds": 0.5634032500092871,
+          "maxAbsoluteReferenceErrorMetresPerSecond": 1.8189894035458565e-12,
+          "fieldSha256": "0e40eb67a50125eb8949aa0b398a2c2cb0a4b3ef2f136fbf1e0d80726279274e"
+        }
+      ],
+      "numpy": "2.5.4",
+      "torch": "2.14.1",
+      "nativeSha256": null
+    }
+  ],
+  "scopeDifferences": [
+    "Earth Forge uses an explicit initial material stack and evaluates its rock law; there are no history events or compaction in this control",
+    "SubsurfaceGen uses four flat Deposit modules with zero gradient, boundary roughness and texture; expansion_mode=false",
+    "Both return f64 fields; SubsurfaceGen retains some internal float32 index arithmetic in its published implementation",
+    "Earth Forge time includes native process startup, JSON output including bed labels/diagnostics, and decoding; SubsurfaceGen runs its PyTorch modules in process and materializes a NumPy copy",
+    "Source imports, native engine discovery and package setup measured separately; full module/model construction is included per trial",
+    "No smoothing, velocity clipping, faulting, stochastic geology, seismic propagation or GPU execution in this control",
+    "Do not generalize these timings to complete geological histories or the field-scale published dataset"
+  ],
+  "interpretation": "Both tools executed on the same CPU with a common f64 reference field and predeclared numerical gate. Scoped construction timings only; methods and internal bookkeeping differ. No SOTA, realistic-basin speedup or field-accuracy claim."
+}

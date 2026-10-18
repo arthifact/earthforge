@@ -1,0 +1,167 @@
+{
+  "nativeSha256": "91423d175a6f759f673708b8b255f5617458539ae3fabd084a12bddfffb6560b",
+  "equation": "m*p_tt-Laplacian(p)=q(t)*delta(x), constant density and m=1/c\u00b2",
+  "analytic": "p(t,r)=q(t-r/c)/(4*pi*r), q(t<0)=0",
+  "source": {
+    "velocityMps": 2000,
+    "frequencyHz": 12,
+    "delaySeconds": 0.125
+  },
+  "receivers": [
+    {
+      "x": 400,
+      "y": 300,
+      "z": 300
+    },
+    {
+      "x": 360,
+      "y": 380,
+      "z": 300
+    },
+    {
+      "x": 300,
+      "y": 360,
+      "z": 380
+    }
+  ],
+  "domainM": [
+    600,
+    600,
+    600
+  ],
+  "boundaryScope": "No sponge; recording ends at0.24s, before the earliest reflected wavefront can return to these receivers (at least0.25s).",
+  "thresholds": {
+    "finestRelativeL2": 0.01,
+    "minRefinementRatio": 2
+  },
+  "rows": [
+    {
+      "spacingM": 20,
+      "grid": {
+        "nx": 31,
+        "ny": 31,
+        "nz": 31,
+        "dx": 20,
+        "dy": 20,
+        "dz": 20,
+        "origin": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "dtSeconds": 0.00375,
+      "samples": 65,
+      "errors": [
+        {
+          "radiusM": 100,
+          "relativeL2": 0.018402843527088368,
+          "normalizedLinf": 0.016242886967257092,
+          "peakRatio": 0.9958090920636731
+        },
+        {
+          "radiusM": 100,
+          "relativeL2": 0.024267141919739426,
+          "normalizedLinf": 0.02417926663377514,
+          "peakRatio": 1.0181625846364293
+        },
+        {
+          "radiusM": 100,
+          "relativeL2": 0.024267141919739506,
+          "normalizedLinf": 0.024179266633775363,
+          "peakRatio": 1.0181625846364293
+        }
+      ],
+      "maxRelativeL2": 0.024267141919739506,
+      "logicalArrayBytes": 1954888,
+      "stencilUpdates": 1906624
+    },
+    {
+      "spacingM": 10,
+      "grid": {
+        "nx": 61,
+        "ny": 61,
+        "nz": 61,
+        "dx": 10,
+        "dy": 10,
+        "dz": 10,
+        "origin": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "dtSeconds": 0.001875,
+      "samples": 129,
+      "errors": [
+        {
+          "radiusM": 100,
+          "relativeL2": 0.004816342991253082,
+          "normalizedLinf": 0.004217515578377325,
+          "peakRatio": 1.0000122552730906
+        },
+        {
+          "radiusM": 100,
+          "relativeL2": 0.006154151909717632,
+          "normalizedLinf": 0.0056359500009371235,
+          "peakRatio": 1.0017077753302708
+        },
+        {
+          "radiusM": 100,
+          "relativeL2": 0.00615415190971762,
+          "normalizedLinf": 0.005635950000937397,
+          "peakRatio": 1.0017077753302703
+        }
+      ],
+      "maxRelativeL2": 0.006154151909717632,
+      "logicalArrayBytes": 12803944,
+      "stencilUpdates": 29053568
+    },
+    {
+      "spacingM": 5,
+      "grid": {
+        "nx": 121,
+        "ny": 121,
+        "nz": 121,
+        "dx": 5,
+        "dy": 5,
+        "dz": 5,
+        "origin": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "dtSeconds": 0.0009375,
+      "samples": 257,
+      "errors": [
+        {
+          "radiusM": 100,
+          "relativeL2": 0.0015945440230955299,
+          "normalizedLinf": 0.0014596431039301334,
+          "peakRatio": 0.999916430333019
+        },
+        {
+          "radiusM": 100,
+          "relativeL2": 0.0016814541888164095,
+          "normalizedLinf": 0.0015453789876040372,
+          "peakRatio": 1.0000133178106916
+        },
+        {
+          "radiusM": 100,
+          "relativeL2": 0.0016814541888164663,
+          "normalizedLinf": 0.001545378987603492,
+          "peakRatio": 1.0000133178106916
+        }
+      ],
+      "maxRelativeL2": 0.0016814541888164663,
+      "logicalArrayBytes": 92303656,
+      "stencilUpdates": 453519616
+    }
+  ],
+  "refinementRatios": [
+    3.943214642040408,
+    3.660017591112242
+  ],
+  "pass": true
+}

@@ -1,0 +1,624 @@
+{
+  "createdAt": "2026-10-17T08:38:40.438Z",
+  "runtime": {
+    "node": "v24.18.0",
+    "v8": "13.6.233.17-node.50",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4 Pro",
+    "logicalCpus": 14,
+    "ramBytes": 51539607552
+  },
+  "method": "Each engine in a separate Node process, no concurrent simulation workers; one warmup and three measured trials by default. TS simulation plus display projection; native CLI process plus JSON request/response; Wasm request/response with module setup excluded. These are local end-to-end timings, not a cross-hardware SOTA comparison. Native CLI starts a fresh native process each trial. Fixture order fixed; engine order alternates.",
+  "hashes": {
+    "native": "02b527c93c74f76a19dfa05f256ef7c4c282148d80188c0e7f53834ff859b6e3",
+    "wasm": "24436200c3e6bdecf8d0a69f7f0632746bbd02cccae4cfd426ed197f7168fa77",
+    "reference": "fe92763b82c04f88ad4dcd58ae2c7c9171712db5f0876e369b117d31bf1a40b5"
+  },
+  "rows": [
+    {
+      "options": {
+        "seed": 765184,
+        "setting": "extension",
+        "h": 40,
+        "record": false
+      },
+      "engines": [
+        {
+          "engine": "typescript",
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "h": 40,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 5211.35125,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 5206.850417,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 5176.0905,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 5158.123250000001,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            }
+          ],
+          "medianMs": 5176.0905,
+          "memory": {
+            "rss": 1094385664,
+            "heapTotal": 689913856,
+            "heapUsed": 391357952,
+            "external": 7992625,
+            "arrayBuffers": 5677543
+          }
+        },
+        {
+          "engine": "native",
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "h": 40,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 2483.0541249999997,
+              "kernelMs": 2257.960208,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 2244.96825,
+              "kernelMs": 2227.529709,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 2246.1170409999995,
+              "kernelMs": 2229.1382080000003,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 2252.439208,
+              "kernelMs": 2235.171625,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            }
+          ],
+          "medianMs": 2246.1170409999995,
+          "memory": {
+            "rss": 90636288,
+            "heapTotal": 22921216,
+            "heapUsed": 13363008,
+            "external": 15495322,
+            "arrayBuffers": 2750467
+          }
+        },
+        {
+          "engine": "wasm",
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "h": 40,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 6110.011417,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 6044.814083,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 6018.380791000001,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 6030.618915999999,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            }
+          ],
+          "medianMs": 6030.618915999999,
+          "memory": {
+            "rss": 170868736,
+            "heapTotal": 18546688,
+            "heapUsed": 9150136,
+            "external": 71375910,
+            "arrayBuffers": 143703
+          }
+        }
+      ]
+    },
+    {
+      "options": {
+        "seed": 20261014,
+        "setting": "compression",
+        "h": 40,
+        "record": false
+      },
+      "engines": [
+        {
+          "engine": "wasm",
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "h": 40,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 3479.2850839999996,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 3308.5894579999995,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 3308.4082500000004,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 3306.5760420000006,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            }
+          ],
+          "medianMs": 3308.4082500000004,
+          "memory": {
+            "rss": 223838208,
+            "heapTotal": 27459584,
+            "heapUsed": 8283648,
+            "external": 118930129,
+            "arrayBuffers": 143707
+          }
+        },
+        {
+          "engine": "typescript",
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "h": 40,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 4933.190833,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 4717.800292,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 4638.938334,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 4694.139542000001,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            }
+          ],
+          "medianMs": 4694.139542000001,
+          "memory": {
+            "rss": 957808640,
+            "heapTotal": 542212096,
+            "heapUsed": 350495848,
+            "external": 7997921,
+            "arrayBuffers": 5682839
+          }
+        },
+        {
+          "engine": "native",
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "h": 40,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 1649.713042,
+              "kernelMs": 1632.258458,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 1676.608042,
+              "kernelMs": 1659.500333,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 1651.2742079999998,
+              "kernelMs": 1634.603792,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 1647.1130830000002,
+              "kernelMs": 1629.116875,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            }
+          ],
+          "medianMs": 1651.2742079999998,
+          "memory": {
+            "rss": 90079232,
+            "heapTotal": 15138816,
+            "heapUsed": 9232464,
+            "external": 7193510,
+            "arrayBuffers": 143611
+          }
+        }
+      ]
+    },
+    {
+      "options": {
+        "seed": 765184,
+        "setting": "extension",
+        "h": 20,
+        "record": false
+      },
+      "engines": [
+        {
+          "engine": "typescript",
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "h": 20,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 10709.063541,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 10723.213167000002,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 10502.108333,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 10498.054292,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            }
+          ],
+          "medianMs": 10502.108333,
+          "memory": {
+            "rss": 1980874752,
+            "heapTotal": 1580744704,
+            "heapUsed": 1503733440,
+            "external": 21863889,
+            "arrayBuffers": 19548807
+          }
+        },
+        {
+          "engine": "native",
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "h": 20,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 4501.327041,
+              "kernelMs": 4479.738083,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 4508.902625000001,
+              "kernelMs": 4488.695,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 4552.107,
+              "kernelMs": 4531.474083,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 4536.201459,
+              "kernelMs": 4515.445,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            }
+          ],
+          "medianMs": 4536.201459,
+          "memory": {
+            "rss": 91045888,
+            "heapTotal": 22659072,
+            "heapUsed": 13383912,
+            "external": 15580043,
+            "arrayBuffers": 2767410
+          }
+        },
+        {
+          "engine": "wasm",
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "h": 20,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 12419.785292,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 12176.061499999998,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 12185.244917,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 12158.131208000006,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            }
+          ],
+          "medianMs": 12176.061499999998,
+          "memory": {
+            "rss": 227819520,
+            "heapTotal": 18022400,
+            "heapUsed": 8145568,
+            "external": 126916269,
+            "arrayBuffers": 143703
+          }
+        }
+      ]
+    },
+    {
+      "options": {
+        "seed": 20261014,
+        "setting": "compression",
+        "h": 20,
+        "record": false
+      },
+      "engines": [
+        {
+          "engine": "wasm",
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "h": 20,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 10587.561584000001,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 9600.947083000001,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 9589.265082999998,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 9576.799292,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            }
+          ],
+          "medianMs": 9589.265082999998,
+          "memory": {
+            "rss": 390283264,
+            "heapTotal": 18546688,
+            "heapUsed": 8342760,
+            "external": 289649307,
+            "arrayBuffers": 143707
+          }
+        },
+        {
+          "engine": "typescript",
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "h": 20,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 17747.329667,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 17559.958417,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 17267.489292000006,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 17589.841334000004,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            }
+          ],
+          "medianMs": 17559.958417,
+          "memory": {
+            "rss": 2260680704,
+            "heapTotal": 964034560,
+            "heapUsed": 885099328,
+            "external": 21869177,
+            "arrayBuffers": 19554095
+          }
+        },
+        {
+          "engine": "native",
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "h": 20,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 5407.864875,
+              "kernelMs": 5385.944958,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 5427.893291,
+              "kernelMs": 5407.084875,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 5469.108,
+              "kernelMs": 5447.158916,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 5408.056583,
+              "kernelMs": 5386.436041999999,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            }
+          ],
+          "medianMs": 5427.893291,
+          "memory": {
+            "rss": 93437952,
+            "heapTotal": 14876672,
+            "heapUsed": 9292648,
+            "external": 7257072,
+            "arrayBuffers": 143611
+          }
+        }
+      ]
+    }
+  ]
+}

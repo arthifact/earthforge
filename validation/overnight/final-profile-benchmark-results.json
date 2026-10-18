@@ -1,0 +1,231 @@
+{
+  "runtime": {
+    "node": "v24.18.0",
+    "v8": "13.6.233.17-node.50",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4 Pro",
+    "ramBytes": 51539607552,
+    "loadAverage": [
+      2.43994140625,
+      2.7578125,
+      3.0361328125
+    ]
+  },
+  "engineSha256": {
+    "final-preview-simd": "427c51615ee73e36321b6856743acdfd019ec825816431f8821231abbea64da6",
+    "final-research-simd": "7cea02b1c1b742856ea3d232cdc3dac9608a3f94e856b0ea7c0bb3c75f42415b",
+    "final-native": "dca94eecc3a62df4058dc09145d81b6ce0e24f3c2d762e6c76af4f7e6f42586c"
+  },
+  "method": "Each variant/case in a separate process after the legacy test runner exits; 30 second settling period, one warmup and three measured trials. Fixed alternating variant order. Includes request/response and decoding, excludes Wasm setup. Native starts a fresh CLI each trial. All outputs match canonical f64 examples. Local experiment, not a SOTA speed comparison.",
+  "rows": [
+    {
+      "case": "layered-3d",
+      "variant": "final-preview-simd",
+      "environment": {},
+      "trials": [
+        {
+          "iteration": -1,
+          "warmup": true,
+          "elapsedMs": 323.209375,
+          "outputHash": "7ba3a7188a40c7a94667f93e6d79257fcbe393d8a246db9725f6b765cad3b320",
+          "wasmMemoryBytes": 30343168
+        },
+        {
+          "iteration": 0,
+          "warmup": false,
+          "elapsedMs": 304.848833,
+          "outputHash": "7ba3a7188a40c7a94667f93e6d79257fcbe393d8a246db9725f6b765cad3b320",
+          "wasmMemoryBytes": 30343168
+        },
+        {
+          "iteration": 1,
+          "warmup": false,
+          "elapsedMs": 303.86325,
+          "outputHash": "7ba3a7188a40c7a94667f93e6d79257fcbe393d8a246db9725f6b765cad3b320",
+          "wasmMemoryBytes": 30343168
+        },
+        {
+          "iteration": 2,
+          "warmup": false,
+          "elapsedMs": 302.77029100000004,
+          "outputHash": "7ba3a7188a40c7a94667f93e6d79257fcbe393d8a246db9725f6b765cad3b320",
+          "wasmMemoryBytes": 30343168
+        }
+      ],
+      "medianMs": 303.86325
+    },
+    {
+      "case": "layered-3d",
+      "variant": "final-research-simd",
+      "environment": {},
+      "trials": [
+        {
+          "iteration": -1,
+          "warmup": true,
+          "elapsedMs": 317.007667,
+          "outputHash": "7ba3a7188a40c7a94667f93e6d79257fcbe393d8a246db9725f6b765cad3b320",
+          "wasmMemoryBytes": 30343168
+        },
+        {
+          "iteration": 0,
+          "warmup": false,
+          "elapsedMs": 302.92270799999994,
+          "outputHash": "7ba3a7188a40c7a94667f93e6d79257fcbe393d8a246db9725f6b765cad3b320",
+          "wasmMemoryBytes": 30343168
+        },
+        {
+          "iteration": 1,
+          "warmup": false,
+          "elapsedMs": 303.179125,
+          "outputHash": "7ba3a7188a40c7a94667f93e6d79257fcbe393d8a246db9725f6b765cad3b320",
+          "wasmMemoryBytes": 30343168
+        },
+        {
+          "iteration": 2,
+          "warmup": false,
+          "elapsedMs": 303.00091599999996,
+          "outputHash": "7ba3a7188a40c7a94667f93e6d79257fcbe393d8a246db9725f6b765cad3b320",
+          "wasmMemoryBytes": 30343168
+        }
+      ],
+      "medianMs": 303.00091599999996
+    },
+    {
+      "case": "layered-3d",
+      "variant": "final-native",
+      "environment": {},
+      "trials": [
+        {
+          "iteration": -1,
+          "warmup": true,
+          "elapsedMs": 245.70933299999996,
+          "outputHash": "7ba3a7188a40c7a94667f93e6d79257fcbe393d8a246db9725f6b765cad3b320"
+        },
+        {
+          "iteration": 0,
+          "warmup": false,
+          "elapsedMs": 63.460083999999995,
+          "outputHash": "7ba3a7188a40c7a94667f93e6d79257fcbe393d8a246db9725f6b765cad3b320"
+        },
+        {
+          "iteration": 1,
+          "warmup": false,
+          "elapsedMs": 63.01179099999996,
+          "outputHash": "7ba3a7188a40c7a94667f93e6d79257fcbe393d8a246db9725f6b765cad3b320"
+        },
+        {
+          "iteration": 2,
+          "warmup": false,
+          "elapsedMs": 62.33949999999999,
+          "outputHash": "7ba3a7188a40c7a94667f93e6d79257fcbe393d8a246db9725f6b765cad3b320"
+        }
+      ],
+      "medianMs": 63.01179099999996
+    },
+    {
+      "case": "faulted-3d",
+      "variant": "final-native",
+      "environment": {},
+      "trials": [
+        {
+          "iteration": -1,
+          "warmup": true,
+          "elapsedMs": 92.19500000000001,
+          "outputHash": "6042d4f4a523df031a73aa99379e4491ed484ba5d86aab2c23c1e14bc3f45ed1"
+        },
+        {
+          "iteration": 0,
+          "warmup": false,
+          "elapsedMs": 91.274417,
+          "outputHash": "6042d4f4a523df031a73aa99379e4491ed484ba5d86aab2c23c1e14bc3f45ed1"
+        },
+        {
+          "iteration": 1,
+          "warmup": false,
+          "elapsedMs": 91.57183300000003,
+          "outputHash": "6042d4f4a523df031a73aa99379e4491ed484ba5d86aab2c23c1e14bc3f45ed1"
+        },
+        {
+          "iteration": 2,
+          "warmup": false,
+          "elapsedMs": 92.81975,
+          "outputHash": "6042d4f4a523df031a73aa99379e4491ed484ba5d86aab2c23c1e14bc3f45ed1"
+        }
+      ],
+      "medianMs": 91.57183300000003
+    },
+    {
+      "case": "faulted-3d",
+      "variant": "final-research-simd",
+      "environment": {},
+      "trials": [
+        {
+          "iteration": -1,
+          "warmup": true,
+          "elapsedMs": 448.15416700000003,
+          "outputHash": "6042d4f4a523df031a73aa99379e4491ed484ba5d86aab2c23c1e14bc3f45ed1",
+          "wasmMemoryBytes": 52297728
+        },
+        {
+          "iteration": 0,
+          "warmup": false,
+          "elapsedMs": 430.14862500000004,
+          "outputHash": "6042d4f4a523df031a73aa99379e4491ed484ba5d86aab2c23c1e14bc3f45ed1",
+          "wasmMemoryBytes": 52297728
+        },
+        {
+          "iteration": 1,
+          "warmup": false,
+          "elapsedMs": 432.18945800000006,
+          "outputHash": "6042d4f4a523df031a73aa99379e4491ed484ba5d86aab2c23c1e14bc3f45ed1",
+          "wasmMemoryBytes": 52297728
+        },
+        {
+          "iteration": 2,
+          "warmup": false,
+          "elapsedMs": 432.90374999999995,
+          "outputHash": "6042d4f4a523df031a73aa99379e4491ed484ba5d86aab2c23c1e14bc3f45ed1",
+          "wasmMemoryBytes": 52297728
+        }
+      ],
+      "medianMs": 432.18945800000006
+    },
+    {
+      "case": "faulted-3d",
+      "variant": "final-preview-simd",
+      "environment": {},
+      "trials": [
+        {
+          "iteration": -1,
+          "warmup": true,
+          "elapsedMs": 450.352917,
+          "outputHash": "6042d4f4a523df031a73aa99379e4491ed484ba5d86aab2c23c1e14bc3f45ed1",
+          "wasmMemoryBytes": 52297728
+        },
+        {
+          "iteration": 0,
+          "warmup": false,
+          "elapsedMs": 431.50466600000004,
+          "outputHash": "6042d4f4a523df031a73aa99379e4491ed484ba5d86aab2c23c1e14bc3f45ed1",
+          "wasmMemoryBytes": 52297728
+        },
+        {
+          "iteration": 1,
+          "warmup": false,
+          "elapsedMs": 428.335334,
+          "outputHash": "6042d4f4a523df031a73aa99379e4491ed484ba5d86aab2c23c1e14bc3f45ed1",
+          "wasmMemoryBytes": 52297728
+        },
+        {
+          "iteration": 2,
+          "warmup": false,
+          "elapsedMs": 431.11145899999997,
+          "outputHash": "6042d4f4a523df031a73aa99379e4491ed484ba5d86aab2c23c1e14bc3f45ed1",
+          "wasmMemoryBytes": 52297728
+        }
+      ],
+      "medianMs": 431.11145899999997
+    }
+  ]
+}

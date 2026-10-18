@@ -1,0 +1,198 @@
+{
+  "devitoVersion": "4.8.23",
+  "numpyVersion": "2.4.3",
+  "compiler": "ClangCompiler",
+  "platform": "cpu64",
+  "safeMath": true,
+  "thresholds": {
+    "relativeL2": 1e-08,
+    "normalizedLinf": 1e-07
+  },
+  "nativeSha256": "91423d175a6f759f673708b8b255f5617458539ae3fabd084a12bddfffb6560b",
+  "comparisonScriptSha256": "c7f36502f4aa03cbcaa12d5ddb330e3571d748388a25c31c6dd5de93c956c0e7",
+  "boundaryScope": "No sponge in either solver; matching zero Dirichlet halos. Boundary reflections may occur in the later fields. This does not cross-validate absorbing boundaries.",
+  "method": "Independent Devito symbolic m*u.dt2-u.laplace, fourth-order space, second-order time, double precision and standard sparse source/receiver operators. Same synthetic nodal velocities, metre/second units, time step, Ricker samples and inverse-cell source normalization. No Earth Forge stencil reuse. Timings include JIT and are not a speed comparison.",
+  "cases": [
+    {
+      "name": "homogeneous-2d",
+      "dimensions": 2,
+      "medium": "homogeneous",
+      "requestSha256": "39838025f1a3c8f6ed9065ce36f2f2161b8561b825ef292defbd9ae5e488db81",
+      "grid": {
+        "nx": 81,
+        "ny": 1,
+        "nz": 71,
+        "dx": 10.0,
+        "dy": 1.0,
+        "dz": 12.0,
+        "origin": {
+          "x": 1000.0,
+          "y": 0.0,
+          "z": 3000.0
+        }
+      },
+      "samples": 301,
+      "dtSeconds": 0.001,
+      "spatialOrder": 4,
+      "timeOrder": 2,
+      "sourceCoordinatesDtype": "float64",
+      "receiverError": {
+        "relativeL2": 6.446843690885565e-09,
+        "normalizedLinf": 6.806079982688442e-09,
+        "referencePeak": 0.09933369860453804
+      },
+      "finalFieldError": {
+        "relativeL2": 1.6977271079385378e-08,
+        "normalizedLinf": 1.3211437773591965e-08,
+        "referencePeak": 0.08336786215062818
+      },
+      "referenceSecondsIncludingJit": 0.5132168749987613,
+      "pass": false
+    },
+    {
+      "name": "layered-2d",
+      "dimensions": 2,
+      "medium": "layered",
+      "requestSha256": "27abffbc0f19eb3f02005b5f9a758cb7365df2495c0f629b7bffcf76106f058f",
+      "grid": {
+        "nx": 81,
+        "ny": 1,
+        "nz": 71,
+        "dx": 10.0,
+        "dy": 1.0,
+        "dz": 12.0,
+        "origin": {
+          "x": 1000.0,
+          "y": 0.0,
+          "z": 3000.0
+        }
+      },
+      "samples": 301,
+      "dtSeconds": 0.001,
+      "spatialOrder": 4,
+      "timeOrder": 2,
+      "sourceCoordinatesDtype": "float64",
+      "receiverError": {
+        "relativeL2": 7.292050333419779e-09,
+        "normalizedLinf": 9.215172744189003e-09,
+        "referencePeak": 0.09913990873489126
+      },
+      "finalFieldError": {
+        "relativeL2": 2.0528390216565942e-08,
+        "normalizedLinf": 1.3761836453220908e-08,
+        "referencePeak": 0.092362095278293
+      },
+      "referenceSecondsIncludingJit": 0.017074707997380756,
+      "pass": false
+    },
+    {
+      "name": "smooth-2d",
+      "dimensions": 2,
+      "medium": "smooth",
+      "requestSha256": "062f0eff70d4e914a24b5b098b6b7f26d9dd6189cafc2067102fbf88a1428e99",
+      "grid": {
+        "nx": 81,
+        "ny": 1,
+        "nz": 71,
+        "dx": 10.0,
+        "dy": 1.0,
+        "dz": 12.0,
+        "origin": {
+          "x": 1000.0,
+          "y": 0.0,
+          "z": 3000.0
+        }
+      },
+      "samples": 301,
+      "dtSeconds": 0.001,
+      "spatialOrder": 4,
+      "timeOrder": 2,
+      "sourceCoordinatesDtype": "float64",
+      "receiverError": {
+        "relativeL2": 7.096169051723833e-09,
+        "normalizedLinf": 7.607620251400819e-09,
+        "referencePeak": 0.10290232565179142
+      },
+      "finalFieldError": {
+        "relativeL2": 1.687772102546381e-08,
+        "normalizedLinf": 1.4735688155269673e-08,
+        "referencePeak": 0.08509955430376946
+      },
+      "referenceSecondsIncludingJit": 0.016723541004466824,
+      "pass": false
+    },
+    {
+      "name": "homogeneous-3d",
+      "dimensions": 3,
+      "medium": "homogeneous",
+      "requestSha256": "8c37613c51e438db14acf30b42578224a1f5e36958d804d2c3d03712ff89b475",
+      "grid": {
+        "nx": 31,
+        "ny": 21,
+        "nz": 31,
+        "dx": 12.0,
+        "dy": 15.0,
+        "dz": 10.0,
+        "origin": {
+          "x": 1000.0,
+          "y": 2000.0,
+          "z": 3000.0
+        }
+      },
+      "samples": 321,
+      "dtSeconds": 0.00075,
+      "spatialOrder": 4,
+      "timeOrder": 2,
+      "sourceCoordinatesDtype": "float64",
+      "receiverError": {
+        "relativeL2": 6.163031430221531e-09,
+        "normalizedLinf": 7.217563500027534e-09,
+        "referencePeak": 0.0012695139697338413
+      },
+      "finalFieldError": {
+        "relativeL2": 1.0349779880063926e-08,
+        "normalizedLinf": 1.0959482151138518e-08,
+        "referencePeak": 0.0008544877156366098
+      },
+      "referenceSecondsIncludingJit": 0.3018673330079764,
+      "pass": false
+    },
+    {
+      "name": "layered-3d",
+      "dimensions": 3,
+      "medium": "layered",
+      "requestSha256": "9982f106d325d598ef4d481940be8539b951ba158c1e3e520030e3ff8fa715e9",
+      "grid": {
+        "nx": 31,
+        "ny": 21,
+        "nz": 31,
+        "dx": 12.0,
+        "dy": 15.0,
+        "dz": 10.0,
+        "origin": {
+          "x": 1000.0,
+          "y": 2000.0,
+          "z": 3000.0
+        }
+      },
+      "samples": 321,
+      "dtSeconds": 0.00075,
+      "spatialOrder": 4,
+      "timeOrder": 2,
+      "sourceCoordinatesDtype": "float64",
+      "receiverError": {
+        "relativeL2": 8.258192770213503e-09,
+        "normalizedLinf": 8.977824944480398e-09,
+        "referencePeak": 0.0012423221467480429
+      },
+      "finalFieldError": {
+        "relativeL2": 1.216101572687841e-08,
+        "normalizedLinf": 9.277194511858776e-09,
+        "referencePeak": 0.0014617530294051748
+      },
+      "referenceSecondsIncludingJit": 0.03164308299892582,
+      "pass": false
+    }
+  ],
+  "boundaryScopeWordingCorrectedAfterRun": true
+}

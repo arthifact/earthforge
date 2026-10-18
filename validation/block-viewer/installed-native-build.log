@@ -1,0 +1,6 @@
+
+> earthforge@0.1.0 build:native
+> node scripts/build-rust.mjs --native
+
+   Compiling earthforge-core v0.1.0 (/Users/torus/Desktop/Research/earthforge/crates/earthforge-core)
+    Finished `release` profile [optimized] target(s) in 17.46s

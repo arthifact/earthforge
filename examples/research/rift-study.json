@@ -1,0 +1,12 @@
+{
+  "schema": "earthforge-study-v1",
+  "plan": {
+    "scenario": "rift-v1",
+    "count": 6,
+    "seed": 1001,
+    "priors": {"slip_scale": [0.7, 1.4], "sediment_supply_scale": [0.8, 1.2], "facies_shift_m": [-300, 300]},
+    "options": {"steps": 6, "faults": 1, "material_step": 10}
+  },
+  "grid": {"nx": 17, "ny": 17, "nz": 101, "dx": 10, "dy": 10, "dz": 10, "origin": {"x": 4900, "y": 4900, "z": 400}},
+  "tiling": {"max_rays": 256, "max_nodes": 100000}
+}

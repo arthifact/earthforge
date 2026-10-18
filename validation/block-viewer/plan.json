@@ -1,0 +1,11 @@
+{
+  "baselineCheckpoint":"28e52bd385e7b352c72a64c7ee22e2277f6a31cb",
+  "objective":"An explorable 3D geological block, interactive clipping and orthogonal sections, richer geology using shared material laws, with measured calculation and rendering costs",
+  "viewer":"WebGL2 first-hit volume rendering with local orbit/zoom/clipping/orthogonal planes, sampled-volume picking and a software surface fallback. No history evaluation during camera/clip/section interactions. View detail is separate from 10m material subdivision.",
+  "geology":"Versioned detailed recipe: multi-bed packages, accommodation-limited deposition, migrating facies, differential subsidence, repeated growth stages, prescribed erosion and faults curved along strike through a volume-preserving shear conjugation. Classic recipes remain reproducible. No claim of listric depth curvature, stress equilibrium or pore-fluid evolution.",
+  "physicsPolicy":"Keep shared material/porosity/pressure/velocity laws and tolerances unchanged. Preserve open regional continuation and internal water. Independent inverse-map, local-budget, spatial-variation and sample-ownership checks; retain old classic-model parity.",
+  "verification":["All Rust tests and native/Wasm Clippy", "Focused worker/cache/export and renderer geometry tests", "Native/all four Wasm parity on new curved histories, old classic histories and projected sample ownership", "Production browser QA of orbit, clipping, sections, replay, export, resize, fallback and error paths", "Installed source/build fidelity and recovery checkpoint"],
+  "performance":"Frozen requests on this M4 Pro. Separate warm-up from repeated native/strict-Wasm query trials; no builds/tests running during timing. Browser draw submission and frame intervals measured separately from model evaluation; optional disjoint-safe GPU timer. No SOTA speed/accuracy or energy claim.",
+  "protectedPaths":["sources/", ".claude/"],
+  "references":["https://registry.khronos.org/webgl/specs/2.0.0/", "https://arxiv.org/html/2605.30541v1"]
+}

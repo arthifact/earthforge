@@ -1,0 +1,43 @@
+{
+  "command": "cargo test --locked --release acoustic::tests -- --nocapture --test-threads=1",
+  "testsPassed": 8,
+  "sourceSha256": "761514a2df39227ae140d06f48d528ca0604d796f9a86248b510b6e5f9c37f5e",
+  "planeWave": {
+    "spacingM": [
+      20,
+      10,
+      5
+    ],
+    "rmsError": [
+      0.000380014326697268,
+      0.000024875866144922598,
+      0.0000015748635774938982
+    ],
+    "refinementRatios": [
+      15.276425933608449,
+      15.795568899058484
+    ],
+    "timeStepScaling": "dt proportional to h², expected combined fourth-order convergence",
+    "crosslineReduction": "2D and uniform-y 3D arrays bit-identical with periodic transverse boundaries"
+  },
+  "normalIncidenceReflection": {
+    "measured": 0.20017302164807346,
+    "analytic": 0.2,
+    "medium": "constant density, 2000 to 3000 m/s"
+  },
+  "threeDimensionalArrivals": [
+    {
+      "distanceM": 80,
+      "measuredSeconds": 0.115,
+      "analyticSeconds": 0.11499999999999999
+    },
+    {
+      "distanceM": 120,
+      "measuredSeconds": 0.135,
+      "analyticSeconds": 0.135
+    }
+  ],
+  "reciprocityRelativeMaxError": 9.521667890626998e-16,
+  "spongeLateErrorRmsRatioVsReflectingBoundary": 0.015682319555781348,
+  "scope": "Independent analytic and larger-domain synthetic tests of the stated constant-density acoustic PDE. No observational data, field-amplitude calibration, elastic/anisotropic propagation, or claim of equivalence to another research solver."
+}

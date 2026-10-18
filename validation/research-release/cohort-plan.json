@@ -1,0 +1,15 @@
+{
+  "schema": "earthforge-research-cohort-v1",
+  "scenarios": ["rift-v1", "reverse-fault-v1", "erosion-reburial-v1"],
+  "seeds": [1001, 1002, 1003, 1004, 1005, 1006],
+  "materialStepMetres": 10,
+  "grids": {
+    "coarse-window": {"nx": 33, "ny": 33, "nz": 161, "dx": 312.5, "dy": 312.5, "dz": 18.75, "origin": {"x": 0, "y": 0, "z": 0}},
+    "10m-crop": {"nx": 33, "ny": 33, "nz": 201, "dx": 10, "dy": 10, "dz": 10, "origin": {"x": 4800, "y": 4800, "z": 500}}
+  },
+  "materialRefinement": {"seed": 1001, "steps": 6, "faults": 1, "levelsMetres": [20, 10, 5], "grid": {"nx": 17, "ny": 13, "nz": 101, "dx": 250, "dy": 250, "dz": 20, "origin": {"x": 3000, "y": 3500, "z": 100}}},
+  "syntheticConditioning": {"truthSeed": 1001, "trainingVelocityPositions": [[2500, 2500, 1000], [5000, 5000, 1300], [7500, 7500, 1500]], "heldoutVelocityPositions": [[3500, 4000, 1100], [6000, 5500, 1400], [8000, 3000, 1600]], "sigmaMetresPerSecond": 75},
+  "gates": ["Every case must return valid material fields and passing local grain checks", "Default recipe source and legacy velocity/bed/lithology/surface/basement arrays must match frozen native engine exactly", "Tiled and assembled logical content reproducible", "Closed-library synthetic truth must receive a maximal likelihood; zero-likelihood candidates remain explicit"],
+  "diagnosticOnly": ["Material refinement trends across complex histories, including every regression; no universal convergence threshold inferred", "Synthetic heldout-location error: truth is deliberately in the candidate library, not a blind field/generalization test", "Cohort wall times are diagnostics, not isolated performance comparisons"],
+  "reservedData": "No FORCE holdout, real observational arrays or model calibration used."
+}

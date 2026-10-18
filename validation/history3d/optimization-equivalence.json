@@ -1,0 +1,102 @@
+{
+  "all12MeasurementsPhysicallyIdentical": true,
+  "method": "Exact byte hashes of all sampled velocities, lithologies, bed labels, surfaces and basement coordinates. Request and material resolution unchanged. Carrier-memory equality is additionally checked against the existing solver on20000varied columns.",
+  "rows": [
+    {
+      "case": "flat-history",
+      "variant": "optimized-native",
+      "referenceMs": 57.169291999999984,
+      "optimizedMs": 12.13108299999999,
+      "speedup": 4.7126288724592875,
+      "physicalOutputIdentical": true
+    },
+    {
+      "case": "flat-history",
+      "variant": "optimized-research-simd",
+      "referenceMs": 247.15525000000002,
+      "optimizedMs": 53.63354100000001,
+      "speedup": 4.6082217469102025,
+      "physicalOutputIdentical": true
+    },
+    {
+      "case": "flat-history",
+      "variant": "optimized-preview-simd",
+      "referenceMs": 117.23195800000002,
+      "optimizedMs": 20.313374999999994,
+      "speedup": 5.771170866485754,
+      "physicalOutputIdentical": true
+    },
+    {
+      "case": "oblique-fault-history",
+      "variant": "optimized-preview-simd",
+      "referenceMs": 845.3302079999999,
+      "optimizedMs": 289.47179200000005,
+      "speedup": 2.9202507165188645,
+      "physicalOutputIdentical": true
+    },
+    {
+      "case": "oblique-fault-history",
+      "variant": "optimized-research-simd",
+      "referenceMs": 3419.1844999999994,
+      "optimizedMs": 946.1494169999999,
+      "speedup": 3.6137891527126524,
+      "physicalOutputIdentical": true
+    },
+    {
+      "case": "oblique-fault-history",
+      "variant": "optimized-native",
+      "referenceMs": 122.04962499999999,
+      "optimizedMs": 37.343333,
+      "speedup": 3.2683109726708106,
+      "physicalOutputIdentical": true
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "variant": "optimized-native",
+      "referenceMs": 110.05995800000002,
+      "optimizedMs": 32.359125000000006,
+      "speedup": 3.4012031536699463,
+      "physicalOutputIdentical": true
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "variant": "optimized-research-simd",
+      "referenceMs": 2706.101458,
+      "optimizedMs": 773.5888330000001,
+      "speedup": 3.498113393785248,
+      "physicalOutputIdentical": true
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "variant": "optimized-preview-simd",
+      "referenceMs": 677.8762080000001,
+      "optimizedMs": 249.21504199999998,
+      "speedup": 2.7200453173288,
+      "physicalOutputIdentical": true
+    },
+    {
+      "case": "two-fault-history",
+      "variant": "optimized-preview-simd",
+      "referenceMs": 1098.5102079999997,
+      "optimizedMs": 394.72291599999994,
+      "speedup": 2.7829907093612976,
+      "physicalOutputIdentical": true
+    },
+    {
+      "case": "two-fault-history",
+      "variant": "optimized-research-simd",
+      "referenceMs": 4582.854541000001,
+      "optimizedMs": 1274.9323750000003,
+      "speedup": 3.5945863724732847,
+      "physicalOutputIdentical": true
+    },
+    {
+      "case": "two-fault-history",
+      "variant": "optimized-native",
+      "referenceMs": 150.65641599999998,
+      "optimizedMs": 45.613708,
+      "speedup": 3.3028758810838172,
+      "physicalOutputIdentical": true
+    }
+  ]
+}

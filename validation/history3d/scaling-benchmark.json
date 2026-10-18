@@ -1,0 +1,743 @@
+{
+  "cpu": "Apple M4 Pro",
+  "runtime": "v24.18.0",
+  "engineSha256": {
+    "culled-native": "b454ba1ffd62dd7d179c6494f235459ad42d06af258227bb1fc565a1ae7317c4",
+    "culled-research-simd": "7d94851d8f7c4a12d60c654b45b5dfe92e5769841f3d63766bd24cb6d52f797d"
+  },
+  "method": "Separateprocesses;1warmup3trials percomplexity/engine. Three61x81sections, materialStep10m, same10x10x6.2kmregion. Includes request/responseanddecoding; Wasmsetupseparate. NoGPU. Notfullvoxel-exportorseismicsurveytiming.",
+  "rows": [
+    {
+      "case": "scaling-6-1",
+      "variant": "culled-native",
+      "medianMs": 14.002791999999996,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 14.298542000000001,
+          "physicalHash": "1d2662217ee0be8e82def06a3e2c9a55199f6798333315946c64c51b7c856635",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 150921,
+              "evaluatedProfiles": 382,
+              "localEventsChecked": 4600,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 2271,
+              "porosityEvaluations": 1233721,
+              "prunedFaultBranches": 167
+            },
+            "retainedProfileLayers": 15419,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 14.002791999999996,
+          "physicalHash": "1d2662217ee0be8e82def06a3e2c9a55199f6798333315946c64c51b7c856635",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 150921,
+              "evaluatedProfiles": 382,
+              "localEventsChecked": 4600,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 2271,
+              "porosityEvaluations": 1233721,
+              "prunedFaultBranches": 167
+            },
+            "retainedProfileLayers": 15419,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 13.809666,
+          "physicalHash": "1d2662217ee0be8e82def06a3e2c9a55199f6798333315946c64c51b7c856635",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 150921,
+              "evaluatedProfiles": 382,
+              "localEventsChecked": 4600,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 2271,
+              "porosityEvaluations": 1233721,
+              "prunedFaultBranches": 167
+            },
+            "retainedProfileLayers": 15419,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 14.471333999999999,
+          "physicalHash": "1d2662217ee0be8e82def06a3e2c9a55199f6798333315946c64c51b7c856635",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 150921,
+              "evaluatedProfiles": 382,
+              "localEventsChecked": 4600,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 2271,
+              "porosityEvaluations": 1233721,
+              "prunedFaultBranches": 167
+            },
+            "retainedProfileLayers": 15419,
+            "uniqueRays": 183
+          }
+        }
+      ],
+      "steps": 6,
+      "faults": 1
+    },
+    {
+      "case": "scaling-6-1",
+      "variant": "culled-research-simd",
+      "setupMs": 1.4078330000000019,
+      "medianMs": 211.015,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 218.242833,
+          "physicalHash": "1d2662217ee0be8e82def06a3e2c9a55199f6798333315946c64c51b7c856635",
+          "wasmMemoryBytes": 4653056,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 150921,
+              "evaluatedProfiles": 382,
+              "localEventsChecked": 4600,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 2271,
+              "porosityEvaluations": 1233721,
+              "prunedFaultBranches": 167
+            },
+            "retainedProfileLayers": 15419,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 212.33024999999998,
+          "physicalHash": "1d2662217ee0be8e82def06a3e2c9a55199f6798333315946c64c51b7c856635",
+          "wasmMemoryBytes": 4784128,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 150921,
+              "evaluatedProfiles": 382,
+              "localEventsChecked": 4600,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 2271,
+              "porosityEvaluations": 1233721,
+              "prunedFaultBranches": 167
+            },
+            "retainedProfileLayers": 15419,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 211.015,
+          "physicalHash": "1d2662217ee0be8e82def06a3e2c9a55199f6798333315946c64c51b7c856635",
+          "wasmMemoryBytes": 4784128,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 150921,
+              "evaluatedProfiles": 382,
+              "localEventsChecked": 4600,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 2271,
+              "porosityEvaluations": 1233721,
+              "prunedFaultBranches": 167
+            },
+            "retainedProfileLayers": 15419,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 208.978208,
+          "physicalHash": "1d2662217ee0be8e82def06a3e2c9a55199f6798333315946c64c51b7c856635",
+          "wasmMemoryBytes": 4784128,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 150921,
+              "evaluatedProfiles": 382,
+              "localEventsChecked": 4600,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 2271,
+              "porosityEvaluations": 1233721,
+              "prunedFaultBranches": 167
+            },
+            "retainedProfileLayers": 15419,
+            "uniqueRays": 183
+          }
+        }
+      ],
+      "steps": 6,
+      "faults": 1
+    },
+    {
+      "case": "scaling-12-2",
+      "variant": "culled-native",
+      "medianMs": 34.100083999999995,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 35.420708,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 34.304249999999996,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 34.100083999999995,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 33.54229199999999,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        }
+      ],
+      "steps": 12,
+      "faults": 2
+    },
+    {
+      "case": "scaling-12-2",
+      "variant": "culled-research-simd",
+      "setupMs": 1.2119160000000004,
+      "medianMs": 840.1822920000002,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 845.3015,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6029312,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 838.048667,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6029312,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 840.1822920000002,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6029312,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 847.379042,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6029312,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        }
+      ],
+      "steps": 12,
+      "faults": 2
+    },
+    {
+      "case": "scaling-18-3",
+      "variant": "culled-native",
+      "medianMs": 75.70899999999997,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 79.209125,
+          "physicalHash": "29dd6448f0305748b5f999ebdddd602b223737127ae57db9f1b725d924054798",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 1489074,
+              "evaluatedProfiles": 972,
+              "localEventsChecked": 17445,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 18021,
+              "porosityEvaluations": 12867417,
+              "prunedFaultBranches": 547
+            },
+            "retainedProfileLayers": 46128,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 72.992417,
+          "physicalHash": "29dd6448f0305748b5f999ebdddd602b223737127ae57db9f1b725d924054798",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 1489074,
+              "evaluatedProfiles": 972,
+              "localEventsChecked": 17445,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 18021,
+              "porosityEvaluations": 12867417,
+              "prunedFaultBranches": 547
+            },
+            "retainedProfileLayers": 46128,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 78.87033299999999,
+          "physicalHash": "29dd6448f0305748b5f999ebdddd602b223737127ae57db9f1b725d924054798",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 1489074,
+              "evaluatedProfiles": 972,
+              "localEventsChecked": 17445,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 18021,
+              "porosityEvaluations": 12867417,
+              "prunedFaultBranches": 547
+            },
+            "retainedProfileLayers": 46128,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 75.70899999999997,
+          "physicalHash": "29dd6448f0305748b5f999ebdddd602b223737127ae57db9f1b725d924054798",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 1489074,
+              "evaluatedProfiles": 972,
+              "localEventsChecked": 17445,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 18021,
+              "porosityEvaluations": 12867417,
+              "prunedFaultBranches": 547
+            },
+            "retainedProfileLayers": 46128,
+            "uniqueRays": 183
+          }
+        }
+      ],
+      "steps": 18,
+      "faults": 3
+    },
+    {
+      "case": "scaling-18-3",
+      "variant": "culled-research-simd",
+      "setupMs": 1.1836669999999998,
+      "medianMs": 2056.0280000000002,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 2031.4945420000001,
+          "physicalHash": "29dd6448f0305748b5f999ebdddd602b223737127ae57db9f1b725d924054798",
+          "wasmMemoryBytes": 7733248,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 1489074,
+              "evaluatedProfiles": 972,
+              "localEventsChecked": 17445,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 18021,
+              "porosityEvaluations": 12867417,
+              "prunedFaultBranches": 547
+            },
+            "retainedProfileLayers": 46128,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 2056.0280000000002,
+          "physicalHash": "29dd6448f0305748b5f999ebdddd602b223737127ae57db9f1b725d924054798",
+          "wasmMemoryBytes": 7733248,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 1489074,
+              "evaluatedProfiles": 972,
+              "localEventsChecked": 17445,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 18021,
+              "porosityEvaluations": 12867417,
+              "prunedFaultBranches": 547
+            },
+            "retainedProfileLayers": 46128,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 2047.3672500000002,
+          "physicalHash": "29dd6448f0305748b5f999ebdddd602b223737127ae57db9f1b725d924054798",
+          "wasmMemoryBytes": 7733248,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 1489074,
+              "evaluatedProfiles": 972,
+              "localEventsChecked": 17445,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 18021,
+              "porosityEvaluations": 12867417,
+              "prunedFaultBranches": 547
+            },
+            "retainedProfileLayers": 46128,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 2075.2262499999997,
+          "physicalHash": "29dd6448f0305748b5f999ebdddd602b223737127ae57db9f1b725d924054798",
+          "wasmMemoryBytes": 7733248,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 1489074,
+              "evaluatedProfiles": 972,
+              "localEventsChecked": 17445,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 18021,
+              "porosityEvaluations": 12867417,
+              "prunedFaultBranches": 547
+            },
+            "retainedProfileLayers": 46128,
+            "uniqueRays": 183
+          }
+        }
+      ],
+      "steps": 18,
+      "faults": 3
+    },
+    {
+      "case": "scaling-24-4",
+      "variant": "culled-native",
+      "medianMs": 182.49545799999999,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 190.725208,
+          "physicalHash": "1a9d4fd448f718a7969641753fa67997b1356dc3084f063888845561202bf49a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 3263455,
+              "evaluatedProfiles": 1755,
+              "localEventsChecked": 33261,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 43920,
+              "porosityEvaluations": 27838637,
+              "prunedFaultBranches": 834
+            },
+            "retainedProfileLayers": 60704,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 182.49545799999999,
+          "physicalHash": "1a9d4fd448f718a7969641753fa67997b1356dc3084f063888845561202bf49a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 3263455,
+              "evaluatedProfiles": 1755,
+              "localEventsChecked": 33261,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 43920,
+              "porosityEvaluations": 27838637,
+              "prunedFaultBranches": 834
+            },
+            "retainedProfileLayers": 60704,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 184.06541699999997,
+          "physicalHash": "1a9d4fd448f718a7969641753fa67997b1356dc3084f063888845561202bf49a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 3263455,
+              "evaluatedProfiles": 1755,
+              "localEventsChecked": 33261,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 43920,
+              "porosityEvaluations": 27838637,
+              "prunedFaultBranches": 834
+            },
+            "retainedProfileLayers": 60704,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 178.98412499999995,
+          "physicalHash": "1a9d4fd448f718a7969641753fa67997b1356dc3084f063888845561202bf49a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 3263455,
+              "evaluatedProfiles": 1755,
+              "localEventsChecked": 33261,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 43920,
+              "porosityEvaluations": 27838637,
+              "prunedFaultBranches": 834
+            },
+            "retainedProfileLayers": 60704,
+            "uniqueRays": 183
+          }
+        }
+      ],
+      "steps": 24,
+      "faults": 4
+    },
+    {
+      "case": "scaling-24-4",
+      "variant": "culled-research-simd",
+      "setupMs": 1.271583999999999,
+      "medianMs": 4228.810792,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 4545.9280420000005,
+          "physicalHash": "1a9d4fd448f718a7969641753fa67997b1356dc3084f063888845561202bf49a",
+          "wasmMemoryBytes": 9568256,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 3263455,
+              "evaluatedProfiles": 1755,
+              "localEventsChecked": 33261,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 43920,
+              "porosityEvaluations": 27838637,
+              "prunedFaultBranches": 834
+            },
+            "retainedProfileLayers": 60704,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 4421.494541000001,
+          "physicalHash": "1a9d4fd448f718a7969641753fa67997b1356dc3084f063888845561202bf49a",
+          "wasmMemoryBytes": 9568256,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 3263455,
+              "evaluatedProfiles": 1755,
+              "localEventsChecked": 33261,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 43920,
+              "porosityEvaluations": 27838637,
+              "prunedFaultBranches": 834
+            },
+            "retainedProfileLayers": 60704,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 4228.810792,
+          "physicalHash": "1a9d4fd448f718a7969641753fa67997b1356dc3084f063888845561202bf49a",
+          "wasmMemoryBytes": 9568256,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 3263455,
+              "evaluatedProfiles": 1755,
+              "localEventsChecked": 33261,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 43920,
+              "porosityEvaluations": 27838637,
+              "prunedFaultBranches": 834
+            },
+            "retainedProfileLayers": 60704,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 4201.525959000002,
+          "physicalHash": "1a9d4fd448f718a7969641753fa67997b1356dc3084f063888845561202bf49a",
+          "wasmMemoryBytes": 9568256,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 3263455,
+              "evaluatedProfiles": 1755,
+              "localEventsChecked": 33261,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 43920,
+              "porosityEvaluations": 27838637,
+              "prunedFaultBranches": 834
+            },
+            "retainedProfileLayers": 60704,
+            "uniqueRays": 183
+          }
+        }
+      ],
+      "steps": 24,
+      "faults": 4
+    }
+  ]
+}

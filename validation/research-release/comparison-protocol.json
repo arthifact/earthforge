@@ -1,0 +1,87 @@
+{
+  "schema": "earthforge-matched-comparison-protocol-v1",
+  "status": "Published reference source executed; flat f64 control v2 passed the unchanged numerical gate. Broad geological and downstream comparison pending.",
+  "target": "History-based 3D velocity-model generation and paired acoustic research data",
+  "competitor": {
+    "name": "SubsurfaceGen",
+    "paper": "https://arxiv.org/html/2605.30541v1",
+    "publishedCode": "https://anonymous.4open.science/r/subsurfacegen-8961/",
+    "accessObservation": "Root URL returned HTTP403 to a direct client; published browser ZIP download succeeded on 2026-10-17. Source archive hash and per-file hashes recorded. Source is kept unmodified in a separate reference directory."
+  },
+  "comparisonRequirements": [
+    "Pin both source revisions, dependencies, hardware and thread/GPU configuration",
+    "Choose a common geological task and supported feature set; equal seeds do not imply equal geology across generators",
+    "Match spatial extent, spacing, node/cell convention, depth axis, precision, output properties and output completeness",
+    "Do not compare the coarse viewer grid with 10m full-volume generation",
+    "Record recipe construction, model evaluation, sampling, serialization and export separately; never time only a cached model or viewer frames",
+    "One warmup and at least three isolated trials on the same hardware tier, record every trial and peak-memory measurement scope",
+    "Use fixed public synthetic tasks and development data to freeze methods; keep independent field holdouts separate",
+    "Report unsupported geology and failures, all changes to settings, resampling, smoothing and any accuracy/performance tradeoffs",
+    "For a downstream FWI claim, fix solver/acquisition/architecture/training budget and split by whole model/geological family; prevent slice/seed leakage",
+    "A different GPU hardware result can be a cost/availability comparison, not an unqualified algorithm speedup"
+  ],
+  "taskTiers": [
+    {
+      "name": "analytic-import-and-coordinate-contract",
+      "purpose": "Known layered/faulted fields to verify units, ownership, layout and acquisition transfer"
+    },
+    {
+      "name": "10m-research-crop",
+      "extentMetres": [
+        320,
+        320,
+        2000
+      ],
+      "spacingMetres": [
+        10,
+        10,
+        10
+      ],
+      "nodeShape": [
+        33,
+        33,
+        201
+      ],
+      "sampling": "nodal endpoints included",
+      "purpose": "Matched small-domain execution; no full-field claim"
+    },
+    {
+      "name": "field-scale-common-grid",
+      "shape": [
+        1000,
+        1000,
+        619
+      ],
+      "spacingMetres": [
+        10,
+        10,
+        10
+      ],
+      "originMetres": [
+        0,
+        0,
+        0
+      ],
+      "nodeEndpointMetres": [
+        9990,
+        9990,
+        6180
+      ],
+      "coordinateEvidence": "Published Axis.get_coordinates uses origin + spacing * arange(num_samples); physical-length calculations in procedural noise may use num_samples * spacing. All exports must preserve actual sample coordinates.",
+      "status": "Not executed: large field-scale matched geology and CUDA hardware study remains pending."
+    }
+  ],
+  "evidenceNeededForSuperiority": [
+    "Predeclared scientific metric wins on independent tasks with uncertainty estimates",
+    "Matched generation time/memory with physical output quality retained",
+    "Useful downstream generalization or inversion improvement",
+    "Independent researchers reproducing results"
+  ],
+  "superiorityEstablished": false,
+  "controlEvidence": {
+    "results": "matched-control-results.json",
+    "initialFailure": "matched-control-v1-failure.json",
+    "configurationRevision": "matched-control-plan.json",
+    "scope": "Static flat-layer field only; no superiority claim for realistic geology or full history physics."
+  }
+}

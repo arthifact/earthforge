@@ -1,0 +1,624 @@
+{
+  "createdAt": "2026-10-17T08:32:05.166Z",
+  "runtime": {
+    "node": "v24.18.0",
+    "v8": "13.6.233.17-node.50",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4 Pro",
+    "logicalCpus": 14,
+    "ramBytes": 51539607552
+  },
+  "method": "Each engine in a separate Node process, no concurrent simulation workers; one warmup and three measured trials by default. TS simulation plus display projection; native CLI process plus JSON request/response; Wasm request/response with module setup excluded. These are local end-to-end timings, not a cross-hardware SOTA comparison. Native CLI starts a fresh native process each trial. Fixture order fixed; engine order alternates.",
+  "hashes": {
+    "native": "20a40f8fa1b758a089dbfed7f3e6e4f4de9f4057d3e19595675c44b3d4956bdb",
+    "wasm": "f1237dd5d5473dab552c723b0f933f51ae4a83d21649f3834de76400706591f9",
+    "reference": "fe92763b82c04f88ad4dcd58ae2c7c9171712db5f0876e369b117d31bf1a40b5"
+  },
+  "rows": [
+    {
+      "options": {
+        "seed": 765184,
+        "setting": "extension",
+        "h": 40,
+        "record": false
+      },
+      "engines": [
+        {
+          "engine": "typescript",
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "h": 40,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 5194.785124999999,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 5163.316250000001,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 5136.105125,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 5143.723292000001,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            }
+          ],
+          "medianMs": 5143.723292000001,
+          "memory": {
+            "rss": 1044316160,
+            "heapTotal": 867647488,
+            "heapUsed": 786868072,
+            "external": 7997921,
+            "arrayBuffers": 5682839
+          }
+        },
+        {
+          "engine": "native",
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "h": 40,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 2776.472416,
+              "kernelMs": 2755.661084,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 2772.105417,
+              "kernelMs": 2755.239167,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 2765.1882079999996,
+              "kernelMs": 2746.3978340000003,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 2794.3657920000005,
+              "kernelMs": 2777.6223330000003,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            }
+          ],
+          "medianMs": 2772.105417,
+          "memory": {
+            "rss": 90701824,
+            "heapTotal": 22921216,
+            "heapUsed": 13362432,
+            "external": 15495322,
+            "arrayBuffers": 2750467
+          }
+        },
+        {
+          "engine": "wasm",
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "h": 40,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 6366.248416,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 6306.253999999999,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 6297.517416000001,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 6294.909167000002,
+              "kernelMs": null,
+              "stateHash": "9050bc91603944b5e3995e23e05e1072bcd3f7b5041f95a14bb30bc3a0400ceb"
+            }
+          ],
+          "medianMs": 6297.517416000001,
+          "memory": {
+            "rss": 171638784,
+            "heapTotal": 18284544,
+            "heapUsed": 9148968,
+            "external": 71441446,
+            "arrayBuffers": 143703
+          }
+        }
+      ]
+    },
+    {
+      "options": {
+        "seed": 20261014,
+        "setting": "compression",
+        "h": 40,
+        "record": false
+      },
+      "engines": [
+        {
+          "engine": "wasm",
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "h": 40,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 4256.537709,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 4071.810875000001,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 4076.260709,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 4076.1537499999995,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            }
+          ],
+          "medianMs": 4076.1537499999995,
+          "memory": {
+            "rss": 226394112,
+            "heapTotal": 21626880,
+            "heapUsed": 15994008,
+            "external": 126939113,
+            "arrayBuffers": 143799
+          }
+        },
+        {
+          "engine": "typescript",
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "h": 40,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 4917.803542,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 4771.954583,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 4721.804458999999,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 4681.873124999998,
+              "kernelMs": null,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            }
+          ],
+          "medianMs": 4721.804458999999,
+          "memory": {
+            "rss": 1140817920,
+            "heapTotal": 525959168,
+            "heapUsed": 193210944,
+            "external": 7989977,
+            "arrayBuffers": 5674895
+          }
+        },
+        {
+          "engine": "native",
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "h": 40,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 2474.5245,
+              "kernelMs": 2456.850917,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 2454.80625,
+              "kernelMs": 2437.7095,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 2482.760583,
+              "kernelMs": 2465.843625,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 2473.854042,
+              "kernelMs": 2457.417208,
+              "stateHash": "a061ec6ff4130a2a9c8da5f7102513bce3ccfa6ee48b89598d7534af4bdc2fc3"
+            }
+          ],
+          "medianMs": 2473.854042,
+          "memory": {
+            "rss": 92045312,
+            "heapTotal": 14876672,
+            "heapUsed": 9233432,
+            "external": 7193546,
+            "arrayBuffers": 143611
+          }
+        }
+      ]
+    },
+    {
+      "options": {
+        "seed": 765184,
+        "setting": "extension",
+        "h": 20,
+        "record": false
+      },
+      "engines": [
+        {
+          "engine": "typescript",
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "h": 20,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 10550.280166999999,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 10536.792458999998,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 10550.445708,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 10605.052167000002,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            }
+          ],
+          "medianMs": 10550.445708,
+          "memory": {
+            "rss": 1963376640,
+            "heapTotal": 1535918080,
+            "heapUsed": 1455921712,
+            "external": 21863889,
+            "arrayBuffers": 19548807
+          }
+        },
+        {
+          "engine": "native",
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "h": 20,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 5777.637,
+              "kernelMs": 5756.140083,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 5836.091292,
+              "kernelMs": 5815.692542,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 5753.733166000002,
+              "kernelMs": 5733.628334000001,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 5696.158583,
+              "kernelMs": 5676.545916,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            }
+          ],
+          "medianMs": 5753.733166000002,
+          "memory": {
+            "rss": 90767360,
+            "heapTotal": 22659072,
+            "heapUsed": 13383208,
+            "external": 15580066,
+            "arrayBuffers": 2767413
+          }
+        },
+        {
+          "engine": "wasm",
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "h": 20,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 13278.717917,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 12897.390042,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 13092.167000000001,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 13046.212417000002,
+              "kernelMs": null,
+              "stateHash": "bb427d8ac71599c2c1e3d1e59cbbe7e34b864e031ada0d30db7ca0b446e7b8d8"
+            }
+          ],
+          "medianMs": 13046.212417000002,
+          "memory": {
+            "rss": 233553920,
+            "heapTotal": 23592960,
+            "heapUsed": 13922672,
+            "external": 132360465,
+            "arrayBuffers": 143791
+          }
+        }
+      ]
+    },
+    {
+      "options": {
+        "seed": 20261014,
+        "setting": "compression",
+        "h": 20,
+        "record": false
+      },
+      "engines": [
+        {
+          "engine": "wasm",
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "h": 20,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 13477.854709,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 12252.709291,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 12224.331416999998,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 12338.522041000004,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            }
+          ],
+          "medianMs": 12252.709291,
+          "memory": {
+            "rss": 393412608,
+            "heapTotal": 18284544,
+            "heapUsed": 8341656,
+            "external": 294892187,
+            "arrayBuffers": 143707
+          }
+        },
+        {
+          "engine": "typescript",
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "h": 20,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 17712.87675,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 17601.052334000004,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 17101.631833,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 17541.81325,
+              "kernelMs": null,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            }
+          ],
+          "medianMs": 17541.81325,
+          "memory": {
+            "rss": 2343632896,
+            "heapTotal": 600064000,
+            "heapUsed": 226194328,
+            "external": 8088649,
+            "arrayBuffers": 5773567
+          }
+        },
+        {
+          "engine": "native",
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "h": 20,
+            "record": false
+          },
+          "rows": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "elapsedMs": 7779.863375,
+              "kernelMs": 7757.304459,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "elapsedMs": 7775.274875000001,
+              "kernelMs": 7740.344333999999,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "elapsedMs": 7748.3465000000015,
+              "kernelMs": 7726.501208000001,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "elapsedMs": 7784.098334000002,
+              "kernelMs": 7747.491541,
+              "stateHash": "86db1317c104b0274df1c6ec612580e7a28e6a94f7cc4eae5930167e764d7004"
+            }
+          ],
+          "medianMs": 7775.274875000001,
+          "memory": {
+            "rss": 92045312,
+            "heapTotal": 15663104,
+            "heapUsed": 9292632,
+            "external": 7257086,
+            "arrayBuffers": 143611
+          }
+        }
+      ]
+    }
+  ]
+}

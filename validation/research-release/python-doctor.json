@@ -1,0 +1,45 @@
+{
+  "package": "0.2.0a1",
+  "engine": "/Users/torus/Documents/Codex/2026-10-17/wah/work/earthforge-rust/target/release/earthforge",
+  "engineSha256": "029ecd62c76d5361f13c8ce749c38f957bd991974ba0c2244f58e56158c2d42a",
+  "capabilities": {
+    "abi": 1,
+    "acousticDimensions": [
+      2,
+      3
+    ],
+    "assumptions": [
+      "Prescribed regional fault kinematics and pressure",
+      "Vertical drained quasistatic compaction",
+      "Open regional observation window"
+    ],
+    "coordinates": "metres, z positive down",
+    "engine": "earthforge-core",
+    "geologicalHistoryDimensions": [
+      2,
+      3
+    ],
+    "history3d": {
+      "allBedContactOccurrences": true,
+      "explicitPointQueries": true,
+      "globallyIndexedGridWindows": true,
+      "materialStateProjection": true,
+      "materialStepIndependentOfSampling": true,
+      "maxProjectionPointsPerRequest": 4000000,
+      "maxUniqueRaysPerRequest": 8192,
+      "orthogonalSections": true,
+      "recipes": [
+        "classic",
+        "detailed"
+      ]
+    },
+    "notImplemented": [
+      "Stress equilibrium",
+      "Pore-fluid-flow evolution",
+      "Field-validated geological accuracy"
+    ],
+    "schema": "earthforge-capabilities-v1",
+    "sourcePrecision": "binary64",
+    "version": "0.1.0"
+  }
+}

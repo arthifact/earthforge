@@ -1,0 +1,20 @@
+{
+  "productionDecision": "Keep native hardware FMA and standard-library software FMA for deterministic Wasm. Host scalar primitives remain available only for page previews. Rejected numerical optimizations are preserved as experiments.",
+  "cache": {
+    "status": "rejected",
+    "reason": "Fixed1.5MiB of caches provided no useful timing benefit",
+    "report": "../cached-math-history-benchmark.json"
+  },
+  "boundedPortableFma": {
+    "status": "rejected",
+    "reason": "All2.2million native and440000Wasm comparisons pass, but whole-history timing is slower than standard softwareFMA",
+    "source": "portable_fma.rs",
+    "report": "../portable-fma-history-benchmark.json"
+  },
+  "sineTailCorrection": {
+    "status": "accepted:52Rust tests, original and expanded scalar checks,36frozen numerical runs and14acceptance gates pass; cases and metrics identical to prior accepted version",
+    "reason": "The previous native adaptation fused v*r where the reference rounds that product separately. Five expanded-sweep differences are corrected; original120054scalar gate and expanded2520084comparisons pass. Before-fix report retained.",
+    "before": "../expanded-math-conformance-before-sine-fix.json",
+    "after": "../portable-math-expanded-validation.json"
+  }
+}

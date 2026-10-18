@@ -1,0 +1,132 @@
+{
+  "runtime": "v24.18.0",
+  "v8": "13.6.233.17-node.50",
+  "inputs": 1080036,
+  "comparisons": 2520084,
+  "passed": true,
+  "engines": [
+    {
+      "path": "public/rust/earthforge_core_deterministic.wasm",
+      "sha256": "77f57740272e6c3ae78826924be35568cdd0128b1a6522e7f471d472118895f1"
+    },
+    {
+      "path": "public/rust/earthforge_core_deterministic_simd.wasm",
+      "sha256": "7cea02b1c1b742856ea3d232cdc3dac9608a3f94e856b0ea7c0bb3c75f42415b"
+    }
+  ],
+  "sourceSha256": {
+    "native_math.rs": "038c1f645363b831c3be9af2a1119c752bce97a67574356579123d4a07d63e07",
+    "math.rs": "61d2c445686bf7645adb207a5e3d3ef5904eb151ed3d0f32d023cb8d3a899c12"
+  },
+  "scope": "Expanded60002 inputs per function, three request orders, distinct signed zeros. Native hardware FMA and both Wasm forms must match Node24 Math exactly on every sampled input. No tolerance relaxation and no observational data. This establishes sampled compatibility, not a universal claim over all binary64 arguments.",
+  "results": [
+    {
+      "function": "exp",
+      "order": "forward",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "exp",
+      "order": "reverse",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "exp",
+      "order": "repeat",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "expm1",
+      "order": "forward",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "expm1",
+      "order": "reverse",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "expm1",
+      "order": "repeat",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "tanh",
+      "order": "forward",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "tanh",
+      "order": "reverse",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "tanh",
+      "order": "repeat",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "sin",
+      "order": "forward",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "sin",
+      "order": "reverse",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "sin",
+      "order": "repeat",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "tan",
+      "order": "forward",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "tan",
+      "order": "reverse",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "tan",
+      "order": "repeat",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "cbrt",
+      "order": "forward",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "cbrt",
+      "order": "reverse",
+      "inputs": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "cbrt",
+      "order": "repeat",
+      "inputs": 60002,
+      "bitIdentical": true
+    }
+  ]
+}

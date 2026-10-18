@@ -1,0 +1,7 @@
+{
+  "status": "corrected before acceptance",
+  "failedTest": "new_deposition_reduces_to_existing_exact_subdivision_and_solid_law",
+  "observed": "New deposition multiplied before division in its midpoint expression, differing by one ULP in some burial/loading values from the existing 2D law. Grains/heights agreed.",
+  "correction": "Retain the reference evaluation order: (i+0.5)*(thickness/count). No tolerance or physical coefficient change.",
+  "initialPerformanceScope": "baseline-benchmark.json and baseline-native describe the initial prototype before this correction; accepted reference will be frozen separately."
+}

@@ -1,0 +1,102 @@
+{
+  "unchangedPhysicalHashes": true,
+  "unchangedMaterialStepAndSampling": true,
+  "rows": [
+    {
+      "case": "flat-history",
+      "engine": "culled-native",
+      "referenceMs": 57.169291999999984,
+      "finalMs": 12.224874999999997,
+      "speedup": 4.676472520168917,
+      "physicalHashIdentical": true
+    },
+    {
+      "case": "flat-history",
+      "engine": "culled-research-simd",
+      "referenceMs": 247.15525000000002,
+      "finalMs": 55.737292,
+      "speedup": 4.434288806137191,
+      "physicalHashIdentical": true
+    },
+    {
+      "case": "flat-history",
+      "engine": "culled-preview-simd",
+      "referenceMs": 117.23195800000002,
+      "finalMs": 22.520832999999996,
+      "speedup": 5.205489423948041,
+      "physicalHashIdentical": true
+    },
+    {
+      "case": "oblique-fault-history",
+      "engine": "culled-preview-simd",
+      "referenceMs": 845.3302079999999,
+      "finalMs": 240.82629199999997,
+      "speedup": 3.510124251715838,
+      "physicalHashIdentical": true
+    },
+    {
+      "case": "oblique-fault-history",
+      "engine": "culled-research-simd",
+      "referenceMs": 3419.1844999999994,
+      "finalMs": 792.0706670000002,
+      "speedup": 4.316766978570611,
+      "physicalHashIdentical": true
+    },
+    {
+      "case": "oblique-fault-history",
+      "engine": "culled-native",
+      "referenceMs": 122.04962499999999,
+      "finalMs": 31.239791999999994,
+      "speedup": 3.9068642006323224,
+      "physicalHashIdentical": true
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "engine": "culled-native",
+      "referenceMs": 110.05995800000002,
+      "finalMs": 27.730625000000018,
+      "speedup": 3.96889568843111,
+      "physicalHashIdentical": true
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "engine": "culled-research-simd",
+      "referenceMs": 2706.101458,
+      "finalMs": 622.305,
+      "speedup": 4.348513121379389,
+      "physicalHashIdentical": true
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "engine": "culled-preview-simd",
+      "referenceMs": 677.8762080000001,
+      "finalMs": 198.46195800000004,
+      "speedup": 3.4156480911067097,
+      "physicalHashIdentical": true
+    },
+    {
+      "case": "two-fault-history",
+      "engine": "culled-preview-simd",
+      "referenceMs": 1098.5102079999997,
+      "finalMs": 257.08062500000005,
+      "speedup": 4.273018271991518,
+      "physicalHashIdentical": true
+    },
+    {
+      "case": "two-fault-history",
+      "engine": "culled-research-simd",
+      "referenceMs": 4582.854541000001,
+      "finalMs": 849.6335,
+      "speedup": 5.393919308737239,
+      "physicalHashIdentical": true
+    },
+    {
+      "case": "two-fault-history",
+      "engine": "culled-native",
+      "referenceMs": 150.65641599999998,
+      "finalMs": 35.02883299999999,
+      "speedup": 4.30092592579376,
+      "physicalHashIdentical": true
+    }
+  ]
+}

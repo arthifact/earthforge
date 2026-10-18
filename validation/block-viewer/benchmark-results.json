@@ -1,0 +1,1052 @@
+{
+  "createdAt": "2026-10-17T16:53:14.500Z",
+  "cpu": "Apple M4 Pro",
+  "runtime": "v24.18.0",
+  "hashes": {
+    "native": "e18d7b5853542e5828cf43f7fee477a198b6ae83532dc6e6e1efac229df8cd6a",
+    "wasm": "82d1d42029fcc9ebdeaf4bb1de5d1169d710e5b94ecd102b2366c91d16df5de6"
+  },
+  "method": "Serial isolated case/engine child processes, one warmup and three measured complete query trials. Native trials use fresh CLI processes; Wasm trials reuse the compiled module within the case. Timings include result decoding, exclude hash computation. Wasm setup reported separately. Full sampled volume, fixed 10 m material subdivision. Linear memory is not process RSS. No energy measurement or real-time physical evolution claim.",
+  "rows": [
+    {
+      "name": "quick",
+      "kind": "native",
+      "nx": 33,
+      "ny": 33,
+      "nz": 161,
+      "steps": 12,
+      "faults": 2,
+      "samples": 175329,
+      "request": {
+        "kind": "history3d",
+        "includeModel": true,
+        "options": {
+          "seed": 908054,
+          "steps": 12,
+          "faults": 2,
+          "geology": "detailed",
+          "setting": "extension",
+          "compaction": true,
+          "exhumation": false,
+          "overpressure": false,
+          "materialStep": 10
+        },
+        "query": {
+          "sectionsY": [],
+          "includeMaterial": true,
+          "grid": {
+            "nx": 33,
+            "ny": 33,
+            "nz": 161,
+            "dx": 312.5,
+            "dy": 312.5,
+            "dz": 18.75,
+            "origin": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        }
+      },
+      "medianMs": 196.490541,
+      "setupMs": null,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 186.575083,
+          "physicalSha256": "827680c65cf113ae3e73ecc687697f34e97bf5415cf282a9c574b34b7184e881",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 585,
+              "compactionLayers": 2672124,
+              "evaluatedProfiles": 8427,
+              "localEventsChecked": 190963,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 26715,
+              "porosityEvaluations": 13049512,
+              "prunedFaultBranches": 4413
+            },
+            "retainedProfileLayers": 284720,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": null
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 191.530541,
+          "physicalSha256": "827680c65cf113ae3e73ecc687697f34e97bf5415cf282a9c574b34b7184e881",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 585,
+              "compactionLayers": 2672124,
+              "evaluatedProfiles": 8427,
+              "localEventsChecked": 190963,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 26715,
+              "porosityEvaluations": 13049512,
+              "prunedFaultBranches": 4413
+            },
+            "retainedProfileLayers": 284720,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": null
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 201.25420900000006,
+          "physicalSha256": "827680c65cf113ae3e73ecc687697f34e97bf5415cf282a9c574b34b7184e881",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 585,
+              "compactionLayers": 2672124,
+              "evaluatedProfiles": 8427,
+              "localEventsChecked": 190963,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 26715,
+              "porosityEvaluations": 13049512,
+              "prunedFaultBranches": 4413
+            },
+            "retainedProfileLayers": 284720,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": null
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 196.490541,
+          "physicalSha256": "827680c65cf113ae3e73ecc687697f34e97bf5415cf282a9c574b34b7184e881",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 585,
+              "compactionLayers": 2672124,
+              "evaluatedProfiles": 8427,
+              "localEventsChecked": 190963,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 26715,
+              "porosityEvaluations": 13049512,
+              "prunedFaultBranches": 4413
+            },
+            "retainedProfileLayers": 284720,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": null
+        }
+      ]
+    },
+    {
+      "name": "quick",
+      "kind": "wasm",
+      "nx": 33,
+      "ny": 33,
+      "nz": 161,
+      "steps": 12,
+      "faults": 2,
+      "samples": 175329,
+      "request": {
+        "kind": "history3d",
+        "includeModel": true,
+        "options": {
+          "seed": 908054,
+          "steps": 12,
+          "faults": 2,
+          "geology": "detailed",
+          "setting": "extension",
+          "compaction": true,
+          "exhumation": false,
+          "overpressure": false,
+          "materialStep": 10
+        },
+        "query": {
+          "sectionsY": [],
+          "includeMaterial": true,
+          "grid": {
+            "nx": 33,
+            "ny": 33,
+            "nz": 161,
+            "dx": 312.5,
+            "dy": 312.5,
+            "dz": 18.75,
+            "origin": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        }
+      },
+      "medianMs": 2972.8226250000002,
+      "setupMs": 1.1782500000000002,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 3002.187958,
+          "physicalSha256": "827680c65cf113ae3e73ecc687697f34e97bf5415cf282a9c574b34b7184e881",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 585,
+              "compactionLayers": 2672124,
+              "evaluatedProfiles": 8427,
+              "localEventsChecked": 190963,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 26715,
+              "porosityEvaluations": 13049512,
+              "prunedFaultBranches": 4413
+            },
+            "retainedProfileLayers": 284720,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": 61079552
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 2972.8226250000002,
+          "physicalSha256": "827680c65cf113ae3e73ecc687697f34e97bf5415cf282a9c574b34b7184e881",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 585,
+              "compactionLayers": 2672124,
+              "evaluatedProfiles": 8427,
+              "localEventsChecked": 190963,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 26715,
+              "porosityEvaluations": 13049512,
+              "prunedFaultBranches": 4413
+            },
+            "retainedProfileLayers": 284720,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": 61079552
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 2977.0048340000003,
+          "physicalSha256": "827680c65cf113ae3e73ecc687697f34e97bf5415cf282a9c574b34b7184e881",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 585,
+              "compactionLayers": 2672124,
+              "evaluatedProfiles": 8427,
+              "localEventsChecked": 190963,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 26715,
+              "porosityEvaluations": 13049512,
+              "prunedFaultBranches": 4413
+            },
+            "retainedProfileLayers": 284720,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": 61079552
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 2967.6292919999996,
+          "physicalSha256": "827680c65cf113ae3e73ecc687697f34e97bf5415cf282a9c574b34b7184e881",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 585,
+              "compactionLayers": 2672124,
+              "evaluatedProfiles": 8427,
+              "localEventsChecked": 190963,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 26715,
+              "porosityEvaluations": 13049512,
+              "prunedFaultBranches": 4413
+            },
+            "retainedProfileLayers": 284720,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": 61079552
+        }
+      ]
+    },
+    {
+      "name": "standard",
+      "kind": "native",
+      "nx": 49,
+      "ny": 49,
+      "nz": 241,
+      "steps": 12,
+      "faults": 2,
+      "samples": 578641,
+      "request": {
+        "kind": "history3d",
+        "includeModel": true,
+        "options": {
+          "seed": 908054,
+          "steps": 12,
+          "faults": 2,
+          "geology": "detailed",
+          "setting": "extension",
+          "compaction": true,
+          "exhumation": false,
+          "overpressure": false,
+          "materialStep": 10
+        },
+        "query": {
+          "sectionsY": [],
+          "includeMaterial": true,
+          "grid": {
+            "nx": 49,
+            "ny": 49,
+            "nz": 241,
+            "dx": 208.33333333333334,
+            "dy": 208.33333333333334,
+            "dz": 12.5,
+            "origin": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        }
+      },
+      "medianMs": 449.59179200000005,
+      "setupMs": null,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 439.976875,
+          "physicalSha256": "81b1f905f77d8a0cb9189e75ee289c971fafc006a6cb9dc43410e8b9680ffff1",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 1317,
+              "compactionLayers": 5911373,
+              "evaluatedProfiles": 18668,
+              "localEventsChecked": 423254,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 32245,
+              "porosityEvaluations": 28863897,
+              "prunedFaultBranches": 9726
+            },
+            "retainedProfileLayers": 627158,
+            "uniqueRays": 2401
+          },
+          "wasmLinearMemoryBytes": null
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 444.94183400000003,
+          "physicalSha256": "81b1f905f77d8a0cb9189e75ee289c971fafc006a6cb9dc43410e8b9680ffff1",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 1317,
+              "compactionLayers": 5911373,
+              "evaluatedProfiles": 18668,
+              "localEventsChecked": 423254,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 32245,
+              "porosityEvaluations": 28863897,
+              "prunedFaultBranches": 9726
+            },
+            "retainedProfileLayers": 627158,
+            "uniqueRays": 2401
+          },
+          "wasmLinearMemoryBytes": null
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 449.59179200000005,
+          "physicalSha256": "81b1f905f77d8a0cb9189e75ee289c971fafc006a6cb9dc43410e8b9680ffff1",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 1317,
+              "compactionLayers": 5911373,
+              "evaluatedProfiles": 18668,
+              "localEventsChecked": 423254,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 32245,
+              "porosityEvaluations": 28863897,
+              "prunedFaultBranches": 9726
+            },
+            "retainedProfileLayers": 627158,
+            "uniqueRays": 2401
+          },
+          "wasmLinearMemoryBytes": null
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 450.4317920000001,
+          "physicalSha256": "81b1f905f77d8a0cb9189e75ee289c971fafc006a6cb9dc43410e8b9680ffff1",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 1317,
+              "compactionLayers": 5911373,
+              "evaluatedProfiles": 18668,
+              "localEventsChecked": 423254,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 32245,
+              "porosityEvaluations": 28863897,
+              "prunedFaultBranches": 9726
+            },
+            "retainedProfileLayers": 627158,
+            "uniqueRays": 2401
+          },
+          "wasmLinearMemoryBytes": null
+        }
+      ]
+    },
+    {
+      "name": "standard",
+      "kind": "wasm",
+      "nx": 49,
+      "ny": 49,
+      "nz": 241,
+      "steps": 12,
+      "faults": 2,
+      "samples": 578641,
+      "request": {
+        "kind": "history3d",
+        "includeModel": true,
+        "options": {
+          "seed": 908054,
+          "steps": 12,
+          "faults": 2,
+          "geology": "detailed",
+          "setting": "extension",
+          "compaction": true,
+          "exhumation": false,
+          "overpressure": false,
+          "materialStep": 10
+        },
+        "query": {
+          "sectionsY": [],
+          "includeMaterial": true,
+          "grid": {
+            "nx": 49,
+            "ny": 49,
+            "nz": 241,
+            "dx": 208.33333333333334,
+            "dy": 208.33333333333334,
+            "dz": 12.5,
+            "origin": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        }
+      },
+      "medianMs": 6647.679417000001,
+      "setupMs": 1.207417000000003,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 6670.187333,
+          "physicalSha256": "81b1f905f77d8a0cb9189e75ee289c971fafc006a6cb9dc43410e8b9680ffff1",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 1317,
+              "compactionLayers": 5911373,
+              "evaluatedProfiles": 18668,
+              "localEventsChecked": 423254,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 32245,
+              "porosityEvaluations": 28863897,
+              "prunedFaultBranches": 9726
+            },
+            "retainedProfileLayers": 627158,
+            "uniqueRays": 2401
+          },
+          "wasmLinearMemoryBytes": 163774464
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 6645.888416000001,
+          "physicalSha256": "81b1f905f77d8a0cb9189e75ee289c971fafc006a6cb9dc43410e8b9680ffff1",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 1317,
+              "compactionLayers": 5911373,
+              "evaluatedProfiles": 18668,
+              "localEventsChecked": 423254,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 32245,
+              "porosityEvaluations": 28863897,
+              "prunedFaultBranches": 9726
+            },
+            "retainedProfileLayers": 627158,
+            "uniqueRays": 2401
+          },
+          "wasmLinearMemoryBytes": 163774464
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 6647.679417000001,
+          "physicalSha256": "81b1f905f77d8a0cb9189e75ee289c971fafc006a6cb9dc43410e8b9680ffff1",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 1317,
+              "compactionLayers": 5911373,
+              "evaluatedProfiles": 18668,
+              "localEventsChecked": 423254,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 32245,
+              "porosityEvaluations": 28863897,
+              "prunedFaultBranches": 9726
+            },
+            "retainedProfileLayers": 627158,
+            "uniqueRays": 2401
+          },
+          "wasmLinearMemoryBytes": 163774464
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 6669.880208000002,
+          "physicalSha256": "81b1f905f77d8a0cb9189e75ee289c971fafc006a6cb9dc43410e8b9680ffff1",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 1317,
+              "compactionLayers": 5911373,
+              "evaluatedProfiles": 18668,
+              "localEventsChecked": 423254,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 32245,
+              "porosityEvaluations": 28863897,
+              "prunedFaultBranches": 9726
+            },
+            "retainedProfileLayers": 627158,
+            "uniqueRays": 2401
+          },
+          "wasmLinearMemoryBytes": 163774464
+        }
+      ]
+    },
+    {
+      "name": "fine",
+      "kind": "native",
+      "nx": 65,
+      "ny": 65,
+      "nz": 481,
+      "steps": 12,
+      "faults": 2,
+      "samples": 2032225,
+      "request": {
+        "kind": "history3d",
+        "includeModel": true,
+        "options": {
+          "seed": 908054,
+          "steps": 12,
+          "faults": 2,
+          "geology": "detailed",
+          "setting": "extension",
+          "compaction": true,
+          "exhumation": false,
+          "overpressure": false,
+          "materialStep": 10
+        },
+        "query": {
+          "sectionsY": [],
+          "includeMaterial": true,
+          "grid": {
+            "nx": 65,
+            "ny": 65,
+            "nz": 481,
+            "dx": 156.25,
+            "dy": 156.25,
+            "dz": 6.25,
+            "origin": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        }
+      },
+      "medianMs": 966.7449999999999,
+      "setupMs": null,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 1008.5319999999999,
+          "physicalSha256": "7881dd8f8aa319327bd468db045363bec45af885400d38cd09f50fd37f4d746a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 2326,
+              "compactionLayers": 10425360,
+              "evaluatedProfiles": 32947,
+              "localEventsChecked": 747287,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 35617,
+              "porosityEvaluations": 50901852,
+              "prunedFaultBranches": 17126
+            },
+            "retainedProfileLayers": 1103175,
+            "uniqueRays": 4225
+          },
+          "wasmLinearMemoryBytes": null
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 966.7449999999999,
+          "physicalSha256": "7881dd8f8aa319327bd468db045363bec45af885400d38cd09f50fd37f4d746a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 2326,
+              "compactionLayers": 10425360,
+              "evaluatedProfiles": 32947,
+              "localEventsChecked": 747287,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 35617,
+              "porosityEvaluations": 50901852,
+              "prunedFaultBranches": 17126
+            },
+            "retainedProfileLayers": 1103175,
+            "uniqueRays": 4225
+          },
+          "wasmLinearMemoryBytes": null
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 957.177666,
+          "physicalSha256": "7881dd8f8aa319327bd468db045363bec45af885400d38cd09f50fd37f4d746a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 2326,
+              "compactionLayers": 10425360,
+              "evaluatedProfiles": 32947,
+              "localEventsChecked": 747287,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 35617,
+              "porosityEvaluations": 50901852,
+              "prunedFaultBranches": 17126
+            },
+            "retainedProfileLayers": 1103175,
+            "uniqueRays": 4225
+          },
+          "wasmLinearMemoryBytes": null
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 987.6202079999998,
+          "physicalSha256": "7881dd8f8aa319327bd468db045363bec45af885400d38cd09f50fd37f4d746a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 2326,
+              "compactionLayers": 10425360,
+              "evaluatedProfiles": 32947,
+              "localEventsChecked": 747287,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 35617,
+              "porosityEvaluations": 50901852,
+              "prunedFaultBranches": 17126
+            },
+            "retainedProfileLayers": 1103175,
+            "uniqueRays": 4225
+          },
+          "wasmLinearMemoryBytes": null
+        }
+      ]
+    },
+    {
+      "name": "fine",
+      "kind": "wasm",
+      "nx": 65,
+      "ny": 65,
+      "nz": 481,
+      "steps": 12,
+      "faults": 2,
+      "samples": 2032225,
+      "request": {
+        "kind": "history3d",
+        "includeModel": true,
+        "options": {
+          "seed": 908054,
+          "steps": 12,
+          "faults": 2,
+          "geology": "detailed",
+          "setting": "extension",
+          "compaction": true,
+          "exhumation": false,
+          "overpressure": false,
+          "materialStep": 10
+        },
+        "query": {
+          "sectionsY": [],
+          "includeMaterial": true,
+          "grid": {
+            "nx": 65,
+            "ny": 65,
+            "nz": 481,
+            "dx": 156.25,
+            "dy": 156.25,
+            "dz": 6.25,
+            "origin": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        }
+      },
+      "medianMs": 12227.766666000003,
+      "setupMs": 1.5890829999999987,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 12458.215667,
+          "physicalSha256": "7881dd8f8aa319327bd468db045363bec45af885400d38cd09f50fd37f4d746a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 2326,
+              "compactionLayers": 10425360,
+              "evaluatedProfiles": 32947,
+              "localEventsChecked": 747287,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 35617,
+              "porosityEvaluations": 50901852,
+              "prunedFaultBranches": 17126
+            },
+            "retainedProfileLayers": 1103175,
+            "uniqueRays": 4225
+          },
+          "wasmLinearMemoryBytes": 453640192
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 12221.894292,
+          "physicalSha256": "7881dd8f8aa319327bd468db045363bec45af885400d38cd09f50fd37f4d746a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 2326,
+              "compactionLayers": 10425360,
+              "evaluatedProfiles": 32947,
+              "localEventsChecked": 747287,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 35617,
+              "porosityEvaluations": 50901852,
+              "prunedFaultBranches": 17126
+            },
+            "retainedProfileLayers": 1103175,
+            "uniqueRays": 4225
+          },
+          "wasmLinearMemoryBytes": 453640192
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 12227.766666000003,
+          "physicalSha256": "7881dd8f8aa319327bd468db045363bec45af885400d38cd09f50fd37f4d746a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 2326,
+              "compactionLayers": 10425360,
+              "evaluatedProfiles": 32947,
+              "localEventsChecked": 747287,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 35617,
+              "porosityEvaluations": 50901852,
+              "prunedFaultBranches": 17126
+            },
+            "retainedProfileLayers": 1103175,
+            "uniqueRays": 4225
+          },
+          "wasmLinearMemoryBytes": 453640192
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 12266.900416999997,
+          "physicalSha256": "7881dd8f8aa319327bd468db045363bec45af885400d38cd09f50fd37f4d746a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 2326,
+              "compactionLayers": 10425360,
+              "evaluatedProfiles": 32947,
+              "localEventsChecked": 747287,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 35617,
+              "porosityEvaluations": 50901852,
+              "prunedFaultBranches": 17126
+            },
+            "retainedProfileLayers": 1103175,
+            "uniqueRays": 4225
+          },
+          "wasmLinearMemoryBytes": 453640192
+        }
+      ]
+    },
+    {
+      "name": "long-history-quick",
+      "kind": "native",
+      "nx": 33,
+      "ny": 33,
+      "nz": 161,
+      "steps": 24,
+      "faults": 4,
+      "samples": 175329,
+      "request": {
+        "kind": "history3d",
+        "includeModel": true,
+        "options": {
+          "seed": 908054,
+          "steps": 24,
+          "faults": 4,
+          "geology": "detailed",
+          "setting": "extension",
+          "compaction": true,
+          "exhumation": false,
+          "overpressure": false,
+          "materialStep": 10
+        },
+        "query": {
+          "sectionsY": [],
+          "includeMaterial": true,
+          "grid": {
+            "nx": 33,
+            "ny": 33,
+            "nz": 161,
+            "dx": 312.5,
+            "dy": 312.5,
+            "dz": 18.75,
+            "origin": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        }
+      },
+      "medianMs": 1619.3767079999998,
+      "setupMs": null,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 1570.0343329999998,
+          "physicalSha256": "4e9027d7d1a714ac75bae9fab3af259717abc72df1f5277912bba852a72d07eb",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 5989,
+              "compactionLayers": 30994935,
+              "evaluatedProfiles": 57522,
+              "localEventsChecked": 1475182,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 99999,
+              "porosityEvaluations": 151610615,
+              "prunedFaultBranches": 25280
+            },
+            "retainedProfileLayers": 538851,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": null
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 1628.094541,
+          "physicalSha256": "4e9027d7d1a714ac75bae9fab3af259717abc72df1f5277912bba852a72d07eb",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 5989,
+              "compactionLayers": 30994935,
+              "evaluatedProfiles": 57522,
+              "localEventsChecked": 1475182,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 99999,
+              "porosityEvaluations": 151610615,
+              "prunedFaultBranches": 25280
+            },
+            "retainedProfileLayers": 538851,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": null
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 1619.3767079999998,
+          "physicalSha256": "4e9027d7d1a714ac75bae9fab3af259717abc72df1f5277912bba852a72d07eb",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 5989,
+              "compactionLayers": 30994935,
+              "evaluatedProfiles": 57522,
+              "localEventsChecked": 1475182,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 99999,
+              "porosityEvaluations": 151610615,
+              "prunedFaultBranches": 25280
+            },
+            "retainedProfileLayers": 538851,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": null
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 1593.685708,
+          "physicalSha256": "4e9027d7d1a714ac75bae9fab3af259717abc72df1f5277912bba852a72d07eb",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 5989,
+              "compactionLayers": 30994935,
+              "evaluatedProfiles": 57522,
+              "localEventsChecked": 1475182,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 99999,
+              "porosityEvaluations": 151610615,
+              "prunedFaultBranches": 25280
+            },
+            "retainedProfileLayers": 538851,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": null
+        }
+      ]
+    },
+    {
+      "name": "long-history-quick",
+      "kind": "wasm",
+      "nx": 33,
+      "ny": 33,
+      "nz": 161,
+      "steps": 24,
+      "faults": 4,
+      "samples": 175329,
+      "request": {
+        "kind": "history3d",
+        "includeModel": true,
+        "options": {
+          "seed": 908054,
+          "steps": 24,
+          "faults": 4,
+          "geology": "detailed",
+          "setting": "extension",
+          "compaction": true,
+          "exhumation": false,
+          "overpressure": false,
+          "materialStep": 10
+        },
+        "query": {
+          "sectionsY": [],
+          "includeMaterial": true,
+          "grid": {
+            "nx": 33,
+            "ny": 33,
+            "nz": 161,
+            "dx": 312.5,
+            "dy": 312.5,
+            "dz": 18.75,
+            "origin": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        }
+      },
+      "medianMs": 34066.965916999994,
+      "setupMs": 1.2362079999999995,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 34819.41375,
+          "physicalSha256": "4e9027d7d1a714ac75bae9fab3af259717abc72df1f5277912bba852a72d07eb",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 5989,
+              "compactionLayers": 30994935,
+              "evaluatedProfiles": 57522,
+              "localEventsChecked": 1475182,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 99999,
+              "porosityEvaluations": 151610615,
+              "prunedFaultBranches": 25280
+            },
+            "retainedProfileLayers": 538851,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": 89391104
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 34247.680542,
+          "physicalSha256": "4e9027d7d1a714ac75bae9fab3af259717abc72df1f5277912bba852a72d07eb",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 5989,
+              "compactionLayers": 30994935,
+              "evaluatedProfiles": 57522,
+              "localEventsChecked": 1475182,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 99999,
+              "porosityEvaluations": 151610615,
+              "prunedFaultBranches": 25280
+            },
+            "retainedProfileLayers": 538851,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": 89391104
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 34066.965916999994,
+          "physicalSha256": "4e9027d7d1a714ac75bae9fab3af259717abc72df1f5277912bba852a72d07eb",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 5989,
+              "compactionLayers": 30994935,
+              "evaluatedProfiles": 57522,
+              "localEventsChecked": 1475182,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 99999,
+              "porosityEvaluations": 151610615,
+              "prunedFaultBranches": 25280
+            },
+            "retainedProfileLayers": 538851,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": 89391104
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 33981.40800000001,
+          "physicalSha256": "4e9027d7d1a714ac75bae9fab3af259717abc72df1f5277912bba852a72d07eb",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 5989,
+              "compactionLayers": 30994935,
+              "evaluatedProfiles": 57522,
+              "localEventsChecked": 1475182,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 99999,
+              "porosityEvaluations": 151610615,
+              "prunedFaultBranches": 25280
+            },
+            "retainedProfileLayers": 538851,
+            "uniqueRays": 1089
+          },
+          "wasmLinearMemoryBytes": 89391104
+        }
+      ]
+    }
+  ]
+}

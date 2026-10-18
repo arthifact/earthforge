@@ -1,0 +1,10 @@
+{
+  "createdAt": "2026-10-17T11:30:42.177553+00:00",
+  "rustFormatting": "pass",
+  "nativeAllTargetsAllFeaturesClippyWarningsDenied": "pass",
+  "wasmLibraryAllFeaturesClippyWarningsDenied": "pass",
+  "handoffScriptSyntax": "pass",
+  "packagingScriptSyntax": "pass",
+  "simulationSourceUnchangedSince": "971eda0",
+  "scope": "Final source-quality checks; no physical coefficients, validation thresholds, sampling grids or core algorithms changed."
+}

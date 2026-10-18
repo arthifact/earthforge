@@ -1,0 +1,6 @@
+Processing ./outputs/research-release/earthforge_research-0.2.0a1-py3-none-macosx_27_0_arm64.whl
+Collecting numpy<3,>=2.0 (from earthforge-research==0.2.0a1)
+  Using cached numpy-2.5.4-cp312-cp312-macosx_14_0_arm64.whl.metadata (6.6 kB)
+Using cached numpy-2.5.4-cp312-cp312-macosx_14_0_arm64.whl (5.5 MB)
+Installing collected packages: numpy, earthforge-research
+Successfully installed earthforge-research-0.2.0a1 numpy-2.5.4

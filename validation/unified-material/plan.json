@@ -1,0 +1,18 @@
+{
+  "baselineCheckpoint": "ed95e97369eb6d21c202670ee99171fcadbf0383",
+  "change": "Consolidate production deposition, drained compaction and irreversible burial/loading memory in material.rs for both dimension adapters",
+  "physicalLaws": "Unchanged shared physics.rs and math.rs; no coefficient, tolerance, physical scenario or material-resolution changes",
+  "geometryPolicy": "Retain existing 2D transport and finite-column boundary maps; retain existing regional 3D inverse fault maps and explicit internal water",
+  "verification": [
+    "All 71 Rust tests, including both dimension adapters against a frozen independent 36-bisection oracle on 20000 varied columns",
+    "Native and Wasm all-feature Clippy, formatting and TypeScript checks; all four Wasm production builds",
+    "Six worker/loader integration checks",
+    "All 36 frozen canonical 2D cases at 40/20/10 m: entire physical responses equal to pre-consolidation native engine, excluding only diagnostic checks.seconds",
+    "Three recorded 2D histories including extension, compression and exhumation: all replay frames and carried material unchanged",
+    "Eight whole-response 2D checks across all four Wasm modules",
+    "Existing 20-case 3D replay/profile/point check, derived volume and genuine 3D acoustic shot across native/all four Wasm builds; four original native acoustic fixtures unchanged",
+    "Preflight actual source against baseline before installation, rebuild and verify installed source/artifacts"
+  ],
+  "observationalData": "Untouched; no empirical calibration or holdout access",
+  "performance": "Previous timing reports remain historical to their frozen binaries. No new speed claim from this extraction."
+}

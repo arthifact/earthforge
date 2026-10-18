@@ -1,0 +1,999 @@
+{
+  "createdAt": "2026-10-17T11:31:43.567Z",
+  "developmentCommit": "dc6f1cec2b66a2e867755b85112b07ad98d09ae4",
+  "originalGitHead": "ea7b02a4744502afe846b30d7913d54c810ac034",
+  "sourceFiles": 154,
+  "allSourceIdentical": true,
+  "allWasmIdentical": true,
+  "allFivePairsIdentical": true,
+  "native": {
+    "developmentSha256": "dca94eecc3a62df4058dc09145d81b6ce0e24f3c2d762e6c76af4f7e6f42586c",
+    "actualSha256": "be887b2fa0200f7e171f37b6f800dfe698c4162801adbf01d497ae3e8d456cfc",
+    "note": "Mach-O UUID/build-path variation can change file hashes. Physical equality is separately verified on all four saved shots and the erosion volume/projection/shot; source and all Wasm bytes match."
+  },
+  "modules": [
+    {
+      "name": "earthforge_core.wasm",
+      "developmentSha256": "fadad52a13eb70d73032e4ae50880a11457cdf6fed2a3aeb327beec3a8c3edb4",
+      "actualSha256": "fadad52a13eb70d73032e4ae50880a11457cdf6fed2a3aeb327beec3a8c3edb4",
+      "identical": true
+    },
+    {
+      "name": "earthforge_core_simd.wasm",
+      "developmentSha256": "427c51615ee73e36321b6856743acdfd019ec825816431f8821231abbea64da6",
+      "actualSha256": "427c51615ee73e36321b6856743acdfd019ec825816431f8821231abbea64da6",
+      "identical": true
+    },
+    {
+      "name": "earthforge_core_deterministic.wasm",
+      "developmentSha256": "77f57740272e6c3ae78826924be35568cdd0128b1a6522e7f471d472118895f1",
+      "actualSha256": "77f57740272e6c3ae78826924be35568cdd0128b1a6522e7f471d472118895f1",
+      "identical": true
+    },
+    {
+      "name": "earthforge_core_deterministic_simd.wasm",
+      "developmentSha256": "7cea02b1c1b742856ea3d232cdc3dac9608a3f94e856b0ea7c0bb3c75f42415b",
+      "actualSha256": "7cea02b1c1b742856ea3d232cdc3dac9608a3f94e856b0ea7c0bb3c75f42415b",
+      "identical": true
+    }
+  ],
+  "pairs": [
+    {
+      "name": "basin-extension-765184",
+      "developmentSha256": "d59d48b4f01fe81311a0a0e58c22d963b8c7deb22d347b8fdf58d1f9f707fba2",
+      "actualSha256": "d59d48b4f01fe81311a0a0e58c22d963b8c7deb22d347b8fdf58d1f9f707fba2",
+      "identical": true
+    },
+    {
+      "name": "basin-compression-20261014",
+      "developmentSha256": "c89391bf729500289dc270994e8a96d25a7878953386bac5cad7ffc9a50b8ec0",
+      "actualSha256": "c89391bf729500289dc270994e8a96d25a7878953386bac5cad7ffc9a50b8ec0",
+      "identical": true
+    },
+    {
+      "name": "layered-3d",
+      "developmentSha256": "c1d001b8084dff0ace54edd62a5d4e2b9aad2e4a5fde58305b99a63b0c810da3",
+      "actualSha256": "c1d001b8084dff0ace54edd62a5d4e2b9aad2e4a5fde58305b99a63b0c810da3",
+      "identical": true
+    },
+    {
+      "name": "faulted-3d",
+      "developmentSha256": "6f27e2aa3c7b71e976d22a68631c9a10c06cbcafb75bd0ed2f18c2f43394b94a",
+      "actualSha256": "6f27e2aa3c7b71e976d22a68631c9a10c06cbcafb75bd0ed2f18c2f43394b94a",
+      "identical": true
+    },
+    {
+      "name": "eroded-faulted-3d",
+      "developmentSha256": "6deb6a81916c5d3e8aa58385a3148b860184c636e7b42980c0a7a514053f160d",
+      "actualSha256": "6deb6a81916c5d3e8aa58385a3148b860184c636e7b42980c0a7a514053f160d",
+      "identical": true
+    }
+  ],
+  "rows": [
+    {
+      "path": ".gitignore",
+      "developmentSha256": "2f84c3e1ba01864a8d1e6dbe673cb8d66b373e875876d44c8bc6a6f59f7f40d2",
+      "actualSha256": "2f84c3e1ba01864a8d1e6dbe673cb8d66b373e875876d44c8bc6a6f59f7f40d2",
+      "identical": true
+    },
+    {
+      "path": "Cargo.lock",
+      "developmentSha256": "09be0c7e514f35e749d616966c1d92ab7cff8c03ebc577b4ad450b7e604c7e86",
+      "actualSha256": "09be0c7e514f35e749d616966c1d92ab7cff8c03ebc577b4ad450b7e604c7e86",
+      "identical": true
+    },
+    {
+      "path": "Cargo.toml",
+      "developmentSha256": "b4faaf04693444927dbea8cff1114cbe8eb4479f0ac392e3eb56a7b1b117104f",
+      "actualSha256": "b4faaf04693444927dbea8cff1114cbe8eb4479f0ac392e3eb56a7b1b117104f",
+      "identical": true
+    },
+    {
+      "path": "README.md",
+      "developmentSha256": "8e38ad96817898cf1e96837910af9a96247863db89888a895d50dc3b9daf3a50",
+      "actualSha256": "8e38ad96817898cf1e96837910af9a96247863db89888a895d50dc3b9daf3a50",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/Cargo.toml",
+      "developmentSha256": "5c6c41ea055d5377b4993c40b3e336df44b95662763170f011e65649f6d88437",
+      "actualSha256": "5c6c41ea055d5377b4993c40b3e336df44b95662763170f011e65649f6d88437",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/licenses/V8.txt",
+      "developmentSha256": "6ab33af8774a0f396ee3aeeb761e3229057682d6f9fa7f572e390c2cb3a6e509",
+      "actualSha256": "6ab33af8774a0f396ee3aeeb761e3229057682d6f9fa7f572e390c2cb3a6e509",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/acoustic.rs",
+      "developmentSha256": "761514a2df39227ae140d06f48d528ca0604d796f9a86248b510b6e5f9c37f5e",
+      "actualSha256": "761514a2df39227ae140d06f48d528ca0604d796f9a86248b510b6e5f9c37f5e",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/api.rs",
+      "developmentSha256": "7e8f393118df8d94691708fecbe22d1bc7cb9a1a99ea9fb8413bd1faf7d420bd",
+      "actualSha256": "7e8f393118df8d94691708fecbe22d1bc7cb9a1a99ea9fb8413bd1faf7d420bd",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/budget.rs",
+      "developmentSha256": "ceb2ade0d215b5e52af2c51b71173b4dfd2c64875308e6d4ebde8a3fc172fb86",
+      "actualSha256": "ceb2ade0d215b5e52af2c51b71173b4dfd2c64875308e6d4ebde8a3fc172fb86",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/deformation.rs",
+      "developmentSha256": "c6dd85b2bd7a3c0cdf17c1744e486451fa204a8cc9bfad23a663b6403ea4bc09",
+      "actualSha256": "c6dd85b2bd7a3c0cdf17c1744e486451fa204a8cc9bfad23a663b6403ea4bc09",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/exact.rs",
+      "developmentSha256": "4d206201500f143a9c43959893775d1592965e0cc6d574874c42d96588317871",
+      "actualSha256": "4d206201500f143a9c43959893775d1592965e0cc6d574874c42d96588317871",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/geometry.rs",
+      "developmentSha256": "83fc6b56228b513c3bfd86eee10b74d80021f9c7248148c487c8ef6e8a7d694e",
+      "actualSha256": "83fc6b56228b513c3bfd86eee10b74d80021f9c7248148c487c8ef6e8a7d694e",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/lib.rs",
+      "developmentSha256": "027efe16fd68a8fd48501239229b9c6881fe8c0cd22a32cdd130415e7e1bc945",
+      "actualSha256": "027efe16fd68a8fd48501239229b9c6881fe8c0cd22a32cdd130415e7e1bc945",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/main.rs",
+      "developmentSha256": "223d47c4408d76226c6b9eb9369a2f91bfcf2d484901a8cdb61e059c49d5121e",
+      "actualSha256": "223d47c4408d76226c6b9eb9369a2f91bfcf2d484901a8cdb61e059c49d5121e",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/material.rs",
+      "developmentSha256": "e09305c5395d429ee0876508fa46103c820ddfd310224711fa2a5a4d64eb68b5",
+      "actualSha256": "e09305c5395d429ee0876508fa46103c820ddfd310224711fa2a5a4d64eb68b5",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/math.rs",
+      "developmentSha256": "61d2c445686bf7645adb207a5e3d3ef5904eb151ed3d0f32d023cb8d3a899c12",
+      "actualSha256": "61d2c445686bf7645adb207a5e3d3ef5904eb151ed3d0f32d023cb8d3a899c12",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/native_math.rs",
+      "developmentSha256": "038c1f645363b831c3be9af2a1119c752bce97a67574356579123d4a07d63e07",
+      "actualSha256": "038c1f645363b831c3be9af2a1119c752bce97a67574356579123d4a07d63e07",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/physics.rs",
+      "developmentSha256": "039ad24de9222f419f115f26f7f89e8c3d770755e45ec3359231be51aa24a22f",
+      "actualSha256": "039ad24de9222f419f115f26f7f89e8c3d770755e45ec3359231be51aa24a22f",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/polyhedron.rs",
+      "developmentSha256": "90b1069ffc60f2d2d1ff5da53145044bb64e99b510510807eb1aecccd4e79522",
+      "actualSha256": "90b1069ffc60f2d2d1ff5da53145044bb64e99b510510807eb1aecccd4e79522",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/projection3d.rs",
+      "developmentSha256": "77bd03f0bc1a115ccf0daf75c074fe2af41b3f153ed048e358978ccb4163c5bc",
+      "actualSha256": "77bd03f0bc1a115ccf0daf75c074fe2af41b3f153ed048e358978ccb4163c5bc",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/raster.rs",
+      "developmentSha256": "595d3553de0141bd663b31f12eb9fabb78694568fccc5b087e8095dba317b37c",
+      "actualSha256": "595d3553de0141bd663b31f12eb9fabb78694568fccc5b087e8095dba317b37c",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/simulation.rs",
+      "developmentSha256": "0dfd0e61d2c1e2bf097cecd38dc5562b18a000699e7f5290e5771bc86d2f1b87",
+      "actualSha256": "0dfd0e61d2c1e2bf097cecd38dc5562b18a000699e7f5290e5771bc86d2f1b87",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/space.rs",
+      "developmentSha256": "cce36162caadebb03b4402e4fe66c7bbdf51e83593847bff9ec78bbde5e7b592",
+      "actualSha256": "cce36162caadebb03b4402e4fe66c7bbdf51e83593847bff9ec78bbde5e7b592",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/transport.rs",
+      "developmentSha256": "329ae6d45a3023c7e2f1f258cf18bb2f950b8220fd0f2029abfff0272dd01d38",
+      "actualSha256": "329ae6d45a3023c7e2f1f258cf18bb2f950b8220fd0f2029abfff0272dd01d38",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/volume.rs",
+      "developmentSha256": "fc62efefa0b27c56acb27725fa8937f0b167866aa44d67b71eda48f6e62be4f0",
+      "actualSha256": "fc62efefa0b27c56acb27725fa8937f0b167866aa44d67b71eda48f6e62be4f0",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/volume3d.rs",
+      "developmentSha256": "9bf9ce4ddcd742f3000d87f07cc338b3f1821ef6bea72366291b7d59d5b7033e",
+      "actualSha256": "9bf9ce4ddcd742f3000d87f07cc338b3f1821ef6bea72366291b7d59d5b7033e",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/src/wasm.rs",
+      "developmentSha256": "3ea48b4ed1138573555cc196be1f23a736079b6b6490d47110f95156e346a21a",
+      "actualSha256": "3ea48b4ed1138573555cc196be1f23a736079b6b6490d47110f95156e346a21a",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/tests/erosion3d.rs",
+      "developmentSha256": "0f36702b5dc7c12e03ff705970380e4d94f92be68907c17296e527b13b649107",
+      "actualSha256": "0f36702b5dc7c12e03ff705970380e4d94f92be68907c17296e527b13b649107",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/tests/exact_fastpath.rs",
+      "developmentSha256": "50b5587241fc43de2f529c9a12f89a3d5bf7e02ddeb897d8cdfa4eaf9483d5af",
+      "actualSha256": "50b5587241fc43de2f529c9a12f89a3d5bf7e02ddeb897d8cdfa4eaf9483d5af",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/tests/invariants.rs",
+      "developmentSha256": "a577966f3143c30407e1e56df306a673330b51452e9aadc471ab4ebe7f40b00d",
+      "actualSha256": "a577966f3143c30407e1e56df306a673330b51452e9aadc471ab4ebe7f40b00d",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/tests/polyhedron.rs",
+      "developmentSha256": "1b73aafa4002d1ce5f1c830ff5c7a4191cb7e64f394d9f9aba176b58bd46ff74",
+      "actualSha256": "1b73aafa4002d1ce5f1c830ff5c7a4191cb7e64f394d9f9aba176b58bd46ff74",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/tests/projection3d.rs",
+      "developmentSha256": "dc5e3de350101e91ce4189f205b525338b8fdb4683dcefbbfd3f23cbaf7915d8",
+      "actualSha256": "dc5e3de350101e91ce4189f205b525338b8fdb4683dcefbbfd3f23cbaf7915d8",
+      "identical": true
+    },
+    {
+      "path": "crates/earthforge-core/tests/volume3d.rs",
+      "developmentSha256": "0be5f683bc5d9ad8eae19c9d97e7c06e0c86b5edcf7a29e5166ec1ddf70ab40b",
+      "actualSha256": "0be5f683bc5d9ad8eae19c9d97e7c06e0c86b5edcf7a29e5166ec1ddf70ab40b",
+      "identical": true
+    },
+    {
+      "path": "index.html",
+      "developmentSha256": "e0902f7d396395e19c18d5664e58bb84551b7878495c88cc9a6aa285eb8f658a",
+      "actualSha256": "e0902f7d396395e19c18d5664e58bb84551b7878495c88cc9a6aa285eb8f658a",
+      "identical": true
+    },
+    {
+      "path": "package-lock.json",
+      "developmentSha256": "a497ac362fc60dcfda52bf716ee80c823733b1c8257aea097533dddd440da883",
+      "actualSha256": "a497ac362fc60dcfda52bf716ee80c823733b1c8257aea097533dddd440da883",
+      "identical": true
+    },
+    {
+      "path": "package.json",
+      "developmentSha256": "c9c6f538c6bc13ce47e32d7567d1c4eccdc866f6996d9c47e33fbb312b9328f2",
+      "actualSha256": "c9c6f538c6bc13ce47e32d7567d1c4eccdc866f6996d9c47e33fbb312b9328f2",
+      "identical": true
+    },
+    {
+      "path": "scripts/build-rust.mjs",
+      "developmentSha256": "e2bf88972f3fa6f31747e08a8dfbc7a9077b6202c425a00ce52e7709dfcbaa5f",
+      "actualSha256": "e2bf88972f3fa6f31747e08a8dfbc7a9077b6202c425a00ce52e7709dfcbaa5f",
+      "identical": true
+    },
+    {
+      "path": "src/app.ts",
+      "developmentSha256": "a27f3baf7ed1a079128164dfbb758783c27511eccbc1e0ba9bbf19a3777bfc69",
+      "actualSha256": "a27f3baf7ed1a079128164dfbb758783c27511eccbc1e0ba9bbf19a3777bfc69",
+      "identical": true
+    },
+    {
+      "path": "src/basin.ts",
+      "developmentSha256": "4383f95500ab357e5a4138f8d1fef4c801383bcd7dc6fec86b9dcc44ee578326",
+      "actualSha256": "4383f95500ab357e5a4138f8d1fef4c801383bcd7dc6fec86b9dcc44ee578326",
+      "identical": true
+    },
+    {
+      "path": "src/basinVerify.ts",
+      "developmentSha256": "26f81f23ce7f3aa00d8f59cb3a44d30c822d6f587dbfc6b3cb1bf36b679a162f",
+      "actualSha256": "26f81f23ce7f3aa00d8f59cb3a44d30c822d6f587dbfc6b3cb1bf36b679a162f",
+      "identical": true
+    },
+    {
+      "path": "src/capacitySlices.ts",
+      "developmentSha256": "6ff02a7f3f78e212243eaa728c3b83f3468695bfe23b8dc852d2db9738d980a1",
+      "actualSha256": "6ff02a7f3f78e212243eaa728c3b83f3468695bfe23b8dc852d2db9738d980a1",
+      "identical": true
+    },
+    {
+      "path": "src/capacityTransport.ts",
+      "developmentSha256": "20fb67d3241e3445278918783879cc9c3745f06cf69db7ea3eb6bf3a6b3cbf52",
+      "actualSha256": "20fb67d3241e3445278918783879cc9c3745f06cf69db7ea3eb6bf3a6b3cbf52",
+      "identical": true
+    },
+    {
+      "path": "src/checks.ts",
+      "developmentSha256": "8d5c4cc1937fdd3ce20bf968767a87461347803d63f880a42973f15671143d1a",
+      "actualSha256": "8d5c4cc1937fdd3ce20bf968767a87461347803d63f880a42973f15671143d1a",
+      "identical": true
+    },
+    {
+      "path": "src/conservativeTransport.ts",
+      "developmentSha256": "986d4ad0b400dfc297e9eb9aec52b022a9fa31fb1a4db731252ca7edf2402c1b",
+      "actualSha256": "986d4ad0b400dfc297e9eb9aec52b022a9fa31fb1a4db731252ca7edf2402c1b",
+      "identical": true
+    },
+    {
+      "path": "src/exactLength.ts",
+      "developmentSha256": "e1a6a1b07b4be8576b03681fa2b9630f502edcbf6a3609e7bfb8f0fcfc45f19f",
+      "actualSha256": "e1a6a1b07b4be8576b03681fa2b9630f502edcbf6a3609e7bfb8f0fcfc45f19f",
+      "identical": true
+    },
+    {
+      "path": "src/faultTrace.ts",
+      "developmentSha256": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+      "actualSha256": "f407376670f5bb63c2d2b0695cb711cf5fc6e5e814b40f0748e280a34cc4a3e6",
+      "identical": true
+    },
+    {
+      "path": "src/main.ts",
+      "developmentSha256": "a20e1729db46a143c2334f205233dec54f836f731b9855ef7bb7447bd185752e",
+      "actualSha256": "a20e1729db46a143c2334f205233dec54f836f731b9855ef7bb7447bd185752e",
+      "identical": true
+    },
+    {
+      "path": "src/normalGeometry.ts",
+      "developmentSha256": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+      "actualSha256": "7a11fce6c33afdd5c68394ccd22428a8e72f10d9105677f2e477b1d7faa8fd9e",
+      "identical": true
+    },
+    {
+      "path": "src/normalTransport.ts",
+      "developmentSha256": "9f16103d16a431110c79212cb256af74a10349fff26d93ddd9c0e2239d5c8544",
+      "actualSha256": "9f16103d16a431110c79212cb256af74a10349fff26d93ddd9c0e2239d5c8544",
+      "identical": true
+    },
+    {
+      "path": "src/protocol.ts",
+      "developmentSha256": "7d04199983cb058eac510f32c3fedfcc4438c85ec515a62132a40cc6b3a3ea80",
+      "actualSha256": "7d04199983cb058eac510f32c3fedfcc4438c85ec515a62132a40cc6b3a3ea80",
+      "identical": true
+    },
+    {
+      "path": "src/render.ts",
+      "developmentSha256": "a8da418776ba680a96b343ae40d0e5d22cc8a3fed066773494dac64bb1d13e1e",
+      "actualSha256": "a8da418776ba680a96b343ae40d0e5d22cc8a3fed066773494dac64bb1d13e1e",
+      "identical": true
+    },
+    {
+      "path": "src/rustEngine.ts",
+      "developmentSha256": "3cb048d86f3dfc93759fd267233a6982234db6c19ef12b39c76eae479df69b1a",
+      "actualSha256": "3cb048d86f3dfc93759fd267233a6982234db6c19ef12b39c76eae479df69b1a",
+      "identical": true
+    },
+    {
+      "path": "src/sedimentBudget.ts",
+      "developmentSha256": "1afda9b0567d6feaa8d59bd3059b0f13610e7b317fad8f0615a0bd8ecd35b426",
+      "actualSha256": "1afda9b0567d6feaa8d59bd3059b0f13610e7b317fad8f0615a0bd8ecd35b426",
+      "identical": true
+    },
+    {
+      "path": "src/strata.ts",
+      "developmentSha256": "14c43a5062809d85d8d9b26929746032daab82c192e2b602b61603acf50e3f8f",
+      "actualSha256": "14c43a5062809d85d8d9b26929746032daab82c192e2b602b61603acf50e3f8f",
+      "identical": true
+    },
+    {
+      "path": "src/styles.css",
+      "developmentSha256": "5b5934a46cd15ce5d0f3b6903d9e233bd880258775dce0f64771fa52ab2914ed",
+      "actualSha256": "5b5934a46cd15ce5d0f3b6903d9e233bd880258775dce0f64771fa52ab2914ed",
+      "identical": true
+    },
+    {
+      "path": "src/subsidence.ts",
+      "developmentSha256": "69bd760fe11f190d24d65ae7cf574370fd517f66373f39010bf2692029813bf2",
+      "actualSha256": "69bd760fe11f190d24d65ae7cf574370fd517f66373f39010bf2692029813bf2",
+      "identical": true
+    },
+    {
+      "path": "src/thrustGeometry.ts",
+      "developmentSha256": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+      "actualSha256": "136f9f7e234156b01b49f373d7dcbbc0969d549c491f459857c3d72bd4a7f7e7",
+      "identical": true
+    },
+    {
+      "path": "src/window.ts",
+      "developmentSha256": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+      "actualSha256": "a16d2c3d66c747c3d74a6823fd058c1e0706a8f6d6bf9b9cc6b0dbd76305b9cc",
+      "identical": true
+    },
+    {
+      "path": "src/worker.ts",
+      "developmentSha256": "1bbfe884c0c23a101c33371fd04848c5aa59709191874b0500b3d2e6f6b30eb9",
+      "actualSha256": "1bbfe884c0c23a101c33371fd04848c5aa59709191874b0500b3d2e6f6b30eb9",
+      "identical": true
+    },
+    {
+      "path": "tests/basin.test.mjs",
+      "developmentSha256": "43739c73f145b5616cba2e6d079e5dd8d43567859e562f9dd8236d12674ff05a",
+      "actualSha256": "43739c73f145b5616cba2e6d079e5dd8d43567859e562f9dd8236d12674ff05a",
+      "identical": true
+    },
+    {
+      "path": "tests/calibration.test.mjs",
+      "developmentSha256": "de136b614b223ae7a3f05b4f34428f788369af5d6694a75160d48b7f32f05687",
+      "actualSha256": "de136b614b223ae7a3f05b4f34428f788369af5d6694a75160d48b7f32f05687",
+      "identical": true
+    },
+    {
+      "path": "tests/capacity-transport.test.mjs",
+      "developmentSha256": "99869e15d209974733e01619507b64f33a9d648b1badf2832f005567436a8775",
+      "actualSha256": "99869e15d209974733e01619507b64f33a9d648b1badf2832f005567436a8775",
+      "identical": true
+    },
+    {
+      "path": "tests/column-boundaries.test.mjs",
+      "developmentSha256": "7f4fdd5f72c5f0e80ee669e6971d055a25dd1949ca4c44f732a2924b6d80494d",
+      "actualSha256": "7f4fdd5f72c5f0e80ee669e6971d055a25dd1949ca4c44f732a2924b6d80494d",
+      "identical": true
+    },
+    {
+      "path": "tests/context-scenarios.test.mjs",
+      "developmentSha256": "77cc3380bc685c8e21acb45d1bd026163c6889382bca67e22fcde700d39cbab5",
+      "actualSha256": "77cc3380bc685c8e21acb45d1bd026163c6889382bca67e22fcde700d39cbab5",
+      "identical": true
+    },
+    {
+      "path": "tests/deposition-boundaries.test.mjs",
+      "developmentSha256": "4e0783a7ba466d1b4d5cd4fc3d10853d89195ddb8de91dfa2913a8bb1d823a4e",
+      "actualSha256": "4e0783a7ba466d1b4d5cd4fc3d10853d89195ddb8de91dfa2913a8bb1d823a4e",
+      "identical": true
+    },
+    {
+      "path": "tests/deposition-support.test.mjs",
+      "developmentSha256": "4f822f3a50b3a1f4aa98ba03e5a68e6226ca08d7d9e78946d941e19995a79f17",
+      "actualSha256": "4f822f3a50b3a1f4aa98ba03e5a68e6226ca08d7d9e78946d941e19995a79f17",
+      "identical": true
+    },
+    {
+      "path": "tests/diagnostics.test.mjs",
+      "developmentSha256": "2882e10b10428d44f393449d041158495b643d9414e12b5fc39b6b836f70e45b",
+      "actualSha256": "2882e10b10428d44f393449d041158495b643d9414e12b5fc39b6b836f70e45b",
+      "identical": true
+    },
+    {
+      "path": "tests/exact-length.test.mjs",
+      "developmentSha256": "8afca31e3588d69f53c1b759713f96fa494722aafcd769fbb3d150d348da855e",
+      "actualSha256": "8afca31e3588d69f53c1b759713f96fa494722aafcd769fbb3d150d348da855e",
+      "identical": true
+    },
+    {
+      "path": "tests/exact-material.test.mjs",
+      "developmentSha256": "bd4e767e47d4668ad032fd0bc57cd647ed572396c480c34bc6767cf15c8b913d",
+      "actualSha256": "bd4e767e47d4668ad032fd0bc57cd647ed572396c480c34bc6767cf15c8b913d",
+      "identical": true
+    },
+    {
+      "path": "tests/exhumation.test.mjs",
+      "developmentSha256": "f0207b1e670abb41202b4c2616780027ac9cfcf1fdcd991861c9e8f045c78a45",
+      "actualSha256": "f0207b1e670abb41202b4c2616780027ac9cfcf1fdcd991861c9e8f045c78a45",
+      "identical": true
+    },
+    {
+      "path": "tests/fault-geometry.test.mjs",
+      "developmentSha256": "3132f639f4c7e8d417b82e7931dc04186f9ad94920a860894f1324ed46b962d6",
+      "actualSha256": "3132f639f4c7e8d417b82e7931dc04186f9ad94920a860894f1324ed46b962d6",
+      "identical": true
+    },
+    {
+      "path": "tests/fractional-thrust.test.mjs",
+      "developmentSha256": "84c42519f5472f4525664ef8f00f76959682fedce7acaa2483aff26fc884528e",
+      "actualSha256": "84c42519f5472f4525664ef8f00f76959682fedce7acaa2483aff26fc884528e",
+      "identical": true
+    },
+    {
+      "path": "tests/grouped-material.test.mjs",
+      "developmentSha256": "a65753ec3d1dce592342abc04fe4bb218dabf75aebe09f3eeb3b2ffa346115d1",
+      "actualSha256": "a65753ec3d1dce592342abc04fe4bb218dabf75aebe09f3eeb3b2ffa346115d1",
+      "identical": true
+    },
+    {
+      "path": "tests/grouped-state-support.test.mjs",
+      "developmentSha256": "343471ae0c470d4e621e9e2028cdc5695ffafa4dffd426ad3632d91c1108652a",
+      "actualSha256": "343471ae0c470d4e621e9e2028cdc5695ffafa4dffd426ad3632d91c1108652a",
+      "identical": true
+    },
+    {
+      "path": "tests/length-rounding.test.mjs",
+      "developmentSha256": "efcdb578cbd6721545314f7e25239d48a0b8116bf29f4572c246b5d232a5ce20",
+      "actualSha256": "efcdb578cbd6721545314f7e25239d48a0b8116bf29f4572c246b5d232a5ce20",
+      "identical": true
+    },
+    {
+      "path": "tests/material-coalescing.test.mjs",
+      "developmentSha256": "2ae07669c0cb50c71bd93892e6c6bd683cf9d4050f4a151d951dfdbd9f70be6e",
+      "actualSha256": "2ae07669c0cb50c71bd93892e6c6bd683cf9d4050f4a151d951dfdbd9f70be6e",
+      "identical": true
+    },
+    {
+      "path": "tests/normal-lengths.test.mjs",
+      "developmentSha256": "1200c94443aea15228ed3042864328457f15db3771d9fc46eb92168c3797dbad",
+      "actualSha256": "1200c94443aea15228ed3042864328457f15db3771d9fc46eb92168c3797dbad",
+      "identical": true
+    },
+    {
+      "path": "tests/numerics.test.mjs",
+      "developmentSha256": "2b7220ce073b39f203cbaba2499fa03828db17adc4ee5bc388b2b14b95ecb8a1",
+      "actualSha256": "2b7220ce073b39f203cbaba2499fa03828db17adc4ee5bc388b2b14b95ecb8a1",
+      "identical": true
+    },
+    {
+      "path": "tests/strata.test.mjs",
+      "developmentSha256": "86f932e9e1323646ec8a6279d838839e59f66a1a7048e08def2ade14da2f2545",
+      "actualSha256": "86f932e9e1323646ec8a6279d838839e59f66a1a7048e08def2ade14da2f2545",
+      "identical": true
+    },
+    {
+      "path": "tests/subsidence-coordinate.test.mjs",
+      "developmentSha256": "ec2501fc3e0b0f5dabe8fde7995a9df160dec2ee86e1811569854fd710d737ba",
+      "actualSha256": "ec2501fc3e0b0f5dabe8fde7995a9df160dec2ee86e1811569854fd710d737ba",
+      "identical": true
+    },
+    {
+      "path": "tests/thrust-capacity-fallback.test.mjs",
+      "developmentSha256": "d985dac84d61b524419342f8b3e5a8c05dbc2cf847cdf021a82968014c292be7",
+      "actualSha256": "d985dac84d61b524419342f8b3e5a8c05dbc2cf847cdf021a82968014c292be7",
+      "identical": true
+    },
+    {
+      "path": "tests/thrust-coupling.test.mjs",
+      "developmentSha256": "d94c79e193c4d2a7f11d3a7afd27d500beafab0bbf90fca737f0376d16ce001d",
+      "actualSha256": "d94c79e193c4d2a7f11d3a7afd27d500beafab0bbf90fca737f0376d16ce001d",
+      "identical": true
+    },
+    {
+      "path": "tests/thrust-flow-area-displacement.test.mjs",
+      "developmentSha256": "d602585f4fbffce7a688760373f37926c11ae22bae1735d329fe69033691457d",
+      "actualSha256": "d602585f4fbffce7a688760373f37926c11ae22bae1735d329fe69033691457d",
+      "identical": true
+    },
+    {
+      "path": "tests/thrust-matching-stability.test.mjs",
+      "developmentSha256": "ae564cbac40a3fe34bcba35367d2154d7ff79046368e243a2cd0fe0643630e63",
+      "actualSha256": "ae564cbac40a3fe34bcba35367d2154d7ff79046368e243a2cd0fe0643630e63",
+      "identical": true
+    },
+    {
+      "path": "tests/thrust-side-continuity.test.mjs",
+      "developmentSha256": "ace8124f8062925b8c1a907d3ec30e89df80473c38ff49c7b49c4be0635c9368",
+      "actualSha256": "ace8124f8062925b8c1a907d3ec30e89df80473c38ff49c7b49c4be0635c9368",
+      "identical": true
+    },
+    {
+      "path": "tests/thrust-weighted-transport.test.mjs",
+      "developmentSha256": "1aec74c93f65072702363067672a09277aba23145a9aef46172aad50b0d995bd",
+      "actualSha256": "1aec74c93f65072702363067672a09277aba23145a9aef46172aad50b0d995bd",
+      "identical": true
+    },
+    {
+      "path": "tests/thrust.test.mjs",
+      "developmentSha256": "cdca9de4ecf8774e42cdde8ccc5388869e019d0b01dae4f9b8e674292804760c",
+      "actualSha256": "cdca9de4ecf8774e42cdde8ccc5388869e019d0b01dae4f9b8e674292804760c",
+      "identical": true
+    },
+    {
+      "path": "tests/transport-solver-agreement.test.mjs",
+      "developmentSha256": "05975ffc398ede0fa37e548870db71f796523eddbf7d7b2bb015f5962530befa",
+      "actualSha256": "05975ffc398ede0fa37e548870db71f796523eddbf7d7b2bb015f5962530befa",
+      "identical": true
+    },
+    {
+      "path": "tests/travel-thickness.test.mjs",
+      "developmentSha256": "627d17da4e2056b6e828553144a1fa777014c94ecd2d5a1e423016a9163fa744",
+      "actualSha256": "627d17da4e2056b6e828553144a1fa777014c94ecd2d5a1e423016a9163fa744",
+      "identical": true
+    },
+    {
+      "path": "tests/worker.test.mjs",
+      "developmentSha256": "3a1c503d0236e22160c43520cc4534f97a34f0fee4c4b10d67ceb437fbc53b41",
+      "actualSha256": "3a1c503d0236e22160c43520cc4534f97a34f0fee4c4b10d67ceb437fbc53b41",
+      "identical": true
+    },
+    {
+      "path": "tsconfig.json",
+      "developmentSha256": "f0de29c5e89ad3a8586846b62341e1e5f26a3be87ad9cd7ee8368840f114260d",
+      "actualSha256": "f0de29c5e89ad3a8586846b62341e1e5f26a3be87ad9cd7ee8368840f114260d",
+      "identical": true
+    },
+    {
+      "path": "validation/force2020/calibrate.mjs",
+      "developmentSha256": "7a3386699d4b9a7c62e8cff902d9c1358ae6e3f6fff76bd27a621b39a24f48d8",
+      "actualSha256": "7a3386699d4b9a7c62e8cff902d9c1358ae6e3f6fff76bd27a621b39a24f48d8",
+      "identical": true
+    },
+    {
+      "path": "validation/force2020/compare.py",
+      "developmentSha256": "4f20c65d6fefa961b5a6e4b893db12cbf1fdcd5129699375908cfcb1a52f154d",
+      "actualSha256": "4f20c65d6fefa961b5a6e4b893db12cbf1fdcd5129699375908cfcb1a52f154d",
+      "identical": true
+    },
+    {
+      "path": "validation/force2020/context-scenarios.mjs",
+      "developmentSha256": "c9ddb52c50dd9e0ba6bc636f5806f066e6e6eb22c6f270e50190629c61a01f13",
+      "actualSha256": "c9ddb52c50dd9e0ba6bc636f5806f066e6e6eb22c6f270e50190629c61a01f13",
+      "identical": true
+    },
+    {
+      "path": "validation/force2020/context.py",
+      "developmentSha256": "2e1f322b1ca09c2ddb99098a5291671167fcd016c71754034ca8def9deccaa5c",
+      "actualSha256": "2e1f322b1ca09c2ddb99098a5291671167fcd016c71754034ca8def9deccaa5c",
+      "identical": true
+    },
+    {
+      "path": "validation/force2020/model-profiles.mjs",
+      "developmentSha256": "66b4bb0b3d735c2d8f7fba231d20137f2398801f21d22b4f2a7c9f6c35dc408b",
+      "actualSha256": "66b4bb0b3d735c2d8f7fba231d20137f2398801f21d22b4f2a7c9f6c35dc408b",
+      "identical": true
+    },
+    {
+      "path": "validation/force2020/plot_comparison.py",
+      "developmentSha256": "cedfc94c10e988518a2969884c63b25c5157a634815c249edf94151723145009",
+      "actualSha256": "cedfc94c10e988518a2969884c63b25c5157a634815c249edf94151723145009",
+      "identical": true
+    },
+    {
+      "path": "validation/force2020/prepare.py",
+      "developmentSha256": "79ea557ba481af421a7cccf0a32cc286ecc0cf959d8109a25e29b15c2b1002c0",
+      "actualSha256": "79ea557ba481af421a7cccf0a32cc286ecc0cf959d8109a25e29b15c2b1002c0",
+      "identical": true
+    },
+    {
+      "path": "validation/force2020/test_compare.py",
+      "developmentSha256": "6bef1e5fa8e986fbb9cdfe8afd052424a5ac45975956dd3522e15b2f64f2544b",
+      "actualSha256": "6bef1e5fa8e986fbb9cdfe8afd052424a5ac45975956dd3522e15b2f64f2544b",
+      "identical": true
+    },
+    {
+      "path": "validation/force2020/test_context.py",
+      "developmentSha256": "fe07a6499700a402523d59d20d8ed701a80f58c5658ed8a0026630eaad622edd",
+      "actualSha256": "fe07a6499700a402523d59d20d8ed701a80f58c5658ed8a0026630eaad622edd",
+      "identical": true
+    },
+    {
+      "path": "validation/force2020/test_prepare.py",
+      "developmentSha256": "387c6bd06df68a0a380ada0ab83b91bf54403bf47d4d8a7c6a8391d66594d342",
+      "actualSha256": "387c6bd06df68a0a380ada0ab83b91bf54403bf47d4d8a7c6a8391d66594d342",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/compaction-ablation.mjs",
+      "developmentSha256": "78c120650452960accb83b4be179fd9ecc33f12f21185de3aa31bc41985b6957",
+      "actualSha256": "78c120650452960accb83b4be179fd9ecc33f12f21185de3aa31bc41985b6957",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/compare-revisions.mjs",
+      "developmentSha256": "fdf64c9241ef49ace59bd7ed3795c56d2b677da6c6de74ca091f51f7a80ba1db",
+      "actualSha256": "fdf64c9241ef49ace59bd7ed3795c56d2b677da6c6de74ca091f51f7a80ba1db",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/coordinate-transport/audit-memory.py",
+      "developmentSha256": "be690d60deee624c2667123174a6288ada29e0e9ab2e13d92a4a7175d97ad27e",
+      "actualSha256": "be690d60deee624c2667123174a6288ada29e0e9ab2e13d92a4a7175d97ad27e",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/coordinate-transport/audit-source.py",
+      "developmentSha256": "dfe1357c9c4ee01adc912554649bcb14899d8dbae060cec408b03ab0b2166e00",
+      "actualSha256": "dfe1357c9c4ee01adc912554649bcb14899d8dbae060cec408b03ab0b2166e00",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/coordinate-transport/audit-tests.py",
+      "developmentSha256": "5365e684eec64256323ae7c53c0bdb5aec8da2813b0bc8e02113a1e29c6c3faf",
+      "actualSha256": "5365e684eec64256323ae7c53c0bdb5aec8da2813b0bc8e02113a1e29c6c3faf",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/coordinate-transport/c10-4096/coordinate-grouped-pilot.mjs",
+      "developmentSha256": "c5165a2aff8a052f299ddaa70b0b699552f8c94ece8228c109854fb121641e7c",
+      "actualSha256": "c5165a2aff8a052f299ddaa70b0b699552f8c94ece8228c109854fb121641e7c",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/coupled-travel-audit-budget.py",
+      "developmentSha256": "5762ead1c4d4fd8e611c3ff7c0480f9bf9ae7bcfbc5e53beb56ad6c9b88b8bcc",
+      "actualSha256": "5762ead1c4d4fd8e611c3ff7c0480f9bf9ae7bcfbc5e53beb56ad6c9b88b8bcc",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/coupled-travel-compare-study.mjs",
+      "developmentSha256": "d367c8a490a767600fb40d50984ec81b90120c43f46555b2d2feed02f91d2313",
+      "actualSha256": "d367c8a490a767600fb40d50984ec81b90120c43f46555b2d2feed02f91d2313",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/diagnose.mjs",
+      "developmentSha256": "fa670d8bbb6c9b6115f9c0df01856d3689b2c5e4e561b9b2a8fbb44df9f0a061",
+      "actualSha256": "fa670d8bbb6c9b6115f9c0df01856d3689b2c5e4e561b9b2a8fbb44df9f0a061",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/diagnosis-evidence.mjs",
+      "developmentSha256": "48dc2bb12e8ea7f383bced0911a122a6ba613d0785a6a3d15f9a90ffb314cc7e",
+      "actualSha256": "48dc2bb12e8ea7f383bced0911a122a6ba613d0785a6a3d15f9a90ffb314cc7e",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/diagnostics.mjs",
+      "developmentSha256": "7c24a3b524a05690783b771a46648dc13a36c1b27393bfcad406651855ca8738",
+      "actualSha256": "7c24a3b524a05690783b771a46648dc13a36c1b27393bfcad406651855ca8738",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/fault-geometry-evidence.mjs",
+      "developmentSha256": "c344a3cc9e0179966f9384ea88340a57d4c26a4e29b18ae89fc88ad99d43b08c",
+      "actualSha256": "c344a3cc9e0179966f9384ea88340a57d4c26a4e29b18ae89fc88ad99d43b08c",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/metrics.mjs",
+      "developmentSha256": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b",
+      "actualSha256": "7f5a88f74fe205b06efb45e2a5a6c2ea76a8d0ccd2dba7f295a3801df3e12c2b",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/plan.json",
+      "developmentSha256": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+      "actualSha256": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/run.mjs",
+      "developmentSha256": "8cbf8387939091ad860f3994c08a717a6e8f08cd8e698adf25a8f36f38b41bed",
+      "actualSha256": "8cbf8387939091ad860f3994c08a717a6e8f08cd8e698adf25a8f36f38b41bed",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/thrust-b-weighted-evidence.mjs",
+      "developmentSha256": "0edd2d57122d14a297e18b5a68301e902bfe2c881d78a27f1e379a65e836a58e",
+      "actualSha256": "0edd2d57122d14a297e18b5a68301e902bfe2c881d78a27f1e379a65e836a58e",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/thrust-coupling-evidence.mjs",
+      "developmentSha256": "7d2728bfbfb0b3069363583998777e2d38b10e88383e5ede67c793a3b9dc69ac",
+      "actualSha256": "7d2728bfbfb0b3069363583998777e2d38b10e88383e5ede67c793a3b9dc69ac",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/travel-thickness-capacity-evidence.mjs",
+      "developmentSha256": "39b32c89fd548867b61431b6d34567d3ddc7551e9f1a2c4e26884e7bdebd43aa",
+      "actualSha256": "39b32c89fd548867b61431b6d34567d3ddc7551e9f1a2c4e26884e7bdebd43aa",
+      "identical": true
+    },
+    {
+      "path": "validation/numerics/travel-thickness-evidence.mjs",
+      "developmentSha256": "b596b4bee1f8080bbf8feb28ab76dffd101872dc7183d44edd518f485fdaf2d6",
+      "actualSha256": "b596b4bee1f8080bbf8feb28ab76dffd101872dc7183d44edd518f485fdaf2d6",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/acoustic-checks.mjs",
+      "developmentSha256": "e43794a19e6c3c53217d2c359ba4788f3f8435b579e4d30d1554f46632b6e9f1",
+      "actualSha256": "e43794a19e6c3c53217d2c359ba4788f3f8435b579e4d30d1554f46632b6e9f1",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/acoustic-demo.mjs",
+      "developmentSha256": "6cbad0cd7b0ca8cb762d2b6e546d72adc45a4de9ae14d2bc0e087e36a91678ec",
+      "actualSha256": "6cbad0cd7b0ca8cb762d2b6e546d72adc45a4de9ae14d2bc0e087e36a91678ec",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/acoustic-green3d.mjs",
+      "developmentSha256": "7ca90dca01e141c7fd0038bcf5bccc1285927dee92d907ce42c9465345b86bb6",
+      "actualSha256": "7ca90dca01e141c7fd0038bcf5bccc1285927dee92d907ce42c9465345b86bb6",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/benchmark-final-profiles.mjs",
+      "developmentSha256": "370009de077e9d4dcee6eca515e80c4c4adeca5161e0ee8d3ba89586a0a3e9c0",
+      "actualSha256": "370009de077e9d4dcee6eca515e80c4c4adeca5161e0ee8d3ba89586a0a3e9c0",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/benchmark-kernels.mjs",
+      "developmentSha256": "17c4c7e82f946fb0bab63f360ca7bbdc49dfe261a339ca8bdc474a90db120806",
+      "actualSha256": "17c4c7e82f946fb0bab63f360ca7bbdc49dfe261a339ca8bdc474a90db120806",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/benchmark-native-parallel.mjs",
+      "developmentSha256": "1ea5701183efcc02e6d4cfd84c7fb71a39fd59bd7d14e6883f14277310713c68",
+      "actualSha256": "1ea5701183efcc02e6d4cfd84c7fb71a39fd59bd7d14e6883f14277310713c68",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/benchmark-rows.mjs",
+      "developmentSha256": "779799dcea0bd1130fbb2fbb7a720be622db54083f6b2c9084e3c6ee14f05afb",
+      "actualSha256": "779799dcea0bd1130fbb2fbb7a720be622db54083f6b2c9084e3c6ee14f05afb",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/benchmark-wasm-selection.mjs",
+      "developmentSha256": "4a8a08aea0c487bad5a9d7ed909643d1fe3138205f3262b3bcc654752f131589",
+      "actualSha256": "4a8a08aea0c487bad5a9d7ed909643d1fe3138205f3262b3bcc654752f131589",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/benchmark.mjs",
+      "developmentSha256": "ee6470ce5cc35f8b72a4ba8d5154a62d49fd7e87321c1c4ecf2cfd63c13b3da4",
+      "actualSha256": "ee6470ce5cc35f8b72a4ba8d5154a62d49fd7e87321c1c4ecf2cfd63c13b3da4",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/check-math-cache.mjs",
+      "developmentSha256": "e9c420d0719167ea4e7c2a85b38c06b3b0c7d1196d192d687cee3568fdd3ca0d",
+      "actualSha256": "e9c420d0719167ea4e7c2a85b38c06b3b0c7d1196d192d687cee3568fdd3ca0d",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/check-native-kernel.mjs",
+      "developmentSha256": "2942178d5bbb9d845c192d05afdb67fd3871d63c736be203d7cda2427d356f45",
+      "actualSha256": "2942178d5bbb9d845c192d05afdb67fd3871d63c736be203d7cda2427d356f45",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/check-wasm-simd.mjs",
+      "developmentSha256": "933d17928d61b9f0c320dcfe87ae32e461676893ee2c10b8e827ad9be73ec8ea",
+      "actualSha256": "933d17928d61b9f0c320dcfe87ae32e461676893ee2c10b8e827ad9be73ec8ea",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/compare_devito.py",
+      "developmentSha256": "fea15229298094608ff5b45232dffc05078c5368c57733f33f4f374470bb0dba",
+      "actualSha256": "fea15229298094608ff5b45232dffc05078c5368c57733f33f4f374470bb0dba",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/erosion3d-demo.mjs",
+      "developmentSha256": "50f8eab798edc26a7e2ab876e6c75bb8611e90166697e94f75eadd78830419c2",
+      "actualSha256": "50f8eab798edc26a7e2ab876e6c75bb8611e90166697e94f75eadd78830419c2",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/experiments/portable_fma.rs",
+      "developmentSha256": "52dc1bd9243c32bc3f9a12560a7f06a393c77756d8848b6e101ecf35fb5e5add",
+      "actualSha256": "52dc1bd9243c32bc3f9a12560a7f06a393c77756d8848b6e101ecf35fb5e5add",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/fidelity.mjs",
+      "developmentSha256": "f4ccc0b0c749133d5ab855a2b9773b2a52042c00114fbfc2c7014183afa5d383",
+      "actualSha256": "f4ccc0b0c749133d5ab855a2b9773b2a52042c00114fbfc2c7014183afa5d383",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/final-numerics.mjs",
+      "developmentSha256": "c300bef7b610a3f015f287a55c3db6e4321cf395f336bf2f887cc53fcb3e4dd8",
+      "actualSha256": "c300bef7b610a3f015f287a55c3db6e4321cf395f336bf2f887cc53fcb3e4dd8",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/handoff.mjs",
+      "developmentSha256": "fd1f982fa3079f352a7825cd61652c0df7be12b8512967fa1891911de0ecd70c",
+      "actualSha256": "fd1f982fa3079f352a7825cd61652c0df7be12b8512967fa1891911de0ecd70c",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/legacy-tests.mjs",
+      "developmentSha256": "675538c3b466cd5e62e3ee6b8dcb7fe392898166c86d344c870b874c1182ccf6",
+      "actualSha256": "675538c3b466cd5e62e3ee6b8dcb7fe392898166c86d344c870b874c1182ccf6",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/math-compatibility.mjs",
+      "developmentSha256": "4ecee4addfafae44ce9cda61c85dabf99aba5d1eeb895e050b6a09c5e1a7e881",
+      "actualSha256": "4ecee4addfafae44ce9cda61c85dabf99aba5d1eeb895e050b6a09c5e1a7e881",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/package.py",
+      "developmentSha256": "add7dddf2e47ef5f881688e2c91ee0299ee9e7b84deaa19e982db7bdf80c219c",
+      "actualSha256": "add7dddf2e47ef5f881688e2c91ee0299ee9e7b84deaa19e982db7bdf80c219c",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/plot_erosion3d.py",
+      "developmentSha256": "f1b642745a6d2a872210c75353120d364b5f788b8635e887a6033bce01d69256",
+      "actualSha256": "f1b642745a6d2a872210c75353120d364b5f788b8635e887a6033bce01d69256",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/plot_faulted3d.py",
+      "developmentSha256": "767cc747b0c41849ad437a6bb7b68aa1f53eafd2a6f4e9030385674126ef9b0a",
+      "actualSha256": "767cc747b0c41849ad437a6bb7b68aa1f53eafd2a6f4e9030385674126ef9b0a",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/plot_seismic.py",
+      "developmentSha256": "11fb778c4329f865918ef509984ae9a182c854a7d5feb578d2bff7dd04804c21",
+      "actualSha256": "11fb778c4329f865918ef509984ae9a182c854a7d5feb578d2bff7dd04804c21",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/portable-math-expanded.mjs",
+      "developmentSha256": "7e1f0bc8dfe159c66b5cbe3ec9ef04a28ed77830d8e50901b227297799460844",
+      "actualSha256": "7e1f0bc8dfe159c66b5cbe3ec9ef04a28ed77830d8e50901b227297799460844",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/profile-3d.mjs",
+      "developmentSha256": "d5c449b96fe4a8bbba330d62eb2f597aed4d00d75af858416ec331fea775ba3f",
+      "actualSha256": "d5c449b96fe4a8bbba330d62eb2f597aed4d00d75af858416ec331fea775ba3f",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/profile-wasm.mjs",
+      "developmentSha256": "e2bc4d6214f626436a3bdd955170370540d0422d6406213eb599b9713d3e11ce",
+      "actualSha256": "e2bc4d6214f626436a3bdd955170370540d0422d6406213eb599b9713d3e11ce",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/verify-wasm-fma.mjs",
+      "developmentSha256": "05f69edf95c6e55acbce79b1e6472f535c9410cc06a683caba16732bcfebf92a",
+      "actualSha256": "05f69edf95c6e55acbce79b1e6472f535c9410cc06a683caba16732bcfebf92a",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/volume-seismic.mjs",
+      "developmentSha256": "244fd34a6d96cd9dc1f69586d78937e1a99770859ccd410d7b85b577bac107dd",
+      "actualSha256": "244fd34a6d96cd9dc1f69586d78937e1a99770859ccd410d7b85b577bac107dd",
+      "identical": true
+    },
+    {
+      "path": "validation/overnight/volume3d.mjs",
+      "developmentSha256": "3e975186a55f531548e1a4477aa2c570fc014edac646c803d2220eb1079fe54f",
+      "actualSha256": "3e975186a55f531548e1a4477aa2c570fc014edac646c803d2220eb1079fe54f",
+      "identical": true
+    },
+    {
+      "path": "validation/rust/checks.mjs",
+      "developmentSha256": "d674a30d48b839039a272169241fda90cfbb27ec96f5fa4dfc221ffccbedfb14",
+      "actualSha256": "d674a30d48b839039a272169241fda90cfbb27ec96f5fa4dfc221ffccbedfb14",
+      "identical": true
+    },
+    {
+      "path": "validation/rust/compare.mjs",
+      "developmentSha256": "de51f67c58a4fc5e817889a737175bf182ef8fc932141b70ec396ae379576324",
+      "actualSha256": "de51f67c58a4fc5e817889a737175bf182ef8fc932141b70ec396ae379576324",
+      "identical": true
+    },
+    {
+      "path": "validation/rust/numerics.mjs",
+      "developmentSha256": "e49ab56af561c77b9f3049634c025dd203750072e79fc4ada41677ffaf49976e",
+      "actualSha256": "e49ab56af561c77b9f3049634c025dd203750072e79fc4ada41677ffaf49976e",
+      "identical": true
+    },
+    {
+      "path": "vite.config.ts",
+      "developmentSha256": "cf827329bb9831eefd5339f17a78e131a9717818ee8c782ba33ac870d18c9743",
+      "actualSha256": "cf827329bb9831eefd5339f17a78e131a9717818ee8c782ba33ac870d18c9743",
+      "identical": true
+    }
+  ],
+  "scope": "Code, configuration and synthetic validation artifacts only. Reserved observational data are not read."
+}

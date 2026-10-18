@@ -1,0 +1,37 @@
+{
+  "workspace_native": {
+    "sha256": "70c1391cd833fdf3c8233313cb59e513e0cabddd50974082a3781a951412abdc",
+    "sha256_without_uuid_and_signature": "a76863712d69817959b0c507835ecedcfef9ca36097ff85b22521582fdfab50b"
+  },
+  "applied_native": {
+    "sha256": "6356a71a3fc3ef36aca602b6c94624dd96c719bf3517ee9d6bc60437fd302a5f",
+    "sha256_without_uuid_and_signature": "a76863712d69817959b0c507835ecedcfef9ca36097ff85b22521582fdfab50b"
+  },
+  "native_executable_identical_except_macho_uuid_and_code_signature": true,
+  "wasm_identical": true,
+  "wasm_sha256": "a23a7550a98d3332163799e9436161c9511debc2f2fc94e721ba8ab6ce004c2b",
+  "applied_checks": [
+    "production build",
+    "15 Rust core tests",
+    "worker integration test"
+  ],
+  "material_state_comparison": {
+    "spacing_m": 20,
+    "fixtures": [
+      {
+        "seed": 765184,
+        "setting": "extension"
+      },
+      {
+        "seed": 20261014,
+        "setting": "compression"
+      },
+      {
+        "seed": 765184,
+        "setting": "extension",
+        "exhumation": 1
+      }
+    ],
+    "result": "Full material state, history, budgets and projected section are exactly identical between the two native builds; execution timing excluded"
+  }
+}

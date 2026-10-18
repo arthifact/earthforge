@@ -1,0 +1,8 @@
+{"case":"scaling-6-1","variant":"culled-native","medianMs":14.002791999999996}
+{"case":"scaling-6-1","variant":"culled-research-simd","medianMs":211.015}
+{"case":"scaling-12-2","variant":"culled-native","medianMs":34.100083999999995}
+{"case":"scaling-12-2","variant":"culled-research-simd","medianMs":840.1822920000002}
+{"case":"scaling-18-3","variant":"culled-native","medianMs":75.70899999999997}
+{"case":"scaling-18-3","variant":"culled-research-simd","medianMs":2056.0280000000002}
+{"case":"scaling-24-4","variant":"culled-native","medianMs":182.49545799999999}
+{"case":"scaling-24-4","variant":"culled-research-simd","medianMs":4228.810792}

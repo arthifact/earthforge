@@ -1,0 +1,69 @@
+{
+  "runtime": "v24.18.0",
+  "v8": "13.6.233.17-node.50",
+  "domain": "Random finite inputs in stated ranges plus signed zero, smallest subnormal, smallest normal, infinities and NaN. Trig range covers the basin generator; larger arguments use pinned libm and are outside this compatibility claim.",
+  "native_sha256": "69ff9f7bdc567075eb62678578a8a312395bf59005e4e90ee8545562e32db277",
+  "wasm_sha256": "f304b249279833f6a9b9f6f2e115a180dc5352a4f9c2aac1e1c92d3ea6a36aaf",
+  "results": [
+    {
+      "function": "exp",
+      "range": [
+        -745,
+        709
+      ],
+      "samples": 20009,
+      "native_mismatches": [],
+      "wasm_mismatches": []
+    },
+    {
+      "function": "expm1",
+      "range": [
+        -40,
+        40
+      ],
+      "samples": 20009,
+      "native_mismatches": [],
+      "wasm_mismatches": []
+    },
+    {
+      "function": "tanh",
+      "range": [
+        -23,
+        23
+      ],
+      "samples": 20009,
+      "native_mismatches": [],
+      "wasm_mismatches": []
+    },
+    {
+      "function": "sin",
+      "range": [
+        -100,
+        100
+      ],
+      "samples": 20009,
+      "native_mismatches": [],
+      "wasm_mismatches": []
+    },
+    {
+      "function": "tan",
+      "range": [
+        -100,
+        100
+      ],
+      "samples": 20009,
+      "native_mismatches": [],
+      "wasm_mismatches": []
+    },
+    {
+      "function": "cbrt",
+      "range": [
+        -1e+29,
+        1e+29
+      ],
+      "samples": 20009,
+      "native_mismatches": [],
+      "wasm_mismatches": []
+    }
+  ]
+}

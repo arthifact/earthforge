@@ -1,0 +1,60 @@
+{
+  "runtime": "v24.18.0",
+  "baselineSha256": "8c4deb31ec138087ed841d665857b0234f38ca016dac5fd3d694c81c7ad63279",
+  "candidateSha256": "3a5ade6afc7e95b8fa96a960a45c643949e44d6ce8f638bc0049d970d661c960",
+  "baselineBytes": 882231,
+  "candidateBytes": 882149,
+  "flags": "Native-only parallelism; SIMD WebAssembly row stencils remain sequential",
+  "applicationDefaultChanged": false,
+  "scope": "Strict output equality on four acoustic pairs, one 3D material/projection example and three complete 2D histories. Correctness evidence only; no performance conclusion until isolated measurements on an otherwise idle machine.",
+  "rows": [
+    {
+      "name": "basin-extension-765184",
+      "kind": "acoustic",
+      "dimensions": 2,
+      "samples": 425940,
+      "bitIdentical": true
+    },
+    {
+      "name": "basin-compression-20261014",
+      "kind": "acoustic",
+      "dimensions": 2,
+      "samples": 412200,
+      "bitIdentical": true
+    },
+    {
+      "name": "layered-3d",
+      "kind": "acoustic",
+      "dimensions": 3,
+      "samples": 5415,
+      "bitIdentical": true
+    },
+    {
+      "name": "faulted-3d",
+      "kind": "acoustic",
+      "dimensions": 3,
+      "samples": 13140,
+      "bitIdentical": true
+    },
+    {
+      "name": "volume-projection",
+      "kind": "volume3d",
+      "bitIdentical": true
+    },
+    {
+      "name": "extension",
+      "kind": "section",
+      "bitIdentical": true
+    },
+    {
+      "name": "compression",
+      "kind": "section",
+      "bitIdentical": true
+    },
+    {
+      "name": "exhumed-extension",
+      "kind": "section",
+      "bitIdentical": true
+    }
+  ]
+}

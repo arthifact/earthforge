@@ -1,0 +1,384 @@
+{
+  "createdAt": "2026-10-17T16:09:07.713Z",
+  "planSha256": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+  "beforeNativeSha256": "ef6a93e67a14ffb4b3e2aecedfa470151babb0598c80e1b6617e851a06675043",
+  "afterNativeSha256": "69295d8e203c822776457d8804c070515d82233dc27206d2617461f8313decbc",
+  "canonical2dRuns": [
+    {
+      "name": "compaction-a",
+      "h": 40,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 109,
+      "physicalSha256": "72c7eed3e0968504794529542fa748c3e08b4804985fffdfced90a323db1c42c"
+    },
+    {
+      "name": "compaction-a",
+      "h": 20,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 109,
+      "physicalSha256": "5131b0986bf291f1a7919ce6c1ae7ef0f02e477bbb1bb30cfdfc16a23c8344c2"
+    },
+    {
+      "name": "compaction-a",
+      "h": 10,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 109,
+      "physicalSha256": "2a88e82f048bf426a60383e98c8603734c32a9df068acf3fb9717805f9d5889d"
+    },
+    {
+      "name": "compaction-b",
+      "h": 40,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 145,
+      "physicalSha256": "17d2b1e5c4743898ea45a35b57963ae47bcfe3c2eddbdc30ac039e305eb363fa"
+    },
+    {
+      "name": "compaction-b",
+      "h": 20,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 145,
+      "physicalSha256": "9cc13e2d965d39cc057f1d69bc8645733af9d71b5a140134ae62c653e2315abd"
+    },
+    {
+      "name": "compaction-b",
+      "h": 10,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 145,
+      "physicalSha256": "4b809c03421605f774f6633eec87435500b64161c29dde1ecb1bae2bc5a3029c"
+    },
+    {
+      "name": "normal-a",
+      "h": 40,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 117,
+      "physicalSha256": "55a0ca3328844e87a351435ea31242b43f3e20e62e3eff401c12561c37bc847d"
+    },
+    {
+      "name": "normal-a",
+      "h": 20,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 117,
+      "physicalSha256": "434611f5a156d1e742fbe6aa8dbb0726e8faa58d945caaf9a1373afac4f8412e"
+    },
+    {
+      "name": "normal-a",
+      "h": 10,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 117,
+      "physicalSha256": "81a9a799f13f984e735eb6367558b7081ff7808e4f462df3fd32c7482b6104c0"
+    },
+    {
+      "name": "normal-b",
+      "h": 40,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 144,
+      "physicalSha256": "b9ab5ae0dc784f83981a7ea1c8e32e95391ce6fdeaf7aa0aa2340f98ea4d6340"
+    },
+    {
+      "name": "normal-b",
+      "h": 20,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 144,
+      "physicalSha256": "80d4224f57028e382b07edde1592acaa5cffa23707c71a8a5c7165d9e4dba17d"
+    },
+    {
+      "name": "normal-b",
+      "h": 10,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 144,
+      "physicalSha256": "be8f7712434c98ec300b2b055dd9dc96bf4ce86745e3344425030fb99629be10"
+    },
+    {
+      "name": "thrust-a",
+      "h": 40,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 98,
+      "physicalSha256": "ddf1dd3bd9e63511665f79d09120935845e174db5f32088151dc2aad7e97bf7d"
+    },
+    {
+      "name": "thrust-a",
+      "h": 20,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 98,
+      "physicalSha256": "133c7cb3ce064190a24f788517a2bfa059d96ef0f2d1dca76242dee65046a946"
+    },
+    {
+      "name": "thrust-a",
+      "h": 10,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 98,
+      "physicalSha256": "c32d6b275d8bc43af87a696ecfef7f67d21c7b9828f0b1b93eaec113de926358"
+    },
+    {
+      "name": "thrust-b",
+      "h": 40,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 79,
+      "physicalSha256": "495970db9ef118c5b2d1e0f5ac411a997d5566d7a861e2cb447a82d478a82667"
+    },
+    {
+      "name": "thrust-b",
+      "h": 20,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 79,
+      "physicalSha256": "0d5e3c7e9c994545fcdfa835151c050c185203184363d1c4456ebe82eb716b7d"
+    },
+    {
+      "name": "thrust-b",
+      "h": 10,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 79,
+      "physicalSha256": "26eebbf868baefb32a3951574d755a3dd9c62ed242df15eb366b3ad7ea8ed5fc"
+    },
+    {
+      "name": "coupled-extension-a",
+      "h": 40,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 161,
+      "physicalSha256": "f339edd8549a8f6ba9131c5acc4d0b77ba725e6455d8a55b3639c5c6ba00fb6a"
+    },
+    {
+      "name": "coupled-extension-a",
+      "h": 20,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 161,
+      "physicalSha256": "2a57e50d0334546c5edb9093843842694938263eb0ed0834ae135fd7b8f77a1b"
+    },
+    {
+      "name": "coupled-extension-a",
+      "h": 10,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 161,
+      "physicalSha256": "795b99574571590de78b1f7b9863726b792969c5c77e327aac38e4d2a62f4df7"
+    },
+    {
+      "name": "coupled-extension-b",
+      "h": 40,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 117,
+      "physicalSha256": "1a80ea7aafff76fc38ff8a3fb9d72f4978abb3b6c94d9de1450b50803db2d2a6"
+    },
+    {
+      "name": "coupled-extension-b",
+      "h": 20,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 117,
+      "physicalSha256": "3ccdb87e88c46b21f14149e0e3a644b0d0c37d4d87bcefacafe3a92e4bac601e"
+    },
+    {
+      "name": "coupled-extension-b",
+      "h": 10,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 117,
+      "physicalSha256": "76cbf43c6ea93f71abd511b6a906599bad0efac41292e1ef29448cdcf8457e66"
+    },
+    {
+      "name": "coupled-extension-c",
+      "h": 40,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 147,
+      "physicalSha256": "505dc4d25037a257c10238b19a554531b6188f7315126bec568384a2daacc275"
+    },
+    {
+      "name": "coupled-extension-c",
+      "h": 20,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 147,
+      "physicalSha256": "2293a969d622fb00f5a7a2ec084f039f3e370228586ce2a2d0e5d70a63241bbd"
+    },
+    {
+      "name": "coupled-extension-c",
+      "h": 10,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 147,
+      "physicalSha256": "76341906d0bbc13a4c9829a0581bb501286b6475bc49d1f6c37a5b2cd231bf1a"
+    },
+    {
+      "name": "coupled-compression-a",
+      "h": 40,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 106,
+      "physicalSha256": "51b6cbd978eca2c33915707c89ccc77678b1357fe9423c7b9d23ecb8d07a9d9b"
+    },
+    {
+      "name": "coupled-compression-a",
+      "h": 20,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 106,
+      "physicalSha256": "612bb7d07a8dda2ab6a9d0439284b4781c74abea86fac4462e573fabfd93b1e2"
+    },
+    {
+      "name": "coupled-compression-a",
+      "h": 10,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 106,
+      "physicalSha256": "9a32749ec03ad921b492d8295ed392c7b79a20e96941ab28f81ec4f1116f0648"
+    },
+    {
+      "name": "coupled-compression-b",
+      "h": 40,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 130,
+      "physicalSha256": "35c6cdf539f010b05622555a3252b8499965dab896aa804e71760b8255f89b58"
+    },
+    {
+      "name": "coupled-compression-b",
+      "h": 20,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 130,
+      "physicalSha256": "531b72815b2df8d7ebb605b65e34ffbeb05d5ca6aac05276b2b5f3dba5c5e14b"
+    },
+    {
+      "name": "coupled-compression-b",
+      "h": 10,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 130,
+      "physicalSha256": "2ba2a05864bb92dd25b8bb42ce8e925bf5353daeeb5b0e009b59a11d069ce4a9"
+    },
+    {
+      "name": "coupled-compression-c",
+      "h": 40,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 145,
+      "physicalSha256": "03e2f3f88014afc178333332558776abfce93499e38d976b185f430dde6a9e71"
+    },
+    {
+      "name": "coupled-compression-c",
+      "h": 20,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 145,
+      "physicalSha256": "4d1366bcf95b705fa3abc75cb2ff3bf0cc3b0e4030611955f9e9d49474f3f3f5"
+    },
+    {
+      "name": "coupled-compression-c",
+      "h": 10,
+      "wholeResponseExactExceptDiagnosticSeconds": true,
+      "eventBudgets": 145,
+      "physicalSha256": "47c568d40b49ecae8184511d0fa92cc29a114804068c9425f1c2894fcbc46fdc"
+    }
+  ],
+  "recorded2dHistories": [
+    {
+      "options": {
+        "seed": 765184,
+        "setting": "extension",
+        "overpressure": 1
+      },
+      "allReplayAndCarriedMaterialExact": true,
+      "physicalSha256": "b54b059f447f364068dce5a54f6676c3bfff224b74d4e893342d3eae8624e4c3"
+    },
+    {
+      "options": {
+        "seed": 20261014,
+        "setting": "compression"
+      },
+      "allReplayAndCarriedMaterialExact": true,
+      "physicalSha256": "51ee59179122a5a54d9cebf7c564a0454c968669424af2cf569904d4016b7647"
+    },
+    {
+      "options": {
+        "seed": 578933,
+        "setting": "extension",
+        "exhumation": 1,
+        "overpressure": 1
+      },
+      "allReplayAndCarriedMaterialExact": true,
+      "physicalSha256": "d5d2f5418aa6e6b04361bc2fd205825f04427419ccaea66be8a87cb62260e707"
+    }
+  ],
+  "wasm": [
+    {
+      "path": "public/rust/earthforge_core.wasm",
+      "sha256": "1a796b02b1e9cfecf9cb21741c2b39c4a925c196d1dd7b314e82a86f1f9242df",
+      "cases": [
+        {
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "overpressure": 1
+          },
+          "wholeResponseExactExceptDiagnosticSeconds": true
+        },
+        {
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "exhumation": 1,
+            "carbonate": 0.3
+          },
+          "wholeResponseExactExceptDiagnosticSeconds": true
+        }
+      ]
+    },
+    {
+      "path": "public/rust/earthforge_core_simd.wasm",
+      "sha256": "1749bc85fa84876d37622a68d0d435f771034fe38c571cc721ba5d5d1bce1bdc",
+      "cases": [
+        {
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "overpressure": 1
+          },
+          "wholeResponseExactExceptDiagnosticSeconds": true
+        },
+        {
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "exhumation": 1,
+            "carbonate": 0.3
+          },
+          "wholeResponseExactExceptDiagnosticSeconds": true
+        }
+      ]
+    },
+    {
+      "path": "public/rust/earthforge_core_deterministic.wasm",
+      "sha256": "3706378e12723fd65321fe24f6f4ad4e2c53c6ec1c3012f77d82d736a2451fb3",
+      "cases": [
+        {
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "overpressure": 1
+          },
+          "wholeResponseExactExceptDiagnosticSeconds": true
+        },
+        {
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "exhumation": 1,
+            "carbonate": 0.3
+          },
+          "wholeResponseExactExceptDiagnosticSeconds": true
+        }
+      ]
+    },
+    {
+      "path": "public/rust/earthforge_core_deterministic_simd.wasm",
+      "sha256": "27dcbfdb83bbd7a0bd1bd85695d1f55380b791929520d8c6795b5c4d081674fc",
+      "cases": [
+        {
+          "options": {
+            "seed": 765184,
+            "setting": "extension",
+            "overpressure": 1
+          },
+          "wholeResponseExactExceptDiagnosticSeconds": true
+        },
+        {
+          "options": {
+            "seed": 20261014,
+            "setting": "compression",
+            "exhumation": 1,
+            "carbonate": 0.3
+          },
+          "wholeResponseExactExceptDiagnosticSeconds": true
+        }
+      ]
+    }
+  ],
+  "scope": "All physical f64 values, exact lengths, material memories, geometry, velocities and event budgets compared exactly to the pre-unification checkpoint. Only nondeterministic diagnostic checks.seconds excluded. Tests reuse neither new deposition nor new compaction to construct the baseline. No observational data or tolerance changes."
+}

@@ -1,0 +1,121 @@
+{
+  "runtime": "v24.18.0",
+  "v8": "13.6.233.17-node.50",
+  "wasmSha256": "f304b249279833f6a9b9f6f2e115a180dc5352a4f9c2aac1e1c92d3ea6a36aaf",
+  "hostImports": [],
+  "cacheEntriesPerFunction": 16384,
+  "maxLogicalCacheBytes": 1572864,
+  "samples": 1080036,
+  "passed": true,
+  "scope": "Cached versus frozen uncached Rust outputs and native hardware FMA must be bit-identical, including distinct signed zeros. Each pass has more than3x cache capacity. Expanded Node conformance is recorded separately, including inherited scalar-port differences; existing120054-input and physical-fixture gates remain unchanged. No observational data.",
+  "results": [
+    {
+      "function": "exp",
+      "order": "forward",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "exp",
+      "order": "reverse",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "exp",
+      "order": "repeat",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "expm1",
+      "order": "forward",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "expm1",
+      "order": "reverse",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "expm1",
+      "order": "repeat",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "tanh",
+      "order": "forward",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "tanh",
+      "order": "reverse",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "tanh",
+      "order": "repeat",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "sin",
+      "order": "forward",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "sin",
+      "order": "reverse",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "sin",
+      "order": "repeat",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "tan",
+      "order": "forward",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "tan",
+      "order": "reverse",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "tan",
+      "order": "repeat",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "cbrt",
+      "order": "forward",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "cbrt",
+      "order": "reverse",
+      "samples": 60002,
+      "bitIdentical": true
+    },
+    {
+      "function": "cbrt",
+      "order": "repeat",
+      "samples": 60002,
+      "bitIdentical": true
+    }
+  ]
+}

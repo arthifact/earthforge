@@ -1,0 +1,41 @@
+{
+  "createdAt": "2026-10-17T15:53:13.890Z",
+  "actualProject": "/Users/torus/Desktop/Research/earthforge",
+  "sourceFilesCompared": 106,
+  "allSourceBytesExact": true,
+  "wasmFilesCompared": 4,
+  "allWasmBytesExact": true,
+  "installedNativeSha256": "a9c7361d17fb40c484ec1a1c960d0a16169c97540c4d4d33af27704f0de12206",
+  "developmentNativeSha256": "69295d8e203c822776457d8804c070515d82233dc27206d2617461f8313decbc",
+  "wholePhysicalResponsesExact": [
+    {
+      "kind": "basin",
+      "options": {
+        "seed": 765184,
+        "setting": "extension",
+        "h": 40,
+        "overpressure": 1
+      }
+    },
+    {
+      "kind": "basin",
+      "options": {
+        "seed": 20261014,
+        "setting": "compression",
+        "h": 40,
+        "exhumation": 1
+      }
+    },
+    {
+      "kind": "history3d",
+      "options": {
+        "seed": 20261014,
+        "steps": 12,
+        "faults": 2,
+        "exhumation": true,
+        "overpressure": true
+      }
+    }
+  ],
+  "scope": "Installed source and all four Wasm modules compared byte for byte; representative complete native physical responses compared exactly except diagnostic elapsed seconds. Build/Rust/worker checks run separately."
+}

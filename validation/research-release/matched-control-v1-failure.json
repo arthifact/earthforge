@@ -1,0 +1,8 @@
+{
+  "planSha256": "233a7b06a33ab6f6c413d8d425782f4393e2f144bb7146bd0ae4989f3479a526",
+  "status": "failed-reference-gate",
+  "engine": "SubsurfaceGen",
+  "maxAbsoluteReferenceErrorMetresPerSecond": 0.00021763808217656333,
+  "gate": 1e-08,
+  "interpretation": "Internal f32 path in default surface taper despite f64 output. This tiny numerical error is a precision-contract observation, not evidence of geological inaccuracy. No source or thresholds changed."
+}

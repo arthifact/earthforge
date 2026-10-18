@@ -1,0 +1,799 @@
+{
+  "schema": "earthforge-research-cohort-results-v1",
+  "planSha256": "a71ad0c4be9c59545c307044832b979e2d3527361d6e1d884a1171f03b4ddc86",
+  "engineSha256": "e7b8f22071c7d26564bbe1adc77bfc02006cf8921551e89bce668505e9c2694d",
+  "beforeNativeSha256": "e18d7b5853542e5828cf43f7fee477a198b6ae83532dc6e6e1efac229df8cd6a",
+  "cases": [
+    {
+      "scenario": "rift-v1",
+      "seed": 1001,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "f630c231f4b43ff98b7f8dbecab345345d91d8e98177ddf1667ead9ec0fa87d1",
+      "contentSha256": "b5835775dec41b1d3ca509843dc03a086bf0393e25edefedd81263b0ed97684c",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 171109,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.5350626536397287,
+      "sampleSecondsDiagnostic": 0.3145787499961443
+    },
+    {
+      "scenario": "rift-v1",
+      "seed": 1001,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "f630c231f4b43ff98b7f8dbecab345345d91d8e98177ddf1667ead9ec0fa87d1",
+      "contentSha256": "6f47c685a7a5655722f6c8dfd1dea3c98707e98d71fdf426d39d95637c375f9b",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 222222,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.8261904435581505,
+      "sampleSecondsDiagnostic": 0.43234679198940285
+    },
+    {
+      "scenario": "rift-v1",
+      "seed": 1002,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "8c98966980257ba46833800382fe73e5717e98c57fb6c10e14179cd045eee5a7",
+      "contentSha256": "5329911e8dfd044205826ad2c362df2f6fefe06f80bb759d77d81a6e7cc4a443",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 177718,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.5089916670944339,
+      "sampleSecondsDiagnostic": 0.32245529096690007
+    },
+    {
+      "scenario": "rift-v1",
+      "seed": 1002,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "8c98966980257ba46833800382fe73e5717e98c57fb6c10e14179cd045eee5a7",
+      "contentSha256": "61b32c0b5a3fcc40da2f337ae69a78fd5a312c2dd76a23e4f78406479886c20d",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 257004,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.660736720438213,
+      "sampleSecondsDiagnostic": 0.42981416697148234
+    },
+    {
+      "scenario": "rift-v1",
+      "seed": 1003,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "33df4b9d587714c100595c3d3e2e3d4a91739424f93014935518abd92c77353d",
+      "contentSha256": "c661a0cdb31da5a1e88065334f1f7d35d3ebdff159bf91c0b6853785e637a3d8",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 164427,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.5420666290231507,
+      "sampleSecondsDiagnostic": 0.323044166987529
+    },
+    {
+      "scenario": "rift-v1",
+      "seed": 1003,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "33df4b9d587714c100595c3d3e2e3d4a91739424f93014935518abd92c77353d",
+      "contentSha256": "54c01edff7fc9d4633ac27b92a6657920157aba84145499df66825eb88f3f7cd",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 255915,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.7428742421958161,
+      "sampleSecondsDiagnostic": 0.4528529590170365
+    },
+    {
+      "scenario": "rift-v1",
+      "seed": 1004,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "21a2be9984b37e4e8145da4f7d412ad415ff55ecf984e8c304b42a88e32a75ee",
+      "contentSha256": "bf76590632af666fc0791e9548fbb6ec041790b91635dfbdb53261eb6ad94ee3",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 157958,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.5331006279622881,
+      "sampleSecondsDiagnostic": 0.30509604001417756
+    },
+    {
+      "scenario": "rift-v1",
+      "seed": 1004,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "21a2be9984b37e4e8145da4f7d412ad415ff55ecf984e8c304b42a88e32a75ee",
+      "contentSha256": "6d475b145249c4e99cc507b89251c5e38fe049fb331375d71ddaa251f49f9fc9",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 246114,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.6399910456898246,
+      "sampleSecondsDiagnostic": 0.41077854100149125
+    },
+    {
+      "scenario": "rift-v1",
+      "seed": 1005,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "fbac080f759ea7c4854911f0e0c4e1f4c2381ead0e482f09ceca4af9650f46fe",
+      "contentSha256": "4331996454b00df59f95a7b87f1a12d73920ca886d7a5e34c24417497b63022a",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 203458,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.5180717394156129,
+      "sampleSecondsDiagnostic": 0.339168458012864
+    },
+    {
+      "scenario": "rift-v1",
+      "seed": 1005,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "fbac080f759ea7c4854911f0e0c4e1f4c2381ead0e482f09ceca4af9650f46fe",
+      "contentSha256": "f19f74c79acf7232bf7617affa816ad71f97465f4191b91ef6d75bb9dd0f4ac2",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 270072,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.7740635664651947,
+      "sampleSecondsDiagnostic": 0.4622911659826059
+    },
+    {
+      "scenario": "rift-v1",
+      "seed": 1006,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "908b84e35570559fbc05cc0c91d747defffaf3ab3aeba50d1ca2dc991b49b84e",
+      "contentSha256": "e30a965acaa87c958fb3ff3a1b7b3e5eff50fdd54744d97b9c0b9fd444e9fbe8",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 192379,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.5474564960730969,
+      "sampleSecondsDiagnostic": 0.34464454202679917
+    },
+    {
+      "scenario": "rift-v1",
+      "seed": 1006,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "908b84e35570559fbc05cc0c91d747defffaf3ab3aeba50d1ca2dc991b49b84e",
+      "contentSha256": "20537acf03387f50ece8b474263fc0dcebeff17bb585c1e353275cdf0e8a14be",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 116523,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.8406681011837049,
+      "sampleSecondsDiagnostic": 0.3532686250109691
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "seed": 1001,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "756c39221e2b4ba7ef97e899b54d69ca4661690d0d8838a53ac8bdf3bd7a0a10",
+      "contentSha256": "4a44f505f41a3cbb9ebcd56dd9bd1fccb169cd426a3e038178363d9e6b531fde",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 133618,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.4713481511900484,
+      "sampleSecondsDiagnostic": 0.27564929201616906
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "seed": 1001,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "756c39221e2b4ba7ef97e899b54d69ca4661690d0d8838a53ac8bdf3bd7a0a10",
+      "contentSha256": "9d766d1a7b0b21f38a5754fa9f181cf324afe46f145e29ceb207b91e560f4a0e",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 146393,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.8234813078775087,
+      "sampleSecondsDiagnostic": 0.38341395801398903
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "seed": 1002,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "c582b087f610a481e3794df173e87f17133b4b76b64ec6dad1b65505a42d8bcb",
+      "contentSha256": "27fc330bca63621d0cb6127c77b787b54966d65794b297d267034a1eaef2bdac",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 140037,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.4465547627602964,
+      "sampleSecondsDiagnostic": 0.2836293749860488
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "seed": 1002,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "c582b087f610a481e3794df173e87f17133b4b76b64ec6dad1b65505a42d8bcb",
+      "contentSha256": "8645cfc14bf91195408b89f650be02c7fc9fa097fd056af3531fe68f330bb515",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 210789,
+      "velocityMinMax": [
+        1546.916732995473,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.5562042861907177,
+      "sampleSecondsDiagnostic": 0.3768551260291133
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "seed": 1003,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "c51050a86a03ddb3373946cb678f95a3a1aceaee228876ae1c24ddea43f855d4",
+      "contentSha256": "d9428797359a92cba02a2f00b2d2aeecec59e7d3c3cd13eecddb68377a2a5c5f",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 130153,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.46772068511198944,
+      "sampleSecondsDiagnostic": 0.2798834580462426
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "seed": 1003,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "c51050a86a03ddb3373946cb678f95a3a1aceaee228876ae1c24ddea43f855d4",
+      "contentSha256": "a259bb2e0959cf42116219caa9483c046b79a5a6ed7d9102f8f99372c0d19b6c",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 255915,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.8188990767009763,
+      "sampleSecondsDiagnostic": 0.48072283301735297
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "seed": 1004,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "18b08fc10562edec672bb6dc2843c30444c733a2f21afdf604e87205889ceaa2",
+      "contentSha256": "bec7941f5a54a26eec5d2c45db9b21a619c5ef928ed8790e13167124304e1d89",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 127685,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.444427333755397,
+      "sampleSecondsDiagnostic": 0.26386320698657073
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "seed": 1004,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "18b08fc10562edec672bb6dc2843c30444c733a2f21afdf604e87205889ceaa2",
+      "contentSha256": "60d23caa7414051db647872d570dfa435b397c6e933283328954ce67452c17e8",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 246114,
+      "velocityMinMax": [
+        1509.1363838589618,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.60051441598253,
+      "sampleSecondsDiagnostic": 0.41706845798762515
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "seed": 1005,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "486d56ea87960e987eab42e05c3654409a51b4f177fd70bb2a02a8b86e75b0e5",
+      "contentSha256": "9f2d8af84095cbdca8c729efa8fce5d25945eeec0312447f753a8b4999956917",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 145967,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.4533134849340383,
+      "sampleSecondsDiagnostic": 0.28947329104994424
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "seed": 1005,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "486d56ea87960e987eab42e05c3654409a51b4f177fd70bb2a02a8b86e75b0e5",
+      "contentSha256": "10551d138c7c217c1ea0ab846fb6a8f9f66adc1ac674e1790b521ed7b0effb38",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 232044,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.7657808295528784,
+      "sampleSecondsDiagnostic": 0.43930787598947063
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "seed": 1006,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "01efc70b79959ee04f36c62e1134c895a47a8ad66953c12aba9b7d34b2744690",
+      "contentSha256": "5017ba1a670a79b41c8fb3ce49d7a625ee28e223bbbf1734ec57ef5b0d8730df",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 148537,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.4526176502461087,
+      "sampleSecondsDiagnostic": 0.2901080419542268
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "seed": 1006,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "01efc70b79959ee04f36c62e1134c895a47a8ad66953c12aba9b7d34b2744690",
+      "contentSha256": "20537acf03387f50ece8b474263fc0dcebeff17bb585c1e353275cdf0e8a14be",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 116523,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.8406681011837049,
+      "sampleSecondsDiagnostic": 0.35680583299836144
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "seed": 1001,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "2458e4b9cc641c0d40cb73fc55dc9f8e63f60b353e6ea6615d7f1717a5a38157",
+      "contentSha256": "1234c52815a11f31951b631bd5c63ad6e1a8e7a5a3029964dce18ab9029940c8",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 171988,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.5162808206286467,
+      "sampleSecondsDiagnostic": 0.31760095799108967
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "seed": 1001,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "2458e4b9cc641c0d40cb73fc55dc9f8e63f60b353e6ea6615d7f1717a5a38157",
+      "contentSha256": "fcb07219a81c23179f960d92215ccd4a20602ab075ea40be95367f2fced20418",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 185514,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.7556706824006688,
+      "sampleSecondsDiagnostic": 0.40119504200993106
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "seed": 1002,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "4a2707189bce6a565e76d6439073af6186fda21659434534236c83fb06a38a7f",
+      "contentSha256": "f48548dd4ff9f95217842827db3f342245bf208b1781f684fcc5754506ae094b",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 178603,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.49323272248173433,
+      "sampleSecondsDiagnostic": 0.321860000025481
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "seed": 1002,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "4a2707189bce6a565e76d6439073af6186fda21659434534236c83fb06a38a7f",
+      "contentSha256": "61b32c0b5a3fcc40da2f337ae69a78fd5a312c2dd76a23e4f78406479886c20d",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 260271,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.660736720438213,
+      "sampleSecondsDiagnostic": 0.42772249996778555
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "seed": 1003,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "e8ccc062550411392b5bfad17825ca519620caca604f8c40c2bb2d461144a4db",
+      "contentSha256": "04b78ed0d12b391decd451d248c2018784a00ef2ad18e2a8cb9d44235f2a0b6b",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 165975,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.5192694876489343,
+      "sampleSecondsDiagnostic": 0.325140291970456
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "seed": 1003,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "e8ccc062550411392b5bfad17825ca519620caca604f8c40c2bb2d461144a4db",
+      "contentSha256": "d735acc8cabdff668e091361eb0016f88d1b3033fdf6db429d4fd5310dcaed41",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 259182,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.7177884681276812,
+      "sampleSecondsDiagnostic": 0.4639363740279805
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "seed": 1004,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "27c2c054a9c620dac1d834ba8b5fdcb012f721463b1ce999269d79174bf31421",
+      "contentSha256": "38db4b63d638bbed355b4577429f67ca9ff7c6476a0e6ed7c3b40a36300eee1e",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 159850,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.5197828083203577,
+      "sampleSecondsDiagnostic": 0.31536050100112334
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "seed": 1004,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "27c2c054a9c620dac1d834ba8b5fdcb012f721463b1ce999269d79174bf31421",
+      "contentSha256": "32b6185a6bac41fbebbb249ec819a0c3c8f7f53609db124cda2c2e9a437ad02a",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 249381,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.6393788632594603,
+      "sampleSecondsDiagnostic": 0.41429904199321754
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "seed": 1005,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "f4ebc1fed8ede01a344907e6581d7c45d348a232c8a7cf1f39fb831001ff5c9b",
+      "contentSha256": "8ffc6975e37c90385128c0f54d3a57060e1cb5c4ffbe640d4bad032d93ab1cb2",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 204533,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.4918353495428594,
+      "sampleSecondsDiagnostic": 0.3473454579943791
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "seed": 1005,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "f4ebc1fed8ede01a344907e6581d7c45d348a232c8a7cf1f39fb831001ff5c9b",
+      "contentSha256": "a3893ceaa096038402985dd87a74efb1962117ed208c439b90ac960fb3866e19",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 266114,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.7135306022687298,
+      "sampleSecondsDiagnostic": 0.45668062401819043
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "seed": 1006,
+      "grid": "coarse-window",
+      "nodes": 175329,
+      "modelSha256": "be7d81dc69c6e01ad11514de34303cf1e967c5f0c29925ee7bcbd429f3b353c8",
+      "contentSha256": "07cef52c039878ae4c497104d5997d2c6effd58cd6bf1263d741eb19f9aba18f",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 194281,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.5254293357060156,
+      "sampleSecondsDiagnostic": 0.3506671669892967
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "seed": 1006,
+      "grid": "10m-crop",
+      "nodes": 218889,
+      "modelSha256": "be7d81dc69c6e01ad11514de34303cf1e967c5f0c29925ee7bcbd429f3b353c8",
+      "contentSha256": "89f8d52b1b746e7c2f3e01faacfa630bc72b44e8aa4a4a5f40a20c55f8b6d173",
+      "frozenPhysicalFieldsExact": true,
+      "grainChecks": 117612,
+      "velocityMinMax": [
+        1500.0,
+        5200.0
+      ],
+      "sedimentFractionOfSampleNodes": 0.7680970720319431,
+      "sampleSecondsDiagnostic": 0.3477326670254115
+    }
+  ],
+  "materialRefinement": [
+    {
+      "scenario": "rift-v1",
+      "differences": [
+        {
+          "fromMetres": 20,
+          "toMetres": 10,
+          "allVelocityRmsMetresPerSecond": 0.7918404531816234,
+          "commonSedimentVelocityRmsMetresPerSecond": 1.190554125771074,
+          "commonSedimentNodes": 9774,
+          "bedDisagreementFraction": 4.480086017651539e-05,
+          "twoWayVerticalSlownessIntegralRmsMilliseconds": 0.0746703479518365,
+          "basementRmsMetres": 0.0
+        },
+        {
+          "fromMetres": 10,
+          "toMetres": 5,
+          "allVelocityRmsMetresPerSecond": 0.4481704571816358,
+          "commonSedimentVelocityRmsMetresPerSecond": 0.6581490762102217,
+          "commonSedimentNodes": 9774,
+          "bedDisagreementFraction": 4.480086017651539e-05,
+          "twoWayVerticalSlownessIntegralRmsMilliseconds": 0.04762455036008494,
+          "basementRmsMetres": 0.0
+        }
+      ],
+      "interpretation": "Fixed common nodal samples; material subdivision varies. Boundary shifts affect all-node RMS. Vertical slowness integrals are quadrature diagnostics, not simulated first arrivals. Every trend retained; no convergence assertion."
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "differences": [
+        {
+          "fromMetres": 20,
+          "toMetres": 10,
+          "allVelocityRmsMetresPerSecond": 0.7889411391013248,
+          "commonSedimentVelocityRmsMetresPerSecond": 1.1805470887951872,
+          "commonSedimentNodes": 9867,
+          "bedDisagreementFraction": 4.480086017651539e-05,
+          "twoWayVerticalSlownessIntegralRmsMilliseconds": 0.07741965194637743,
+          "basementRmsMetres": 0.0
+        },
+        {
+          "fromMetres": 10,
+          "toMetres": 5,
+          "allVelocityRmsMetresPerSecond": 0.4471915573997336,
+          "commonSedimentVelocityRmsMetresPerSecond": 0.6535248873820177,
+          "commonSedimentNodes": 9867,
+          "bedDisagreementFraction": 4.480086017651539e-05,
+          "twoWayVerticalSlownessIntegralRmsMilliseconds": 0.04907175436071754,
+          "basementRmsMetres": 0.0
+        }
+      ],
+      "interpretation": "Fixed common nodal samples; material subdivision varies. Boundary shifts affect all-node RMS. Vertical slowness integrals are quadrature diagnostics, not simulated first arrivals. Every trend retained; no convergence assertion."
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "differences": [
+        {
+          "fromMetres": 20,
+          "toMetres": 10,
+          "allVelocityRmsMetresPerSecond": 0.6960836061718814,
+          "commonSedimentVelocityRmsMetresPerSecond": 1.1844254195312427,
+          "commonSedimentNodes": 7645,
+          "bedDisagreementFraction": 4.480086017651539e-05,
+          "twoWayVerticalSlownessIntegralRmsMilliseconds": 0.06625187399600493,
+          "basementRmsMetres": 0.0
+        },
+        {
+          "fromMetres": 10,
+          "toMetres": 5,
+          "allVelocityRmsMetresPerSecond": 0.38878862923384794,
+          "commonSedimentVelocityRmsMetresPerSecond": 0.6642831427650557,
+          "commonSedimentNodes": 7646,
+          "bedDisagreementFraction": 0.0,
+          "twoWayVerticalSlownessIntegralRmsMilliseconds": 0.037957544211590796,
+          "basementRmsMetres": 0.0
+        }
+      ],
+      "interpretation": "Fixed common nodal samples; material subdivision varies. Boundary shifts affect all-node RMS. Vertical slowness integrals are quadrature diagnostics, not simulated first arrivals. Every trend retained; no convergence assertion."
+    }
+  ],
+  "syntheticConditioning": [
+    {
+      "scenario": "rift-v1",
+      "observations": [
+        {
+          "kind": "velocity",
+          "id": "synthetic-0",
+          "x": 2500,
+          "y": 2500,
+          "z": 1000,
+          "value": 1958.8595886943126,
+          "sigma": 75
+        },
+        {
+          "kind": "velocity",
+          "id": "synthetic-1",
+          "x": 5000,
+          "y": 5000,
+          "z": 1300,
+          "value": 2129.4706286452956,
+          "sigma": 75
+        },
+        {
+          "kind": "velocity",
+          "id": "synthetic-2",
+          "x": 7500,
+          "y": 7500,
+          "z": 1500,
+          "value": 1975.0245568452356,
+          "sigma": 75
+        }
+      ],
+      "weights": [
+        0.400195880940905,
+        0.0007156407841198576,
+        0.2030848831778511,
+        0.01086331553557793,
+        0.38129570385677136,
+        0.0038445757047748043
+      ],
+      "effectiveSampleSize": 2.8825095073809788,
+      "heldoutLocationPriorMeanRmsMetresPerSecond": 27.049906420376146,
+      "heldoutLocationWeightedMeanRmsMetresPerSecond": 12.873301179661413,
+      "interpretation": "Closed finite-library sanity check; the truth is one of six candidates. Different spatial locations are held out, not geology or field data. Not calibrated coverage or independent inversion validation."
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "observations": [
+        {
+          "kind": "velocity",
+          "id": "synthetic-0",
+          "x": 2500,
+          "y": 2500,
+          "z": 1000,
+          "value": 2089.485031801479,
+          "sigma": 75
+        },
+        {
+          "kind": "velocity",
+          "id": "synthetic-1",
+          "x": 5000,
+          "y": 5000,
+          "z": 1300,
+          "value": 2129.4706286452956,
+          "sigma": 75
+        },
+        {
+          "kind": "velocity",
+          "id": "synthetic-2",
+          "x": 7500,
+          "y": 7500,
+          "z": 1500,
+          "value": 1975.0245568452356,
+          "sigma": 75
+        }
+      ],
+      "weights": [
+        0.21258064555981848,
+        0.1790593663545855,
+        0.14416101593206074,
+        0.14968666589985105,
+        0.1406525895169758,
+        0.17385971673670833
+      ],
+      "effectiveSampleSize": 5.8667668036042375,
+      "heldoutLocationPriorMeanRmsMetresPerSecond": 11.531236149259117,
+      "heldoutLocationWeightedMeanRmsMetresPerSecond": 10.988824847241682,
+      "interpretation": "Closed finite-library sanity check; the truth is one of six candidates. Different spatial locations are held out, not geology or field data. Not calibrated coverage or independent inversion validation."
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "observations": [
+        {
+          "kind": "velocity",
+          "id": "synthetic-0",
+          "x": 2500,
+          "y": 2500,
+          "z": 1000,
+          "value": 1818.3298947850892,
+          "sigma": 75
+        },
+        {
+          "kind": "velocity",
+          "id": "synthetic-1",
+          "x": 5000,
+          "y": 5000,
+          "z": 1300,
+          "value": 2004.7793703668253,
+          "sigma": 75
+        },
+        {
+          "kind": "velocity",
+          "id": "synthetic-2",
+          "x": 7500,
+          "y": 7500,
+          "z": 1500,
+          "value": 1975.0557952264458,
+          "sigma": 75
+        }
+      ],
+      "weights": [
+        0.2620296424967179,
+        0.04293422649131409,
+        0.2417237945713708,
+        0.16011356609057023,
+        0.23319416530159867,
+        0.06000460504842832
+      ],
+      "effectiveSampleSize": 4.704781995930616,
+      "heldoutLocationPriorMeanRmsMetresPerSecond": 24.749784227139685,
+      "heldoutLocationWeightedMeanRmsMetresPerSecond": 23.786309810766426,
+      "interpretation": "Closed finite-library sanity check; the truth is one of six candidates. Different spatial locations are held out, not geology or field data. Not calibrated coverage or independent inversion validation."
+    }
+  ],
+  "scope": "Synthetic supported-scenario verification. No field holdout, competitor timing or downstream FWI benefit claim."
+}

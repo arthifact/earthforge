@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "scope": "Continuous regional 3D kinematic geological histories with vertical drained compaction and prescribed effective-pressure profiles. These gates supplement, and do not alter, the existing numerical plan.",
+  "representation": "Ordered regional events evaluated on demand at world-space vertical rays; fault inverse maps transfer material between different x/y locations. Output sampling never becomes authoritative material state.",
+  "required": [
+    "Uniform cases reduce to the existing exact column deposition/compaction/slicing laws",
+    "Oblique faults agree with independent inverse point maps in full x/y/z",
+    "Faults, erosion and compaction retain bed identity, constituents and irreversible material memories",
+    "Per-ray local constituent budgets close with absolute1e-9 plus relative1e-11 of the compared grain thicknesses",
+    "Regional boundary continuation is explicit; displayed-box totals are numerical integrals and must not be labelled exact closed-volume inventories",
+    "Compaction does not expand previously compacted grains or rescale their inventory",
+    "Vertical material refinements20/10/5m converge against an independently integrated constitutive reference",
+    "Crossline-uniform cases give identical rays at every y; nonuniform histories vary along strike",
+    "Native and deterministic Wasm outputs agree on frozen requests",
+    "Output grids and replay requests query the same history; coarser rendering must not change the physical model",
+    "Existing52Rust tests, worker checks, TypeScript checks and build remain passing"
+  ],
+  "performance": {
+    "method": "Separate fresh processes per engine/workload, one warmup plus three trials, fixed requests and identical output hashes. Separate model evaluation, projection and serialization where measurable. Native and browser results reported separately.",
+    "workloads": ["flat-history", "oblique-fault-history", "burial-erosion-reburial", "two-fault-history"],
+    "target": "Sub-second simplified 3D geological previews and seconds for moderate histories are research targets, not guarantees.",
+    "restrictions": "No relaxed arithmetic, mass repairs, tolerance relaxation or silent physical-resolution changes for timing gains. No observational holdout data. No SOTA superiority claim without matched downstream evidence."
+  }
+}

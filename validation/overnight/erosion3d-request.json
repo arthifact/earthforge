@@ -1,0 +1,296 @@
+{
+  "kind": "volume3d",
+  "bounds": {
+    "min": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "max": {
+      "x": 10000,
+      "y": 10000,
+      "z": 6200
+    }
+  },
+  "beds": [
+    {
+      "unit": 0,
+      "phase": "initial layers",
+      "a": 0.2,
+      "b": 0,
+      "c": 0,
+      "d": 1,
+      "carbonate": false
+    },
+    {
+      "unit": 1,
+      "phase": "initial layers",
+      "a": 0.5,
+      "b": 0,
+      "c": 0,
+      "d": 1,
+      "carbonate": false
+    },
+    {
+      "unit": 2,
+      "phase": "initial layers",
+      "a": 0.8,
+      "b": 0,
+      "c": 0,
+      "d": 1,
+      "carbonate": false
+    },
+    {
+      "unit": 3,
+      "phase": "initial layers",
+      "a": 0.2,
+      "b": 0,
+      "c": 0,
+      "d": 1,
+      "carbonate": false
+    },
+    {
+      "unit": 4,
+      "phase": "initial layers",
+      "a": 0.5,
+      "b": 0,
+      "c": 0,
+      "d": 1,
+      "carbonate": false
+    },
+    {
+      "unit": 5,
+      "phase": "initial layers",
+      "a": 0.8,
+      "b": 0,
+      "c": 0,
+      "d": 1,
+      "carbonate": true
+    },
+    {
+      "unit": 6,
+      "phase": "initial layers",
+      "a": 0.2,
+      "b": 0,
+      "c": 0,
+      "d": 1,
+      "carbonate": false
+    },
+    {
+      "unit": 7,
+      "phase": "initial layers",
+      "a": 0.5,
+      "b": 0,
+      "c": 0,
+      "d": 1,
+      "carbonate": false
+    },
+    {
+      "unit": 8,
+      "phase": "initial layers",
+      "a": 0.8,
+      "b": 0,
+      "c": 0,
+      "d": 1,
+      "carbonate": false
+    }
+  ],
+  "column": [
+    {
+      "bed": -1,
+      "height": 100,
+      "solid": 0,
+      "fraction": 0,
+      "burial": 0,
+      "loading": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "offsetZ": 0
+    },
+    {
+      "bed": 0,
+      "height": 450,
+      "solid": 257.072768328189,
+      "fraction": 0.2,
+      "burial": 725,
+      "loading": 725,
+      "offsetX": 0,
+      "offsetY": 0,
+      "offsetZ": 0
+    },
+    {
+      "bed": 1,
+      "height": 500,
+      "solid": 326.04471117358065,
+      "fraction": 0.5,
+      "burial": 1200,
+      "loading": 1200,
+      "offsetX": 0,
+      "offsetY": 0,
+      "offsetZ": 0
+    },
+    {
+      "bed": 2,
+      "height": 350,
+      "solid": 242.31908763960396,
+      "fraction": 0.8,
+      "burial": 1625,
+      "loading": 1625,
+      "offsetX": 0,
+      "offsetY": 0,
+      "offsetZ": 0
+    },
+    {
+      "bed": 3,
+      "height": 650,
+      "solid": 503.3444460067616,
+      "fraction": 0.2,
+      "burial": 2125,
+      "loading": 2125,
+      "offsetX": 0,
+      "offsetY": 0,
+      "offsetZ": 0
+    },
+    {
+      "bed": 4,
+      "height": 500,
+      "solid": 401.22941299549984,
+      "fraction": 0.5,
+      "burial": 2700,
+      "loading": 2700,
+      "offsetX": 0,
+      "offsetY": 0,
+      "offsetZ": 0
+    },
+    {
+      "bed": 5,
+      "height": 550,
+      "solid": 510.90442490213854,
+      "fraction": 0.8,
+      "burial": 3225,
+      "loading": 3225,
+      "offsetX": 0,
+      "offsetY": 0,
+      "offsetZ": 0
+    },
+    {
+      "bed": 6,
+      "height": 600,
+      "solid": 535.4361706563865,
+      "fraction": 0.2,
+      "burial": 3800,
+      "loading": 3800,
+      "offsetX": 0,
+      "offsetY": 0,
+      "offsetZ": 0
+    },
+    {
+      "bed": 7,
+      "height": 700,
+      "solid": 625.7135722459884,
+      "fraction": 0.5,
+      "burial": 4450,
+      "loading": 4450,
+      "offsetX": 0,
+      "offsetY": 0,
+      "offsetZ": 0
+    },
+    {
+      "bed": 8,
+      "height": 650,
+      "solid": 580.2324495217171,
+      "fraction": 0.8,
+      "burial": 5125,
+      "loading": 5125,
+      "offsetX": 0,
+      "offsetY": 0,
+      "offsetZ": 0
+    },
+    {
+      "bed": -2,
+      "height": 1150,
+      "solid": 0,
+      "fraction": 0,
+      "burial": 0,
+      "loading": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "offsetZ": 0
+    }
+  ],
+  "sectionsY": [
+    1000,
+    5000,
+    9000
+  ],
+  "includeGeometry": true,
+  "events": [
+    {
+      "kind": "fault",
+      "fault": {
+        "point": {
+          "x": 4800,
+          "y": 5200,
+          "z": 2800
+        },
+        "normal": {
+          "x": 0.5445327701173301,
+          "y": 0.19058646954106553,
+          "z": 0.8167991551759952
+        },
+        "slip": {
+          "x": 500,
+          "y": 150,
+          "z": -368.3333333333333
+        }
+      }
+    },
+    {
+      "kind": "fault",
+      "fault": {
+        "point": {
+          "x": 6500,
+          "y": 4000,
+          "z": 4000
+        },
+        "normal": {
+          "x": -0.29814239699997197,
+          "y": 0.7453559924999299,
+          "z": 0.5962847939999439
+        },
+        "slip": {
+          "x": 150,
+          "y": -350,
+          "z": 512.4999999999999
+        }
+      }
+    },
+    {
+      "kind": "erosion",
+      "surface": {
+        "point": {
+          "x": 0,
+          "y": 0,
+          "z": 1300
+        },
+        "slopeX": 0.03,
+        "slopeY": 0.02
+      }
+    }
+  ],
+  "projection": {
+    "grid": {
+      "nx": 61,
+      "ny": 31,
+      "nz": 61,
+      "dx": 20,
+      "dy": 20,
+      "dz": 20,
+      "origin": {
+        "x": 7800.5,
+        "y": 4500.7,
+        "z": 1200.3
+      }
+    }
+  }
+}

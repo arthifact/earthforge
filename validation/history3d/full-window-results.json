@@ -1,0 +1,29 @@
+{
+  "createdAt": "2026-10-17T15:40:22.507Z",
+  "grid": {
+    "nx": 33,
+    "ny": 33,
+    "nz": 65,
+    "dx": 312.5,
+    "dy": 312.5,
+    "dz": 96.875,
+    "origin": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "nodes": 70785,
+  "materialStep": 10,
+  "nativePath": "target/release/earthforge",
+  "nativeSha256": "b454ba1ffd62dd7d179c6494f235459ad42d06af258227bb1fc565a1ae7317c4",
+  "wasmSha256": "7d94851d8f7c4a12d60c654b45b5dfe92e5769841f3d63766bd24cb6d52f797d",
+  "allVelocityAndMaterialNodesExact": true,
+  "projectionSha256": "b9bed4bdc02b2c62a256035975009cbec6000cbade544b15940029acc3b4ad90",
+  "diagnosticTiming": {
+    "nativeMs": 146.846583,
+    "deterministicWasmMs": 4664.162875,
+    "wasmSetupMs": 1.135832999999991
+  },
+  "scope": "One diagnostic trial, not a controlled benchmark. Coarse output sampling across the full 10x10x6.2km open observation window, independent of 10m material subdivision. This coarse grid is not validated for wave propagation."
+}

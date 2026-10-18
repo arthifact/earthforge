@@ -397,7 +397,7 @@ function inversions(w: ReturnType<typeof windowOf>) {
 }
 
 /** Simulate sections from consecutive seeds and measure; yields to the page between sections. */
-export async function verify(base: BasinOptions, first: number, count: number, onProgress?: (done: string) => void): Promise<Verification> {
+export async function verify(base: BasinOptions, first: number, count: number, onProgress?: (done: string) => void, run: (options: BasinOptions) => Basin | Promise<Basin> = simulate): Promise<Verification> {
   const depthStep = 100, depths = Array.from({ length: Math.floor(DEPTH / depthStep) }, (_, k) => (k + 0.5) * depthStep);
   const vbin = 20, vlo = 1400, nv = Math.ceil((5600 - vlo) / vbin) + 1, hist = depths.map(() => new Float64Array(nv));
   const res: Verification = { sections: count, sediment: { events: 0, failedEvents: 0, failedSections: 0, maxEventResidual: 0, absoluteEventResidual: 0 }, settings: { extension: 0, compression: 0 }, velocity: { depth: depths, p10: [], p50: [], p90: [], samples: [], sections: depths.map(() => 0) }, expansion: { before: [], during: [] }, throwGrows: { faults: 0, growing: 0 }, heaveGrows: {faults: 0, growing: 0 }, growthThrow: { faults: 0, growing: 0 }, heaveFailures: { crossed: 0, edge: 0, nested: 0, antithetic: 0, other: 0 }, dips: [],
@@ -413,7 +413,7 @@ export async function verify(base: BasinOptions, first: number, count: number, o
     let sum = 0;
     for (let s = 0; s < 12; s++) {
       onProgress?.(`known-answer test, normal fault, ${h} m grid: ${s + 1} / 12`);
-      const b = simulate({ ...BASIN_DEFAULTS, h, seed: 900001 + s, setting: "extension", faults: [1, 1], quiet: true, compaction: false, record: false }), f = b.faults[0];
+      const b = await run({ ...BASIN_DEFAULTS, h, seed: 900001 + s, setting: "extension", faults: [1, 1], quiet: true, compaction: false, record: false }), f = b.faults[0];
       if (!f) continue;
       for (const r of measureFault(b, f)) {
         let expected = 0; f.heaves.forEach((hv, j) => { if (f.start + j > r.unit) expected += hv; });
@@ -429,7 +429,7 @@ export async function verify(base: BasinOptions, first: number, count: number, o
     const errors: number[] = [];
     for (let s = 0; s < 6; s++) {
       onProgress?.(`known-answer test, compaction, ${h} m grid: ${s + 1} / 6`);
-      compactionCheck(simulate({ ...BASIN_DEFAULTS, h, seed: 910001 + s, setting: "extension", faults: [0, 0], quiet: true, compaction: true, overpressure: 0, record: false }), res.compaction, runs, errors);
+      compactionCheck(await run({ ...BASIN_DEFAULTS, h, seed: 910001 + s, setting: "extension", faults: [0, 0], quiet: true, compaction: true, overpressure: 0, record: false }), res.compaction, runs, errors);
       await pause();
     }
     runs.mean = errors.length ? errors.reduce((a, c) => a + c, 0) / errors.length : NaN;
@@ -439,7 +439,7 @@ export async function verify(base: BasinOptions, first: number, count: number, o
   for (const [tally, h] of [[res.thrust, 20], [res.thrust.fine, 10]] as const) {
     for (let s = 0; s < 12; s++) {
       onProgress?.(`known-answer test, thrust, ${h} m grid: ${s + 1} / 12`);
-      const b = simulate({ ...BASIN_DEFAULTS, h, seed: 920001 + s, setting: "compression", thrusts: [1, 1], quiet: true, compaction: false, overpressure: 0, record: false });
+      const b = await run({ ...BASIN_DEFAULTS, h, seed: 920001 + s, setting: "compression", thrusts: [1, 1], quiet: true, compaction: false, overpressure: 0, record: false });
       thrustCheck(b, tally, h === 20 ? res.thrust.dips : null);
       res.thrust.area = Math.max(res.thrust.area, b.checks.area);
       await pause();
@@ -447,7 +447,7 @@ export async function verify(base: BasinOptions, first: number, count: number, o
   }
   const repeated = new Set<string>();
   for (let s = 0; s < count; s++) {
-    const b = simulate({ ...base, seed: first + s, record: false }), w = windowOf(b);
+    const b = await run({ ...base, seed: first + s, record: false }), w = windowOf(b);
     res.settings[b.setting]++;
     const budget = b.budget.summary;
     res.sediment.events += budget.events; res.sediment.failedEvents += budget.failedEvents;
@@ -455,7 +455,7 @@ export async function verify(base: BasinOptions, first: number, count: number, o
     res.sediment.maxEventResidual = Math.max(res.sediment.maxEventResidual, budget.maxEventResidual);
     res.sediment.absoluteEventResidual += budget.absoluteEventResidual.total;
     if (!repeated.has(b.setting)) {
-      const again = simulate({ ...base, seed: first + s, record: false });
+      const again = await run({ ...base, seed: first + s, record: false });
       res.physics.deterministic &&= samePhysicalState(b, again); res.physics.repeated++; repeated.add(b.setting);
     }
     res.physics.invalidCells += invalidStateCells(b);

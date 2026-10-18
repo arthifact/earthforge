@@ -1,0 +1,12 @@
+   Compiling earthforge-core v0.1.0 (/Users/torus/Documents/Codex/2026-10-17/wah/work/earthforge-rust/crates/earthforge-core)
+    Finished `release` profile [optimized] target(s) in 5.79s
+     Running tests/grid_windows.rs (target/release/deps/grid_windows-2542c25dfa9fe8c2)
+
+running 5 tests
+test capabilities_describe_actual_regional_history_support ... ok
+test bed_contacts_report_all_occurrences_and_merge_constitutive_subdivisions ... ok
+test window_budget_applies_to_selected_nodes_and_checks_parent_extent ... ok
+test exact_interface_samples_retain_ownership_in_windows ... ok
+test windows_preserve_global_coordinates_and_all_fields_exactly ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s

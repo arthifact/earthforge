@@ -1,0 +1,8 @@
+{"name":"quick","kind":"native","medianMs":196.490541}
+{"name":"quick","kind":"wasm","medianMs":2972.8226250000002}
+{"name":"standard","kind":"native","medianMs":449.59179200000005}
+{"name":"standard","kind":"wasm","medianMs":6647.679417000001}
+{"name":"fine","kind":"native","medianMs":966.7449999999999}
+{"name":"fine","kind":"wasm","medianMs":12227.766666000003}
+{"name":"long-history-quick","kind":"native","medianMs":1619.3767079999998}
+{"name":"long-history-quick","kind":"wasm","medianMs":34066.965916999994}

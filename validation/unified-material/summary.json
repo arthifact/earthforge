@@ -1,0 +1,38 @@
+{
+  "baselineCheckpoint": "ed95e97369eb6d21c202670ee99171fcadbf0383",
+  "status": "Complete: shared production material routines installed and verified",
+  "shared": [
+    "porosity/effective-loading/velocity laws",
+    "exact material state and subdivision",
+    "deposition initialization",
+    "guarded compaction solve",
+    "irreversible burial/loading memory"
+  ],
+  "dimensionSpecific": [
+    "geometry and transport",
+    "event/scenario orchestration",
+    "surface/basement/water boundary bookkeeping"
+  ],
+  "verification": {
+    "rustTestsPassed": 71,
+    "workerTestsPassed": 6,
+    "frozenBisectionOracleColumns": 20000,
+    "canonical2dWholeResponsesExact": 36,
+    "recorded2dHistoriesExact": 3,
+    "whole2dWasmComparisonsExact": 8,
+    "history3dReplayCasesExactAcrossFiveEngines": 20,
+    "oldCanonicalNativeAcousticShotsExact": 4,
+    "installedSourceFilesExact": 106,
+    "installedWasmModulesByteIdentical": 4
+  },
+  "engineSha256": {
+    "after-native": "69295d8e203c822776457d8804c070515d82233dc27206d2617461f8313decbc",
+    "before-native": "ef6a93e67a14ffb4b3e2aecedfa470151babb0598c80e1b6617e851a06675043",
+    "earthforge_core.wasm": "1a796b02b1e9cfecf9cb21741c2b39c4a925c196d1dd7b314e82a86f1f9242df",
+    "earthforge_core_deterministic.wasm": "3706378e12723fd65321fe24f6f4ad4e2c53c6ec1c3012f77d82d736a2451fb3",
+    "earthforge_core_deterministic_simd.wasm": "27dcbfdb83bbd7a0bd1bd85695d1f55380b791929520d8c6795b5c4d081674fc",
+    "earthforge_core_simd.wasm": "1749bc85fa84876d37622a68d0d435f771034fe38c571cc721ba5d5d1bce1bdc",
+    "installed-native": "a9c7361d17fb40c484ec1a1c960d0a16169c97540c4d4d33af27704f0de12206"
+  },
+  "scope": "One shared Rust material-physics core with dimension-specific geometry adapters. Physical laws, coefficients, tolerances, material/output resolution and supported geometry are unchanged. Timings in the earlier history3d report remain historical, with no new performance claim."
+}

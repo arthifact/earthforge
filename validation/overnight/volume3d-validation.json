@@ -1,0 +1,41 @@
+{
+  "domain_m": [
+    10000,
+    10000,
+    6200
+  ],
+  "faults": 2,
+  "slice_count": 3,
+  "native_and_wasm_geometry_inventory_and_sections": "bit-identical",
+  "stats": {
+    "authoritativeVoxels": 0,
+    "faces": 243,
+    "fragments": 40,
+    "vertexReferences": 978
+  },
+  "ledgers": [
+    {
+      "closed": true,
+      "max_normalized_residual": 0.0000017418074305258423,
+      "grain_residual_m3": 0.000095367431640625,
+      "grain_outflow_m3": 15156745100.577541,
+      "fragments_before": 10,
+      "fragments_after": 20
+    },
+    {
+      "closed": true,
+      "max_normalized_residual": 8.222194829955781e-7,
+      "grain_residual_m3": -0.000011444091796875,
+      "grain_outflow_m3": 13297775063.455822,
+      "fragments_before": 20,
+      "fragments_after": 40
+    }
+  ],
+  "native_ms": 237.493042,
+  "wasm_ms": 6.708000000000027,
+  "timing_note": "Single smoke measurements include native process startup / Wasm boundary; not a performance comparison",
+  "request_sha256": "678759bc70e7eb21a2271a5fb9e6dbd3ce20b3db4657eb2db6028f704b0e84e2",
+  "native_sha256": "20a40f8fa1b758a089dbfed7f3e6e4f4de9f4057d3e19595675c44b3d4956bdb",
+  "wasm_sha256": "f1237dd5d5473dab552c723b0f933f51ae4a83d21649f3834de76400706591f9",
+  "scope": "Two prescribed inclined planar faults in a 3D stratified volume. No general curved faults, 3D compaction/pressure evolution or force-driven deformation."
+}

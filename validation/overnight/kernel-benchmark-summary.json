@@ -1,0 +1,79 @@
+{
+  "accepted": "Deferred finite-value error reduction, without floating-point reassociation or tolerance changes",
+  "simdDefault": false,
+  "reason": "SIMD flag alone gives no consistent additional benefit",
+  "method": "Each variant/case in a separate process after the legacy test runner exits; 30 second settling period, one warmup and three measured trials. Fixed alternating variant order. Includes request/response and decoding, excludes Wasm setup. Native starts a fresh CLI each trial. All outputs match canonical f64 examples. Local experiment, not a SOTA speed comparison.",
+  "runtime": {
+    "node": "v24.18.0",
+    "v8": "13.6.233.17-node.50",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4 Pro",
+    "ramBytes": 51539607552,
+    "loadAverage": [
+      2.60205078125,
+      3.0048828125,
+      3.51953125
+    ]
+  },
+  "measurements": 24,
+  "allOutputHashesMatch": true,
+  "rows": [
+    {
+      "case": "basin-extension-765184",
+      "native": {
+        "baselineMs": 972.3739170000003,
+        "acceptedMs": 557.21025,
+        "timeReductionFraction": 0.42695886812850437
+      },
+      "wasmScalar": {
+        "baselineMs": 1507.1490829999998,
+        "acceptedMs": 777.119917,
+        "timeReductionFraction": 0.48437754050638926
+      },
+      "simdOverAcceptedScalarRatio": 1.004476625709749
+    },
+    {
+      "case": "basin-compression-20261014",
+      "native": {
+        "baselineMs": 945.12075,
+        "acceptedMs": 543.9082079999998,
+        "timeReductionFraction": 0.4245092936537477
+      },
+      "wasmScalar": {
+        "baselineMs": 1460.0002920000002,
+        "acceptedMs": 755.9710839999998,
+        "timeReductionFraction": 0.48221168985903207
+      },
+      "simdOverAcceptedScalarRatio": 0.997727480539454
+    },
+    {
+      "case": "layered-3d",
+      "native": {
+        "baselineMs": 1221.638792,
+        "acceptedMs": 702.3514170000001,
+        "timeReductionFraction": 0.42507439875075603
+      },
+      "wasmScalar": {
+        "baselineMs": 1946.673167,
+        "acceptedMs": 1771.944834,
+        "timeReductionFraction": 0.08975740558918388
+      },
+      "simdOverAcceptedScalarRatio": 1.0015985254990167
+    },
+    {
+      "case": "faulted-3d",
+      "native": {
+        "baselineMs": 1987.6994999999997,
+        "acceptedMs": 1349.9497909999995,
+        "timeReductionFraction": 0.320848150839702
+      },
+      "wasmScalar": {
+        "baselineMs": 2657.9427910000004,
+        "acceptedMs": 2467.5306659999997,
+        "timeReductionFraction": 0.07163891022965241
+      },
+      "simdOverAcceptedScalarRatio": 1.0020362466287582
+    }
+  ]
+}

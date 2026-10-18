@@ -1,0 +1,19 @@
+{
+  "kind": "history3d",
+  "options": {
+    "seed": 20261014,
+    "steps": 24,
+    "faults": 4,
+    "compaction": true,
+    "materialStep": 10
+  },
+  "query": {
+    "nx": 61,
+    "nz": 81,
+    "sectionsY": [
+      1000,
+      5000,
+      9000
+    ]
+  }
+}

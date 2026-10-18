@@ -1,0 +1,22 @@
+   Compiling earthforge-core v0.1.0 (/Users/torus/Documents/Codex/2026-10-17/wah/work/earthforge-rust/crates/earthforge-core)
+    Finished `release` profile [optimized] target(s) in 17.66s
+     Running tests/history3d.rs (target/release/deps/history3d-ba10110e3804eb68)
+
+running 15 tests
+test exact_cuts_and_regional_tails_preserve_thin_intervals_without_filling_gaps ... ok
+test new_deposition_reduces_to_existing_exact_subdivision_and_solid_law ... ok
+test regional_continuation_supplies_known_boundary_material_instead_of_water_padding ... ok
+test erosion_reburial_and_pressure_changes_preserve_irreversible_history_spatially ... ok
+test vertical_deposition_refinement_converges_to_independent_porosity_integral ... ok
+test compaction_refines_to_independent_integrated_drained_column_solution ... ok
+test crossline_uniform_model_is_identical_at_every_y_but_oblique_model_varies ... ok
+test uniform_compaction_reduces_exactly_to_existing_column_law_and_fixes_basement ... ok
+test api_rejects_invalid_events_limits_and_nonphysical_material ... ok
+test tangent_fault_and_inverse_restore_geometry_without_resetting_memories ... ok
+test derived_grid_ownership_and_velocities_equal_exact_point_queries_at_interfaces ... ok
+test oblique_fault_profiles_match_independent_inverse_points_and_polyhedral_reference ... ok
+test composed_fault_inverse_maps_keep_material_and_constituents_in_full_xyz ... ok
+test output_resolution_and_replay_do_not_change_authoritative_material_state ... ok
+test guarded_compaction_fast_path_matches_existing_solver_bit_for_bit_on20000_columns ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s

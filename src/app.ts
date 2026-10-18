@@ -103,7 +103,7 @@ export function start(root: HTMLElement) {
       <a class="brand" href="./" aria-label="Earth Forge">${LOGO}<span>Earth Forge</span></a>
       <p class="crumb mono" id="title" aria-live="polite">–</p>
       <nav class="menu" aria-label="Menu">
-        <button type="button" data-open="help">How to use</button><button type="button" data-open="gallery">Gallery</button><button type="button" data-open="checks">Checks</button><button type="button" data-open="about">About</button><a href="https://github.com/arthifact/earthforge" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="./3d.html">3D basin</a><button type="button" data-open="help">How to use</button><button type="button" data-open="gallery">Gallery</button><button type="button" data-open="checks">Checks</button><button type="button" data-open="about">About</button><a href="https://github.com/arthifact/earthforge" target="_blank" rel="noopener">GitHub ↗</a>
       </nav>
     </header>
     <main class="work">

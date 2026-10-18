@@ -1,0 +1,1097 @@
+{
+  "createdAt": "2026-10-17T15:28:06.268Z",
+  "cpu": "Apple M4 Pro",
+  "runtime": "v24.18.0",
+  "engineSha256": {
+    "culled-native": "b454ba1ffd62dd7d179c6494f235459ad42d06af258227bb1fc565a1ae7317c4",
+    "culled-research-simd": "7d94851d8f7c4a12d60c654b45b5dfe92e5769841f3d63766bd24cb6d52f797d",
+    "culled-preview-simd": "8f4c339ad3fda3ccc8b0dd7dfb17de2416bc483e1328347ca61882d64222a17c"
+  },
+  "method": "Each engine/case in its own process, one warmup and3trials. Fixed alternating engine order. Includes request/result and JSON decoding; Wasm setup excluded and reported separately. Native CLI startup included. No concurrent builds, simulations or test jobs. Own-engine performance only.",
+  "rows": [
+    {
+      "case": "flat-history",
+      "variant": "culled-native",
+      "medianMs": 12.224874999999997,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 264.002208,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988,
+              "prunedFaultBranches": 0
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 14.587625000000003,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988,
+              "prunedFaultBranches": 0
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 12.224874999999997,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988,
+              "prunedFaultBranches": 0
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 11.670000000000016,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988,
+              "prunedFaultBranches": 0
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "flat-history",
+      "variant": "culled-research-simd",
+      "setupMs": 1.1832079999999987,
+      "medianMs": 55.737292,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 66.88179099999999,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988,
+              "prunedFaultBranches": 0
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 55.737292,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988,
+              "prunedFaultBranches": 0
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 55.44466700000001,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988,
+              "prunedFaultBranches": 0
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 55.946166000000005,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988,
+              "prunedFaultBranches": 0
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "flat-history",
+      "variant": "culled-preview-simd",
+      "setupMs": 1.2169999999999987,
+      "medianMs": 22.520832999999996,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 34.18825,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988,
+              "prunedFaultBranches": 0
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 22.94075,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988,
+              "prunedFaultBranches": 0
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 22.487124999999992,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988,
+              "prunedFaultBranches": 0
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 22.520832999999996,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988,
+              "prunedFaultBranches": 0
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "oblique-fault-history",
+      "variant": "culled-preview-simd",
+      "setupMs": 1.1812500000000004,
+      "medianMs": 240.82629199999997,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 256.479291,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5963776,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 584750,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9159,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 4514,
+              "porosityEvaluations": 5027250,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 240.82629199999997,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5963776,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 584750,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9159,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 4514,
+              "porosityEvaluations": 5027250,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 242.30824999999993,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5963776,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 584750,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9159,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 4514,
+              "porosityEvaluations": 5027250,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 239.085917,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5963776,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 584750,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9159,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 4514,
+              "porosityEvaluations": 5027250,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "oblique-fault-history",
+      "variant": "culled-research-simd",
+      "setupMs": 1.2822920000000018,
+      "medianMs": 792.0706670000002,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 810.331083,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5963776,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 584750,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9159,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 4514,
+              "porosityEvaluations": 5027250,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 791.462167,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5963776,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 584750,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9159,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 4514,
+              "porosityEvaluations": 5027250,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 792.0706670000002,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5963776,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 584750,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9159,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 4514,
+              "porosityEvaluations": 5027250,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 809.6731669999999,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5963776,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 584750,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9159,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 4514,
+              "porosityEvaluations": 5027250,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "oblique-fault-history",
+      "variant": "culled-native",
+      "medianMs": 31.239791999999994,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 37.102875,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 584750,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9159,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 4514,
+              "porosityEvaluations": 5027250,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 31.239791999999994,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 584750,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9159,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 4514,
+              "porosityEvaluations": 5027250,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 31.378541999999996,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 584750,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9159,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 4514,
+              "porosityEvaluations": 5027250,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 31.217624999999998,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 584750,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9159,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 4514,
+              "porosityEvaluations": 5027250,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "variant": "culled-native",
+      "medianMs": 27.730625000000018,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 28.050292,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 522929,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9540,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 4142,
+              "porosityEvaluations": 3749262,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 28.665084,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 522929,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9540,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 4142,
+              "porosityEvaluations": 3749262,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 27.100708999999995,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 522929,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9540,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 4142,
+              "porosityEvaluations": 3749262,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 27.730625000000018,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 522929,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9540,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 4142,
+              "porosityEvaluations": 3749262,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "variant": "culled-research-simd",
+      "setupMs": 1.236542,
+      "medianMs": 622.305,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 625.793167,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5570560,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 522929,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9540,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 4142,
+              "porosityEvaluations": 3749262,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 622.305,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5570560,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 522929,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9540,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 4142,
+              "porosityEvaluations": 3749262,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 623.3296250000001,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5570560,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 522929,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9540,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 4142,
+              "porosityEvaluations": 3749262,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 612.756416,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5570560,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 522929,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9540,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 4142,
+              "porosityEvaluations": 3749262,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "variant": "culled-preview-simd",
+      "setupMs": 1.132541999999999,
+      "medianMs": 198.46195800000004,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 211.87475,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5570560,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 522929,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9540,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 4142,
+              "porosityEvaluations": 3749262,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 198.04762499999998,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5570560,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 522929,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9540,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 4142,
+              "porosityEvaluations": 3749262,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 198.46195800000004,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5570560,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 522929,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9540,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 4142,
+              "porosityEvaluations": 3749262,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 201.348833,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5570560,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 522929,
+              "evaluatedProfiles": 381,
+              "localEventsChecked": 9540,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 4142,
+              "porosityEvaluations": 3749262,
+              "prunedFaultBranches": 168
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "two-fault-history",
+      "variant": "culled-preview-simd",
+      "setupMs": 1.2447090000000003,
+      "medianMs": 257.08062500000005,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 268.80654200000004,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 5898240,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 257.08062500000005,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6029312,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 257.1335,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6029312,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 248.3644579999999,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6029312,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "two-fault-history",
+      "variant": "culled-research-simd",
+      "setupMs": 1.1768750000000008,
+      "medianMs": 849.6335,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 855.445541,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 5898240,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 849.6335,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6029312,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 838.0878340000002,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6029312,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 858.9656669999999,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6029312,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "two-fault-history",
+      "variant": "culled-native",
+      "medianMs": 35.02883299999999,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 34.192791,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 36.151625,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 35.02883299999999,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 33.275583,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    }
+  ]
+}

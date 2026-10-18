@@ -1,0 +1,18 @@
+✔ block worker keeps deterministic physics and queries the full volume independently of display detail (2.357417ms)
+✔ bounded block replay cache survives transfer, retains original time and separates physical options (1.267625ms)
+✔ block worker reports engine errors with the request id and retries (0.993583ms)
+✔ section refinement uses the exported continuous model and caches only an identical plane query (0.459917ms)
+✔ ray traversal hits clipped solid faces and orthogonal sections at known coordinates (0.618541ms)
+✔ nearest-node traversal skips water without changing authoritative arrays (0.43025ms)
+✔ perspective projection and pixel rays agree under orbit, zoom and vertical scale (0.329542ms)
+✔ Rust worker transfers final and replay composition and propagates engine errors (2311.833417ms)
+✔ Rust engine uses portable fallback and retries a failed initialization (15.962958ms)
+✔ Rust loader keeps preview and deterministic research modules separate (7.137209ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2381.724542

@@ -1,0 +1,1001 @@
+{
+  "createdAt": "2026-10-17T15:14:52.343Z",
+  "cpu": "Apple M4 Pro",
+  "runtime": "v24.18.0",
+  "engineSha256": {
+    "reference-native": "9e23594bbe61a2b0bb599f93d920efb0d9473f39d2b50d59b3dfda1c5ef443fe",
+    "reference-research-simd": "327d3e11193ff7ff42ffa4548ae5c6871b2fa920129bd0460e3b6a9bf11ca345",
+    "reference-preview-simd": "e4917e3de2ab760bf855c87b6e2316c215bb70e311adbe626d6c8f5068364ea6"
+  },
+  "method": "Each engine/case in its own process, one warmup and3trials. Fixed alternating engine order. Includes request/result and JSON decoding; Wasm setup excluded and reported separately. Native CLI startup included. No concurrent builds, simulations or test jobs. Own-engine performance only.",
+  "rows": [
+    {
+      "case": "flat-history",
+      "variant": "reference-native",
+      "medianMs": 57.169291999999984,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 325.818917,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 63.4255,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 57.169291999999984,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 55.63679200000007,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "flat-history",
+      "variant": "reference-research-simd",
+      "setupMs": 1.23175,
+      "medianMs": 247.15525000000002,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 255.981667,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 246.89587500000005,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 247.15525000000002,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 249.84495900000002,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "flat-history",
+      "variant": "reference-preview-simd",
+      "setupMs": 1.0858749999999997,
+      "medianMs": 117.23195800000002,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 128.317833,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 117.23195800000002,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 116.12462500000004,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 117.298,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "oblique-fault-history",
+      "variant": "reference-preview-simd",
+      "setupMs": 1.7045419999999982,
+      "medianMs": 845.3302079999999,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 855.650709,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5636096,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 842.3344160000001,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5636096,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 847.0241670000003,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5636096,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 845.3302079999999,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5636096,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "oblique-fault-history",
+      "variant": "reference-research-simd",
+      "setupMs": 1.8252500000000005,
+      "medianMs": 3419.1844999999994,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 3445.5742910000004,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5636096,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 3414.0484169999995,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5636096,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 3421.589084,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5636096,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 3419.1844999999994,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5636096,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "oblique-fault-history",
+      "variant": "reference-native",
+      "medianMs": 122.04962499999999,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 126.35841699999999,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 121.511291,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 122.04962499999999,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 127.00937499999998,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "variant": "reference-native",
+      "medianMs": 110.05995800000002,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 109.420375,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 110.962583,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 110.05995800000002,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 105.55783300000002,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "variant": "reference-research-simd",
+      "setupMs": 1.3059170000000009,
+      "medianMs": 2706.101458,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 2732.6574170000004,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5111808,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 2717.68125,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5242880,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 2702.2422080000006,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5242880,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 2706.101458,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5242880,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "variant": "reference-preview-simd",
+      "setupMs": 1.1519589999999997,
+      "medianMs": 677.8762080000001,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 688.3488329999999,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5111808,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 674.4868749999999,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5242880,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 677.8762080000001,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5242880,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 684.985917,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5242880,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "two-fault-history",
+      "variant": "reference-preview-simd",
+      "setupMs": 1.1793330000000015,
+      "medianMs": 1098.5102079999997,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 1113.821292,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 5767168,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 1093.60025,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 5767168,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 1098.5102079999997,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 5767168,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 1100.504625,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 5767168,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "two-fault-history",
+      "variant": "reference-research-simd",
+      "setupMs": 1.1204590000000003,
+      "medianMs": 4582.854541000001,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 4556.827792,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 5767168,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 4582.854541000001,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 5767168,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 4553.654041,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 5767168,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 4737.156916999998,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 5767168,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "two-fault-history",
+      "variant": "reference-native",
+      "medianMs": 150.65641599999998,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 152.741209,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 150.85174999999998,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 150.62120799999997,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 150.65641599999998,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    }
+  ]
+}

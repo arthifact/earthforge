@@ -1,0 +1,20 @@
+{
+  "schema": "earthforge-installed-wheel-validation-v1",
+  "enginePath": "/Users/torus/Documents/Codex/2026-10-17/wah/work/research-install-venv/lib/python3.12/site-packages/earthforge/_bin/earthforge",
+  "engineSha256": "e7b8f22071c7d26564bbe1adc77bfc02006cf8921551e89bce668505e9c2694d",
+  "usesBundledEngine": true,
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "numpy": "2.5.4",
+  "pairedShotShape": [
+    1,
+    555
+  ],
+  "realBrowserExportDisplayExactlyReproduced": true,
+  "browserDisplaySha256": "5d72997aa795fc8943d5f5a325397cbd28b69cf909c3290c91c2934419c63169",
+  "sixMemberStudyAndResume": true,
+  "conditioningCLI": true,
+  "syntheticConditioningESS": 4.988603758410695,
+  "standardNPZAndVTI": true,
+  "exampleContentSha256": "6596fd46f8dd0e27a6d91fd7f3a4040ebae16cc7100cdc5a0805d00af95eda8f",
+  "observationalDataUsed": false
+}

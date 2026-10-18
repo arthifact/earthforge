@@ -1,0 +1,60 @@
+{
+  "runtime": "v24.18.0",
+  "baselineSha256": "55844cf291232942d6e446540b63e249119b7ac9762acb036653d35b72a61728",
+  "candidateSha256": "c9c385bb16e09c2ddf3a0216a58dbff7c7064b63977f58db4f7400ee002fe2a2",
+  "baselineBytes": 887211,
+  "candidateBytes": 878905,
+  "flags": "SIMD128 with deferred finite-value reduction, no relaxed SIMD or fast-math",
+  "applicationDefaultChanged": false,
+  "scope": "Strict output equality on four acoustic pairs, one 3D material/projection example and three complete 2D histories. Correctness evidence only; no performance conclusion until isolated measurements on an otherwise idle machine.",
+  "rows": [
+    {
+      "name": "basin-extension-765184",
+      "kind": "acoustic",
+      "dimensions": 2,
+      "samples": 425940,
+      "bitIdentical": true
+    },
+    {
+      "name": "basin-compression-20261014",
+      "kind": "acoustic",
+      "dimensions": 2,
+      "samples": 412200,
+      "bitIdentical": true
+    },
+    {
+      "name": "layered-3d",
+      "kind": "acoustic",
+      "dimensions": 3,
+      "samples": 5415,
+      "bitIdentical": true
+    },
+    {
+      "name": "faulted-3d",
+      "kind": "acoustic",
+      "dimensions": 3,
+      "samples": 13140,
+      "bitIdentical": true
+    },
+    {
+      "name": "volume-projection",
+      "kind": "volume3d",
+      "bitIdentical": true
+    },
+    {
+      "name": "extension",
+      "kind": "section",
+      "bitIdentical": true
+    },
+    {
+      "name": "compression",
+      "kind": "section",
+      "bitIdentical": true
+    },
+    {
+      "name": "exhumed-extension",
+      "kind": "section",
+      "bitIdentical": true
+    }
+  ]
+}

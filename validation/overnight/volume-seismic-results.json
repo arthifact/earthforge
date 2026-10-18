@@ -1,0 +1,60 @@
+{
+  "sourceRequest": "validation/overnight/volume3d-request.json",
+  "requestSha256": "3ae6e3ae406203aea6e2a54fdf48ecc523e39832a163e30366dcb2b2fba9aac2",
+  "nativeSha256": "91423d175a6f759f673708b8b255f5617458539ae3fabd084a12bddfffb6560b",
+  "wasmSha256": "759e50e37a83e8ce80c759788ff6722ef5c17c8081bdadc07f14da73b6e64d5e",
+  "pairSha256": "0ce08ec18753df98675daa593ec389e2818b680667ca0e06e029811ee5dedd55",
+  "physicalOutputNativeWasm": "bit-identical in material volume, projected grid, 3D receiver traces, final field and diagnostics",
+  "materialStats": {
+    "authoritativeVoxels": 0,
+    "faces": 243,
+    "fragments": 40,
+    "vertexReferences": 978
+  },
+  "projection": {
+    "candidateSpans": 22607,
+    "points": 115351,
+    "sampledCandidates": 101600,
+    "sourceFragments": 40,
+    "verticalRays": 1891
+  },
+  "grid": {
+    "dx": 20,
+    "dy": 20,
+    "dz": 20,
+    "nx": 61,
+    "ny": 31,
+    "nz": 61,
+    "origin": {
+      "x": 7800.5,
+      "y": 4500.7,
+      "z": 300.3
+    }
+  },
+  "bedCounts": {
+    "0": 28596,
+    "1": 62460,
+    "2": 3458,
+    "-1": 20837
+  },
+  "acoustic": {
+    "dimensions": 3,
+    "receivers": 45,
+    "samplesPerReceiver": 292,
+    "dtSeconds": 0.0030848534476536973,
+    "pointsPerDominantWavelength": 12.5,
+    "stats": {
+      "finalFieldPeak": 0.00006514663900127486,
+      "paddedCells": 1059827,
+      "receiverPeak": 0.011106229066674772,
+      "stencilUpdates": 273132309,
+      "workingArrayBytes": 44343816
+    }
+  },
+  "smokeMs": {
+    "projection": 16.474415999999998,
+    "shot": 2069.019666
+  },
+  "timingNote": "Single local smoke times, include native process/boundary overhead; not a performance comparison",
+  "scope": "A cropped 3D velocity grid and a genuine 3D constant-density shot derived from the conservative planar-fault prototype. This is not a full 3D geological-history generator or field validation."
+}

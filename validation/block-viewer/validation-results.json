@@ -1,0 +1,74 @@
+{
+  "createdAt": "2026-10-17T16:43:45.243Z",
+  "runtime": "v24.18.0",
+  "nativeSha256": "e18d7b5853542e5828cf43f7fee477a198b6ae83532dc6e6e1efac229df8cd6a",
+  "beforeNativeSha256": "7ef508bd47da055b752b735616c8260163823f12ee562afcbfce0e7276bb628f",
+  "wasmSha256": {
+    "public/rust/earthforge_core.wasm": "0de546df017679db7ab9a7a82689846e09d392a1f19696189bec6b66041f2230",
+    "public/rust/earthforge_core_simd.wasm": "7c8a25f1693cd3280d3569f1c3793f4f5822db51a1073c644f7826200560951f",
+    "public/rust/earthforge_core_deterministic.wasm": "327574d5ea780b5e4a33521187b841bbcbf803eb62fa829dde26dbf816e279aa",
+    "public/rust/earthforge_core_deterministic_simd.wasm": "82d1d42029fcc9ebdeaf4bb1de5d1169d710e5b94ecd102b2366c91d16df5de6"
+  },
+  "detailedCases": [
+    {
+      "setting": "extension",
+      "stage": 0,
+      "allFiveEnginesAndPrePruningExact": true,
+      "physicalSha256": "09ecb53bd6369a38938135108b32f675c7849ef4791709ee4bc82b91e150bb48",
+      "grainChecks": 0,
+      "porosityEvaluationsBefore": 0,
+      "porosityEvaluationsAfter": 0
+    },
+    {
+      "setting": "extension",
+      "stage": 6,
+      "allFiveEnginesAndPrePruningExact": true,
+      "physicalSha256": "4cdd2e1bfd359d61433b78b7d1deac258801d47b906e76b775b0d319c8270ee1",
+      "grainChecks": 9084,
+      "porosityEvaluationsBefore": 357231,
+      "porosityEvaluationsAfter": 353074
+    },
+    {
+      "setting": "extension",
+      "stage": 12,
+      "allFiveEnginesAndPrePruningExact": true,
+      "physicalSha256": "c5e36968edbd10aa41724cbadecc2635df69eeff9b921b815d6317d3c6f74733",
+      "grainChecks": 26561,
+      "porosityEvaluationsBefore": 1741534,
+      "porosityEvaluationsAfter": 1710499
+    },
+    {
+      "setting": "compression",
+      "stage": 0,
+      "allFiveEnginesAndPrePruningExact": true,
+      "physicalSha256": "09ecb53bd6369a38938135108b32f675c7849ef4791709ee4bc82b91e150bb48",
+      "grainChecks": 0,
+      "porosityEvaluationsBefore": 0,
+      "porosityEvaluationsAfter": 0
+    },
+    {
+      "setting": "compression",
+      "stage": 6,
+      "allFiveEnginesAndPrePruningExact": true,
+      "physicalSha256": "d0f617a19e4167f9505a506fb784937ccd46b4a530e6877786fbe7b7551a2350",
+      "grainChecks": 8811,
+      "porosityEvaluationsBefore": 327158,
+      "porosityEvaluationsAfter": 325050
+    },
+    {
+      "setting": "compression",
+      "stage": 12,
+      "allFiveEnginesAndPrePruningExact": true,
+      "physicalSha256": "9431e23a33ec2924825add25608e020f78f5a6e41c4ee0fe46941a22d031fd1d",
+      "grainChecks": 19503,
+      "porosityEvaluationsBefore": 1083473,
+      "porosityEvaluationsAfter": 1063692
+    }
+  ],
+  "detailedVolumeSeismic": {
+    "allFiveEnginesExact": true,
+    "dimensions": 3,
+    "samples": 80
+  },
+  "scope": "Synthetic verification. Every projected material/velocity value, orthogonal section coordinate/value, carried layer state and point sample compared exactly. Bounded-fill pruning changes work only. Shared physics laws and numerical tolerances unchanged; no field-accuracy or SOTA claim."
+}

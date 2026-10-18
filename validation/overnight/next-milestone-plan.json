@@ -1,0 +1,72 @@
+{
+  "createdAt": "2026-10-17T10:00:20.299654+00:00",
+  "purpose": "Proposed next research gates; does not replace or loosen the existing frozen numerical/eligibility plan",
+  "currentScope": {
+    "fullHistory": "2D Rust geological histories",
+    "threeDimensional": "Continuous polyhedral layers, ordered oblique fault slip and prescribed erosion, derived nodal velocities and full3D acoustic shots",
+    "independentFieldAccuracyEstablished": false,
+    "SOTASuperiorityEstablished": false
+  },
+  "milestones": [
+    {
+      "priority": 1,
+      "name": "Spatial material memory and supported 3D stratigraphy",
+      "work": [
+        "Represent burial/loading history within supports when the value varies spatially; a single fragment-wide scalar cannot generally capture later nonuniform burial",
+        "Define free surfaces, exposed boundaries and incoming material explicitly",
+        "Extend validated prescribed erosion toward supported deposition and complete histories, without filling unsupported voids or repairing grain mass"
+      ],
+      "gates": [
+        "Exact reduction to established 2D cases when crossline uniform",
+        "Independent vertical-ray/point membership and surface-support checks",
+        "Per-bed constituent budgets and resolution/fragment refinement studies",
+        "Preserve irreversible memory through burial, uplift, faulting and reburial"
+      ]
+    },
+    {
+      "priority": 2,
+      "name": "Conservative 3D compaction and pressure evolution",
+      "work": [
+        "Specify a Lagrangian compaction mapping and how it changes non-axis-aligned interfaces",
+        "Choose an adaptive geometric/memory approximation with a stated convergence error",
+        "Retain separation of authoritative material state from display or acoustic voxels"
+      ],
+      "gates": [
+        "Independent one-dimensional compaction and loading oracles",
+        "Closed grain budgets without rescaling",
+        "Consistent interfaces, no overlaps and physically defined boundary flux",
+        "Monotone refinement error on inclined and oblique heterogeneous cases"
+      ]
+    },
+    {
+      "priority": 3,
+      "name": "Scale real 3D workloads",
+      "work": [
+        "Profile fragment growth, ray projection, wave propagation and serialization separately",
+        "Evaluate deterministic native parallelism and GPU wave propagation against the validated scalar solver",
+        "Keep sparse/shared material regions; request only necessary projections and traces"
+      ],
+      "gates": [
+        "Frozen workload definitions, accuracy limits and hardware before timing",
+        "Compare end-to-end throughput and measured peak memory, including transfer/setup costs",
+        "Check physical outputs and convergence before accepting lower precision or approximation",
+        "Report browser and native behavior separately"
+      ]
+    },
+    {
+      "priority": 4,
+      "name": "Matched SubsurfaceGen and downstream comparison",
+      "work": [
+        "Agree comparable geological families and physical domain/resolution, acquisition and resource budgets",
+        "Freeze training/inversion splits and task metrics before scoring",
+        "Compare geological diversity, structural/material validity and downstream seismic generalization"
+      ],
+      "gates": [
+        "Independent observations or benchmark tasks that were not used for development",
+        "Common workloads and hardware for speed/memory claims",
+        "Uncertainty and repeated seeds; no superiority claim from a single attractive example",
+        "Reserved FORCE holdout remains unread and unscored until its separately authorized frozen evaluation"
+      ]
+    }
+  ]
+}

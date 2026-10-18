@@ -1,0 +1,4 @@
+{"variant":"erosion-host-simd","options":{"seed":765184,"setting":"extension","h":40,"record":false},"medianMs":5442.520875}
+{"variant":"pinned-math-simd","options":{"seed":765184,"setting":"extension","h":40,"record":false},"medianMs":14973.538542000002}
+{"variant":"pinned-math-simd","options":{"seed":20261014,"setting":"compression","h":40,"record":false},"medianMs":6118.300416}
+{"variant":"erosion-host-simd","options":{"seed":20261014,"setting":"compression","h":40,"record":false},"medianMs":3031.6095829999995}

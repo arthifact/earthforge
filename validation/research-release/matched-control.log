@@ -1,0 +1,4 @@
+{"engine": "earthforge", "gridIndex": 0, "medianSeconds": 0.04659270797856152}
+{"engine": "subsurfacegen", "gridIndex": 0, "medianSeconds": 0.35804912500316277}
+{"engine": "earthforge", "gridIndex": 1, "medianSeconds": 0.16920254201977514}
+{"engine": "subsurfacegen", "gridIndex": 1, "medianSeconds": 0.5634032500092871}

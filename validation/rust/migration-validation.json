@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-17T07:31:51.114Z",
+  "baseline_commit": "ea7b02a4744502afe846b30d7913d54c810ac034",
+  "toolchain": "rustc 1.98.1 (48a229cea 2026-09-01)",
+  "runtime": "v24.18.0",
+  "artifacts": {
+    "native_sha256": "70c1391cd833fdf3c8233313cb59e513e0cabddd50974082a3781a951412abdc",
+    "wasm_sha256": "a23a7550a98d3332163799e9436161c9511debc2f2fc94e721ba8ab6ce004c2b"
+  },
+  "validation": {
+    "rust_core_tests": 15,
+    "worker_integration_tests": 1,
+    "selected_reference_tests": 14,
+    "required_acceptance_gates": 14,
+    "controlled_runs": 60,
+    "ensemble_sections": 2,
+    "settings": {
+      "extension": 1,
+      "compression": 1
+    },
+    "closed_runs": 36,
+    "event_budgets": 4494,
+    "failed_events": 0,
+    "physics_velocity_sweep_rows": 288,
+    "physics_velocity_max_difference": 0,
+    "wasm_20m_fixture_velocity_and_labels_exact": true,
+    "type_check": "pass",
+    "clippy": "pass",
+    "production_build": "pass",
+    "browser_smoke": {
+      "extension_seed": 924330,
+      "compression_seed": 20261014,
+      "replay": "pass"
+    },
+    "full_legacy_suite": "not rerun"
+  },
+  "scope": {
+    "basin_generator_dimensions": 2,
+    "three_dimensional_prototype": "Sparse shared-background columns, XYZ world coordinates and material offsets, volume inventories, compaction and grid-aligned horizontal fault slip in x and y",
+    "general_3d_faults": "not implemented",
+    "gpu_solver": "not implemented",
+    "observational_data": "not read; FORCE development and holdout untouched"
+  },
+  "limitations": [
+    "Native coupled-compression fixture differs from TypeScript: 2.94234 m/s RMS and 218.998 m/s maximum displayed velocity; 435/69611 displayed bed labels differ. Native is a separate experimental numerical baseline.",
+    "Node-hosted WebAssembly timings are slower than the reference in the saved fixtures. Browser performance is not yet established by a controlled comparison.",
+    "Conservation and internal numerical gates are not independent geological validation; refinement remains mixed locally."
+  ],
+  "post_run_formatting": [
+    {
+      "path": "Cargo.toml",
+      "change": "Removed an extra trailing blank line after the run; no numerical change",
+      "tested_sha256": "d00c75832724af6a4d811e7917a9eaa63dfbe3cb28990575f15ff98b62781358",
+      "final_sha256": "b4faaf04693444927dbea8cff1114cbe8eb4479f0ac392e3eb56a7b1b117104f"
+    }
+  ]
+}

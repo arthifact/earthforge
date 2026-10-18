@@ -1,0 +1,60 @@
+{
+  "runtime": "v24.18.0",
+  "baselineSha256": "8e7d5670608eab156412e01561450f14489192bc949232e61139b1e17512eac4",
+  "candidateSha256": "146eb35928057d33c2d6676c4f0d5f4ef1bbf526d9b1d09fb16c0ac99e9b609c",
+  "baselineBytes": 925126,
+  "candidateBytes": 942815,
+  "flags": "Common versioned Rust scalar math; no host Math imports",
+  "applicationDefaultChanged": false,
+  "scope": "Strict output equality on four acoustic pairs, one 3D material/projection example and three complete 2D histories. Correctness evidence only; no performance conclusion until isolated measurements on an otherwise idle machine.",
+  "rows": [
+    {
+      "name": "basin-extension-765184",
+      "kind": "acoustic",
+      "dimensions": 2,
+      "samples": 425940,
+      "bitIdentical": true
+    },
+    {
+      "name": "basin-compression-20261014",
+      "kind": "acoustic",
+      "dimensions": 2,
+      "samples": 412200,
+      "bitIdentical": true
+    },
+    {
+      "name": "layered-3d",
+      "kind": "acoustic",
+      "dimensions": 3,
+      "samples": 5415,
+      "bitIdentical": true
+    },
+    {
+      "name": "faulted-3d",
+      "kind": "acoustic",
+      "dimensions": 3,
+      "samples": 13140,
+      "bitIdentical": true
+    },
+    {
+      "name": "volume-projection",
+      "kind": "volume3d",
+      "bitIdentical": true
+    },
+    {
+      "name": "extension",
+      "kind": "section",
+      "bitIdentical": true
+    },
+    {
+      "name": "compression",
+      "kind": "section",
+      "bitIdentical": true
+    },
+    {
+      "name": "exhumed-extension",
+      "kind": "section",
+      "bitIdentical": true
+    }
+  ]
+}

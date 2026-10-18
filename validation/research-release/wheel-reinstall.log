@@ -1,0 +1,8 @@
+WARNING: The directory '/Users/torus/Library/Caches/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Processing /Users/torus/Documents/Codex/2026-10-17/wah/outputs/research-release/earthforge_research-0.2.0a1-py3-none-macosx_27_0_arm64.whl
+Installing collected packages: earthforge-research
+  Attempting uninstall: earthforge-research
+    Found existing installation: earthforge-research 0.2.0a1
+    Uninstalling earthforge-research-0.2.0a1:
+      Successfully uninstalled earthforge-research-0.2.0a1
+Successfully installed earthforge-research-0.2.0a1

@@ -1,0 +1,30 @@
+[package]
+name = "earthforge-core"
+version = "0.1.0"
+edition = "2024"
+publish = false
+license = "MIT"
+rust-version = "1.88"
+description = "Conservative geological-history simulation, native and WebAssembly"
+
+[lib]
+crate-type = ["rlib", "cdylib"]
+
+[[bin]]
+name = "earthforge"
+path = "src/main.rs"
+
+[features]
+default = []
+deterministic-math = []
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["float_roundtrip"] }
+num-bigint = "0.4"
+num-traits = "0.2"
+libm = "=0.2.16"
+
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+rayon = "1.12"

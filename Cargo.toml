@@ -1,0 +1,8 @@
+[workspace]
+members = ["crates/earthforge-core"]
+resolver = "2"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+overflow-checks = true

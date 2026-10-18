@@ -1,0 +1,218 @@
+{
+  "devitoVersion": "4.8.23",
+  "stockCoefficientDigits": 9,
+  "coefficientDigits": 17,
+  "inMemoryCoefficientPrecisionOverride": true,
+  "devitoFiniteDifferenceSourceSha256": "1c6f31ff1e9c35e4c65933a5aa77e23025179d39f7dc6bb1ea214d45edddcd3e",
+  "compilerFlags": [
+    "-O3",
+    "-g",
+    "-fPIC",
+    "-Wall",
+    "-std=c99",
+    "-Wno-unused-result",
+    "-Wno-unused-variable",
+    "-fdenormal-fp-math=ieee",
+    "-march=native"
+  ],
+  "numpyVersion": "2.4.3",
+  "compiler": "ClangCompiler",
+  "platform": "cpu64",
+  "safeMath": true,
+  "thresholds": {
+    "relativeL2": 1e-08,
+    "normalizedLinf": 1e-07
+  },
+  "nativeSha256": "91423d175a6f759f673708b8b255f5617458539ae3fabd084a12bddfffb6560b",
+  "comparisonScriptSha256": "2269e02c0b2850b85d5171683fa72b5fd4efb10b30bd9da4c389fbac6fc36c2e",
+  "boundaryScope": "No sponge in either solver; matching zero Dirichlet halos. Boundary reflections may occur in the later fields. This does not cross-validate absorbing boundaries.",
+  "method": "Independent Devito symbolic m*u.dt2-u.laplace, fourth-order space, second-order time, double precision and standard sparse source/receiver operators. Same synthetic nodal velocities, metre/second units, time step, Ricker samples and inverse-cell source normalization. No Earth Forge stencil reuse. Timings include JIT and are not a speed comparison.",
+  "cases": [
+    {
+      "name": "homogeneous-2d",
+      "dimensions": 2,
+      "medium": "homogeneous",
+      "requestSha256": "39838025f1a3c8f6ed9065ce36f2f2161b8561b825ef292defbd9ae5e488db81",
+      "grid": {
+        "nx": 81,
+        "ny": 1,
+        "nz": 71,
+        "dx": 10.0,
+        "dy": 1.0,
+        "dz": 12.0,
+        "origin": {
+          "x": 1000.0,
+          "y": 0.0,
+          "z": 3000.0
+        }
+      },
+      "samples": 301,
+      "dtSeconds": 0.001,
+      "spatialOrder": 4,
+      "timeOrder": 2,
+      "sourceCoordinatesDtype": "float64",
+      "operatorCSourceSha256": "6a1b6c2431e362abbe4fb37d758ea85a0e13f495702b44a89d368d6daf7dfa98",
+      "receiverError": {
+        "relativeL2": 3.400267668419799e-14,
+        "normalizedLinf": 3.626315497872769e-14,
+        "referencePeak": 0.09933369834971328
+      },
+      "finalFieldError": {
+        "relativeL2": 9.108428633673503e-14,
+        "normalizedLinf": 7.759325540837764e-14,
+        "referencePeak": 0.08336786242402053
+      },
+      "referenceSecondsIncludingJit": 0.36109858300187625,
+      "pass": true
+    },
+    {
+      "name": "layered-2d",
+      "dimensions": 2,
+      "medium": "layered",
+      "requestSha256": "27abffbc0f19eb3f02005b5f9a758cb7365df2495c0f629b7bffcf76106f058f",
+      "grid": {
+        "nx": 81,
+        "ny": 1,
+        "nz": 71,
+        "dx": 10.0,
+        "dy": 1.0,
+        "dz": 12.0,
+        "origin": {
+          "x": 1000.0,
+          "y": 0.0,
+          "z": 3000.0
+        }
+      },
+      "samples": 301,
+      "dtSeconds": 0.001,
+      "spatialOrder": 4,
+      "timeOrder": 2,
+      "sourceCoordinatesDtype": "float64",
+      "operatorCSourceSha256": "6a1b6c2431e362abbe4fb37d758ea85a0e13f495702b44a89d368d6daf7dfa98",
+      "receiverError": {
+        "relativeL2": 3.6447539156660487e-14,
+        "normalizedLinf": 4.1780207822482776e-14,
+        "referencePeak": 0.0991399084792173
+      },
+      "finalFieldError": {
+        "relativeL2": 8.901531720636305e-14,
+        "normalizedLinf": 7.061944932602051e-14,
+        "referencePeak": 0.09236209474759365
+      },
+      "referenceSecondsIncludingJit": 0.009147000004304573,
+      "pass": true
+    },
+    {
+      "name": "smooth-2d",
+      "dimensions": 2,
+      "medium": "smooth",
+      "requestSha256": "062f0eff70d4e914a24b5b098b6b7f26d9dd6189cafc2067102fbf88a1428e99",
+      "grid": {
+        "nx": 81,
+        "ny": 1,
+        "nz": 71,
+        "dx": 10.0,
+        "dy": 1.0,
+        "dz": 12.0,
+        "origin": {
+          "x": 1000.0,
+          "y": 0.0,
+          "z": 3000.0
+        }
+      },
+      "samples": 301,
+      "dtSeconds": 0.001,
+      "spatialOrder": 4,
+      "timeOrder": 2,
+      "sourceCoordinatesDtype": "float64",
+      "operatorCSourceSha256": "6a1b6c2431e362abbe4fb37d758ea85a0e13f495702b44a89d368d6daf7dfa98",
+      "receiverError": {
+        "relativeL2": 3.3505819306418575e-14,
+        "normalizedLinf": 3.668292500580527e-14,
+        "referencePeak": 0.10290232534968671
+      },
+      "finalFieldError": {
+        "relativeL2": 7.865612327367416e-14,
+        "normalizedLinf": 7.542315462792593e-14,
+        "referencePeak": 0.08509955454366135
+      },
+      "referenceSecondsIncludingJit": 0.00939462501264643,
+      "pass": true
+    },
+    {
+      "name": "homogeneous-3d",
+      "dimensions": 3,
+      "medium": "homogeneous",
+      "requestSha256": "8c37613c51e438db14acf30b42578224a1f5e36958d804d2c3d03712ff89b475",
+      "grid": {
+        "nx": 31,
+        "ny": 21,
+        "nz": 31,
+        "dx": 12.0,
+        "dy": 15.0,
+        "dz": 10.0,
+        "origin": {
+          "x": 1000.0,
+          "y": 2000.0,
+          "z": 3000.0
+        }
+      },
+      "samples": 321,
+      "dtSeconds": 0.00075,
+      "spatialOrder": 4,
+      "timeOrder": 2,
+      "sourceCoordinatesDtype": "float64",
+      "operatorCSourceSha256": "966b7334993d5d4b22160477a5070740a887ed695f98e12b53df3c0e48819db2",
+      "receiverError": {
+        "relativeL2": 1.44445693581211e-14,
+        "normalizedLinf": 1.8318929257386007e-14,
+        "referencePeak": 0.001269513969569888
+      },
+      "finalFieldError": {
+        "relativeL2": 2.276829817033749e-14,
+        "normalizedLinf": 2.873906644154087e-14,
+        "referencePeak": 0.0008544877147192405
+      },
+      "referenceSecondsIncludingJit": 0.2835357089934405,
+      "pass": true
+    },
+    {
+      "name": "layered-3d",
+      "dimensions": 3,
+      "medium": "layered",
+      "requestSha256": "9982f106d325d598ef4d481940be8539b951ba158c1e3e520030e3ff8fa715e9",
+      "grid": {
+        "nx": 31,
+        "ny": 21,
+        "nz": 31,
+        "dx": 12.0,
+        "dy": 15.0,
+        "dz": 10.0,
+        "origin": {
+          "x": 1000.0,
+          "y": 2000.0,
+          "z": 3000.0
+        }
+      },
+      "samples": 321,
+      "dtSeconds": 0.00075,
+      "spatialOrder": 4,
+      "timeOrder": 2,
+      "sourceCoordinatesDtype": "float64",
+      "operatorCSourceSha256": "966b7334993d5d4b22160477a5070740a887ed695f98e12b53df3c0e48819db2",
+      "receiverError": {
+        "relativeL2": 1.7335576871915715e-14,
+        "normalizedLinf": 1.906898105217764e-14,
+        "referencePeak": 0.0012423221463164094
+      },
+      "finalFieldError": {
+        "relativeL2": 2.4583172885918973e-14,
+        "normalizedLinf": 2.1583867169796648e-14,
+        "referencePeak": 0.0014617530292939359
+      },
+      "referenceSecondsIncludingJit": 0.020122791989706457,
+      "pass": true
+    }
+  ],
+  "boundaryScopeWordingCorrectedAfterRun": true
+}

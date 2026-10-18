@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=77.0.3", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "earthforge-research"
+version = "0.2.0a1"
+description = "Reproducible geological-history velocity models backed by the Earth Forge Rust engine"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = ["numpy>=2.0,<3"]
+classifiers = ["Development Status :: 3 - Alpha", "Topic :: Scientific/Engineering", "Programming Language :: Python :: 3"]
+
+[project.scripts]
+earthforge = "earthforge.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+earthforge = ["catalog.json", "build-info.json", "_bin/*", "notices/*", "notices/*/*"]

@@ -1,0 +1,9 @@
+{
+  "earthforge_core_deterministic.wasm": "327574d5ea780b5e4a33521187b841bbcbf803eb62fa829dde26dbf816e279aa",
+  "before-research-simd.wasm": "9ccc1d68d6115592d24a934ccfe13e04ce8a20af1947fafff866ee14619a9105",
+  "earthforge_core.wasm": "0de546df017679db7ab9a7a82689846e09d392a1f19696189bec6b66041f2230",
+  "after-native": "e18d7b5853542e5828cf43f7fee477a198b6ae83532dc6e6e1efac229df8cd6a",
+  "earthforge_core_simd.wasm": "7c8a25f1693cd3280d3569f1c3793f4f5822db51a1073c644f7826200560951f",
+  "earthforge_core_deterministic_simd.wasm": "82d1d42029fcc9ebdeaf4bb1de5d1169d710e5b94ecd102b2366c91d16df5de6",
+  "before-native": "7ef508bd47da055b752b735616c8260163823f12ee562afcbfce0e7276bb628f"
+}

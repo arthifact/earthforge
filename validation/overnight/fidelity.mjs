@@ -1,0 +1,15 @@
+/** Compare accepted source and physical data with the actual project, without reading observations. */
+import {readFileSync,writeFileSync,existsSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+const actual='/Users/torus/Desktop/Research/earthforge',hash=x=>createHash('sha256').update(x).digest('hex');
+const files=execFileSync('git',['ls-files','-z'],{encoding:'utf8'}).split('\0').filter(Boolean);
+const source=files.filter(path=>/\.(rs|ts|mjs|py|toml|lock)$/.test(path)||['README.md','index.html','src/styles.css','package.json','package-lock.json','.gitignore','tsconfig.json'].includes(path)||path==='validation/numerics/plan.json'||path.startsWith('crates/earthforge-core/licenses/'));
+const rows=source.map(path=>{assert.ok(existsSync(actual+'/'+path),'Missing actual source '+path);const developmentSha256=hash(readFileSync(path)),actualSha256=hash(readFileSync(actual+'/'+path));return{path,developmentSha256,actualSha256,identical:developmentSha256===actualSha256};});
+assert.ok(rows.every(row=>row.identical),'Actual source must match accepted source: '+rows.filter(row=>!row.identical).map(row=>row.path).join(', '));
+const modules=['earthforge_core.wasm','earthforge_core_simd.wasm','earthforge_core_deterministic.wasm','earthforge_core_deterministic_simd.wasm'].map(name=>{const relative='public/rust/'+name,developmentSha256=hash(readFileSync(relative)),actualSha256=hash(readFileSync(actual+'/'+relative));return{name,developmentSha256,actualSha256,identical:developmentSha256===actualSha256};});assert.ok(modules.every(row=>row.identical));
+const pairs=['basin-extension-765184','basin-compression-20261014','layered-3d','faulted-3d','eroded-faulted-3d'].map(name=>{const relative='data/seismic/overnight-v1/'+name+'.json',developmentSha256=hash(readFileSync(relative)),actualSha256=hash(readFileSync(actual+'/'+relative));return{name,developmentSha256,actualSha256,identical:developmentSha256===actualSha256};});assert.ok(pairs.every(row=>row.identical));
+const native={developmentSha256:hash(readFileSync('target/release/earthforge')),actualSha256:hash(readFileSync(actual+'/target/release/earthforge')),note:'Mach-O UUID/build-path variation can change file hashes. Physical equality is separately verified on all four saved shots and the erosion volume/projection/shot; source and all Wasm bytes match.'};
+const report={createdAt:new Date().toISOString(),developmentCommit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),originalGitHead:execFileSync('git',['rev-parse','HEAD'],{cwd:actual,encoding:'utf8'}).trim(),sourceFiles:rows.length,allSourceIdentical:true,allWasmIdentical:true,allFivePairsIdentical:true,native,modules,pairs,rows,scope:'Code, configuration and synthetic validation artifacts only. Reserved observational data are not read.'};
+writeFileSync('validation/overnight/final-source-fidelity.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({sourceFiles:rows.length,allSourceIdentical:true,allWasmIdentical:true,allFivePairsIdentical:true}));

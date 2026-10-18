@@ -1,0 +1,76 @@
+Wrote 29,189 f64 nodal samples; content SHA256 6596fd46f8dd0e27a6d91fd7f3a4040ebae16cc7100cdc5a0805d00af95eda8f
+Model 1/6
+Model 2/6
+Model 3/6
+Model 4/6
+Model 5/6
+Model 6/6
+{
+  "state": "complete",
+  "failures": 0,
+  "weighting": {
+    "status": "weighted",
+    "weights": [
+      0.16666666666666666,
+      0.16666666666666666,
+      0.16666666666666666,
+      0.16666666666666666,
+      0.16666666666666666,
+      0.16666666666666666
+    ],
+    "effectiveSampleSize": 5.999999999999999,
+    "positiveWeightCandidates": 6,
+    "interpretation": "Weights over this finite candidate library and stated prior/likelihood only. A small ESS calls for more candidates; it is not evidence of narrow geological uncertainty or calibrated credible intervals."
+  }
+}
+{
+  "state": "complete",
+  "failures": 0,
+  "weighting": {
+    "status": "weighted",
+    "weights": [
+      0.16666666666666666,
+      0.16666666666666666,
+      0.16666666666666666,
+      0.16666666666666666,
+      0.16666666666666666,
+      0.16666666666666666
+    ],
+    "effectiveSampleSize": 5.999999999999999,
+    "positiveWeightCandidates": 6,
+    "interpretation": "Weights over this finite candidate library and stated prior/likelihood only. A small ESS calls for more candidates; it is not evidence of narrow geological uncertainty or calibrated credible intervals."
+  }
+}
+{
+  "status": "weighted",
+  "effectiveSampleSize": 4.988603758410695,
+  "weights": [
+    0.23486367352637783,
+    0.23238415519331834,
+    0.16879279688031862,
+    0.23127259964001937,
+    0.05033344385359495,
+    0.08235333090637088
+  ]
+}
+{"shot": "/Users/torus/Documents/Codex/2026-10-17/wah/outputs/research-release/installed-example/paired-shot.npz", "traceShape": [1, 555], "dimensions": 3}
+{
+  "schema": "earthforge-installed-wheel-validation-v1",
+  "enginePath": "/Users/torus/Documents/Codex/2026-10-17/wah/work/research-install-venv/lib/python3.12/site-packages/earthforge/_bin/earthforge",
+  "engineSha256": "e7b8f22071c7d26564bbe1adc77bfc02006cf8921551e89bce668505e9c2694d",
+  "usesBundledEngine": true,
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "numpy": "2.5.4",
+  "pairedShotShape": [
+    1,
+    555
+  ],
+  "realBrowserExportDisplayExactlyReproduced": true,
+  "browserDisplaySha256": "5d72997aa795fc8943d5f5a325397cbd28b69cf909c3290c91c2934419c63169",
+  "sixMemberStudyAndResume": true,
+  "conditioningCLI": true,
+  "syntheticConditioningESS": 4.988603758410695,
+  "standardNPZAndVTI": true,
+  "exampleContentSha256": "6596fd46f8dd0e27a6d91fd7f3a4040ebae16cc7100cdc5a0805d00af95eda8f",
+  "observationalDataUsed": false
+}

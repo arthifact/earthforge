@@ -1,0 +1,16 @@
+{
+  "samePlan": true,
+  "sameCases": true,
+  "sameMetrics": true,
+  "beforeBudget": {
+    "runs": 36,
+    "closed_runs": 36,
+    "failed_events": 0
+  },
+  "afterBudget": {
+    "runs": 36,
+    "closed_runs": 36,
+    "failed_events": 0
+  },
+  "note": "Sine evaluation corrected without changing any physical coefficient, frozen plan, eligibility rule or tolerance. Preserve both datasets even if numerical metrics change; report differences honestly."
+}

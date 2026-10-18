@@ -1,0 +1,114 @@
+{
+  "nativeSha256": "33ff4cd6e54291766e7995d57e914933b66a6702adc18e8f08ae6d084cd9cbfb",
+  "wasmSha256": "9e83f14f3b25dbfc0d56fab8f297e2a97e78f8e92fea35c6fa0b7d7de1a81baf",
+  "runtime": "v24.18.0",
+  "model": "Constant-density isotropic acoustics, fourth-order space, second-order time; all active boundaries use a polynomial sponge",
+  "scope": "Two generated 2D basin velocity/shot pairs and one analytic 3D pair. No observational data, elastic waves, intrinsic attenuation, migration, field-amplitude calibration or cross-code validation. Smoke times are single measurements and not a performance comparison.",
+  "pairs": [
+    {
+      "name": "basin-extension-765184",
+      "path": "data/seismic/overnight-v1/basin-extension-765184.json",
+      "pairSha256": "994094fe44cd58bbfaaaf133c6f6d9c2569bbee087c0eac07caf941ea62c9ae1",
+      "velocitySha256": "e14330aef95b6972be79ac716f7689ae1d7fc6dfa3874c9a4c0c2e7434e6d023",
+      "shotDataSha256": "41ecf9a938b2d2c32aae63682aa6161bb37fd9d2c386112b2d70e441188461e2",
+      "nativeWasmBitIdentical": true,
+      "dimensions": 2,
+      "grid": {
+        "dx": 20,
+        "dy": 1,
+        "dz": 20,
+        "nx": 461,
+        "ny": 1,
+        "nz": 151,
+        "origin": {
+          "x": 10,
+          "y": 0,
+          "z": 10
+        }
+      },
+      "receivers": 229,
+      "samplesPerReceiver": 1860,
+      "dtSeconds": 0.0017207728941364092,
+      "durationSeconds": 3.198916810199585,
+      "pointsPerDominantWavelength": 12.5,
+      "stats": {
+        "finalFieldPeak": 0.034701853450393796,
+        "paddedCells": 115851,
+        "receiverPeak": 0.4175486295359713,
+        "stencilUpdates": 209834625,
+        "workingArrayBytes": 9155336
+      },
+      "nativeSmokeMs": 1017.469333
+    },
+    {
+      "name": "basin-compression-20261014",
+      "path": "data/seismic/overnight-v1/basin-compression-20261014.json",
+      "pairSha256": "87a1b040eba455501b3dfe17126800d7e0f614a2b4bdb454003194a0955d9fa4",
+      "velocitySha256": "0fb3d4a247fec43a74d787b5fee23769e892fbc341ae8a06910b41e19a21461f",
+      "shotDataSha256": "f468bf624d217aa109e4ee94a42c531a99a4ab62cf3ddafd86726d7ca44804c8",
+      "nativeWasmBitIdentical": true,
+      "dimensions": 2,
+      "grid": {
+        "dx": 20,
+        "dy": 1,
+        "dz": 20,
+        "nx": 461,
+        "ny": 1,
+        "nz": 151,
+        "origin": {
+          "x": 10,
+          "y": 0,
+          "z": 10
+        }
+      },
+      "receivers": 229,
+      "samplesPerReceiver": 1800,
+      "dtSeconds": 0.0017782178353358497,
+      "durationSeconds": 3.1990138857691934,
+      "pointsPerDominantWavelength": 12.5,
+      "stats": {
+        "finalFieldPeak": 0.03774170403991676,
+        "paddedCells": 115851,
+        "receiverPeak": 0.41756753799247487,
+        "stencilUpdates": 203062125,
+        "workingArrayBytes": 9045416
+      },
+      "nativeSmokeMs": 988.1147089999995
+    },
+    {
+      "name": "layered-3d",
+      "path": "data/seismic/overnight-v1/layered-3d.json",
+      "pairSha256": "2f53e98d1d3fc876bf5af657900edbad9e410b5c7d7b5974edf1ab83ec75cdf0",
+      "velocitySha256": "7e1d0e534399d0731a5c8a9a653b6c47ce579fab27a3a0a3668523d8e1969364",
+      "shotDataSha256": "72a3333a1360d64a3bf0fcb280d8df3b279f4abc2d74fb1f42601618298b051f",
+      "nativeWasmBitIdentical": true,
+      "dimensions": 3,
+      "grid": {
+        "dx": 20,
+        "dy": 20,
+        "dz": 20,
+        "nx": 41,
+        "ny": 21,
+        "nz": 41,
+        "origin": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "receivers": 15,
+      "samplesPerReceiver": 361,
+      "dtSeconds": 0.0024999999999999996,
+      "durationSeconds": 0.8999999999999999,
+      "pointsPerDominantWavelength": 16.666666666666668,
+      "stats": {
+        "finalFieldPeak": 0.00002898305776163078,
+        "paddedCells": 631377,
+        "receiverPeak": 0.01102777062942497,
+        "stencilUpdates": 196757640,
+        "workingArrayBytes": 25863216
+      },
+      "nativeSmokeMs": 1275.5187499999993
+    }
+  ]
+}

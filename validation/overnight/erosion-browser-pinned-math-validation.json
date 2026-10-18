@@ -1,0 +1,53 @@
+{
+  "pass": true,
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "volume": {
+    "geometryParts": {
+      "bounds": true,
+      "initialInventory": true,
+      "inventory": true,
+      "ledgers": true,
+      "eventLedgers": true,
+      "sections": true,
+      "stats": true,
+      "geometry": true
+    },
+    "projectionVelocityError": {
+      "relativeL2": 0,
+      "normalizedLinf": 0
+    },
+    "projectionChangedValues": 0,
+    "projectionFirstDifferences": [],
+    "nativeAndBrowserRawJsonEqual": true,
+    "browserBaselineAndSimdRawJsonEqual": true,
+    "fragments": 30,
+    "allBudgetsClosed": true,
+    "erosionGrainExport": 76650219651.16649
+  },
+  "acoustic": {
+    "dimensions": 3,
+    "browserBaselineAndSimdRawJsonEqual": true,
+    "nativeTraceError": {
+      "relativeL2": 0,
+      "normalizedLinf": 0
+    },
+    "nativeFieldError": {
+      "relativeL2": 0,
+      "normalizedLinf": 0
+    },
+    "thresholds": {
+      "relativeL2": 1e-10,
+      "normalizedLinf": 1e-9
+    }
+  },
+  "candidate": "erosion-common-rust-math",
+  "artifactSha256": {
+    "baseline.wasm": "3fe0d7c2dd722927e86a3b95ef56f7cf67870cdeae3ee9783f1a565d759993b2",
+    "candidate.wasm": "146eb35928057d33c2d6676c4f0d5f4ef1bbf526d9b1d09fb16c0ac99e9b609c",
+    "volume-request.json": "bc684017a691709b032be98e2de69be94f82f355ef6438af90ccfa074b339064",
+    "volume-native.json": "05c51d0d078982623226d4874050e23d7562183ce27b247c68e79fd22c9965b6",
+    "shot-request.json": "5d817fe3035ff8f9972889699014031df00be6260c8b75aaa1124f8297989eeb",
+    "shot-native.json": "a2c3d3188b9430845cf7dc833a3a8f3a93aa997f9f6f3c7e9913b04df3abc2d6",
+    "index.html": "0558a9a70230735f9904d543919f91ac60c422570154af15a7d188652d87ac92"
+  }
+}

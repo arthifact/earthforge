@@ -1,0 +1,42 @@
+   Compiling itoa v1.0.18
+   Compiling crossbeam-utils v0.8.23
+   Compiling either v1.18.0
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling memchr v2.8.3
+   Compiling libm v0.2.16
+   Compiling num-traits v0.2.19
+   Compiling crossbeam-epoch v0.9.21
+   Compiling num-integer v0.1.47
+   Compiling crossbeam-deque v0.8.8
+   Compiling rayon-core v1.13.0
+   Compiling num-bigint v0.4.8
+   Compiling rayon v1.12.0
+   Compiling serde v1.0.229
+   Compiling serde_json v1.0.151
+   Compiling earthforge-core v0.1.0 (/Users/torus/Documents/Codex/2026-10-17/wah/work/earthforge-rust/crates/earthforge-core)
+    Finished `release` profile [optimized] target(s) in 4.86s
+     Running unittests src/lib.rs (target/release/deps/earthforge_core-e9b0a9c61988e997)
+
+running 11 tests
+test acoustic::tests::invalid_cfl_acquisition_and_underresolved_frequencies_are_rejected ... ok
+test acoustic::tests::nonfinite_update_is_rejected_before_rotating_state_in_both_dimensions ... ok
+test native_math::regression_tests::sine_tail_preserves_reference_unfused_product_rounding ... ok
+test portable_fma::tests::special_extreme_and_tie_inputs_preserve_ieee_fallback_behavior ... ok
+Reciprocity relative max error: 0.0000000000000009521667890626998
+test acoustic::tests::heterogeneous_medium_obeys_source_receiver_reciprocity_and_repeats ... ok
+Normal-incidence pressure reflection: measured 0.20017302164807346, analytic 0.2
+test acoustic::tests::planar_interface_has_independent_constant_density_reflection_coefficient ... ok
+test acoustic::tests::parallel_three_dimensional_updates_match_serial_and_reject_nonfinite_state ... ok
+3D arrival distance 80m: measured 0.115s, analytic 0.11499999999999999s
+3D arrival distance 120m: measured 0.135s, analytic 0.135s
+test acoustic::tests::three_dimensional_point_source_arrives_at_analytic_travel_times ... ok
+Portable FMA: 1888232/2000000 bounded/cancellation cases certified, all match hardware
+test portable_fma::tests::bounded_expansions_match_independent_hardware_fma_including_cancellation ... ok
+Late boundary-error RMS ratio sponge/wall: 0.015682319555781348
+test acoustic::tests::sponge_reduces_boundary_reflections_against_larger_domain_reference ... ok
+Manufactured plane-wave RMS errors h=20,10,5m: [0.000380014326697268, 2.4875866144922598e-5, 1.5748635774938982e-6]
+test acoustic::tests::travelling_plane_wave_converges_and_uniform_crossline_reduces_exactly ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+

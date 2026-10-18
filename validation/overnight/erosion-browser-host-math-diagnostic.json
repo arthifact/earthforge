@@ -1,0 +1,74 @@
+{
+  "pass": false,
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "volume": {
+    "geometryParts": {
+      "bounds": true,
+      "initialInventory": true,
+      "inventory": true,
+      "ledgers": true,
+      "eventLedgers": true,
+      "sections": true,
+      "stats": true,
+      "geometry": true
+    },
+    "projectionVelocityError": {
+      "relativeL2": 1.6226531309419172e-17,
+      "normalizedLinf": 1.5725197156246372e-16
+    },
+    "projectionChangedValues": 780,
+    "projectionFirstDifferences": [
+      {
+        "index": 41728,
+        "native": 1997.8538184915806,
+        "browser": 1997.8538184915803
+      },
+      {
+        "index": 41909,
+        "native": 1997.8538184915806,
+        "browser": 1997.8538184915803
+      },
+      {
+        "index": 42090,
+        "native": 1997.8538184915806,
+        "browser": 1997.8538184915803
+      },
+      {
+        "index": 43592,
+        "native": 1997.8538184915806,
+        "browser": 1997.8538184915803
+      }
+    ],
+    "nativeAndBrowserRawJsonEqual": false,
+    "browserBaselineAndSimdRawJsonEqual": true,
+    "fragments": 30,
+    "allBudgetsClosed": true,
+    "erosionGrainExport": 76650219651.16649
+  },
+  "acoustic": {
+    "dimensions": 3,
+    "browserBaselineAndSimdRawJsonEqual": true,
+    "nativeTraceError": {
+      "relativeL2": 5.639588207601675e-16,
+      "normalizedLinf": 5.167669694962969e-16
+    },
+    "nativeFieldError": {
+      "relativeL2": 8.436561645725092e-15,
+      "normalizedLinf": 1.107158940560693e-14
+    },
+    "thresholds": {
+      "relativeL2": 1e-10,
+      "normalizedLinf": 1e-9
+    }
+  },
+  "candidate": "erosion-host-math",
+  "artifactSha256": {
+    "baseline.wasm": "a1fc48289fb8e106b2512992dce43bafbf694764a1d402ef4a48318022cb821e",
+    "candidate.wasm": "8e7d5670608eab156412e01561450f14489192bc949232e61139b1e17512eac4",
+    "volume-request.json": "bc684017a691709b032be98e2de69be94f82f355ef6438af90ccfa074b339064",
+    "volume-native.json": "05c51d0d078982623226d4874050e23d7562183ce27b247c68e79fd22c9965b6",
+    "shot-request.json": "5d817fe3035ff8f9972889699014031df00be6260c8b75aaa1124f8297989eeb",
+    "shot-native.json": "a2c3d3188b9430845cf7dc833a3a8f3a93aa997f9f6f3c7e9913b04df3abc2d6",
+    "index.html": "0558a9a70230735f9904d543919f91ac60c422570154af15a7d188652d87ac92"
+  }
+}

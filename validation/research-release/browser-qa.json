@@ -1,0 +1,33 @@
+{
+  "schema": "earthforge-research-app-qa-v1",
+  "url": "http://127.0.0.1:4173/3d.html#seed=1001",
+  "tab": "8",
+  "testedScenarios": {
+    "rift-v1": {
+      "ready": true,
+      "beds": 62,
+      "grainChecksPass": 378092
+    },
+    "reverse-fault-v1": {
+      "ready": true,
+      "beds": 62,
+      "grainChecksPass": 295894
+    },
+    "erosion-reburial-v1": {
+      "ready": true,
+      "beds": 62,
+      "grainChecksPass": 379873
+    }
+  },
+  "finalView": {
+    "scenario": "rift-v1",
+    "seed": 1001,
+    "mode": "Cutaway",
+    "blockEvaluations": 1,
+    "calculationSecondsDiagnostic": 5.72,
+    "productionReloadReady": true
+  },
+  "consoleWarningsOrErrors": [],
+  "screenshot": "earthforge-research-app.png",
+  "timingScope": "Browser diagnostics, not controlled benchmark or full-field throughput."
+}

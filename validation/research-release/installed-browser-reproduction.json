@@ -1,0 +1,7 @@
+{
+  "schema": "earthforge-installed-browser-reproduction-v1",
+  "enginePath": "/Users/torus/Desktop/Research/earthforge/target/release/earthforge",
+  "engineSha256": "e67f473a5d8a60ecae694c08c8b909f88c02d155263ae0b4abbcfb834a57caff",
+  "displaySha256": "5d72997aa795fc8943d5f5a325397cbd28b69cf909c3290c91c2934419c63169",
+  "exactlyMatchesSavedBrowserExport": true
+}

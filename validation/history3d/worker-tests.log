@@ -1,0 +1,14 @@
+✔ 3D worker keeps deterministic research math and changes only sampling with view detail (0.97925ms)
+✔ 3D replay cache retains original timing, separates physical options and evicts old entries (0.449ms)
+✔ 3D worker reports an engine error with the request id and permits a clean retry (0.602959ms)
+✔ Rust worker transfers final and replay composition and propagates engine errors (2657.264125ms)
+✔ Rust engine uses portable fallback and retries a failed initialization (17.296541ms)
+✔ Rust loader keeps preview and deterministic research modules separate (7.743292ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2725.931542

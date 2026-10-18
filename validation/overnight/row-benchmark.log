@@ -1,0 +1,21 @@
+Waiting for the legacy regression to finish before measuring candidate performance.
+{"case":"basin-extension-765184","variant":"reduction-native","medianMs":555.5834579999998}
+{"case":"basin-extension-765184","variant":"row-native","medianMs":241.7158340000001}
+{"case":"basin-extension-765184","variant":"reduction-scalar","medianMs":775.0235830000001}
+{"case":"basin-extension-765184","variant":"row-scalar","medianMs":456.50020799999993}
+{"case":"basin-extension-765184","variant":"row-simd","medianMs":281.16787500000004}
+{"case":"basin-compression-20261014","variant":"row-simd","medianMs":276.54491699999994}
+{"case":"basin-compression-20261014","variant":"row-scalar","medianMs":447.23670800000014}
+{"case":"basin-compression-20261014","variant":"reduction-scalar","medianMs":753.1003330000003}
+{"case":"basin-compression-20261014","variant":"row-native","medianMs":234.70299999999997}
+{"case":"basin-compression-20261014","variant":"reduction-native","medianMs":548.1574580000001}
+{"case":"layered-3d","variant":"reduction-native","medianMs":716.0334160000002}
+{"case":"layered-3d","variant":"row-native","medianMs":301.257167}
+{"case":"layered-3d","variant":"reduction-scalar","medianMs":1769.2414999999996}
+{"case":"layered-3d","variant":"row-scalar","medianMs":498.89479199999994}
+{"case":"layered-3d","variant":"row-simd","medianMs":309.609417}
+{"case":"faulted-3d","variant":"row-simd","medianMs":438.13929199999995}
+{"case":"faulted-3d","variant":"row-scalar","medianMs":710.105583}
+{"case":"faulted-3d","variant":"reduction-scalar","medianMs":2459.797625}
+{"case":"faulted-3d","variant":"row-native","medianMs":452.37916599999994}
+{"case":"faulted-3d","variant":"reduction-native","medianMs":1344.551625}

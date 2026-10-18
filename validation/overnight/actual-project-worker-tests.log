@@ -1,0 +1,11 @@
+✔ Rust worker transfers final and replay composition and propagates engine errors (2906.715584ms)
+✔ Rust engine uses portable fallback and retries a failed initialization (16.935208ms)
+✔ Rust loader keeps preview and deterministic research modules separate (7.270125ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2979.415708

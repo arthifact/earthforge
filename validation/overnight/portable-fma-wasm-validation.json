@@ -1,0 +1,20 @@
+{
+  "runtime": "v24.18.0",
+  "sourceSha256": "52dc1bd9243c32bc3f9a12560a7f06a393c77756d8848b6e101ecf35fb5e5add",
+  "method": "Exact production source compiled with scalar and SIMD Wasm flags;220000 bounded/wide/cancellation triples each, compared with independent standard-library fused arithmetic (integer/software implementation). Native unit tests separately compare2.2million triples with hardware FMA. NaNs compared as NaNs; every finite/infinite/signed-zero result must match complete bits.",
+  "passed": true,
+  "rows": [
+    {
+      "simd": false,
+      "cases": 220000,
+      "bitIdentical": true,
+      "verifierSha256": "46836bb2870c61588090a727141d1298ba563fd9b3e72dc759108e548fe5d69d"
+    },
+    {
+      "simd": true,
+      "cases": 220000,
+      "bitIdentical": true,
+      "verifierSha256": "3653d775c3e60ce7046533bfd9552878aa4332665a776740ec00e7860cfe0bbb"
+    }
+  ]
+}

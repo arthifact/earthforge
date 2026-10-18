@@ -1,0 +1,23 @@
+{
+  "url": "http://127.0.0.1:4173/3d.html#seed=20261014",
+  "browser": "Chromium in-app browser",
+  "checks": {
+    "defaultCalculation": true,
+    "initialStage0": true,
+    "intermediateStage6": true,
+    "finalStage12": true,
+    "cachedReplayHonestTiming": true,
+    "erosionReburialAndPrescribedPressure": true,
+    "compressionAndCompactionOff": true,
+    "fiveSectionDetailedView": true,
+    "angleAndVelocityColor": true,
+    "exportNativeExactReproduction": true,
+    "warningErrorConsoleEntries": 0
+  },
+  "finalScreenshot": "outputs/earthforge-history3d-app-full.png",
+  "defaultColdCalculationDiagnosticsMs": [
+    819,
+    774
+  ],
+  "scope": "Desktop UI smoke checks plus separate native reproduction of browser export; not a controlled browser benchmark or mobile device test."
+}

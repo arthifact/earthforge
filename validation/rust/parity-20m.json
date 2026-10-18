@@ -1,0 +1,223 @@
+{
+  "runtime": "v24.18.0",
+  "hashes": {
+    "target/release/earthforge": "70c1391cd833fdf3c8233313cb59e513e0cabddd50974082a3781a951412abdc",
+    "target/wasm32-unknown-unknown/release/earthforge_core.wasm": "a23a7550a98d3332163799e9436161c9511debc2f2fc94e721ba8ab6ce004c2b"
+  },
+  "physicsNative": {
+    "max": 0,
+    "rms": 0,
+    "changed": 0,
+    "count": 288
+  },
+  "physicsWasm": {
+    "max": 0,
+    "rms": 0,
+    "changed": 0,
+    "count": 288
+  },
+  "results": [
+    {
+      "fixture": {
+        "seed": 765184,
+        "setting": "extension"
+      },
+      "spacing": 20,
+      "tsMs": 10037.026583,
+      "nativeMs": 6040.625875,
+      "nativeKernelMs": 5322.3037079999995,
+      "wasmMs": 26706.492542000004,
+      "velocityNative": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "velocityWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "nativeVsWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "labelsNative": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "labelsWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "initialWater": [
+        124.05942463316023,
+        124.05942463316023
+      ],
+      "phases": [
+        [
+          3,
+          16,
+          3
+        ],
+        [
+          3,
+          16,
+          3
+        ]
+      ],
+      "beds": [
+        97,
+        97
+      ],
+      "faults": [
+        3,
+        3
+      ],
+      "budgetClosed": true,
+      "grainDifference": 7.450580596923828e-9
+    },
+    {
+      "fixture": {
+        "seed": 20261014,
+        "setting": "compression"
+      },
+      "spacing": 20,
+      "tsMs": 17883.140708,
+      "nativeMs": 8300.453541999996,
+      "nativeKernelMs": 7641.513083,
+      "wasmMs": 58974.656833,
+      "velocityNative": {
+        "max": 218.9979248046875,
+        "rms": 2.942336500528151,
+        "changed": 24284,
+        "count": 69611
+      },
+      "velocityWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "nativeVsWasm": {
+        "max": 218.9979248046875,
+        "rms": 2.942336500528151,
+        "changed": 24284,
+        "count": 69611
+      },
+      "labelsNative": {
+        "max": 71,
+        "rms": 0.4841365956395151,
+        "changed": 435,
+        "count": 69611
+      },
+      "labelsWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "initialWater": [
+        42.32410429045558,
+        42.32410429045558
+      ],
+      "phases": [
+        [
+          5,
+          10,
+          2
+        ],
+        [
+          5,
+          10,
+          2
+        ]
+      ],
+      "beds": [
+        74,
+        74
+      ],
+      "faults": [
+        2,
+        2
+      ],
+      "budgetClosed": true,
+      "grainDifference": -0.8964252006262541
+    },
+    {
+      "fixture": {
+        "seed": 765184,
+        "setting": "extension",
+        "exhumation": 1
+      },
+      "spacing": 20,
+      "tsMs": 11983.350124999983,
+      "nativeMs": 6872.515333000018,
+      "nativeKernelMs": 6184.134583,
+      "wasmMs": 14091.523541000002,
+      "velocityNative": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "velocityWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "nativeVsWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "labelsNative": {
+        "max": 1,
+        "rms": 0.0146793455279446,
+        "changed": 15,
+        "count": 69611
+      },
+      "labelsWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "initialWater": [
+        124.05942463316023,
+        124.05942463316023
+      ],
+      "phases": [
+        [
+          3,
+          16,
+          6
+        ],
+        [
+          3,
+          16,
+          6
+        ]
+      ],
+      "beds": [
+        110,
+        110
+      ],
+      "faults": [
+        3,
+        3
+      ],
+      "budgetClosed": true,
+      "grainDifference": 0
+    }
+  ]
+}

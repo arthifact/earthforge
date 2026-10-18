@@ -1,0 +1,63 @@
+{
+  "method": "Each variant/case in a separate process after the legacy test runner exits; 30 second settling period, one warmup and three measured trials. Fixed alternating variant order. Includes request/response and decoding, excludes Wasm setup. Native starts a fresh CLI each trial. All outputs match canonical f64 examples. Local experiment, not a SOTA speed comparison.",
+  "runtime": {
+    "node": "v24.18.0",
+    "v8": "13.6.233.17-node.50",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4 Pro",
+    "ramBytes": 51539607552,
+    "loadAverage": [
+      3.54443359375,
+      3.44482421875,
+      3.4853515625
+    ]
+  },
+  "allSavedShotHashesMatch": true,
+  "rows": [
+    {
+      "case": "basin-extension-765184",
+      "baselineReductionNativeMs": 555.5834579999998,
+      "rowNativeMs": 241.7158340000001,
+      "nativeSpeedup": 2.2984984012259604,
+      "baselineReductionScalarMs": 775.0235830000001,
+      "rowScalarMs": 456.50020799999993,
+      "rowSimdMs": 281.16787500000004,
+      "portableSpeedup": 1.6977507773665685,
+      "simdSpeedup": 2.756444287954305
+    },
+    {
+      "case": "basin-compression-20261014",
+      "baselineReductionNativeMs": 548.1574580000001,
+      "rowNativeMs": 234.70299999999997,
+      "nativeSpeedup": 2.335536648445057,
+      "baselineReductionScalarMs": 753.1003330000003,
+      "rowScalarMs": 447.23670800000014,
+      "rowSimdMs": 276.54491699999994,
+      "portableSpeedup": 1.6838965128059213,
+      "simdSpeedup": 2.723247786181514
+    },
+    {
+      "case": "layered-3d",
+      "baselineReductionNativeMs": 716.0334160000002,
+      "rowNativeMs": 301.257167,
+      "nativeSpeedup": 2.376817863390451,
+      "baselineReductionScalarMs": 1769.2414999999996,
+      "rowScalarMs": 498.89479199999994,
+      "rowSimdMs": 309.609417,
+      "portableSpeedup": 3.546321846550765,
+      "simdSpeedup": 5.714430514237232
+    },
+    {
+      "case": "faulted-3d",
+      "baselineReductionNativeMs": 1344.551625,
+      "rowNativeMs": 452.37916599999994,
+      "nativeSpeedup": 2.972178486663553,
+      "baselineReductionScalarMs": 2459.797625,
+      "rowScalarMs": 710.105583,
+      "rowSimdMs": 438.13929199999995,
+      "portableSpeedup": 3.4639885728091793,
+      "simdSpeedup": 5.614190897537672
+    }
+  ]
+}

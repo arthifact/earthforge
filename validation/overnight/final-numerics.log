@@ -1,0 +1,75 @@
+compaction-a, 40 m: 0/109 budget events fail; residual -0.000 m²
+compaction-a, 20 m: 0/109 budget events fail; residual -0.000 m²
+compaction-a, 10 m: 0/109 budget events fail; residual 0.000 m²
+compaction-b, 40 m: 0/145 budget events fail; residual -0.000 m²
+compaction-b, 20 m: 0/145 budget events fail; residual 0.000 m²
+compaction-b, 10 m: 0/145 budget events fail; residual 0.000 m²
+normal-a, 40 m: 0/117 budget events fail; residual -0.000 m²
+normal-a, 20 m: 0/117 budget events fail; residual -0.000 m²
+normal-a, 10 m: 0/117 budget events fail; residual 0.000 m²
+normal-b, 40 m: 0/144 budget events fail; residual 0.000 m²
+normal-b, 20 m: 0/144 budget events fail; residual 0.000 m²
+normal-b, 10 m: 0/144 budget events fail; residual -0.000 m²
+thrust-a, 40 m: 0/98 budget events fail; residual 0.000 m²
+thrust-a, 20 m: 0/98 budget events fail; residual 0.000 m²
+thrust-a, 10 m: 0/98 budget events fail; residual 0.000 m²
+thrust-b, 40 m: 0/79 budget events fail; residual -0.000 m²
+thrust-b, 20 m: 0/79 budget events fail; residual -0.000 m²
+thrust-b, 10 m: 0/79 budget events fail; residual -0.000 m²
+coupled-extension-a, 40 m: 0/161 budget events fail; residual 0.000 m²
+coupled-extension-a, 20 m: 0/161 budget events fail; residual -0.000 m²
+coupled-extension-a, 10 m: 0/161 budget events fail; residual -0.000 m²
+coupled-extension-b, 40 m: 0/117 budget events fail; residual 0.000 m²
+coupled-extension-b, 20 m: 0/117 budget events fail; residual 0.000 m²
+coupled-extension-b, 10 m: 0/117 budget events fail; residual -0.000 m²
+coupled-extension-c, 40 m: 0/147 budget events fail; residual -0.000 m²
+coupled-extension-c, 20 m: 0/147 budget events fail; residual -0.000 m²
+coupled-extension-c, 10 m: 0/147 budget events fail; residual -0.000 m²
+coupled-compression-a, 40 m: 0/106 budget events fail; residual -0.000 m²
+coupled-compression-a, 20 m: 0/106 budget events fail; residual 0.000 m²
+coupled-compression-a, 10 m: 0/106 budget events fail; residual -0.000 m²
+coupled-compression-b, 40 m: 0/130 budget events fail; residual -0.000 m²
+coupled-compression-b, 20 m: 0/130 budget events fail; residual 0.000 m²
+coupled-compression-b, 10 m: 0/130 budget events fail; residual -0.000 m²
+coupled-compression-c, 40 m: 0/145 budget events fail; residual -0.000 m²
+coupled-compression-c, 20 m: 0/145 budget events fail; residual 0.000 m²
+coupled-compression-c, 10 m: 0/145 budget events fail; residual 0.000 m²
+Saved data/numerics/final-sine-fix-v1; 36/36 runs close. Refinement is diagnostic, not an accuracy claim.
+known-answer test, normal fault, 20 m grid: 6 / 12
+known-answer test, normal fault, 20 m grid: 12 / 12
+known-answer test, normal fault, 10 m grid: 6 / 12
+known-answer test, normal fault, 10 m grid: 12 / 12
+known-answer test, compaction, 20 m grid: 6 / 6
+known-answer test, compaction, 10 m grid: 6 / 6
+known-answer test, thrust, 20 m grid: 6 / 12
+known-answer test, thrust, 20 m grid: 12 / 12
+known-answer test, thrust, 10 m grid: 6 / 12
+known-answer test, thrust, 10 m grid: 12 / 12
+{"group":"Numerical benchmarks","name":"Normal-fault heave, 20 m grid","value":"124 of 124 units within 40 m","note":"one fault, no erosion, no folds, no compaction: heave between each unit's cutoffs against the heave applied after it was deposited; mean 0.4 m, worst 18 m","verdict":"within tolerance","status":"pass"}
+{"group":"Numerical benchmarks","name":"Normal-fault heave, 10 m grid","value":"130 of 130 units within 40 m","note":"mean 0.0 m, worst 1 m; finer grid, same 40 m tolerance","verdict":"smaller error on the finer grid","status":"pass"}
+{"group":"Numerical benchmarks","name":"Compaction: solid kept in each bed","value":"0.0e+0% worst, 948 beds","note":"no faults or erosion: each bed away from the bottom boundary keeps its deposited solid","verdict":"kept","status":"pass"}
+{"group":"Numerical benchmarks","name":"Compaction: bed thickness, 20 m grid","value":"33053 of 33053 intervals within 20 m","note":"beds sampled every 200 m against the integrated decompaction equation (Sclater and Christie curves); mean absolute error 0.0 m, bias -0.0 m, worst 0 m; includes 22673 subcell/one-cell intervals; excluded 316 deep intervals","verdict":"within tolerance","status":"pass"}
+{"group":"Numerical benchmarks","name":"Compaction: bed thickness, 10 m grid","value":"33053 of 33053 intervals within 20 m","note":"mean absolute error 0.0 m, bias -0.0 m, worst 0 m; includes 10866 subcell/one-cell intervals; excluded 310 deep intervals; finer grid, same tolerances","verdict":"within tolerance","status":"pass"}
+{"group":"Numerical benchmarks","name":"Thrust remapping consistency, 20 m grid","value":"99.98% of 14102 cells","note":"one thrust, no erosion, uniform subsidence, no compaction: back-traced pre-thrust cells; uses the same flow calculation as the simulator; an internal consistency check","verdict":"within tolerance","status":"pass"}
+{"group":"Numerical benchmarks","name":"Thrust remapping consistency, 10 m grid","value":"99.99% of 254329 cells","note":"finer grid, same 99% agreement rule","verdict":"within tolerance","status":"pass"}
+{"group":"Numerical benchmarks","name":"Thrust backlimb dip minus ramp dip","value":"0.4 (-0.5–0.8)°, 57 of 57 within 2°","note":"ideal flat-to-ramp geometry: pre-thrust beds transported onto the ramp should dip as the ramp; this alone does not validate a complete Suppe fold","verdict":"within tolerance","status":"pass"}
+{"group":"Numerical benchmarks","name":"Rock kept by each thrust slip (known-answer runs)","value":"0.00% worst","note":"fault-parallel flow keeps area (a balanced section, Dahlstrom 1969), counting rock entering at the hinterland edge and leaving above sea level or at the foreland edge","verdict":"within 2%","status":"pass"}
+{"group":"Geological plausibility","name":"Velocity 0.5 km below the sea floor","value":"1960 m/s","note":"interpolated between 100 m bin medians; Hamilton 1979 2010, 1985 2019 m/s (marine clastics); all simulated sediment types and represented settings are pooled","verdict":"-2% against Hamilton 1979","status":"info"}
+{"group":"Geological plausibility","name":"Velocity 1 km below the sea floor","value":"2180 m/s","note":"interpolated between 100 m bin medians; Hamilton 1979 2331, 1985 2529 m/s (marine clastics); all simulated sediment types and represented settings are pooled","verdict":"-6% against Hamilton 1979","status":"info"}
+{"group":"Geological plausibility","name":"Expansion index, units deposited while the fault slipped","value":"1.19 (1.03–1.37)","note":"26 complete unit pairs, sampled beyond fault-truncated intervals; growth faults: above 1 (examples 1.0–1.5; a classic Gulf Coast fault 1.45)","verdict":"within the examples","status":"pass"}
+{"group":"Geological plausibility","name":"Expansion index, units deposited before the fault","value":"0.99 (0.95–1.00)","note":"4 complete unit pairs; no growth expected: about 1","verdict":"as expected","status":"pass"}
+{"group":"Geological plausibility","name":"Chord between cutoffs grows for older units","value":"3 of 3 faults","note":"not conserved on a listric fault under vertical shear; kept for the record","verdict":"for the record","status":"info"}
+{"group":"Geological plausibility","name":"Heave grows for older units","value":"3 of 3 faults","note":"implementation check (vertical shear conserves heave); failing: 0 crossed by another fault, 0 at an edge, 0 nested, 0 antithetic, 0 other","verdict":"as expected","status":"pass"}
+{"group":"Geological plausibility","name":"Throw grows with depth within growth units","value":"3 of 3 faults","note":"the literature's growth-fault form","verdict":"mostly, as expected","status":"pass"}
+{"group":"Geological plausibility","name":"Normal-fault dip, sea floor to 1 km below","value":"41 (41–41)°","note":"Anderson–Byerlee 60–65°; most seismogenic normal faults 30–60°; compaction flattens buried faults (Xiao and Suppe 1989)","verdict":"within 30–70°","status":"pass"}
+{"group":"Geological plausibility","name":"Normal-fault slip rate (initial-dip estimate)","value":"0.076 (0.023–0.130) mm/yr","note":"median-only screening; 0.03–0.2 mature rifts (North Sea); 1–7 young fast rifts (Corinth)","verdict":"within 0.03–7","status":"pass"}
+{"group":"Geological plausibility","name":"Sedimentation rate (thickest deposit per step)","value":"0.243 (0.110–0.387) mm/yr","note":"median-only screening; <0.05 starved hanging walls; 0.03–0.3 depocentres; ~1 fed margins","verdict":"within 0.03–1","status":"pass"}
+{"group":"Geological plausibility","name":"Subsidence rate (step means)","value":"0.117 (0.096–0.192) mm/yr","note":"median-only screening; ~0.01–0.13 mature margins; ~0.1–1 filled depocentres","verdict":"within 0.01–1","status":"pass"}
+{"group":"Sediment conservation","name":"Grain volume, each process and bed","value":"0 of 246 events fail; 0 sections affected","note":"independent grain inventory versus deposition, erosion and all four boundary flows; sand, shale, carbonate and each bed; roundoff tolerance 1e-6 m² + 1e-10 × inventory; worst event/bed/component 0.00 m²; summed absolute total residual 0.00 m²","verdict":"conserved","status":"pass"}
+{"group":"Physics","name":"Rock kept by each slip","value":"normal faults 0.00%, thrusts 0.00% worst","note":"34 slips; grid-area balance including boundary flux; this is not a full sediment mass budget","verdict":"within 2%","status":"pass"}
+{"group":"Physics","name":"Overhangs collapsed; water left","value":"0 + 1499.724568447608 cells; 0 left","note":"water below rock is closed by dropping the rock above it; none may remain","verdict":"as expected","status":"pass"}
+{"group":"Physics","name":"Physical cell bounds","value":"0 invalid cells; 0 invalid velocities","note":"valid bed IDs; finite solid between 0 and cell height (zero in water/basement); finite nonnegative burial; finite displayed velocity within 1500–5600 m/s (a prescribed bound, not validation)","verdict":"within bounds","status":"pass"}
+{"group":"Physics","name":"Repeatability of physical state","value":"2 sections repeated","note":"first seed in each represented setting: grid, solid, burial, beds, fault geometry and physical parameters","verdict":"identical","status":"pass"}
+{"group":"For the record","name":"Total thrust slip per section","value":"1.5 (1.5–1.5) km","note":"drawn: 0.6–2.4 km per thrust, 1–3 thrusts","verdict":"for the record","status":"info"}
+{"group":"For the record","name":"Velocity inversions (share of columns)","value":"extension 0.10 (0.10–0.10), compression 0.00 (0.00–0.00)","note":"velocity averaged over 200 m dropping 300 m/s below its highest value above","verdict":"for the record","status":"info"}
+{"group":"For the record","name":"Inputs taken from the literature","value":"porosity, rock physics, thermal decay","note":"Sclater and Christie (shale 0.63, 1960 m; sand 0.49, 3700 m), also for compaction of thickness; velocity at the deepest burial (Japsen); soft-sand model (Dvorkin and Nur 1996) cementing into Raymer–Hunt–Gardner; Wood; τ 62.8 Myr; thrust ramps 18–32°","verdict":"by construction","status":"info"}

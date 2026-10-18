@@ -1,0 +1,223 @@
+{
+  "runtime": "v24.18.0",
+  "hashes": {
+    "target/release/earthforge": "2aef6c0e3ccd9d08ca0fd210433aca48b3fb0e80cb533161474813e96a025366",
+    "target/wasm32-unknown-unknown/release/earthforge_core.wasm": "3e4d61870e2599dda0000829badad4195af14bbd7a120957d7750779a6794c9f"
+  },
+  "physicsNative": {
+    "max": 0,
+    "rms": 0,
+    "changed": 0,
+    "count": 288
+  },
+  "physicsWasm": {
+    "max": 0,
+    "rms": 0,
+    "changed": 0,
+    "count": 288
+  },
+  "results": [
+    {
+      "fixture": {
+        "seed": 765184,
+        "setting": "extension"
+      },
+      "spacing": 20,
+      "tsMs": 10517.55075,
+      "nativeMs": 6387.271499999999,
+      "nativeKernelMs": 5672.977833,
+      "wasmMs": 33431.111584,
+      "velocityNative": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "velocityWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "nativeVsWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "labelsNative": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "labelsWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "initialWater": [
+        124.05942463316023,
+        124.05942463316023
+      ],
+      "phases": [
+        [
+          3,
+          16,
+          3
+        ],
+        [
+          3,
+          16,
+          3
+        ]
+      ],
+      "beds": [
+        97,
+        97
+      ],
+      "faults": [
+        3,
+        3
+      ],
+      "budgetClosed": true,
+      "grainDifference": 0
+    },
+    {
+      "fixture": {
+        "seed": 20261014,
+        "setting": "compression"
+      },
+      "spacing": 20,
+      "tsMs": 17668.430416999996,
+      "nativeMs": 8255.142041999992,
+      "nativeKernelMs": 7735.761292,
+      "wasmMs": 63891.360625,
+      "velocityNative": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "velocityWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "nativeVsWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "labelsNative": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "labelsWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "initialWater": [
+        42.32410429045558,
+        42.32410429045558
+      ],
+      "phases": [
+        [
+          5,
+          10,
+          2
+        ],
+        [
+          5,
+          10,
+          2
+        ]
+      ],
+      "beds": [
+        74,
+        74
+      ],
+      "faults": [
+        2,
+        2
+      ],
+      "budgetClosed": true,
+      "grainDifference": 0
+    },
+    {
+      "fixture": {
+        "seed": 765184,
+        "setting": "extension",
+        "exhumation": 1
+      },
+      "spacing": 20,
+      "tsMs": 12762.789667000005,
+      "nativeMs": 7401.897625000012,
+      "nativeKernelMs": 6622.128124999999,
+      "wasmMs": 14909.023958000005,
+      "velocityNative": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "velocityWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "nativeVsWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "labelsNative": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "labelsWasm": {
+        "max": 0,
+        "rms": 0,
+        "changed": 0,
+        "count": 69611
+      },
+      "initialWater": [
+        124.05942463316023,
+        124.05942463316023
+      ],
+      "phases": [
+        [
+          3,
+          16,
+          6
+        ],
+        [
+          3,
+          16,
+          6
+        ]
+      ],
+      "beds": [
+        110,
+        110
+      ],
+      "faults": [
+        3,
+        3
+      ],
+      "budgetClosed": true,
+      "grainDifference": 0
+    }
+  ]
+}

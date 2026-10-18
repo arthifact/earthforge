@@ -1,0 +1,13 @@
+{
+  "reference": "canonical-numerics-results.json",
+  "candidate": "allocation-numerics-results.json",
+  "planSha256": "4ba610d6b7cf73bff3d746b0fc7af5f19c31433da919c51befb472d8e0ea7833",
+  "casesIdentical": true,
+  "allRefinementMetricsIdentical": true,
+  "budget": {
+    "runs": 36,
+    "closed_runs": 36,
+    "failed_events": 0
+  },
+  "eventBudgets": 4494
+}

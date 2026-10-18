@@ -1,0 +1,35 @@
+{
+  "createdAt": "2026-10-17T19:04:23.229Z",
+  "evaluations": "1",
+  "grid": "Display: 208.3 × 208.3 × 12.5 m. Material subdivision: 10 m. View controls keep the same model.",
+  "modelTime": "6.49 s",
+  "section": "Continuous-model section · 501 × 301 samples · 1.38 s. Same 10 m material subdivision.",
+  "selectedColour": "lithology",
+  "selectedMode": "cutaway",
+  "status": "Ready",
+  "title": "Earth Forge · 3D basin",
+  "checks": {
+    "cutawayAndBlockVisuallyInspected": true,
+    "threeSectionPlanesMoveWithoutModelEvaluation": true,
+    "clippingAndPeelingWithoutModelEvaluation": true,
+    "pointerKeyboardAndWheelCamera": true,
+    "resetSynchronizesColour": true,
+    "historyStages": [
+      0,
+      6,
+      12
+    ],
+    "replayOriginalCalculationLabel": true,
+    "softwareFallback": true,
+    "softwareAlternateSettings": {
+      "steps": 6,
+      "faults": 1,
+      "setting": "compression",
+      "erosion": true,
+      "prescribedPressure": true,
+      "localGrainChecks": 57594
+    },
+    "consoleWarningsAndErrors": []
+  },
+  "scope": "Desktop production browser. Responsive breakpoint resizing was not exercised."
+}

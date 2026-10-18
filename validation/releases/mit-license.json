@@ -1,0 +1,28 @@
+{
+  "schema": "earthforge-mit-license-validation-v1",
+  "projectLicense": "MIT",
+  "licenseSha256": "3c08c30dc4ca9c7f577c7f259d5bf3591079508f7a3989f93100428bc34cfb01",
+  "copyrightNotice": "2026 Earth Forge contributors",
+  "npmAndRustAndPythonMetadataMatched": true,
+  "wheelSPDXAndLicenseFileVerified": true,
+  "existingWheelThirdPartyNoticesUnchanged": 45,
+  "wheelNativeEngineUnchanged": true,
+  "webProductionFilesUnchanged": 13,
+  "webManifestAndLicenseVerified": true,
+  "bundledWheelIntegrationPassed": true,
+  "published": false,
+  "sources": [
+    "https://opensource.org/license/mit",
+    "https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html"
+  ],
+  "artifacts": {
+    "earthforge_research-0.2.0a1-py3-none-macosx_27_0_arm64.whl": {
+      "sha256": "d9e154567525dfc0328500e066444e557ee41e67041f2730b5df520776d980ed",
+      "bytes": 966687
+    },
+    "earthforge-web-0.2.0-alpha.1-MIT.zip": {
+      "sha256": "c375473486f35add4fc62ea7891ab6ef15c9809fa5e5c866d5c105f883dbdf4e",
+      "bytes": 1807645
+    }
+  }
+}

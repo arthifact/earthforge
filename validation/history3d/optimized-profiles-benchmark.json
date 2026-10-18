@@ -1,0 +1,1049 @@
+{
+  "createdAt": "2026-10-17T15:20:05.734Z",
+  "cpu": "Apple M4 Pro",
+  "runtime": "v24.18.0",
+  "engineSha256": {
+    "optimized-native": "ed7c570cc3acd8f4aacac22c06c4bfc45508729cb642144a6629a65eea7c8893",
+    "optimized-research-simd": "b6f76603e2c854e946c6eade806027616b800e0d53790527c6744594f94ce6fa",
+    "optimized-preview-simd": "47967046cddd4d696f65b119ccd1e58ed77beb9fa8182a93e1366b3fdd9fa79e"
+  },
+  "method": "Each engine/case in its own process, one warmup and3trials. Fixed alternating engine order. Includes request/result and JSON decoding; Wasm setup excluded and reported separately. Native CLI startup included. No concurrent builds, simulations or test jobs. Own-engine performance only.",
+  "rows": [
+    {
+      "case": "flat-history",
+      "variant": "optimized-native",
+      "medianMs": 12.13108299999999,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 288.06575,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 14.338124999999991,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 12.13108299999999,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 10.99875000000003,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "flat-history",
+      "variant": "optimized-research-simd",
+      "setupMs": 1.1496250000000003,
+      "medianMs": 53.63354100000001,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 64.911875,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 53.63354100000001,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 53.33279199999998,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 54.065583000000004,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "flat-history",
+      "variant": "optimized-preview-simd",
+      "setupMs": 1.104833000000001,
+      "medianMs": 20.313374999999994,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 31.744875,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 20.829500000000003,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 19.879542,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 20.313374999999994,
+          "physicalHash": "773558d720760a7655951ed4e2c00705d7946d1ea445e44fb5bd9eb7ada35329",
+          "wasmMemoryBytes": 3604480,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 171,
+              "compactionLayers": 36180,
+              "evaluatedProfiles": 12,
+              "localEventsChecked": 576,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 163,
+              "porosityEvaluations": 311988
+            },
+            "retainedProfileLayers": 29829,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "oblique-fault-history",
+      "variant": "optimized-preview-simd",
+      "setupMs": 1.1170840000000002,
+      "medianMs": 289.47179200000005,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 304.87116699999996,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5963776,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601,
+              "porosityEvaluations": 6161795
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 290.20041599999996,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 6094848,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601,
+              "porosityEvaluations": 6161795
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 289.47179200000005,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 6094848,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601,
+              "porosityEvaluations": 6161795
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 287.55620799999997,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 6094848,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601,
+              "porosityEvaluations": 6161795
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "oblique-fault-history",
+      "variant": "optimized-research-simd",
+      "setupMs": 1.1521670000000004,
+      "medianMs": 946.1494169999999,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 962.676125,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 5963776,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601,
+              "porosityEvaluations": 6161795
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 953.9051660000001,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 6094848,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601,
+              "porosityEvaluations": 6161795
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 946.1494169999999,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 6094848,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601,
+              "porosityEvaluations": 6161795
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 945.5394999999999,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "wasmMemoryBytes": 6094848,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601,
+              "porosityEvaluations": 6161795
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "oblique-fault-history",
+      "variant": "optimized-native",
+      "medianMs": 37.343333,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 38.649834,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601,
+              "porosityEvaluations": 6161795
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 37.481375,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601,
+              "porosityEvaluations": 6161795
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 36.31999999999999,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601,
+              "porosityEvaluations": 6161795
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 37.343333,
+          "physicalHash": "b506a6655396f63f371d159c24fd95b36f78b6304b7f500c6f5ec20a272d636b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 722637,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13359,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 5601,
+              "porosityEvaluations": 6161795
+            },
+            "retainedProfileLayers": 30683,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "variant": "optimized-native",
+      "medianMs": 32.359125000000006,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 31.881417000000003,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571,
+              "porosityEvaluations": 4883807
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 36.192083,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571,
+              "porosityEvaluations": 4883807
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 31.336624999999998,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571,
+              "porosityEvaluations": 4883807
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 32.359125000000006,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571,
+              "porosityEvaluations": 4883807
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "variant": "optimized-research-simd",
+      "setupMs": 1.2625410000000006,
+      "medianMs": 773.5888330000001,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 786.20475,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5701632,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571,
+              "porosityEvaluations": 4883807
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 773.5888330000001,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5832704,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571,
+              "porosityEvaluations": 4883807
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 771.767625,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5832704,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571,
+              "porosityEvaluations": 4883807
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 780.1875,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5832704,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571,
+              "porosityEvaluations": 4883807
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "burial-erosion-reburial",
+      "variant": "optimized-preview-simd",
+      "setupMs": 1.1656249999999986,
+      "medianMs": 249.21504199999998,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 260.994833,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5701632,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571,
+              "porosityEvaluations": 4883807
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 249.21504199999998,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5832704,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571,
+              "porosityEvaluations": 4883807
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 248.19174999999996,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5832704,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571,
+              "porosityEvaluations": 4883807
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 249.58674999999994,
+          "physicalHash": "ea62efb161b0d101185d0c8d8acf98da0590913e4c40316480c1946e3737733b",
+          "wasmMemoryBytes": 5832704,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 660816,
+              "evaluatedProfiles": 549,
+              "localEventsChecked": 13908,
+              "maxNormalizedGrainResidual": 0.0000040529820364271355,
+              "peakCachedLayers": 5571,
+              "porosityEvaluations": 4883807
+            },
+            "retainedProfileLayers": 23814,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "two-fault-history",
+      "variant": "optimized-preview-simd",
+      "setupMs": 1.1097919999999988,
+      "medianMs": 394.72291599999994,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 409.521333,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6094848,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496,
+              "porosityEvaluations": 8151019
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 394.1225,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6094848,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496,
+              "porosityEvaluations": 8151019
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 394.72291599999994,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6094848,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496,
+              "porosityEvaluations": 8151019
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 395.8692920000001,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6094848,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496,
+              "porosityEvaluations": 8151019
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "two-fault-history",
+      "variant": "optimized-research-simd",
+      "setupMs": 1.1214579999999987,
+      "medianMs": 1274.9323750000003,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 1298.159708,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6094848,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496,
+              "porosityEvaluations": 8151019
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 1274.361584,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6094848,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496,
+              "porosityEvaluations": 8151019
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 1280.1256660000004,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6094848,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496,
+              "porosityEvaluations": 8151019
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 1274.9323750000003,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "wasmMemoryBytes": 6094848,
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496,
+              "porosityEvaluations": 8151019
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "two-fault-history",
+      "variant": "optimized-native",
+      "medianMs": 45.613708,
+      "trials": [
+        {
+          "warmup": true,
+          "elapsedMs": 45.96341699999999,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496,
+              "porosityEvaluations": 8151019
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 44.819667,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496,
+              "porosityEvaluations": 8151019
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 47.03591700000001,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496,
+              "porosityEvaluations": 8151019
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "elapsedMs": 45.613708,
+          "physicalHash": "432dae8a7bed5a66876ae9adb222d229472240754b9177ca3aa04ec119182b56",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 968192,
+              "evaluatedProfiles": 1281,
+              "localEventsChecked": 21045,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 10496,
+              "porosityEvaluations": 8151019
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    }
+  ]
+}

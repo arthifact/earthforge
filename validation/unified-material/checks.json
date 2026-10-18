@@ -1,0 +1,19 @@
+{
+  "developmentAndInstalledProjects": {
+    "rustTestsPassed": 71,
+    "workerTestsPassed": 6,
+    "nativeReleaseBuild": "pass",
+    "allFourWasmProductionBuilds": "pass",
+    "typeScriptAndViteBuild": "pass"
+  },
+  "developmentChecks": {
+    "cargoFmt": "pass",
+    "nativeAllTargetsAllFeaturesClippyWarningsDenied": "pass",
+    "wasmAllFeaturesClippyWarningsDenied": "pass"
+  },
+  "unchangedCode": "physics.rs, math laws/coefficients, 2D/3D geometry and event prescriptions, material/output resolution and tolerances",
+  "regressionReport": "verification-results.json",
+  "crossEngine3dReport": "history3d-results.json",
+  "installedSourceAndEngineReport": "installed-results.json",
+  "scope": "Focused shared-core validation; the full historical TypeScript reference suite was not rerun. No new speed, field-accuracy or SOTA claim."
+}

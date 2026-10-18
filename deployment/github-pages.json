@@ -1,0 +1,20 @@
+{
+  "schema": "earthforge-github-pages-hosting-v1",
+  "provider": "GitHub Pages",
+  "repository": "arthifact/earthforge",
+  "url": "https://arthifact.github.io/earthforge/",
+  "basin3dUrl": "https://arthifact.github.io/earthforge/3d.html",
+  "basePath": "/earthforge/",
+  "source": {
+    "branch": "main",
+    "workflow": ".github/workflows/research.yml"
+  },
+  "buildType": "workflow",
+  "public": true,
+  "httpsEnforced": true,
+  "releaseVersion": "0.2.0-alpha.1",
+  "projectLicense": "MIT",
+  "publishedOn": "2026-10-17",
+  "initialManualReleaseCommit": "cc128d447c759ac833e1fcdb3a3a711f2fa003b0",
+  "deploymentCondition": "All native/Python matrix jobs and browser checks pass on main"
+}

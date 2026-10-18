@@ -1,0 +1,8 @@
+/Users/torus/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/kw/_q4b1vrx3bq8g4c_c4k5_4mw0000gn/T/matplotlib-tdbs9x0a because there was an issue with the default path (/Users/torus/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+
+Fontconfig error: No writable cache directories
+	/opt/homebrew/var/cache/fontconfig
+	/Users/torus/.cache/fontconfig
+	/Users/torus/.fontconfig
+Matplotlib is building the font cache; this may take a moment.

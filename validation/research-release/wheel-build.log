@@ -1,0 +1,9 @@
+Processing /var/folders/kw/_q4b1vrx3bq8g4c_c4k5_4mw0000gn/T/earthforge-wheel-esz3721j
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: earthforge-research
+  Building wheel for earthforge-research (pyproject.toml): started
+  Building wheel for earthforge-research (pyproject.toml): finished with status 'done'
+  Created wheel for earthforge-research: filename=earthforge_research-0.2.0a1-py3-none-macosx_27_0_arm64.whl size=964803 sha256=a5bf7e0c737ceb5d6ca2e862c86e9cf2da234e4b896d688f79940ceceb7d54a1
+  Stored in directory: /private/var/folders/kw/_q4b1vrx3bq8g4c_c4k5_4mw0000gn/T/pip-ephem-wheel-cache-8svzdbtn/wheels/83/02/d8/2601226af0cbb4ab35cbc378418eeaf8c35f9d594e072940b0
+Successfully built earthforge-research

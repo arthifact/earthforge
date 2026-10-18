@@ -1,0 +1,4 @@
+{"variant":"row-scalar","options":{"seed":765184,"setting":"extension","h":40,"record":false},"medianMs":5547.274540999999}
+{"variant":"row-simd","options":{"seed":765184,"setting":"extension","h":40,"record":false},"medianMs":5533.864459000002}
+{"variant":"row-simd","options":{"seed":20261014,"setting":"compression","h":40,"record":false},"medianMs":3063.4794999999995}
+{"variant":"row-scalar","options":{"seed":20261014,"setting":"compression","h":40,"record":false},"medianMs":3056.436209}

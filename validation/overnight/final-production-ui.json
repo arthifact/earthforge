@@ -1,0 +1,21 @@
+{
+  "createdAt": "2026-10-17T11:28:24.353730+00:00",
+  "url": "http://127.0.0.1:4173/#seed=20261014",
+  "productionSourceCommit": "971eda0",
+  "simulationCompleted": true,
+  "seed": 20261014,
+  "setting": "compression",
+  "historySteps": 17,
+  "beds": 74,
+  "conservation": "all steps conserve grains",
+  "replayStepsVerified": [
+    0,
+    16
+  ],
+  "finalReplayStep": 16,
+  "browserConsoleErrorsOrWarnings": [],
+  "previewElapsedMs": 9716,
+  "timingScope": "UI diagnostic overlapping regression checks, not isolated performance",
+  "screenshot": "/Users/torus/Documents/Codex/2026-10-17/wah/outputs/earthforge-production-browser.png",
+  "screenshotSha256": "f00bd36d9469855f63f7dcb915e3ddea9a9d1a4a84a3394854f17e2604da5836"
+}

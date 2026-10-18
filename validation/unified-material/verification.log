@@ -1,0 +1,44 @@
+compaction-a 40m exact
+compaction-a 20m exact
+compaction-a 10m exact
+compaction-b 40m exact
+compaction-b 20m exact
+compaction-b 10m exact
+normal-a 40m exact
+normal-a 20m exact
+normal-a 10m exact
+normal-b 40m exact
+normal-b 20m exact
+normal-b 10m exact
+thrust-a 40m exact
+thrust-a 20m exact
+thrust-a 10m exact
+thrust-b 40m exact
+thrust-b 20m exact
+thrust-b 10m exact
+coupled-extension-a 40m exact
+coupled-extension-a 20m exact
+coupled-extension-a 10m exact
+coupled-extension-b 40m exact
+coupled-extension-b 20m exact
+coupled-extension-b 10m exact
+coupled-extension-c 40m exact
+coupled-extension-c 20m exact
+coupled-extension-c 10m exact
+coupled-compression-a 40m exact
+coupled-compression-a 20m exact
+coupled-compression-a 10m exact
+coupled-compression-b 40m exact
+coupled-compression-b 20m exact
+coupled-compression-b 10m exact
+coupled-compression-c 40m exact
+coupled-compression-c 20m exact
+coupled-compression-c 10m exact
+recorded 2D history 765184 exact
+recorded 2D history 20261014 exact
+recorded 2D history 578933 exact
+earthforge_core.wasm 2D cases exact
+earthforge_core_simd.wasm 2D cases exact
+earthforge_core_deterministic.wasm 2D cases exact
+earthforge_core_deterministic_simd.wasm 2D cases exact
+{"canonical2dRuns":36,"recorded2dHistories":3,"wasmCases":8,"allExact":true}

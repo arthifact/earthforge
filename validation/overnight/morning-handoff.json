@@ -1,0 +1,302 @@
+{
+  "createdAt": "2026-10-17T11:31:43.615Z",
+  "status": "required checks passed; handoff ready",
+  "originalProject": "/Users/torus/Desktop/Research/earthforge",
+  "sourceCheckpoint": "dc6f1cec2b66a2e867755b85112b07ad98d09ae4",
+  "simulationSourceCheckpoint": "971eda0e3cf255cdbdfe12f5f791ecc6300acac7",
+  "changes": [
+    "Rust native and browser simulation core, with TypeScript UI and retained reference engine",
+    "Continuous 3D material supports with oblique faults, prescribed planar erosion and closed constituent/per-bed grain budgets",
+    "Derived 3D velocities and constant-density 2D/3D acoustic propagation; five reproducible synthetic model/shot pairs",
+    "Exact-arithmetic allocation optimizations, SIMD wave rows and deterministic native plane parallelism",
+    "Fast page previews and deterministic research profiles with portable fallback"
+  ],
+  "validation": {
+    "rustTests": 52,
+    "legacyTests": 202,
+    "workerLoaderTestsIncludedInLegacy": 3,
+    "legacyElapsedSeconds": 2175.171,
+    "frozenNumericalRuns": 36,
+    "passingEventBudgets": 4494,
+    "requiredAcceptanceGates": 14,
+    "unchangedFrozenCasesAndMetrics": true,
+    "exact20mMigrationFixtures": 3,
+    "expandedScalarComparisons": 2520084,
+    "exactNativeBrowserResearchArrays": true,
+    "independentDevitoCases": 5,
+    "maxDevitoMatchedPrecisionRelativeL2": 9.108428633673503e-14,
+    "devitoDefaultPrecisionFailureRetained": true
+  },
+  "actualProjectVerification": {
+    "sourceFiles": 154,
+    "allSourceIdentical": true,
+    "allFourWasmIdentical": true,
+    "allFiveSyntheticPairsIdentical": true,
+    "rustTests": 52,
+    "workerLoaderTests": 3,
+    "productionBuildCompleted": true,
+    "nativeBinaryHashes": {
+      "developmentSha256": "dca94eecc3a62df4058dc09145d81b6ce0e24f3c2d762e6c76af4f7e6f42586c",
+      "actualSha256": "be887b2fa0200f7e171f37b6f800dfe698c4162801adbf01d497ae3e8d456cfc",
+      "note": "Mach-O UUID/build-path variation can change file hashes. Physical equality is separately verified on all four saved shots and the erosion volume/projection/shot; source and all Wasm bytes match."
+    }
+  },
+  "performance": {
+    "hardware": "Apple M4 Pro",
+    "boundary": "Separate processes, one warmup and three measured trials. Wave requests include CLI/request/response/decoding; Wasm setup excluded. Cropped prototypes, not full-domain 10m simulations or energy measurements.",
+    "waveRequests": [
+      {
+        "fixture": "layered-3d",
+        "variant": "final-preview-simd",
+        "medianMs": 303.86325
+      },
+      {
+        "fixture": "layered-3d",
+        "variant": "final-research-simd",
+        "medianMs": 303.00091599999996
+      },
+      {
+        "fixture": "layered-3d",
+        "variant": "final-native",
+        "medianMs": 63.01179099999996
+      },
+      {
+        "fixture": "faulted-3d",
+        "variant": "final-native",
+        "medianMs": 91.57183300000003
+      },
+      {
+        "fixture": "faulted-3d",
+        "variant": "final-research-simd",
+        "medianMs": 432.18945800000006
+      },
+      {
+        "fixture": "faulted-3d",
+        "variant": "final-preview-simd",
+        "medianMs": 431.11145899999997
+      }
+    ],
+    "peakMemory": {
+      "runtime": {
+        "node": "v24.18.0",
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M4 Pro",
+        "ramBytes": 51539607552
+      },
+      "nativeSha256": "dca94eecc3a62df4058dc09145d81b6ce0e24f3c2d762e6c76af4f7e6f42586c",
+      "method": "Fresh native process per trial, one warmup then three measurements, macOS /usr/bin/time -l maximum RSS in bytes. Includes CLI, parsing, material/input state, output creation and serialization; does not include the parent Node process. Peak RSS is the measurement target. Wall times are diagnostic, overlapped final validation jobs and are not a controlled timing study or a comparison against another research system.",
+      "logicalAcousticArrayBytes": 44343816,
+      "physicalModel": {
+        "worldM": [
+          10000,
+          10000,
+          6200
+        ],
+        "faults": 2,
+        "fragments": 40,
+        "derivedCropGrid": {
+          "dx": 20,
+          "dy": 20,
+          "dz": 20,
+          "nx": 61,
+          "ny": 31,
+          "nz": 61,
+          "origin": {
+            "x": 7800.5,
+            "y": 4500.7,
+            "z": 300.3
+          }
+        }
+      },
+      "rows": [
+        {
+          "stage": "material",
+          "inputBytes": 2594,
+          "inputSha256": "de5210bff76368b4cebe7e9d2d5ecc4a01e43d974d96256d0c3b7ab479fc0078",
+          "medianPeakRssBytes": 3276800,
+          "medianWallMs": 4.400207999999999,
+          "trials": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "wallMs": 6.5596250000000005,
+              "peakRssBytes": 3276800,
+              "peakMemoryFootprintBytes": 2113896,
+              "responseBytes": 19947,
+              "responseSha256": "7e943c8154b7e8b2d4a82dc86f052f29aaf95688c841e92c2b29cec22becb7bc"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "wallMs": 4.565625000000001,
+              "peakRssBytes": 3276800,
+              "peakMemoryFootprintBytes": 2113896,
+              "responseBytes": 19947,
+              "responseSha256": "7e943c8154b7e8b2d4a82dc86f052f29aaf95688c841e92c2b29cec22becb7bc"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "wallMs": 4.344458000000003,
+              "peakRssBytes": 3260416,
+              "peakMemoryFootprintBytes": 2097512,
+              "responseBytes": 19947,
+              "responseSha256": "7e943c8154b7e8b2d4a82dc86f052f29aaf95688c841e92c2b29cec22becb7bc"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "wallMs": 4.400207999999999,
+              "peakRssBytes": 3276800,
+              "peakMemoryFootprintBytes": 2113896,
+              "responseBytes": 19947,
+              "responseSha256": "7e943c8154b7e8b2d4a82dc86f052f29aaf95688c841e92c2b29cec22becb7bc"
+            }
+          ]
+        },
+        {
+          "stage": "materialAndProjection",
+          "inputBytes": 2709,
+          "inputSha256": "a0d1d84a0fa62b62daa43b0bd54512ce33ca9a6e049d4a1e0d333050003596b3",
+          "medianPeakRssBytes": 24002560,
+          "medianWallMs": 14.818874999999991,
+          "trials": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "wallMs": 13.872167000000005,
+              "peakRssBytes": 22577152,
+              "peakMemoryFootprintBytes": 21381504,
+              "responseBytes": 2168911,
+              "responseSha256": "a1ebbea922bd46873a05d091c0e846a0bdf49cc2d5cc799e2d95ad970fe5bfd6"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "wallMs": 14.818874999999991,
+              "peakRssBytes": 24002560,
+              "peakMemoryFootprintBytes": 22806912,
+              "responseBytes": 2168911,
+              "responseSha256": "a1ebbea922bd46873a05d091c0e846a0bdf49cc2d5cc799e2d95ad970fe5bfd6"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "wallMs": 14.819625000000002,
+              "peakRssBytes": 24035328,
+              "peakMemoryFootprintBytes": 22839680,
+              "responseBytes": 2168911,
+              "responseSha256": "a1ebbea922bd46873a05d091c0e846a0bdf49cc2d5cc799e2d95ad970fe5bfd6"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "wallMs": 14.799875,
+              "peakRssBytes": 22560768,
+              "peakMemoryFootprintBytes": 21365120,
+              "responseBytes": 2168911,
+              "responseSha256": "a1ebbea922bd46873a05d091c0e846a0bdf49cc2d5cc799e2d95ad970fe5bfd6"
+            }
+          ]
+        },
+        {
+          "stage": "acoustic",
+          "inputBytes": 1856955,
+          "inputSha256": "ea8a579793765d5f22ab7a929e8e00768fd65b32cbaa6b48833487a971ffce3a",
+          "medianPeakRssBytes": 59654144,
+          "medianWallMs": 116.20374999999996,
+          "trials": [
+            {
+              "iteration": -1,
+              "warmup": true,
+              "wallMs": 115.98125,
+              "peakRssBytes": 60014592,
+              "peakMemoryFootprintBytes": 58835400,
+              "responseBytes": 2870044,
+              "responseSha256": "67a0edc5d4a1137a1c7661489fb5ff5e41f77df57606443b39063bbb633bbaef"
+            },
+            {
+              "iteration": 0,
+              "warmup": false,
+              "wallMs": 123.675917,
+              "peakRssBytes": 59654144,
+              "peakMemoryFootprintBytes": 58474952,
+              "responseBytes": 2870044,
+              "responseSha256": "67a0edc5d4a1137a1c7661489fb5ff5e41f77df57606443b39063bbb633bbaef"
+            },
+            {
+              "iteration": 1,
+              "warmup": false,
+              "wallMs": 99.030709,
+              "peakRssBytes": 59555840,
+              "peakMemoryFootprintBytes": 58376648,
+              "responseBytes": 2870044,
+              "responseSha256": "67a0edc5d4a1137a1c7661489fb5ff5e41f77df57606443b39063bbb633bbaef"
+            },
+            {
+              "iteration": 2,
+              "warmup": false,
+              "wallMs": 116.20374999999996,
+              "peakRssBytes": 59998208,
+              "peakMemoryFootprintBytes": 58819016,
+              "responseBytes": 2870044,
+              "responseSha256": "67a0edc5d4a1137a1c7661489fb5ff5e41f77df57606443b39063bbb633bbaef"
+            }
+          ]
+        }
+      ]
+    },
+    "scope": "Earth Forge version comparisons only; no measured advantage over SubsurfaceGen or another research system."
+  },
+  "archives": [
+    {
+      "name": "earthforge-seismic-examples.tar.gz",
+      "bytes": 12488908,
+      "sha256": "127bb04110c263687f2aa5f8d58689025669661bab94c5ceb37de71115d7cd59",
+      "verifiedReadback": true
+    },
+    {
+      "name": "earthforge-overnight-numerics.tar.gz",
+      "bytes": 121121495,
+      "sha256": "d9084a648592fad6f530730307bdcf723d7dc1b6b8719bb53b9484d4abb4a317",
+      "verifiedReadback": true
+    },
+    {
+      "name": "earthforge-independent-reference.tar.gz",
+      "bytes": 1938180,
+      "sha256": "18ceae31d5f3080d895443eb223c885a1a0007a61150e6bce63d711918df47e1",
+      "verifiedReadback": true
+    },
+    {
+      "name": "earthforge-frozen-engines.tar.gz",
+      "bytes": 9054075,
+      "sha256": "d7bb55430786bfe2d7a8a8567e3f9ecd60ca5f56e3be936b75ada74758c8eb5a",
+      "verifiedReadback": true
+    }
+  ],
+  "nextMilestone": "Supported 3D deposition and conservative compaction with spatial burial/loading histories, independent crossline reduction and convergence gates, followed by frozen matched workloads and downstream evaluation.",
+  "limitations": [
+    "The main basin-history generator and UI still generate 2D sections",
+    "3D faults and erosion are prescribed kinematics; no force/stress solver, curved faults, 3D deposition/compaction or evolving spatial loading",
+    "Acoustics is constant-density isotropic pressure with a sponge, without elasticity, anisotropy, free surface or PML",
+    "Binary64 geometry and fragment growth need larger degeneracy/scale studies",
+    "Independent field accuracy and SOTA superiority are not established"
+  ],
+  "observationalScope": "Reserved FORCE holdout remains unread and unscored. No deployment, publication or external messages.",
+  "evidence": [
+    "final-source-fidelity.json",
+    "final-legacy-results.json",
+    "actual-project-rust-tests.log",
+    "actual-project-worker-tests.log",
+    "final-numerics-results.json",
+    "final-numerics-equivalence.json",
+    "final-acceptance-results.json",
+    "final-parity-20m.json",
+    "final-browser-validation.json",
+    "final-production-ui.json",
+    "portable-math-expanded-validation.json",
+    "devito-comparison-summary.json",
+    "next-milestone-plan.json"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "runtime": "v24.18.0",
+  "wasm_sha256": "593cebcba3a6c879c6fb2b7cf0e9a27706c8388d56e50a1619270eca2a168e3a",
+  "options": {
+    "seed": 20261014,
+    "setting": "compression",
+    "h": 40,
+    "record": false
+  },
+  "rows": [
+    {
+      "iteration": 0,
+      "engine_ms": 4344.111875,
+      "decode_ms": 5.085165999999845,
+      "response_bytes": 2366172,
+      "memory_bytes": 115015680,
+      "state_hash": "110c4b5690af5d339e4110591076e42fca24cb28a2b5cb18430507ba2a7eb26a"
+    },
+    {
+      "iteration": 1,
+      "engine_ms": 4146.911875000001,
+      "decode_ms": 4.094708999999057,
+      "response_bytes": 2366172,
+      "memory_bytes": 115015680,
+      "state_hash": "110c4b5690af5d339e4110591076e42fca24cb28a2b5cb18430507ba2a7eb26a"
+    },
+    {
+      "iteration": 2,
+      "engine_ms": 4108.695708000001,
+      "decode_ms": 4.041707999998835,
+      "response_bytes": 2366172,
+      "memory_bytes": 115015680,
+      "state_hash": "110c4b5690af5d339e4110591076e42fca24cb28a2b5cb18430507ba2a7eb26a"
+    }
+  ]
+}

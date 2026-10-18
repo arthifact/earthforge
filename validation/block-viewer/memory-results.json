@@ -1,0 +1,72 @@
+{
+  "createdAt": "2026-10-17T19:01:09.318Z",
+  "method": "macOS time -l maximum resident set size; serial fresh native CLI processes; one warmup and three trials. Includes engine and response serialization; no browser memory claim.",
+  "rows": [
+    {
+      "name": "standard",
+      "trials": [
+        {
+          "warmup": true,
+          "peakRssBytes": 251592704
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 250249216
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 254410752
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 254197760
+        }
+      ],
+      "medianPeakRssBytes": 254197760
+    },
+    {
+      "name": "fine",
+      "trials": [
+        {
+          "warmup": true,
+          "peakRssBytes": 633454592
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 631701504
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 629915648
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 635142144
+        }
+      ],
+      "medianPeakRssBytes": 631701504
+    },
+    {
+      "name": "long-history-quick",
+      "trials": [
+        {
+          "warmup": true,
+          "peakRssBytes": 269975552
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 252215296
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 281362432
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 283967488
+        }
+      ],
+      "medianPeakRssBytes": 281362432
+    }
+  ]
+}

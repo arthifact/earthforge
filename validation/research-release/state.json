@@ -1,0 +1,88 @@
+{
+  "objective": "Research release foundation toward a leading geological-history/seismic generator",
+  "baseline": "7f868663c4986a91b3e9bec644b6e6ba2b59348a",
+  "actualUpdated": true,
+  "development": "/Users/torus/Documents/Codex/2026-10-17/wah/work/earthforge-rust",
+  "actual": "/Users/torus/Desktop/Research/earthforge",
+  "phase": "Local research alpha complete and installed; independent SOTA gates remain.",
+  "features": [
+    "Rust global grid windows preserve exact coordinates; material-state projection; all bed/depositional-unit contacts; capabilities API",
+    "Python API/CLI package earthforge-research 0.2.0a1; binary64 NPZ/NPY/VTI; provenance fingerprints, crash resume, locks, engine-change detection",
+    "Versioned rift/reverse-fault/erosion-reburial catalog shared with app; parameter transformations do not alter shared laws",
+    "Finite library priors and Gaussian/mixture observation weighting for well velocities, surface/basement and repeated horizons; no calibrated coverage claim",
+    "Paired 2D/3D acoustic NPZ via same Rust solver",
+    "Local native-bundled platform wheel builder and CI configuration (unrun outside this Mac)"
+  ],
+  "checks": {
+    "rustTests": 85,
+    "pythonTests": 26,
+    "externalVTKReader": "9.5.2 pass on Python 3.12",
+    "python314": "pass; separate VTK reader skipped",
+    "focusedWorkerViewTests": 10,
+    "coreExactCases": 9,
+    "newQueriesAllFiveEnginesExact": true,
+    "cohortCases": 36,
+    "allPhysicalLawsUnchanged": true
+  },
+  "performance": {
+    "sdk10mCropEndToEndSeconds": [
+      0.686,
+      0.748
+    ],
+    "cropExtentMetres": [
+      320,
+      320,
+      2000
+    ],
+    "cropNodes": 218889,
+    "coarseWindowEndToEndSeconds": [
+      0.439,
+      0.488
+    ],
+    "matchedFlatControlEarthForgeSeconds": [
+      0.0466,
+      0.1692
+    ],
+    "matchedFlatControlSubsurfaceGenSeconds": [
+      0.358,
+      0.5634
+    ],
+    "scope": "Scoped controls and small crops; no full-field, realistic-basin SOTA speed or energy claim."
+  },
+  "reference": {
+    "subsurfacegen": "../subsurfacegen-reference",
+    "dependencies": "../subsurfacegen-dependencies",
+    "zip": "/Users/torus/Downloads/subsurfacegen-8961.zip",
+    "sourceUnmodified": true,
+    "initialDefaultTaperControl": "failed f64 gate with 0.000217638 m/s error; preserved",
+    "controlV2": "both tapers zero through public API, same 1e-8 gate passes; no source or threshold change"
+  },
+  "frozenEngines": "../research-release-engines",
+  "browser": {
+    "binding": "researchQA",
+    "tab": "8",
+    "browser": "2",
+    "url": "http://127.0.0.1:4173/3d.html#seed=1001",
+    "state": "All three scenarios ready with passing local grain gates. Final production reload is rift seed1001, Cutaway, no warning/error console entries.",
+    "avoid": "CUA download APIs blocked for very long despite timeout; do not use more downloads. Original user tab5 and previous deliverable6 remain untouched."
+  },
+  "jobs": {
+    "66967": "complete",
+    "80890": "complete",
+    "56938": "complete"
+  },
+  "wheel": "/Users/torus/Documents/Codex/2026-10-17/wah/outputs/research-release/earthforge_research-0.2.0a1-py3-none-macosx_27_0_arm64.whl",
+  "venv": "../research-install-venv",
+  "remaining": [
+    "SOTA gates remain: blind field validity, broader 3D geology, complex matched/downstream comparisons, tested public distribution and independent use."
+  ],
+  "protected": [
+    "sources/",
+    ".claude/"
+  ],
+  "noActions": [
+    "No external messages, publishing, registry upload, independent-agent delegation or automations. No reserved FORCE holdout or observational arrays read. No license or authors invented."
+  ],
+  "wheelValidation": "Clean installed bundle passed example, six-member study and resume, conditioning CLI, paired3D shot, NPZ/VTI and exact saved browser-export reproduction.",
+  "installedFidelity": "115 source files and all13 production artifacts match development; actual native exactly reproduces saved browser display."
+}

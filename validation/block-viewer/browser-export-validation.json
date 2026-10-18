@@ -1,0 +1,71 @@
+{
+  "createdAt": "2026-10-17T19:00:26.439Z",
+  "format": "earthforge-block-v1",
+  "requestSha256": "6f1652309d8d34b77f493f3c388ffa2c60c8a682588bc89e979c86692bcb674b",
+  "nativeReproducesBrowserDisplayExactly": true,
+  "displaySha256": "5d72997aa795fc8943d5f5a325397cbd28b69cf909c3290c91c2934419c63169",
+  "byteOrder": "LE",
+  "calculation": {
+    "elapsedMs": 6495.399999976158,
+    "packingMs": 4,
+    "displaySha256": "5d72997aa795fc8943d5f5a325397cbd28b69cf909c3290c91c2934419c63169",
+    "displayBufferOrder": "velocity f32, beds i32, lithology f32, surface f32, basement f32",
+    "displayByteOrder": "little-endian",
+    "textureUploadMs": 5.4000000059604645,
+    "cached": false,
+    "grid": {
+      "dx": 208.33333333333334,
+      "dy": 208.33333333333334,
+      "dz": 12.5,
+      "nx": 49,
+      "ny": 49,
+      "nz": 241,
+      "origin": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    "evaluations": 1,
+    "cachePayloadBytes": 6962900
+  },
+  "view": {
+    "azimuth": 40,
+    "elevation": 29,
+    "zoom": 1,
+    "mode": "block",
+    "colour": "lithology",
+    "clipX": 1,
+    "clipY": 1,
+    "peel": 0,
+    "sections": [
+      0.55,
+      0.48,
+      0.48
+    ],
+    "water": false,
+    "exaggeration": 1
+  },
+  "viewBenchmark": {
+    "createdAt": "2026-10-17T16:48:47.241Z",
+    "renderer": "WebGL2",
+    "warmupFrames": 5,
+    "frames": 120,
+    "viewport": {
+      "width": 878,
+      "height": 432
+    },
+    "cpuSubmitMedianMs": 0.09999999403953552,
+    "cpuSubmitP95Ms": 0.30000001192092896,
+    "frameIntervalMedianMs": 8.300000000046566,
+    "meanFrameRate": 119.99999999999999,
+    "gpuMedianMs": 0.949874,
+    "gpuTimedFrames": 125,
+    "modelEvaluationsBefore": 1,
+    "modelEvaluationsAfter": 1,
+    "scope": "Interactive view benchmark on the already sampled model; camera rotation only, interaction display resolution. CPU submission is not GPU duration. Frame intervals include browser scheduling."
+  },
+  "refinedSectionRequestPresent": true,
+  "consoleWarningsAndErrors": [],
+  "limitations": "Display buffers are f32; authoritative exported model re-evaluates in f64. Rendering benchmark uses a camera sweep on a stationary model, not real-time geological evolution."
+}

@@ -1,0 +1,6 @@
+exp cache and native parity exact; Node differences: 0
+expm1 cache and native parity exact; Node differences: 0
+tanh cache and native parity exact; Node differences: 0
+sin cache and native parity exact; Node differences: 5
+tan cache and native parity exact; Node differences: 0
+cbrt cache and native parity exact; Node differences: 0

@@ -1,0 +1,88 @@
+{
+  "before": "pre-allocation-benchmark-results.json",
+  "after": "post-allocation-benchmark-results.json",
+  "allPhysicalOutputHashesIdentical": true,
+  "rows": [
+    {
+      "options": {
+        "seed": 765184,
+        "setting": "extension",
+        "h": 40,
+        "record": false
+      },
+      "medianMs": {
+        "typescript": 5176.0905,
+        "native": 2246.1170409999995,
+        "wasm": 6030.618915999999
+      },
+      "changePercent": {
+        "typescript": 0.6292563997433609,
+        "native": -18.97432806033872,
+        "wasm": -4.238154218071655
+      },
+      "nativeSpeedupVsTypeScript": 2.304461613316259,
+      "wasmSpeedupVsTypeScript": 0.85830170536347
+    },
+    {
+      "options": {
+        "seed": 20261014,
+        "setting": "compression",
+        "h": 40,
+        "record": false
+      },
+      "medianMs": {
+        "wasm": 3308.4082500000004,
+        "typescript": 4694.139542000001,
+        "native": 1651.2742079999998
+      },
+      "changePercent": {
+        "wasm": -18.835047623019598,
+        "typescript": -0.5858971340345853,
+        "native": -33.25094447912461
+      },
+      "nativeSpeedupVsTypeScript": 2.842737759275897,
+      "wasmSpeedupVsTypeScript": 1.4188513591090217
+    },
+    {
+      "options": {
+        "seed": 765184,
+        "setting": "extension",
+        "h": 20,
+        "record": false
+      },
+      "medianMs": {
+        "typescript": 10502.108333,
+        "native": 4536.201459,
+        "wasm": 12176.061499999998
+      },
+      "changePercent": {
+        "typescript": -0.45815481485627085,
+        "native": -21.160725947366632,
+        "wasm": -6.669758924560709
+      },
+      "nativeSpeedupVsTypeScript": 2.315176790079155,
+      "wasmSpeedupVsTypeScript": 0.8625209664882196
+    },
+    {
+      "options": {
+        "seed": 20261014,
+        "setting": "compression",
+        "h": 20,
+        "record": false
+      },
+      "medianMs": {
+        "wasm": 9589.265082999998,
+        "typescript": 17559.958417,
+        "native": 5427.893291
+      },
+      "changePercent": {
+        "wasm": -21.73759406792084,
+        "typescript": 0.10343951757667558,
+        "native": -30.190335669644096
+      },
+      "nativeSpeedupVsTypeScript": 3.235133315188086,
+      "wasmSpeedupVsTypeScript": 1.8312100317396143
+    }
+  ],
+  "memoryNote": "Node worker memory snapshots do not measure native child-process RSS or peak memory. Timing results are local to this machine and measurement protocol."
+}

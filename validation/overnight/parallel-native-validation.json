@@ -1,0 +1,30 @@
+{
+  "nativeSha256": "eceddb9ef08cb895b15daa1c85018beb2ec55dbe886ca6a62d5619488a8f77b8",
+  "scope": "Strict equality of native receiver traces, final fields and diagnostics with four saved canonical acoustic examples. No performance claim.",
+  "rows": [
+    {
+      "name": "basin-extension-765184",
+      "dimensions": 2,
+      "samples": 425940,
+      "bitIdentical": true
+    },
+    {
+      "name": "basin-compression-20261014",
+      "dimensions": 2,
+      "samples": 412200,
+      "bitIdentical": true
+    },
+    {
+      "name": "layered-3d",
+      "dimensions": 3,
+      "samples": 5415,
+      "bitIdentical": true
+    },
+    {
+      "name": "faulted-3d",
+      "dimensions": 3,
+      "samples": 13140,
+      "bitIdentical": true
+    }
+  ]
+}

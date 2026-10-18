@@ -1,0 +1,30 @@
+import assert from 'node:assert/strict';
+import {spawnSync} from 'node:child_process';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+const point=(x,y,z)=>({x,y,z});
+const norm=n=>{const l=Math.hypot(n.x,n.y,n.z);return point(n.x/l,n.y/l,n.z/l);};
+const heights=[450,500,350,650,500,550,600,700,650];
+const beds=heights.map((_,unit)=>({unit,phase:'initial layers',a:0.2+0.3*(unit%3),b:0,c:0,d:1,carbonate:unit===5}));
+const layer=(bed,height,solid,fraction,burial,loading)=>({bed,height,solid,fraction,burial,loading,offsetX:0,offsetY:0,offsetZ:0});
+let depth=0;
+const column=[layer(-1,100,0,0,0,0),...heights.map((h,i)=>{
+ const current=depth+h/2,maxBurial=current+500,maxEffectiveDepth=maxBurial;
+ const f=beds[i].a,phi=beds[i].carbonate?0.70*Math.exp(-maxEffectiveDepth/1410):f*0.49*Math.exp(-maxEffectiveDepth/3700)+(1-f)*0.63*Math.exp(-maxEffectiveDepth/1960);depth+=h;
+ return layer(i,h,h*(1-phi),f,maxBurial,maxEffectiveDepth);
+}),layer(-2,6200-100-heights.reduce((a,b)=>a+b,0),0,0,0,0)];
+const first=norm(point(1,0.35,1.5)),second=norm(point(-0.4,1,0.8));
+const tangent=(n,x,y)=>point(x,y,-(n.x*x+n.y*y)/n.z);
+const request={kind:'volume3d',bounds:{min:point(0,0,0),max:point(10000,10000,6200)},beds,column,faults:[{point:point(4800,5200,2800),normal:first,slip:tangent(first,500,150)},{point:point(6500,4000,4000),normal:second,slip:tangent(second,150,-350)}],sectionsY:[1000,5000,9000],includeGeometry:true};
+writeFileSync('validation/overnight/volume3d-request.json',JSON.stringify(request,null,2)+'\n');
+let start=performance.now();const p=spawnSync('target/release/earthforge',[],{input:JSON.stringify(request),encoding:'utf8',maxBuffer:50*1024*1024});const native_ms=performance.now()-start;
+assert.equal(p.status,0);const native=JSON.parse(p.stdout);assert.equal(native.ok,true,JSON.stringify(native));
+const binary=readFileSync('target/wasm32-unknown-unknown/release/earthforge_core.wasm');
+const wasm=(await WebAssembly.instantiate(binary,{math:{exp:Math.exp,expm1:Math.expm1,tanh:Math.tanh,sin:Math.sin,tan:Math.tan,cbrt:Math.cbrt}})).instance.exports;
+const bytes=new TextEncoder().encode(JSON.stringify(request)),ptr=wasm.earthforge_alloc(bytes.length);let web;
+start=performance.now();try{new Uint8Array(wasm.memory.buffer,ptr,bytes.length).set(bytes);const n=wasm.earthforge_run(ptr,bytes.length);web=JSON.parse(new TextDecoder().decode(new Uint8Array(wasm.memory.buffer,wasm.earthforge_result_ptr(),n)));}finally{wasm.earthforge_free(ptr,bytes.length);wasm.earthforge_result_free();}
+const wasm_ms=performance.now()-start;assert.deepEqual(web,native);assert.ok(native.value.ledgers.every(l=>l.closed));assert.equal(native.value.stats.authoritativeVoxels,0);
+const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
+writeFileSync('validation/overnight/volume3d-result.json',JSON.stringify(native.value,null,2)+'\n');
+const report={domain_m:[10000,10000,6200],faults:request.faults.length,slice_count:request.sectionsY.length,native_and_wasm_geometry_inventory_and_sections:'bit-identical',stats:native.value.stats,ledgers:native.value.ledgers.map(l=>({closed:l.closed,max_normalized_residual:l.maxNormalizedResidual,grain_residual_m3:l.residual.grain,grain_outflow_m3:l.outflow.grain,fragments_before:l.fragmentsBefore,fragments_after:l.fragmentsAfter})),native_ms,wasm_ms,timing_note:'Single smoke measurements include native process startup / Wasm boundary; not a performance comparison',request_sha256:hash(JSON.stringify(request)),native_sha256:hash(readFileSync('target/release/earthforge')),wasm_sha256:hash(binary),scope:'Two prescribed inclined planar faults in a 3D stratified volume. No general curved faults, 3D compaction/pressure evolution or force-driven deformation.'};
+writeFileSync('validation/overnight/volume3d-validation.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));

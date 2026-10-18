@@ -1,0 +1,12 @@
+
+> earthforge@0.1.0 build:rust
+> node scripts/build-rust.mjs
+
+   Compiling earthforge-core v0.1.0 (/Users/torus/Documents/Codex/2026-10-17/wah/work/earthforge-rust/crates/earthforge-core)
+    Finished `release` profile [optimized] target(s) in 9.34s
+   Compiling earthforge-core v0.1.0 (/Users/torus/Documents/Codex/2026-10-17/wah/work/earthforge-rust/crates/earthforge-core)
+    Finished `release` profile [optimized] target(s) in 9.36s
+   Compiling earthforge-core v0.1.0 (/Users/torus/Documents/Codex/2026-10-17/wah/work/earthforge-rust/crates/earthforge-core)
+    Finished `release` profile [optimized] target(s) in 9.33s
+   Compiling earthforge-core v0.1.0 (/Users/torus/Documents/Codex/2026-10-17/wah/work/earthforge-rust/crates/earthforge-core)
+    Finished `release` profile [optimized] target(s) in 9.40s

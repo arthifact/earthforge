@@ -1,0 +1,202 @@
+{
+  "createdAt": "2026-10-17T16:43:44.871Z",
+  "runtime": "v24.18.0",
+  "nativePath": "target/release/earthforge",
+  "nativeSha256": "e18d7b5853542e5828cf43f7fee477a198b6ae83532dc6e6e1efac229df8cd6a",
+  "wasmSha256": {
+    "public/rust/earthforge_core.wasm": "0de546df017679db7ab9a7a82689846e09d392a1f19696189bec6b66041f2230",
+    "public/rust/earthforge_core_simd.wasm": "7c8a25f1693cd3280d3569f1c3793f4f5822db51a1073c644f7826200560951f",
+    "public/rust/earthforge_core_deterministic.wasm": "327574d5ea780b5e4a33521187b841bbcbf803eb62fa829dde26dbf816e279aa",
+    "public/rust/earthforge_core_deterministic_simd.wasm": "82d1d42029fcc9ebdeaf4bb1de5d1169d710e5b94ecd102b2366c91d16df5de6"
+  },
+  "carriedStateReplayCases": [
+    {
+      "name": "flat-history",
+      "stage": 0,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "e1fbb3d9b7000edecd0d13bc33a86dbbd70ba0230cf89c5cb80ada9390162188"
+    },
+    {
+      "name": "flat-history",
+      "stage": 3,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "e56c57b41c635ee236172f0f20227ad8d7da314a06bf791eb9b484a729f7c20b"
+    },
+    {
+      "name": "flat-history",
+      "stage": 6,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "4a5182705b15aaf150627eb0bf2d82f4478613c81a373377a9df6f328096210e"
+    },
+    {
+      "name": "flat-history",
+      "stage": 9,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "bf7eab307d28a83446ade7339ff6746a5a1c8fb005534719f428b899c07c8c84"
+    },
+    {
+      "name": "flat-history",
+      "stage": 12,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "79bfdecb9a7fd5d4f82213d24bdbb1a8c1dcec6500905dedda27de5056a076e0"
+    },
+    {
+      "name": "oblique-fault-history",
+      "stage": 0,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "229a61b879c5319f7d868e1506e25c4fa27cdaf453d7abfcfdb6f07100f542b8"
+    },
+    {
+      "name": "oblique-fault-history",
+      "stage": 3,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "a158d341c857d257fab3f4df01cbb85570b1639c52ca8fc262b5a8e42eb9879c"
+    },
+    {
+      "name": "oblique-fault-history",
+      "stage": 6,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "5ef0c97360070e2b2438ee00e037aac207c7b7b165bd255a7d9036962fe56e6a"
+    },
+    {
+      "name": "oblique-fault-history",
+      "stage": 9,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "6c560e3d99bea5b18e24c5bb2a7b260072bf1f811e1ac554eac0537ac53b0140"
+    },
+    {
+      "name": "oblique-fault-history",
+      "stage": 12,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "4672f8f245758fe43bacdce1bcc31ca429ad8226b978d270c2b4eef5016f2d29"
+    },
+    {
+      "name": "burial-erosion-reburial",
+      "stage": 0,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "229a61b879c5319f7d868e1506e25c4fa27cdaf453d7abfcfdb6f07100f542b8"
+    },
+    {
+      "name": "burial-erosion-reburial",
+      "stage": 3,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "a158d341c857d257fab3f4df01cbb85570b1639c52ca8fc262b5a8e42eb9879c"
+    },
+    {
+      "name": "burial-erosion-reburial",
+      "stage": 6,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "5ef0c97360070e2b2438ee00e037aac207c7b7b165bd255a7d9036962fe56e6a"
+    },
+    {
+      "name": "burial-erosion-reburial",
+      "stage": 9,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "6c560e3d99bea5b18e24c5bb2a7b260072bf1f811e1ac554eac0537ac53b0140"
+    },
+    {
+      "name": "burial-erosion-reburial",
+      "stage": 12,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "66ea5c835328444f95cd59b6e1bd1d2f03537d011b24d029161330d4f25c0aa1"
+    },
+    {
+      "name": "two-fault-history",
+      "stage": 0,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "229a61b879c5319f7d868e1506e25c4fa27cdaf453d7abfcfdb6f07100f542b8"
+    },
+    {
+      "name": "two-fault-history",
+      "stage": 3,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "a158d341c857d257fab3f4df01cbb85570b1639c52ca8fc262b5a8e42eb9879c"
+    },
+    {
+      "name": "two-fault-history",
+      "stage": 6,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "ee88ff4ba5db17e22c81b86f923defdc14f26c61f80a8ac776781f84836792b0"
+    },
+    {
+      "name": "two-fault-history",
+      "stage": 9,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "80af88f06256baf54b517aa1366370b4467ecfee9db4dc5b2483752595442997"
+    },
+    {
+      "name": "two-fault-history",
+      "stage": 12,
+      "rayProfiles": 3,
+      "pointSamples": 4,
+      "allFiveCurrentEnginesAndReferenceExact": true,
+      "physicalSha256": "c52007598e561d13a2d4d60792103230be6a0e68df97da0009301adfc64bb96c"
+    }
+  ],
+  "threeDimensionalHistoryGrid": {
+    "points": 1331,
+    "allCurrentEnginesExact": true
+  },
+  "threeDimensionalHistoryShot": {
+    "receivers": 1,
+    "samples": 65,
+    "allTracesAndFinalFieldsExact": true
+  },
+  "oldCanonicalNativeShots": [
+    {
+      "name": "basin-extension-765184",
+      "exact": true
+    },
+    {
+      "name": "basin-compression-20261014",
+      "exact": true
+    },
+    {
+      "name": "layered-3d",
+      "exact": true
+    },
+    {
+      "name": "faulted-3d",
+      "exact": true
+    }
+  ],
+  "scope": "Synthetic verification of the stated regional kinematic/vertical-compaction model. Allf64outputs compared exactly; no tolerance changes or observational data."
+}

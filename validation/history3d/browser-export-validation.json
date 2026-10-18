@@ -1,0 +1,16 @@
+{
+  "browser": "Actual in-app Chromium",
+  "seed": 20261014,
+  "stage": 12,
+  "displayedCalculationMs": 819,
+  "slices": 3,
+  "nodesPerSlice": [
+    61,
+    81
+  ],
+  "allNativeAndBrowserVelocityBedLithologySurfaceBasementValuesExact": true,
+  "exportedQueryReproducesDisplayedSampling": true,
+  "exportSha256": "b2ad61f020bfc7ff51b4347cf17d7fdd6a03578acdd745a5b7e4d3f6c5d34ff3",
+  "nativeSha256": "b454ba1ffd62dd7d179c6494f235459ad42d06af258227bb1fc565a1ae7317c4",
+  "scope": "Actual browser proof of displayed data and reproducible export. UIelapsed is a diagnostic, not an isolated benchmark."
+}

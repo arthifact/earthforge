@@ -1,0 +1,37 @@
+{
+  "schema": "earthforge-github-pages-release-v1",
+  "repository": "arthifact/earthforge",
+  "sourceBranch": "gh-pages",
+  "path": "/",
+  "buildCommit": "cc128d447c759ac833e1fcdb3a3a711f2fa003b0",
+  "basePath": "/earthforge/",
+  "projectLicense": "MIT",
+  "files": 65,
+  "staticOnly": true,
+  "sourceEngineCheckpoint": "14c51c1e20209d2ef89a3c62041169af6d4c2275",
+  "physicalSourcesChanged": false,
+  "url": "https://arthifact.github.io/earthforge/",
+  "basin3dUrl": "https://arthifact.github.io/earthforge/3d.html",
+  "status": "built",
+  "public": true,
+  "httpsEnforced": true,
+  "publicHttpFilesExactlyMatched": 15,
+  "allFourWasmMimeTypesCorrect": true,
+  "localPreview2DAnd3DPassed": true,
+  "live3D": {
+    "seed": 1001,
+    "ready": true,
+    "beds": 62,
+    "grainChecksPass": 378092,
+    "webgl2": true,
+    "consoleWarningsOrErrors": []
+  },
+  "customBuildDirectoryAndNoJekyllPackagingPassed": true,
+  "live2D": {
+    "seed": 189211,
+    "completedStages": 27,
+    "beds": 109,
+    "allStepsConserveGrains": true,
+    "consoleWarningsOrErrors": []
+  }
+}

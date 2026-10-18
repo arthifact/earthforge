@@ -1,0 +1,158 @@
+   Compiling earthforge-core v0.1.0 (/Users/torus/Desktop/Research/earthforge/crates/earthforge-core)
+    Finished `release` profile [optimized] target(s) in 9.62s
+     Running unittests src/lib.rs (target/release/deps/earthforge_core-bb3f6552ee373427)
+
+running 9 tests
+test acoustic::tests::nonfinite_update_is_rejected_before_rotating_state_in_both_dimensions ... ok
+test acoustic::tests::invalid_cfl_acquisition_and_underresolved_frequencies_are_rejected ... ok
+test native_math::regression_tests::sine_tail_preserves_reference_unfused_product_rounding ... ok
+test acoustic::tests::heterogeneous_medium_obeys_source_receiver_reciprocity_and_repeats ... ok
+test acoustic::tests::planar_interface_has_independent_constant_density_reflection_coefficient ... ok
+test acoustic::tests::parallel_three_dimensional_updates_match_serial_and_reject_nonfinite_state ... ok
+test acoustic::tests::three_dimensional_point_source_arrives_at_analytic_travel_times ... ok
+test acoustic::tests::sponge_reduces_boundary_reflections_against_larger_domain_reference ... ok
+test acoustic::tests::travelling_plane_wave_converges_and_uniform_crossline_reduces_exactly ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+
+     Running unittests src/main.rs (target/release/deps/earthforge-d5b6ab910dd3f906)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/detailed3d.rs (target/release/deps/detailed3d-78c125f044735837)
+
+running 8 tests
+test spatial_front_reduces_to_shared_two_dimensional_facies_law ... ok
+test swept_map_is_volume_preserving_and_invertible ... ok
+test curved_pruning_and_zero_bend_reduction_preserve_exact_profiles ... ok
+test swept_fault_compositions_match_independent_xyz_inverse_occupancy ... ok
+test curved_transport_advects_facies_instead_of_resampling_it_at_destination ... ok
+test orthogonal_sections_match_exact_world_queries_and_enforce_total_work_budget ... ok
+test detailed_recipes_close_budgets_and_preserve_point_grid_ownership ... ok
+test accommodation_bounds_match_unpruned_full_material_histories ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.70s
+
+     Running tests/erosion3d.rs (target/release/deps/erosion3d-b20ab68069d47994)
+
+running 6 tests
+test oblique_erosion_matches_independent_analytic_constituent_integrals ... ok
+test eroded_projection_preserves_loading_memory_and_uses_the_new_surface ... ok
+test erosion_is_idempotent_can_remove_all_and_invalid_requests_are_atomic ... ok
+test json_api_preserves_event_order_and_rejects_ambiguous_histories ... ok
+test ordered_fault_erosion_histories_match_independent_inverse_occupancy ... ok
+test crossline_uniform_erosion_reduces_to_existing_exact_column_slices ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/exact_fastpath.rs (target/release/deps/exact_fastpath-49e1e94a16634648)
+
+running 3 tests
+test exact_material_extents_keep_memory_without_retaining_empty_allocations ... ok
+test fixed_width_units_and_promoted_sums_match_unbounded_integer_oracle ... ok
+test fixed_width_projection_rounds_like_big_integer_and_chunks_reconstruct_exactly ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/grid_windows.rs (target/release/deps/grid_windows-2542c25dfa9fe8c2)
+
+running 6 tests
+test capabilities_describe_actual_regional_history_support ... ok
+test bed_contacts_report_all_occurrences_and_merge_constitutive_subdivisions ... ok
+test depositional_unit_contacts_merge_adjacent_beds_and_reject_ambiguous_selectors ... ok
+test window_budget_applies_to_selected_nodes_and_checks_parent_extent ... ok
+test exact_interface_samples_retain_ownership_in_windows ... ok
+test windows_preserve_global_coordinates_and_all_fields_exactly ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running tests/history3d.rs (target/release/deps/history3d-ba10110e3804eb68)
+
+running 19 tests
+test regional_continuation_supplies_known_boundary_material_instead_of_water_padding ... ok
+test exact_cuts_and_regional_tails_preserve_thin_intervals_without_filling_gaps ... ok
+test new_deposition_reduces_to_existing_exact_subdivision_and_solid_law ... ok
+test compaction_refines_to_independent_integrated_drained_column_solution ... ok
+test erosion_reburial_and_pressure_changes_preserve_irreversible_history_spatially ... ok
+test crossline_uniform_model_is_identical_at_every_y_but_oblique_model_varies ... ok
+test api_rejects_invalid_events_limits_and_nonphysical_material ... ok
+test uniform_compaction_reduces_exactly_to_existing_column_law_and_fixes_basement ... ok
+test vertical_deposition_refinement_converges_to_independent_porosity_integral ... ok
+test tangent_fault_and_inverse_restore_geometry_without_resetting_memories ... ok
+test derived_grid_ownership_and_velocities_equal_exact_point_queries_at_interfaces ... ok
+test fault_orientation_branches_match_independent_3d_inverse_maps ... ok
+test oblique_fault_profiles_match_independent_inverse_points_and_polyhedral_reference ... ok
+test composed_fault_inverse_maps_keep_material_and_constituents_in_full_xyz ... ok
+test guarded_fault_pruning_matches_unpruned_histories_and_unbounded_regional_queries ... ok
+test output_resolution_and_replay_do_not_change_authoritative_material_state ... ok
+test regional_window_inventory_refines_to_independent_clipped_3d_reference ... ok
+test complete_history_derived_volume_runs_through_the_3d_acoustic_solver ... ok
+test shared_compaction_matches_frozen_bisection_bit_for_bit_on20000_columns ... ok
+
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s
+
+     Running tests/invariants.rs (target/release/deps/invariants-a6f8697f5fa35f44)
+
+running 16 tests
+test straight_fault_flow_has_known_translation_and_inverse ... ok
+test exact_projection_rounds_once_with_sticky_bits ... ok
+test pressure_and_burial_memory_are_independent ... ok
+test exact_support_survives_subnormal_and_more_than_1024_bits ... ok
+test three_dimensional_prototype_rejects_unsupported_geometry_atomically ... ok
+test compaction_retains_grains_memories_and_physical_offsets ... ok
+test three_dimensional_storage_can_represent_huge_uniform_volume_without_dense_allocation ... ok
+test exact_slices_are_complements_and_retain_thin_material ... ok
+test three_dimensional_slip_moves_along_both_axes_and_books_open_boundary_volume ... ok
+test uniform_crossline_reduces_to_same_column_compaction_and_scales_volume ... ok
+test exact_capacity_fallback_splits_without_losing_any_source ... ok
+test bending_fault_area_integral_matches_independent_dense_quadrature ... ok
+test json_boundary_preserves_binary64_material_lengths ... ok
+test parallel_column_compaction_is_identical_to_serial_order ... ok
+test sparse_matching_reaches_independently_enumerated_minimum ... ok
+test full_simulation_preserves_budgets_and_repeats_without_touching_observations ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.65s
+
+     Running tests/polyhedron.rs (target/release/deps/polyhedron-b5e2b9ac7ca31452)
+
+running 5 tests
+test box_volume_is_translation_invariant_and_faces_point_outward ... ok
+test clipping_is_repeatable_and_invalid_geometry_is_rejected ... ok
+test sections_preserve_thin_geometry_and_crossline_invariance ... ok
+test axis_and_oblique_cuts_have_analytic_volumes ... ok
+test three_dimensional_clips_match_independent_integrated_uniform_oracle ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/projection3d.rs (target/release/deps/projection3d-567fee0f2f313aea)
+
+running 5 tests
+test projection_rejects_bad_geometry_without_mutating_material ... ok
+test shared_interfaces_and_domain_corners_follow_original_support_priority ... ok
+test uniform_crossline_reduces_to_identical_2d_slices_in_world_coordinates ... ok
+test inclined_oblique_fault_projection_matches_unoptimized_point_queries ... ok
+test nodal_projection_agrees_with_independent_point_ownership_and_rock_law ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/volume3d.rs (target/release/deps/volume3d-885b96b2153e04e4)
+
+running 8 tests
+test invalid_or_underspecified_geometry_does_not_modify_material ... ok
+test crossline_uniform_case_reduces_to_identical_sections ... ok
+test inclined_fault_preserves_every_bed_and_constituent_with_open_boundary_flux ... ok
+test along_strike_geometry_is_genuinely_three_dimensional ... ok
+test layered_world_uses_interfaces_instead_of_a_dense_voxel_grid ... ok
+test inverse_kinematics_independently_checks_interior_occupancy_and_stationary_footwall ... ok
+test repeated_faults_are_conservative_and_repeatable ... ok
+test composed_oblique_faults_match_independent_inverse_maps_without_overlapping_material ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+   Doc-tests earthforge_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

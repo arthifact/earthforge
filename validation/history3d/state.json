@@ -1,0 +1,34 @@
+{
+  "objective": "Integrated 3D geological histories with measured interactive performance and explicit physical scope",
+  "baselineCommit": "daf5d4e2a9e96cf5b53ac2596bb32f64cba335a8",
+  "stage": "Complete: validated implementation installed and rebuilt in the actual project; final recovery packaging",
+  "actualProjectUpdated": true,
+  "newRustTests": 19,
+  "allRustTests": 71,
+  "workerTests": 6,
+  "frozenNativeSha256": "b454ba1ffd62dd7d179c6494f235459ad42d06af258227bb1fc565a1ae7317c4",
+  "scope": "Regional kinematic 3D transport with vertical quasistatic drained compaction; no stress/fluid-flow PDE or proven SOTA superiority",
+  "reports": [
+    "validation-results.json",
+    "final-performance-equivalence.json",
+    "scaling-benchmark.json",
+    "memory-results.json",
+    "browser-export-validation.json",
+    "browser-qa.json",
+    "full-window-results.json"
+  ],
+  "remaining": [],
+  "protectedPaths": [
+    "sources/",
+    ".claude/"
+  ],
+  "installedChecks": {
+    "rustTests": 71,
+    "workerTests": 6,
+    "typeScript": "pass",
+    "productionBuild": "pass",
+    "crossEngineReplayCases": 20,
+    "oldCanonicalNativeShotsExact": 4,
+    "generatedArtifactsByteIdentical": 18
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "stockReference": "devito-comparison-9digits-results.json",
+  "matchedPrecisionReference": "devito-comparison-17digits-results.json",
+  "thresholdsUnchanged": true,
+  "allFiveMatchedPrecisionCasesPass": true,
+  "maxMatchedPrecisionRelativeL2": 9.108428633673503e-14,
+  "maxStockRelativeL2": 2.0528390216565942e-08,
+  "interpretation": "Devito4.8.23 uses a fixed nine-digit symbolic FD-coefficient precision even with f64 data. An explicit in-memory override to17 digits aligns coefficient precision with Earth Forge. No installed package or Earth Forge solver was changed, and predeclared thresholds were retained. Both default and matched-precision evidence are saved. This comparison verifies the stated synthetic PDE/stencil, not geological fidelity, absorbing boundaries, or SOTA performance.",
+  "boundaryScope": "The comparison includes matching zero-halo boundary conditions; late fields may contain reflections. Absorbing-boundary accuracy is checked separately against a larger domain."
+}

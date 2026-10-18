@@ -1,0 +1,1169 @@
+{
+  "kind": "history3d",
+  "model": {
+    "beds": [
+      {
+        "a": 0.5446801781654358,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "pre-tectonic",
+        "unit": 0
+      },
+      {
+        "a": 0.7317252618074417,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "pre-tectonic",
+        "unit": 0
+      },
+      {
+        "a": 0.6464837303757667,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "pre-tectonic",
+        "unit": 0
+      },
+      {
+        "a": 0.4906631837785244,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "pre-tectonic",
+        "unit": 1
+      },
+      {
+        "a": 0.802477424144745,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "pre-tectonic",
+        "unit": 1
+      },
+      {
+        "a": 0.47192112550139426,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "pre-tectonic",
+        "unit": 1
+      },
+      {
+        "a": 0.25624507024884224,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "pre-tectonic",
+        "unit": 2
+      },
+      {
+        "a": 0.5424215105175971,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "pre-tectonic",
+        "unit": 2
+      },
+      {
+        "a": 0.21773921489715575,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "pre-tectonic",
+        "unit": 2
+      },
+      {
+        "a": 0.7706265717744827,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "pre-tectonic",
+        "unit": 3
+      },
+      {
+        "a": 0.4453767608106136,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "pre-tectonic",
+        "unit": 3
+      },
+      {
+        "a": 0.7675005090236664,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "pre-tectonic",
+        "unit": 3
+      },
+      {
+        "a": 0.6339581856131553,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 4
+      },
+      {
+        "a": 0.7190060977637769,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": true,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 4
+      },
+      {
+        "a": 0.3957982662320137,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 4
+      },
+      {
+        "a": 0.4257935351133346,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 5
+      },
+      {
+        "a": 0.5584837618470192,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 5
+      },
+      {
+        "a": 0.7026754878461361,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 5
+      },
+      {
+        "a": 0.6286131194233895,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 6
+      },
+      {
+        "a": 0.4782238169014454,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 6
+      },
+      {
+        "a": 0.6840500225126744,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 6
+      },
+      {
+        "a": 0.2921709860861301,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 7
+      },
+      {
+        "a": 0.46362156838178636,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 7
+      },
+      {
+        "a": 0.7147726021707057,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 7
+      },
+      {
+        "a": 0.8154040160775184,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 8
+      },
+      {
+        "a": 0.21415081724524498,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 8
+      },
+      {
+        "a": 0.27028729528188705,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "syn-tectonic",
+        "unit": 8
+      },
+      {
+        "a": 0.7108233973383904,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "post-tectonic",
+        "unit": 9
+      },
+      {
+        "a": 0.4494414532184601,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "post-tectonic",
+        "unit": 9
+      },
+      {
+        "a": 0.7281173168122768,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "post-tectonic",
+        "unit": 9
+      },
+      {
+        "a": 0.5135789494216443,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": true,
+        "d": 1800.0,
+        "phase": "post-tectonic",
+        "unit": 10
+      },
+      {
+        "a": 0.5378728865087032,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "post-tectonic",
+        "unit": 10
+      },
+      {
+        "a": 0.384215674251318,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "post-tectonic",
+        "unit": 10
+      },
+      {
+        "a": 0.295919899046421,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "post-tectonic",
+        "unit": 11
+      },
+      {
+        "a": 0.30689392015337946,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "post-tectonic",
+        "unit": 11
+      },
+      {
+        "a": 0.23517652466893196,
+        "b": 0.0,
+        "c": 5000.0,
+        "carbonate": false,
+        "d": 1800.0,
+        "phase": "post-tectonic",
+        "unit": 11
+      }
+    ],
+    "bounds": {
+      "max": {
+        "x": 10000.0,
+        "y": 10000.0,
+        "z": 6200.0
+      },
+      "min": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    "events": [
+      {
+        "displacement": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 78.84563352679834,
+          "waves": []
+        },
+        "kind": "subsidence"
+      },
+      {
+        "bed": 0,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.5446801781654358,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 35.633917653001845,
+          "waves": []
+        }
+      },
+      {
+        "bed": 1,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.7317252618074417,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 45.40859014587477,
+          "waves": []
+        }
+      },
+      {
+        "bed": 2,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.6464837303757667,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 41.29112772643566,
+          "waves": []
+        }
+      },
+      {
+        "displacement": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 84.9401787109673,
+          "waves": []
+        },
+        "kind": "subsidence"
+      },
+      {
+        "bed": 3,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.4906631837785244,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 34.35071090562269,
+          "waves": []
+        }
+      },
+      {
+        "bed": 4,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.802477424144745,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 39.959059772547334,
+          "waves": []
+        }
+      },
+      {
+        "bed": 5,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.47192112550139426,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 40.74427408026531,
+          "waves": []
+        }
+      },
+      {
+        "displacement": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 76.62326243240386,
+          "waves": []
+        },
+        "kind": "subsidence"
+      },
+      {
+        "bed": 6,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.25624507024884224,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 42.79125235695392,
+          "waves": []
+        }
+      },
+      {
+        "bed": 7,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.5424215105175971,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 41.24425420258194,
+          "waves": []
+        }
+      },
+      {
+        "bed": 8,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.21773921489715575,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 33.328667557798326,
+          "waves": []
+        }
+      },
+      {
+        "displacement": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 101.23940244549885,
+          "waves": []
+        },
+        "kind": "subsidence"
+      },
+      {
+        "bed": 9,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.7706265717744827,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 42.81390354828909,
+          "waves": []
+        }
+      },
+      {
+        "bed": 10,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.4453767608106136,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 41.53318408690393,
+          "waves": []
+        }
+      },
+      {
+        "bed": 11,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.7675005090236664,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 42.48728415137157,
+          "waves": []
+        }
+      },
+      {
+        "displacement": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 80.4830851382576,
+          "waves": []
+        },
+        "kind": "subsidence"
+      },
+      {
+        "bed": 12,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.6339581856131553,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 44.7302878559567,
+          "waves": []
+        }
+      },
+      {
+        "bed": 13,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.7190060977637769,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 39.33970406604931,
+          "waves": []
+        }
+      },
+      {
+        "bed": 14,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.3957982662320137,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 36.58906842628494,
+          "waves": []
+        }
+      },
+      {
+        "displacement": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 81.90805382793769,
+          "waves": []
+        },
+        "kind": "subsidence"
+      },
+      {
+        "bed": 15,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.4257935351133346,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 32.44006974808872,
+          "waves": []
+        }
+      },
+      {
+        "bed": 16,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.5584837618470192,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 33.670616204384714,
+          "waves": []
+        }
+      },
+      {
+        "bed": 17,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.7026754878461361,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 34.465536350850016,
+          "waves": []
+        }
+      },
+      {
+        "displacement": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 79.19154655421153,
+          "waves": []
+        },
+        "kind": "subsidence"
+      },
+      {
+        "bed": 18,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.6286131194233895,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 32.72253074217588,
+          "waves": []
+        }
+      },
+      {
+        "bed": 19,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.4782238169014454,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 40.993344963528216,
+          "waves": []
+        }
+      },
+      {
+        "bed": 20,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.6840500225126744,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 43.31719047948718,
+          "waves": []
+        }
+      },
+      {
+        "displacement": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 96.34571443777531,
+          "waves": []
+        },
+        "kind": "subsidence"
+      },
+      {
+        "bed": 21,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.2921709860861301,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 35.643272139597684,
+          "waves": []
+        }
+      },
+      {
+        "bed": 22,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.46362156838178636,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 37.30224299989641,
+          "waves": []
+        }
+      },
+      {
+        "bed": 23,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.7147726021707057,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 41.06164336716756,
+          "waves": []
+        }
+      },
+      {
+        "displacement": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 80.10221718577668,
+          "waves": []
+        },
+        "kind": "subsidence"
+      },
+      {
+        "bed": 24,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.8154040160775184,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 37.948714406229556,
+          "waves": []
+        }
+      },
+      {
+        "bed": 25,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.21415081724524498,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 41.91623865021393,
+          "waves": []
+        }
+      },
+      {
+        "bed": 26,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.27028729528188705,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 41.17555086500943,
+          "waves": []
+        }
+      },
+      {
+        "displacement": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 78.42753677861765,
+          "waves": []
+        },
+        "kind": "subsidence"
+      },
+      {
+        "bed": 27,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.7108233973383904,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 40.297173253726214,
+          "waves": []
+        }
+      },
+      {
+        "bed": 28,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.4494414532184601,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 45.28681146213785,
+          "waves": []
+        }
+      },
+      {
+        "bed": 29,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.7281173168122768,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 39.01810810295865,
+          "waves": []
+        }
+      },
+      {
+        "displacement": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 75.38174237357453,
+          "waves": []
+        },
+        "kind": "subsidence"
+      },
+      {
+        "bed": 30,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.5135789494216443,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 33.26659103296697,
+          "waves": []
+        }
+      },
+      {
+        "bed": 31,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.5378728865087032,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 33.19043769920245,
+          "waves": []
+        }
+      },
+      {
+        "bed": 32,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.384215674251318,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 34.44891024148092,
+          "waves": []
+        }
+      },
+      {
+        "displacement": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 91.06363883474842,
+          "waves": []
+        },
+        "kind": "subsidence"
+      },
+      {
+        "bed": 33,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.295919899046421,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 44.77932211942971,
+          "waves": []
+        }
+      },
+      {
+        "bed": 34,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.30689392015337946,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 44.738666800782084,
+          "waves": []
+        }
+      },
+      {
+        "bed": 35,
+        "compact": true,
+        "fillTo": null,
+        "fraction": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 0.23517652466893196,
+          "waves": []
+        },
+        "kind": "deposit",
+        "maxThickness": null,
+        "thickness": {
+          "slopeX": 0,
+          "slopeY": 0,
+          "value": 44.02071666205302,
+          "waves": []
+        }
+      }
+    ],
+    "initialLayers": [],
+    "initialSurface": {
+      "slopeX": 0,
+      "slopeY": 0,
+      "value": 500.0,
+      "waves": []
+    },
+    "materialStep": 10.0,
+    "stages": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      44,
+      48
+    ]
+  },
+  "query": {
+    "nx": 61,
+    "nz": 81,
+    "sectionsY": [
+      1000,
+      5000,
+      9000
+    ]
+  }
+}

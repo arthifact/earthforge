@@ -1,0 +1,36 @@
+{
+  "pass": true,
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "volume": {
+    "nativeAndBrowserRawJsonEqual": true,
+    "browserBaselineAndSimdRawJsonEqual": true,
+    "fragments": 40,
+    "allBudgetsClosed": true
+  },
+  "acoustic": {
+    "dimensions": 3,
+    "browserBaselineAndSimdRawJsonEqual": true,
+    "nativeTraceError": {
+      "relativeL2": 6.104609542593963e-16,
+      "normalizedLinf": 6.454846226367749e-16
+    },
+    "nativeFieldError": {
+      "relativeL2": 1.6824200549788795e-15,
+      "normalizedLinf": 3.128117544957561e-15
+    },
+    "thresholds": {
+      "relativeL2": 1e-10,
+      "normalizedLinf": 1e-09
+    }
+  },
+  "artifactSha256": {
+    "baseline.wasm": "55844cf291232942d6e446540b63e249119b7ac9762acb036653d35b72a61728",
+    "candidate.wasm": "c9c385bb16e09c2ddf3a0216a58dbff7c7064b63977f58db4f7400ee002fe2a2",
+    "volume-request.json": "678759bc70e7eb21a2271a5fb9e6dbd3ce20b3db4657eb2db6028f704b0e84e2",
+    "volume-native.json": "f1e5365f81a04d824cdb867593593f67a9f0560c070e47be4c4ede0faf597fbc",
+    "shot-request.json": "f56230901c177eec45a209c09977cdb9bee147b9fcb44ac296a93fe3b10f54f0",
+    "shot-native.json": "e1c92f12f99d0a8e7f3ec2789124709ab982502c2d46999f439575a4c6f72e0e",
+    "index.html": "7e8e81c47ac85bec4671857ad01a6c78e289aa458059214e416cf2fd829c27b6"
+  },
+  "scope": "Actual Chromium155 runtime. Full3D geometry matches native; scalar/candidate outputs match inside browser. Native/browser acoustic differences are quantified, rather than claimed bit-identical."
+}

@@ -1,0 +1,20 @@
+{
+  "runtime": "v24.18.0",
+  "wasm_sha256": "593cebcba3a6c879c6fb2b7cf0e9a27706c8388d56e50a1619270eca2a168e3a",
+  "options": {
+    "seed": 20261014,
+    "setting": "compression",
+    "h": 20,
+    "record": false
+  },
+  "rows": [
+    {
+      "iteration": 0,
+      "engine_ms": 13685.184791000001,
+      "decode_ms": 4.844333999999435,
+      "response_bytes": 2397935,
+      "memory_bytes": 287637504,
+      "state_hash": "32a50ded6b68cc487f6b27daf13578d5a4dfe55949586e3aa8418b1ef80e9060"
+    }
+  ]
+}

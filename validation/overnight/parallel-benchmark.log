@@ -1,0 +1,13 @@
+Waiting for the legacy regression to finish before measuring candidate performance.
+{"case":"layered-3d","variant":"row-native","medianMs":305.146667}
+{"case":"layered-3d","variant":"parallel-native-1","medianMs":300.072}
+{"case":"layered-3d","variant":"parallel-native-2","medianMs":161.59487499999997}
+{"case":"layered-3d","variant":"parallel-native-4","medianMs":95.87012499999997}
+{"case":"layered-3d","variant":"parallel-native-8","medianMs":70.37875}
+{"case":"layered-3d","variant":"parallel-native-default","medianMs":61.90341599999999}
+{"case":"faulted-3d","variant":"parallel-native-default","medianMs":89.88816700000001}
+{"case":"faulted-3d","variant":"parallel-native-8","medianMs":100.62170900000001}
+{"case":"faulted-3d","variant":"parallel-native-4","medianMs":143.709042}
+{"case":"faulted-3d","variant":"parallel-native-2","medianMs":250.62245899999994}
+{"case":"faulted-3d","variant":"parallel-native-1","medianMs":450.257666}
+{"case":"faulted-3d","variant":"row-native","medianMs":477.21845799999994}

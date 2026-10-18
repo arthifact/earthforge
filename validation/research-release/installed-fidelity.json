@@ -1,0 +1,26 @@
+{
+  "schema": "earthforge-installed-fidelity-v1",
+  "sourceFilesChecked": 115,
+  "ownedFilesMatchedBeforeFinalReports": 74,
+  "productionArtifacts": {
+    "dist/index.html": "e1fa7ba4479f3a14bc3b8295852727d7d1cd834da1341aa7b0acc6b6fdb5eacd",
+    "dist/3d.html": "7b1575f25d0f85ab03d8f956464a3d4d889149cb9065eb8fcba8a3883054dbaa",
+    "dist/rust/earthforge_core_deterministic.wasm": "d6c7d30631f085853dc8a2ba087cecdb6a669e6233e8d407bf12e2e94796a3b6",
+    "dist/rust/earthforge_core.wasm": "d6fc70baafe7ebad79d4b6efd06e6d1d2dee2ebfbdc15c20488c84d25c6df80f",
+    "dist/rust/earthforge_core_simd.wasm": "0ad74fcde2fde6b026439b466bea9baf27c059f1605f08e1ea9d80197243eb6e",
+    "dist/rust/earthforge_core_deterministic_simd.wasm": "bb3caa7be172059faffde05beed857a3d287a39e8032a9040c16652d4fa6e528",
+    "dist/assets/main-E-WjDsi0.css": "3ee6c750d14411f3656aa6ac43764694c781811f7585866c234a05652b7bf590",
+    "dist/assets/worker-Bw5jN1Q5.js": "052a59a06a3001c26479f98b64e9aa9ef165ad4e6b00966b77aaa02effc48853",
+    "dist/assets/history3d-BRHdmMYN.css": "3160159a8096717f5294a3aa54bdf1ce02a0a4f5b99d4672817b8070bfcda8ed",
+    "dist/assets/history3d-DlawPH6M.js": "5da823962e2381a79aa4d0f26bb3a9a4f7c6a6ef40f11369762ca562ff0a5cf7",
+    "dist/assets/main-BvbLUKAc.js": "c43d6d2068c80cc37d5954c29ac7efb4012b14bfc0bfce4e2aa9eeae6b044d7c",
+    "dist/assets/history3d.worker-DkMzGFFv.js": "87535be28eba6a75aa4eaa99221f507117fef8b67307daebdbd6eaeed101da65",
+    "dist/assets/modulepreload-polyfill-B5Qt9EMX.js": "d2a32840421496e872ade591618d2fa5c33797605d1aec04301717e5a90757d0",
+    "dist/reference/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "rustTestsPassed": 85,
+  "pythonTestsPassed": 26,
+  "workerViewTestsPassed": 10,
+  "allChecksPassed": true,
+  "protectedPathsReadOrWritten": false
+}

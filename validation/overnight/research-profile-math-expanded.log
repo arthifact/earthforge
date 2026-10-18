@@ -1,0 +1,6 @@
+exp: native/portable/SIMD all exact, forward/reverse/repeat
+expm1: native/portable/SIMD all exact, forward/reverse/repeat
+tanh: native/portable/SIMD all exact, forward/reverse/repeat
+sin: native/portable/SIMD all exact, forward/reverse/repeat
+tan: native/portable/SIMD all exact, forward/reverse/repeat
+cbrt: native/portable/SIMD all exact, forward/reverse/repeat

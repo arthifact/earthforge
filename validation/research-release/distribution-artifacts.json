@@ -1,0 +1,22 @@
+{
+  "schema": "earthforge-local-distribution-artifacts-v1",
+  "publicRelease": false,
+  "files": {
+    "earthforge_research-0.2.0a1-py3-none-macosx_27_0_arm64.whl": {
+      "sha256": "a5bf7e0c737ceb5d6ca2e862c86e9cf2da234e4b896d688f79940ceceb7d54a1",
+      "bytes": 964803
+    },
+    "three-scenarios.pdf": {
+      "sha256": "3d191df2575b6374dd23ffbf811fba2ddfa5c63aab861eb7283583101dd8d092",
+      "bytes": 37860
+    },
+    "three-scenarios.png": {
+      "sha256": "dc322e3b12ea6788515ed338f44f9bfd63107f57b83027a334dd173bb8952ee7",
+      "bytes": 160024
+    },
+    "earthforge-research-app.png": {
+      "sha256": "64d0b8dcf1838ae97ff1f093c3fc165f86264e8bc29985d277172c6a91bdbbfd",
+      "bytes": 61848
+    }
+  }
+}

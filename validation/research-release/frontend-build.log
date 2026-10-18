@@ -1,0 +1,15 @@
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 27 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/3d.html                                     0.51 kB │ gzip:  0.33 kB
+dist/index.html                                  0.70 kB │ gzip:  0.40 kB
+dist/assets/history3d.worker-DkMzGFFv.js         4.14 kB
+dist/assets/worker-Bw5jN1Q5.js                  78.18 kB
+dist/assets/history3d-BRHdmMYN.css               8.73 kB │ gzip:  2.47 kB
+dist/assets/main-E-WjDsi0.css                   14.27 kB │ gzip:  3.76 kB
+dist/assets/modulepreload-polyfill-B5Qt9EMX.js   0.71 kB │ gzip:  0.40 kB
+dist/assets/history3d-DlawPH6M.js               38.00 kB │ gzip: 14.14 kB
+dist/assets/main-BvbLUKAc.js                    50.62 kB │ gzip: 19.12 kB
+✓ built in 237ms

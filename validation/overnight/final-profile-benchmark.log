@@ -1,0 +1,7 @@
+Waiting for the legacy regression to finish before measuring candidate performance.
+{"case":"layered-3d","variant":"final-preview-simd","medianMs":303.86325}
+{"case":"layered-3d","variant":"final-research-simd","medianMs":303.00091599999996}
+{"case":"layered-3d","variant":"final-native","medianMs":63.01179099999996}
+{"case":"faulted-3d","variant":"final-native","medianMs":91.57183300000003}
+{"case":"faulted-3d","variant":"final-research-simd","medianMs":432.18945800000006}
+{"case":"faulted-3d","variant":"final-preview-simd","medianMs":431.11145899999997}

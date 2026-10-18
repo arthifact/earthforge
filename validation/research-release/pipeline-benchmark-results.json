@@ -1,0 +1,435 @@
+{
+  "schema": "earthforge-research-pipeline-benchmark-v1",
+  "python": "3.14.7",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "method": "Serial fresh process per case; one warmup and three complete trials; no model cache. Source construction, f64 material-state sampling/result decoding/packing, and NPZ validation/hash/compression measured separately. Imports/engine setup separate. All fields and precision identical per repeat. No build/test/model jobs launched concurrently by this validation run.",
+  "scope": "Coarse 10x10x3km preview and 320x320x2000m 10m crop. Neither is a 10m full-field or FWI survey benchmark. No power measurement.",
+  "rows": [
+    {
+      "scenario": "rift-v1",
+      "gridName": "coarse-window",
+      "grid": {
+        "nx": 33,
+        "ny": 33,
+        "nz": 161,
+        "dx": 312.5,
+        "dy": 312.5,
+        "dz": 18.75,
+        "origin": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        }
+      },
+      "nodes": 175329,
+      "materialStepMetres": 10,
+      "seed": 1001,
+      "setupSeconds": 0.048393750010291114,
+      "medians": {
+        "historyConstructionSeconds": 0.012476125004468486,
+        "sampleDecodeAndPackingSeconds": 0.34512366697890684,
+        "npzValidationHashAndCompressionSeconds": 0.127476416004356,
+        "endToEndSeconds": 0.48504749897983856
+      },
+      "trials": [
+        {
+          "warmup": true,
+          "historyConstructionSeconds": 0.01254137500654906,
+          "sampleDecodeAndPackingSeconds": 0.35301962500670925,
+          "npzValidationHashAndCompressionSeconds": 0.12737229198683053,
+          "endToEndSeconds": 0.49293329200008884,
+          "contentSha256": "b5835775dec41b1d3ca509843dc03a086bf0393e25edefedd81263b0ed97684c",
+          "compressedBytes": 4519489
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.012447415996575728,
+          "sampleDecodeAndPackingSeconds": 0.34512366697890684,
+          "npzValidationHashAndCompressionSeconds": 0.127476416004356,
+          "endToEndSeconds": 0.48504749897983856,
+          "contentSha256": "b5835775dec41b1d3ca509843dc03a086bf0393e25edefedd81263b0ed97684c",
+          "compressedBytes": 4519485
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.012476125004468486,
+          "sampleDecodeAndPackingSeconds": 0.3437508750066627,
+          "npzValidationHashAndCompressionSeconds": 0.12738387499121018,
+          "endToEndSeconds": 0.48361087500234134,
+          "contentSha256": "b5835775dec41b1d3ca509843dc03a086bf0393e25edefedd81263b0ed97684c",
+          "compressedBytes": 4519482
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.0131376669742167,
+          "sampleDecodeAndPackingSeconds": 0.35276437501306646,
+          "npzValidationHashAndCompressionSeconds": 0.12759408398414962,
+          "endToEndSeconds": 0.4934961259714328,
+          "contentSha256": "b5835775dec41b1d3ca509843dc03a086bf0393e25edefedd81263b0ed97684c",
+          "compressedBytes": 4519488
+        }
+      ],
+      "memory": {
+        "pythonPeakRssBytes": 131989504,
+        "nativeChildPeakRssBytes": 92798976,
+        "scope": "Per-case high-water marks across warmup and trials. Separate Python process and native child process maxima; not simultaneous total or energy."
+      },
+      "engineSha256": "e7b8f22071c7d26564bbe1adc77bfc02006cf8921551e89bce668505e9c2694d"
+    },
+    {
+      "scenario": "rift-v1",
+      "gridName": "10m-crop",
+      "grid": {
+        "nx": 33,
+        "ny": 33,
+        "nz": 201,
+        "dx": 10,
+        "dy": 10,
+        "dz": 10,
+        "origin": {
+          "x": 4800.0,
+          "y": 4800.0,
+          "z": 500.0
+        }
+      },
+      "nodes": 218889,
+      "materialStepMetres": 10,
+      "seed": 1001,
+      "setupSeconds": 0.04814362499746494,
+      "medians": {
+        "historyConstructionSeconds": 0.012710416020127013,
+        "sampleDecodeAndPackingSeconds": 0.4666288330045063,
+        "npzValidationHashAndCompressionSeconds": 0.2679065830016043,
+        "endToEndSeconds": 0.7475137070287019
+      },
+      "trials": [
+        {
+          "warmup": true,
+          "historyConstructionSeconds": 0.011633250018348917,
+          "sampleDecodeAndPackingSeconds": 0.4853028339857701,
+          "npzValidationHashAndCompressionSeconds": 0.268139040999813,
+          "endToEndSeconds": 0.765075125003932,
+          "contentSha256": "6f47c685a7a5655722f6c8dfd1dea3c98707e98d71fdf426d39d95637c375f9b",
+          "compressedBytes": 7042610
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.012294416985241696,
+          "sampleDecodeAndPackingSeconds": 0.47978449999936856,
+          "npzValidationHashAndCompressionSeconds": 0.2665838750253897,
+          "endToEndSeconds": 0.75866279201,
+          "contentSha256": "6f47c685a7a5655722f6c8dfd1dea3c98707e98d71fdf426d39d95637c375f9b",
+          "compressedBytes": 7042606
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.012710416020127013,
+          "sampleDecodeAndPackingSeconds": 0.4666288330045063,
+          "npzValidationHashAndCompressionSeconds": 0.2681744580040686,
+          "endToEndSeconds": 0.7475137070287019,
+          "contentSha256": "6f47c685a7a5655722f6c8dfd1dea3c98707e98d71fdf426d39d95637c375f9b",
+          "compressedBytes": 7042605
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.013393500004895031,
+          "sampleDecodeAndPackingSeconds": 0.46386679098941386,
+          "npzValidationHashAndCompressionSeconds": 0.2679065830016043,
+          "endToEndSeconds": 0.7451668739959132,
+          "contentSha256": "6f47c685a7a5655722f6c8dfd1dea3c98707e98d71fdf426d39d95637c375f9b",
+          "compressedBytes": 7042611
+        }
+      ],
+      "memory": {
+        "pythonPeakRssBytes": 173899776,
+        "nativeChildPeakRssBytes": 119013376,
+        "scope": "Per-case high-water marks across warmup and trials. Separate Python process and native child process maxima; not simultaneous total or energy."
+      },
+      "engineSha256": "e7b8f22071c7d26564bbe1adc77bfc02006cf8921551e89bce668505e9c2694d"
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "gridName": "coarse-window",
+      "grid": {
+        "nx": 33,
+        "ny": 33,
+        "nz": 161,
+        "dx": 312.5,
+        "dy": 312.5,
+        "dz": 18.75,
+        "origin": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        }
+      },
+      "nodes": 175329,
+      "materialStepMetres": 10,
+      "seed": 1001,
+      "setupSeconds": 0.048851875006221235,
+      "medians": {
+        "historyConstructionSeconds": 0.012629250006284565,
+        "sampleDecodeAndPackingSeconds": 0.31004049998591654,
+        "npzValidationHashAndCompressionSeconds": 0.11590333399362862,
+        "endToEndSeconds": 0.4385822080075741
+      },
+      "trials": [
+        {
+          "warmup": true,
+          "historyConstructionSeconds": 0.012909832992590964,
+          "sampleDecodeAndPackingSeconds": 0.31770120799774304,
+          "npzValidationHashAndCompressionSeconds": 0.11522637499729171,
+          "endToEndSeconds": 0.4458374159876257,
+          "contentSha256": "4a44f505f41a3cbb9ebcd56dd9bd1fccb169cd426a3e038178363d9e6b531fde",
+          "compressedBytes": 4022907
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.012421000021276996,
+          "sampleDecodeAndPackingSeconds": 0.3370225830003619,
+          "npzValidationHashAndCompressionSeconds": 0.11450645799050108,
+          "endToEndSeconds": 0.46395004101214,
+          "contentSha256": "4a44f505f41a3cbb9ebcd56dd9bd1fccb169cd426a3e038178363d9e6b531fde",
+          "compressedBytes": 4022923
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.012629250006284565,
+          "sampleDecodeAndPackingSeconds": 0.31004049998591654,
+          "npzValidationHashAndCompressionSeconds": 0.11590333399362862,
+          "endToEndSeconds": 0.4385730839858297,
+          "contentSha256": "4a44f505f41a3cbb9ebcd56dd9bd1fccb169cd426a3e038178363d9e6b531fde",
+          "compressedBytes": 4022916
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.01298308401601389,
+          "sampleDecodeAndPackingSeconds": 0.30733858299208805,
+          "npzValidationHashAndCompressionSeconds": 0.11826054099947214,
+          "endToEndSeconds": 0.4385822080075741,
+          "contentSha256": "4a44f505f41a3cbb9ebcd56dd9bd1fccb169cd426a3e038178363d9e6b531fde",
+          "compressedBytes": 4022913
+        }
+      ],
+      "memory": {
+        "pythonPeakRssBytes": 119488512,
+        "nativeChildPeakRssBytes": 84197376,
+        "scope": "Per-case high-water marks across warmup and trials. Separate Python process and native child process maxima; not simultaneous total or energy."
+      },
+      "engineSha256": "e7b8f22071c7d26564bbe1adc77bfc02006cf8921551e89bce668505e9c2694d"
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "gridName": "10m-crop",
+      "grid": {
+        "nx": 33,
+        "ny": 33,
+        "nz": 201,
+        "dx": 10,
+        "dy": 10,
+        "dz": 10,
+        "origin": {
+          "x": 4800.0,
+          "y": 4800.0,
+          "z": 500.0
+        }
+      },
+      "nodes": 218889,
+      "materialStepMetres": 10,
+      "seed": 1001,
+      "setupSeconds": 0.04827845797990449,
+      "medians": {
+        "historyConstructionSeconds": 0.0134750840079505,
+        "sampleDecodeAndPackingSeconds": 0.41865520799183287,
+        "npzValidationHashAndCompressionSeconds": 0.26364808302605525,
+        "endToEndSeconds": 0.6963460819679312
+      },
+      "trials": [
+        {
+          "warmup": true,
+          "historyConstructionSeconds": 0.011957332986639813,
+          "sampleDecodeAndPackingSeconds": 0.4261600419995375,
+          "npzValidationHashAndCompressionSeconds": 0.2622292500163894,
+          "endToEndSeconds": 0.7003466250025667,
+          "contentSha256": "9d766d1a7b0b21f38a5754fa9f181cf324afe46f145e29ceb207b91e560f4a0e",
+          "compressedBytes": 6967035
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.013384124991716817,
+          "sampleDecodeAndPackingSeconds": 0.4213715000078082,
+          "npzValidationHashAndCompressionSeconds": 0.26364808302605525,
+          "endToEndSeconds": 0.6984037080255803,
+          "contentSha256": "9d766d1a7b0b21f38a5754fa9f181cf324afe46f145e29ceb207b91e560f4a0e",
+          "compressedBytes": 6967040
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.0134750840079505,
+          "sampleDecodeAndPackingSeconds": 0.41329637498711236,
+          "npzValidationHashAndCompressionSeconds": 0.2664230829977896,
+          "endToEndSeconds": 0.6931945419928525,
+          "contentSha256": "9d766d1a7b0b21f38a5754fa9f181cf324afe46f145e29ceb207b91e560f4a0e",
+          "compressedBytes": 6967034
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.014289665996329859,
+          "sampleDecodeAndPackingSeconds": 0.41865520799183287,
+          "npzValidationHashAndCompressionSeconds": 0.2634012079797685,
+          "endToEndSeconds": 0.6963460819679312,
+          "contentSha256": "9d766d1a7b0b21f38a5754fa9f181cf324afe46f145e29ceb207b91e560f4a0e",
+          "compressedBytes": 6967038
+        }
+      ],
+      "memory": {
+        "pythonPeakRssBytes": 153911296,
+        "nativeChildPeakRssBytes": 106905600,
+        "scope": "Per-case high-water marks across warmup and trials. Separate Python process and native child process maxima; not simultaneous total or energy."
+      },
+      "engineSha256": "e7b8f22071c7d26564bbe1adc77bfc02006cf8921551e89bce668505e9c2694d"
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "gridName": "coarse-window",
+      "grid": {
+        "nx": 33,
+        "ny": 33,
+        "nz": 161,
+        "dx": 312.5,
+        "dy": 312.5,
+        "dz": 18.75,
+        "origin": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        }
+      },
+      "nodes": 175329,
+      "materialStepMetres": 10,
+      "seed": 1001,
+      "setupSeconds": 0.04891137502272613,
+      "medians": {
+        "historyConstructionSeconds": 0.013292334013385698,
+        "sampleDecodeAndPackingSeconds": 0.347231958003249,
+        "npzValidationHashAndCompressionSeconds": 0.12786958299693651,
+        "endToEndSeconds": 0.487845333002042
+      },
+      "trials": [
+        {
+          "warmup": true,
+          "historyConstructionSeconds": 0.01204549998510629,
+          "sampleDecodeAndPackingSeconds": 0.3624704579997342,
+          "npzValidationHashAndCompressionSeconds": 0.12677329199505039,
+          "endToEndSeconds": 0.5012892499798909,
+          "contentSha256": "1234c52815a11f31951b631bd5c63ad6e1a8e7a5a3029964dce18ab9029940c8",
+          "compressedBytes": 4339256
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.013703582982998341,
+          "sampleDecodeAndPackingSeconds": 0.347231958003249,
+          "npzValidationHashAndCompressionSeconds": 0.12690979201579466,
+          "endToEndSeconds": 0.487845333002042,
+          "contentSha256": "1234c52815a11f31951b631bd5c63ad6e1a8e7a5a3029964dce18ab9029940c8",
+          "compressedBytes": 4339260
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.013073917012661695,
+          "sampleDecodeAndPackingSeconds": 0.35550920898094773,
+          "npzValidationHashAndCompressionSeconds": 0.12786958299693651,
+          "endToEndSeconds": 0.49645270899054594,
+          "contentSha256": "1234c52815a11f31951b631bd5c63ad6e1a8e7a5a3029964dce18ab9029940c8",
+          "compressedBytes": 4339265
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.013292334013385698,
+          "sampleDecodeAndPackingSeconds": 0.3454271670198068,
+          "npzValidationHashAndCompressionSeconds": 0.128187667025486,
+          "endToEndSeconds": 0.4869071680586785,
+          "contentSha256": "1234c52815a11f31951b631bd5c63ad6e1a8e7a5a3029964dce18ab9029940c8",
+          "compressedBytes": 4339271
+        }
+      ],
+      "memory": {
+        "pythonPeakRssBytes": 130760704,
+        "nativeChildPeakRssBytes": 89325568,
+        "scope": "Per-case high-water marks across warmup and trials. Separate Python process and native child process maxima; not simultaneous total or energy."
+      },
+      "engineSha256": "e7b8f22071c7d26564bbe1adc77bfc02006cf8921551e89bce668505e9c2694d"
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "gridName": "10m-crop",
+      "grid": {
+        "nx": 33,
+        "ny": 33,
+        "nz": 201,
+        "dx": 10,
+        "dy": 10,
+        "dz": 10,
+        "origin": {
+          "x": 4800.0,
+          "y": 4800.0,
+          "z": 500.0
+        }
+      },
+      "nodes": 218889,
+      "materialStepMetres": 10,
+      "seed": 1001,
+      "setupSeconds": 0.04905025000334717,
+      "medians": {
+        "historyConstructionSeconds": 0.012832833017455414,
+        "sampleDecodeAndPackingSeconds": 0.42717483299202286,
+        "npzValidationHashAndCompressionSeconds": 0.24710862498614006,
+        "endToEndSeconds": 0.6862681240017992
+      },
+      "trials": [
+        {
+          "warmup": true,
+          "historyConstructionSeconds": 0.012257374997716397,
+          "sampleDecodeAndPackingSeconds": 0.4451509999926202,
+          "npzValidationHashAndCompressionSeconds": 0.24578320799628273,
+          "endToEndSeconds": 0.7031915829866193,
+          "contentSha256": "fcb07219a81c23179f960d92215ccd4a20602ab075ea40be95367f2fced20418",
+          "compressedBytes": 6253562
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.012502916011726484,
+          "sampleDecodeAndPackingSeconds": 0.4213938339962624,
+          "npzValidationHashAndCompressionSeconds": 0.2500203749805223,
+          "endToEndSeconds": 0.6839171249885112,
+          "contentSha256": "fcb07219a81c23179f960d92215ccd4a20602ab075ea40be95367f2fced20418",
+          "compressedBytes": 6253570
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.012832833017455414,
+          "sampleDecodeAndPackingSeconds": 0.42717483299202286,
+          "npzValidationHashAndCompressionSeconds": 0.24626045799232088,
+          "endToEndSeconds": 0.6862681240017992,
+          "contentSha256": "fcb07219a81c23179f960d92215ccd4a20602ab075ea40be95367f2fced20418",
+          "compressedBytes": 6253567
+        },
+        {
+          "warmup": false,
+          "historyConstructionSeconds": 0.013853208016371354,
+          "sampleDecodeAndPackingSeconds": 0.43148687499342486,
+          "npzValidationHashAndCompressionSeconds": 0.24710862498614006,
+          "endToEndSeconds": 0.6924487079959363,
+          "contentSha256": "fcb07219a81c23179f960d92215ccd4a20602ab075ea40be95367f2fced20418",
+          "compressedBytes": 6253568
+        }
+      ],
+      "memory": {
+        "pythonPeakRssBytes": 170770432,
+        "nativeChildPeakRssBytes": 108675072,
+        "scope": "Per-case high-water marks across warmup and trials. Separate Python process and native child process maxima; not simultaneous total or energy."
+      },
+      "engineSha256": "e7b8f22071c7d26564bbe1adc77bfc02006cf8921551e89bce668505e9c2694d"
+    }
+  ]
+}

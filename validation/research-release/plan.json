@@ -1,0 +1,39 @@
+{
+  "createdAt": "2026-10-17T19:32:04.181760+00:00",
+  "baseline": "7f868663c4986a91b3e9bec644b6e6ba2b59348a",
+  "objective": "Research-release foundation for history-based seismic velocity models, with reproducible cases and honest independent evidence toward SOTA.",
+  "scope": [
+    "Three versioned supported scenarios; parameterized physical histories, not separate laws",
+    "Installable thin Python API and CLI; safe standard NumPy/VTK exports and deterministic resumable batch studies",
+    "Exact globally indexed tiled output; same f64 material evaluation at every resolution",
+    "Finite-prior uncertainty and explicit observation-likelihood conditioning; synthetic verification, not field validation",
+    "Matched-comparison protocol and adapter, reproducibility and independent-solver checks where available",
+    "Documented current gaps, cross-platform CI configuration, local distributions and benchmark evidence"
+  ],
+  "physicsPolicy": "Shared laws/coefficients/tolerances unchanged. New core work limited to sampling windows and truthful capability metadata. Preserve frozen old outputs. No stress/flow/salt solver claim.",
+  "scenarios": [
+    "rift-v1",
+    "reverse-fault-v1",
+    "erosion-reburial-v1"
+  ],
+  "preregisteredChecks": [
+    "Exact native/all-four-Wasm old-query equivalence against frozen baseline",
+    "Tiled/monolithic equality including nonbinary coordinate spacings and exact material interfaces; arbitrary points and out-of-range rejection",
+    "Export roundtrips, array ordering/units/precision, provenance tamper detection, resume and failing jobs",
+    "Parameter-prior determinism and analytic likelihood/effective-sample-size checks; no invented posterior coverage",
+    "Three-scenario seed cohort (fixed seeds 1001..1006), both coarse display and 10m research crop, fixed 10m material subdivision",
+    "Matched competitors must use equal domain, spacing, node/cell convention, work and hardware; unavailable results remain unavailable",
+    "Warmup plus three timing trials where affordable; report setup/evaluation/export separately and record memory boundaries"
+  ],
+  "nonGoals": [
+    "No superiority claim without matched evidence",
+    "No touching reserved FORCE holdout or observational arrays",
+    "No publishing or messaging independent labs",
+    "No silent license grant or author attribution"
+  ],
+  "references": [
+    "https://arxiv.org/html/2605.30541v1",
+    "https://numpy.org/doc/stable/reference/generated/numpy.savez_compressed.html",
+    "https://docs.vtk.org/en/v9.5.2/design_documents/VTKFileFormats.html"
+  ]
+}

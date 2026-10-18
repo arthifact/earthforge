@@ -1,0 +1,12 @@
+{"case":"flat-history","variant":"optimized-native","medianMs":12.13108299999999}
+{"case":"flat-history","variant":"optimized-research-simd","medianMs":53.63354100000001}
+{"case":"flat-history","variant":"optimized-preview-simd","medianMs":20.313374999999994}
+{"case":"oblique-fault-history","variant":"optimized-preview-simd","medianMs":289.47179200000005}
+{"case":"oblique-fault-history","variant":"optimized-research-simd","medianMs":946.1494169999999}
+{"case":"oblique-fault-history","variant":"optimized-native","medianMs":37.343333}
+{"case":"burial-erosion-reburial","variant":"optimized-native","medianMs":32.359125000000006}
+{"case":"burial-erosion-reburial","variant":"optimized-research-simd","medianMs":773.5888330000001}
+{"case":"burial-erosion-reburial","variant":"optimized-preview-simd","medianMs":249.21504199999998}
+{"case":"two-fault-history","variant":"optimized-preview-simd","medianMs":394.72291599999994}
+{"case":"two-fault-history","variant":"optimized-research-simd","medianMs":1274.9323750000003}
+{"case":"two-fault-history","variant":"optimized-native","medianMs":45.613708}

@@ -1,0 +1,5 @@
+{
+  "initialFixture": "6Hz source on50m grid gives only5nodes per shortest dominant wavelength and was correctly rejected by the existing acoustic resolution gate",
+  "correction": "Use25m spacing over the same physical volume. Production acoustic solver and its thresholds are unchanged.",
+  "scope": "New3Dhistory-to-acoustics integration test; no acoustic accuracy claim beyond existing analytic and independent solver checks"
+}

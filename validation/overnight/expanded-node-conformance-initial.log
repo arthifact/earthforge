@@ -1,0 +1,24 @@
+exp forward, reversed and repeated: all exact
+expm1 forward, reversed and repeated: all exact
+tanh forward, reversed and repeated: all exact
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: sin/forward/7154
++ actual - expected
+
++ 'bfe613be48273ddc'
+- 'bfe613be48273ddd'
+                  ^
+
+    at file:///Users/torus/Documents/Codex/2026-10-17/wah/work/earthforge-rust/validation/overnight/check-math-cache.mjs:15:41 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'bfe613be48273ddc',
+  expected: 'bfe613be48273ddd',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.18.0

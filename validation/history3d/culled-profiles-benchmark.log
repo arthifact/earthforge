@@ -1,0 +1,12 @@
+{"case":"flat-history","variant":"culled-native","medianMs":12.224874999999997}
+{"case":"flat-history","variant":"culled-research-simd","medianMs":55.737292}
+{"case":"flat-history","variant":"culled-preview-simd","medianMs":22.520832999999996}
+{"case":"oblique-fault-history","variant":"culled-preview-simd","medianMs":240.82629199999997}
+{"case":"oblique-fault-history","variant":"culled-research-simd","medianMs":792.0706670000002}
+{"case":"oblique-fault-history","variant":"culled-native","medianMs":31.239791999999994}
+{"case":"burial-erosion-reburial","variant":"culled-native","medianMs":27.730625000000018}
+{"case":"burial-erosion-reburial","variant":"culled-research-simd","medianMs":622.305}
+{"case":"burial-erosion-reburial","variant":"culled-preview-simd","medianMs":198.46195800000004}
+{"case":"two-fault-history","variant":"culled-preview-simd","medianMs":257.08062500000005}
+{"case":"two-fault-history","variant":"culled-research-simd","medianMs":849.6335}
+{"case":"two-fault-history","variant":"culled-native","medianMs":35.02883299999999}

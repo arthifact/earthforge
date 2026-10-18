@@ -1,0 +1,76 @@
+{
+  "createdAt": "2026-10-17T20:24:45.005Z",
+  "runtime": "v24.18.0",
+  "hashes": {
+    "native": "e7b8f22071c7d26564bbe1adc77bfc02006cf8921551e89bce668505e9c2694d",
+    "beforeNative": "e18d7b5853542e5828cf43f7fee477a198b6ae83532dc6e6e1efac229df8cd6a",
+    "public/rust/earthforge_core.wasm": "d6fc70baafe7ebad79d4b6efd06e6d1d2dee2ebfbdc15c20488c84d25c6df80f",
+    "public/rust/earthforge_core_simd.wasm": "0ad74fcde2fde6b026439b466bea9baf27c059f1605f08e1ea9d80197243eb6e",
+    "public/rust/earthforge_core_deterministic.wasm": "d6c7d30631f085853dc8a2ba087cecdb6a669e6233e8d407bf12e2e94796a3b6",
+    "public/rust/earthforge_core_deterministic_simd.wasm": "bb3caa7be172059faffde05beed857a3d287a39e8032a9040c16652d4fa6e528"
+  },
+  "legacyPhysicalRegression": [
+    {
+      "scenario": "rift-v1",
+      "stage": 0,
+      "allFiveEnginesAndFrozenBaselineExact": true,
+      "physicalSha256": "2894a4d8eb0e2dc55bfecbd13837102f3594ef7c6056795d31703432b0d21811"
+    },
+    {
+      "scenario": "rift-v1",
+      "stage": 6,
+      "allFiveEnginesAndFrozenBaselineExact": true,
+      "physicalSha256": "a27a50b70ce3b30dfb5c1d89524eae6dd81735e418a81352f80bdbaf4eb699f7"
+    },
+    {
+      "scenario": "rift-v1",
+      "stage": 12,
+      "allFiveEnginesAndFrozenBaselineExact": true,
+      "physicalSha256": "3e3b7dc877744e570bf33b4398a3c168140560c81e23fb3890092f285c804b06"
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "stage": 0,
+      "allFiveEnginesAndFrozenBaselineExact": true,
+      "physicalSha256": "b8d1105a5ed78d7f8cec71ff353c67d5c4cb1745b95f278b1449dc3b96c5e1c0"
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "stage": 6,
+      "allFiveEnginesAndFrozenBaselineExact": true,
+      "physicalSha256": "f852595267f8e725d493239f6a889da2cfb2a3862f0c674b526b7efce76cf4a2"
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "stage": 12,
+      "allFiveEnginesAndFrozenBaselineExact": true,
+      "physicalSha256": "c15de5cb3e723a633959f0cca013e6413608e866af697aa8662cde91bed63fdf"
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "stage": 0,
+      "allFiveEnginesAndFrozenBaselineExact": true,
+      "physicalSha256": "adc4aac5b2e2391b058310b05dc71bebf16cca63d1192fcfa1deb185efbebfaa"
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "stage": 6,
+      "allFiveEnginesAndFrozenBaselineExact": true,
+      "physicalSha256": "28055085cd50ba66425fc03cefa78daef0c08b2fe5212c38a468b78a66208789"
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "stage": 12,
+      "allFiveEnginesAndFrozenBaselineExact": true,
+      "physicalSha256": "a108320ccfbaa0fc1d7e0afb6d3a59058c3ad53e2d8e70108b3404b1253ef0e8"
+    }
+  ],
+  "researchQueries": {
+    "allFiveEnginesExact": true,
+    "globallyIndexedWindows": true,
+    "materialState": true,
+    "allContactOccurrences": true,
+    "physicalSha256": "c037b3a914676efc4d297ccc2d67c9289f7013a5c5099e67123704329c91ed2a"
+  },
+  "scope": "Exact synthetic verification. Capability metadata intentionally updated; existing physical results unchanged. No matched competitor or field-accuracy claim."
+}

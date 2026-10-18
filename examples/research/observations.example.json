@@ -1,0 +1,8 @@
+{
+  "schema": "earthforge-observations-v1",
+  "purpose": "Illustrative values only; not observations of a real field or claimed calibration.",
+  "observations": [
+    {"id": "well-velocity", "kind": "velocity", "x": 5000, "y": 5000, "z": 1200, "value": 2500, "sigma": 150},
+    {"id": "horizon-top", "kind": "horizon", "x": 5000, "y": 5000, "unit": 4, "side": "top", "value": 1400, "sigma": 100}
+  ]
+}

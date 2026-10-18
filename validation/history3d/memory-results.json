@@ -1,0 +1,187 @@
+{
+  "cpu": "Apple M4 Pro",
+  "nativeSha256": "b454ba1ffd62dd7d179c6494f235459ad42d06af258227bb1fc565a1ae7317c4",
+  "method": "Fresh native process pertrial;1warmup3measurements. macOS /usr/bin/time-l peakRSSinbytes includes CLI, material evaluation, projectedsections, JSONserialization; parentNodeexcluded. No concurrent builds or simulations. NoenergyorSOTAclaim.",
+  "rows": [
+    {
+      "case": "two-fault-history",
+      "medianPeakRssBytes": 17399808,
+      "trials": [
+        {
+          "warmup": true,
+          "peakRssBytes": 17268736,
+          "responseBytes": 380446,
+          "physicalHash": "3110ecfa2a9697bc96b7d488f740a3b47b13d8ccb6290098d10458b018db9ec7",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 17399808,
+          "responseBytes": 380446,
+          "physicalHash": "3110ecfa2a9697bc96b7d488f740a3b47b13d8ccb6290098d10458b018db9ec7",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 17252352,
+          "responseBytes": 380446,
+          "physicalHash": "3110ecfa2a9697bc96b7d488f740a3b47b13d8ccb6290098d10458b018db9ec7",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 17399808,
+          "responseBytes": 380446,
+          "physicalHash": "3110ecfa2a9697bc96b7d488f740a3b47b13d8ccb6290098d10458b018db9ec7",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 613457,
+              "evaluatedProfiles": 624,
+              "localEventsChecked": 10038,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 7125,
+              "porosityEvaluations": 5244367,
+              "prunedFaultBranches": 333
+            },
+            "retainedProfileLayers": 30971,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    },
+    {
+      "case": "scaling-24-4",
+      "medianPeakRssBytes": 33587200,
+      "trials": [
+        {
+          "warmup": true,
+          "peakRssBytes": 33357824,
+          "responseBytes": 414261,
+          "physicalHash": "a0599903f34a42d119225df816b8a10b6a68db1446b757f349fbc107b33b320a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 3263455,
+              "evaluatedProfiles": 1755,
+              "localEventsChecked": 33261,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 43920,
+              "porosityEvaluations": 27838637,
+              "prunedFaultBranches": 834
+            },
+            "retainedProfileLayers": 60704,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 33587200,
+          "responseBytes": 414261,
+          "physicalHash": "a0599903f34a42d119225df816b8a10b6a68db1446b757f349fbc107b33b320a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 3263455,
+              "evaluatedProfiles": 1755,
+              "localEventsChecked": 33261,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 43920,
+              "porosityEvaluations": 27838637,
+              "prunedFaultBranches": 834
+            },
+            "retainedProfileLayers": 60704,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 33308672,
+          "responseBytes": 414261,
+          "physicalHash": "a0599903f34a42d119225df816b8a10b6a68db1446b757f349fbc107b33b320a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 3263455,
+              "evaluatedProfiles": 1755,
+              "localEventsChecked": 33261,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 43920,
+              "porosityEvaluations": 27838637,
+              "prunedFaultBranches": 834
+            },
+            "retainedProfileLayers": 60704,
+            "uniqueRays": 183
+          }
+        },
+        {
+          "warmup": false,
+          "peakRssBytes": 34209792,
+          "responseBytes": 414261,
+          "physicalHash": "a0599903f34a42d119225df816b8a10b6a68db1446b757f349fbc107b33b320a",
+          "stats": {
+            "authoritativeVoxels": 0,
+            "evaluation": {
+              "cacheHits": 0,
+              "compactionLayers": 3263455,
+              "evaluatedProfiles": 1755,
+              "localEventsChecked": 33261,
+              "maxNormalizedGrainResidual": 0,
+              "peakCachedLayers": 43920,
+              "porosityEvaluations": 27838637,
+              "prunedFaultBranches": 834
+            },
+            "retainedProfileLayers": 60704,
+            "uniqueRays": 183
+          }
+        }
+      ]
+    }
+  ]
+}

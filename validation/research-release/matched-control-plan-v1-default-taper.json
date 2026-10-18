@@ -1,0 +1,15 @@
+{
+  "schema": "earthforge-subsurfacegen-control-v1",
+  "task": "Construct the same flat four-layer carbonate reference velocity field on a common nodal grid",
+  "purpose": "Executable cross-tool coordinate/value control and scoped output-construction timings; not a realistic-basin, history-physics or downstream FWI ranking",
+  "grids": [{"nx":33,"ny":33,"nz":220,"dx":10,"dy":10,"dz":10,"origin":{"x":0,"y":0,"z":0}}, {"nx":65,"ny":65,"nz":220,"dx":10,"dy":10,"dz":10,"origin":{"x":0,"y":0,"z":0}}],
+  "carbonateBulkPorosityTopToBottom": [0.10,0.15,0.20,0.25],
+  "layerThicknessMetres": 500,
+  "basementVelocityMetresPerSecond": 5200,
+  "threads": 4,
+  "warmups": 1,
+  "trials": 3,
+  "output": "Full velocity array, binary64, shape (nz,ny,nx), x fastest, CPU resident",
+  "numericGate": {"maxAbsoluteErrorMetresPerSecond": 1e-8, "reference": "Independent analytic carbonate Raymer-Hunt-Gardner formula using explicitly supplied bulk grain fraction; no fit to generated output"},
+  "scopeDifferences": ["Earth Forge uses an explicit initial material stack and evaluates its rock law; there are no history events or compaction in this control", "SubsurfaceGen uses four flat Deposit modules with zero gradient, boundary roughness and texture; expansion_mode=false", "Both return f64 fields; SubsurfaceGen retains some internal float32 index arithmetic in its published implementation", "Earth Forge time includes native process startup, JSON output including bed labels/diagnostics, and decoding; SubsurfaceGen runs its PyTorch modules in process and materializes a NumPy copy", "Source imports, native engine discovery and package setup measured separately; full module/model construction is included per trial", "No smoothing, velocity clipping, faulting, stochastic geology, seismic propagation or GPU execution in this control", "Do not generalize these timings to complete geological histories or the field-scale published dataset"]
+}

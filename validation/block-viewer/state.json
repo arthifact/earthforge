@@ -1,0 +1,45 @@
+{
+  "objective": "3D block viewer, rotation/clipping/movable sections and richer geology with measured performance",
+  "baseline": "28e52bd385e7b352c72a64c7ee22e2277f6a31cb",
+  "stage": "Full 3D block viewer and detailed recipe installed and verified in the actual project.",
+  "developmentProject": "/Users/torus/Documents/Codex/2026-10-17/wah/work/earthforge-rust",
+  "actualProject": "/Users/torus/Desktop/Research/earthforge",
+  "actualUpdated": true,
+  "physics": "Shared material laws unchanged; detailed recipe opt-in, classic default preserved. Along-strike curvature via volume-preserving shear conjugation, no dip curvature or stress/fluid PDE.",
+  "checks": {
+    "rustTests": 79,
+    "focusedWorkerAndViewTests": 10,
+    "nativeAndWasmClippy": "pass",
+    "detailedCrossEngineCases": 6,
+    "classicReplayCases": 20,
+    "oldNativeAcousticFixtures": 4,
+    "allPhysicalResultsExact": true,
+    "installedSourceFilesExact": 109,
+    "installedProductionFilesExact": 14,
+    "installedAllFourWasmExact": true,
+    "installedNativeReproducesBrowserDisplay": true,
+    "browserExportFingerprintExact": true
+  },
+  "browser": {
+    "binding": "blockQA",
+    "browserId": "2",
+    "tabId": "6",
+    "url": "http://127.0.0.1:4173/3d.html#seed=908054",
+    "state": "Final cutaway view, movable planes and continuous-model refined section ready; tab marked deliverable.",
+    "initialScreenshot": "outputs/earthforge-block-initial.png",
+    "finalScreenshot": "outputs/earthforge-block-viewer.png"
+  },
+  "remaining": [],
+  "protected": [
+    "sources/",
+    ".claude/"
+  ],
+  "performance": {
+    "standardNativeMs": 449.591792,
+    "standardDeterministicWasmMs": 6647.679417,
+    "fineDeterministicWasmMs": 12227.766666,
+    "longHistoryQuickDeterministicWasmMs": 34066.965917,
+    "sampledViewFps": 120,
+    "renderingScope": "120 measured camera frames, no model evaluations; independent from complete model-query timing."
+  }
+}

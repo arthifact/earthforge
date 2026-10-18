@@ -1,0 +1,171 @@
+{
+  "runtime": {
+    "node": "v24.18.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M4 Pro",
+    "ramBytes": 51539607552
+  },
+  "nativeSha256": "91423d175a6f759f673708b8b255f5617458539ae3fabd084a12bddfffb6560b",
+  "method": "Fresh native process per trial, one warmup then three measurements, macOS /usr/bin/time -l maximum RSS in bytes. Includes CLI, parsing, material/input state, output creation and serialization; does not include the parent Node process. Peak RSS is the measurement target. Wall times are diagnostic and overlapped a local compilation in part of this run; they are not a controlled timing study or a comparison against another research system.",
+  "logicalAcousticArrayBytes": 44343816,
+  "physicalModel": {
+    "worldM": [
+      10000,
+      10000,
+      6200
+    ],
+    "faults": 2,
+    "fragments": 40,
+    "derivedCropGrid": {
+      "dx": 20,
+      "dy": 20,
+      "dz": 20,
+      "nx": 61,
+      "ny": 31,
+      "nz": 61,
+      "origin": {
+        "x": 7800.5,
+        "y": 4500.7,
+        "z": 300.3
+      }
+    }
+  },
+  "rows": [
+    {
+      "stage": "material",
+      "inputBytes": 2594,
+      "inputSha256": "de5210bff76368b4cebe7e9d2d5ecc4a01e43d974d96256d0c3b7ab479fc0078",
+      "medianPeakRssBytes": 3227648,
+      "medianWallMs": 4.376666,
+      "trials": [
+        {
+          "iteration": -1,
+          "warmup": true,
+          "wallMs": 5.009874999999997,
+          "peakRssBytes": 3227648,
+          "peakMemoryFootprintBytes": 2113896,
+          "responseBytes": 19947,
+          "responseSha256": "7e943c8154b7e8b2d4a82dc86f052f29aaf95688c841e92c2b29cec22becb7bc"
+        },
+        {
+          "iteration": 0,
+          "warmup": false,
+          "wallMs": 4.376666,
+          "peakRssBytes": 3162112,
+          "peakMemoryFootprintBytes": 2048360,
+          "responseBytes": 19947,
+          "responseSha256": "7e943c8154b7e8b2d4a82dc86f052f29aaf95688c841e92c2b29cec22becb7bc"
+        },
+        {
+          "iteration": 1,
+          "warmup": false,
+          "wallMs": 4.680500000000002,
+          "peakRssBytes": 3227648,
+          "peakMemoryFootprintBytes": 2113896,
+          "responseBytes": 19947,
+          "responseSha256": "7e943c8154b7e8b2d4a82dc86f052f29aaf95688c841e92c2b29cec22becb7bc"
+        },
+        {
+          "iteration": 2,
+          "warmup": false,
+          "wallMs": 4.177082999999996,
+          "peakRssBytes": 3227648,
+          "peakMemoryFootprintBytes": 2113896,
+          "responseBytes": 19947,
+          "responseSha256": "7e943c8154b7e8b2d4a82dc86f052f29aaf95688c841e92c2b29cec22becb7bc"
+        }
+      ]
+    },
+    {
+      "stage": "materialAndProjection",
+      "inputBytes": 2709,
+      "inputSha256": "a0d1d84a0fa62b62daa43b0bd54512ce33ca9a6e049d4a1e0d333050003596b3",
+      "medianPeakRssBytes": 23920640,
+      "medianWallMs": 14.413957999999994,
+      "trials": [
+        {
+          "iteration": -1,
+          "warmup": true,
+          "wallMs": 14.741,
+          "peakRssBytes": 23904256,
+          "peakMemoryFootprintBytes": 22774144,
+          "responseBytes": 2168911,
+          "responseSha256": "a1ebbea922bd46873a05d091c0e846a0bdf49cc2d5cc799e2d95ad970fe5bfd6"
+        },
+        {
+          "iteration": 0,
+          "warmup": false,
+          "wallMs": 14.413957999999994,
+          "peakRssBytes": 22478848,
+          "peakMemoryFootprintBytes": 21348736,
+          "responseBytes": 2168911,
+          "responseSha256": "a1ebbea922bd46873a05d091c0e846a0bdf49cc2d5cc799e2d95ad970fe5bfd6"
+        },
+        {
+          "iteration": 1,
+          "warmup": false,
+          "wallMs": 14.538166000000004,
+          "peakRssBytes": 23920640,
+          "peakMemoryFootprintBytes": 22790528,
+          "responseBytes": 2168911,
+          "responseSha256": "a1ebbea922bd46873a05d091c0e846a0bdf49cc2d5cc799e2d95ad970fe5bfd6"
+        },
+        {
+          "iteration": 2,
+          "warmup": false,
+          "wallMs": 14.406750000000002,
+          "peakRssBytes": 23937024,
+          "peakMemoryFootprintBytes": 22806912,
+          "responseBytes": 2168911,
+          "responseSha256": "a1ebbea922bd46873a05d091c0e846a0bdf49cc2d5cc799e2d95ad970fe5bfd6"
+        }
+      ]
+    },
+    {
+      "stage": "acoustic",
+      "inputBytes": 1856955,
+      "inputSha256": "ea8a579793765d5f22ab7a929e8e00768fd65b32cbaa6b48833487a971ffce3a",
+      "medianPeakRssBytes": 59228160,
+      "medianWallMs": 2074.639083,
+      "trials": [
+        {
+          "iteration": -1,
+          "warmup": true,
+          "wallMs": 2699.635041,
+          "peakRssBytes": 59228160,
+          "peakMemoryFootprintBytes": 58196400,
+          "responseBytes": 2870044,
+          "responseSha256": "67a0edc5d4a1137a1c7661489fb5ff5e41f77df57606443b39063bbb633bbaef"
+        },
+        {
+          "iteration": 0,
+          "warmup": false,
+          "wallMs": 3466.9760830000005,
+          "peakRssBytes": 58867712,
+          "peakMemoryFootprintBytes": 57852360,
+          "responseBytes": 2870044,
+          "responseSha256": "67a0edc5d4a1137a1c7661489fb5ff5e41f77df57606443b39063bbb633bbaef"
+        },
+        {
+          "iteration": 1,
+          "warmup": false,
+          "wallMs": 2044.6332920000004,
+          "peakRssBytes": 59228160,
+          "peakMemoryFootprintBytes": 58196400,
+          "responseBytes": 2870044,
+          "responseSha256": "67a0edc5d4a1137a1c7661489fb5ff5e41f77df57606443b39063bbb633bbaef"
+        },
+        {
+          "iteration": 2,
+          "warmup": false,
+          "wallMs": 2074.639083,
+          "peakRssBytes": 59228160,
+          "peakMemoryFootprintBytes": 58196400,
+          "responseBytes": 2870044,
+          "responseSha256": "67a0edc5d4a1137a1c7661489fb5ff5e41f77df57606443b39063bbb633bbaef"
+        }
+      ]
+    }
+  ]
+}

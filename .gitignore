@@ -9,3 +9,19 @@ data/force2020/
 __pycache__/
 # Reproducible numerical ledgers; compact study results live in validation/numerics/.
 data/numerics/
+
+# Rust build products; WebAssembly is generated before dev/build.
+/target/
+/public/rust/*.wasm
+/validation/rust/last-*.json
+
+# Reproducible synthetic velocity/shot pairs; compact evidence is tracked.
+/data/seismic/
+/data/research/
+/python/build/
+/python/src/*.egg-info/
+/releases/
+/.venv/
+
+# Ephemeral process identifiers for local validation runs.
+/validation/overnight/*-process.json

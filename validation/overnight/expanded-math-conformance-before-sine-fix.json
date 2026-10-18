@@ -1,0 +1,69 @@
+{
+  "runtime": "v24.18.0",
+  "v8": "13.6.233.17-node.50",
+  "scope": "Expanded60002-input sweep per function, separate from the existing120054-input migration gate. Known scalar-port differences are inherited by native, uncached and cached Wasm alike; not introduced by caching. Preserve this report; do not claim universal JS bitwise conformance.",
+  "nodeCompatible": false,
+  "rows": [
+    {
+      "function": "exp",
+      "samples": 60002,
+      "mismatches": []
+    },
+    {
+      "function": "expm1",
+      "samples": 60002,
+      "mismatches": []
+    },
+    {
+      "function": "tanh",
+      "samples": 60002,
+      "mismatches": []
+    },
+    {
+      "function": "sin",
+      "samples": 60002,
+      "mismatches": [
+        {
+          "input": -76.1595885,
+          "inputBits": "c0530a36b2af1455",
+          "rustBits": "bfe613be48273ddc",
+          "nodeBits": "bfe613be48273ddd"
+        },
+        {
+          "input": -72.96292183333333,
+          "inputBits": "c0523da082e5b158",
+          "rustBits": "3fe4c4bdfeda37ab",
+          "nodeBits": "3fe4c4bdfeda37aa"
+        },
+        {
+          "input": 6.930411499999991,
+          "inputBits": "401bb8bdcad14a00",
+          "rustBits": "3fe34b941bfba162",
+          "nodeBits": "3fe34b941bfba161"
+        },
+        {
+          "input": 72.98707816666666,
+          "inputBits": "40523f2c49e71b74",
+          "rustBits": "bfe559b99ae72c7e",
+          "nodeBits": "bfe559b99ae72c7d"
+        },
+        {
+          "input": 94.83374483333333,
+          "inputBits": "4057b55c134a180a",
+          "rustBits": "3fe1b2351ebde48f",
+          "nodeBits": "3fe1b2351ebde490"
+        }
+      ]
+    },
+    {
+      "function": "tan",
+      "samples": 60002,
+      "mismatches": []
+    },
+    {
+      "function": "cbrt",
+      "samples": 60002,
+      "mismatches": []
+    }
+  ]
+}
