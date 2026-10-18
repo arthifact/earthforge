@@ -1,0 +1,11 @@
+{
+  "schema": "earthforge-field-repeat-v1",
+  "firstRunSourceCommit": "245a7571ece7be1dc9fd549ff788171496161a5e",
+  "repeatSourceCommit": "aa6efb92ae0129c12fcf27be5c41b6f7a8b5fb71",
+  "inputAuditExact": true,
+  "allScoresAndIntervalsExact": true,
+  "predictionCsvExact": true,
+  "developmentLogsRead": 71,
+  "holdoutArraysOpened": 0,
+  "reason": "Verify the strengthened frozen-metadata check without changing physics, QA screens or observed outcomes."
+}

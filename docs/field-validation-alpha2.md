@@ -10,7 +10,8 @@ establish a clear advantage. The original 24-well holdout remains unopened.
 
 [Vector figure](figures/field-validation-alpha2.svg) ·
 [All scores and uncertainties](../validation/field-alpha2/results.json) ·
-[Frozen plan](../validation/field-alpha2/plan.json)
+[Frozen plan](../validation/field-alpha2/plan.json) ·
+[Input fingerprints](../validation/field-alpha2/input-manifest.json)
 
 This is a conditional test with observed facies and depth supplied to the
 velocity law. It does not test whether Earth Forge generates the correct real
@@ -138,8 +139,9 @@ python validation/field-alpha2/plot.py /path/to/new/field-run \
   --out /path/to/new/figure
 ```
 
-The 17 existing ingestion/comparison/context tests and eight new statistical,
+The 17 existing ingestion/comparison/context tests and nine new statistical,
 support and access-guard tests pass. Local full outputs retain all predictions,
-fold coefficients, intake audits and profiles. The compact public report
+fold coefficients, intake audits and profiles. A repeat with the stricter frozen-metadata check reproduces every score,
+interval and prediction CSV exactly. The compact public report
 retains their scientific scope; no field-accuracy acceptance threshold or
 SOTA superiority claim has been established.

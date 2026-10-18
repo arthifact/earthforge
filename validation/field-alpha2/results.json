@@ -1,13 +1,13 @@
 {
   "schema": "earthforge-field-alpha2-results-v1",
-  "createdAt": "2026-10-18T05:40:03.753504+00:00",
+  "createdAt": "2026-10-18T06:29:31.500221+00:00",
   "scope": "Previously explored FORCE development cohort; conditional clastic velocity validation, not generated geological geometry, an independent final test or a SOTA ranking.",
   "planSha256": "7ef68882f265631541ab44ceff63047778a421f7b3f141284feb45873e98ae4d",
-  "sourceCommit": "245a7571ece7be1dc9fd549ff788171496161a5e",
+  "sourceCommit": "aa6efb92ae0129c12fcf27be5c41b6f7a8b5fb71",
   "engineSha256": "930f3e07d04778475eaed8210f9724fab7a71bf8c80b9482999a14214713987d",
   "physicsSourceSha256": "039ad24de9222f419f115f26f7f89e8c3d770755e45ec3359231be51aa24a22f",
   "analysisSourceSha256": {
-    "run.py": "611352ec3801d7b8249539ae17d93b353ce8ccf1c4e8aab4c9a6381b02c0c546",
+    "run.py": "84c7f8708161e76c058fc071ab6cde785ae462cd7f21a2ce0204a67c4cc633cf",
     "analysis.py": "267ebfd88a8f33b23c07489ccba8ed74066fd0c3bfb0b496dfb5df6993e2f98c"
   },
   "dependencies": {
