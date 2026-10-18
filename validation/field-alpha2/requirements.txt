@@ -1,0 +1,2 @@
+-r ../force2020/requirements.txt
+et-xmlfile==2.0.0

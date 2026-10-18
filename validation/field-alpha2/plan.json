@@ -1,0 +1,51 @@
+{
+  "schema": "earthforge-field-alpha2-plan-v1",
+  "status": "Frozen before current Rust field predictions and stronger-baseline results; legacy cohort/results previously examined",
+  "releaseSourceCommit": "79d37892d9af2a9f88f69cbaf4c0dca70fbe5f87",
+  "question": "How accurately does the unchanged current Rust velocity law predict screened observed clastic sonic velocities, relative to explicit empirical baselines with the same facies information?",
+  "data": "FORCE 2020 v1, DOI 10.5281/zenodo.4351156, original checksum-frozen prepared development logs and metadata",
+  "partition": "Existing frozen development membership only; original 24-well holdout never opened or scored",
+  "cohort": "Reproduce benchmark-plan.json datum, inclination, confidence, caliper and 20 m support screens; retain every exclusion and all four quality variants",
+  "primaryPhysics": "Unchanged native Rust physics API; hydrostatic brine, isotropic, present burial equals maximum burial; observed sandstone/shale labels mapped to endmembers",
+  "support": "Reproduce legacy full-bin 1 m midpoint slowness quadrature; additionally compare model slowness integrated on exactly the accepted observed support segments, at no more than 1 m midpoint spacing",
+  "sensitivities": [
+    "maximum_burial_plus_500m",
+    "maximum_burial_plus_1000m",
+    "overpressure_below_1500m",
+    "less_pure_facies"
+  ],
+  "empiricalBaselines": [
+    "linear depth only",
+    "separate linear depth curves for shale and sandstone",
+    "separate quadratic depth curves for shale and sandstone"
+  ],
+  "baselineFitting": "Weighted least squares in km depth; equal total weight per training parent; no hyperparameter selection; absent training facies falls back to depth-only; singular design raises a visible error",
+  "crossValidation": [
+    "leave-one-parent-well-out",
+    "leave-one-North-Sea-quadrant-out"
+  ],
+  "metrics": "Equal-parent bias, MAE, root mean parent MSE; depth, facies and quadrant breakdowns; retain every baseline outcome",
+  "uncertainty": {
+    "unit": "parent well",
+    "repeats": 2000,
+    "seed": 20261017,
+    "percentiles": [
+      2.5,
+      97.5
+    ],
+    "scope": "Paired bootstrap of fixed out-of-fold predictions; does not include refitting or spatial-independence uncertainty"
+  },
+  "adoption": "No simulator coefficients, QA thresholds or physical recipes are changed. No field-accuracy pass/fail or SOTA superiority criterion is inferred from these development results.",
+  "notValidated": [
+    "Generated basin/fault geometry",
+    "Real burial or pore-pressure histories",
+    "Full 3D conditioning accuracy",
+    "Calibrated uncertainty",
+    "Regional independence of the original holdout"
+  ],
+  "frozenInputs": {
+    "validation/force2020/benchmark-plan.json": "7b2dfcaace0b71f559d8a473d871d9c7afbcc66fe3e3c0862d324456ead873bf",
+    "validation/force2020/split.json": "7b1b17b24c837ca5506bd1b04e6a221573d832c7b6898d5a8bbadfdad0e3f080",
+    "validation/force2020/intake-summary.json": "81eef4e80137341107a350fc4746056f162e9526a74646a032e5e4b2acb75c19"
+  }
+}
