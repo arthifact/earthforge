@@ -1,4 +1,4 @@
-# Earth Forge research API — 0.2.0a1
+# Earth Forge research API — 0.2.0a2
 
 Generate reproducible geological-history velocity models using the same Rust
 physics core as the Earth Forge app. Python orchestrates experiments and exports;

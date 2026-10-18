@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.0-alpha.2 web update
 
 - Versioned dip-curved/along-strike-bent 3D fault scenarios, with conservative
   inverse material transport and explicit curve/dip/slip controls.

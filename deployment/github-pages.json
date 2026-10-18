@@ -12,7 +12,7 @@
   "buildType": "workflow",
   "public": true,
   "httpsEnforced": true,
-  "releaseVersion": "0.2.0-alpha.1",
+  "releaseVersion": "0.2.0-alpha.2",
   "projectLicense": "MIT",
   "publishedOn": "2026-10-17",
   "initialManualReleaseCommit": "cc128d447c759ac833e1fcdb3a3a711f2fa003b0",

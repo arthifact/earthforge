@@ -2,7 +2,7 @@
   "name": "earthforge",
   "private": true,
   "license": "MIT",
-  "version": "0.2.0-alpha.1",
+  "version": "0.2.0-alpha.2",
   "type": "module",
   "description": "Synthetic sedimentary-basin velocity models from geological history, with numerical benchmarks and geological reference comparisons.",
   "scripts": {

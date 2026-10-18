@@ -46,7 +46,7 @@ The intended uses are candidate priors for full-waveform inversion (FWI),
 training data and synthetic test models. Suitability for any of these uses
 needs validation in the target setting.
 
-## Curved faults and app conditioning (unreleased)
+## Web alpha 2: curved faults and app conditioning
 
 The current source adds three versioned curved-fault scenarios with down-dip
 flattening and along-strike bends. The unified workspace now includes a **Data**
