@@ -24,7 +24,8 @@ async function load(deterministic: boolean): Promise<Exports> {
    const prefix = deterministic ? 'earthforge_core_deterministic' : 'earthforge_core';
    for (const filename of [`${prefix}_simd.wasm`, `${prefix}.wasm`]) {
     try {
-     const response = await fetch(`${import.meta.env?.BASE_URL ?? '/'}rust/${filename}`);
+     // Revalidate stable asset names so a new page cannot reuse an older engine.
+     const response = await fetch(`${import.meta.env?.BASE_URL ?? '/'}rust/${filename}`, { cache: 'no-cache' });
      if (!response.ok) throw Error(`${filename}: HTTP ${response.status}`);
      const { instance } = await WebAssembly.instantiate(await response.arrayBuffer(), {math:{exp:Math.exp,expm1:Math.expm1,tanh:Math.tanh,sin:Math.sin,tan:Math.tan,cbrt:Math.cbrt}});
      return instance.exports as Exports;
