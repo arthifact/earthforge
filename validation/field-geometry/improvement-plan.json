@@ -1,0 +1,20 @@
+{
+  "schema": "earthforge-field-geometry-improvement-plan-v1",
+  "status": "Frozen after baseline geometry diagnostics and before adaptive results",
+  "baseline_observed": {"wells": 69, "parents": 68, "contacts": 207, "regions": 5, "plane_parent_mae_m": 83.2230434845672, "plane_block_mae_m": 111.61484644992451},
+  "motivation": "Depths have a strong regional dip, but large residuals and worse geographic-block extrapolation remain. More flexible fitting needs explicit shrinkage and training-only selection, not exact interpolation through every observed point.",
+  "candidates_in_tie_preference_order": [
+    {"method": "constant"},
+    {"method": "plane"},
+    {"method": "smooth", "smoothing": 100},
+    {"method": "smooth", "smoothing": 10},
+    {"method": "smooth", "smoothing": 1},
+    {"method": "smooth", "smoothing": 0.1},
+    {"method": "smooth", "smoothing": 0.01}
+  ],
+  "basis": "Affine trend plus eight existing Rust SpatialField waves: sin/cos at pi and 2*pi per training XY extent, separately along x and y. Centres and extents use training XY only; no validation depths are used. No new physical law or second simulator.",
+  "fit": "Parent-balanced least squares normalized by total training weight, plus smoothing times squared wave coefficients. Affine terms unpenalized. Rank-deficient affine design falls back explicitly to a constant. No coefficient/error clipping.",
+  "inner_selection": "Match outer design: leave-parent-out inside each parent outer training set; leave-NPD-block-out inside each block outer training set. Require at least four training parents per inner fold. Aggregate all eligible inner predictions with equal parent weights and the frozen missing-prediction penalty. Select one candidate for the whole regional stack. Ties within 1e-8 m use listed simpler candidate. If no inner folds are eligible, explicitly fall back to plane.",
+  "native_evaluation": "Every candidate's inner and outer contact prediction is evaluated by the actual unchanged Rust horizon API, including geometric pinchout/missing contacts. Never score the regression expression alone.",
+  "metrics_and_scope": "Retain baseline, all inner candidate scores, selected parameters, every outer result, failures, paired parent bootstrap, extrapolation and spatial diagnostics. Both whole-well and block scores must be shown even if one worsens. No changes to source data, exclusions, physical coefficients, fold membership or loss after adaptive outcomes are seen. Development evidence only, not final blind or SOTA validation."
+}
