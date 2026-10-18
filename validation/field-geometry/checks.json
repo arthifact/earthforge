@@ -1,0 +1,19 @@
+{
+  "schema": "earthforge-field-geometry-checks-v1",
+  "pythonResearchSuite": {
+    "tests": 39,
+    "passed": 38,
+    "failed": 0,
+    "skipped": 1,
+    "skipReason": "Optional independent VTK reader unavailable in the field-study environment; existing XML/base64 reader check passed"
+  },
+  "geometrySpecificResearchTests": 10,
+  "protocolTests": {
+    "tests": 7,
+    "passed": 7,
+    "failed": 0
+  },
+  "engineParityFile": "engine-parity.json",
+  "repeatFile": "repeat-verification.json",
+  "scope": "Local Python 3.12 checks against unchanged alpha 2 native and four Wasm binaries. Not a new cross-platform CI run or new web deployment."
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "earthforge-field-geometry-repeat-v1",
+  "runs": [
+    "adaptive-001",
+    "adaptive-002",
+    "adaptive-003",
+    "adaptive-004"
+  ],
+  "allScoresExactlyEqual": true,
+  "allBootstrapIntervalsExactlyEqual": true,
+  "intakeExactlyEqual": true,
+  "predictionsByteIdentical": true,
+  "initialBaselinePredictionsUnchanged": true,
+  "holdoutArraysOpened": 0,
+  "files": {
+    "baseline-001": {
+      "results.json": "501e7f435940d9f42db3fbce4d9acbc58af68870896edb570e2ac657dbdb5c08",
+      "predictions.json": "5903fdb4971ec08e72f089d7685323f2fb929a5dda2465fe000b049fd4c0d4b9",
+      "folds.json": "c6de922061509818fc9701224bca29e6011d20e5ee964019ca27a7e5e730bbdf",
+      "cohort.json": "586465590732c3de77c6685fedc5eb62ecccc74fbe35c7103a6e5a842866b045",
+      "intake.json": "0943b3fbe84391bfffb7cb1f06809e8ae36775161b39965025ee58c2a10801dd"
+    },
+    "adaptive-001": {
+      "results.json": "3923a9ba18a6e84e7e6464f8aff9598b9e300347b7dee7c5018763aea74aece8",
+      "predictions.json": "ec73efe0a6b8b7cdf81313e0ae834c3e2e51067a92e146482150251fe23f7be1",
+      "folds.json": "7c448eed03040aea58e57ca04c1e54d537c97a49b7c1d8bd66e31ca37f4e7787",
+      "cohort.json": "586465590732c3de77c6685fedc5eb62ecccc74fbe35c7103a6e5a842866b045",
+      "intake.json": "0943b3fbe84391bfffb7cb1f06809e8ae36775161b39965025ee58c2a10801dd"
+    },
+    "adaptive-002": {
+      "results.json": "8235ffc664c189cbc235e14420652caea9d9748c023b32da6b90c565dcf13167",
+      "predictions.json": "ec73efe0a6b8b7cdf81313e0ae834c3e2e51067a92e146482150251fe23f7be1",
+      "folds.json": "cfb2529a06868e5e86112d42b7af24255adf60b7b9010f7061a920ab1a59c7a3",
+      "cohort.json": "586465590732c3de77c6685fedc5eb62ecccc74fbe35c7103a6e5a842866b045",
+      "intake.json": "0943b3fbe84391bfffb7cb1f06809e8ae36775161b39965025ee58c2a10801dd"
+    },
+    "adaptive-003": {
+      "results.json": "a330bc0544107b0dfd7cc439bb53314a14e0d5bf6712e4cc74eeaf51ad67e791",
+      "predictions.json": "ec73efe0a6b8b7cdf81313e0ae834c3e2e51067a92e146482150251fe23f7be1",
+      "folds.json": "ee01088ff44008c887b88424afa80b121cd8dc4f16bb58c443572c1cc5fbad6b",
+      "cohort.json": "586465590732c3de77c6685fedc5eb62ecccc74fbe35c7103a6e5a842866b045",
+      "intake.json": "0943b3fbe84391bfffb7cb1f06809e8ae36775161b39965025ee58c2a10801dd"
+    },
+    "adaptive-004": {
+      "results.json": "02d4d500880926d16f2fd04122ef807c5bac475174a9b58de83065f3ab2bc1b5",
+      "predictions.json": "ec73efe0a6b8b7cdf81313e0ae834c3e2e51067a92e146482150251fe23f7be1",
+      "folds.json": "9cc25ba1a70e5f45cbe69b2b76aea3e205aa6316c3f00dcadb8438c0d4d3ed81",
+      "cohort.json": "586465590732c3de77c6685fedc5eb62ecccc74fbe35c7103a6e5a842866b045",
+      "intake.json": "0943b3fbe84391bfffb7cb1f06809e8ae36775161b39965025ee58c2a10801dd"
+    }
+  },
+  "unchangedInputAndMethodGuardPassed": true,
+  "symlinkAwareAccessGuardPassed": true
+}

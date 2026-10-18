@@ -1,0 +1,74 @@
+{
+  "schema": "earthforge-field-geometry-engine-parity-v1",
+  "cases": [
+    {
+      "method": "plane",
+      "region": "35",
+      "heldParent": "35/11-1",
+      "modelSha256": "8decf66c832168728ccbe13d21824e4a0644a5876b40a9dc677739ed9c8ad367",
+      "horizonQueries": 100,
+      "pointQueries": 100,
+      "modules": [
+        {
+          "file": "earthforge_core.wasm",
+          "sha256": "f9ffb5cb3fc9866f2fb415ae7ec184e6a0a7dbe5788d88dfe924e6b8e39a1c33",
+          "contactDepthsExact": true,
+          "pointMaterialsExact": true
+        },
+        {
+          "file": "earthforge_core_simd.wasm",
+          "sha256": "852384c3bea3724f6fa7cea56924e4ab8367ae146c00136178197fb103905da9",
+          "contactDepthsExact": true,
+          "pointMaterialsExact": true
+        },
+        {
+          "file": "earthforge_core_deterministic.wasm",
+          "sha256": "afb43baff45a0e75f4618150f09b539c684f2ac1d1e0919433000a573cf6a5cc",
+          "contactDepthsExact": true,
+          "pointMaterialsExact": true
+        },
+        {
+          "file": "earthforge_core_deterministic_simd.wasm",
+          "sha256": "f0b497a2d93f0fd78dfe4dd4c7772da900882f3c8c6e31c88398f7cc572c7cf9",
+          "contactDepthsExact": true,
+          "pointMaterialsExact": true
+        }
+      ]
+    },
+    {
+      "method": "adaptive",
+      "region": "35",
+      "heldParent": "35/11-1",
+      "modelSha256": "a7bccabafb756ad5b92293f871677ab619f07a44aac1adae57871ffe5ce4f375",
+      "horizonQueries": 100,
+      "pointQueries": 100,
+      "modules": [
+        {
+          "file": "earthforge_core.wasm",
+          "sha256": "f9ffb5cb3fc9866f2fb415ae7ec184e6a0a7dbe5788d88dfe924e6b8e39a1c33",
+          "contactDepthsExact": true,
+          "pointMaterialsExact": true
+        },
+        {
+          "file": "earthforge_core_simd.wasm",
+          "sha256": "852384c3bea3724f6fa7cea56924e4ab8367ae146c00136178197fb103905da9",
+          "contactDepthsExact": true,
+          "pointMaterialsExact": true
+        },
+        {
+          "file": "earthforge_core_deterministic.wasm",
+          "sha256": "afb43baff45a0e75f4618150f09b539c684f2ac1d1e0919433000a573cf6a5cc",
+          "contactDepthsExact": true,
+          "pointMaterialsExact": true
+        },
+        {
+          "file": "earthforge_core_deterministic_simd.wasm",
+          "sha256": "f0b497a2d93f0fd78dfe4dd4c7772da900882f3c8c6e31c88398f7cc572c7cf9",
+          "contactDepthsExact": true,
+          "pointMaterialsExact": true
+        }
+      ]
+    }
+  ],
+  "scope": "Two fixed reconstructed field-contact stacks at a 5x5 XY grid; numerical consistency, not field accuracy or browser UI validation."
+}

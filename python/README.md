@@ -183,6 +183,25 @@ or real-data inversion success. Small effective sample size calls for better
 candidate coverage. All-zero likelihoods are reported explicitly. Surface-shot
 first-arrival conditioning and a general inverse solver are future work.
 
+## Reconstruct observed horizon geometry
+
+`Contact(well, parent, horizon, x, y, depth)` represents one interpreted contact
+in a common Cartesian metre frame, with depth positive down. Supply ordered
+horizon names, bounds and **training contacts only** to
+`fit_horizon_stack(contacts, horizons, bounds, method="plane")`. It returns a
+normal `History` and fitting audit. `predict_contacts(engine, history, targets,
+horizons)` queries the actual Rust geometry and explicitly reports absent or
+repeated contacts.
+
+Parent-balanced planes are the default. The experimental
+`select_horizon_stack` uses grouped inner validation to choose surface
+complexity. Its smooth trial did not clearly beat planes in the
+[real-well benchmark](../docs/field-geometry-validation.md). Keep outer test
+contacts out of this function; pass geographic groups when assessing regional
+extrapolation. Present-day surface reconstruction disables compaction and does
+not infer faults, material composition, physical deposition ages or burial.
+Velocities from generic reconstructed materials are not field calibrated.
+
 ## Paired seismic data
 
 ```python

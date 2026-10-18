@@ -1,0 +1,768 @@
+{
+  "access": {
+    "logArraysOpened": 0,
+    "sourceLogArchivesOpened": 0
+  },
+  "cohort": {
+    "contactPicksIncludingSeafloor": 276,
+    "parents": 68,
+    "regions": 5,
+    "wells": 69
+  },
+  "engineSha256": "930f3e07d04778475eaed8210f9724fab7a71bf8c80b9482999a14214713987d",
+  "intake": {
+    "exclusions": [
+      {
+        "reason": "outside-preselected-region",
+        "well": "15/9-13"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "15/9-14"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "15/9-15"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "15/9-17"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "15/9-23"
+      },
+      {
+        "reason": "invalid-pick-or-no-exact-official-match",
+        "well": "16/11-1 ST3"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "17/4-1"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "26/4-1"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "29/3-1"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "29/6-1"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "30/3-3"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "30/3-5 S"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "30/6-5"
+      },
+      {
+        "reason": "missing-or-ambiguous-group-top",
+        "well": "31/2-1"
+      },
+      {
+        "reason": "missing-or-ambiguous-group-top",
+        "well": "31/2-9"
+      },
+      {
+        "reason": "missing-or-ambiguous-group-top",
+        "well": "31/3-4"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "32/2-1"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "33/5-2"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "33/9-1"
+      },
+      {
+        "reason": "unsupported-depth-reference",
+        "well": "34/10-16 R"
+      },
+      {
+        "reason": "missing-or-ambiguous-group-top",
+        "well": "35/12-1"
+      },
+      {
+        "reason": "missing-or-ambiguous-group-top",
+        "well": "35/9-6 S"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "36/7-3"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "7/1-1"
+      },
+      {
+        "reason": "outside-preselected-region",
+        "well": "7/1-2 S"
+      }
+    ],
+    "holdoutTargetsExtracted": 0,
+    "holdoutWorkbookRowsSkippedBeforeCoordinateExtraction": 174,
+    "inputs": {
+      "groupsSha256": "f0be5f3061aa0e63b8692f71264635ccb7d52cb148b00beaf7a59cd495c49025",
+      "sodirSha256": "ddd2d949014bd0926bbb860ae5d6110a910b0c95f1ff7b74c7533c65d42e3db1",
+      "splitSha256": "7b1b17b24c837ca5506bd1b04e6a221573d832c7b6898d5a8bbadfdad0e3f080"
+    },
+    "parentsPerRegionBeforeMinimum": {
+      "16": 13,
+      "25": 17,
+      "31": 8,
+      "34": 16,
+      "35": 14
+    },
+    "regions": {
+      "16": {
+        "bounds": {
+          "max": {
+            "x": 37204.359999999986,
+            "y": 110619.43000000063,
+            "z": 10000.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sourceXYOrigin": [
+          442816.26,
+          6429295.31
+        ]
+      },
+      "25": {
+        "bounds": {
+          "max": {
+            "x": 43350.54000000004,
+            "y": 92055.3200000003,
+            "z": 10000.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sourceXYOrigin": [
+          452388.22,
+          6551904.72
+        ]
+      },
+      "31": {
+        "bounds": {
+          "max": {
+            "x": 33833.19,
+            "y": 39545.28000000026,
+            "z": 10000.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sourceXYOrigin": [
+          510279.31,
+          6713676.26
+        ]
+      },
+      "34": {
+        "bounds": {
+          "max": {
+            "x": 50470.5,
+            "y": 81678.4299999997,
+            "z": 10000.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sourceXYOrigin": [
+          449455.9,
+          6771845.38
+        ]
+      },
+      "35": {
+        "bounds": {
+          "max": {
+            "x": 34141.32000000001,
+            "y": 57174.61999999918,
+            "z": 10000.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "sourceXYOrigin": [
+          516074.46,
+          6765241.44
+        ]
+      }
+    }
+  },
+  "planSha256": "ccc6f3dc71c3296fb818f434bfcfcb4f4fcc10d9062e9e047faacf3c787074c4",
+  "results": {
+    "block/constant": {
+      "groups": {
+        "horizon": {
+          "HORDALAND GP. Top": {
+            "biasM": 7.145632516992748,
+            "coverage": 1.0,
+            "maeM": 155.9817752566061,
+            "missing": 0,
+            "parents": 68,
+            "penalizedMaeM": 155.9817752566061,
+            "predicted": 69,
+            "rmseM": 188.7777790764772,
+            "targets": 69
+          },
+          "ROGALAND GP. Top": {
+            "biasM": -4.957159535521665,
+            "coverage": 1.0,
+            "maeM": 224.3623576507234,
+            "missing": 0,
+            "parents": 68,
+            "penalizedMaeM": 224.3623576507234,
+            "predicted": 69,
+            "rmseM": 285.5044098511676,
+            "targets": 69
+          },
+          "SHETLAND GP. Top": {
+            "biasM": -4.745327959621928,
+            "coverage": 1.0,
+            "maeM": 234.08285309951475,
+            "missing": 0,
+            "parents": 68,
+            "penalizedMaeM": 234.08285309951475,
+            "predicted": 69,
+            "rmseM": 285.5952443286567,
+            "targets": 69
+          }
+        },
+        "insideTrainingHull": {
+          "False": {
+            "biasM": -0.7722751171549072,
+            "coverage": 1.0,
+            "maeM": 227.7684441064633,
+            "missing": 0,
+            "parents": 52,
+            "penalizedMaeM": 227.7684441064633,
+            "predicted": 156,
+            "rmseM": 278.5684373798873,
+            "targets": 156
+          },
+          "True": {
+            "biasM": -1.1123170882935902,
+            "coverage": 1.0,
+            "maeM": 130.19078683035707,
+            "missing": 0,
+            "parents": 16,
+            "penalizedMaeM": 130.19078683035707,
+            "predicted": 51,
+            "rmseM": 171.20437291059832,
+            "targets": 51
+          }
+        },
+        "region": {
+          "16": {
+            "biasM": 8.612752266252228,
+            "coverage": 1.0,
+            "maeM": 251.29738629888624,
+            "missing": 0,
+            "parents": 13,
+            "penalizedMaeM": 251.29738629888624,
+            "predicted": 39,
+            "rmseM": 294.7802719601547,
+            "targets": 39
+          },
+          "25": {
+            "biasM": 5.055585550887026,
+            "coverage": 1.0,
+            "maeM": 177.7551014239029,
+            "missing": 0,
+            "parents": 17,
+            "penalizedMaeM": 177.7551014239029,
+            "predicted": 51,
+            "rmseM": 214.7086471816654,
+            "targets": 51
+          },
+          "31": {
+            "biasM": 8.368253968253953,
+            "coverage": 1.0,
+            "maeM": 262.13218253968256,
+            "missing": 0,
+            "parents": 8,
+            "penalizedMaeM": 262.13218253968256,
+            "predicted": 24,
+            "rmseM": 313.25974667426976,
+            "targets": 24
+          },
+          "34": {
+            "biasM": 0.5350793650794445,
+            "coverage": 1.0,
+            "maeM": 142.8339381868131,
+            "missing": 0,
+            "parents": 16,
+            "penalizedMaeM": 142.8339381868131,
+            "predicted": 51,
+            "rmseM": 180.47919153868924,
+            "targets": 51
+          },
+          "35": {
+            "biasM": -23.669529637029523,
+            "coverage": 1.0,
+            "maeM": 232.56489038739028,
+            "missing": 0,
+            "parents": 14,
+            "penalizedMaeM": 232.56489038739028,
+            "predicted": 42,
+            "rmseM": 302.9191694150153,
+            "targets": 42
+          }
+        }
+      },
+      "overall": {
+        "biasM": -0.852284992716941,
+        "coverage": 1.0,
+        "maeM": 204.80899533561478,
+        "missing": 0,
+        "parents": 68,
+        "penalizedMaeM": 204.80899533561478,
+        "predicted": 207,
+        "rmseM": 257.3677404678993,
+        "targets": 207
+      }
+    },
+    "block/plane": {
+      "groups": {
+        "horizon": {
+          "HORDALAND GP. Top": {
+            "biasM": 34.529847773432266,
+            "coverage": 1.0,
+            "maeM": 119.1922026525691,
+            "missing": 0,
+            "parents": 68,
+            "penalizedMaeM": 119.1922026525691,
+            "predicted": 69,
+            "rmseM": 154.63569701130766,
+            "targets": 69
+          },
+          "ROGALAND GP. Top": {
+            "biasM": 10.254869185612227,
+            "coverage": 1.0,
+            "maeM": 94.27889700330425,
+            "missing": 0,
+            "parents": 68,
+            "penalizedMaeM": 94.27889700330425,
+            "predicted": 69,
+            "rmseM": 120.0992079748763,
+            "targets": 69
+          },
+          "SHETLAND GP. Top": {
+            "biasM": -7.123548241587039,
+            "coverage": 1.0,
+            "maeM": 121.37343969390018,
+            "missing": 0,
+            "parents": 68,
+            "penalizedMaeM": 121.37343969390018,
+            "predicted": 69,
+            "rmseM": 161.22871142639644,
+            "targets": 69
+          }
+        },
+        "insideTrainingHull": {
+          "False": {
+            "biasM": 16.7492512126428,
+            "coverage": 1.0,
+            "maeM": 124.89146146264981,
+            "missing": 0,
+            "parents": 52,
+            "penalizedMaeM": 124.89146146264981,
+            "predicted": 156,
+            "rmseM": 158.0549051624143,
+            "targets": 156
+          },
+          "True": {
+            "biasM": -1.081744091357712,
+            "coverage": 1.0,
+            "maeM": 68.46584765856727,
+            "missing": 0,
+            "parents": 16,
+            "penalizedMaeM": 68.46584765856727,
+            "predicted": 51,
+            "rmseM": 99.72854911282849,
+            "targets": 51
+          }
+        },
+        "region": {
+          "16": {
+            "biasM": -31.073733994790032,
+            "coverage": 1.0,
+            "maeM": 101.46451249102103,
+            "missing": 0,
+            "parents": 13,
+            "penalizedMaeM": 101.46451249102103,
+            "predicted": 39,
+            "rmseM": 117.0979898095206,
+            "targets": 39
+          },
+          "25": {
+            "biasM": -1.1195145500827774,
+            "coverage": 1.0,
+            "maeM": 139.43486290573694,
+            "missing": 0,
+            "parents": 17,
+            "penalizedMaeM": 139.43486290573694,
+            "predicted": 51,
+            "rmseM": 179.02908787341588,
+            "targets": 51
+          },
+          "31": {
+            "biasM": -21.14360611660041,
+            "coverage": 1.0,
+            "maeM": 79.82066871520702,
+            "missing": 0,
+            "parents": 8,
+            "penalizedMaeM": 79.82066871520702,
+            "predicted": 24,
+            "rmseM": 105.75147544757907,
+            "targets": 24
+          },
+          "34": {
+            "biasM": 0.9371703209524025,
+            "coverage": 1.0,
+            "maeM": 79.20347258565626,
+            "missing": 0,
+            "parents": 16,
+            "penalizedMaeM": 79.20347258565626,
+            "predicted": 51,
+            "rmseM": 105.09535316427304,
+            "targets": 51
+          },
+          "35": {
+            "biasM": 102.19982647692461,
+            "coverage": 1.0,
+            "maeM": 142.46837969442208,
+            "missing": 0,
+            "parents": 14,
+            "penalizedMaeM": 142.46837969442208,
+            "predicted": 42,
+            "rmseM": 183.00002203881863,
+            "targets": 42
+          }
+        }
+      },
+      "overall": {
+        "biasM": 12.553722905819154,
+        "coverage": 1.0,
+        "maeM": 111.61484644992451,
+        "missing": 0,
+        "parents": 68,
+        "penalizedMaeM": 111.61484644992451,
+        "predicted": 207,
+        "rmseM": 146.43623860982606,
+        "targets": 207
+      }
+    },
+    "parent/constant": {
+      "groups": {
+        "horizon": {
+          "HORDALAND GP. Top": {
+            "biasM": -7.189020620631602e-14,
+            "coverage": 1.0,
+            "maeM": 143.19480025856495,
+            "missing": 0,
+            "parents": 68,
+            "penalizedMaeM": 143.19480025856495,
+            "predicted": 69,
+            "rmseM": 176.6361533132851,
+            "targets": 69
+          },
+          "ROGALAND GP. Top": {
+            "biasM": 2.0062383127344007e-14,
+            "coverage": 1.0,
+            "maeM": 195.8685794009912,
+            "missing": 0,
+            "parents": 68,
+            "penalizedMaeM": 195.8685794009912,
+            "predicted": 69,
+            "rmseM": 251.70362419015063,
+            "targets": 69
+          },
+          "SHETLAND GP. Top": {
+            "biasM": 6.018714938203202e-14,
+            "coverage": 1.0,
+            "maeM": 204.92512767991812,
+            "missing": 0,
+            "parents": 68,
+            "penalizedMaeM": 204.92512767991812,
+            "predicted": 69,
+            "rmseM": 254.46684509136804,
+            "targets": 69
+          }
+        },
+        "insideTrainingHull": {
+          "False": {
+            "biasM": -37.03695669685257,
+            "coverage": 1.0,
+            "maeM": 203.46754404083578,
+            "missing": 0,
+            "parents": 36,
+            "penalizedMaeM": 203.46754404083578,
+            "predicted": 108,
+            "rmseM": 253.5220621258146,
+            "targets": 108
+          },
+          "True": {
+            "biasM": 41.666576283959145,
+            "coverage": 1.0,
+            "maeM": 156.42420565285403,
+            "missing": 0,
+            "parents": 32,
+            "penalizedMaeM": 156.42420565285403,
+            "predicted": 99,
+            "rmseM": 201.33516564143554,
+            "targets": 99
+          }
+        },
+        "region": {
+          "16": {
+            "biasM": -1.1587312306241633e-13,
+            "coverage": 1.0,
+            "maeM": 212.58829059829065,
+            "missing": 0,
+            "parents": 13,
+            "penalizedMaeM": 212.58829059829065,
+            "predicted": 39,
+            "rmseM": 251.56033292050256,
+            "targets": 39
+          },
+          "25": {
+            "biasM": -4.179663151530001e-15,
+            "coverage": 1.0,
+            "maeM": 172.52149509803917,
+            "missing": 0,
+            "parents": 17,
+            "penalizedMaeM": 172.52149509803917,
+            "predicted": 51,
+            "rmseM": 204.72523349970908,
+            "targets": 51
+          },
+          "31": {
+            "biasM": -7.105427357601002e-15,
+            "coverage": 1.0,
+            "maeM": 232.95964285714297,
+            "missing": 0,
+            "parents": 8,
+            "penalizedMaeM": 232.95964285714297,
+            "predicted": 24,
+            "rmseM": 291.0625657990459,
+            "targets": 24
+          },
+          "34": {
+            "biasM": 8.881784197001252e-15,
+            "coverage": 1.0,
+            "maeM": 132.12711111111105,
+            "missing": 0,
+            "parents": 16,
+            "penalizedMaeM": 132.12711111111105,
+            "predicted": 51,
+            "rmseM": 167.6607565187645,
+            "targets": 51
+          },
+          "35": {
+            "biasM": 1.096265935172726e-13,
+            "coverage": 1.0,
+            "maeM": 189.72728937728942,
+            "missing": 0,
+            "parents": 14,
+            "penalizedMaeM": 189.72728937728942,
+            "predicted": 42,
+            "rmseM": 260.2614728750999,
+            "targets": 42
+          }
+        }
+      },
+      "overall": {
+        "biasM": 2.507797890918001e-15,
+        "coverage": 1.0,
+        "maeM": 181.3295024464914,
+        "missing": 0,
+        "parents": 68,
+        "penalizedMaeM": 181.3295024464914,
+        "predicted": 207,
+        "rmseM": 230.44046254837366,
+        "targets": 207
+      }
+    },
+    "parent/plane": {
+      "groups": {
+        "horizon": {
+          "HORDALAND GP. Top": {
+            "biasM": 2.9835465803867844,
+            "coverage": 1.0,
+            "maeM": 78.81890143500704,
+            "missing": 0,
+            "parents": 68,
+            "penalizedMaeM": 78.81890143500704,
+            "predicted": 69,
+            "rmseM": 110.60722733729283,
+            "targets": 69
+          },
+          "ROGALAND GP. Top": {
+            "biasM": 2.3693171514647116,
+            "coverage": 1.0,
+            "maeM": 74.72610002056388,
+            "missing": 0,
+            "parents": 68,
+            "penalizedMaeM": 74.72610002056388,
+            "predicted": 69,
+            "rmseM": 96.57866300447117,
+            "targets": 69
+          },
+          "SHETLAND GP. Top": {
+            "biasM": -0.5082380928782868,
+            "coverage": 1.0,
+            "maeM": 96.12412899813062,
+            "missing": 0,
+            "parents": 68,
+            "penalizedMaeM": 96.12412899813062,
+            "predicted": 69,
+            "rmseM": 128.7386771884208,
+            "targets": 69
+          }
+        },
+        "insideTrainingHull": {
+          "False": {
+            "biasM": -7.947613175571616,
+            "coverage": 1.0,
+            "maeM": 87.80970382383937,
+            "missing": 0,
+            "parents": 36,
+            "penalizedMaeM": 87.80970382383937,
+            "predicted": 108,
+            "rmseM": 117.16013858285964,
+            "targets": 108
+          },
+          "True": {
+            "biasM": 12.372674650124093,
+            "coverage": 1.0,
+            "maeM": 78.06305060288597,
+            "missing": 0,
+            "parents": 32,
+            "penalizedMaeM": 78.06305060288597,
+            "predicted": 99,
+            "rmseM": 107.56399222982044,
+            "targets": 99
+          }
+        },
+        "region": {
+          "16": {
+            "biasM": -2.1545185235457884,
+            "coverage": 1.0,
+            "maeM": 65.16239982671506,
+            "missing": 0,
+            "parents": 13,
+            "penalizedMaeM": 65.16239982671506,
+            "predicted": 39,
+            "rmseM": 77.5723321898718,
+            "targets": 39
+          },
+          "25": {
+            "biasM": -1.5294706201157777,
+            "coverage": 1.0,
+            "maeM": 118.78955111210375,
+            "missing": 0,
+            "parents": 17,
+            "penalizedMaeM": 118.78955111210375,
+            "predicted": 51,
+            "rmseM": 154.86703123220315,
+            "targets": 51
+          },
+          "31": {
+            "biasM": -2.2953638873888593,
+            "coverage": 1.0,
+            "maeM": 62.684479298869476,
+            "missing": 0,
+            "parents": 8,
+            "penalizedMaeM": 62.684479298869476,
+            "predicted": 24,
+            "rmseM": 81.35826481606378,
+            "targets": 24
+          },
+          "34": {
+            "biasM": 4.6403078834633344,
+            "coverage": 1.0,
+            "maeM": 75.44752020133612,
+            "missing": 0,
+            "parents": 16,
+            "penalizedMaeM": 75.44752020133612,
+            "predicted": 51,
+            "rmseM": 106.54220671683304,
+            "targets": 51
+          },
+          "35": {
+            "biasM": 7.709945771082411,
+            "coverage": 1.0,
+            "maeM": 77.42837376322677,
+            "missing": 0,
+            "parents": 14,
+            "penalizedMaeM": 77.42837376322677,
+            "predicted": 42,
+            "rmseM": 101.37254440662016,
+            "targets": 42
+          }
+        }
+      },
+      "overall": {
+        "biasM": 1.614875212991069,
+        "coverage": 1.0,
+        "maeM": 83.2230434845672,
+        "missing": 0,
+        "parents": 68,
+        "penalizedMaeM": 83.2230434845672,
+        "predicted": 207,
+        "rmseM": 112.74609215873694,
+        "targets": 207
+      }
+    }
+  },
+  "schema": "earthforge-field-geometry-results-v1",
+  "scope": [
+    "Correlated interpreted formation tops are not untouched field truth",
+    "No mapped seismic horizon patches or independent fault surface traces are supplied here",
+    "This tests reconstructed 3D contact depths at real well locations; it does not validate full fault geometry, topology, kinematic history, rock physics or calibrated geological uncertainty",
+    "The original 24 FORCE holdout wells remain reserved"
+  ],
+  "sourceFiles": {
+    "python/src/earthforge/horizons.py": "ba41ded255c1b8a1debce121392711fc7a57e10e5695df58761b0d43cc1a0595",
+    "validation/field-geometry/run.py": "54c128e84a1a4d3b8e513b16fe9eab11f78b5a5ccc147ed38c72f81003809820"
+  },
+  "timing": {
+    "foldRuns": 206,
+    "maxFoldSeconds": 0.012001458002487198,
+    "medianFoldSeconds": 0.005360333496355452,
+    "scope": "Observed sequential orchestration, fit, native process, serialization and history-file output. Not controlled repeated throughput.",
+    "wallSecondsSum": 1.10465395936626
+  }
+}

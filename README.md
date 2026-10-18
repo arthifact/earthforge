@@ -67,6 +67,15 @@ matching and stronger empirical controls, and preserves the reserved holdout.
 Its approximately 309 m/s MAE is a conditional velocity-law result, not
 validation of generated 3D geology or SOTA superiority.
 
+[The first real horizon-contact benchmark](docs/field-geometry-validation.md)
+now covers 207 interpreted group tops at 69 development wells in five regions.
+Training-only tilted-surface reconstruction gives 83 m well-excluded and 112 m
+geographic-block-excluded depth MAE, with every target predicted. A nested smooth
+fit did not clearly improve that result, so tilted planes remain the research
+fitter's default. Python fits geometry; the existing Rust core evaluates the
+same source model for native and browser use. Mapped seismic horizon patches,
+independent fault surfaces and physical history remain unvalidated.
+
 ## Rust migration (2026-10-17)
 
 The browser simulation worker now runs `earthforge-core` in WebAssembly.

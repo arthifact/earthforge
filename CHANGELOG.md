@@ -2,6 +2,13 @@
 
 ## Unreleased research
 
+- Real 3D group-top contact benchmark: whole-well and geographic-block exclusion,
+  frozen plans, native contact predictions, extrapolation diagnostics and exact repeat.
+- Python contact-to-history reconstruction with parent-balanced planes and an
+  explicit experimental nested smooth fitter, using existing Rust spatial fields.
+  Default fitting remains planar after the smooth trial failed to show a clear gain.
+- Native/four-Wasm field-model consistency and scoped time/memory measurements;
+  independent fault-surface and mapped-seismic-horizon validation remain open.
 - Current-Rust FORCE development diagnostics with matched observed support,
   parent/region-excluded empirical controls, source/access audits and scoped results.
 
