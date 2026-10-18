@@ -34,6 +34,13 @@ def save_json(path, value):
     path.write_text(json.dumps(value, indent=2, allow_nan=False)+"\n")
 
 
+def verify_snapshot(path, declared_hash, frozen_hash):
+    actual = sha256(path)
+    if actual != frozen_hash or declared_hash != frozen_hash:
+        raise ValueError("Official metadata differs from the frozen intake snapshot")
+    return actual
+
+
 def install_log_guard(development_root):
     """Process-wide protection, also covering hashing and symlinked paths."""
     development_root = development_root.resolve()
@@ -108,11 +115,10 @@ def support_segments(arrays, water, row, plan, quality):
 
 def load_cohorts(data, downloads, qc, split):
     intake = json.loads((data/"audit.json").read_text())
+    expected = json.loads((ROOT/"validation/force2020/intake-summary.json").read_text())
     if intake["split_sha256"] != sha256(ROOT/"validation/force2020/split.json"):
         raise ValueError("Prepared data differs from the frozen split")
-    if sha256(data/"sodir-exploration.csv") != intake["sodir"]["sha256"]:
-        raise ValueError("Changed official metadata snapshot")
-    expected = json.loads((ROOT/"validation/force2020/intake-summary.json").read_text())
+    verify_snapshot(data/"sodir-exploration.csv", intake["sodir"]["sha256"], expected["sodir"]["sha256"])
     if intake["archive"]["sha256"] != expected["archive"]["sha256"]:
         raise ValueError("Unexpected source archive")
     books, book_hashes = read_books(downloads)

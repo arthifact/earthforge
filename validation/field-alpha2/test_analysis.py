@@ -1,4 +1,5 @@
 import copy
+import hashlib
 from pathlib import Path
 import subprocess
 import sys
@@ -8,7 +9,7 @@ import unittest
 import numpy as np
 
 from analysis import baseline_cv, harmonic, paired_difference, quadrature
-from run import aggregate, physics_input, support_segments
+from run import aggregate, physics_input, support_segments, verify_snapshot
 
 
 class FieldAnalysisTests(unittest.TestCase):
@@ -115,6 +116,18 @@ assert access=={'ok.npz'}
             result = subprocess.run([sys.executable, "-c", script, str(root)], cwd=Path(__file__).parent,
                                     capture_output=True, text=True)
             self.assertEqual(result.returncode, 0, result.stderr)
+
+    def test_updated_metadata_and_updated_local_audit_cannot_replace_frozen_snapshot(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory)/"metadata.csv"
+            path.write_bytes(b"frozen public-metadata fixture")
+            frozen = hashlib.sha256(path.read_bytes()).hexdigest()
+            self.assertEqual(verify_snapshot(path, frozen, frozen), frozen)
+            path.write_bytes(b"newer public-metadata fixture")
+            updated = hashlib.sha256(path.read_bytes()).hexdigest()
+            for declared in (frozen, updated):
+                with self.assertRaisesRegex(ValueError, "frozen intake"):
+                    verify_snapshot(path, declared, frozen)
 
 
 if __name__ == "__main__":
