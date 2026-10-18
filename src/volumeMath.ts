@@ -4,7 +4,7 @@ export type Axis=0|1|2;
 export interface VolumeGrid {nx:number;ny:number;nz:number;dx:number;dy:number;dz:number;origin:{x:number;y:number;z:number}}
 export interface DisplayVolume {grid:VolumeGrid;velocity:Float32Array;beds:Int32Array;lithology:Float32Array;surface:Float32Array;basement:Float32Array}
 export interface ViewState {azimuth:number;elevation:number;zoom:number;mode:'block'|'cutaway'|'sections';colour:'lithology'|'velocity'|'beds';clipX:number;clipY:number;peel:number;sections:V3;water:boolean;exaggeration:number}
-export const DEFAULT_VIEW:ViewState={azimuth:40,elevation:29,zoom:1,mode:'block',colour:'lithology',clipX:1,clipY:1,peel:0,sections:[.55,.48,.48],water:false,exaggeration:1};
+export const DEFAULT_VIEW:ViewState={azimuth:40,elevation:29,zoom:1.4,mode:'block',colour:'lithology',clipX:1,clipY:1,peel:0,sections:[.55,.48,.48],water:false,exaggeration:1};
 export const add=(a:V3,b:V3):V3=>[a[0]+b[0],a[1]+b[1],a[2]+b[2]];
 export const mul=(a:V3,s:number):V3=>[a[0]*s,a[1]*s,a[2]*s];
 export const dot=(a:V3,b:V3)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];

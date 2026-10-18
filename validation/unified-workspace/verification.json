@@ -1,0 +1,90 @@
+{
+  "schema": "earthforge-unified-workspace-verification-v1",
+  "createdAt": "2026-10-18T04:33:22.236Z",
+  "runtime": "v24.18.0",
+  "cases": [
+    {
+      "scenario": "rift-v1",
+      "stage": 0,
+      "exactFieldComparisons": 1917,
+      "nativeWasmPlanesExact": true,
+      "grainChecks": 0,
+      "elapsedMs": 410.26824999999997,
+      "modelSha256": "2f3098f28bf5b951f1f559d4a408be8c5497058eded7ea66af9723b545ecea97"
+    },
+    {
+      "scenario": "rift-v1",
+      "stage": 6,
+      "exactFieldComparisons": 1917,
+      "nativeWasmPlanesExact": true,
+      "grainChecks": 4332,
+      "elapsedMs": 59.013125,
+      "modelSha256": "2f3098f28bf5b951f1f559d4a408be8c5497058eded7ea66af9723b545ecea97"
+    },
+    {
+      "scenario": "rift-v1",
+      "stage": 12,
+      "exactFieldComparisons": 1917,
+      "nativeWasmPlanesExact": true,
+      "grainChecks": 12610,
+      "elapsedMs": 168.77949999999998,
+      "modelSha256": "2f3098f28bf5b951f1f559d4a408be8c5497058eded7ea66af9723b545ecea97"
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "stage": 0,
+      "exactFieldComparisons": 1917,
+      "nativeWasmPlanesExact": true,
+      "grainChecks": 0,
+      "elapsedMs": 8.022542000000044,
+      "modelSha256": "9c01a3fff0a4dc6b4d921c5d4021c98c205748e69c9293c09c1b820970033781"
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "stage": 6,
+      "exactFieldComparisons": 1917,
+      "nativeWasmPlanesExact": true,
+      "grainChecks": 4167,
+      "elapsedMs": 37.58320800000001,
+      "modelSha256": "9c01a3fff0a4dc6b4d921c5d4021c98c205748e69c9293c09c1b820970033781"
+    },
+    {
+      "scenario": "reverse-fault-v1",
+      "stage": 12,
+      "exactFieldComparisons": 1917,
+      "nativeWasmPlanesExact": true,
+      "grainChecks": 9945,
+      "elapsedMs": 126.049666,
+      "modelSha256": "9c01a3fff0a4dc6b4d921c5d4021c98c205748e69c9293c09c1b820970033781"
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "stage": 0,
+      "exactFieldComparisons": 1917,
+      "nativeWasmPlanesExact": true,
+      "grainChecks": 0,
+      "elapsedMs": 7.662583000000041,
+      "modelSha256": "714886d56fa1383f6b76b8d3a08b1ffa049920d8601ef8a4129039fe8e26ccb0"
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "stage": 6,
+      "exactFieldComparisons": 1917,
+      "nativeWasmPlanesExact": true,
+      "grainChecks": 4424,
+      "elapsedMs": 39.41479199999992,
+      "modelSha256": "714886d56fa1383f6b76b8d3a08b1ffa049920d8601ef8a4129039fe8e26ccb0"
+    },
+    {
+      "scenario": "erosion-reburial-v1",
+      "stage": 12,
+      "exactFieldComparisons": 1917,
+      "nativeWasmPlanesExact": true,
+      "grainChecks": 12762,
+      "elapsedMs": 158.95766700000001,
+      "modelSha256": "714886d56fa1383f6b76b8d3a08b1ffa049920d8601ef8a4129039fe8e26ccb0"
+    }
+  ],
+  "totalExactFieldComparisons": 17253,
+  "scope": "Synthetic identity verification: all three plane orientations use the exported 3D source model and same stage, match intersecting block nodes exactly, and match the portable browser engine. No material laws or tolerances changed. Browser display encodes f32; physical comparisons here use engine f64. This does not establish independent field validity or arbitrary voxel resolution."
+}

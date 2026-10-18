@@ -14,6 +14,6 @@ export interface History3dRequest {kind?:'block';id:number;options:History3dOpti
 export interface BlockQuery {sectionsY:number[];grid:VolumeGrid;includeMaterial:true}
 export function blockQuery(detail:Detail,depth=3000):BlockQuery {const n=detail==='detail'?65:detail==='standard'?49:33,nz=detail==='detail'?481:detail==='standard'?241:161;return{sectionsY:[],includeMaterial:true,grid:{nx:n,ny:n,nz,dx:10000/(n-1),dy:10000/(n-1),dz:depth/(nz-1),origin:{x:0,y:0,z:0}}};}
 export interface PreciseSection {axis:'x'|'y'|'z';position:number;nu:number;nv:number;velocity:Float32Array;beds:Int32Array;lithology:Float32Array;zMax:number}
-export interface RefineRequest {kind:'plane';id:number;model:unknown;stage:number;axis:'x'|'y'|'z';position:number;depth:number}
+export interface RefineRequest {kind:'plane';id:number;model:unknown;stage:number;axis:'x'|'y'|'z';position:number;depth:number;spacing?:10|20}
 export type ViewerRequest=History3dRequest|RefineRequest;
 export type History3dReply={kind:'block';id:number;ok:true;result:History3dResult;query:BlockQuery;elapsedMs:number;packingMs:number;displaySha256:string;cached:boolean;evaluations:number;cacheBytes:number}|{kind:'plane';id:number;ok:true;plane:PreciseSection;elapsedMs:number;cached:boolean;query:unknown}|{id:number;ok:false;message:string};

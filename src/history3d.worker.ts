@@ -12,8 +12,8 @@ self.onmessage=async(event:MessageEvent<ViewerRequest>)=>{
  const r=event.data;
  if(r.kind==='plane'){
   try{
-   const key=JSON.stringify([r.model,r.stage,r.axis,r.position,r.depth]);let value=lastPlane;const cached=value?.key===key;
-   if(!cached){const query={sectionsY:[],stage:r.stage,zMax:r.depth,planes:[{axis:r.axis,position:r.position,nu:r.axis==='z'?65:501,nv:r.axis==='z'?65:Math.ceil(r.depth/10)+1}]};const start=performance.now();const raw=await rustRequest<{planes:PreciseSection[]}>({kind:'history3d',model:r.model,query});const p=raw.planes[0];value={key,query,elapsedMs:performance.now()-start,plane:{...p,velocity:new Float32Array(p.velocity),beds:new Int32Array(p.beds),lithology:new Float32Array(p.lithology)}};lastPlane=value;}
+   const key=JSON.stringify([r.model,r.stage,r.axis,r.position,r.depth,r.spacing??20]);let value=lastPlane;const cached=value?.key===key;
+   if(!cached){const query={sectionsY:[],stage:r.stage,zMax:r.depth,planes:[{axis:r.axis,position:r.position,nu:r.axis==='z'?(r.spacing===10?129:65):(r.spacing===10?1001:501),nv:r.axis==='z'?65:Math.ceil(r.depth/10)+1}]};const start=performance.now();const raw=await rustRequest<{planes:PreciseSection[]}>({kind:'history3d',model:r.model,query});const p=raw.planes[0];value={key,query,elapsedMs:performance.now()-start,plane:{...p,velocity:new Float32Array(p.velocity),beds:new Int32Array(p.beds),lithology:new Float32Array(p.lithology)}};lastPlane=value;}
    const p=value!.plane,plane={...p,velocity:p.velocity.slice(),beds:p.beds.slice(),lithology:p.lithology.slice()};post({id:r.id,kind:'plane',ok:true,plane,elapsedMs:value!.elapsedMs,cached,query:value!.query},[plane.velocity,plane.beds,plane.lithology].map(a=>a.buffer as ArrayBuffer));
   }catch(error){post({id:r.id,ok:false,message:(error as Error).message});}return;
  }

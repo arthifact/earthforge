@@ -16,7 +16,7 @@ const output = resolve(values.out);
 if (existsSync(output)) throw new Error('Choose a new output folder; existing releases are never overwritten.');
 const dist = resolve(values.dist ?? join(root, 'dist'));
 const wasmNames = ['earthforge_core.wasm', 'earthforge_core_simd.wasm', 'earthforge_core_deterministic.wasm', 'earthforge_core_deterministic_simd.wasm'];
-const appFiles = ['index.html', '3d.html', ...wasmNames.map(name => `rust/${name}`)];
+const appFiles = ['index.html', '3d.html', 'classic.html', ...wasmNames.map(name => `rust/${name}`)];
 for (const name of readdirSync(join(dist, 'assets')).sort()) {
   if (!/\.(?:js|css)$/.test(name)) throw new Error(`Review the new asset type before packaging: ${name}`);
   appFiles.push(`assets/${name}`);
@@ -64,7 +64,7 @@ for (const entry of entries) {
 }
 writeFileSync(join(output, 'notices/dependencies.json'), `${JSON.stringify(dependencies, null, 2)}\n`);
 writeFileSync(join(output, '.nojekyll'), '');
-writeFileSync(join(output, 'README.txt'), `Earth Forge ${version}\n\nServe this folder as static files over HTTPS. index.html opens the 2D app; 3d.html opens the 3D viewer. The browser runs the simulation locally using WebAssembly.\n\nThis alpha uses prescribed geological history and is not independently field validated.\n\nProject license: ${license ? `${projectLicense ?? 'see license text'}, included in ${license}` : 'awaiting owner selection; this preview does not assign a license'}. Third-party notices are in notices/.\n`);
+writeFileSync(join(output, 'README.txt'), `Earth Forge ${version}\n\nServe this folder as static files over HTTPS. index.html opens a 2D section of the shared 3D basin; 3d.html opens the same workspace in 3D. classic.html retains the historical 2D reference. The browser runs the simulation locally using WebAssembly.\n\nThis alpha uses prescribed geological history and is not independently field validated.\n\nProject license: ${license ? `${projectLicense ?? 'see license text'}, included in ${license}` : 'awaiting owner selection; this preview does not assign a license'}. Third-party notices are in notices/.\n`);
 const files = {};
 function hashFolder(folder) {
   for (const name of readdirSync(folder).sort()) {

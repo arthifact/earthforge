@@ -59,13 +59,21 @@ previews opt into host scalar primitives. The loader falls back within the
 selected profile when SIMD cannot be fetched or compiled. The original
 TypeScript simulator remains a reference for migration comparisons.
 
-The original basin-history generator produces **2D sections**. A new integrated
-**3D basin** mode adds deposition, differential subsidence, oblique fault
+The main workspace now uses **one 3D geological history** for both views.
+`index.html` starts with a movable 2D section; `3d.html` opens the same workspace
+in 3D. The view buttons switch in place, preserving the seed, stage and model.
+The model stays visible while the settings panel scrolls. The original 2D
+history generator is retained at `classic.html` as a research reference.
+
+The 3D basin supports deposition, differential subsidence, oblique fault
 transport, erosion/reburial, vertical compaction and spatial burial/loading
-memory. Open `3d.html` or the **3D basin** link in the app. The viewer now renders
-the full sampled block, with rotation, clipping, a corner cutaway and movable
-orthogonal planes. The detailed recipe adds growth strata and migrating facies;
-see the block-viewer measurements below. The core uses explicit
+memory. Rotation, clipping, cutaways and orthogonal sections use the full
+sampled block. Refined 2D sections query the same continuous model at the exact
+plane position, with 20 × 10 m or 10 × 10 m display sampling. WebGL2 reuses that
+refined plane in 3D; the full volume stays at its selected display resolution.
+The detailed recipe adds growth strata and migrating facies. See the
+[shared-workspace design and verification](docs/unified-workspace.md) and the
+block-viewer measurements below. The core uses explicit
 world-space x/y/z coordinates and independent grid spacings. The earlier
 continuous-geometry prototypes remain available:
 

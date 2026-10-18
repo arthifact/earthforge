@@ -1,4 +1,5 @@
-import {type DisplayVolume,type ViewState,type V3,camera,rayForPixel,traceVolume,colourAt,project,boxes} from './volumeMath';
+import type {SectionData} from './workspaceSection';
+import {type DisplayVolume,type ViewState,type V3,type Axis,camera,rayForPixel,traceVolume,colourAt,project,boxes} from './volumeMath';
 const vertex=`#version 300 es
 in vec2 position;
 out vec2 uv;
@@ -10,6 +11,11 @@ in vec2 uv;
 out vec4 outputColour;
 uniform sampler3D material;
 uniform sampler3D velocity;
+uniform sampler2D sectionMaterial;
+uniform sampler2D sectionVelocity;
+uniform bool hasSection;
+uniform int sectionAxis;
+uniform float sectionAt;
 uniform highp sampler2D surface;
 uniform float depthMetres;
 uniform vec3 size;
@@ -28,7 +34,10 @@ uniform bool water;
 vec3 origin(){return vec3(eye.xy+.5,.5-eye.z/depthScale);}
 vec3 direction(){vec2 q=uv*2.-1.;vec3 d=normalize(forward+.38*(q.x*viewport.x/viewport.y*right+q.y*up));return vec3(d.xy,-d.z/depthScale);}
 ivec3 cell(vec3 p){return ivec3(floor(clamp(p,0.,1.)*(size-1.)+.5));}
-vec4 mat(vec3 p){return texelFetch(material,cell(p),0);}
+bool onSection(vec3 p){return hasSection&&abs(p[sectionAxis]-sectionAt)<.00002;}
+ivec2 planeCell(vec3 p){vec2 uv=sectionAxis==0?p.yz:sectionAxis==1?p.xz:p.xy;return ivec2(floor(clamp(uv,0.,1.)*(vec2(textureSize(sectionMaterial,0))-1.)+.5));}
+vec4 mat(vec3 p){return onSection(p)?texelFetch(sectionMaterial,planeCell(p),0):texelFetch(material,cell(p),0);}
+float speed(vec3 p){return onSection(p)?texelFetch(sectionVelocity,planeCell(p),0).r:texelFetch(velocity,cell(p),0).r;}
 int bed(vec4 m){return int(round(m.g*255.))+256*int(round(m.b*255.));}
 vec4 intersectBox(vec3 o,vec3 d,vec3 lo,vec3 hi){
  float near=0.,far=1e20;int axis=0;
@@ -54,7 +63,7 @@ void main(){
  vec3 p=o+d*hit.x;vec4 m=mat(p);int id=bed(m);vec3 c;
  if(id==0)c=vec3(.77,.84,.88);
  else if(id==1)c=vec3(.43,.45,.42);
- else if(colour==1){float t=clamp((texelFetch(velocity,cell(p),0).r-1500.)/4100.,0.,1.);c=vec3(34.+188.*t,70.+125.*t,109.-31.*t)/255.;}
+ else if(colour==1){float t=clamp((speed(p)-1500.)/4100.,0.,1.);c=vec3(34.+188.*t,70.+125.*t,109.-31.*t)/255.;}
  else if(m.a>.5)c=vec3(.70,.59,.75);
  else{float f=m.r;c=vec3(116.+96.*f,137.+44.*f,155.-36.*f)/255.;if(colour==2)c*=.86+float(((id-2)*37)%17)/60.;}
  vec3 n=normalize(vec3(hit.yz,-hit.w/depthScale));
@@ -68,10 +77,11 @@ void main(){
  float light=.74+.26*max(0.,dot(n,normalize(vec3(.4,-.5,1.))));
  outputColour=vec4(c*light,1.);
 }`;
+function materialBytes(v:Pick<DisplayVolume,'beds'|'lithology'>){const material=new Uint8Array(v.beds.length*4);for(let i=0;i<v.beds.length;i++){const b=v.beds[i]===-1?0:v.beds[i]===-2?1:v.beds[i]+2;material[i*4]=Math.round(Math.max(0,v.lithology[i])*255);material[i*4+1]=b&255;material[i*4+2]=b>>8;material[i*4+3]=v.lithology[i]===-3?255:0;}return material;}
 interface TimerExtension {TIME_ELAPSED_EXT:number;GPU_DISJOINT_EXT:number}
 export class VolumeRenderer {
  readonly canvas:HTMLCanvasElement;readonly overlay:HTMLCanvasElement;
- volume?:DisplayVolume;kind='WebGL2';drawCount=0;lastSubmitMs=0;uploadMs=0;textureBytes=0;gpuSamples:number[]=[];
+ volume?:DisplayVolume;section?:SectionData;sectionAxis:Axis=1;kind='WebGL2';drawCount=0;lastSubmitMs=0;uploadMs=0;textureBytes=0;gpuSamples:number[]=[];
  private gl?:WebGL2RenderingContext;private program?:WebGLProgram;private textures:WebGLTexture[]=[];private locations=new Map<string,WebGLUniformLocation|null>();private timer?:TimerExtension;private queries:WebGLQuery[]=[];measureGPU=false;private failed=false;
  constructor(readonly container:HTMLElement,forceSoftware=false){
   this.canvas=document.createElement('canvas');this.canvas.id='scene';this.canvas.setAttribute('role','img');this.canvas.setAttribute('aria-label','Three-dimensional geological block');this.canvas.tabIndex=0;
@@ -88,17 +98,25 @@ export class VolumeRenderer {
  private location(name:string){if(!this.locations.has(name))this.locations.set(name,this.gl!.getUniformLocation(this.program!,name));return this.locations.get(name)!;}
  setVolume(v:DisplayVolume){this.volume=v;const start=performance.now();this.textureBytes=v.beds.length*8+v.surface.byteLength;
   if(this.gl){const gl=this.gl;if(Math.max(v.grid.nx,v.grid.ny,v.grid.nz)>gl.getParameter(gl.MAX_3D_TEXTURE_SIZE))throw Error('This display grid exceeds the graphics limit. Select Quick view detail.');for(const t of this.textures)gl.deleteTexture(t);this.textures=[];
-   const material=new Uint8Array(v.beds.length*4);for(let i=0;i<v.beds.length;i++){const b=v.beds[i]===-1?0:v.beds[i]===-2?1:v.beds[i]+2;material[i*4]=Math.round(Math.max(0,v.lithology[i])*255);material[i*4+1]=b&255;material[i*4+2]=b>>8;material[i*4+3]=v.lithology[i]===-3?255:0;}
+   const material=materialBytes(v);
    for(const [i,data] of [material,v.velocity].entries()){const t=gl.createTexture()!;this.textures.push(t);gl.activeTexture(gl.TEXTURE0+i);gl.bindTexture(gl.TEXTURE_3D,t);gl.texParameteri(gl.TEXTURE_3D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_3D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);for(const a of [gl.TEXTURE_WRAP_S,gl.TEXTURE_WRAP_T,gl.TEXTURE_WRAP_R])gl.texParameteri(gl.TEXTURE_3D,a,gl.CLAMP_TO_EDGE);gl.pixelStorei(gl.UNPACK_ALIGNMENT,1);gl.texImage3D(gl.TEXTURE_3D,0,i===0?gl.RGBA8:gl.R32F,v.grid.nx,v.grid.ny,v.grid.nz,0,i===0?gl.RGBA:gl.RED,i===0?gl.UNSIGNED_BYTE:gl.FLOAT,data);gl.uniform1i(this.location(i===0?'material':'velocity'),i);}
    const topTexture=gl.createTexture()!;this.textures.push(topTexture);gl.activeTexture(gl.TEXTURE2);gl.bindTexture(gl.TEXTURE_2D,topTexture);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texImage2D(gl.TEXTURE_2D,0,gl.R32F,v.grid.nx,v.grid.ny,0,gl.RED,gl.FLOAT,v.surface);gl.uniform1i(this.location('surface'),2);gl.uniform1f(this.location('depthMetres'),(v.grid.nz-1)*v.grid.dz);
+   this.setSection(undefined);
    const error=gl.getError();if(error!==gl.NO_ERROR)throw Error('The graphics device could not allocate this block. Select Quick view detail.');
   }else this.textureBytes=0;
   this.uploadMs=performance.now()-start;
  }
+ /** Only a requested plane gets fine textures; the regional block stays bounded. */
+ setSection(section?:SectionData){this.section=section;const v=this.volume;if(!v)return;this.textureBytes=this.gl?v.beds.length*8+v.surface.byteLength+(section?section.beds.length*8:0):0;
+  if(!this.gl)return;const gl=this.gl;
+  for(const [i,data] of [section?materialBytes(section):new Uint8Array(4),section?.velocity??new Float32Array(1)].entries()){
+   const unit=i+3,t=this.textures[unit]??gl.createTexture()!;this.textures[unit]=t;gl.activeTexture(gl.TEXTURE0+unit);gl.bindTexture(gl.TEXTURE_2D,t);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.pixelStorei(gl.UNPACK_ALIGNMENT,1);gl.texImage2D(gl.TEXTURE_2D,0,i===0?gl.RGBA8:gl.R32F,section?.nu??1,section?.nv??1,0,i===0?gl.RGBA:gl.RED,i===0?gl.UNSIGNED_BYTE:gl.FLOAT,data);gl.uniform1i(this.location(i===0?'sectionMaterial':'sectionVelocity'),unit);
+  }
+ }
  pollTimers(){const gl=this.gl;if(!gl||!this.timer)return;const disjoint=gl.getParameter(this.timer.GPU_DISJOINT_EXT);this.queries=this.queries.filter(q=>{if(!gl.getQueryParameter(q,gl.QUERY_RESULT_AVAILABLE))return true;if(!disjoint)this.gpuSamples.push(gl.getQueryParameter(q,gl.QUERY_RESULT)/1e6);gl.deleteQuery(q);return false;});if(disjoint)this.gpuSamples=[];}
  render(s:ViewState,interacting=false){if(!this.volume||this.failed)return;const started=performance.now(),v=this.volume,rect=this.container.getBoundingClientRect(),w=Math.max(1,rect.width),h=Math.max(1,rect.height),dpr=Math.min(devicePixelRatio||1,interacting?1:1.5);
   const pixelW=Math.round(w*dpr),pixelH=Math.round(h*dpr);if(this.canvas.width!==pixelW||this.canvas.height!==pixelH){this.canvas.width=pixelW;this.canvas.height=pixelH;}if(this.overlay.width!==pixelW||this.overlay.height!==pixelH){this.overlay.width=pixelW;this.overlay.height=pixelH;}
-  if(this.gl){const gl=this.gl,c=camera(v,s);gl.viewport(0,0,pixelW,pixelH);gl.useProgram(this.program!);const v3=(n:string,a:readonly number[])=>gl.uniform3f(this.location(n),a[0],a[1],a[2]);v3('size',[v.grid.nx,v.grid.ny,v.grid.nz]);v3('eye',c.eye);v3('forward',c.forward);v3('right',c.right);v3('up',c.up);v3('clipHigh',[s.clipX,s.clipY,1]);v3('sections',s.sections);gl.uniform2f(this.location('viewport'),pixelW,pixelH);gl.uniform1f(this.location('depthScale'),c.extent);gl.uniform1f(this.location('peel'),s.peel);gl.uniform1i(this.location('mode'),s.mode==='block'?0:s.mode==='cutaway'?1:2);gl.uniform1i(this.location('colour'),s.colour==='lithology'?0:s.colour==='velocity'?1:2);gl.uniform1i(this.location('water'),s.water?1:0);
+  if(this.gl){const gl=this.gl,c=camera(v,s);gl.viewport(0,0,pixelW,pixelH);gl.useProgram(this.program!);const v3=(n:string,a:readonly number[])=>gl.uniform3f(this.location(n),a[0],a[1],a[2]);v3('size',[v.grid.nx,v.grid.ny,v.grid.nz]);v3('eye',c.eye);v3('forward',c.forward);v3('right',c.right);v3('up',c.up);v3('clipHigh',[s.clipX,s.clipY,1]);v3('sections',s.sections);gl.uniform2f(this.location('viewport'),pixelW,pixelH);gl.uniform1f(this.location('depthScale'),c.extent);gl.uniform1f(this.location('peel'),s.peel);gl.uniform1i(this.location('mode'),s.mode==='block'?0:s.mode==='cutaway'?1:2);gl.uniform1i(this.location('colour'),s.colour==='lithology'?0:s.colour==='velocity'?1:2);gl.uniform1i(this.location('water'),s.water?1:0);gl.uniform1i(this.location('hasSection'),this.section?1:0);gl.uniform1i(this.location('sectionAxis'),this.sectionAxis);gl.uniform1f(this.location('sectionAt'),s.sections[this.sectionAxis]);
    this.pollTimers();let q:WebGLQuery|null=null;if(this.measureGPU&&this.timer&&this.queries.length<8){q=gl.createQuery();gl.beginQuery(this.timer.TIME_ELAPSED_EXT,q);}gl.drawArrays(gl.TRIANGLES,0,3);if(q&&this.timer){gl.endQuery(this.timer.TIME_ELAPSED_EXT);this.queries.push(q);}
   }else{
    const pw=interacting?150:300,ph=Math.round(pw*h/w),bitmap=document.createElement('canvas');bitmap.width=pw;bitmap.height=ph;const ctx=bitmap.getContext('2d')!,image=ctx.createImageData(pw,ph);
@@ -106,6 +124,8 @@ export class VolumeRenderer {
   }
   const ctx=this.overlay.getContext('2d')!;ctx.clearRect(0,0,pixelW,pixelH);ctx.save();ctx.scale(dpr,dpr);ctx.strokeStyle='#54665450';ctx.lineWidth=1;
   for(const b of boxes(s)){for(let axis=0;axis<3;axis++)for(let i=0;i<2;i++)for(let j=0;j<2;j++){const a:V3=[...b.lo],z:V3=[...b.lo],u=(axis+1)%3,k=(axis+2)%3;a[u]=z[u]=i?b.hi[u]:b.lo[u];a[k]=z[k]=j?b.hi[k]:b.lo[k];z[axis]=b.hi[axis];const p=project(v,s,a,w,h),q=project(v,s,z,w,h);ctx.beginPath();ctx.moveTo(p[0],p[1]);ctx.lineTo(q[0],q[1]);ctx.stroke();}}
+  // An outline links the 2D section to its position in the block, including hidden edges.
+  const a=this.sectionAxis,u=(a+1)%3,k=(a+2)%3;ctx.strokeStyle='#a4462a99';ctx.setLineDash([4,4]);ctx.beginPath();for(const [j,[du,dv]]of [[0,0],[1,0],[1,1],[0,1],[0,0]].entries()){const p:V3=[0,0,0];p[a]=s.sections[a];p[u]=du;p[k]=dv;const q=project(v,s,p,w,h);if(j===0)ctx.moveTo(q[0],q[1]);else ctx.lineTo(q[0],q[1]);}ctx.stroke();ctx.setLineDash([]);
   ctx.fillStyle='#6b7464';ctx.font='11px system-ui';ctx.fillText(`${((v.grid.nx-1)*v.grid.dx/1000).toFixed(0)} × ${((v.grid.ny-1)*v.grid.dy/1000).toFixed(0)} km · ${((v.grid.nz-1)*v.grid.dz/1000).toFixed(1)} km deep${s.exaggeration!==1?' · '+s.exaggeration+'× vertical exaggeration':''}`,16,h-16);ctx.restore();this.drawCount++;this.lastSubmitMs=performance.now()-started;
  }
 }
