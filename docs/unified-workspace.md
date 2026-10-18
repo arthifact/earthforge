@@ -42,19 +42,55 @@ histories at stages 0, 6 and 12. All three plane directions match intersecting
 3D block nodes exactly; native and portable Wasm planes agree exactly. These
 are synthetic software identity checks, not independent field validation.
 
-## Fine voxel work that remains
+## Next research milestone
 
-The next rendering step is a bounded cache of spatial tiles with camera-driven
-levels of detail. Refine visible or clipped regions from the continuous model,
-retain coarse coverage elsewhere, and discard obsolete jobs. Measure tile
-construction, transfer, upload, GPU drawing, memory and error separately.
-Adjacent resolutions must agree on material ownership and coordinates; thin
-beds need explicit treatment rather than invented visual texture.
+The preferred display strategy is a coarse preview followed by targeted
+refinement. Micro-voxel rendering is no longer a development objective. Finer
+sampling should answer a scientific query and retain the same material field.
 
-The present implementation refines a plane, not the entire volume. A dense
-10 m grid over 10 × 10 × 3 km contains about 302 million nodes before storing
-multiple fields. Smaller decorative voxels would not create physical detail.
-Material convergence and independent geological validation must accompany
-finer sampling. Full-basin micro-voxels, force-driven 3D mechanics and near
-real-time simulation at arbitrary resolution are not established by this UI
-change.
+The recommended next release is **controllable 3D fault geometry with a
+reproducible growth-strata benchmark**. Current faults can bend along strike
+but do not curve in dip. Begin with a fault that flattens with depth (listric
+geometry), explicit fault location/dip/slip controls, and consistent transport
+of beds, composition and burial/loading memory through its history.
+
+Derive and verify the transport before adding the viewer controls. Require
+zero-slip and planar-fault reductions, analytical cases where available,
+appropriate constituent/volume accounting for the open regional boundary,
+material-subdivision convergence, deterministic replay and native/Wasm
+agreement. A curved interface or attractive fold alone does not establish
+valid deformation mechanics. Keep this a prescribed-kinematics model unless a
+separate force-balance solver is implemented and verified.
+
+Build a public benchmark alongside the feature. Compare a common faulted-basin
+task, matching coordinates, extent, properties, precision and hardware. Retain
+all failures, time and memory, and distinguish preview, refined plane and full
+export costs. The existing flat-layer SubsurfaceGen control does not establish
+relative quality or speed on realistic basins. Freeze observational-validation
+rules and baselines before evaluating independent data; preserve reserved
+holdouts.
+
+## Following releases
+
+- Extend geological coverage one process at a time: depositional clinoforms,
+  channels, carbonate platforms and eventually salt-related structures. Label
+  prescribed geometry separately from solved sediment transport or salt flow.
+- Bring the existing Python well/horizon conditioning into the workspace, then
+  improve candidate exploration and correlated observation errors. Evaluate
+  uncertainty coverage on unseen cases; a weighted finite library is not an
+  independently calibrated posterior.
+- Profile generation and refinement separately. Reuse unaffected history/ray
+  work and refine requested regions while bounding cache and request memory.
+  Track latency distributions, memory and numerical error on representative
+  machines. The measured viewer frame rate is not model-generation throughput.
+- Publish matched geological and downstream seismic tests, with splits by whole
+  model/geological family, plus reproducible examples and outside usability
+  checks. Assess leadership on declared tasks and metrics rather than a
+  blanket SOTA label.
+
+Primary capability references:
+[SubsurfaceGen](https://arxiv.org/html/2605.30541v1) for procedural geological
+coverage and paired seismic data, and [GemPy](https://docs.gempy.org/) and
+[LoopStructural](https://loop3d.org/LoopStructural/) for observation-constrained
+structural modeling. These are distinct modeling approaches and should not be
+ranked using one unmatched rendering or generation timing.
