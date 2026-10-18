@@ -195,7 +195,7 @@ def main(args):
             values, fits[name] = baseline_cv(primary, kind, partition)
             for row, value in zip(primary, values):
                 row[name] = value
-    bootstrap = plan["uncertainty"]
+    bootstrap = {**plan["uncertainty"], "interval_percent": plan["uncertainty"]["percentiles"]}
     fields = ["rust_full_bin", "rust_matched_support", *fits]
     score = {name: metrics(primary, name, bootstrap) for name in fields}
     breakdown = lambda rows: {name: metrics(rows, name) for name in fields}
