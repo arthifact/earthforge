@@ -31,7 +31,9 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - name: Install Rust toolchain
-        run: rustup toolchain install 1.88.0 --profile minimal --component clippy --component rustfmt
+        run: |
+          rustup toolchain install 1.88.0 --profile minimal --component clippy --component rustfmt
+          rustup override set 1.88.0
       - name: Rust checks and native build
         shell: bash
         run: |
