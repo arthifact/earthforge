@@ -1,0 +1,1436 @@
+{
+  "schema": "earthforge-field-alpha2-results-v1",
+  "createdAt": "2026-10-18T05:40:03.753504+00:00",
+  "scope": "Previously explored FORCE development cohort; conditional clastic velocity validation, not generated geological geometry, an independent final test or a SOTA ranking.",
+  "planSha256": "7ef68882f265631541ab44ceff63047778a421f7b3f141284feb45873e98ae4d",
+  "sourceCommit": "245a7571ece7be1dc9fd549ff788171496161a5e",
+  "engineSha256": "930f3e07d04778475eaed8210f9724fab7a71bf8c80b9482999a14214713987d",
+  "physicsSourceSha256": "039ad24de9222f419f115f26f7f89e8c3d770755e45ec3359231be51aa24a22f",
+  "analysisSourceSha256": {
+    "run.py": "611352ec3801d7b8249539ae17d93b353ce8ccf1c4e8aab4c9a6381b02c0c546",
+    "analysis.py": "267ebfd88a8f33b23c07489ccba8ed74066fd0c3bfb0b496dfb5df6993e2f98c"
+  },
+  "dependencies": {
+    "numpy": "2.3.5",
+    "openpyxl": "3.1.5",
+    "et-xmlfile": "2.0.0"
+  },
+  "cohort": {
+    "windows": 442,
+    "wells": 44,
+    "parents": 44,
+    "quadrants": 10,
+    "verticalSupportMetres": 8782.606140149997,
+    "faciesWindows": {
+      "30000": 53,
+      "65000": 389
+    }
+  },
+  "scores": {
+    "rust_full_bin": {
+      "windows": 442,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": -40.757771479762894,
+      "mae_m_s": 309.47733618536455,
+      "rmse_m_s": 407.8026181431069,
+      "parent_bootstrap_95_percent": {
+        "bias_m_s": [
+          -146.7743206024243,
+          64.09374901354566
+        ],
+        "mae_m_s": [
+          249.15460891394704,
+          378.63845299315074
+        ],
+        "rmse_m_s": [
+          328.60734622815335,
+          486.36980428913756
+        ]
+      }
+    },
+    "rust_matched_support": {
+      "windows": 442,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": -40.755259053713864,
+      "mae_m_s": 309.47043664088466,
+      "rmse_m_s": 407.7937113279794,
+      "parent_bootstrap_95_percent": {
+        "bias_m_s": [
+          -146.7620305872204,
+          64.09521056335326
+        ],
+        "mae_m_s": [
+          249.15584295507432,
+          378.6314389811882
+        ],
+        "rmse_m_s": [
+          328.60988832990597,
+          486.3566493590427
+        ]
+      }
+    },
+    "depth_parent_cv": {
+      "windows": 442,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": 0.1001806354174784,
+      "mae_m_s": 348.2358239103972,
+      "rmse_m_s": 420.9500212460674,
+      "parent_bootstrap_95_percent": {
+        "bias_m_s": [
+          -112.11307643437569,
+          108.83268398308813
+        ],
+        "mae_m_s": [
+          296.4512957221464,
+          406.20057247725487
+        ],
+        "rmse_m_s": [
+          359.3560584636307,
+          481.9419027512219
+        ]
+      }
+    },
+    "facies-linear_parent_cv": {
+      "windows": 442,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": -3.8412072162329776,
+      "mae_m_s": 324.5563219652732,
+      "rmse_m_s": 406.0778948820296,
+      "parent_bootstrap_95_percent": {
+        "bias_m_s": [
+          -111.9109228253926,
+          99.84843377321607
+        ],
+        "mae_m_s": [
+          271.6863906064946,
+          383.51592921618436
+        ],
+        "rmse_m_s": [
+          341.58544087333496,
+          474.45866719656976
+        ]
+      }
+    },
+    "facies-quadratic_parent_cv": {
+      "windows": 442,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": -12.191974810813411,
+      "mae_m_s": 337.9368325355712,
+      "rmse_m_s": 431.1284070434304,
+      "parent_bootstrap_95_percent": {
+        "bias_m_s": [
+          -128.75032909900122,
+          98.82780728482913
+        ],
+        "mae_m_s": [
+          279.1354178372295,
+          405.5157418584348
+        ],
+        "rmse_m_s": [
+          354.8633283998647,
+          512.4303950804226
+        ]
+      }
+    },
+    "depth_quadrant_cv": {
+      "windows": 442,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": -4.478105698392755,
+      "mae_m_s": 362.8450021164214,
+      "rmse_m_s": 436.44830018083525,
+      "parent_bootstrap_95_percent": {
+        "bias_m_s": [
+          -122.87536287803812,
+          109.0734784895783
+        ],
+        "mae_m_s": [
+          309.7312512387722,
+          423.13791303727595
+        ],
+        "rmse_m_s": [
+          374.16637840863444,
+          499.11671194220713
+        ]
+      }
+    },
+    "facies-linear_quadrant_cv": {
+      "windows": 442,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": -8.621632578518154,
+      "mae_m_s": 341.14639371321095,
+      "rmse_m_s": 423.6679731900805,
+      "parent_bootstrap_95_percent": {
+        "bias_m_s": [
+          -120.70955373476674,
+          100.7303635799607
+        ],
+        "mae_m_s": [
+          285.2577100176305,
+          401.39719771518105
+        ],
+        "rmse_m_s": [
+          355.5917546343178,
+          496.7267569834299
+        ]
+      }
+    },
+    "facies-quadratic_quadrant_cv": {
+      "windows": 442,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": -8.676872128656226,
+      "mae_m_s": 379.57311357031637,
+      "rmse_m_s": 472.72116334050946,
+      "parent_bootstrap_95_percent": {
+        "bias_m_s": [
+          -134.8219024696032,
+          112.61171942600326
+        ],
+        "mae_m_s": [
+          318.16091455665196,
+          450.67210248737035
+        ],
+        "rmse_m_s": [
+          393.38358045048864,
+          556.747405771377
+        ]
+      }
+    }
+  },
+  "pairedDifferences": [
+    {
+      "left": "rust_matched_support",
+      "right": "rust_full_bin",
+      "maeDifferenceMps": -0.006899544479854497,
+      "parentBootstrap95PercentMps": [
+        -0.021607945948626167,
+        0.003948973406000527
+      ],
+      "negativeMeans": "left has lower MAE; fixed predictions, without refitting uncertainty"
+    },
+    {
+      "left": "rust_matched_support",
+      "right": "depth_parent_cv",
+      "maeDifferenceMps": -38.76538726951252,
+      "parentBootstrap95PercentMps": [
+        -82.2140554850077,
+        1.566415165149429
+      ],
+      "negativeMeans": "left has lower MAE; fixed predictions, without refitting uncertainty"
+    },
+    {
+      "left": "rust_matched_support",
+      "right": "facies-linear_parent_cv",
+      "maeDifferenceMps": -15.085885324388572,
+      "parentBootstrap95PercentMps": [
+        -51.92478898472474,
+        21.686146353061957
+      ],
+      "negativeMeans": "left has lower MAE; fixed predictions, without refitting uncertainty"
+    },
+    {
+      "left": "rust_matched_support",
+      "right": "facies-quadratic_parent_cv",
+      "maeDifferenceMps": -28.466395894686606,
+      "parentBootstrap95PercentMps": [
+        -68.69990938999696,
+        7.714091981641729
+      ],
+      "negativeMeans": "left has lower MAE; fixed predictions, without refitting uncertainty"
+    },
+    {
+      "left": "rust_matched_support",
+      "right": "depth_quadrant_cv",
+      "maeDifferenceMps": -53.374565475536684,
+      "parentBootstrap95PercentMps": [
+        -99.03191981657554,
+        -11.093402133679817
+      ],
+      "negativeMeans": "left has lower MAE; fixed predictions, without refitting uncertainty"
+    },
+    {
+      "left": "rust_matched_support",
+      "right": "facies-linear_quadrant_cv",
+      "maeDifferenceMps": -31.67595707232635,
+      "parentBootstrap95PercentMps": [
+        -68.36135371338545,
+        6.906982711759828
+      ],
+      "negativeMeans": "left has lower MAE; fixed predictions, without refitting uncertainty"
+    },
+    {
+      "left": "rust_matched_support",
+      "right": "facies-quadratic_quadrant_cv",
+      "maeDifferenceMps": -70.1026769294318,
+      "parentBootstrap95PercentMps": [
+        -110.76992586812112,
+        -32.28744447258676
+      ],
+      "negativeMeans": "left has lower MAE; fixed predictions, without refitting uncertainty"
+    }
+  ],
+  "supportMatching": {
+    "maximumPredictionChangeMps": 0.5053133410629016,
+    "nativePhysicsEvaluations": 321390,
+    "integrationMaximumSpacingMetres": 1
+  },
+  "sensitivityScores": {
+    "present_hydrostatic": {
+      "windows": 442,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": -40.755259053713864,
+      "mae_m_s": 309.47043664088466,
+      "rmse_m_s": 407.7937113279794
+    },
+    "maximum_burial_plus_500m": {
+      "windows": 442,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": 290.4691890017203,
+      "mae_m_s": 409.8942986499015,
+      "rmse_m_s": 494.0508533319722
+    },
+    "maximum_burial_plus_1000m": {
+      "windows": 442,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": 652.048031220064,
+      "mae_m_s": 692.8262005888929,
+      "rmse_m_s": 777.8059390591382
+    },
+    "overpressure_below_1500m": {
+      "windows": 442,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": -189.1544812940755,
+      "mae_m_s": 328.6354394394087,
+      "rmse_m_s": 438.35365737005
+    },
+    "less_pure_facies": {
+      "windows": 442,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": -8.693532221467315,
+      "mae_m_s": 323.57662771540294,
+      "rmse_m_s": 412.2181759571737
+    }
+  },
+  "qualitySensitivity": {
+    "primary": {
+      "windows": 442,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": -40.757771479762894,
+      "mae_m_s": 309.47733618536455,
+      "rmse_m_s": 407.8026181431069
+    },
+    "caliper_0_5in": {
+      "windows": 228,
+      "wells": 38,
+      "groups": 38,
+      "bias_m_s": -39.97394846246927,
+      "mae_m_s": 318.43474515205725,
+      "rmse_m_s": 402.88529397500304
+    },
+    "caliper_2in": {
+      "windows": 602,
+      "wells": 44,
+      "groups": 44,
+      "bias_m_s": -14.610667325899401,
+      "mae_m_s": 310.0954661308769,
+      "rmse_m_s": 402.2983765668095
+    },
+    "quality_unknown_or_flagged_included": {
+      "windows": 1324,
+      "wells": 63,
+      "groups": 63,
+      "bias_m_s": 10.31729733963699,
+      "mae_m_s": 262.95895127550534,
+      "rmse_m_s": 360.24834068089183
+    }
+  },
+  "byDepth": {
+    "0-1000": {
+      "rust_full_bin": {
+        "windows": 55,
+        "wells": 14,
+        "groups": 14,
+        "bias_m_s": -71.572878129919,
+        "mae_m_s": 149.48869371439483,
+        "rmse_m_s": 232.05919051060926
+      },
+      "rust_matched_support": {
+        "windows": 55,
+        "wells": 14,
+        "groups": 14,
+        "bias_m_s": -71.56750278578153,
+        "mae_m_s": 149.47990222335306,
+        "rmse_m_s": 232.0093911940157
+      },
+      "depth_parent_cv": {
+        "windows": 55,
+        "wells": 14,
+        "groups": 14,
+        "bias_m_s": 39.73271256666592,
+        "mae_m_s": 185.6898813973039,
+        "rmse_m_s": 250.68591075582296
+      },
+      "facies-linear_parent_cv": {
+        "windows": 55,
+        "wells": 14,
+        "groups": 14,
+        "bias_m_s": -12.252927806807351,
+        "mae_m_s": 171.73211147556003,
+        "rmse_m_s": 255.85987943889953
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 55,
+        "wells": 14,
+        "groups": 14,
+        "bias_m_s": -19.388700375517917,
+        "mae_m_s": 196.004051446307,
+        "rmse_m_s": 322.02479706871486
+      },
+      "depth_quadrant_cv": {
+        "windows": 55,
+        "wells": 14,
+        "groups": 14,
+        "bias_m_s": 55.763364650353495,
+        "mae_m_s": 183.04289975127875,
+        "rmse_m_s": 251.99874029653222
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 55,
+        "wells": 14,
+        "groups": 14,
+        "bias_m_s": -1.791878016111649,
+        "mae_m_s": 169.34873733496653,
+        "rmse_m_s": 251.84213726138339
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 55,
+        "wells": 14,
+        "groups": 14,
+        "bias_m_s": -13.08716894643303,
+        "mae_m_s": 192.11977755438747,
+        "rmse_m_s": 319.03533411141
+      }
+    },
+    "1000-2000": {
+      "rust_full_bin": {
+        "windows": 277,
+        "wells": 32,
+        "groups": 32,
+        "bias_m_s": -53.20488134408001,
+        "mae_m_s": 291.17312094650606,
+        "rmse_m_s": 391.4063220476472
+      },
+      "rust_matched_support": {
+        "windows": 277,
+        "wells": 32,
+        "groups": 32,
+        "bias_m_s": -53.19477509869776,
+        "mae_m_s": 291.1865298434094,
+        "rmse_m_s": 391.41384604582544
+      },
+      "depth_parent_cv": {
+        "windows": 277,
+        "wells": 32,
+        "groups": 32,
+        "bias_m_s": 80.14285628067962,
+        "mae_m_s": 353.0032903940318,
+        "rmse_m_s": 412.056219566594
+      },
+      "facies-linear_parent_cv": {
+        "windows": 277,
+        "wells": 32,
+        "groups": 32,
+        "bias_m_s": 79.0255645910238,
+        "mae_m_s": 319.77733483772784,
+        "rmse_m_s": 388.76394837863694
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 277,
+        "wells": 32,
+        "groups": 32,
+        "bias_m_s": 69.59542602449312,
+        "mae_m_s": 322.7823879780734,
+        "rmse_m_s": 396.03994120996305
+      },
+      "depth_quadrant_cv": {
+        "windows": 277,
+        "wells": 32,
+        "groups": 32,
+        "bias_m_s": 86.37256302692946,
+        "mae_m_s": 376.8791993563152,
+        "rmse_m_s": 434.58605696801595
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 277,
+        "wells": 32,
+        "groups": 32,
+        "bias_m_s": 85.7109039862255,
+        "mae_m_s": 349.73702878675573,
+        "rmse_m_s": 417.6247388919746
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 277,
+        "wells": 32,
+        "groups": 32,
+        "bias_m_s": 84.31248472839,
+        "mae_m_s": 387.17490761667375,
+        "rmse_m_s": 457.4182105090699
+      }
+    },
+    "2000-3000": {
+      "rust_full_bin": {
+        "windows": 110,
+        "wells": 25,
+        "groups": 25,
+        "bias_m_s": 116.066917454989,
+        "mae_m_s": 313.38580413758046,
+        "rmse_m_s": 389.6823328324164
+      },
+      "rust_matched_support": {
+        "windows": 110,
+        "wells": 25,
+        "groups": 25,
+        "bias_m_s": 116.05487576831521,
+        "mae_m_s": 313.37646218032296,
+        "rmse_m_s": 389.6873797748537
+      },
+      "depth_parent_cv": {
+        "windows": 110,
+        "wells": 25,
+        "groups": 25,
+        "bias_m_s": -19.113855475196928,
+        "mae_m_s": 353.47576830206935,
+        "rmse_m_s": 427.894893945222
+      },
+      "facies-linear_parent_cv": {
+        "windows": 110,
+        "wells": 25,
+        "groups": 25,
+        "bias_m_s": -4.372363124940689,
+        "mae_m_s": 329.7604428187766,
+        "rmse_m_s": 397.98609185915933
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 110,
+        "wells": 25,
+        "groups": 25,
+        "bias_m_s": -0.03192023960479674,
+        "mae_m_s": 338.39762304617966,
+        "rmse_m_s": 411.86520264237896
+      },
+      "depth_quadrant_cv": {
+        "windows": 110,
+        "wells": 25,
+        "groups": 25,
+        "bias_m_s": -42.505061154402426,
+        "mae_m_s": 362.4198405129423,
+        "rmse_m_s": 438.81316872992903
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 110,
+        "wells": 25,
+        "groups": 25,
+        "bias_m_s": -30.205249668917777,
+        "mae_m_s": 332.87324482865347,
+        "rmse_m_s": 404.4199047470688
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 110,
+        "wells": 25,
+        "groups": 25,
+        "bias_m_s": -24.473697911364287,
+        "mae_m_s": 355.3996747740346,
+        "rmse_m_s": 433.37119464331613
+      }
+    }
+  },
+  "byFacies": {
+    "30000": {
+      "rust_full_bin": {
+        "windows": 53,
+        "wells": 24,
+        "groups": 24,
+        "bias_m_s": -41.74707781280614,
+        "mae_m_s": 326.1873305723408,
+        "rmse_m_s": 423.4972015609591
+      },
+      "rust_matched_support": {
+        "windows": 53,
+        "wells": 24,
+        "groups": 24,
+        "bias_m_s": -41.725375288409516,
+        "mae_m_s": 326.1655803584422,
+        "rmse_m_s": 423.45941766700537
+      },
+      "depth_parent_cv": {
+        "windows": 53,
+        "wells": 24,
+        "groups": 24,
+        "bias_m_s": -169.88995694075507,
+        "mae_m_s": 323.3856931830188,
+        "rmse_m_s": 413.89960607461484
+      },
+      "facies-linear_parent_cv": {
+        "windows": 53,
+        "wells": 24,
+        "groups": 24,
+        "bias_m_s": 67.16112145917005,
+        "mae_m_s": 340.41984724979426,
+        "rmse_m_s": 410.6037572209204
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 53,
+        "wells": 24,
+        "groups": 24,
+        "bias_m_s": 57.532648921725716,
+        "mae_m_s": 383.28246276763565,
+        "rmse_m_s": 487.7855061084342
+      },
+      "depth_quadrant_cv": {
+        "windows": 53,
+        "wells": 24,
+        "groups": 24,
+        "bias_m_s": -170.07395256433145,
+        "mae_m_s": 344.8338628029619,
+        "rmse_m_s": 433.36650214233225
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 53,
+        "wells": 24,
+        "groups": 24,
+        "bias_m_s": 66.49022000344712,
+        "mae_m_s": 353.2791380217586,
+        "rmse_m_s": 422.8928243520973
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 53,
+        "wells": 24,
+        "groups": 24,
+        "bias_m_s": 71.7129809872586,
+        "mae_m_s": 436.56380803385485,
+        "rmse_m_s": 527.9423373788394
+      }
+    },
+    "65000": {
+      "rust_full_bin": {
+        "windows": 389,
+        "wells": 40,
+        "groups": 40,
+        "bias_m_s": -18.236545645615685,
+        "mae_m_s": 302.1255320954552,
+        "rmse_m_s": 403.628108192312
+      },
+      "rust_matched_support": {
+        "windows": 389,
+        "wells": 40,
+        "groups": 40,
+        "bias_m_s": -18.241390436369862,
+        "mae_m_s": 302.1242540874994,
+        "rmse_m_s": 403.6302723197443
+      },
+      "depth_parent_cv": {
+        "windows": 389,
+        "wells": 40,
+        "groups": 40,
+        "bias_m_s": 69.74572665099979,
+        "mae_m_s": 341.96678539109143,
+        "rmse_m_s": 410.8054135261156
+      },
+      "facies-linear_parent_cv": {
+        "windows": 389,
+        "wells": 40,
+        "groups": 40,
+        "bias_m_s": -5.586611262275179,
+        "mae_m_s": 317.9783632830978,
+        "rmse_m_s": 405.17772004619013
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 389,
+        "wells": 40,
+        "groups": 40,
+        "bias_m_s": -7.060002905329964,
+        "mae_m_s": 323.6909623557485,
+        "rmse_m_s": 413.3868231586017
+      },
+      "depth_quadrant_cv": {
+        "windows": 389,
+        "wells": 40,
+        "groups": 40,
+        "bias_m_s": 63.35340712319585,
+        "mae_m_s": 354.5031470137082,
+        "rmse_m_s": 425.05319096105126
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 389,
+        "wells": 40,
+        "groups": 40,
+        "bias_m_s": -12.333585031023418,
+        "mae_m_s": 336.6668090472831,
+        "rmse_m_s": 424.3569880878991
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 389,
+        "wells": 40,
+        "groups": 40,
+        "bias_m_s": -6.141843350251326,
+        "mae_m_s": 362.93024106126404,
+        "rmse_m_s": 454.7911989358587
+      }
+    }
+  },
+  "byQuadrant": {
+    "15": {
+      "rust_full_bin": {
+        "windows": 43,
+        "wells": 2,
+        "groups": 2,
+        "bias_m_s": 265.98396928755,
+        "mae_m_s": 271.3901741447958,
+        "rmse_m_s": 341.8479855076296
+      },
+      "rust_matched_support": {
+        "windows": 43,
+        "wells": 2,
+        "groups": 2,
+        "bias_m_s": 265.9495091465407,
+        "mae_m_s": 271.3931511429182,
+        "rmse_m_s": 341.84416911315986
+      },
+      "depth_parent_cv": {
+        "windows": 43,
+        "wells": 2,
+        "groups": 2,
+        "bias_m_s": 370.33821208265863,
+        "mae_m_s": 370.33821208265863,
+        "rmse_m_s": 416.6243074246588
+      },
+      "facies-linear_parent_cv": {
+        "windows": 43,
+        "wells": 2,
+        "groups": 2,
+        "bias_m_s": 324.9205669256602,
+        "mae_m_s": 324.9205669256602,
+        "rmse_m_s": 367.7544897315002
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 43,
+        "wells": 2,
+        "groups": 2,
+        "bias_m_s": 339.5765329265147,
+        "mae_m_s": 339.5765329265147,
+        "rmse_m_s": 376.6635757163949
+      },
+      "depth_quadrant_cv": {
+        "windows": 43,
+        "wells": 2,
+        "groups": 2,
+        "bias_m_s": 373.44106767321296,
+        "mae_m_s": 373.44106767321296,
+        "rmse_m_s": 418.85575607659706
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 43,
+        "wells": 2,
+        "groups": 2,
+        "bias_m_s": 327.83732166324467,
+        "mae_m_s": 327.83732166324467,
+        "rmse_m_s": 369.8064342972344
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 43,
+        "wells": 2,
+        "groups": 2,
+        "bias_m_s": 336.79851595618896,
+        "mae_m_s": 336.79851595618896,
+        "rmse_m_s": 375.8692317844229
+      }
+    },
+    "16": {
+      "rust_full_bin": {
+        "windows": 133,
+        "wells": 8,
+        "groups": 8,
+        "bias_m_s": 145.03320267200456,
+        "mae_m_s": 213.62634396143847,
+        "rmse_m_s": 304.28364361637466
+      },
+      "rust_matched_support": {
+        "windows": 133,
+        "wells": 8,
+        "groups": 8,
+        "bias_m_s": 145.0311757287265,
+        "mae_m_s": 213.632768709778,
+        "rmse_m_s": 304.2891658965636
+      },
+      "depth_parent_cv": {
+        "windows": 133,
+        "wells": 8,
+        "groups": 8,
+        "bias_m_s": 257.6787858836918,
+        "mae_m_s": 302.97754085696624,
+        "rmse_m_s": 365.69614520279276
+      },
+      "facies-linear_parent_cv": {
+        "windows": 133,
+        "wells": 8,
+        "groups": 8,
+        "bias_m_s": 192.66550309297259,
+        "mae_m_s": 256.59920323005105,
+        "rmse_m_s": 324.53379988167677
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 133,
+        "wells": 8,
+        "groups": 8,
+        "bias_m_s": 201.30885949803957,
+        "mae_m_s": 263.72134230435785,
+        "rmse_m_s": 334.6313631604163
+      },
+      "depth_quadrant_cv": {
+        "windows": 133,
+        "wells": 8,
+        "groups": 8,
+        "bias_m_s": 301.83188281556903,
+        "mae_m_s": 337.06200450055763,
+        "rmse_m_s": 393.02387219049615
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 133,
+        "wells": 8,
+        "groups": 8,
+        "bias_m_s": 232.29873507125478,
+        "mae_m_s": 282.5056492861303,
+        "rmse_m_s": 343.46195905217127
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 133,
+        "wells": 8,
+        "groups": 8,
+        "bias_m_s": 233.8687881673991,
+        "mae_m_s": 286.32719711628704,
+        "rmse_m_s": 349.30283335035716
+      }
+    },
+    "25": {
+      "rust_full_bin": {
+        "windows": 132,
+        "wells": 15,
+        "groups": 15,
+        "bias_m_s": 29.09902384018034,
+        "mae_m_s": 183.91516890854453,
+        "rmse_m_s": 217.5258939745969
+      },
+      "rust_matched_support": {
+        "windows": 132,
+        "wells": 15,
+        "groups": 15,
+        "bias_m_s": 29.099536711526078,
+        "mae_m_s": 183.9050009023538,
+        "rmse_m_s": 217.52555697048837
+      },
+      "depth_parent_cv": {
+        "windows": 132,
+        "wells": 15,
+        "groups": 15,
+        "bias_m_s": 35.017601062107246,
+        "mae_m_s": 302.4743977049162,
+        "rmse_m_s": 356.1480387762685
+      },
+      "facies-linear_parent_cv": {
+        "windows": 132,
+        "wells": 15,
+        "groups": 15,
+        "bias_m_s": 68.68288965016859,
+        "mae_m_s": 269.19268341498525,
+        "rmse_m_s": 322.12064674954865
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 132,
+        "wells": 15,
+        "groups": 15,
+        "bias_m_s": 60.663006032808696,
+        "mae_m_s": 268.0738655196537,
+        "rmse_m_s": 325.10785219702353
+      },
+      "depth_quadrant_cv": {
+        "windows": 132,
+        "wells": 15,
+        "groups": 15,
+        "bias_m_s": 40.18012605014043,
+        "mae_m_s": 319.12564127148346,
+        "rmse_m_s": 374.69253536879285
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 132,
+        "wells": 15,
+        "groups": 15,
+        "bias_m_s": 94.33410443761844,
+        "mae_m_s": 289.19978684648316,
+        "rmse_m_s": 339.25584898090955
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 132,
+        "wells": 15,
+        "groups": 15,
+        "bias_m_s": 121.21059316162186,
+        "mae_m_s": 336.5591863499921,
+        "rmse_m_s": 387.68701150212326
+      }
+    },
+    "26": {
+      "rust_full_bin": {
+        "windows": 16,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": -14.373710640693403,
+        "mae_m_s": 213.45254313235154,
+        "rmse_m_s": 269.90754526269495
+      },
+      "rust_matched_support": {
+        "windows": 16,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": -14.41624728232118,
+        "mae_m_s": 213.4941254622114,
+        "rmse_m_s": 269.9412976262308
+      },
+      "depth_parent_cv": {
+        "windows": 16,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 57.972194110365564,
+        "mae_m_s": 251.71625379593078,
+        "rmse_m_s": 297.9563128584878
+      },
+      "facies-linear_parent_cv": {
+        "windows": 16,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 32.46616114884094,
+        "mae_m_s": 247.00567481749377,
+        "rmse_m_s": 294.76783910996716
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 16,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 32.15064343915313,
+        "mae_m_s": 245.23198533013075,
+        "rmse_m_s": 294.68452968160983
+      },
+      "depth_quadrant_cv": {
+        "windows": 16,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 57.972194110365564,
+        "mae_m_s": 251.71625379593078,
+        "rmse_m_s": 297.9563128584878
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 16,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 32.46616114884094,
+        "mae_m_s": 247.00567481749377,
+        "rmse_m_s": 294.76783910996716
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 16,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 32.15064343915313,
+        "mae_m_s": 245.23198533013075,
+        "rmse_m_s": 294.68452968160983
+      }
+    },
+    "31": {
+      "rust_full_bin": {
+        "windows": 14,
+        "wells": 5,
+        "groups": 5,
+        "bias_m_s": -413.2055431865814,
+        "mae_m_s": 466.27095791164066,
+        "rmse_m_s": 541.3245065511165
+      },
+      "rust_matched_support": {
+        "windows": 14,
+        "wells": 5,
+        "groups": 5,
+        "bias_m_s": -413.2089516260068,
+        "mae_m_s": 466.2674783003589,
+        "rmse_m_s": 541.3238696463507
+      },
+      "depth_parent_cv": {
+        "windows": 14,
+        "wells": 5,
+        "groups": 5,
+        "bias_m_s": -325.0433255225261,
+        "mae_m_s": 410.98987731687595,
+        "rmse_m_s": 477.5642235170067
+      },
+      "facies-linear_parent_cv": {
+        "windows": 14,
+        "wells": 5,
+        "groups": 5,
+        "bias_m_s": -230.4260389112389,
+        "mae_m_s": 351.6223164188299,
+        "rmse_m_s": 413.215485322062
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 14,
+        "wells": 5,
+        "groups": 5,
+        "bias_m_s": -255.56100954640783,
+        "mae_m_s": 375.2042537509102,
+        "rmse_m_s": 440.97998355412074
+      },
+      "depth_quadrant_cv": {
+        "windows": 14,
+        "wells": 5,
+        "groups": 5,
+        "bias_m_s": -364.51987816180787,
+        "mae_m_s": 425.75686654969684,
+        "rmse_m_s": 496.8226358080996
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 14,
+        "wells": 5,
+        "groups": 5,
+        "bias_m_s": -262.86985580956235,
+        "mae_m_s": 353.9212271063583,
+        "rmse_m_s": 417.85426272114614
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 14,
+        "wells": 5,
+        "groups": 5,
+        "bias_m_s": -318.3930662046972,
+        "mae_m_s": 403.7640588034999,
+        "rmse_m_s": 469.8640500175512
+      }
+    },
+    "32": {
+      "rust_full_bin": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": -700.1815962381442,
+        "mae_m_s": 700.1815962381442,
+        "rmse_m_s": 702.1800865339229
+      },
+      "rust_matched_support": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": -699.9289455444892,
+        "mae_m_s": 699.9289455444892,
+        "rmse_m_s": 701.9091444916126
+      },
+      "depth_parent_cv": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": -723.7584480420052,
+        "mae_m_s": 723.7584480420052,
+        "rmse_m_s": 731.1496737068128
+      },
+      "facies-linear_parent_cv": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": -774.2125224385694,
+        "mae_m_s": 774.2125224385694,
+        "rmse_m_s": 783.1757907668899
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": -1006.1958370972603,
+        "mae_m_s": 1006.1958370972603,
+        "rmse_m_s": 1049.8253198372415
+      },
+      "depth_quadrant_cv": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": -723.7584480420052,
+        "mae_m_s": 723.7584480420052,
+        "rmse_m_s": 731.1496737068128
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": -774.2125224385694,
+        "mae_m_s": 774.2125224385694,
+        "rmse_m_s": 783.1757907668899
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": -1006.1958370972603,
+        "mae_m_s": 1006.1958370972603,
+        "rmse_m_s": 1049.8253198372415
+      }
+    },
+    "33": {
+      "rust_full_bin": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 583.2303030029796,
+        "mae_m_s": 583.2303030029796,
+        "rmse_m_s": 608.2341374866229
+      },
+      "rust_matched_support": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 583.23656955102,
+        "mae_m_s": 583.23656955102,
+        "rmse_m_s": 608.238308617863
+      },
+      "depth_parent_cv": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 223.12098518061975,
+        "mae_m_s": 223.12098518061975,
+        "rmse_m_s": 253.26753106527468
+      },
+      "facies-linear_parent_cv": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 434.905468106203,
+        "mae_m_s": 434.905468106203,
+        "rmse_m_s": 469.301706190854
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 507.51786809181135,
+        "mae_m_s": 507.51786809181135,
+        "rmse_m_s": 563.8067670430347
+      },
+      "depth_quadrant_cv": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 223.12098518061975,
+        "mae_m_s": 223.12098518061975,
+        "rmse_m_s": 253.26753106527468
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 434.905468106203,
+        "mae_m_s": 434.905468106203,
+        "rmse_m_s": 469.301706190854
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 2,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 507.51786809181135,
+        "mae_m_s": 507.51786809181135,
+        "rmse_m_s": 563.8067670430347
+      }
+    },
+    "34": {
+      "rust_full_bin": {
+        "windows": 23,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 283.6050207199011,
+        "mae_m_s": 283.6050207199011,
+        "rmse_m_s": 312.3806060597226
+      },
+      "rust_matched_support": {
+        "windows": 23,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 283.62639046993513,
+        "mae_m_s": 283.62639046993513,
+        "rmse_m_s": 312.3930631951708
+      },
+      "depth_parent_cv": {
+        "windows": 23,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 241.3495355671503,
+        "mae_m_s": 241.3495355671503,
+        "rmse_m_s": 271.8350209337699
+      },
+      "facies-linear_parent_cv": {
+        "windows": 23,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 157.34479045505765,
+        "mae_m_s": 167.53956949092677,
+        "rmse_m_s": 201.55572583871506
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 23,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 162.772334900273,
+        "mae_m_s": 169.3876602790767,
+        "rmse_m_s": 204.46774749818556
+      },
+      "depth_quadrant_cv": {
+        "windows": 23,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 241.3495355671503,
+        "mae_m_s": 241.3495355671503,
+        "rmse_m_s": 271.8350209337699
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 23,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 157.34479045505765,
+        "mae_m_s": 167.53956949092677,
+        "rmse_m_s": 201.55572583871506
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 23,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 162.772334900273,
+        "mae_m_s": 169.3876602790767,
+        "rmse_m_s": 204.46774749818556
+      }
+    },
+    "35": {
+      "rust_full_bin": {
+        "windows": 64,
+        "wells": 9,
+        "groups": 9,
+        "bias_m_s": -255.56427191104967,
+        "mae_m_s": 466.98829136336553,
+        "rmse_m_s": 580.1496592857279
+      },
+      "rust_matched_support": {
+        "windows": 64,
+        "wells": 9,
+        "groups": 9,
+        "bias_m_s": -255.56685053295809,
+        "mae_m_s": 466.9885057329765,
+        "rmse_m_s": 580.1519284851515
+      },
+      "depth_parent_cv": {
+        "windows": 64,
+        "wells": 9,
+        "groups": 9,
+        "bias_m_s": -213.93554261730367,
+        "mae_m_s": 410.7643845720509,
+        "rmse_m_s": 512.711934086103
+      },
+      "facies-linear_parent_cv": {
+        "windows": 64,
+        "wells": 9,
+        "groups": 9,
+        "bias_m_s": -272.1786703860687,
+        "mae_m_s": 421.9295143011969,
+        "rmse_m_s": 539.2374070664366
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 64,
+        "wells": 9,
+        "groups": 9,
+        "bias_m_s": -279.82057548390225,
+        "mae_m_s": 432.32277013129925,
+        "rmse_m_s": 551.5975627213675
+      },
+      "depth_quadrant_cv": {
+        "windows": 64,
+        "wells": 9,
+        "groups": 9,
+        "bias_m_s": -262.9277867226222,
+        "mae_m_s": 415.2442535801187,
+        "rmse_m_s": 525.3379109604986
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 64,
+        "wells": 9,
+        "groups": 9,
+        "bias_m_s": -356.1550280040804,
+        "mae_m_s": 444.7380669762356,
+        "rmse_m_s": 574.0440802896263
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 64,
+        "wells": 9,
+        "groups": 9,
+        "bias_m_s": -356.9663978216864,
+        "mae_m_s": 486.3924060486304,
+        "rmse_m_s": 624.7436849757675
+      }
+    },
+    "7": {
+      "rust_full_bin": {
+        "windows": 13,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 291.7652836249016,
+        "mae_m_s": 291.7652836249016,
+        "rmse_m_s": 324.62086157663714
+      },
+      "rust_matched_support": {
+        "windows": 13,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 291.7557725733182,
+        "mae_m_s": 291.7557725733182,
+        "rmse_m_s": 324.60545818485826
+      },
+      "depth_parent_cv": {
+        "windows": 13,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 428.98946514414246,
+        "mae_m_s": 428.98946514414246,
+        "rmse_m_s": 457.7268917454056
+      },
+      "facies-linear_parent_cv": {
+        "windows": 13,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 360.81270989740005,
+        "mae_m_s": 360.81270989740005,
+        "rmse_m_s": 392.7189636217795
+      },
+      "facies-quadratic_parent_cv": {
+        "windows": 13,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 363.92929374791487,
+        "mae_m_s": 363.92929374791487,
+        "rmse_m_s": 392.4783400232978
+      },
+      "depth_quadrant_cv": {
+        "windows": 13,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 428.98946514414246,
+        "mae_m_s": 428.98946514414246,
+        "rmse_m_s": 457.7268917454056
+      },
+      "facies-linear_quadrant_cv": {
+        "windows": 13,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 360.81270989740005,
+        "mae_m_s": 360.81270989740005,
+        "rmse_m_s": 392.7189636217795
+      },
+      "facies-quadratic_quadrant_cv": {
+        "windows": 13,
+        "wells": 1,
+        "groups": 1,
+        "bias_m_s": 363.92929374791487,
+        "mae_m_s": 363.92929374791487,
+        "rmse_m_s": 392.4783400232978
+      }
+    }
+  },
+  "access": {
+    "developmentLogFilesRead": 71,
+    "developmentFiles": [
+      "15_9-13.npz",
+      "15_9-14.npz",
+      "15_9-15.npz",
+      "15_9-17.npz",
+      "15_9-23.npz",
+      "16_1-2.npz",
+      "16_10-1.npz",
+      "16_10-3.npz",
+      "16_10-5.npz",
+      "16_2-16.npz",
+      "16_2-6.npz",
+      "16_2-7.npz",
+      "16_5-3.npz",
+      "16_7-4.npz",
+      "16_7-6.npz",
+      "16_8-1.npz",
+      "17_4-1.npz",
+      "25_10-10.npz",
+      "25_10-9.npz",
+      "25_11-24.npz",
+      "25_11-5.npz",
+      "25_2-14.npz",
+      "25_2-7.npz",
+      "25_3-1.npz",
+      "25_4-5.npz",
+      "25_5-3.npz",
+      "25_6-1.npz",
+      "25_6-2.npz",
+      "25_6-3.npz",
+      "25_7-2.npz",
+      "25_8-7.npz",
+      "25_9-1.npz",
+      "26_4-1.npz",
+      "30_3-3.npz",
+      "30_6-5.npz",
+      "31_2-1.npz",
+      "31_2-10.npz",
+      "31_2-9.npz",
+      "31_3-1.npz",
+      "31_3-2.npz",
+      "31_3-4.npz",
+      "31_4-10.npz",
+      "31_6-5.npz",
+      "31_6-8.npz",
+      "32_2-1.npz",
+      "33_5-2.npz",
+      "33_9-1.npz",
+      "34_10-19.npz",
+      "34_10-21.npz",
+      "34_11-1.npz",
+      "34_12-1.npz",
+      "34_2-4.npz",
+      "34_3-2 S.npz",
+      "34_4-10 R.npz",
+      "34_7-21.npz",
+      "34_8-3.npz",
+      "35_11-1.npz",
+      "35_11-10.npz",
+      "35_11-11.npz",
+      "35_11-12.npz",
+      "35_11-13.npz",
+      "35_11-5.npz",
+      "35_11-6.npz",
+      "35_11-7.npz",
+      "35_12-1.npz",
+      "35_8-4.npz",
+      "35_9-2.npz",
+      "35_9-5.npz",
+      "35_9-7.npz",
+      "36_7-3.npz",
+      "7_1-1.npz"
+    ],
+    "holdoutArraysOpened": 0,
+    "enforcement": "Membership/path guards plus process audit hook rejecting NPZ paths outside development and writes to logs"
+  },
+  "noPhysicsOrQaChanges": true,
+  "accuracyAcceptanceThreshold": null
+}

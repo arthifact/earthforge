@@ -59,6 +59,14 @@ The previous scenarios retain their source histories and physical outputs.
 Curved motion remains prescribed; stress equilibrium and independent field
 accuracy are not established. See the [model, workflow and benchmark scope](docs/curved-faults-and-conditioning.md).
 
+## Current Rust field diagnostics
+
+[The FORCE development rerun](docs/field-validation-alpha2.md) reproduces the
+current Rust velocity law on 442 screened intervals from 44 wells, adds support
+matching and stronger empirical controls, and preserves the reserved holdout.
+Its approximately 309 m/s MAE is a conditional velocity-law result, not
+validation of generated 3D geology or SOTA superiority.
+
 ## Rust migration (2026-10-17)
 
 The browser simulation worker now runs `earthforge-core` in WebAssembly.

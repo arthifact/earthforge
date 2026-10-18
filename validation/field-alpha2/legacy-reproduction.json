@@ -1,0 +1,9 @@
+{
+  "schema": "earthforge-field-legacy-reproduction-v1",
+  "cohortKeysExact": true,
+  "windows": 442,
+  "observedValuesExact": true,
+  "maximumRustVsEarlierTypescriptPredictionDifferenceMps": 9.094947017729282e-13,
+  "legacyCsvSha256": "190152df012532555a7cbddf423192f14ad80c0ad7a9a8fe1d0a925d689a32c9",
+  "currentCsvSha256": "21d8b1f15cd75b918aebc98c11e91d2514c43f0d2903b9cdf9601c71b96ebaf7"
+}

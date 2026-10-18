@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased research
+
+- Current-Rust FORCE development diagnostics with matched observed support,
+  parent/region-excluded empirical controls, source/access audits and scoped results.
+
 ## 0.2.0-alpha.2 web update
 
 - Versioned dip-curved/along-strike-bent 3D fault scenarios, with conservative
