@@ -1,0 +1,45 @@
+{
+  "schema": "earthforge-field-geometry-plan-v1",
+  "date": "2026-10-18",
+  "status": "Frozen before geometry predictions; development diagnostic, not final independent validation",
+  "prior_exposure": "The FORCE development cohort and the supplied workbooks have been examined for velocity diagnostics and datum checks. This plan follows inspection of group-top names and counts, not geometry model errors.",
+  "inputs": {
+    "source": "FORCE 2020 v1, https://zenodo.org/records/4351156",
+    "groups": "NPD_Lithostratigraphy_groups_all_wells.xlsx",
+    "frozen_hash_source": "validation/force2020/intake-summary.json",
+    "split": "validation/force2020/split.json",
+    "partition": "development",
+    "logs": "Do not open any NPZ, LAS or source log archive. Do not extract or score holdout top coordinates."
+  },
+  "cohort": {
+    "quadrants": ["16", "25", "31", "34", "35"],
+    "reason": "Every quadrant with at least eight supplied development wells sharing the selected major group tops; no choice based on prediction errors",
+    "tops_shallow_to_deep": ["NORDLAND GP. Top", "HORDALAND GP. Top", "ROGALAND GP. Top", "SHETLAND GP. Top"],
+    "primary_scored_units": [1, 2, 3],
+    "require": "All four finite XYZ/MD picks, one unambiguous pick per horizon, strictly increasing depth, supported Nordland datum against frozen official water depth/RKB within 2 m",
+    "min_parents_per_region": 8,
+    "inclination": "No maximum-inclination screen: use each supplied contact's own XY and Z, not surface well coordinates or MD as vertical depth",
+    "coordinates": "Metres in the workbook's common source Cartesian frame, translated by one recorded XY origin. No EPSG/geodetic datum is inferred. z=-Z is depth below MSL, supported by earlier official sea-floor reference checks. Do not mix external coordinates."
+  },
+  "baseline": {
+    "models": ["constant depth per horizon", "affine x/y plane per horizon"],
+    "weights": "Each training parent contributes equally within a horizon",
+    "fit": "Weighted least squares using training contacts only; a rank-deficient plane is explicitly reported and falls back to the constant fit",
+    "reconstruction": "Four ordered deposition/fill-to surfaces evaluated by the existing Rust history3d horizon API, compaction disabled. Reconstructed contacts are geometric inputs, not inferred physical deposition/burial histories. No faults inferred from these sparse tops."
+  },
+  "evaluation": {
+    "outer_designs": ["leave-parent-well-out within each region", "leave-NPD-block-out within each region"],
+    "min_training_parents": 4,
+    "spatial_groups": "Quadrant/block prefix in the well identifier. All contacts and sidetracks of a parent remain together; all wells of a held block are excluded.",
+    "unsupported_fold": "Retain target count and reason; do not silently pool into another region",
+    "predictions": "Actual Rust contact depths, not the fitting function alone. Missing/repeated/out-of-domain contacts are explicit failures; never choose the nearest predicted occurrence to the target.",
+    "metrics": ["prediction coverage", "equal-parent bias/MAE/RMSE in metres", "per-region and per-horizon errors", "errors inside/outside the training XY convex hull", "nearest training contact distance"],
+    "missing_prediction_penalty_m": 10000,
+    "penalty_scope": "A transparent full-depth-window failure penalty for complete-cohort comparison, not measurement error or a scientific accuracy threshold. Also report conditional errors and failure counts separately.",
+    "bootstrap": {"unit": "parent well", "repeats": 2000, "seed": 20261018, "percentiles": [2.5, 97.5], "scope": "Fixed cross-validated predictions; excludes refitting, spatial dependence and interpretation uncertainty"},
+    "acceptance_threshold_m": null,
+    "record": "All fold memberships, fitted histories, source hashes, exclusions, predictions, timings and errors, including unfavorable outcomes"
+  },
+  "improvement_rule": "Inspect the baseline residuals, record a separate fixed candidate family before improved scoring, and choose complexity only within each outer fold using inner parent-well validation. Preserve the initial results. Any gain remains exploratory development evidence, not a blind test.",
+  "scope_limits": ["Correlated interpreted formation tops are not untouched field truth", "No mapped seismic horizon patches or independent fault surface traces are supplied here", "This tests reconstructed 3D contact depths at real well locations; it does not validate full fault geometry, topology, kinematic history, rock physics or calibrated geological uncertainty", "The original 24 FORCE holdout wells remain reserved"]
+}
