@@ -1,0 +1,73 @@
+{
+  "node": "v24.18.0",
+  "allFilesExactlyOnce": true,
+  "files": 35,
+  "parts": [
+    {
+      "shard": 1,
+      "files": [
+        "basin.test.mjs",
+        "deposition-boundaries.test.mjs",
+        "fault-geometry.test.mjs",
+        "material-coalescing.test.mjs",
+        "thrust-coupling.test.mjs",
+        "transport-solver-agreement.test.mjs"
+      ]
+    },
+    {
+      "shard": 2,
+      "files": [
+        "calibration.test.mjs",
+        "deposition-support.test.mjs",
+        "fractional-thrust.test.mjs",
+        "normal-lengths.test.mjs",
+        "thrust-flow-area-displacement.test.mjs",
+        "travel-thickness.test.mjs"
+      ]
+    },
+    {
+      "shard": 3,
+      "files": [
+        "capacity-transport.test.mjs",
+        "diagnostics.test.mjs",
+        "grouped-material.test.mjs",
+        "numerics.test.mjs",
+        "thrust-matching-stability.test.mjs",
+        "volume-view.test.mjs"
+      ]
+    },
+    {
+      "shard": 4,
+      "files": [
+        "column-boundaries.test.mjs",
+        "exact-length.test.mjs",
+        "grouped-state-support.test.mjs",
+        "strata.test.mjs",
+        "thrust-side-continuity.test.mjs",
+        "worker.test.mjs"
+      ]
+    },
+    {
+      "shard": 5,
+      "files": [
+        "conditioning-worker.test.mjs",
+        "exact-material.test.mjs",
+        "history3d-worker.test.mjs",
+        "subsidence-coordinate.test.mjs",
+        "thrust-weighted-transport.test.mjs",
+        "workspace-section.test.mjs"
+      ]
+    },
+    {
+      "shard": 6,
+      "files": [
+        "context-scenarios.test.mjs",
+        "exhumation.test.mjs",
+        "length-rounding.test.mjs",
+        "thrust-capacity-fallback.test.mjs",
+        "thrust.test.mjs"
+      ]
+    }
+  ],
+  "scope": "Synthetic filename fixtures verify Node CLI partition coverage; actual production-test success is recorded separately by GitHub Actions."
+}

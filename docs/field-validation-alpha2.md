@@ -41,7 +41,11 @@ The results retain all exclusions, source hashes and the filenames read.
 
 Every physical prediction calls the existing native Rust `physics` API.
 Python supplies integration coordinates, quality screens and statistics; it
-does not implement another velocity law. The current run reproduces all 442
+does not implement another velocity law. Primary assumptions are hydrostatic
+pressure, brine, isotropy and maximum burial equal to present depth, with
+shale/sandstone labels mapped to endmembers. The predefined burial, pressure
+and facies sensitivities are retained separately; they are not fitted histories
+for the observed wells. The current run reproduces all 442
 earlier observation values exactly. Its full-bin Rust predictions differ from
 the earlier TypeScript reference by at most **9.1 × 10⁻¹³ m/s**.
 

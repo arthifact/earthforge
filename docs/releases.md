@@ -92,7 +92,12 @@ GitHub Actions verifies the source before publishing GitHub Pages. The
 [`research.yml` workflow](../.github/workflows/research.yml) checks Rust and Python
 on Linux, macOS and Windows with Python 3.10/3.12. It checks the browser build
 and reference tests separately, packages the static site with license notices,
-then deploys that same artifact only after all required jobs pass. Pull
+then deploys that same artifact only after all required jobs pass. The browser
+suite is split across six parallel Node test shards. Each shard verifies all
+four Wasm fingerprints from the build job in that exact workflow run; all
+shards and every native/Python job must succeed before publication. Failed
+shard logs are retained. Sharding changes scheduling, not the test set or
+numerical acceptance criteria. Pull
 requests run checks without deploying. Manual runs deploy only from `main`.
 
 The hosting configuration is recorded in
